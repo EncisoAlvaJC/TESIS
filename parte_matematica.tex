@@ -150,9 +150,11 @@ de tiempo. La mejor forma de introducir el espectro evolutivo
 --en el sentido que estoy usando-- es
 presentar un proceso estacionario de orden 2,
  $\{X(t)\}$, en su representaci\'on de Cram\'er \cite{Priestley81}
-[por ahora solo cito el resultado segun el cual todo proceso debilmente estacionario
-tiene una unica representacion de este tipo, pero quiza sea buena idea escribir la demostracion
-como apendice]
+[la existencia de esta representacion esta garantizada por el teorema de Khinchin-Wiener --para
+procesos a tiempo continuos-- y por una extension del mismo por Wold --para procesos a tiempo
+discreto.
+por ahora solo cito el resultado, pero quiza sea buena idea escribir la demostracion
+como apendice, una demostracion citada ya que es bastante tecnica]
 
 \begin{equation*}
 X(t) = \int_{\Lambda} A(\omega) e^{i 2\pi \omega t} dZ(\omega)
@@ -224,11 +226,14 @@ la misma (el logaritmo ayuda a), amen que los errores conjuntos tengan una
 distribuci\'on cercana a una multinormal con correlaci\'on cero.
 Finalmente se aplica una prueba ANOVA de varianza conocida.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \subsection{El espectro evolutivo}
 
 Consid\'erese un proceso estoc\'astico a tiempo continuo $\{X(t)\}$, tal que
 $E[X(t)]=0$ y $E\left[ X^{2}(t)\right] < \infty$ para todo $t$. Es decir que su media es constante
-y sus segundos momentos est\'an bien definidos, aunque pueden cambiar con el tiempo.
+y sus segundos momentos est\'an bien definidos, aunque 
+estos \'ultimos pueden cambiar con el tiempo.
 
 Por el momento se supondr\'a que acepta una representaci\'on de la forma
 
@@ -245,22 +250,28 @@ d\'ebil que la independencia} tales que
 \item Para cada $t$ el m\'aximo de $A(t;\cdot)$ se encuentra en 0
 \end{itemize}
 
-Se define entonces el \textbf{espectro evolutivo} de $\{X(t)\}$, con respecto a la la familia
+Esta representaci\'on es an\'aloga a la representaci\'on de Cram\'er para un proceso
+estacionario, salvo que se permite que la funci\'on $A$ cambie con el tiempo.
+Siguiendo la analog\'ia, se define 
+el \textbf{espectro evolutivo} de $\{X(t)\}$, con respecto a la la familia
 $\mathcal{F} = \{ e^{i\omega t} A(t; \omega) \}$
  como
  
 \begin{equation*}
-d F(\omega;t) = \lvert A_t(\omega) \lvert^{2} d\omega
+d F(\omega;t) = \lvert A(t;\omega) \lvert^{2} d\omega
 \end{equation*}
 
 Ahora bien, si se supone que $\{X(t)\}$ es estoc\'asticametne diferenciable, entonces
 se puede definir una \textbf{funci\'on de densidad espectral}
 
 \begin{equation*}
-f(t;\omega) = \lvert A_t(\omega) \lvert^{2}
+f(t;\omega) = \lvert A(t;\omega) \lvert^{2}
 \end{equation*}
 
-Cabe destaca que si la funci\'on $A(t;\omega)$ fuera constante con respecto a $t$
+Cabe destaca que si la funci\'on $A(t;\omega)$ fuera constante con respecto a $t$, se obtendr\'ia
+un proceso estacionario de orden dos tal cual fue descrito en la secci\'on anterior.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{El estimador de doble ventana}
 
