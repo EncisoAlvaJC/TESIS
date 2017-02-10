@@ -1,6 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\chapter{''Parte matem\'atica''}
+\chapter{Parte matem\'atica}
 
 Me temo que pasar\'a alg\'un tiempo antes que esta parte sea totalmente coherente
 y comprensible a un grado aceptable. Cabe mencionar
@@ -275,8 +275,43 @@ un proceso estacionario de orden dos tal cual fue descrito en la secci\'on anter
 
 \subsection{El estimador de doble ventana}
 
-{Estimador de doble ventana (Priestley, 1965 \& 1966)}
-Sea una funci\'on $g(u)$ tal que
+Esta t\'ecnica fue presentada por Priestley en 1965. Muy a grosso modo, es un estimador de la
+funci\'on de densidad espectral con ciertas propiedades y que parte de la idea que un proceso
+no-estacionario puede verse localmente como un proceso lineal generalizado.
+
+Como meta-nota, yo empec\'e a estudiar este tipo de estimadores porque es \textit{el qeu ven\'ia
+con el m\'etodo} ya que el test esta implementado en R; desde un punto de vista de difusi\'on,
+es una ventaja usar un m\'etodo implementado en un software gratuito y de c\'odigo abierto --y
+no una mera excusa para no explorar otros m\'etodos. En todo caso, he revisado varios otros test,
+pero de momento solo este ha arrojado suficientes resultados para llenar un informe.
+
+%{Estimador de doble ventana (Priestley, 1965 \& 1966)}
+Para construir el estimador se reuieren dos funciones, $g$ y $w_T$, que servir\'an como ventanas
+para extraer informaci\'on local de los datos. Debido a que sus propiedades tienen una interpretaci\'on
+f\'isica desde la teor\'ia de circuitos, absorben su terminolog\'ia
+
+\textit{
+nota al pie: deberia incluir una motivacion de estos nombres,
+que en parte tiene relevancia en la interpretacion. Los 
+Linear Invariant Systems (LIS) suponen dependencia lineal
+--constante-- respecto a todos los tiempos anteriores; 
+a tiempo continuo son equivalentes a una ecuacion diferencial ordinaria lineal,
+y a su vez a modelos AR. Un modelo fisico para ello son los circuitos RC, que
+fueron usables en radios, y para los cuales las palabras 'filtro' y 'frecuencia'
+tienen una interpretacion clara. Esta terminologia de circuitos electricos tiene sentido
+para mi ya que todos los modelos de neuronas y poblaciones de neuronas que he visto hasta ahora,
+por ejemplo de Ermentrout (falta citar), {Clark98,Priestley81}, PARTEN de considerar
+circuitos equivalentes a los componentes neuronales, lo cual me hace pensar que es buena idea
+mantener esta vision conjunta.
+}
+
+Primeramente se toma una funci\'on $g(u)$ normalizada, que en conjunto a su
+transformada inversa de Fourier\footnote{Esta funci\'on 
+$\Gamma(u) = \int_{-\infty}^{\infty} g(u) e^{i u \omega} du$
+es referida como
+\textbf{frequency-response function}, nombre tiene un poco de encanto cuando
+$g$ adopta ciertas formas particulares (senos y cosenos).} 
+$\Gamma$ tiene las siguientes propiedades
 
 \begin{equation*}
 2\pi \int_{-\infty}^{\infty} \lvert g(u) \lvert^{2} du 
@@ -285,57 +320,116 @@ Sea una funci\'on $g(u)$ tal que
 = 1
 \end{equation*}
 
-donde se define la \textbf{funci\'on de respuesta ante frecuencia} como
+
+A partir de $g$ y $\Gamma$ se define el filtro $U$ como una convoluci\'on
+con las realizaciones del proceso
 
 \begin{equation*}
-\Gamma(u) = \int_{-\infty}^{\infty} g(u) e^{i u \omega} du
+U(t,\omega) = \int_{t-T}^{t} g(u) X({t-u}) e^{i \omega (t-u)} du
 \end{equation*}
 
-Posteriormente se define 
+Un ejemplo que est\'a en el libro de Priestley es tomar funciones del tipo
 
 \begin{equation*}
-U(t,\omega) = \int_{t-T}^{t} g(u) X_{t-u} e^{i \omega (t-u)} du
+g_h(u) = 
+\begin{cases}
+{1 \big{/} 2\sqrt{\pi h}} & \text{ , } \abso{u} \leq h
+\\
+0 & \text{ , } \abso{u} > 0
+\end{cases}
 \end{equation*}
 
+Su correspondiente funci\'on de respuesta de frecuencia es complicada [me falta 
+escribirla]. Es referida como la \textbf{ventana de Bartlett} y
+est\'a totalmente caracterizada la siguiente propiedad
 
-Sea una funci\'on $w_{T'}(t)$ tal que
+\begin{equation*}
+\abso{\Gamma_h(\omega)}^{2} = \frac{1}{\pi h} \left( \frac{\text{sen} (h \omega)}{\omega} \right)^{2}
+\end{equation*}
+
+Cabe mencionar que puede entenderse al par $g$ y $\Gamma$ como ventanas en el tiempo
+y las frecuencias para la serie.
+
+---
+
+Ahora bien, se toma una segunda ventana $W_\tau$ con las siguientes
+restricciones para
+su funci\'on de respuesta ante frecuencia $w_\tau$
+
 \begin{itemize}
-\item $w_{T'}(t) \geq 0$ para cualesquiera $t$, $T'$
-\item $w_{T'}(t) \rightarrow 0$ cuando $\lvert t \lvert \rightarrow \infty$, para todo $T'$
-\item $\displaystyle \int_{-\infty}^{\infty} w_{T'}(t) dt = 1$ para todo $T'$
-\item $\displaystyle \int_{-\infty}^{\infty} \left( w_{T'}(t) \right)^{2} dt < \infty$ para todo $T'$
+\item $w_{\tau}(t) \geq 0$ para cualesquiera $t$, $\tau$
+\item $w_{\tau}(t) \rightarrow 0$ cuando $\lvert t \lvert \rightarrow \infty$, para todo $\tau$
+\item $\displaystyle \int_{-\infty}^{\infty} w_{\tau}(t) dt = 1$ para todo $\tau$
+\item $\displaystyle \int_{-\infty}^{\infty} \left( w_{\tau}(t) \right)^{2} dt < \infty$ para todo $\tau$
+\item Existe una constante $C$ tal que  [T est\'a relacionado con el 'tiempo 0', pero para
+tiempos de muestreo grandes se puede reemplazar por $-\infty$ EXCEPTO cerca del inicio y el final dle muestreo]
+$$\lim_{\tau\rightarrow\infty} \left[ \tau \int_{t-T}^{t} \lvert W_{\tau}(\lambda) \lvert^{2} d\lambda \right] = C$$
 \end{itemize}
 
-Ahora, si se define 
-$\displaystyle W_{T'}(\lambda) = \int_{-\infty}^{\infty} e^{-i\lambda t}w_{T'}(t) dt $
-\begin{itemize}
-\item $\lim_{T'\rightarrow\infty} \left[ T' \int_{t-T}^{t} \lvert W_{T'}(\lambda) \lvert^{2} d\lambda \right] = C$
-\end{itemize}
+%Ahora, si se define 
+%$\displaystyle W_{T'}(\lambda) = \int_{-\infty}^{\infty} e^{-i\lambda t}w_{T'}(t) dt $
 
+[posteriormente annadire mas detalles sobre el papel que juega el par $w_\tau$, $W_\tau$]
 
-\begin{tcolorbox}
+Como ejemplo, se puede tomar la siguiente funci\'on llamada \textbf{ventana de Daniell}
+
+\begin{equation*}
+W_\tau (t) = 
+\begin{cases}
+{1 \big{/} \tau} & \text{ , } -\nicefrac{1}{2} \tau \leq t \leq \nicefrac{1}{2} \tau
+\\
+0 & \text{ , otro caso}
+\end{cases}
+\end{equation*}
+
+La cual se puede demostrar [tengo en algun lado esa demostracion]
+
+$$\lim_{\tau\rightarrow\infty} \left[ \tau \int_{t-T}^{t} \lvert W_{\tau}(\lambda) \lvert^{2} d\lambda \right] = 2\pi$$
+
+-----
+
 Se define el estimador para $f_t$, con $0 \leq t \leq T$
 \begin{equation*}
 \widehat{f_t}(\omega) = \int_{t-T}^{t} w_{T'}(u) \lvert U(t-u,\omega) \lvert^{2} du
 \end{equation*}
-\end{tcolorbox}
 
+Fue demostrado por Priestley (1965, falta citar) que 
 
+[aqui van las expresiones para el valor esperado y la varianza de $\widehat{f_t}$, me falta
+escribirlas]
 
-%{Modelo AR vs Espectro evolutivo}
-%La representaci\'on espectral puede verse como un cambio de coordenadas, al menos puntualmente
-%
-%\begin{equation*}
-%f_t(\omega) = \frac{1}{2 \pi} \sum_{k=-\infty}^{\infty} \gamma_{k,t} e^{-i k \omega}
-%\hspace{4em}
-%\gamma_{k,t} = \int_{-\pi}^{\pi} f_t(\omega) e^{i k \omega} d\omega
-%\end{equation*}
-%
-%%La dependencia no-unicidad de representaci\'on AR se traduce como
-%%la no-unicidad del espectro
-%
------------------------------------------------------------------------
+Pero, bajo varios supuesto adicionales [que me falta trascribir] se puede aproximar
 
+\begin{equation*}
+E\left[ \widehat{f_t}(\omega) \right] \sim f_t(\omega)
+\end{equation*}
+
+\begin{equation*}
+\Var{\widehat{f_t}(\omega)} 
+\sim 
+\frac{C}{\tau} \left(f_t(\omega)\right)^{2} \int_{-\infty}^{\infty} \abso{\Gamma(\theta)}^{4} d\theta
+\end{equation*}
+
+Se advierte claramente que $\widehat{f_t}$ es unnestimados aproximadamente insesgado.
+Para las ventanas de Bartlett y Daniell usadas como ejemplo, se tiene
+
+\begin{equation*}
+\Var{\widehat{f_t}} 
+\sim 
+\frac{4h}{3\tau} \left(f_t(\omega)\right)^{2}
+\end{equation*}
+
+Cabe mencionar que hay una expresi\'on expl\'icita para la covarianza de $\widehat{f_t}$
+en para diferentes puntos en el tiempo y las frecuencias. Lamentablemente,
+aun me falta escribirlas, son complicadas, y se describen situaciones bajo las
+cuales estas covarianzas son negligibles; cabe destacar que TODAS las condiciones 
+que se usan para aproximar son b\'asicamente las mismas, y dependen de que la distancia
+entre los tiempos y las frecuencias sean tan grandes como sea posible.
+
+------------
+
+El \'ultimo ingrediente del test PSR es una transformaci\'on logar\'itmica
+para regular la varianza, y quiza para cortar los bordes de las aproxiamciones.
 Se define $Y_{i,j} = \log \left( \widehat{f_{t_i}}(\omega_j) \right)$, con las siguientes propiedades
 
 \begin{equation*}
@@ -344,52 +438,37 @@ E\left[ Y_{i,j} \right] \thicksim \log \left( f_{t_i}(\omega_j) \right)
 \text{Var}\left( {Y\left(t,\omega\right)}\right) \thicksim \sigma^{2}
 \end{equation*}
 
-Luego, puede escribirse $Y_{i,j} = \log \left( f_{t_i}(\omega_j) \right) + \varepsilon_{i,j}$,
-con $\varepsilon_{i,j}$ va iid
+Luego as\'i, puede escribirse aproximadamente que
 
-Usando un test ANOVA --de varianza conocida-- se puede saber si $\varepsilon$
-\vspace{-1em}
-\begin{itemize}
-\item Tiene marginales
-\item Constante sobre el tiempo
-\item Constante sobre las frecuencias
-\end{itemize}
+$$Y_{i,j} = \log \left( f_{t_i}(\omega_j) \right) + \varepsilon_{i,j}$$
 
-\begin{lstlisting}
-Priestley-Subba Rao stationarity Test for datos
------------------------------------------------
-Samples used              : 3072 
-Samples available         : 3069 
-Sampling interval         : 1 
-SDF estimator             : Multitaper 
-  Number of (sine) tapers : 5 
-  Centered                : TRUE 
-  Recentered              : FALSE 
-Number of blocks          : 11 
-Block size                : 279 
-Number of blocks          : 11 
-p-value for T             : 0.4130131 
-p-value for I+R           : 0.1787949 
-p-value for T+I+R         : 0.1801353 
-\end{lstlisting}
+donde $\varepsilon_{i,j}$ va iid tales que
 
-\begin{tabular}{cc}
-\includegraphics[width=0.5\linewidth]{n8f.pdf} 
-&
-\includegraphics[width=0.5\linewidth]{d8f.pdf} 
-\\
-\begin{lstlisting}
-T      : 0 
-I+R    : 5.787895e-09 
-T+I+R  : 0 
-\end{lstlisting}
-&
-\begin{lstlisting}
-T      : 0.00332259 
-I+R    : 0.03502537 
-T+I+R  : 0.01598073 
-\end{lstlisting}
-\end{tabular}
+$
+E\left[ \varepsilon_{i,j} \right] = 0
+\hspace{4em}
+\text{Var}\left( \varepsilon_{i,j} \right) \sigma^{2}
+$
+
+Priestley cita que con esta informaci\'on incluso se puede considerar que los $\varepsilon_{i,j}$
+siguen una distribuci\'on normal cada uno; Nason (2015, falta citar) comenta que
+este supuesto no tiene por que cumplirse, y que es una popsible fuente de falsos positivos
+para el test. Yo he hecho pruebas de normalidad a los datos, que incluire como anexos
+mas tarde.
+
+El test PSR \textit{per se} son tres test ANOVA --en su versi\'on en la que la varianza es conocida--
+sobre si los $\varepsilon_{i,j}$ son estad\'isticamente negligibles en total, sobre el tiempo y sobre
+las frecuencias. Para el fin de estudiar la estacionariedad, basta con que sean estad\'iticamente
+no-negligibles sobre el tiempo.
+
+[Por supuesto que los otros dos test tienen interpretacion: la negigibilidad total da informacion
+sobre las marginales, y si estas pueden ser estimadas adecuadamente usando el estimador, si se
+combina con negativo para no-estacionariedad es \textbf{efectivamente positivo} para estacionariedad
+y toma una forma muy particular (proceso uniformemente modulado). Si sobre las frecuencias resulta
+significativo (no-negligible) da informacion sobre la 'aeatoridad total' del proceso.
+De tener tiempo, lo incluire como anexo, ya que ninguna de estas caracteristicas es estudiada :( ]
+
+Lo detalles de la implementaci\'on en R estar\'an en la secci\'on de resultados.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
