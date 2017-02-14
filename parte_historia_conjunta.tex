@@ -1,0 +1,68 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Propiedades estad\'isticas del EEG}
+
+Este secci\'on contiene [va a contener] un bosquejo hist\'orico sobre los supuestos que se
+han hecho sobre la estacionariedad y otras series fisiol\'ogicas. Y es que en el resumen del
+congreso se incluyo la frase 
+
+\begin{quotation}
+Usualmente se asume que las series fisiol\'ogicas son complejas:
+no-estacionarias, no-lineales y no en equilibrio por naturaleza. Sin embargo, estas propiedades
+no se suelen probar formalmente.
+\end{quotation}
+
+Debido a que mi trabajo pretende tomar una posici\'on opesta en alg\'un momento, en alg\'un grado,
+ser\'ia incompatible que yo \textbf{simplemente suponga} que esa posici\'on es verdadera.
+[Me he dado a la tarea de investigar un poco sobre el papel hist\'rico que han jugado las
+hip\'otesis de regularidad en las series electrofisiol\'ogicas.]
+
+Esta secci\'on debiera partir de los comentarios expresados 
+en 'Everything you wanted to ask about EEG (..)'
+(Klonowski, 2009) sobre c\'omo el concepto de ondas se acu\~na en el estudio de EEG, especilmente
+de c\'omo se entienden las frecuencias en este contexto --visi\'on que es reforzada al citar
+el manual de la IAAC 2007 para detectar las etaas de sue\~no.
+
+En esta visi\'on, cabe destacar los muchos trabajos de Harmony y de Corsi-Cabrera
+sobre la caracterizaci\'on y localizaci\'on de diferentes tipos de actividad cerebral 
+durante diversas actividades y condiciones Adem\'as de otros autores. 
+Sinceramente, son bastantes trabajos y
+son la gu\'ia sobre los an\'alisis de composici\'on espectral que a\'un est\'an por hacerse.
+
+Peor tambi\'en hay una discusi\'on sobre el balance entre los estudios espectrales contra
+los avances en teor\'ia espectral: se puede citar a Cohen, quien asume que las series
+cortas son b\'asicamente estacionarias. Por supuesto que cada punto en el tiempo es
+t\'ecnicamente estacionario, y es completamente plausible --en el contexto de las series
+electrofisiol\'ogicas-- suponer que para cada punto existe un abierto
+en el tiempo tal que el subproceso definido all\'i es etsacionario para todo fin pr\'actico.
+Como comenta Melard, la suposici\'on de estacionariedad para series cortas se 
+consider\'o v\'alida por mucho tiempo debido a ala escasa capacidad de c\'omputo; a
+modo de sintesis, Adak muestra un resultado negativo sobre la suposicion de estacionariedad
+local pero muestra una prueba para detectar y medir la as\'i llamada 'estacionariedad local'.
+[escribir\'e tal demostraci\'on]
+
+En este punto, es conveniente hablar sobre los modelos ARMA como la forma mas natural de
+estacionariedad a tiempo discreto, y como se usa en los modelos de estacionaeriedad 
+local (citar a Adak). Se han posido generalizar estos modelos a parametros que
+dependen del tiempo como los modelos ARCH (quia citar a Chatfield y a Subba Rao).
+
+Hay una historia extensa al establecer el concepto de espectro en series no-estacionarias,
+y para ello me servire de las revisiones de Loynes, Melard, Adak, Brillinger. En ella,
+brillan la funcion de autocorrelacion que depende del tiempo y el que su transformada
+de Fourier sea la funci\'on de densidad espectral en caso de existir. Muchas
+definiciones de espectro basadas en su forma de ser calculadas.
+
+Me gustar\'ia escribir un segundo resumen sobre el espectro de Wold-Cram\'er (el que se maneja
+en el test PSR) en contraposici\'on al espectro de Wigner-Ville, el espectro de
+ondeletas de Gabor y el espectro de ondeletas de Haar. Me apoyaria mucho de una discusion
+hecha por Nason, de la cuakl resaltare una estimacion sobre los ordenes de tiempo de
+computo para los estimadores de estos espectros.
+
+----------------------------------------
+
+Esta secci\'on debiera terminar nuevamente citando a Klonowski y, 
+si bien no voy a usar en esta tesis, los
+nuevos enfoques que consideran al EEG fundamentalmente como un sistema sujeto a ruido pero
+fundamentalmente ca\'otico.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
