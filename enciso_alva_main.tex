@@ -3,26 +3,38 @@
 \usepackage[utf8]{inputenc}
 \usepackage[spanish]{babel}
 
+% en algun momento queria cambiar el formato de las referencias
 \usepackage{cite}
 
+% tienen algunos comandos que ocupo, como align o defn
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
+
+% sin este no se pueden incluir imagenes
 \usepackage{graphicx}
 
 \usepackage{cmap}
 \pagestyle{plain}
 
+% para incluir el reporte en pdf, temporalmente
 \usepackage{pdfpages}
 
+% para importar el codigo de R y que se vea bien
 \usepackage{listings}
 \usepackage{color}
 
-\usepackage{tcolorbox}
+% para hacer cuadros de color
+%\usepackage{tcolorbox}
 
+% este paquete pone las fracciones bonitas
 \usepackage{nicefrac}
 
+% este paquete
 \usepackage{url}
+
+% para el simbolo TM de marca registrada
+\usepackage{textcomp}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -38,6 +50,44 @@
 \newcommand{\Var}[1]{\mathrm{Var}\left( #1 \right)}
 \newcommand{\Cov}[1]{\mathrm{Cov}\left( #1 \right)}
 \newcommand{\abso}[1]{\lvert #1 \rvert}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{ %
+  language=R,                     % the language of the code
+  basicstyle=\footnotesize,       % the size of the fonts that are used for the code
+% basicstyle=\tiny,               % the size of the fonts that are used for the code
+  numbers=left,                   % where to put the line-numbers
+  numberstyle=\tiny\color{gray},  % the style that is used for the line-numbers
+  stepnumber=1,                   % the step between two line-numbers. If it's 1, each line
+                                  % will be numbered
+  numbersep=5pt,                  % how far the line-numbers are from the code
+  backgroundcolor=\color{white},  % choose the background color. You must add \usepackage{color}
+  showspaces=false,               % show spaces adding particular underscores
+  showstringspaces=false,         % underline spaces within strings
+  showtabs=false,                 % show tabs within strings adding particular underscores
+  frame=single,                   % adds a frame around the code
+  rulecolor=\color{black},        % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. commens (green here))
+  tabsize=2,                      % sets default tabsize to 2 spaces
+  captionpos=b,                   % sets the caption-position to bottom
+  breaklines=true,                % sets automatic line breaking
+  breakatwhitespace=false,        % sets if automatic breaks should only happen at whitespace
+  title=\lstname,                 % show the filename of files included with \lstinputlisting;
+                                  % also try caption instead of title
+  keywordstyle=\color{blue},      % keyword style
+  commentstyle=\color{dkgreen},   % comment style
+  stringstyle=\color{mauve},      % string literal style
+  escapeinside={\%*}{*)},         % if you want to add a comment within your code
+  morekeywords={*,/,.}            % if you want to add more keywords to the set
+  deletekeywords={t,_,max,R}      % to remove keywords
+} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
 
@@ -60,11 +110,15 @@
 \begin{tabular}{rl}
 \textbf{DC} & Deterioro Cognitivo
 \\
-\textbf{EEG} & Electroencefalograma
+\textbf{EEG} & Electroencefalograma / Electroencefalograf\'ia
+\\
+\textbf{EMG} & Electromiograma / Electromiograf\'ia
+\\
+\textbf{EOG} & Electrooculograma / Electrooculograf\'ia
 \\
 \textbf{MOR} & Movimientos Oculares R\'apidos
 \\
-\textbf{PSG} & Polisomnograma
+\textbf{PSG} & Polisomnograma / Polisomnograf\'ia
 \end{tabular}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -83,38 +137,9 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\include{resultados}
+\include{metodologia}
 
 \include{discusion}
-
-\appendix
-
-\chapter{Resultados no re-redactados}
-
-Estos reultados ya fueron presentados a la Dra Rosales Lagarde de ICSA, con quien se
-trabajo si eran de relevancia fisiologica o no. Aun me falta redactar como texto las conclusiones
-encontradas, y que tengo dispersas como notas. 
-
-Cabe mencionar que se incluyen partes de un analisis
-sobre somposicion de frecuencias sobre el que no he hablado para nada en el resto del texto,
-y es que apenas y se esta trabajando en ello: he priorizado en el tiempo la redaccion
-sobre  las bases
-formales del test PSR, porque ya esta batsante avanzado y no habia escrito al respecto nada que fuera
-suficientemente bueno. Si continuaba con esta actitud, ocurriria lo mismo con el analisis por bandas.
-
-Aunque parece impresionante porque eleva el numero de paginas, son imagenes cuyo analisis puede 
-reducirse a menos de 5 p\'aginas. Estas im\'agenes son muy importantes
-porque muestran una suerte de distribuci\'ion temporal y --de manera reducida-- espacial 
-de algunas caracter\'isticas de la se\~nal. 
-
-Me siento particularmente orgulloso
-de haber dise\~nado este tipo de gr\'aficos, ya que 
-simlemente organizan
-gr\'aficamente los datos que ya se ten\'ian de una forma
-totalmente contraria a algo novedoso,
-y a\'un as\'i dejan la sensaci\'on de portar nueva informaci\'on.
-
-%\includepdf[pages={1-},scale=.85]{reporte_de_estacionariedad_170120.pdf}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -122,6 +147,24 @@ y a\'un as\'i dejan la sensaci\'on de portar nueva informaci\'on.
 \bibliography{referencias_estacionariedad,referencias_fisiologia,referencias_otros,referencias_mixto}{}
 %\bibliographystyle{apalike-es}
 \bibliographystyle{abbrv}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\appendix
+
+\chapter{C\'odigo en R del test PSR}
+
+\lstinputlisting{multipsr05.R}
+
+\include{resultados}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\bibliography{referencias_estacionariedad,referencias_fisiologia,referencias_otros,referencias_mixto}{}
+%%\bibliographystyle{apalike-es}
+%\bibliographystyle{abbrv}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
