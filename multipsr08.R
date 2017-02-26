@@ -1,5 +1,3 @@
-# esta funcion abre todos los archivos y realiza el test PSR
-#
 # funcion que abre todos los archivos que contienen los registros,
 # y realiza el test PSR sobre cada epoca; esto suponiendo que
 # previamente ha utilizado el script 'segmentarX.R'
@@ -7,31 +5,7 @@
 # Variables
 #   nombre  -> nombre comun de los archivos, segun paciente;
 #              se escribe entre comillas
-#       ch  -> numero del canal, del 1 al 22 en orden alfabetico
-#
-# Orden alfabetico de los canales
-#       1 : C3
-#       2 : C4
-#       3 : CZ
-#       4 : EMG
-#       5 : F3
-#       6 : F4
-#       7 : F7
-#       8 : F8
-#       9 : FP1
-#      10 : FP2
-#      11 : FZ
-#      12 : LOG
-#      13 : O1
-#      14 : O2
-#      15 : P3
-#      16 : P4
-#      17 : PZ
-#      18 : ROG
-#      19 : T3
-#      20 : T4
-#      21 : T5
-#      22 : T6
+#       ch  -> numero del canal, del 1 al 22 (orden alfabetico)
 #
 multipsr <- function(ch,nombre,w_dir,c_dir,r_dir,
                      frec,dur_epo){
@@ -39,8 +13,7 @@ multipsr <- function(ch,nombre,w_dir,c_dir,r_dir,
   # el paquete 'fractal' tiene implementado el test psr
   library(fractal)
 
-  # constantes genericas
-  #nombre = 'VCNNS1'
+  # constantes generales
   channel = c('C3','C4','CZ','EMG',
               'F3','F4','F7','F8',
               'FP1','FP2','FZ','LOG',
