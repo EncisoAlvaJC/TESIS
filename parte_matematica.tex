@@ -5,26 +5,45 @@
 
 En esta secci\'on se describen los conceptos b\'asicos de la teor\'ia espectral 'cl\'asica' para 
 procesos estoc\'aticos no-estacionarios. 
-De forma m\'as bien pragm\'atica, la descripci\'on
-
-Me temo que pasar\'a alg\'un tiempo antes que esta parte sea totalmente coherente
-y comprensible a un grado aceptable. Cabe mencionar
-que esta fuertemente inspirada por el libro Spectral Analysis and Time Series, 
+De forma m\'as bien pragm\'atica, la descripci\'on est\'a
+ fuertemente inspirada por el libro 'Spectral Analysis and Time Series' 
 de M. Priestley \cite{Priestley81} porque est\'a expl\'icitamente dirigida a un p\'ublico 
 sin trasfondo matem\'atico.
 
-Debo citar los trabajos de Cohen, Nason, Adak, Dahlhaus, Gabor, Fryzelwicz, entre otros.
-En discusiones m\'as modernas, se mencionan temas que aun no se han explorado:
-ciclo-estacionariedad, procesos harmonizables, estacionariedad local y por partes,
-diferencias entre memoria larga y memoria corta, espectros de ondaletas, espectros de
-Wigner-Ville, Wold-Cram\'er, Gabor. 
-Debo mencionarlos, pero no he trabajado en ello y no se suficiente sobre ello.
+Una duda central en el trabajo es el por qu\'e de usar t\'ecnicas desarrolladas hace m\'as de 
+30 a\~nos, y la respuesta tiene tres puntos principales (que se exponen en otra secci\'on con
+m\'as detallles): 
+\begin{itemize}
+\item Hist\'oricamente existe un desface en los conceptos te\'oricos que maneja la 
+neurobiolog\'ia cuantitativa de EEG, lo que motiva a usar materiales cl\'asicos revisados
+como la simplificaci\'on m\'as natural
+
+\item La teor\'ia m\'as reciente consta en gran medida de generalzaciones de la teor\'ia espectral
+cl\'asica: la representaci\'on espectral de Wold-Cram\'er no es \''unica, y pueden extenderse
+sus resultados para las representaciones de periodograma (cambiante en el tiempo), las 
+representeaciones de Wigner-Ville o de Choi-Williams. En otro sentido, es posible
+hacer pruebas de hip\'otesis m\'ultiples usando representaciones de ondeletas. En un tercer 
+apartado, cabe mencionar el enfoque de estacionariedad local para ubicar y relacionar
+componentes de frecuencia
+espec\'ificos.
+
+\item Como el enfoque prescinde de un an\'alisis m\'as riguroso de la composici\'on espectral de
+las se\~nales, el test PSR tiene la propieda de ser relativamente r\'apido, con un orden de
+$N \log{N}$
+\end{itemize}
+
+%Debo citar los trabajos de Cohen, Nason, Adak, Dahlhaus, Gabor, Fryzelwicz, entre otros.
+%En discusiones m\'as modernas, se mencionan temas que aun no se han explorado:
+%ciclo-estacionariedad, procesos harmonizables, estacionariedad local y por partes,
+%diferencias entre memoria larga y memoria corta, espectros de ondaletas, espectros de
+%Wigner-Ville, Wold-Cram\'er, Gabor. 
+%Debo mencionarlos, pero no he trabajado en ello y no se suficiente sobre ello.
 
 La informalidad de la redacci\'on se debe al tiempo: en versiones futuras deber\'ia mejorar.
 
-Nota: no es prioritario, pero ser\'a una buena idea incluir una discusi\'on sobre por qu\'e
-tiene sentido revisar si los EEG son estacionarios, y es que un proceso estacionario es 
-b\'asicamente un ruido.
+%Nota: no es prioritario, pero ser\'a una buena idea incluir una discusi\'on sobre por qu\'e
+%tiene sentido revisar si los EEG son estacionarios, y es que un proceso estacionario es 
+%b\'asicamente un ruido.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
