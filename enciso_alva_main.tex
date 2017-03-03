@@ -129,24 +129,28 @@ como posible marcador de deterioro cognitivo}
 
 \newpage
 
-%\include{portada}
+\include{portada}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \chapter*{Acr\'onimos}
 
 \begin{tabular}{rl}
-\textbf{DC} & Deterioro Cognitivo
-\\
+%\textbf{DCL} & Deterioro Cognitivo Leve
+%\\
 \textbf{EEG} & Electroencefalograma / Electroencefalograf\'ia
 \\
 \textbf{EMG} & Electromiograma / Electromiograf\'ia
 \\
 \textbf{EOG} & Electrooculograma / Electrooculograf\'ia
 \\
+\textbf{MCI} & Deterioro Cognitivo Leve (Mild Cognitive Impairment)
+\\
 \textbf{MOR} & Movimientos Oculares R\'apidos
 \\
 \textbf{PSG} & Polisomnograma / Polisomnograf\'ia
+\\
+\textbf{PDC} & Posible Deterioro Cognitivo
 \end{tabular}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -159,25 +163,33 @@ como posible marcador de deterioro cognitivo}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\include{introduccion}
+%\include{introduccion}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\include{parte_matematica}
+\chapter{Antecedentes}
+
+\include{hipotesis_objetivos}
 
 \include{parte_fisiologica}
 
-\include{parte_historia_conjunta}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\include{hipotesis_objetivos}
+\include{parte_matematica}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \include{metodologia}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\include{resultados}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \include{discusion}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\include{parte_historia_conjunta}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -194,8 +206,6 @@ como posible marcador de deterioro cognitivo}
 \chapter{C\'odigo en R del test PSR}
 
 \lstinputlisting[caption=C\'odigo usado]{multipsr08.R}
-
-\include{resultados}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
