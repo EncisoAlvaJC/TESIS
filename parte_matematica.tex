@@ -1,36 +1,36 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\chapter{Conceptos (matem\'aticas)}
+\section{Conceptos (matem\'aticas)}
 
 En esta secci\'on se describen los conceptos b\'asicos de la teor\'ia espectral 'cl\'asica' para 
 procesos estoc\'aticos no-estacionarios. 
 De forma m\'as bien pragm\'atica, la descripci\'on est\'a
  fuertemente inspirada por el libro 'Spectral Analysis and Time Series' 
-de M. Priestley \cite{Priestley81} porque est\'a expl\'icitamente dirigida a un p\'ublico 
-sin trasfondo matem\'atico.
+de M. Priestley \cite{Priestley81}, ua que este est\'a expl\'icitamente dirigida a un p\'ublico 
+sin un trasfondo matem\'atico.
 
-Una duda central en el trabajo es el por qu\'e de usar t\'ecnicas desarrolladas hace m\'as de 
-30 a\~nos, y la respuesta tiene tres puntos principales (que se exponen en otra secci\'on con
-m\'as detallles): 
-\begin{itemize}
-\item Hist\'oricamente existe un desface en los conceptos te\'oricos que maneja la 
-neurobiolog\'ia cuantitativa de EEG, lo que motiva a usar materiales cl\'asicos revisados
-como la simplificaci\'on m\'as natural
-
-\item La teor\'ia m\'as reciente consta en gran medida de generalzaciones de la teor\'ia espectral
-cl\'asica: la representaci\'on espectral de Wold-Cram\'er no es \''unica, y pueden extenderse
-sus resultados para las representaciones de periodograma (cambiante en el tiempo), las 
-representeaciones de Wigner-Ville o de Choi-Williams. En otro sentido, es posible
-hacer pruebas de hip\'otesis m\'ultiples usando representaciones de ondeletas. En un tercer 
-apartado, cabe mencionar el enfoque de estacionariedad local para ubicar y relacionar
-componentes de frecuencia
-espec\'ificos.
-
-\item Como el enfoque prescinde de un an\'alisis m\'as riguroso de la composici\'on espectral de
-las se\~nales, el test PSR tiene la propieda de ser relativamente r\'apido, con un orden de
-$N \log{N}$
-\end{itemize}
+%Una duda central en el trabajo es el por qu\'e de usar t\'ecnicas desarrolladas hace m\'as de 
+%30 a\~nos, y la respuesta tiene tres puntos principales (que se exponen en otra secci\'on con
+%m\'as detallles): 
+%\begin{itemize}
+%\item Hist\'oricamente existe un desface en los conceptos te\'oricos que maneja la 
+%neurobiolog\'ia cuantitativa de EEG, lo que motiva a usar materiales cl\'asicos revisados
+%como la simplificaci\'on m\'as natural
+%
+%\item La teor\'ia m\'as reciente consta en gran medida de generalzaciones de la teor\'ia espectral
+%cl\'asica: la representaci\'on espectral de Wold-Cram\'er no es \''unica, y pueden extenderse
+%sus resultados para las representaciones de periodograma (cambiante en el tiempo), las 
+%representeaciones de Wigner-Ville o de Choi-Williams. En otro sentido, es posible
+%hacer pruebas de hip\'otesis m\'ultiples usando representaciones de ondeletas. En un tercer 
+%apartado, cabe mencionar el enfoque de estacionariedad local para ubicar y relacionar
+%componentes de frecuencia
+%espec\'ificos.
+%
+%\item Como el enfoque prescinde de un an\'alisis m\'as riguroso de la composici\'on espectral de
+%las se\~nales, el test PSR tiene la propieda de ser relativamente r\'apido, con un orden de
+%$N \log{N}$
+%\end{itemize}
 
 %Debo citar los trabajos de Cohen, Nason, Adak, Dahlhaus, Gabor, Fryzelwicz, entre otros.
 %En discusiones m\'as modernas, se mencionan temas que aun no se han explorado:
@@ -39,7 +39,7 @@ $N \log{N}$
 %Wigner-Ville, Wold-Cram\'er, Gabor. 
 %Debo mencionarlos, pero no he trabajado en ello y no se suficiente sobre ello.
 
-La informalidad de la redacci\'on se debe al tiempo: en versiones futuras deber\'ia mejorar.
+%La informalidad de la redacci\'on se debe al tiempo: en versiones futuras deber\'ia mejorar.
 
 %Nota: no es prioritario, pero ser\'a una buena idea incluir una discusi\'on sobre por qu\'e
 %tiene sentido revisar si los EEG son estacionarios, y es que un proceso estacionario es 
@@ -47,7 +47,7 @@ La informalidad de la redacci\'on se debe al tiempo: en versiones futuras deber\
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Estacionariedad d\'ebil}
+\subsection{Estacionariedad d\'ebil}
 
 El ingrediente b\'asico de las series de tiempo son los procesos estoc\'asticos; para ello, se
 supone dada la definci\'on de variables aleatorias, espacios de probabilidad, y espacios $L^{p}$;
@@ -160,7 +160,7 @@ en el modelo para ello: energ\'ia finita, cambios finitos de energ\'ia, respuest
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{El espectro de una serie de tiempo}
+\subsection{El espectro de una serie de tiempo}
 
 Quiero y me siento obligado a citar la excelente discuci\'on
 filos\'ofica
@@ -233,7 +233,7 @@ la integral del modulo (...), la incluire mas tarde]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Test Priestley-Subba Rao (PSR)}
+\subsection{Test Priestley-Subba Rao (PSR)}
 
 (seccion en proceso de re-redaccion)
 
