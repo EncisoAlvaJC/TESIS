@@ -153,8 +153,8 @@ $t$, $s$ se tiene que
 \item $\Var{X(t)} = \sigma^{2}_X$
 \item $\Cov{X(t),X(s)} = \rho (s-t)$
 \end{itemize}
-Donde $\mu_X$, $\sigma^{2}_X$ son constantes, y $\rho(s-t)$
-es una funci\'on que \'unicamente depende de $s-t$
+Donde $\mu_X$, $\sigma^{2}_X$ son constantes, $\rho(\tau)$
+es una funci\'on que \'unicamente depende de $\tau$
 \end{thrm}
 
 %El rec\'iproco tambi\'en es cierto: si un proceso cumple las tres condiciones anteriores,
@@ -180,7 +180,73 @@ menos segundos momentos bien definidos.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{El espectro de una serie de tiempo}
+\subsection{Espectro de un proceso estacionario}
+
+Existe una larga tradici\'on en las ciencias biom\'edicas para interpretar a los registros
+electrofisiol\'ogicos en t\'erminos de ondas y frecuencias, ya que fundamentalmente se
+trata de fen\'omenos el\'ectricos \cite{Kaiser00}. 
+As\'imismo existe una teor\'ia matem\'atica bien desarrollada sobre estad\'istica en el 
+llamado ''dominio de las frecuencias''. 
+En este trabajo se aborda la segunda como forma de tener coherencia con la primera; a continuaci\'on
+se describen los conceptos m\'as importantes en el modelo usado.
+
+Un objeto fundamental para el estudio del dominio de las frecuencias\footnote{Este concepto no se
+discutir\'a en el presente trabajo, sino que ser\'a manejado pragm\'aticamente para referirse
+al cambio de coordenadas inducido por la transformada de Fourier o alguna generalizaci\'on de la 
+misma} son las series de Fourier. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+[[aqui van las definiciones de transformada e integrales de fourier y fourier stiltjes]]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Una pregunta natural cuando se toma la terminolog\'ia de ondas y frecuencias dentro
+del estudio de series de tiempo, es sobre el significado de aplicar la transformada de Fourier a
+un proceso estoc\'atico --o cuando menos a alguna sus realizaciones.
+¿Bajo qu\'e condiciones las realizaciones de un proceso estoc\'astico admiten una representaci\'on
+como series/integrales de Fourier/Fourier-Stieltjes?
+
+(Por simplicidad se abordar\'a primero esta pregunta para procesos a tiempo continuo, y 
+posteriormente se tratar\'a el caso a tiempo disreto.)
+
+Se sabe que una condici\'on suficiente para que exista la transformada de Fourier de una funci\'on
+dada, es que pertenezca al espacio de las funciones $\L2$, definido como
+\begin{equation*}
+L^2 = \left\{ f: \R \rightarrow \R {\biggr\rvert} \int_{-\infty}^{\infty} f(x) dx < \infty \right\}
+\end{equation*}
+
+Sin embargo, considerando un proceso estacionario $\{ X(t) \}$, y dado que tiene varianza constante 
+en el tiempo, se 
+espera que sus realizaciones $x(t)$ no decaigan en infinito. Por otro lado, tampoco hay garant\'ia
+que admita una representaci\'on de Fourier-Stieltjes. M\'as a\'un, no hay garant\'ia alguna que
+una realizaci\'on arbitraria pueda expresarse como la suma de una funci\'on en $L^2$ y una
+funci\'on que admita representaci\'on de Fourier-Stieltjes.
+
+El enfoque que se aborda es construir una sucesi\'on de funciones peri\'odicas que convergen a cada
+$x(t)$, y luego revisar la convergencia de sus respectivas integrales de Fourier.
+As\'i entonces, para cada $T>0$ se define
+\begin{equation}
+x_T(t) = 
+\begin{cases}
+x(t) & \text{ , } -T\leq t \leq T
+\\
+0 & \text{ , otro caso}
+\end{cases}
+\end{equation}
+
+Claramente, para todo $T$ se tiene que $x_T \in L^2$, y entonces es posible definir
+\begin{equation}
+G_T (\omega) = \frac{1}{\sqrt{2 \pi}} \intR x_T(t) e^{-i \omega t} dt
+\end{equation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\subsubsection{Continuidad estoc\'astica}
+%
+%Aunque la demonstraci\'on del teorema de Khinchin-Kolmogorov
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Quiero y me siento obligado a citar la excelente discuci\'on
 filos\'ofica
