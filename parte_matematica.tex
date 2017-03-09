@@ -1,131 +1,126 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Conceptos (matem\'aticas)}
+\section{Conceptos, matem\'aticas}
 
 En esta secci\'on se describen los conceptos b\'asicos de la teor\'ia espectral 'cl\'asica' para 
-procesos estoc\'aticos no-estacionarios. 
+procesos estacionarios y no-estacionarios. 
 De forma m\'as bien pragm\'atica, la descripci\'on est\'a
  fuertemente inspirada por el libro 'Spectral Analysis and Time Series' 
-de M. Priestley \cite{Priestley81}, ua que este est\'a expl\'icitamente dirigida a un p\'ublico 
+de M. Priestley \cite{Priestley81}, ya que este est\'a expl\'icitamente dirigido a un p\'ublico 
 sin un trasfondo matem\'atico.
 
-%Una duda central en el trabajo es el por qu\'e de usar t\'ecnicas desarrolladas hace m\'as de 
-%30 a\~nos, y la respuesta tiene tres puntos principales (que se exponen en otra secci\'on con
-%m\'as detallles): 
-%\begin{itemize}
-%\item Hist\'oricamente existe un desface en los conceptos te\'oricos que maneja la 
-%neurobiolog\'ia cuantitativa de EEG, lo que motiva a usar materiales cl\'asicos revisados
-%como la simplificaci\'on m\'as natural
-%
-%\item La teor\'ia m\'as reciente consta en gran medida de generalzaciones de la teor\'ia espectral
-%cl\'asica: la representaci\'on espectral de Wold-Cram\'er no es \''unica, y pueden extenderse
-%sus resultados para las representaciones de periodograma (cambiante en el tiempo), las 
-%representeaciones de Wigner-Ville o de Choi-Williams. En otro sentido, es posible
-%hacer pruebas de hip\'otesis m\'ultiples usando representaciones de ondeletas. En un tercer 
-%apartado, cabe mencionar el enfoque de estacionariedad local para ubicar y relacionar
-%componentes de frecuencia
-%espec\'ificos.
-%
-%\item Como el enfoque prescinde de un an\'alisis m\'as riguroso de la composici\'on espectral de
-%las se\~nales, el test PSR tiene la propieda de ser relativamente r\'apido, con un orden de
-%$N \log{N}$
-%\end{itemize}
-
-%Debo citar los trabajos de Cohen, Nason, Adak, Dahlhaus, Gabor, Fryzelwicz, entre otros.
-%En discusiones m\'as modernas, se mencionan temas que aun no se han explorado:
-%ciclo-estacionariedad, procesos harmonizables, estacionariedad local y por partes,
-%diferencias entre memoria larga y memoria corta, espectros de ondaletas, espectros de
-%Wigner-Ville, Wold-Cram\'er, Gabor. 
-%Debo mencionarlos, pero no he trabajado en ello y no se suficiente sobre ello.
-
-%La informalidad de la redacci\'on se debe al tiempo: en versiones futuras deber\'ia mejorar.
-
-%Nota: no es prioritario, pero ser\'a una buena idea incluir una discusi\'on sobre por qu\'e
-%tiene sentido revisar si los EEG son estacionarios, y es que un proceso estacionario es 
-%b\'asicamente un ruido.
+Esta redacci\'on supone conocidos los temas b\'asicos de probabilidad y estad\'istica:
+variables aleatorias, valores esperados y momentos, estimadores y sus propiedades.
+Con el fin de presentar la notaci\'on usada, se incluyen algunos conceptos previos a la 
+definici\'on per se de estacionariedad y estimadores en el dominio de frecuencias.
+%Chatfield (The Analysis of Time Series: An Introduction, 2003)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Estacionariedad d\'ebil}
 
-El ingrediente b\'asico de las series de tiempo son los procesos estoc\'asticos; para ello, se
-supone dada la definci\'on de variables aleatorias, espacios de probabilidad, y espacios $L^{p}$;
-si es necesario los defino, y si no me conformar\'e con citar un libro sobre series de tiempo
-que cubra estos temas,
-como el de Chatfield (The Analysis of Time Series: An Introduction, 2003).
-
-Una muy buena raz\'on para empezar a describir \textbf{desde} procesos estoc\'asticos es tener
-las definiciones a la mano, evitar conflictos con la notaci\'on $X(t)$ en lugar de $X_t$, y
-enfatizar detalles sobre el tiempo continuo.
+Para hablar formalmente de procesos estoc\'asticos como modelos, antes 
+conviene escribir su definici\'on desde el punto de vista matem\'atico. Las siguientes definiciones
+son aplicables tanto para procesos en tiempo continuo
+como para procesos a tiempo discreto; aunque el objeto de estudio, el EEG, se considera 
+un fen\'omeno continuo, s\'olo es posible registrarlo durante un conjunto finito de puntos 
+en el tiempo.
 
 \begin{defn}[Proceso estoc\'astico]
-Un proeso estoc\'astico $\{ X(t) \}$ es una familia de variables aleatorias indexadas por el 
-s\'imbolo $t$ que pertenece a alg\'un conjunto $T \in \R$
+Un proceso estoc\'astico $\{ X(t) \}$ es una familia de variables aleatorias 
+en los reales
+indexadas por el 
+$t$ que pertenece a alg\'un conjunto $T \in \R$.
+%, mientras que una observaci\'on
+%de $\{X(t)\}$ ser\'a denotada por $(x_1,x_2,\dots)$
 \end{defn}
 
-Matem\'aticamente se permitir\'a que $t$, referido como \textbf{tiempo}, tome valores 
-en todo $\R$; las observaciones, en cambio,
-s\'olo pueden ser tomadas en un conjunto discreto y finito de instantes en el tiempo. 
-Adicionalmente, en algunas secciones se considerar\'an procesos estoc\'asticos complejos,
-si bien la mayor parte del texto s\'olo usar\'a valores reales.
+Como notaci\'on, una realizaci\'on de $X(t)$ ser\'a denota por $x_t$. 
+Las funciones de densidad de probabilidad y de probabilidad acumulada para $X(t)$ ser\'an
+referidas, respectivamente, como $f_{X(t)}$ y $F_{X(t)}$
+%Cabe destacar que en esta definici\'on se omiti\'o intencionalmente pedir que las variables
+%aleatorias sea reales, ya que eventualmente se considerar\'an procesos en los complejos.
+Cabe enfatizar que para cada valor de $t$,
+%tiempo $t$, 
+$X(t)$ es una variable aleatoria; no se presupone ninguna conexi\'on entre ellas.
+%con su funci\'on de densidad de probabilidad,
+%sus momentos [s\'olo se consideran va's con al menos segundos momentos finitos], etc.
 
-Esta definici\'on particular de proceso estoc\'astico deber\'ia enfatizar que para cada 
-tiempo $t$, $X(t)$ es una variable aleatoria con su funci\'on de densidad de probabilidad,
-sus momentos [s\'olo se consideran va's con al menos segundos momentos finitos], etc.
 
-Otro concepto clave de este texto es el de \textbf{estaionareidad d\'ebil}; 
-quiz\'a la mejor forma de motivar el adjetivo 'd\'ebil' es como contraposici\'on a 
-la \textbf{estacionariedad fuerte o total}. 
-Para ello, sea $F(X;\cdot)$ la funci\'on de densidad de probabilidad de $X$, es decir, 
-la probabilidad de que $X\leq x$ puede expresarse como 
-$
-F(X;x) = P(X\leq)
-$
-bajo el entendido que $X$ y $x$ pueden ser vectores en $\R^{d}$.
+La caracter\'istica principal 
+investigada en este trabajo hace referencia a la ''estacionariedad''. De manera 
+informal, esta propiedad se refiere a que las variables aleatorias que conforman un proceso
+estoc\'astico no cambien en el tiempo. 
+Una definici\'on que satisface fielmente est\'a descripci\'on es la de estacionariedad 
+en el sentido fuerte o estricto.
+El t\'ermino ''tiempos admisibles'' simplemente indica que la definici\'on es la misma para
+procesos a tiempo discreto o continuo, bajo restricciones obvias.
 
 \begin{defn}[Estacionariedad fuerte]
 Un proceso estoc\'astico $\{ X(t) \}$ es fuertemente estacionario si, para cualquier 
 conjunto de tiempos admisibles $t_1,t_2,\dots,t_n$ y cualquier $\tau \in \R$
 se cumple que
 \begin{equation*}
-F\left(X(t_1),X(t_2),\dots,X(t_n);\cdot\right) 
+F_{\left(X(t_1),X(t_2),\dots,X(t_n)\right) }
 \equiv
-F\left(X(t_1+\tau),X(t_2+\tau),\dots,X(t_n+\tau);\cdot\right)
+F_{\left(X(t_1+\tau),X(t_2+\tau),\dots,X(t_n+\tau)\right)}
 \end{equation*}
+
+Donde $F_{\left(X(t_1),X(t_2),\dots,X(t_n)\right) }$ es la funci\'on de distribuci\'on de
+probabilidad conjunta de $\left(X(t_1),X(t_2),\dots,X(t_n)\right)$
 \end{defn}
 
-La estacionariedad fuerte depende de las funciones de densidad de probabilidad conjunta para
-diferentes tiempos. 
-%Entre las consecuencias de que un proceso sea estacionario en el
-%sentido fuerte, se encuentran:
-%\begin{itemize}
-%\item Media y varianzas constantes, todos los momentos constantes; es decir
-%\begin{equation*}
-%E[X^{n}(t)]
-%\end{equation*}
-%\item La funci\'on de autocorrelaci\'on s\'olo depende de 
-%\end{itemize}
-Si un proceso es estacionario en el sentido fuerte, entonces todas las variables $X(t)$ son 
-id\'enticamente distribuidas.
+Esta definici\'on, sin embargo, no resulta muy \'util en el contexto de la estad\'istica:
+si se supone que el registro de un fen\'omeno puede interpretarse como \textbf{una} 
+realizaci\'on de
+un proceso estoc\'astico, entonces para cada tiempo se tiene una \'unica observaci\'on
+de cada variable aleatoria. A esto hay que a\~nadir que, para un fen\'omeno continuo,
+no todas los tiempos son registrables.
+Luego, si no existe la garant\'ia de que las propiedades de estas variables aletorias sean
+''similares'', entonces es virtualmente imposible obtener mayor informaci\'on de ellas.
 
-%Al modelar eventos como proceso estoc\'asticos, tiene sentido que las variables aleatorias
-%interfieran las unas con las otras de diversas
-
-Con viene definir versiones menos fuertes de estacionariedad seg\'un sea posible deducirse de
-las mediciones de un fen\'omeno y/o sean relevantes en su modelaci\'on.
+Es bajo estas limitaciones que se motiva un concepto de estacionariedad m\'as d\'ebil, pero que
+satisfaga ''suficientes teoremas importantes'' y que sea relevante bajo las restricciones
+propias de diferentes campos. En este trabajo se ha optado por la llamada 
+''estacionariedad d\'ebil'' o estacionariedad de orden 2, que recibe su nombre como caso
+particular de la ''estacionariedad de orden $m$''.
 
 \begin{defn}[Estacionariedad de orden $m$]
-Un proceso estoc\'astico se dice estacionario de orden $m$ si, para cualquier 
+Un proceso estoc\'astico $\{ X(t) \}$
+se dice estacionario de orden $m$ si, para cualquier 
 conjunto de tiempos admisibles $t_1,t_2,\dots,t_n$ y cualquier $\tau \in \R$
 se cumple que
 \begin{equation*}
-E\left[ X^{m_1}(t_1)X^{m_2}(t_2)\cdots X^{m_n}(t_n) \right]
+\E{ X^{m_1}(t_1)X^{m_2}(t_2)\cdots X^{m_n}(t_n) }
 =
-E\left[ X^{m_1}(t_1+\tau)X^{m_2}(t_2+\tau)\cdots X^{m_n}(t_n+\tau) \right]
+\E{ X^{m_1}(t_1+\tau)X^{m_2}(t_2+\tau)\cdots X^{m_n}(t_n+\tau) }
 \end{equation*}
 Para cualesquiera enteros $m_1,m_2,\dots,m_n$ tales que $m_1+m_2+\dots+m_n \leq m$
 \end{defn}
+
+La estacionariedad d\'ebil no pide que la funci\'on
+de distribuci\'on conjunta tenga determinada forma, sino que los momentos conjuntos sean 
+invariantes ante traslaciones en el tiempo. Para entender mejor esta diferencia, consid\'erense
+tres procesos $\{X(t)\}$, $\{Y_1(t)\}$ y $\{Y_2(t)\}$, de modo que el primero es
+estacionario en el sentido fuerte, el segundo es estacionario de orden 1 y el tercero es
+estacionario de orden 2.
+\begin{itemize}
+\item Como por definici\'on $F_{X(t) } \equiv F_{X(t+\tau)}$ para cualesquieras $t$, $t+\tau$
+admisibles, entonces claramente $\E{X(t)} = \mu_X$ es una constante
+\item De igual manera, por definici\'on,
+para cualesquieras $t$, $t+\tau$ admisibles se tiene que $\E{Y_1(t)}=\E{Y_1(t+\tau)}$ y
+$\E{Y_2(t)}=\E{Y_2(t+\tau)}$. Se deduce entonces que $\E{Y_1(t)} = \mu_{Y_1}$, 
+$\E{Y_2(t)} = \mu_{Y_2}$ son constantes
+\item Usando nuevamente que $F_{X(t) } \equiv F_{X(t+\tau)}$ para cualesquieras $t$, $t+\tau$
+admisibles, entonces se deduce que $\Var{X(t)} = \varsigma_X$ es una constante
+\item Para $i = 1,2$ se puede notar que
+$$\Var{Y_i(t)} = \E{Y_i^{2}(t)} - \left( \E{Y_i(t)} \rigth)^{2} = \E{Y_i^{2}(t)} - \mu_{Y_i}$$
+luego, por la sola definici\'on de $Y_1$ y $Y_2$, se puede deducir que $\E{Y_2^{2}(t)}$ es
+constante en el tiempo mientras que no ocurre lo mismo para $Y_1$. Se concluye que la varianza
+de $Y_2$ es constante en el tiempo mientras que la de $Y_1$ no necesariamente lo es
+\end{itemize}
+
 
 Hay una especie de consenso seg\'un el cual la estacionariedad de orden 2, tambi\'en
 llamada \textbf{estacionariedad d\'ebil} es suficiente para
