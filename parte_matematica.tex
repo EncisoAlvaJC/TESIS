@@ -59,7 +59,8 @@ procesos a tiempo discreto o continuo, bajo restricciones obvias.
 
 \begin{defn}[Estacionariedad fuerte]
 Un proceso estoc\'astico $\{ X(t) \}$ es fuertemente estacionario si, para cualquier 
-conjunto de tiempos admisibles $t_1,t_2,\dots,t_n$ y cualquier $\tau \in \R$
+conjunto de tiempos admisibles $t_1,t_2,\dots,t_n$ y cualquier $\tau$ tal que 
+ $t_i+\tau$ son tiempos admisibles para $i = 1, 2, \dots n$;
 se cumple que
 \begin{equation*}
 F_{\left(X(t_1),X(t_2),\dots,X(t_n)\right) }
@@ -113,45 +114,69 @@ para cualesquieras $t$, $t+\tau$ admisibles se tiene que $\E{Y_1(t)}=\E{Y_1(t+\t
 $\E{Y_2(t)}=\E{Y_2(t+\tau)}$. Se deduce entonces que $\E{Y_1(t)} = \mu_{Y_1}$, 
 $\E{Y_2(t)} = \mu_{Y_2}$ son constantes
 \item Usando nuevamente que $F_{X(t) } \equiv F_{X(t+\tau)}$ para cualesquieras $t$, $t+\tau$
-admisibles, entonces se deduce que $\Var{X(t)} = \varsigma_X$ es una constante
+admisibles, entonces se deduce que $\Var{X(t)} = \sigma_X$ es una constante
 \item Para $i = 1,2$ se puede notar que
-$$\Var{Y_i(t)} = \E{Y_i^{2}(t)} - \left( \E{Y_i(t)} \rigth)^{2} = \E{Y_i^{2}(t)} - \mu_{Y_i}$$
+$$\Var{Y_i(t)} = \E{Y_i^{2}(t)} - \left( \E{Y_i(t)} \right)^{2} = \E{Y_i^{2}(t)} - \mu_{Y_i}$$
 luego, por la sola definici\'on de $Y_1$ y $Y_2$, se puede deducir que $\E{Y_2^{2}(t)}$ es
 constante en el tiempo mientras que no ocurre lo mismo para $Y_1$. Se concluye que la varianza
 de $Y_2$ es constante en el tiempo mientras que la de $Y_1$ no necesariamente lo es
 \end{itemize}
 
+Naturalmente hay una relaci\'on de contenci\'on clara en
+la familia de los conjuntos de procesos estacionarios hasta un orden finito:
+si un proceso es estacionario de orden $m$, entonces es estacionario de orden $n$ para todo
+$n \leq m$. Es posible incluso describir procesos que sean estacionarios de orden ''infinito''
+y preguntarse bajo qu\'e condiciones son fuertemente estacionarios.
+Tal discusi\'on no se incluye en el presente trabajo con el fin de ser concreto.
 
-Hay una especie de consenso seg\'un el cual la estacionariedad de orden 2, tambi\'en
-llamada \textbf{estacionariedad d\'ebil} es suficiente para
-que se cumplan los teoremas m\'as comunes sobre medias y varianzas.
-Algunas consecuencias que un
-proceso sea estacionario debilmente son las siguientes:
+%(...)
+
+Dadas las consideraciones anteriores, conviente
+introducir una segunda caracter\'izaci\'on de los procesos estacionarios de orden 2 --d\'ebilmente 
+estacionarios--
+ enlistar las siguientes propiedades para un proceso
+estacionario de orden 2 --o d\'ebilmente estacionario-- 
+que es equivalente
+%\footnote{Este hecho se vuelve claro si se analizan cuidadosamente las propiedades
+%enlistadas y se comparan con las deficiniones de las ''cantidades'' involucradas}
+a la definici\'on anterior pero cuya interpretaci\'on suele considerarse como m\'as clara
+%Hay una especie de consenso seg\'un el cual la estacionariedad de orden 2, tambi\'en
+%llamada \textbf{estacionariedad d\'ebil} es suficiente para
+%que se cumplan los teoremas m\'as comunes sobre medias y varianzas.
+%Algunas consecuencias que un
+%proceso sea estacionario debilmente son las siguientes:
+\begin{thrm}
+Un proceso es d\'ebilmente estacionario si y s\'olo si para cualesquiera tiempos admisibles
+$t$, $s$ se tiene que
 \begin{itemize}
-\item Para todo $t$, $E[X(t)] = \mu$, una constante
-\item Para todo $t$, $\Var{X(t)} = \sigma^{2}$, una constante
-\item Para cualesquiera $t$, $\tau$, $\Cov{X(t+\tau),\Cov{X(t)}} = E[X(t+\tau)X(t)] - \mu^{2}$, 
-una funci\'on de $\tau$ pero no de $t$
+\item $\E{X(t)} = \mu_X$
+\item $\Var{X(t)} = \sigma^{2}_X$
+\item $\Cov{X(t),X(s)} = \rho (s-t)$
 \end{itemize}
+Donde $\mu_X$, $\sigma^{2}_X$ son constantes, y $\rho(s-t)$
+es una funci\'on que \'unicamente depende de $s-t$
+\end{thrm}
 
-El rec\'iproco tambi\'en es cierto: si un proceso cumple las tres condiciones anteriores,
-entonces es estacionario de orden 2. A su vez tres condiciones son m\'as usuales en la literatura
-y tienen una intepretaci\'on m\'as clara como modelo, pues se exige que el proceso tenga media
-y varianza constante, y que la funci\'on de autocorrelaci\'on no dependa de d\'onde se mida --lo
-cual simplifica la estimaci\'on de estas cantidades.
+%El rec\'iproco tambi\'en es cierto: si un proceso cumple las tres condiciones anteriores,
+%entonces es estacionario de orden 2. A su vez tres condiciones son m\'as usuales en la literatura
+%y tienen una intepretaci\'on m\'as clara como modelo, pues se exige que el proceso tenga media
+%y varianza constante, y que la funci\'on de autocorrelaci\'on no dependa de d\'onde se mida --lo
+%cual simplifica la estimaci\'on de estas cantidades.
 
-Antes de proseguir, cabe mencionar que la estacionariedad fuerte se define
-en t\'erminos de las funciones de densidad de probabilidad conjunta, mientras que la 
-estacionariedad se define seg\'un los momentos; luego, la estacionariedad d\'ebil excluye 
-procesos cuyos momentos no est\'en definidos. Por ejemplo, una colecci\'on de variables
-independientes id\'enticamente distribuidos --con distribuci\'on de Cauchy-- ser\'a
-fuertemente estacionario, pero no estacionario de orden $m$ para ning\'un $m$. 
-%Por el contrario, un proceso estacionario de \textit{orden infinito} siempre es
-%fuertemente estacionario.
+Cabe mencionar como comentario que es de hecho posible contruir procesos que sean fuertemente
+estacionarios peor que no sean estacionarios de ning\'un orden finito; dado que
+la primera definici\'on se basa en funciones de densidad de probabilidad, mientras que la segunda
+se basa en momentos, es suficiente con considerar variables aleatorias que no tengan todos
+sus momentos bien definidos. Por ejemplo, consid\'erese un proceso conformado por variables
+aleatorias independientes id\'enticamente distribuidas con distribuci\'on de Cauchy.
 
-Por el momento se asumir\'an procesos con segundos momentos finitos 
-\textbf{debido a que} hay motivaciones
-en el modelo para ello: energ\'ia finita, cambios finitos de energ\'ia, respuestas suaves, etc.
+Dado que en el EEG se miden fluctuaciones en potenciales de campos el\'ectricos
+%(medida en mV),
+que (en este trabajo) se modelan como variables aleatorias, 
+la intepretaci\'on usual para los momentos de estas variables est\'a ligado a la distribuci\'on de
+energ\'ia asociada al sistema. Luego, es plausible considerar que el EEG es un fen\'omeno
+''suficientemente regular'' como para que las variables aleatorias del modelo tengan cuando
+menos segundos momentos bien definidos.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
