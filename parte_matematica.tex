@@ -223,7 +223,10 @@ que admita una representaci\'on de Fourier-Stieltjes. M\'as a\'un, no hay garant
 una realizaci\'on arbitraria pueda expresarse como la suma de una funci\'on en $L^2$ y una
 funci\'on que admita representaci\'on de Fourier-Stieltjes.
 
-El enfoque que se aborda es construir una sucesi\'on de funciones peri\'odicas que convergen a cada
+El enfoque que se aborda es construir una sucesi\'on de funciones 
+%peri\'odicas 
+en $L^{2}$
+que convergen a ''cada''
 $x(t)$, y luego revisar la convergencia de sus respectivas integrales de Fourier.
 As\'i entonces, para cada $T>0$ se define
 \begin{equation}
@@ -235,10 +238,83 @@ x(t) & \text{ , } -T\leq t \leq T
 \end{cases}
 \end{equation}
 
-Claramente, para todo $T$ se tiene que $x_T \in L^2$, y entonces es posible definir
+Claramente, para todo $T$ se tiene que $x_T \in L^2$, y entonces admite la siguiente 
+representaci\'on
+\begin{equation}
+x_T (t) = \frac{1}{\sqrt{2 \pi}} \intR G_T(\omega) e^{i \omega t} d\omega
+\end{equation}
+
+Donde se define la funci\'on $G_T$ como
+
 \begin{equation}
 G_T (\omega) = \frac{1}{\sqrt{2 \pi}} \intR x_T(t) e^{-i \omega t} dt
+= \frac{1}{\sqrt{2 \pi}} \int_{-T}^{T} x(t) e^{-i \omega t} dt
 \end{equation}
+
+Como se mencion\'o anteriormente no hay garant\'ia de que $x(t)$, una realizaci\'on arbitraria de
+$\{X(t)\}$, tenga una integral de Fourier bien definida. Luego entonces no hay garant\'ia que 
+$G_T$ converja cuando $T\rightarrow \infty$. Recuperando la interpretaci\'on de 
+$\left| G_T(\omega) \right|^{2}$ como una funci\'on de densidad para la energ\'ia total del sistema 
+asociada a la frecuencia
+puntual $\omega$, destaca un argumento f\'isico seg\'un el cual $G_T$ no tiene por qu\'e converger:
+durante un tiempo infinito, un sistema que maneja ''niveles constantes'' de 
+energ\'ia puede registrar una cantidad infinita de energ\'ia en su historial. 
+%Curiosamente,
+%esta segunda interpretaci\'on del
+%problema motiva una soluci\'on para el mismo: usando un tipo de promedio para la
+%distribuci\'on de energ\'ia involucrando a $T$
+Este problema puede remediarse resolviendo el enredo de palabras y t\'erminos, 
+ya que no es tan importante la
+cantidad de energ\'ia concentrada en cada frecuencia, sino qu\'e frecuencias concentran m\'as
+energ\'ia. Luego entonces conviene usar un promedio que ''tome en cuenta'' el tama\~no
+del intervalo
+
+\begin{equation}
+\lim_{T\rightarrow{\infty}} = \frac{ \left| G_T(\omega) \right|^{2}}{2 T}
+\label{yacasi}
+\end{equation}
+
+La expresi\'on en \ref{yacasi} es una adaptaci\'on de la integral de Fourier para una realizaci\'on
+de un proceso estoc\'astico a tiempo continuo; los detalles sobre la convergencia de esta 
+cantidad se discutir\'an m\'as adelante.
+%conserva una parte clave de la interpretaci\'on.
+Por mientras, en cierta medida se ha contestado una de las interrogantes al inicio de esta 
+secci\'on sobre la posibilidad y
+el posible significado de una transformada de Fourier para las realizaciones de un proceso 
+estoc\'astico; con respecto a la posibilidad de una transformada para el proceso per se, vale la 
+pena
+ajustar la definici\'on en \ref{yacasi} para que sea ''representativa'' del proceso --y no s\'olo
+de una realizaci\'on particular. Priestley introduce la siguiente funci\'on
+
+\begin{equation}
+h(\omega) = \lim_{T\rightarrow \infty} \E{ \frac{ \left| G_T(\omega) \right|^{2}}{2 T} }
+\end{equation}
+
+La funci\'on $h$ es referida como la \textbf{funci\'on de densidad espectral no-normalizada} para
+$X(t)$. Conviene, adem\'as, definir una \textbf{funci\'on de espectro integrado}
+
+
+-------------------------------------------------------------------------------
+
+\subsection{Teorema de Wiener-Khintchine}
+
+\begin{thrm}[Wiener-Khintchine]
+Una condici\'on suficiente y necesaria para que $\rho$ sea una funci\'on de autocorrelaci\'on de 
+alg\'un proceso estoc\'astico a tiempo continuo $\{X(t)\}$ estacionario y estoc\'asticamente 
+continuo, es que exista una funci\'on $F$ que tenga las 
+%mismas propiedades que una funci\'on de 
+%densidad de probabilidad
+siguientes propiedades
+\begin{itemize}
+\item Monotonamente creciente
+\item $F(-\infty) = 0$
+\item $F(\infty) = 1$
+\end{itemize}
+y tal que para todo $\tau \in \R$ se cumple que
+\begin{equation*}
+\rho(\tau) = \intR e^{i \omega \tau} dF(\omega)
+\end{equation*}
+\end{thrm}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
