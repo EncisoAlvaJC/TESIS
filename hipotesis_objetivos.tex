@@ -22,10 +22,16 @@ no-estacionarias, no-lineales y no en equilibrio por naturaleza. Sin embargo, es
 no se suelen probar formalmente.
 \end{quotation}
 
-%Debido a que mi trabajo pretende tomar una posici\'on opesta en alg\'un momento, en alg\'un grado,
-%ser\'ia incompatible que yo \textbf{simplemente suponga} que esa posici\'on es verdadera.
-%[Me he dado a la tarea de investigar un poco sobre el papel hist\'rico que han jugado las
-%hip\'otesis de regularidad en las series electrofisiol\'ogicas.]
+%En los ochentas, antes de que las computadoras personales fueran usadas en la medicina, las
+%de\~nales de EEG eran registradas en una tira de papel. El registro se llevaba a cabo
+%en l\'ineas separadas entre s\'i por 3 cm aproximadamente, mientras que el papel se mov\'ia a 
+%raz\'on de 1.5, 3 o 6 cm/s seg\'un el aparato. Un m\'edico dedicado a interpetar el EEG pod\'ia
+%observar f\'acilmente la frecuancia de las ondas al contar el n\'umero de espigas dibujadas
+%en un segundo, si hab\'ia entre 2 y 30 de ellas entre dos l\'ineas verticales. De estos registros
+%en papel vienen los nombres cl\'asicos de las bandas, en especial las $\alpha$ y $\beta$; si las
+%ondas ten\'ian una frecuencia muy baja no podr\'ian distinguirse por el ojo, 
+%mientras que si su frecuencia era muy alta el aparato las registrar\'ia como un bloque 
+%indistinguible\cite{Klonowski09}.
 
 %Esta secci\'on debiera partir de los comentarios expresados 
 %en 'Everything you wanted to ask about EEG (..)'
@@ -68,30 +74,8 @@ no se suelen probar formalmente.
 %hecha por Nason, de la cuakl resaltare una estimacion sobre los ordenes de tiempo de
 %computo para los estimadores de estos espectros.
 
-%----------------------------------------
-%
-%Esta secci\'on debiera terminar nuevamente citando a Klonowski y, 
-%si bien no voy a usar en esta tesis, los
-%nuevos enfoques que consideran al EEG fundamentalmente como un sistema sujeto a ruido pero
-%fundamentalmente ca\'otico.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%\section{EEG estacionario}
-
-En los ochentas, antes de que las computadoras personales fueran usadas en la medicina, las
-de\~nales de EEG eran registradas en una tira de papel. El registro se llevaba a cabo
-en l\'ineas separadas entre s\'i por 3 cm aproximadamente, mientras que el papel se mov\'ia a 
-raz\'on de 1.5, 3 o 6 cm/s seg\'un el aparato. Un m\'edico dedicado a interpetar el EEG pod\'ia
-observar f\'acilmente la frecuancia de las ondas al contar el n\'umero de espigas dibujadas
-en un segundo, si hab\'ia entre 2 y 30 de ellas entre dos l\'ineas verticales. De estos registros
-en papel vienen los nombres cl\'asicos de las bandas, en especial las $\alpha$ y $\beta$; si las
-ondas ten\'ian una frecuencia muy baja no podr\'ian distinguirse por el ojo, 
-mientras que si su frecuencia era muy alta el aparato las registrar\'ia como un bloque 
-indistinguible\cite{Klonowski09}.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Justificaci\'on}
@@ -121,13 +105,36 @@ Por ello, cobra importancia un diagn\'ostico temprano del deterioro cognitivo qu
 el risgo de su avance irreversible a demencia.
 
 
-En este trabajo se retoman los datos adquirido por [citar]; en aqu\'el estudio se analizaron
-posibles cambios en la estructura funcional del cerebro para adultos mayores con PDC, con 
-respecto a individuos sanos; se reporta que estos cambios son manifiestos durante el sue\~no
+En este trabajo se retoman %los datos adquiridos por [citar]; 
+la l\'inea de investigaci\'on trazada por \cite{VazquezTagle16}.
+En aqu\'el estudio se analizaron
+posibles cambios en la estructura funcional\footnote{Se suele hablar de 
+\textit{conectividad funcional} cuando hay una ''buena'' relaci\'on entre la informaci\'on
+que se maneja en las partes involucradas; este t\'ermino se contrapone al de
+\textit{conectividad anat\'omica}, que se refiere a conexiones f\'isicas}
+del cerebro para adultos mayores con PDC, con 
+respecto a individuos sanos; se report\'o que estos cambios son manifiestos durante el sue\~no
 profundo --etapa denominada sue\~no MOR o fase R-- 
 a trav\'es de la actividad el\'ectrica del cerebro registrada desde el cuero 
 cabelludo\footnote{Ver parte de Conceptos fisiol\'ogicos para m\'as informaci\'on}. 
-En su primera etapa,
+
+Se hubo estudiado particularmente el sue\~no MOR en adultos mayores con el fin de discriminar
+cambios permanentes en la funci\'on cerebral, con respecto a cambios transitorios asociados
+a actividades espec\'ificas.
+A grosso modo, en la literatura se ha reportado cambios en la conectividad anat\'omica
+ante da\~nos en tejido nervioso y que tienen como resultado la recuperaci\'on parcial
+de la conectividad funcional global; si estos cambios ocurren en el cerebro, se espera que las
+funciones cognitivas no reflejen fielmente la gravedad del deterioro/da\~no en el tejido cerebral
+--el deterioro cognitivo ser\'ia in\'util para diagnosticar el deterioro cerebral.
+As\'i pues, se ha buscado aminorar el efecto de la capacidad cognitiva compensada
+registrando una fase de sue\~no en la que no se presenta pensamiento consciente.
+
+%Por otro lado, hallazgos recientes han puesto de manifiesto la posible relación entre las alteraciones del sueño y el deterioro cognitivo asociado al envejecimiento 77–79. Concretamente, una duración más corta del sueño nocturno y una mala eficiencia de sueño en personas mayores se relaciona con una peor ejecución en tareas de memoria, sugiriendo que la pérdida de calidad de sueño durante el envejecimiento podría incidir negativamente sobre los mecanismos cerebrales que subyacen a la memoria 72. Por lo tanto, el insomnio en personas mayores podría ser más problemático que en otros grupos de edad, dado que cursa con deterioro cognitivo y empeora con la edad (79.
+%Un estudio cuantitativo realizado en 2015 por Brayet, Petit, Frauscher, Gagnon, Gosselin, Gagnon, Rouleau y Montplaisir80,tenía por objetivo comparar grupos de superioridad del sueño MOR por medio de una electroencefalografía como una herramienta de detección para enfermedad de Alzheimer preclínica. Su muestra fue de 22 sujetos con deterioro cognitivo leve amnésico (entre 63 y 70 años), 10 sujetos sin deterioro cognitivo (de 64 a 68 años) y 32 controles (de 63 a 69 años). El grupo “amnésico” mostró desaceleración encefalografica en las regiones laterales y frontales en comparación tanto con el “no amnésico” y el grupo control. Esta desaceleración encefalografíca estaba presente en la vigilia (en comparación con los controles), pero fue mucho más prominente en el sueño MOR. En cuanto a la comparación entre grupo “amnésico” y grupo “no amnésico” se encontró significativa sólo para el encefalogama del sueño MOR. Con estos hallazgos se la superioridad de la encefalografía del sueño MOR en la distinción del grupo “amnésico” y el grupo “no amnésico” y los sujetos control.
+%
+%Otro estudio determinó si la estructura del sueño fisiológico y su calidad subjetiva sufrían alteraciones en personas mayores con deterioro cognitivo. Para lograr este objetivo se realizó un estudio encefalografico nocturno y se tomaron medidas subjetivas del sueño a un grupo de 25 adultos mayores cognitivamente intactos y a otro 25 con deterioro. La calidad subjetiva del sueño se evaluó mediante un cuestionario de 5 preguntas centradas en las alteraciones del sueño más frecuentes en pacientes con deterioro cognitivo. Los resultados confirmaron que la arquitectura del sueño está alterada en personas mayores con deterioro cognitivo mostrando una mayor fragmentación del sueño de ondas alfa y una duración más corta del sueño MOR4.
+
+En la primera etapa del estudio,
 los individuos se sometieron a una bater\'ia de pruebas
 neuropsicol\'ogicas para diagnosticar PDC y depresi\'on geri\'atrica\footnote{Para
 m\'as detalles, ver la parte de Metodolog\'ia}, que a su vez fungieron como criterios de
@@ -144,7 +151,12 @@ En este trabajo se modelan matem\'aticamente los registros de PSG como series de
 tiempo\footnote{Ver la parte de Conceptos matem\'aticos para m\'as detalles}, y se
 investigan algunas de propiedades estad\'isticas din\'amicas (dependientes del tiempo)
 en cuanto puedan existir diferencias entre los registros obtenidos de sujetos con PSG,
-con respecto a individuos sanos. 
+con respecto a individuos sanos. Se ha elegido una caracter\'istica
+llamada ''estacionariedad d\'ebil'', que refleja la invarianza en el tiempo de las propiedes
+estad\'isticas de un sistema, y que est\'a asociado a una complejidad baja del mismo; 
+debido a que se ha reportado una ''p\'erdida de complejidad'' de la actividad cerebral
+en individuos con deterioro cognitivo, se consider\'o que ser\'ia un medidor oportuno. 
+
 Con respecto al anterior estudio, este trabajo busca un mejor
 entendimiento --desde las matem\'aticas-- de las diferencias encontradas entre 
 individuos sanos y con PSG; adem\'as, se ha buscado generar una metodolog\'ia 
