@@ -7,7 +7,7 @@ En esta secci\'on se describen los conceptos b\'asicos de la teor\'ia espectral 
 procesos estacionarios y no-estacionarios. 
 De forma m\'as bien pragm\'atica, la descripci\'on est\'a
  fuertemente inspirada por el libro 'Spectral Analysis and Time Series' 
-de M. Priestley \cite{Priestley81}, ya que este est\'a expl\'icitamente dirigido a un p\'ublico 
+de M. B. Priestley \cite{Priestley81}, ya que este est\'a expl\'icitamente dirigido a un p\'ublico 
 sin un trasfondo matem\'atico.
 
 Esta redacci\'on supone conocidos los temas b\'asicos de probabilidad y estad\'istica:
@@ -29,9 +29,9 @@ en el tiempo.
 
 \begin{defn}[Proceso estoc\'astico]
 Un proceso estoc\'astico $\{ X(t) \}$ es una familia de variables aleatorias 
-en los reales
-indexadas por el 
-$t$ que pertenece a alg\'un conjunto $T \in \R$.
+en los reales,
+indexadas por
+$t \in T \subseteq \R$.
 %, mientras que una observaci\'on
 %de $\{X(t)\}$ ser\'a denotada por $(x_1,x_2,\dots)$
 \end{defn}
@@ -107,35 +107,51 @@ tres procesos $\{X(t)\}$, $\{Y_1(t)\}$ y $\{Y_2(t)\}$, de modo que el primero es
 estacionario en el sentido fuerte, el segundo es estacionario de orden 1 y el tercero es
 estacionario de orden 2.
 \begin{itemize}
-\item Como por definici\'on $F_{X(t) } \equiv F_{X(t+\tau)}$ para cualesquieras $t$, $t+\tau$
-admisibles, entonces claramente $\E{X(t)} = \mu_X$ es una constante
-\item De igual manera, por definici\'on,
+\item Por definici\'on $F_{X(t) } \equiv F_{X(t+\tau)}$ para cualesquieras $t$, $t+\tau$
+admisibles; entonces $\E{X(t)} = \mu_X$ es constante
+\item Por definici\'on
 para cualesquieras $t$, $t+\tau$ admisibles se tiene que $\E{Y_1(t)}=\E{Y_1(t+\tau)}$ y
-$\E{Y_2(t)}=\E{Y_2(t+\tau)}$. Se deduce entonces que $\E{Y_1(t)} = \mu_{Y_1}$, 
+$\E{Y_2(t)}=\E{Y_2(t+\tau)}$. Se deduce que $\E{Y_1(t)} = \mu_{Y_1}$, 
 $\E{Y_2(t)} = \mu_{Y_2}$ son constantes
 \item Usando nuevamente que $F_{X(t) } \equiv F_{X(t+\tau)}$ para cualesquieras $t$, $t+\tau$
-admisibles, entonces se deduce que $\Var{X(t)} = \sigma_X$ es una constante
-\item Para $i = 1,2$ se puede notar que
+admisibles, se deduce que $\Var{X(t)} = \sigma_X$ es constante
+\item Por definici\'on de $\mathrm{Var}$ y de $Y_i$ ($i=2,1$)
 $$\Var{Y_i(t)} = \E{Y_i^{2}(t)} - \left( \E{Y_i(t)} \right)^{2} = \E{Y_i^{2}(t)} - \mu_{Y_i}$$
-luego, por la sola definici\'on de $Y_1$ y $Y_2$, se puede deducir que $\E{Y_2^{2}(t)}$ es
-constante en el tiempo mientras que no ocurre lo mismo para $Y_1$. Se concluye que la varianza
-de $Y_2$ es constante en el tiempo mientras que la de $Y_1$ no necesariamente lo es
+Luego se puede deducir que 
+$\Var{Y_2(t)}$ es
+% $\E{Y_2^{2}(t)}$ es
+constante, mientras que no se puede garantizar lo mismo para $\Var{Y_1(t)}$
+% Se concluye que la varianza
+%de $Y_2$ es constante en el tiempo mientras que la de $Y_1$ no necesariamente lo es
+\item El \textit{coeficiente de asimetr\'ia de Fisher} 
+de una variable aleatoria $V$ se define como
+$$
+\gamma_1(V) = \frac{\E{\left(V-\E{V}\right)^{3}}}{\Var{V}^{\nicefrac{3}{2}}}
+$$
+%= \frac{\E{X^{3}}-3\mu_V \E{V^{2}}+2\mu_V^{3}}{\Var{V}^{\nicefrac{3}{2}}}
+%$$
+Sin entrar en detalles, se puede deducir que $\gamma_1(X(t))$ es constante mientras que no se
+puede garantizar lo mismo para $\gamma_1(Y_1(t))$, $\gamma_1(Y_2(t))$
 \end{itemize}
 
 Naturalmente hay una relaci\'on de contenci\'on clara en
-la familia de los conjuntos de procesos estacionarios hasta un orden finito:
+la familia de los conjuntos de procesos estacionarios de orden finito:
 si un proceso es estacionario de orden $m$, entonces es estacionario de orden $n$ para todo
 $n \leq m$. Es posible incluso describir procesos que sean estacionarios de orden ''infinito''
 y preguntarse bajo qu\'e condiciones son fuertemente estacionarios.
-Tal discusi\'on no se incluye en el presente trabajo con el fin de ser concreto.
+Tal discusi\'on no se incluye en el presente trabajo,
+% con el fin de ser concreto.
+ya que 
+%el enfoque es de modelaci\'on y 
+se ha intentado hacer la menor cantidad posible de supuestos y de proporcionara a cada uno una
+''interpretaci\'on fisiol\'ogica''.
 
-%(...)
 
-Dadas las consideraciones anteriores, conviente
+As\'i pues, y dadas las consideraciones anteriores, conviente
 introducir una segunda caracter\'izaci\'on de los procesos estacionarios de orden 2 --d\'ebilmente 
 estacionarios--
- enlistar las siguientes propiedades para un proceso
-estacionario de orden 2 --o d\'ebilmente estacionario-- 
+% enlistar las siguientes propiedades para un proceso
+%estacionario de orden 2 --o d\'ebilmente estacionario-- 
 que es equivalente
 %\footnote{Este hecho se vuelve claro si se analizan cuidadosamente las propiedades
 %enlistadas y se comparan con las deficiniones de las ''cantidades'' involucradas}
@@ -157,16 +173,10 @@ Donde $\mu_X$, $\sigma^{2}_X$ son constantes, $\rho(\tau)$
 es una funci\'on que \'unicamente depende de $\tau$
 \end{thrm}
 
-%El rec\'iproco tambi\'en es cierto: si un proceso cumple las tres condiciones anteriores,
-%entonces es estacionario de orden 2. A su vez tres condiciones son m\'as usuales en la literatura
-%y tienen una intepretaci\'on m\'as clara como modelo, pues se exige que el proceso tenga media
-%y varianza constante, y que la funci\'on de autocorrelaci\'on no dependa de d\'onde se mida --lo
-%cual simplifica la estimaci\'on de estas cantidades.
-
-Cabe mencionar como comentario que es de hecho posible contruir procesos que sean fuertemente
-estacionarios peor que no sean estacionarios de ning\'un orden finito; dado que
-la primera definici\'on se basa en funciones de densidad de probabilidad, mientras que la segunda
-se basa en momentos, es suficiente con considerar variables aleatorias que no tengan todos
+Cabe mencionar, como comentario, que es posible contruir procesos que sean fuertemente
+estacionarios pero que no sean estacionarios de ning\'un orden finito; dado que
+la primera definici\'on se basa en funciones de densidad de probabilidad mientras que la segunda
+se basa en momentos, es suficiente con usar variables aleatorias que no tengan todos
 sus momentos bien definidos. Por ejemplo, consid\'erese un proceso conformado por variables
 aleatorias independientes id\'enticamente distribuidas con distribuci\'on de Cauchy.
 
@@ -193,7 +203,29 @@ se describen los conceptos m\'as importantes en el modelo usado.
 Un objeto fundamental para el estudio del dominio de las frecuencias\footnote{Este concepto no se
 discutir\'a en el presente trabajo, sino que ser\'a manejado pragm\'aticamente para referirse
 al cambio de coordenadas inducido por la transformada de Fourier o alguna generalizaci\'on de la 
-misma} son las series de Fourier. 
+misma} son las series de Fourier y sus generalizaciones. 
+
+\begin{defn}[Serie de Fourier (funciones peri\'odicas)]
+Sea $f$ una funci\'on peri\'odica con periodo $2\pi$ tal que $\intR \abso{f(t)} dt < \infty$. 
+Si se calculan los coeficientes
+\begin{equation*}
+A_n = \frac{1}{2\pi} \intPI f(t) e^{- i n t} dt
+\end{equation*}
+entonces la siguiente igualdad se cumple casi en todas partes
+\begin{equation*}
+f(x) = \sum_{n=-\infty}^{\infty} A_n e^{i n t}
+\end{equation*}
+La sucesi\'on $\left( A_n \right)$ ser\'a referida como \textit{serie de Fourier}.
+\end{defn}
+
+\begin{defn}[Transformada de Fourier (funciones peri\'odicas)]
+Sea $f$ una funci\'on peri\'odica con periodo $2\pi$ tal que $\intR \abso{f(t)} dt < \infty$.
+hjkjkjkj
+\end{defn}
+
+
+%Las serie de Fourier ''cl\'asica'' se define para funciones peri\'odicas en el inervalo
+%$[-\pi,\pi]$ tales que $\intR $
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -291,7 +323,9 @@ h(\omega) = \lim_{T\rightarrow \infty} \E{ \frac{ \left| G_T(\omega) \right|^{2}
 \end{equation}
 
 La funci\'on $h$ es referida como la \textbf{funci\'on de densidad espectral no-normalizada} para
-$X(t)$. Conviene, adem\'as, definir una \textbf{funci\'on de espectro integrado}
+$\{X(t)\}$. 
+
+Conviene, adem\'as, definir una \textbf{funci\'on de espectro integrado}
 
 
 -------------------------------------------------------------------------------
@@ -390,14 +424,14 @@ Por otro lado, se tiene la Identidad de Parseval
 \int X^{2}(t) dt = \int f(\omega) d\omega
 \end{equation*}
 
-[esta demostracion se basa en la convergencia dominada del modulo de la integral de $X^{2}$ por
-la integral del modulo (...), la incluire mas tarde]
+%[esta demostracion se basa en la convergencia dominada del modulo de la integral de $X^{2}$ por
+%la integral del modulo (...), la incluire mas tarde]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Test Priestley-Subba Rao (PSR)}
 
-(seccion en proceso de re-redaccion)
+%(seccion en proceso de re-redaccion)
 
 A muy grosso modo, el test PSR estima localmente  el espectro evolutivo
  y revisa si estad\'isticamente
