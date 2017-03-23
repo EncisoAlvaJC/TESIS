@@ -10,7 +10,7 @@ De forma m\'as bien pragm\'atica, la descripci\'on est\'a
 de M. B. Priestley \cite{Priestley81}, ya que este est\'a expl\'icitamente dirigido a un p\'ublico 
 sin un trasfondo matem\'atico.
 
-Esta redacci\'on supone conocidos los temas b\'asicos de probabilidad y estad\'istica:
+Se suponen conocidos varios temas b\'asicos de probabilidad y estad\'istica:
 variables aleatorias, valores esperados y momentos, estimadores y sus propiedades.
 Con el fin de presentar la notaci\'on usada, se incluyen algunos conceptos previos a la 
 definici\'on per se de estacionariedad y estimadores en el dominio de frecuencias.
@@ -51,7 +51,8 @@ $X(t)$ es una variable aleatoria; no se presupone ninguna conexi\'on entre ellas
 La caracter\'istica principal 
 investigada en este trabajo hace referencia a la ''estacionariedad''. De manera 
 informal, esta propiedad se refiere a que las variables aleatorias que conforman un proceso
-estoc\'astico no cambien en el tiempo. 
+estoc\'astico sean b\'asicamente iguales --dicho con otras palabras, que las propiedades
+del proceso sean invariantes en el tiempo. 
 Una definici\'on que satisface fielmente est\'a descripci\'on es la de estacionariedad 
 en el sentido fuerte o estricto.
 El t\'ermino ''tiempos admisibles'' simplemente indica que la definici\'on es la misma para
@@ -251,7 +252,8 @@ conocidas y demostradas todas sus propiedades.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Las series de Fourier gozan de una interpretación física muy extendida: una se\~nal peri\'odica
+Las series de Fourier gozan de una interpretación física muy extendida como que una se\~nal 
+peri\'odica
 puede verse como la superposici\'on de se\~nales peri\'odicas m\'as simples. 
 De igual forma es destacable su interpretaci\'on como ''coordenadas'' en un espacio de funciones
 dada una base ortonormal del mismo. 
@@ -263,14 +265,120 @@ vez una interpretaci\'on f\'isica como cambios s\'ubitos en la energ\'ia, el rui
 tipificaci\'on de ondas ''simples'' --por ejemplo, las ondas cuadradas y triangulares son 
 m\'as comunes en teor\'ia de circuitos.
 
-En el contexto de series electrofisiol\'ogicas, se mencion\'o que en el EEG se han descrito y
-patrones llamados ''ondas de sue\~no'' \footnote{Para m\'as informaci\'on ver
-las secciones anteriores}. Hist\'oricamente estas ondas fueron tipificados mediante el 
-uso de registros electroencefalogr\'aficos en papel, de modo que se define emp\'iricamente
-la ''frecuencia'' de una onda se sue\~no al contar el n\'umero de altibajos en una unidad
-de tiempo \cite{Klonowski09}. En un plano muy formal, no se espera que una onda  de sue\~no
-tenga una transformada de Fourier, al menos en el sentido cl\'asico; por otro lado, se espera que
-pueda formalizarse el concepto de una onda ''parecida'' a unacua frecuencia es tal.
+Para limar estas ambig\:uedades, en este trabajo se considerar\'a la base de Fourier como la
+''m\'as natural'' por su conexi\'on simple con las exponenciales complejas. El t\'ermino
+''ruido'' ser\'a evitado en la medida de lo posible, ya que en la terminolog\'ia de se\~nales
+puede encontrarse referido a registros con un comportamiento err\'atico y poco
+predecible; dentro del contexto de electrofisiolog\'ia, este concepto bien
+engloba tanto se\~nales que
+se desea estudiar como se\~nales que se busca eliminar. 
+%Para los procesos estoc\'asticos que son considerados en este trabajo, 
+Conviene definir
+un tipo de ''regularidad estoc\'astica'' que sirva para distinguir los patrones buscados
+de errores de medici\'on.
+
+\begin{defn}[Continuidad estoc\'astica (media cuadr\'atica)]
+Un proceso estoc\'astico a tiempo continuo $\{ X(t) \}$ es estoc\'asticamente continuo
+(en el sentido de media cuadr\'atica)
+en un tiempo admisible $t_0$ si y s\'olo si
+\begin{equation*}
+\lim_{t \rightarrow t_0} \E{\left( X(t) - X(t_0) \right)^{2}} = 0
+\end{equation*}
+\label{cont_est}
+\end{defn}
+
+Una forma natural de pensar en la definici\'on \ref{cont_est} es esperar que en promedio
+$\lim_{t \rightarrow t_0} \left( X(t) - X(t_0) \right)^{2} = 0$. 
+No es la \'unica forma de presentar un l\'imite de variables aletorias, sino que se ha elegido
+esta forma por algunas propiedades que ser\'an explotadas m\'as adelante. 
+As\'imismo cabe destacar que un proceso estoc\'asticamente continuo no necesariamente produce 
+realizaciones que son funciones continuas, aunque sus realizaciones deben ser continuas 
+casi en todas partes\footnote{Una funci\'on es \textit{continua casi en todas partes} si
+es continua en todo su dominio excepto por un conjunto de medida cero}.
+Para explorar este concepto de manera concreta, consid\'erese un proceso de Wiener; como es 
+un ejemplo ''r\'apido'', se definir\'a a apartir de sus propiedades:
+
+\begin{defn}[Proceso de Wiener]
+Un proceso estoc\'astico a tiempo continuo $\{ W(t) \}$ recibe el nombre de proceso
+de Wiener si satisface que
+\begin{itemize}
+\item $W(0) = 0$
+\item La variable aleatoria $W(t) - W(s)$ tiene una distribuci\'on normal con media 0 y 
+varianza $\abso{t-s}$
+\item Las variables aleatorias ${W(t)}$ y ${W(t) - W(s)}$ son independientes para
+todos los tiempo permitidos $t$, $s$
+\end{itemize} 
+\end{defn}
+
+Ahora bien, se considera un proceso de Wiener $\{W(t)\}$ con $t\geq 0$, y se verificar\'a su 
+continuidad estoc\'astica para un punto arbitrario $t_0 > 0$. Por definici\'on, se tiene
+que 
+$$W(t) - W(t_0) \sim N(0,\abso{t-t_0}) \sim \sqrt{\abso{t-t_0}} N(0,1)$$
+donde el s\'imbolo $\sim$ indica que dos variables tienen la misma funci\'on de densidad de 
+probabilidad. Luego, como $ \left( W(t) - W(t_0) \right)^{2} \sim \chi^{2}(1) $, se cumple que
+$$
+\E{\left( W(t) - W(t_0) \right)^{2}}
+$$
+y luego entonces es claro que $\lim_{t \rightarrow t_0} \E{\left( X(t) - X(t_0) \right)^{2}} = 0$.
+Esta aritm\'etica de variables aleatorias puede formalizarse, pero a lo largo de
+este trabajo se supondr\'an conocidos los detalles respectivos.
+
+De manera m\'as general, se formula el teorema
+
+\begin{thrm}
+Un proceso d\'ebilmente estacionario a tiempo continuo es estoc\'asticamente continuo si y s\'olo si
+su funci\'on de autocorrelaci\'on es continua en 0
+\end{thrm}
+\begin{demostracion}
+Sea $\{ X(t) \}$ un proceso d\'ebilmente estacionario, y sea $t_0$ un tiempo admisible arbitrario. 
+Luego, para todo $t$ admisible se cumple que
+\begin{align*}
+\E{\left( X(t) - X(t_0) \right)^{2}}
+&= \Var{X(t)} + \Var{X(t_0)} - 2 \Cov{X(t)}{X(t_0)}
+\\
+&= 2 \sigma_X^{2} \left( 1 - \rho(t-t_0) \right)
+\end{align*}
+donde $\rho$ es la funci\'on de autocorrelaci\'on. Luego es claro que
+\begin{equation*}
+\lim_{t\rightarrow t_0} \E{\left( X(t) - X(t_0) \right)^{2}} = 0  
+{\Leftrightarrow} 
+\lim_{t\rightarrow t_0} 2 \sigma_X^{2} \left( 1 - \rho(t-t_0) \right) = 0
+\equiv
+\lim_{\tau \rightarrow 0} \rho(\tau) = 1
+\end{equation*}
+Como siempre se cumple que $\rho(0)=1$, la condici\'on final se traduce en que $\rho$ sea continua 
+en 0
+\end{demostracion}
+
+Con esta segunda caracterizaci\'on a la mano, es f\'acil afirmar que un proceso donde todas
+conformado por variables aleatorias independientes no es estoc\'asticamente continuo,
+ya que satisface que su funci\'on de autocorrelaci\'on vale 0 en todos los puntos
+excepto en 0, donde vale 1.
+
+Entonces, en este trabajo se supondr\'a que los registros de PSG corresponden a realizaciones
+de procesos estoc\'asticamente continuos; se considera la posiblidad de que est\'en
+''contaminados'' por ''ruidos'', entendidos como procesos independientes de los potenciales de 
+campo 
+en el cerebro, de amplitud negligible y que ''muy posiblmente'' son estoc\'asticamente discontinuos 
+casi en todas partes.
+
+---------------------------------------------------------------------------------------------------
+
+Con respecto al concepto de energ\'ia, en este trabajo se partir\'a formalmente desde un resultado
+usual y se tomar\'a como definici\'on: la energ\'ia disipada por la se\~nal $f$ en el intervalo
+de tiempo $(t_1,t_2)$ est\'a dada por $\int_{t_1}^{t_2} \left(f\left(t\right)\right)^{2} dt$.
+Ante este contexto toma gran importancia la identidad de Parseval.
+
+---------------------------------------------------------------------------------------------------
+
+%En el contexto de series electrofisiol\'ogicas, se mencion\'o que en el EEG se han descrito y
+%patrones llamados ''ondas de sue\~no'' \footnote{Para m\'as informaci\'on ver
+%las secciones anteriores}. Hist\'oricamente estas ondas fueron tipificados mediante el 
+%uso de registros electroencefalogr\'aficos en papel, de modo que se define emp\'iricamente
+%la ''frecuencia'' de una onda se sue\~no al contar el n\'umero de altibajos en una unidad
+%de tiempo \cite{Klonowski09}. En un plano muy formal, no se espera que una onda  de sue\~no
+%tenga una transformada de Fourier, al menos en el sentido cl\'asico; por otro lado, se espera que
+%pueda formalizarse el concepto de una onda ''parecida'' a unacua frecuencia es tal.
 
 En este caso, se presentar\'a la transformada de Fourier-Stieltjes. En primera instancia
 %permite frecuencias puntuales que son inconmensurables con respecto al intervalo $[-\pi,'pi]$,
