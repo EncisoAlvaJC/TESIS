@@ -2,35 +2,38 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Metodolog\'ia}
 
-El presente trabajo se llev\'o a cabo \textit{a posteriori}, usando los datos obtenidos en un 
-estudio previo \cite[V\'azquez Tagle, 2016]{VazquezTagle16}; 
-se espera que los resultados encontrados sean una
-extensi\'on de los resultados hallados previamente. En esta secci\'on se cita la metodolog\'ia 
-manejada en \cite{VazquezTagle16}, por respeto a los autores y debido a su relevancia en el 
-reciente ana\'alisis sobre los mismos datos. Adicionalmente se describen los an\'alisis realizados
-sobre los datos a nivel de implementaci\'on, usando el software estad\'istico R
-y el paquete \texttt{fractal} \cite{R_citar,R_fractal}.
+%El presente trabajo se llev\'o a cabo \textit{a posteriori}, usando los datos obtenidos en un 
+%estudio previo \cite[V\'azquez Tagle, 2016]{VazquezTagle16}; 
+%se espera que los resultados encontrados sean una
+%extensi\'on de los resultados hallados previamente. 
+En esta secci\'on se cita la metodolog\'ia 
+manejada en \cite{VazquezTagle16}, 
+siendo que el presente trabajo es una extensi\'on de aquel y que parte de los registros obtenidos;
+debido a que la naturaleza y origen de estos datos es crucial para el trabajo presente, se trata de
+presentar la metodolog\'ia original de la manera m\'as fiel posible.
+%, por respeto a los autores y debido a su relevancia en el 
+%reciente ana\'alisis sobre los mismos datos. 
+Posteriormente se describen los an\'alisis realizados
+sobre los datos, a nivel de implementaci\'on, usando el software estad\'istico R
+y el paquete \texttt{fractal} \cite{R_citar,R_fractal};
+las bases de estos an\'alisis se exponene en secciones anteriores.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+En la primera etapa del tarbajo de \cite{VazquezTagle16},
+los individuos se sometieron voluntariamente a una bater\'ia de pruebas
+neuropsicol\'ogicas para diagnosticar PDC y depresi\'on geri\'atrica (ver m\'as adelante), 
+que a su vez fungieron como criterios de
+inclusi\'on para una segunda fase del estudio.
+En el presente trabajo se han analizado sujetos que fueron excluidos de la segunda etapa de aqu\'el
+trabajo, pero que accedieron a participar en la misma; esto se ha hecho con el fin de
+verificar si los datos recabados justifican esta restricci\'on en futuros estudios.
 
-\section{Participantes}
-
-Los registros de PSG analizados en este trabajo fueron obtenidos de 11 adultos mayores; sus
-caraqcter\'isticas se describen en la tabla []
-
-%Participaron 3 adultos mayores con funcionamiento cognitivo normal y 6 adultos mayores con 
-%deterioro cognitivo, de 60 a\~nos o m\'as. 
-
-En el protocolo para la obtenci\'on de estos datos [citar] declara la participaci\'on informada 
-y libre de los sujetos bajo los siguientes t\'erminos:
-\begin{quote}
-La participaci\'on en el estudio es completamente 
-voluntaria, pudiendo los sujetos abandonar las intervenciones en cualquier momento. Todos los 
-participantes firmaron un consentimiento informado previamente a su inclusi\'on en el estudio. 
-Los protocolos experimentales empleados en esta investigaci\'on fueron previamente aprobados por 
-el Comit\'e \'Etico de Investigaci\'on en humanos de la Universidad Autónoma del Estado de Hidalgo.
-%La muestra se eligi\'o de una manera no probabilística de sujetos tipo \cite{Garcia09}.
-\end{quote}
+En la etapa posterior, los individuos se sometieron voluntariamente a un estudio de la
+actividad el\'ectrica cerebral durante el
+sue\~no; se realizaron
+registros de EEG en 22 sitios de muestreo, adicionalmente se midi\'o
+actividad ocular y muscular a trav\'es de EOG y EMG --respectivamente-- con
+el fin de detectar adecuadamente las etapas cl\'inicas del sue\~no\cite{AASM07}.
+El registro simult\'aneo de estas se\~nales durante el sue\~no recibe el nombre de PSG.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -42,6 +45,30 @@ listan a continuaci\'on.
 
 \begin{itemize}
 
+\item {Evaluaci\'on Neuropsicol\'ogica (Neuropsi)} \cite{Solis03}
+%El esquema está constituido por reactivos sencillos y cortos. 
+%En la medida de lo posible se incluyeron pruebas con alta validez neuropsicológica y/o se 
+%adaptaron estas pruebas para poder evaluar poblaciones de ancianos o psiqui\'atricas. 
+%Las \'areas cognoscitivas que eval\'ua 
+%el instrumento son 
+%\begin{itemize}
+%\item[I.] Orientaci\'on
+%\item[II.] Atenci\'on y concentraci\'on
+%\begin{itemize}
+%\item[(a)] Deficiencias en el nivel de conciencia o estado de activaci\'on
+%\item[(b)] Atenci\'on selectiva
+%\item[(c)] Atenci\'on sostenida
+%\item[(d)] Control atencional
+%\end{itemize}
+%\item[III.] Memoria
+%\begin{itemize}
+%\item[(a)] Memoria sensorial
+%\item[(b)] Memoria a corto plazo
+%\item[(c)] Memoria a largo plazo
+%\item[(d)] Memoria de trabajo
+%\end{itemize}
+%\end{itemize}
+
 \item {Mini Mental State Examination (MMSE)} 
 %Creado en 1975 como instrumento para 
 %la evaluación breve del estado mental, es el test m\'as utilizado para la evaluación cognitiva 
@@ -51,15 +78,6 @@ listan a continuaci\'on.
 %leve, adem\'as de establecer un perfil cognitivo de los diferentes subtipos de 
 %demencias.
 \cite{Velasco15}
-
-\item {Escala de Depresi\'on Geri\'atrica (Gds)} 
-%Esta escala ha sido probada y usada 
-%extensamente 
-%en la población adulta mayor. Con la escala Gds se valora la depresión en el adulto mayor que 
-%puede confundirse con el deterioro cognitivo. Es conocido que la depresi\'on puede disparar el 
-%deterioro f\'isico, cognitivo y social particularmente en el adulto 
-%mayor. 
-\cite{Greenberg12,Cuijpers13}
 
 \item {Escala breve para la detecci\'on de ansiedad del anciano (SATS)} 
 %Es un instrumento 
@@ -93,74 +111,118 @@ listan a continuaci\'on.
 %independiente.
 \cite{Roumec14}
 
-\item {Neuropsi. Evaluaci\'on Neuropsicol\'ogica.} \cite{Solis03}
-%El esquema está constituido por reactivos sencillos y cortos. 
-%En la medida de lo posible se incluyeron pruebas con alta validez neuropsicológica y/o se 
-%adaptaron estas pruebas para poder evaluar poblaciones de ancianos o psiqui\'atricas. 
-%Las \'areas cognoscitivas que eval\'ua 
-%el instrumento son 
-%\begin{itemize}
-%\item[I.] Orientaci\'on
-%\item[II.] Atenci\'on y concentraci\'on
-%\begin{itemize}
-%\item[(a)] Deficiencias en el nivel de conciencia o estado de activaci\'on
-%\item[(b)] Atenci\'on selectiva
-%\item[(c)] Atenci\'on sostenida
-%\item[(d)] Control atencional
-%\end{itemize}
-%\item[III.] Memoria
-%\begin{itemize}
-%\item[(a)] Memoria sensorial
-%\item[(b)] Memoria a corto plazo
-%\item[(c)] Memoria a largo plazo
-%\item[(d)] Memoria de trabajo
-%\end{itemize}
-%\end{itemize}
+\item {Escala de Depresi\'on Geri\'atrica (Gds)} 
+%Esta escala ha sido probada y usada 
+%extensamente 
+%en la población adulta mayor. Con la escala Gds se valora la depresión en el adulto mayor que 
+%puede confundirse con el deterioro cognitivo. Es conocido que la depresi\'on puede disparar el 
+%deterioro f\'isico, cognitivo y social particularmente en el adulto 
+%mayor. 
+\cite{Greenberg12,Cuijpers13}
 
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\section{Participantes}
+
+En el trabajo original,
+la muestra se eligi\'o de una manera no probabilística de sujetos tipo \cite{Garcia09}. De aquellos
+s\'olo se han considerado 11 sujetos que accedieron a la segunda fase del estudio (obtenci\'on
+de registros de PSG), que en conjunto conforman una muestra no necesariamente respresentativa de
+la muestra total.
+
+Usando los reultados de la bater\'ia de pruebas neuropsicol\'ogicas, los sujetos se dividieron
+en tres grupos: PDC, Normal y Extra (aquellos no considerados en el estudio original). En la tabla
+\ref{tab_sujetos} se han concentrado estos resultados.
+
+\begin{table}
+\centering
+\begin{tabular}{l|ccc|ccccc|c}
+%\hline 
+%Nombre & Sexo & Edad & Esc. & Neuropsi & MMSE & SATS & KATZ & Gds & Notas \\
+\textbf{Nombre} & \textbf{Sexo} & \textbf{Edad} & \textbf{Esc.} & \textbf{Neuropsi} & \textbf{MMSE} & \textbf{SATS} & \textbf{KATZ} & \textbf{Gds} & \textbf{Notas} \\
+\hline 
+VCR    & F    & 59   & 12   & 107      & 29   & 21   & 0    & 3 & \\
+MJH    & F    & 72   & 9    & 113      & 30   & 18   & 0    & 0 & \\
+JAE    & F    & 78   & 5    & 102      & 28   & 19   & 0    & 5 & \\
+GHA    & M    & 65   & 9    & 107.5    & 30   & 23   & 0    & 7 & Disminuci\'on aguda visual y auditiva, alcoholismo previo \\
+MFGR   & F    & 67   & 11   & 110      & 30   & 18   & 0  &  \\
+\hline 
+CLO    & F    & 68   & 5    & 81       & 28 & 22 & 1 & 6 &  \\
+RLO    & F    & 63   & 9    & 90       & 29 & 20 & 0 & 3 &  \\
+RRU    & M    & 69   & 9    & 85       & 27 & 10 & 0 & 3 &  \\
+JGZ    & M    & 65   & 11   & 87       & 25 & 20 & 0 & 1 &  \\
+\hline 
+FGH    & M    & 71   & 9    & 83.5     & 21 & 23 & 0 & 4  &  Par\'alisis facial, hipotiroides, columna, cataratas  \\
+MGG    & F    & 61   & 9    & 114      & 28 & 29 & 1 & 14 &  \\
+EMT    & M    & 50   & 22   & 106      & 30 & 15 & 0 & 4  &  \\
+%\hline 
+\end{tabular} 
+\label{tab_sujetos}
+\caption{Resultados de las pruebas neuropsicol\'ogicas aplicadas a los sujetos considerados
+en este trabajo, adem\'as de algunos datos generales de estos mismos sujetos}
+\end{table}
+
+
+En el protocolo para la obtenci\'on de estos datos en \cite{VazquezTagle16} 
+se declara la participaci\'on informada 
+y libre de los sujetos bajo los siguientes t\'erminos:
+\begin{quote}
+La participaci\'on en el estudio es completamente 
+voluntaria, pudiendo los sujetos abandonar las intervenciones en cualquier momento. Todos los 
+participantes firmaron un consentimiento informado previamente a su inclusi\'on en el estudio. 
+Los protocolos experimentales empleados en esta investigaci\'on fueron previamente aprobados por 
+el Comit\'e \'Etico de Investigaci\'on en humanos de la Universidad Autónoma del Estado de Hidalgo.
+%La muestra se eligi\'o de una manera no probabilística de sujetos tipo \cite{Garcia09}.
+\end{quote}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \section{Electroencefal\'ografo utilizado}
 
-\textbf{Electroencefal\'ografo digital MEDICID 5.} 
-[Neuronic mexicana S.A. de C.V. MEDICID. MEDICID 5. 2016; : 1.]
-Es un electroencefal\'ografo digital de 32 canales, 24 de ellos monopolares con posibilidades de 
+Para registrar el PSG se ha usado 
+{electroencefal\'ografo digital MEDICID 5.} 
+(Neuronic mexicana S.A. de C.V.);
+% MEDICID. MEDICID 5. 2016; : 1.]
+%Es un electroencefal\'ografo digital de 
+cuenta con
+32 canales, 24 de ellos monopolares con posibilidades de 
 programaci\'on y 8 bipolares con la posibilidad de conexi\'on monopolar para conformar 32 canales 
-con referencia com\'un. Esto hace posible preparar por software los montajes que comunmente son 
-conocidos en los equipos tradicionales de poligraf\'ia en papel. Los amplificadores bipolares son 
-especialmente dise\~nados para la conexi\'on sensorial o la transducci\'on de la medici\'on por 
-signos biof\'isicos, (esfuerzo respiratorio abdominal y tor\'acico, flujo a\'ereo nasal y bucal) 
-cuando los registros poligr\'aficos est\'an hechos. 
-
-%Con el MEDICID se pueden usar las siguientes aplicaciones: 
-%\begin{itemize}
-%\item \underline{Trackwalker.} Sistema b\'asico de electroencefalograf\'ia digital con EEG 
-%cuantitativo y mapeo cerebral.
-%
-%\item \underline{Dream Hunter.} Sistema para estudios del sue\~no.
-%
-%\item \underline{Mind Tracer.} Sistema para el estudio de Potenciales Evocados 
-%relacionados a eventos.
-%
-%\item \underline{EP Workstation.} Sistema para la estimaci\'on y el an\'alisis de los 
-%Potenciales Relacionados a Eventos (PRE) end\'ogenos de alta densidad (128 canales). 
-%\end{itemize}
-
+con referencia com\'un. 
+%Esto hace posible preparar por software los montajes que comunmente son 
+%conocidos en los equipos tradicionales de poligraf\'ia en papel. 
+%Los amplificadores bipolares son 
+%especialmente dise\~nados para la conexi\'on sensorial o la transducci\'on de la medici\'on por 
+%signos biof\'isicos, (esfuerzo respiratorio abdominal y tor\'acico, flujo a\'ereo nasal y bucal) 
+%cuando los registros poligr\'aficos est\'an hechos. 
+%%%Con el MEDICID se pueden usar las siguientes aplicaciones: 
+%%%\begin{itemize}
+%%%\item \underline{Trackwalker.} Sistema b\'asico de electroencefalograf\'ia digital con EEG 
+%%%cuantitativo y mapeo cerebral.
+%%%
+%%%\item \underline{Dream Hunter.} Sistema para estudios del sue\~no.
+%%%
+%%%\item \underline{Mind Tracer.} Sistema para el estudio de Potenciales Evocados 
+%%%relacionados a eventos.
+%%%
+%%%\item \underline{EP Workstation.} Sistema para la estimaci\'on y el an\'alisis de los 
+%%%Potenciales Relacionados a Eventos (PRE) end\'ogenos de alta densidad (128 canales). 
+%%%\end{itemize}
 Especificaciones T\'ecnicas:
 \begin{itemize}
-\item 24 canales monopolares (0.05-100) Hz
-\item 8 canales bipolares para poligraf\'ia (0,0.5100) Hz
-\item 3 canales de C.C. (0-160) Hz
-\item 1 canal de temperatura (30-40) C
-\item 1 estimulador fotico (0.5-33) Hz
+\item 24 canales monopolares (0.05 -- 100 Hz)
+\item 8 canales bipolares para poligraf\'ia (0.5 -- 100 Hz)
+\item 3 canales de C.C. (0--160 Hz)
+\item 1 canal de temperatura (30--40 C)
+\item 1 estimulador f\'otico (0.5--33 Hz)
 \item Sistema A/D: 16 bits
 \item Frec. Muestreo: Hasta 500 Hz (36 canales)
-\item Voltaje Alimentaci\'on: (100-240) V 50/60 Hz
+\item Voltaje Alimentaci\'on: 100--240 V, 50/60 Hz
 \item Interfaz: USB
-\item Dimensiones: Bloque de control: (257x315x55) mm
+\item Dimensiones: Bloque de control: (257x315x55 mm)
 \item Peso: Bloque de control: 2.5 kg
-\item Bloque amplificadores: (110x187x50) mm
+\item Bloque amplificadores: (110x187x50 mm)
 \item Bloque amplificadores: 1.0 kg
 \item Seguridad el\'ectrica: Clase I Tipo BF (Certificado según EN60601-1)
 \end{itemize}
@@ -174,21 +236,77 @@ participantes fueron invitados a acudir a las instalaciones de la Cl\'inica Gero
 Sue\~no, ubicada en las instalaciones del Instituto de Ciencias de la Salud de la Universidad 
 Aut\'onoma del Estado de Hidalgo.
 
-
 Los participantes recibieron instrucciones de realizar una rutina normal de actividades durante la 
 semana que precedi\'o al estudio. Tambi\'en se les recomend\'o que no ingirieran bebidas 
 alcoh\'olicas o energizantes como caf\'e o refrescos durante las 24 horas previas al experimento, 
 ni durmieran siesta el d\'ia del estudio. 
-
 
 %Cada participante lleg\'o a las instalaciones alrededor de las 17:00 hrs. para la colocaci\'on de 
 %los electrodos, ya que este procedimiento tarda de entre 2 a 3 horas. La hora de comienzo del 
 %registro de PSG fue adaptado a la hora habitual de acostarse de cada sujeto.
 
 El protocolo de PSG incluYE 19 electrodos de EEG: 
-Fp1, Fp2, AF7, AF3, AFz, AF4, AF8, F7, F5, F3, F1, Fz, F2, F4, F6, F8, FT7, 
-FC5, FC3, FC1,FCz, FC2, FC4, FC6, FT8, T7, C5, C3, C1, Cz, C2, C4, C6, T8, TP7, CP5, CP3, CP1,
-CPz, CP2, CP4, CP6, TP8, P7, P5, P3, P1, Pz, P2, P4, P6, P8, PO7, PO3, POz, PO4, PO8, O1 y O2; 
+\begin{itemize}
+\item Fp1 
+\item Fp2
+\item AF7
+\item AF3
+\item AFz
+\item AF4
+\item AF8
+\item F7
+\item F5
+\item F3
+\item F1
+\item Fz
+\item F2
+\item F4
+\item F6
+\item F8
+\item FT7 
+\item FC5
+\item FC3
+\item FC1
+\item FCz
+\item FC2
+\item FC4
+\item FC6
+\item FT8
+\item T7
+\item C5
+\item C3
+\item C1
+\item Cz
+\item C2
+\item C4
+\item C6
+\item T8
+\item TP7
+\item CP5
+\item CP3
+\item CP1
+\item CPz
+\item CP2
+\item CP4
+\item CP6
+\item TP8
+\item P7
+\item P5
+\item P3
+\item P1
+\item Pz
+\item P2
+\item P4
+\item P6
+\item P8
+\item PO7
+\item PO3
+\item POz
+\item PO4
+\item PO8
+\item O1
+\item O2
+\end{itemize}
 4 electrodos de EOG para registrar movimientos oculares horizontales y verticales, 
 y 2 electrodos de EMG colocados en los m\'usculos submentonianos para registrar la actividad 
 muscular. 
@@ -205,7 +323,6 @@ International Federation of EEG Societies.
 %\label{img1020}
 \end{figure}
 
-
 %Previamente a la colocaci\'on de cada electrodo, se frot\'o la zona de inter\'es con un algod\'on 
 %empapado en crema abrasiva con el objetivo de eliminar las c\'elulas muertas y la grasa de la piel.
 %Posteriormente, la copa de cada electrodo se rellen\'o con una pasta electrol\'itica 
@@ -215,7 +332,6 @@ International Federation of EEG Societies.
 %adheridos a la piel de la cara con cinta quir\'urgica extra-adhesiva (Cinta 
 %Micropore\texttrademark). Para acelerar el proceso de fijaci\'on y secado del colodi\'on, se 
 %aplic\'o aire comprimido a cada electrodo colocado sobre el cuero cabelludo.
-
 
 Las se\~nales electrofisiol\'ogicas de cada registro PSG fueron amplificadas, filtradas y 
 digitalizadas con el programa para ordenador \texttt{Registro de sue\~no} 
@@ -228,14 +344,15 @@ seg\'un la disponibilidad del electroencefal\'ografo.
 \section{Clasificaci\'on de las etapas de sue\~no}
 
 La clasificaci\'on de las diferentes fases del sue\~no en el registro PSG se realiz\'o manualmente 
-sobre \'epocas de EEG de 30 segundos (filtro paso de banda de 0.5-30 Hz) siguiendo los criterios 
-estandarizados que se exponen a continuación\cite{Hori01}:
+sobre \'epocas de EEG de 30 segundos (filtro paso de banda de 0.5--30 Hz) siguiendo los criterios 
+estandarizados de la AAIC\cite{Hori01}, que se exponen a continuación:
 \begin{description}
 \item[Vigilia relajada con ojos cerrados] Presencia de ritmo alfa contin\'uo con m\'axima amplitud 
 sobre regiones de la corteza parieto-occipital. Tono muscular relativamente alto y ausencia de 
 movimientos oculares.
 
-\item[Fase 1] Transici\'on entre la vigilia y el sue\~no ligero. Presencia intermitente de 
+\item[Fase 1] %Transici\'on entre la vigilia y el sue\~no ligero. 
+Presencia intermitente de 
 actividad alfa en menos del 50\% de la \'epoca junto con movimientos oculares lentos y una ligera 
 reducci\'on del tono muscular respecto al de vigilia.
 
