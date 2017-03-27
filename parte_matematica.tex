@@ -460,7 +460,7 @@ como series/integrales de Fourier/Fourier-Stieltjes?
 posteriormente se tratar\'a el caso a tiempo disreto.)
 
 Se sabe que una condici\'on suficiente para que exista la transformada de Fourier de una funci\'on
-dada, es que pertenezca al espacio de las funciones $\L2$, definido como
+dada, es que pertenezca al espacio de las funciones $L^2$, definido como
 \begin{equation*}
 L^2(\R) = \left\{ f: \R \rightarrow \R {\biggr\rvert} \int_{-\infty}^{\infty} f(x) dx < \infty \right\}
 \end{equation*}
@@ -539,13 +539,43 @@ de una realizaci\'on particular. Priestley introduce la siguiente funci\'on
 h(\omega) = \lim_{T\rightarrow \infty} \E{ \frac{ \left| G_T(\omega) \right|^{2}}{2 T} }
 \end{equation}
 
-La funci\'on $h$ es referida como la \textbf{funci\'on de densidad espectral no-normalizada} para
-$\{X(t)\}$. 
+La funci\'on $h$ es referida como la \textit{funci\'on de densidad espectral no-normalizada} para
+$\{X(t)\}$. Posteriormente se definir\'a una versi\'on ''normalizada'' de la SDF, pero antes debe
+definirse la ''potencia total'' del proceso; por simplicidad, antes de ello se exhibir\'an
+algunas propiedades de la SDF, adem\'as algunos teoremas importantes.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Estimaci\'on de la SDF}
+
+En la subsecci\'on anterior se exhibi\'o una forma de definir un espectro de potencias para 
+procesos estoc\'asticos estacionarios --hasta ahora se ha supuesto que tienen cuando menos
+segundos momentos finitos. Esta definici\'on es resumida en \ref{SDF} para el caso no-normalizado;
+como el operador $\mathrm{E}$ indica el valor esperado sobre todas las realizaciones del proceso,
+la definici\'on se hescribi\'o en t\'erminos del proceso y no de sus realizaciones.
+
+\begin{defn}[Funci\'on de densidad espectral (SDF) no-normalizada]
+Sea $\{X(t)\}$ un proceso estoc\'astico at iempo continuo, d\'ebilmente estacionario. Se define
+la funci\'on de densidad espectral (SDF) de $\{X(t)\}$ como
+%a tiempo continuo 
+%tal que para todo tiempo admisible $t$ se cumple que $\E{X(t)}$
+\begin{equation*}
+h(\omega) = \lim_{T\rightarrow \infty} \E{ \frac{ \left| G_T(\omega) \right|^{2}}{2 T} }
+\end{equation*}
+Donde $G_T (\omega) = \frac{1}{\sqrt{2 \pi}} \int_{-T}^{T} X(t) e^{-i \omega t} dt$
+\label{SDF}
+\end{defn}
+
+Como se mencion\'o anteriormente, se omiti\'o intencionalmente una discusi\'on sobre el proceso hasta
+ahora. 
+
+Consid\'erese un ejemplo hip\'otetico de ondas cerebrales alfa de 10 Hz, donde el ruido externo 
+ha sido eliminado completamente; este registro te\'orico se 
+
+
 Se espera poder definir $h$ para funciones deterministas --no sólo para proceso estoc\'asticos--
 en el caso que exista una ''componente determinista'' que resulte ser importante; por ejemplo, los
 una presencia marcada de ondas cerebrales.
-
-\subsection{Teorema de Wiener-Khintchine}
 
 \begin{thrm}[Wiener-Khintchine]
 Una condici\'on suficiente y necesaria para que $\rho$ sea una funci\'on de autocorrelaci\'on de 
@@ -565,25 +595,46 @@ y tal que para todo $\tau \in \R$ se cumple que
 \end{equation*}
 \end{thrm}
 
+\begin{thrm}[Wold]
+Una condici\'on suficiente y necesaria para que $\rho$ sea una funci\'on de autocorrelaci\'on de 
+alg\'un proceso estoc\'astico a tiempo discreto $\{X(t)\}$ estacionario
+% y estoc\'asticamente 
+%continuo, 
+es que exista una funci\'on $F$ con las 
+%mismas propiedades que una funci\'on de 
+%densidad de probabilidad
+siguientes propiedades
+\begin{itemize}
+\item Monotonamente creciente
+\item $F(-\pi) = 0$
+\item $F(\pi) = 1$
+\end{itemize}
+y tal que para todo $\tau \in \R$ se cumple que
+\begin{equation*}
+\rho(\tau) = \intPI e^{i \omega \tau} dF(\omega)
+\end{equation*}
+\end{thrm}
+
+Si bien no es claro que el teorema de Wiener-Khintchine, o su extensi\'on por Wold, tengan una
+interpretaci\'on f\'sica clara, tienen una interpretaci\'on clave para los estimadores en el
+dominio de las frecuencias:
+la SDF normalizada/no-normalizada es la transformada de Fourier (en alg\'un sentido) de la 
+funci\'on de autocorrelaci\'on/autocovarianza;
+intuitivamente esto quiere decir que un estimador muy natural para la SDF se puede construir 
+a partir del estimador para la funci\'on de autocovarianza, aplic\'andole alg\'un tipo
+de transformada de Fourier. 
+%M\'as adelante se mostrar\'a que ello no es la mejor opci\'on, p
+
+Para hablar propiamente de la estimaci\'on de la SDF de un proceso, primero conviene 
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Quiero y me siento obligado a citar la excelente discuci\'on
-filos\'ofica
-de Loynes \cite{Loynes68}, resaltando la frase ''Los espectros instant\'aneos no existen''.
-Tambi\'en quiero citar una discusi\'on m\'as moderna de M\'elard \cite{Melard89}, donde una
-frase a favor es ''El supuesto de estacionariedad ha sido v\'alido previamente debido a la corta
-duraci\'on de las series y la baja capacidad de c\'omputo''.
-
-%Pues la mayor parte de mi trabajo se ha centrado en el concepto de \textbf{espectro} de una serie
-%de tiempo. La mejor forma de introducir el espectro evolutivo 
-%--en el sentido que estoy usando-- es
-%presentar un proceso estacionario de orden 2,
-% $\{X(t)\}$, en su representaci\'on de Cram\'er \cite{Priestley81}
-%[la existencia de esta representacion esta garantizada por el teorema de Khinchin-Wiener --para
-%procesos a tiempo continuos-- y por una extension del mismo por Wold --para procesos a tiempo
-%discreto.
-%por ahora solo cito el resultado, pero quiza sea buena idea escribir la demostracion
-%como apendice, una demostracion citada ya que es bastante tecnica]
+%Quiero y me siento obligado a citar la excelente discuci\'on
+%filos\'ofica
+%de Loynes \cite{Loynes68}, resaltando la frase ''Los espectros instant\'aneos no existen''.
+%Tambi\'en quiero citar una discusi\'on m\'as moderna de M\'elard \cite{Melard89}, donde una
+%frase a favor es ''El supuesto de estacionariedad ha sido v\'alido previamente debido a la corta
+%duraci\'on de las series y la baja capacidad de c\'omputo''.
 
 \begin{equation*}
 X(t) = \int_{\Lambda} A(\omega) e^{i 2\pi \omega t} dZ(\omega)
@@ -614,24 +665,24 @@ procesos no-estacionarios.
 Dos identidades muy importantes para estimar el espectro son la \textit{equivalencia} entre
 el espectro y la funci\'on de autocorrelaci\'on
 
-\begin{equation*}
-f(\omega ) = \int R_X(\tau ) e^{-i 2\pi \omega t} d\tau
-\end{equation*}
-
-Donde funci\'on de autocorrelaci\'on se ha definido como
-
-\begin{equation*}
-R_X(\tau) = E\left[ X(t) X(t+\tau) \right] = \int_0^{\infty} X(t)X(t+\tau) dt
-\end{equation*}
-
-[la demostracion es corta, batsa con reescribir una composicion de integrales como convolucion,
-la incluire mas tarde]
-
-Por otro lado, se tiene la Identidad de Parseval
-
-\begin{equation*}
-\int X^{2}(t) dt = \int f(\omega) d\omega
-\end{equation*}
+%\begin{equation*}
+%f(\omega ) = \int R_X(\tau ) e^{-i 2\pi \omega t} d\tau
+%\end{equation*}
+%
+%Donde funci\'on de autocorrelaci\'on se ha definido como
+%
+%\begin{equation*}
+%R_X(\tau) = E\left[ X(t) X(t+\tau) \right] = \int_0^{\infty} X(t)X(t+\tau) dt
+%\end{equation*}
+%
+%[la demostracion es corta, batsa con reescribir una composicion de integrales como convolucion,
+%la incluire mas tarde]
+%
+%Por otro lado, se tiene la Identidad de Parseval
+%
+%\begin{equation*}
+%\int X^{2}(t) dt = \int f(\omega) d\omega
+%\end{equation*}
 
 %[esta demostracion se basa en la convergencia dominada del modulo de la integral de $X^{2}$ por
 %la integral del modulo (...), la incluire mas tarde]
