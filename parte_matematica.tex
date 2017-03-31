@@ -566,16 +566,54 @@ Donde $G_T (\omega) = \frac{1}{\sqrt{2 \pi}} \int_{-T}^{T} X(t) e^{-i \omega t} 
 \label{SDF}
 \end{defn}
 
-Como se mencion\'o anteriormente, se omiti\'o intencionalmente una discusi\'on sobre el proceso hasta
-ahora. 
+%Como se mencion\'o anteriormente, se omiti\'o intencionalmente una discusi\'on sobre el proceso hasta
+%ahora. Y e
 
-Consid\'erese un ejemplo hip\'otetico de ondas cerebrales alfa de 10 Hz, donde el ruido externo 
-ha sido eliminado completamente; este registro te\'orico se 
+%Consid\'erese un ejemplo hip\'otetico de ondas cerebrales alfa de 10 Hz, donde el ruido externo 
+%ha sido eliminado completamente; este registro te\'orico se 
 
+La discuci\'on sobre la convergencia de $h$ se omiti\'o por tiempo y simpleza de la explicaci\'on,
+aunque basta con intentar aplicar la definici\'on \ref{SDF} a una funci\'on determinista
+continua y peri\'odica --puede interpretarse como un proceso estoc\'astico degenerado, 
+con varianza 0
+para cualquier tiempo permitido. 
+Como toda funci\'on peri\'odica continua posee una serie de Fourier bien definida, la SDF del
+proceso debe ''coincidir'' en cierto sentido. 
+Desde la interpretaci\'on f\'isica, tiene sentido que la energ\'ia de una se\~nal peri\'odica
+debe estar distribuida entre se\~nales peri\'odicas --caso contrario, sus ''modos'' ser\'ian
+imcompatibles y perder\'ian energ\'ia al interactuar--; luego la distribuci\'on de energ\'ia
+debe tener picos tipo ''delta de Dirac'' en las frecuencias compatibles.
 
-Se espera poder definir $h$ para funciones deterministas --no sólo para proceso estoc\'asticos--
-en el caso que exista una ''componente determinista'' que resulte ser importante; por ejemplo, los
-una presencia marcada de ondas cerebrales.
+Desde el punto de vista matem\'atico, m\'as interesante,
+el conjunto de las funciones que tienen transformada de 
+Fourier bien definida es un subconjunto de las funciones que tienen transformada de
+Fourier-Stieltjes bien definida; si bien esto ya se hab\'ia mencionado anteriormente, conviene
+extender tal discusi\'on reflexionando sobre la estructura de este segundo espacio.
+
+Dada una serie de Fourier, se puede construir una funci\'on que posee una transformada de
+Fourier,
+%y dada una funci\'on acotada
+%mon\'otonamente creciente, se puede hacer lo equivalente; lo inte
+y, como buena generalizaci\'on, esta funci\'on tambi\'en posee una transformada de 
+Fourier-Stieltjes bien definida; basta tomar [continuar despues]
+
+Algo que salta a la vista de estas funciones con espectro discontinuo es que su SDF no est\'a
+bien definida en todos los puntos, al menos no como la derivada de la SDF integrada.
+Este fen\''omeno es b\'asicametn id\'entico al de las variables aleatorias discretas:
+su funci\'on
+de distribuci\'on de probabilidad acumulada es discontinua, luego no es cierto que su
+funci\'on de densidad de probabilidad sea la derivada ''de algo''.
+
+%Se espera poder definir $h$ para funciones deterministas --no sólo para proceso estoc\'asticos--
+%en el caso que exista una ''componente determinista'' que resulte ser importante; por ejemplo, los
+%una presencia marcada de ondas cerebrales.
+
+Es importante un comentario que imita a aqu\'el sobre la definici\'on de estacionariedad:
+la definici\'on \ref{SDF} es sumamente ineficiente en t\'erminos de estimaci\'on, ya que implica
+tomar un valor esperado sobre todas las posibles realizaciones del proceso.
+En este caso se exhiben varios teoremas respecto a la SDF, y que permiten estimarla aprovechando
+las regularidades de un proceso d\'ebilmente estacionario. 
+En este sentido, son fundamentales los teoremas de Wiener-Khintchine y de Wold.
 
 \begin{thrm}[Wiener-Khintchine]
 Una condici\'on suficiente y necesaria para que $\rho$ sea una funci\'on de autocorrelaci\'on de 
@@ -618,9 +656,9 @@ y tal que para todo $\tau \in \R$ se cumple que
 Si bien no es claro que el teorema de Wiener-Khintchine, o su extensi\'on por Wold, tengan una
 interpretaci\'on f\'sica clara, tienen una interpretaci\'on clave para los estimadores en el
 dominio de las frecuencias:
-la SDF normalizada/no-normalizada es la transformada de Fourier (en alg\'un sentido) de la 
-funci\'on de autocorrelaci\'on/autocovarianza;
-intuitivamente esto quiere decir que un estimador muy natural para la SDF se puede construir 
+la SDF normalizada es la transformada de Fourier(-Stieltjes) de la 
+funci\'on de autocorrelaci\'on.
+Intuitivamente, esto implica que un estimador muy natural para la SDF se puede construir 
 a partir del estimador para la funci\'on de autocovarianza, aplic\'andole alg\'un tipo
 de transformada de Fourier. 
 %M\'as adelante se mostrar\'a que ello no es la mejor opci\'on, p
