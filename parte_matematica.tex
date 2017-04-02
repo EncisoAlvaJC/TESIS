@@ -70,7 +70,7 @@ F_{\left(X(t_1+\tau),X(t_2+\tau),\dots,X(t_n+\tau)\right)}
 \end{equation*}
 
 Donde $F_{\left(X(t_1),X(t_2),\dots,X(t_n)\right) }$ es la funci\'on de distribuci\'on de
-probabilidad conjunta de $\left(X(t_1),X(t_2),\dots,X(t_n)\right)$
+probabilidad conjunta del vector $\left(X(t_1),X(t_2),\dots,X(t_n)\right)$
 \end{defn}
 
 Esta definici\'on, sin embargo, no resulta muy \'util en el contexto de la estad\'istica:
@@ -219,7 +219,7 @@ ser\'a manejado pragm\'aticamente para referirse
 al cambio de coordenadas inducido por la transformada de Fourier o alguna generalizaci\'on de la 
 misma} son las series de Fourier y sus generalizaciones. 
 
-\begin{defn}[Serie de Fourier (funciones peri\'odicas)]
+\begin{defn}[Serie de Fourier]
 Sea $f$ una funci\'on peri\'odica con periodo $2\pi$ tal que $\intR \abso{f(t)} dt < \infty$. 
 Si se calculan los coeficientes
 \begin{equation*}
@@ -240,21 +240,35 @@ $f$.
 %\end{defn}
 
 Por el momento no se discutir\'an los detalles sobre la convergencia de las sucesiones de 
-\ref{FourierClasico}, siempre que se limite a funciones continuas absolutamente sumables 
-$L^{1}\left([-\pi,\pi])\right)$.
-Asimismo, parece claro que se puede definir una funci\'on invertible que mapea las funciones que
-poseen serie de Fourier a ''alg\'un'' conjunto de series absolutamente sumables $\ell$; esta
-funci\'on es referida como \textbf{transformada de Fourier}, pero por el momento se considerar\'an
-conocidas y demostradas todas sus propiedades.
-
-%Las serie de Fourier ''cl\'asica'' se define para funciones peri\'odicas en el inervalo
-%$[-\pi,\pi]$ tales que $\intR $
+\ref{FourierClasico}, siempre que se limite a funciones 
+peri\'odicas,
+continuas y absolutamente sumables,
+%$L^{1}\left([-\pi,\pi])\right)$
+o se permita que sean acotadas y con
+una cantidad finita de discontinuidades --y se ponga ninguna atenci\'on sobre ellas.
+Parece claro que se puede definir una funci\'on --quiz\'a invertible-- que mapee funciones 
+a sus respectivas series de Fourier;
+%que
+%poseen serie de Fourier a ''alg\'un'' conjunto de series absolutamente sumables $\ell$; 
+esta
+funci\'on es referida como \textbf{transformada de Fourier}. Por lo pronto se considerar\'a
+que las propiedades y limitaciones de la transformada de Fourier son conocidas
+al menos a grosso modo, m\'as que nada por brevedad; se pretende exhibir
+el espectro de potencias para una serie de tiempo como una extensi\'on de la
+transformada de Fourier de modo que se espera
+poder enfatizar sobre algunas
+interpretaciones dentro de la modelaci\'on.
+%conocidas y demostradas todas sus propiedades.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsubsection{Notas sobre interpretaci\'on f\'isica}
 
-Las series de Fourier gozan de una interpretación física muy extendida como que una se\~nal 
+Las series de Fourier gozan de una interpretación física muy extendida como que una 
+se\~nal\footnote{Esta palabra se usar\'a para referirse a un fen\'omeno f\'isisco 
+que est\'a siendo 
+registrado, bajo el entendido que es casi lo mismo referirse al registro o al proceso
+que lo genera si \'este es determinista}
 peri\'odica
 puede verse como la superposici\'on de se\~nales peri\'odicas m\'as simples. 
 De igual forma es destacable su interpretaci\'on como ''coordenadas'' en un espacio de funciones
@@ -267,17 +281,18 @@ vez una interpretaci\'on f\'isica como cambios s\'ubitos en la energ\'ia, el rui
 tipificaci\'on de ondas ''simples'' --por ejemplo, las ondas cuadradas y triangulares son 
 m\'as comunes en teor\'ia de circuitos.
 
-Para limar estas ambig\:uedades, en este trabajo se considerar\'a la base de Fourier como la
+Para limar estas ambig\"uedades, en este trabajo se considerar\'a la base de Fourier como la
 ''m\'as natural'' por su conexi\'on simple con las exponenciales complejas. El t\'ermino
-''ruido'' ser\'a evitado en la medida de lo posible, ya que en la terminolog\'ia de se\~nales
-puede encontrarse referido a registros con un comportamiento err\'atico y poco
-predecible; dentro del contexto de electrofisiolog\'ia, este concepto bien
-engloba tanto se\~nales que
-se desea estudiar como se\~nales que se busca eliminar. 
+''ruido'' ser\'a evitado en la medida de lo posible ya que, en la terminolog\'ia de se\~nales,
+suele referirse a registros con un comportamiento err\'atico y poco
+predecible; dentro del contexto de electrofisiolog\'ia, tal descricpi\'on bien
+puede englobar tanto
+se\~nales que
+se desea estudiar, como interferencias y errores.
 %Para los procesos estoc\'asticos que son considerados en este trabajo, 
 Conviene definir
 un tipo de ''regularidad estoc\'astica'' que sirva para distinguir los patrones buscados
-de errores de medici\'on.
+de errores de medici\'on e interferencias.
 
 \begin{defn}[Continuidad estoc\'astica (media cuadr\'atica)]
 Un proceso estoc\'astico a tiempo continuo $\{ X(t) \}$ es estoc\'asticamente continuo
@@ -294,27 +309,37 @@ $\lim_{t \rightarrow t_0} \left( X(t) - X(t_0) \right)^{2} = 0$.
 No es la \'unica forma de presentar un l\'imite de variables aletorias, sino que se ha elegido
 esta forma por algunas propiedades que ser\'an explotadas m\'as adelante. 
 As\'imismo cabe destacar que un proceso estoc\'asticamente continuo no necesariamente produce 
-realizaciones que son funciones continuas, aunque sus realizaciones deben ser continuas 
+realizaciones que son funciones continuas, sino que sus realizaciones deben ser continuas 
 casi en todas partes\footnote{Una funci\'on es \textit{continua casi en todas partes} si
 es continua en todo su dominio excepto por un conjunto de medida cero}.
-Para explorar este concepto de manera concreta, consid\'erese un proceso de Wiener; como es 
-un ejemplo ''r\'apido'', se definir\'a a apartir de sus propiedades:
 
-\begin{defn}[Proceso de Wiener]
-Un proceso estoc\'astico a tiempo continuo $\{ W(t) \}$ recibe el nombre de proceso
-de Wiener si satisface que
-\begin{itemize}
-\item $W(0) = 0$
-\item La variable aleatoria $W(t) - W(s)$ tiene una distribuci\'on normal con media 0 y 
-varianza $\abso{t-s}$
-\item Las variables aleatorias ${W(t)}$ y ${W(t) - W(s)}$ son independientes para
-todos los tiempo permitidos $t$, $s$
-\end{itemize} 
-\end{defn}
-
-Ahora bien, se considera un proceso de Wiener $\{W(t)\}$ con $t\geq 0$, y se verificar\'a su 
-continuidad estoc\'astica para un punto arbitrario $t_0 > 0$. Por definici\'on, se tiene
-que 
+El arquetipo de esta clase de procesos es el proceso de Wiener.
+%
+%Por ejemplo, un proceso de Poisson es estoc\'asticamente continuo aunque sus realizaciones
+%nunca son continuas; un proceso ruido blanco (variables aleatorias indepentiendes
+%e id\'enticamente distribuidas)
+%no es estoc\'asticamente continuo ya que puede 
+%
+%Para explorar este concepto de manera concreta, consid\'erese un proceso de Wiener; como es 
+%un ejemplo ''r\'apido'', se definir\'a a apartir de sus propiedades:
+%
+%\begin{defn}[Proceso de Wiener]
+%Un proceso estoc\'astico a tiempo continuo $\{ W(t) \}$ recibe el nombre de proceso
+%de Wiener si satisface que
+%\begin{itemize}
+%\item $W(0) = 0$
+%\item La variable aleatoria $W(t) - W(s)$ tiene una distribuci\'on normal con media 0 y 
+%varianza $\abso{t-s}$
+%\item Las variables aleatorias ${W(t)}$ y ${W(t) - W(s)}$ son independientes para
+%todos los tiempo permitidos $t$, $s$
+%\end{itemize} 
+%\end{defn}
+%
+%Ahora bien, se considera un proceso de Wiener $\{W(t)\}$ con $t\geq 0$, y se verificar\'a su 
+%continuidad estoc\'astica para un punto arbitrario $t_0 > 0$. 
+%Por definici\'on, se tiene
+Para mostrarlo, consid\'erese un proceso de Wiener $\{W_t\}$; 
+por su definici\'on se tiene que
 $$W(t) - W(t_0) \sim N(0,\abso{t-t_0}) \sim \sqrt{\abso{t-t_0}} N(0,1)$$
 donde el s\'imbolo $\sim$ indica que dos variables tienen la misma funci\'on de densidad de 
 probabilidad. Luego, como $ \left( W(t) - W(t_0) \right)^{2} \sim \chi^{2}(1) $, se cumple que
@@ -325,7 +350,8 @@ y luego entonces es claro que $\lim_{t \rightarrow t_0} \E{\left( X(t) - X(t_0) 
 Esta aritm\'etica de variables aleatorias puede formalizarse, pero a lo largo de
 este trabajo se supondr\'an conocidos los detalles respectivos.
 
-De manera m\'as general, se formula el teorema
+De manera m\'as general, cabe mencionar un teorema que permite tipificar de manera m\'as
+adecuada esta clase de procesos.
 
 \begin{thrm}
 Un proceso d\'ebilmente estacionario a tiempo continuo es estoc\'asticamente continuo si y s\'olo si
@@ -340,31 +366,35 @@ Luego, para todo $t$ admisible se cumple que
 \\
 &= 2 \sigma_X^{2} \left( 1 - \rho(t-t_0) \right)
 \end{align*}
-donde $\rho$ es la funci\'on de autocorrelaci\'on. Luego es claro que
-\begin{equation*}
+donde $\rho$ es la funci\'on de autocorrelaci\'on y $\sigma_X^{2}$ la varianza del proceso. 
+Luego es claro que
+\begin{align*}
 \lim_{t\rightarrow t_0} \E{\left( X(t) - X(t_0) \right)^{2}} = 0  
-{\Leftrightarrow} 
+&{\Leftrightarrow}
 \lim_{t\rightarrow t_0} 2 \sigma_X^{2} \left( 1 - \rho(t-t_0) \right) = 0
-\equiv
+\\
+&{\Leftrightarrow}
 \lim_{\tau \rightarrow 0} \rho(\tau) = 1
-\end{equation*}
+\end{align*}
 Como siempre se cumple que $\rho(0)=1$, la condici\'on final se traduce en que $\rho$ sea continua 
 en 0
 \end{demostracion}
 
-Con esta segunda caracterizaci\'on a la mano, es f\'acil afirmar que un proceso donde todas
-conformado por variables aleatorias independientes no es estoc\'asticamente continuo,
-ya que satisface que su funci\'on de autocorrelaci\'on vale 0 en todos los puntos
+Con esta segunda caracterizaci\'on a la mano, es f\'acil afirmar que un proceso %donde todas
+%conformado por variables aleatorias independientes 
+ruido blanco
+no es estoc\'asticamente continuo,
+ya que su funci\'on de autocorrelaci\'on vale 0 en todos los puntos
 excepto en 0, donde vale 1.
 
-Entonces, en este trabajo se supondr\'a que los registros de PSG corresponden a realizaciones
+En este trabajo se supondr\'a que los registros de PSG corresponden a realizaciones
 de procesos estoc\'asticamente continuos; se considera la posiblidad de que est\'en
 ''contaminados'' por ''ruidos'', entendidos como procesos independientes de los potenciales de 
 campo 
 en el cerebro, de amplitud negligible y que ''muy posiblmente'' son estoc\'asticamente discontinuos 
 casi en todas partes.
 
----------------------------------------------------------------------------------------------------
+%---------------------------------------------------------------------------------------------------
 
 Con respecto al concepto de energ\'ia, en este trabajo se usar\'a 
 %formalmente desde un resultado
@@ -377,17 +407,27 @@ la energ\'ia disipada por la se\~nal $f$
 est\'a dada por la expresi\'on \ref{energia}; si se divide tal expresi\'on
 por $T$ se obtiene la \textit{potencia} (energ\'ia por unidad de tiempo)
 
+%\begin{definition}[Energ\'ia y potencia de una se\~nal]
+%
+%\end{definition}
+
 \begin{equation}
 \int_{-T}^{T} \abso{f\left(t\right)}^{2} dt
 \label{energia}
 \end{equation}
 
-En este contexto vale la pena mencionar que este concepto de energ\'ia, como aporte conjunto
+%En este contexto
+Vale la pena mencionar que este concepto de energ\'ia, como 
+integral
+%aporte conjunto
 de una forma cuadr\'atica, es com\'un a varias ramas de la f\'isica y se encuentra ampliamente
 extendido en las ingenier\'ias; en la econom\'ia, en cambio, no hay una motivaci\'on clara para
 hacer uso de este concepto. 
 Las t\'ecnicas electrofisi\'ologicas, concebidas dentro de la teor\'ia de circuitos, hereda la
-terminolog\'ia e interpretaci\'on de energ\'ia; de modo que en este trabajo no s\'olo se contempla
+terminolog\'ia e interpretaci\'on de energ\'ia.
+%de modo que en 
+En
+este trabajo no s\'olo se contempla
 como ''muy natural'' la idea de energ\'ia en los campos el\'ectricos del cerebro, sino que se
 supondr\'a que esta es acotada para cualquier intervalo finito.
 %Despu\'es de todo, el an\'alisis espectral tiene sus orignes en la f\'sicia, 
@@ -422,11 +462,11 @@ para cada se\~nal base. Luego, el m\'odulo de la serie de Fourier indica de cier
 c\'omo se distribuye la energ\'ia (o potencia) sobre las se\~nales base; por esta raz\'on se le
 suele referir como \textbf{espectro de potencia}\footnote{Dada esta discusi\'on, conviene 
 distinguir el \textit{espectro de potencia no-normalizado} como la energ\'ia definida como
-en \ref{energia} usando \ref{parseval_serie}, mientras que un \textit{especxtro de potencia 
+en \ref{energia} usando \ref{parseval_serie}, mientras que un \textit{espectro de potencia 
 normalizado} se puede definir de la misma forma pero diviendo la expresi\'on en 
 \ref{energia} por $2T$}.
 
----------------------------------------------------------------------------------------------------
+%---------------------------------------------------------------------------------------------------
 
 %En el contexto de series electrofisiol\'ogicas, se mencion\'o que en el EEG se han descrito y
 %patrones llamados ''ondas de sue\~no'' \footnote{Para m\'as informaci\'on ver
@@ -447,6 +487,32 @@ $$
 f(x) = \COS{x} + \COS{x\sqrt{2}}
 $$
 no tiene una serie de Fourier, pero puede ser representada como una integral de Fourier-Stieltjes.
+
+%---------------------------------------------------------------------------------------------------
+
+Dicho esto, conviene indagar sobre las propiedades de las
+funciones involucradas en una
+transformada de Fourier-Stieltjes: no-negativas, monotonamente crecientes; si se habla de funciones
+con energ\'ia finita se puede tambi\'en asegurar que son acotadas.
+%son similares a una 
+La transformada de Fourier-Stieltjes es una medida en alg\'un espacio --el nombre daba
+algunas pistas al respecto. 
+%--el nombre da pistas al respecto.
+
+Si bien, dentro de la interpretaci\'on f\'isica, parece muy
+la caracterizaci\'on de la transformada de Fourier-Stieltjes como una medida en alg\'un espacio 
+--que posiblemente est\'e asociado a la distribuci\'on de energ\'ia--, desde el punto de vista
+formal tiene consecuencias bastante interesantes.
+Por ejemplo, basta citar un corolario del teorema de separaci\'on de Lebesgue, seg\'un el cual
+toda funci\'on 
+
+\begin{thrm}[Descomposici\'on de Lebesgue --sobre la medida de Borel]
+asdasdasdsa
+\end{thrm}
+
+sdfgdsgdsfgsdfgsdfgdsgsdfgsdf
+
+%---------------------------------------------------------------------------------------------------
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -656,14 +722,17 @@ y tal que para todo $\tau \in \R$ se cumple que
 Si bien no es claro que el teorema de Wiener-Khintchine, o su extensi\'on por Wold, tengan una
 interpretaci\'on f\'sica clara, tienen una interpretaci\'on clave para los estimadores en el
 dominio de las frecuencias:
-la SDF normalizada es la transformada de Fourier(-Stieltjes) de la 
+la SDF normalizada es la transformada de Fourier-Stieltjes de la 
 funci\'on de autocorrelaci\'on.
-Intuitivamente, esto implica que un estimador muy natural para la SDF se puede construir 
-a partir del estimador para la funci\'on de autocovarianza, aplic\'andole alg\'un tipo
-de transformada de Fourier. 
+Intuitivamente, esto significa que un estimador ''muy natural'' para la SDF normalizada
+%se puede construir 
+%a partir del estimador para la funci\'on de autocovarianza, aplic\'andole alg\'un tipo
+%de transformada de Fourier. 
 %M\'as adelante se mostrar\'a que ello no es la mejor opci\'on, p
+es la transformada de Fourier de la funci\'on de autocorrelaci\'on (estimada);
+esta funci\'on se conoce como \textit{periodograma}.
 
-Para hablar propiamente de la estimaci\'on de la SDF de un proceso, primero conviene 
+\
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
