@@ -503,18 +503,50 @@ Si bien, dentro de la interpretaci\'on f\'isica, parece muy
 la caracterizaci\'on de la transformada de Fourier-Stieltjes como una medida en alg\'un espacio 
 --que posiblemente est\'e asociado a la distribuci\'on de energ\'ia--, desde el punto de vista
 formal tiene consecuencias bastante interesantes.
-Por ejemplo, basta citar un corolario del teorema de separaci\'on de Lebesgue, seg\'un el cual
-toda funci\'on 
+Por ejemplo, basta citar un corolario del teorema de separaci\'on de Lebesgue (escrito
+como \ref{Lebesgue_decomp}) seg\'un el cual una funci\'on con ciertas caracter\'isticas se puede 
+separar como suma de tres funciones: una ''muy regular'', una ''compuesta \'unicamente por 
+saltos'' y un residuo con ''propiedades extravagantes''.
 
-\begin{thrm}[Descomposici\'on de Lebesgue --sobre la medida de Borel]
-asdasdasdsa
+\begin{thrm}[Descomposici\'on de Lebesgue, fun. de variaci\'on acotada]
+Sea $f:I\rightarrow \R$ una funci\'on de variaci\'on acotada, con $I$ un intervalo. Entonces
+pueden hallarse funciones $f_j, f_c, f_a :I\rightarrow \R$ tales que
+\begin{itemize}
+\item $f = f_j+ f_c+ f_a$
+\item $f_j = \sum_{y \leq x} f(x-0) + f(x+0)$
+\item $f_a$ es absolutamente continua\footnote{Para que una funci\'on sea absolutamente continua,
+basta que sea de variaci\'on acotada y que mapee conjuntos de medida cero en conjuntos de medida
+cero} en $I$
+\item $f_c$ es una funci\'on singular\footnote{Una funci\'on es singular si es continua, 
+de variaci\'on acotada y no-constante, y se cumple que tiene derivada cero casi en todas partes} 
+en $I$
+\end{itemize}
+Estas funciones son \'unicas excepto por constantes, y en conjunto son llamados la 
+\textit{descomposici\'on de Lebesgue} de $f$
+\label{Lebesgue_decomp}
 \end{thrm}
 
-sdfgdsgdsfgsdfgsdfgdsgsdfgsdf
+Una vez mencionado el teorema \ref{Lebesgue_decomp}, combinado con el hecho de que las funciones de 
+distribuci\'on de probabilidad
+son de variaci\'on acotada, implica que --en cierto sentido-- una variable aleatoria se puede
+''descomponer'' como una variable aletoria discreta, una variable aleatoria continua y una
+variable aleatoria patol\'ogica; por brevedad no se profundizar\'a m\'as sobre ello.
+Dado que la transformada de Fourier tiene propiedades similares a una funci\'on de distribuci\'on,
+el aplicar el teorema \ref{Lebesgue_decomp} sobre ella da pie a descomponer una funci\'on
+que admite una transformada de Fourier-Stieltjes como suma de tres funciones: una
+con espectro discreto, una con espectro continuo, y una funci\'on patol\'ogica.
+
+Dentro del contexto de electrofisiolog\'ia, en este trabajo se supone
+que una se\~nal puede descomponerse
+como suma de dos funciones, una con espectro discreto --que tiene una serie de Fourier cl\'asica--
+y otra con espectro continuo --que se estimar\'a como derivada de ''algo''.
+Este supuesto equivale a que la ''componente'' patol\'ogica del espectro es negligible.
 
 %---------------------------------------------------------------------------------------------------
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{Espectros estoc\'asticos}
 
 Una pregunta natural cuando se toma la terminolog\'ia de ondas y frecuencias dentro
 del estudio de series de tiempo, es sobre el significado de aplicar la transformada de Fourier a
@@ -609,6 +641,28 @@ La funci\'on $h$ es referida como la \textit{funci\'on de densidad espectral no-
 $\{X(t)\}$. Posteriormente se definir\'a una versi\'on ''normalizada'' de la SDF, pero antes debe
 definirse la ''potencia total'' del proceso; por simplicidad, antes de ello se exhibir\'an
 algunas propiedades de la SDF, adem\'as algunos teoremas importantes.
+
+
+\subsection{Representaci\'on espectral}
+
+\begin{thrm}
+Sea $\{X(t)\}$ un proceso estoc\'astico a tiempo continuo d\'ebilmente estacionario
+de media 0
+y estoc\'asticamente continuo --en el 
+sentido de media cuadr\'atica. Entonces, existe un proceso ortogonal $\{Z(t)\}$ tal que, para 
+todo tiempo $t$ admisible, se puede escribir\footnote{La integral se encuentra definida en el
+sentido de media cuadr\'atica.}
+\begin{equation*}
+X(t) = \intR e^{i t \omega} dZ(\omega)
+\end{equation*}
+Donde el proceso $\{Z(t)\}$ tiene las siguientes propiedades para todo $\omega$
+\begin{itemize}
+\item $\E{dZ(\omega)} = 0$
+\item $\E{\abso{dZ(\omega)}^{2}} = dH(\omega)$
+\item $\Cov{dZ(\omega),dZ(\omega^{\prime})} = 0 \Leftrightarrow \omega \neq \omega^{\prime}$
+\end{itemize}
+Donde $dH(\omega)$ es el espectro integrado no-normalizado de $\{X(t)\}$
+\end{thrm}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
