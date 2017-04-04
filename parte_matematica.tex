@@ -638,31 +638,41 @@ h(\omega) = \lim_{T\rightarrow \infty} \E{ \frac{ \left| G_T(\omega) \right|^{2}
 \end{equation}
 
 La funci\'on $h$ es referida como la \textit{funci\'on de densidad espectral no-normalizada} para
-$\{X(t)\}$. Posteriormente se definir\'a una versi\'on ''normalizada'' de la SDF, pero antes debe
-definirse la ''potencia total'' del proceso; por simplicidad, antes de ello se exhibir\'an
-algunas propiedades de la SDF, adem\'as algunos teoremas importantes.
+$\{X(t)\}$. Posteriormente se definir\'a una versi\'on ''normalizada'' de la SDF.
+%, pero antes debe
+%definirse la ''potencia total'' del proceso; por simplicidad, antes de ello se exhibir\'an
+%algunas propiedades de la SDF, adem\'as algunos teoremas importantes.
 
-
-\subsection{Representaci\'on espectral}
-
-\begin{thrm}
-Sea $\{X(t)\}$ un proceso estoc\'astico a tiempo continuo d\'ebilmente estacionario
-de media 0
-y estoc\'asticamente continuo --en el 
-sentido de media cuadr\'atica. Entonces, existe un proceso ortogonal $\{Z(t)\}$ tal que, para 
-todo tiempo $t$ admisible, se puede escribir\footnote{La integral se encuentra definida en el
-sentido de media cuadr\'atica.}
+La discuci\'on sobre la convergencia de $h$ se omiti\'o por tiempo y simpleza de la explicaci\'on,
+%aunque basta con intentar aplicar la definici\'on \ref{SDF} a una funci\'on determinista
+%continua y peri\'odica --puede interpretarse como un proceso estoc\'astico degenerado, 
+%con varianza 0
+%para cualquier tiempo permitido. 
+%Como toda funci\'on peri\'odica continua posee una serie de Fourier bien definida, la SDF del
+%proceso debe ''coincidir'' en cierto sentido. 
+%Desde la interpretaci\'on f\'isica, tiene sentido que la energ\'ia de una se\~nal peri\'odica
+%debe estar distribuida entre se\~nales peri\'odicas --caso contrario, sus ''modos'' ser\'ian
+%imcompatibles y perder\'ian energ\'ia al interactuar--; luego la distribuci\'on de energ\'ia
+%debe tener picos tipo ''delta de Dirac'' en las frecuencias compatibles.
+ya que es posible un proceso con espectro discreto o mixto (una idea similar a una funci\'on 
+con espectro discreto, pero con sus diferencias obvias):
+un proceso cuya SDF no est\'a bien definida en 
+todos sus puntos, pero tal que estos puntos no pueden ser ignorados.
+En parte, el objetivo de la discusi\'on sobre la integral de Fourier-Stieltjes es que parezca
+natural definir un la integral de la SDF, el \textbf{espectro integrado} $H$
 \begin{equation*}
-X(t) = \intR e^{i t \omega} dZ(\omega)
+H(\omega) = \lim_{T\rightarrow \infty} 
+\E{ \frac{1}{2 T} \left| \intR G_T(\omega\prima) d\omega\prima \right|^{2} }
 \end{equation*}
-Donde el proceso $\{Z(t)\}$ tiene las siguientes propiedades para todo $\omega$
-\begin{itemize}
-\item $\E{dZ(\omega)} = 0$
-\item $\E{\abso{dZ(\omega)}^{2}} = dH(\omega)$
-\item $\Cov{dZ(\omega),dZ(\omega^{\prime})} = 0 \Leftrightarrow \omega \neq \omega^{\prime}$
-\end{itemize}
-Donde $dH(\omega)$ es el espectro integrado no-normalizado de $\{X(t)\}$
-\end{thrm}
+
+De manera completamente an\'aloga al caso en que la transformada de Fourier-Stieltjes puede
+interpretarse como una medida, $H$ tambi\'en puede ser vista como una medida; m\'as a\'un,
+siempre que $h(\omega)$ est\'e bien definida puede decirse que 
+$\frac{dH(\omega)}{d\omega}= h(\omega)$ --una analog\'ia interesante con que la funci\'on
+de densidad de probabilidad es la derivada de la funci\'on de probabilidad acumulada siempre
+que la segunda sea derivable.
+No se discutir\'a con detalle am\'en de no repetir, pero $H$ es positiva, no-decreciente y
+acotada para condiciones que se discutir\'an m\'as adelante.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -692,37 +702,25 @@ Donde $G_T (\omega) = \frac{1}{\sqrt{2 \pi}} \int_{-T}^{T} X(t) e^{-i \omega t} 
 %Consid\'erese un ejemplo hip\'otetico de ondas cerebrales alfa de 10 Hz, donde el ruido externo 
 %ha sido eliminado completamente; este registro te\'orico se 
 
-La discuci\'on sobre la convergencia de $h$ se omiti\'o por tiempo y simpleza de la explicaci\'on,
-aunque basta con intentar aplicar la definici\'on \ref{SDF} a una funci\'on determinista
-continua y peri\'odica --puede interpretarse como un proceso estoc\'astico degenerado, 
-con varianza 0
-para cualquier tiempo permitido. 
-Como toda funci\'on peri\'odica continua posee una serie de Fourier bien definida, la SDF del
-proceso debe ''coincidir'' en cierto sentido. 
-Desde la interpretaci\'on f\'isica, tiene sentido que la energ\'ia de una se\~nal peri\'odica
-debe estar distribuida entre se\~nales peri\'odicas --caso contrario, sus ''modos'' ser\'ian
-imcompatibles y perder\'ian energ\'ia al interactuar--; luego la distribuci\'on de energ\'ia
-debe tener picos tipo ''delta de Dirac'' en las frecuencias compatibles.
+%Desde el punto de vista matem\'atico, m\'as interesante,
+%el conjunto de las funciones que tienen transformada de 
+%Fourier bien definida es un subconjunto de las funciones que tienen transformada de
+%Fourier-Stieltjes bien definida; si bien esto ya se hab\'ia mencionado anteriormente, conviene
+%extender tal discusi\'on reflexionando sobre la estructura de este segundo espacio.
+%
+%Dada una serie de Fourier, se puede construir una funci\'on que posee una transformada de
+%Fourier,
+%%y dada una funci\'on acotada
+%%mon\'otonamente creciente, se puede hacer lo equivalente; lo inte
+%y, como buena generalizaci\'on, esta funci\'on tambi\'en posee una transformada de 
+%Fourier-Stieltjes bien definida; basta tomar [continuar despues]
 
-Desde el punto de vista matem\'atico, m\'as interesante,
-el conjunto de las funciones que tienen transformada de 
-Fourier bien definida es un subconjunto de las funciones que tienen transformada de
-Fourier-Stieltjes bien definida; si bien esto ya se hab\'ia mencionado anteriormente, conviene
-extender tal discusi\'on reflexionando sobre la estructura de este segundo espacio.
-
-Dada una serie de Fourier, se puede construir una funci\'on que posee una transformada de
-Fourier,
-%y dada una funci\'on acotada
-%mon\'otonamente creciente, se puede hacer lo equivalente; lo inte
-y, como buena generalizaci\'on, esta funci\'on tambi\'en posee una transformada de 
-Fourier-Stieltjes bien definida; basta tomar [continuar despues]
-
-Algo que salta a la vista de estas funciones con espectro discontinuo es que su SDF no est\'a
-bien definida en todos los puntos, al menos no como la derivada de la SDF integrada.
-Este fen\''omeno es b\'asicametn id\'entico al de las variables aleatorias discretas:
-su funci\'on
-de distribuci\'on de probabilidad acumulada es discontinua, luego no es cierto que su
-funci\'on de densidad de probabilidad sea la derivada ''de algo''.
+%Algo que salta a la vista de estas funciones con espectro discontinuo es que su SDF no est\'a
+%bien definida en todos los puntos, al menos no como la derivada de la SDF integrada.
+%Este fen\''omeno es b\'asicametn id\'entico al de las variables aleatorias discretas:
+%su funci\'on
+%de distribuci\'on de probabilidad acumulada es discontinua, luego no es cierto que su
+%funci\'on de densidad de probabilidad sea la derivada ''de algo''.
 
 %Se espera poder definir $h$ para funciones deterministas --no sólo para proceso estoc\'asticos--
 %en el caso que exista una ''componente determinista'' que resulte ser importante; por ejemplo, los
@@ -786,9 +784,188 @@ Intuitivamente, esto significa que un estimador ''muy natural'' para la SDF norm
 es la transformada de Fourier de la funci\'on de autocorrelaci\'on (estimada);
 esta funci\'on se conoce como \textit{periodograma}.
 
-\
+Conviene introducir, antes, un estimador para la funci\'on de autocorrelaci\'on de un proceso
+d\'ebilmente estacionario a tiempo continuo de media cero $\{ X(t) \}$, 
+a partir de un conjunto de $N$ 
+observaciones distribuidas uniformemente en el tiempo con separaci\'on $\Delta t$.
+Por simplicidad, se denotar\'a a estas observaciones como $x_1, x_2 , \dots, x_N$ .
+Ahora bien, 
+por definici\'on se cumple la siguiente propiedad para la funci\'on de autocorrelaci\'on, $\rho$,
+del proceso
+%\begin{align*}
+%\rho(\tau) 
+%&= \E{X(0)X(\tau)} \\
+%&= \E{X(\Delta t)X(\Delta t + \tau)} \\
+%&= \E{X(2\Delta t)X(2\Delta t + \tau)} \\
+%&= \cdots
+%\end{align*}
+\begin{equation*}
+\rho(\tau)
+= \E{X(n\Delta t)X(n\Delta t + \tau)}
+\end{equation*}
+para $n = 0, 1, 2, \dots, N$ y siempre que $\tau$ sea m\'ultiplo de
+$\Delta t$. Luego, un estimador muy natural para $\rho$ est\'a dado por
+\begin{equation}
+\widehat{\rho}(\tau) = \frac{1}{N-\abso{\tau}} 
+\sum_{t = 1}^{N-\abso{\tau}} x_t x_{t+\abso{\tau}}
+\label{estimador_R}
+\end{equation}
+
+Resulta que $\widehat{\rho}$ es un estimador insesgado y consistente de $\rho$;
+sin embargo y por simplicidad en un tratamiento futuro, 
+conviene introducir un estimador sesgado para $\rho$ con algunas propiedades convenientes
+\begin{equation}
+\aste{\rho}(\tau) = \frac{1}{N} 
+\sum_{t = 1}^{N-\abso{\tau}} x_t x_{t+\abso{\tau}}
+\label{estimador_R_ast}
+\end{equation}
+
+Por tiempo s\'olo se citar\'a que --para un proceso d\'ebilmente estacionario-- el
+estimador \ref{estimador_R_ast} tiene las siguientes propiedades
+\begin{itemize}
+\item $\E{\aste{\rho}(\tau)} = \left(1 - \frac{\abso{\tau}}{N} \right) \rho(\omega)$
+\item $\Var{\aste{\rho}(\tau)} \approx \frac{1}{N} 
+\sum_{r=-\infty}^{\infty} \left( \rho^{2}(r) + \rho(r-\tau)\rho(r+\tau) \right)$
+%\item $\Cov{\aste{\rho}(\tau),\aste{\rho}(\tau+\nu)} \approx \frac{1}{N} 
+%\sum_{r=-\infty}^{\infty} \left( \rho(r)\rho(r+\nu) + \rho(r-\tau)\rho(r+\tau+\nu) \right)$
+\end{itemize}
+La segunda aproximaci\'on es exacta si el proceso es gaussiano, y mejora asint\'oticamente
+con el n\'umero de puntos.
+
+As\'i entonces se puede definir, como se mencion\'o, 
+el periodograma $I_N(\omega)$ de la siguiente manera
+
+\begin{equation}
+I_N(\omega) = 2 \sum_{r = -(N-1)}^{N-1} \aste{\rho}(r) \COS{r \omega}
+\label{periodograma_rho}
+\end{equation}
+
+Ahora bien, la definici\'on cl\'asica del periodograma est\'a dada por la expresi\'on
+en \ref{periodograma_rho}, y lo que pasa es que es equivalente a la definici\'on
+en \ref{periodograma}
+
+\begin{equation}
+I_N(\omega) = \frac{2}{N} \abso{ \sum_{t=0}^{N} e^{i \omega t} x_t }^{2}
+\label{periodograma}
+\end{equation}
+
+%Para hablar de la media y varianza del periodograma, es fundamental distinguir el caso con
+%espectro puramente discreto y el caso con espectro puramente continuo.
+%En el primer caso, las siguientes formas fueron propuestas por Bartlet
+
+Si bien en el caso continuo se cumple que $\E{I_N(\omega)}=h(\omega)$, lamentablemente
+se da el caso en que $\lim_{N\rightarrow 0} \Var{I_N(\omega)} = h^{2}(\omega)$. Luego el
+periodograma cl\'asico --en cualquiera de sus formulaciones equivalentes-- es un estimador
+insesgado para la SDF, pero su varianza no decae a cero al incrementar el n\'umero de puntos, es
+decir, aumentar la cantidad de datos no implica que la estimaci\'on mejore\footnote{Este 
+comentario se puede hacer m\'as claro, pero no se ha hecho porque implica incluir m\'as material}.
+
+Un problema indicao como comentario es que el periodograma --a seg\'un \ref{periodograma_rho}--
+est\'a siendo calculado usando estimadores para la funci\'on de autocovarianza en todos los 
+retrasos posibles; el problema con ello es que los retrasos m\'as grandes son calculados usando
+menos puntos, de modo que generan una mayor varianza.
+
+Entonces, el periodograma aumenta su varianza porque incluye las colas de la funci\'on de
+autocorrelaci\'on. Una respuesta cl\'asica a este problema es tratar de evitar en lo posible estas
+colas, elimin\'andolas o multiplicando por una funci\'on de pesos que disminuya r\'apidamente.
+En este sentido, se considerar\'an los estimadores con la forma
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%Se considerar\'an los estimadores de la forma
+\begin{equation}
+\est{h}(\omega) = \frac{1}{2\pi} \sum_{s = -(N-1)}^{N-1} 
+\lambda(s) \aste{R}(s) e^{i \omega t}
+\label{ventaneando}
+\end{equation}
+
+donde $\lambda$ es la funci\'on que ''decae muy r\'apidamente'', y ser\'a referida como
+\textbf{ventana de retrasos}. Para estudiar las propiedades de los estimadores
+dle tipo \ref{ventaneando}, conviene reescribirlos como funci\'on directa del periodograma
+
+\begin{equation*}
+\est{h}(\omega) = \intPI I_N(\theta) W(\omega-\theta) d\theta
+\end{equation*}
+donde $W$ es la transformada de Fourier finita de $\lambda$
+\begin{equation*}
+W(\theta) = \frac{1}{2\pi} \sum_{s = -(N-1)}^{N-1} \lambda(s) e^{-is\theta}
+\end{equation*}
+
+Cabe destacar la forma que adopta $\est{h}$ como convoluci\'on del periodograma con la funci\'on
+$W$, que bien puede interpretarse como que esta \'ultima funciona como una funci\'on de pesos
+--exactamente como $\lambda$, pero en el ''dominio de las frecuencias. Por ello, $W$ es
+referida como \textbf{ventana de retrasos}.
+En la tabla \ref{ventanas} hay una lista corta de algunas ventanas propuestas; en la ventana
+(otra) se tienen sus respectivos valres esperados y varianzas.
+
+\begin{table}
+\centering
+\begin{tabular}{c||c|c}
+ & Ventana de retrasos & Ventana en las frecuencias \\
+% & $\lambda(s)$ & $W(\theta)$ \\
+ \hline
+  \hline
+P. truncado & 
+$\displaystyle
+\lambda(s) = \begin{cases}
+1 &\text{, si } \abso{s} \leq M \\
+0 &\text{, otro caso}
+\end{cases}$ &
+$\displaystyle
+W(\theta) = \frac{1}{2\pi} \frac{\SEN{(M+\frac{1}{2})\theta}}{\SEN{\nicefrac{\theta}{2}}}$
+\\
+ \hline
+Bartlet &
+$\displaystyle
+\lambda(s) = \begin{cases}
+1-\nicefrac{\abso{s}}{M} &\text{, si } \abso{s} \leq M \\
+0 &\text{, otro caso}
+\end{cases}$ &
+$\displaystyle
+W(\theta) = \frac{1}{2\pi M} 
+\left( \frac{\SEN{ \nicefrac{M\theta}{2}}}{\SEN{\nicefrac{\theta}{2}}} \right)^{2}$
+\\
+ \hline
+Daniell &
+$\displaystyle
+\lambda(s) = \frac{\SEN{\nicefrac{\pi s}{M}}}{\nicefrac{\pi s}{M}}$ &
+$\displaystyle
+W(\theta) = \begin{cases}
+\nicefrac{M}{2\pi} &\text{, si } \abso{\theta} \leq \nicefrac{\pi}{M} \\
+0 &\text{, otro caso}
+\end{cases}$
+\end{tabular}
+\caption{Ejemplos de algunas ventanas que suavizan el periodograma, formando
+un estimador consistente de la SDF}
+\label{ventanas}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Representaci\'on espectral}
+
+\begin{thrm}
+Sea $\{X(t)\}$ un proceso estoc\'astico a tiempo continuo d\'ebilmente estacionario
+de media 0
+y estoc\'asticamente continuo --en el 
+sentido de media cuadr\'atica. Entonces, existe un proceso ortogonal $\{Z(t)\}$ tal que, para 
+todo tiempo $t$ admisible, se puede escribir\footnote{La integral se encuentra definida en el
+sentido de media cuadr\'atica.}
+\begin{equation*}
+X(t) = \intR e^{i t \omega} dZ(\omega)
+\end{equation*}
+Donde el proceso $\{Z(t)\}$ tiene las siguientes propiedades para todo $\omega$
+\begin{itemize}
+\item $\E{dZ(\omega)} = 0$
+\item $\E{\abso{dZ(\omega)}^{2}} = dH(\omega)$
+\item $\Cov{dZ(\omega),dZ(\omega^{\prime})} = 0 \Leftrightarrow \omega \neq \omega^{\prime}$
+\end{itemize}
+Donde $dH(\omega)$ es el espectro integrado no-normalizado de $\{X(t)\}$
+\end{thrm}
 
 %Quiero y me siento obligado a citar la excelente discuci\'on
 %filos\'ofica
@@ -797,134 +974,128 @@ esta funci\'on se conoce como \textit{periodograma}.
 %frase a favor es ''El supuesto de estacionariedad ha sido v\'alido previamente debido a la corta
 %duraci\'on de las series y la baja capacidad de c\'omputo''.
 
-\begin{equation*}
-X(t) = \int_{\Lambda} A(\omega) e^{i 2\pi \omega t} dZ(\omega)
-\end{equation*}
-
-Donde el proceso $\{ Z(\omega) \}$ tiene incrementos ortogonales, es decir 
-\begin{equation*}
-\Cov{dZ(\omega_1,dZ(\omega_2))} = \delta(\omega_1,\omega_1) d\omega
-\end{equation*}
-Con $\delta$ la funci\'on delta de Dirac. Cabe mencionar que es suficiente si los incrementos
-son independientes, pero se puede debilitar ese requerimiento; incluso es de notarse que no
-se exige que el proceso sea al menos continuo --en el sentido estoc\'astico.
-
-El espectro de potencia de $\{X(t)\}$ se define como
-
-\begin{equation*}
-f(\omega) = \abso{A(\omega)}^{2}
-\end{equation*}
-
-Citar\'e de Adak \cite{Adak98} una tabla donde compara varias definiciones de espectro, para
-procesos no-estacionarios.
-
-\begin{figure}
-\centering
-\includegraphics[width=0.9\textwidth]{tabla.png} 
-\end{figure}
-
-%Dos identidades muy importantes para estimar el espectro son la \textit{equivalencia} entre
-%el espectro y la funci\'on de autocorrelaci\'on
-
 %\begin{equation*}
-%f(\omega ) = \int R_X(\tau ) e^{-i 2\pi \omega t} d\tau
+%X(t) = \int_{\Lambda} A(\omega) e^{i 2\pi \omega t} dZ(\omega)
 %\end{equation*}
 %
-%Donde funci\'on de autocorrelaci\'on se ha definido como
-%
+%Donde el proceso $\{ Z(\omega) \}$ tiene incrementos ortogonales, es decir 
 %\begin{equation*}
-%R_X(\tau) = E\left[ X(t) X(t+\tau) \right] = \int_0^{\infty} X(t)X(t+\tau) dt
+%\Cov{dZ(\omega_1,dZ(\omega_2))} = \delta(\omega_1,\omega_1) d\omega
 %\end{equation*}
-%
-%[la demostracion es corta, batsa con reescribir una composicion de integrales como convolucion,
-%la incluire mas tarde]
-%
-%Por otro lado, se tiene la Identidad de Parseval
-%
-%\begin{equation*}
-%\int X^{2}(t) dt = \int f(\omega) d\omega
-%\end{equation*}
+%Con $\delta$ la funci\'on delta de Dirac. Cabe mencionar que es suficiente si los incrementos
+%son independientes, pero se puede debilitar ese requerimiento; incluso es de notarse que no
+%se exige que el proceso sea al menos continuo --en el sentido estoc\'astico.
 
-%[esta demostracion se basa en la convergencia dominada del modulo de la integral de $X^{2}$ por
-%la integral del modulo (...), la incluire mas tarde]
+%El espectro de potencia de $\{X(t)\}$ se define como
+%
+%\begin{equation*}
+%f(\omega) = \abso{A(\omega)}^{2}
+%\end{equation*}
+%
+%Citar\'e de Adak \cite{Adak98} una tabla donde compara varias definiciones de espectro, para
+%procesos no-estacionarios.
+
+%\begin{figure}
+%\centering
+%\includegraphics[width=0.9\textwidth]{tabla.png} 
+%\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\subsection{Test Priestley-Subba Rao (PSR)}
+%
+%%(seccion en proceso de re-redaccion)
+%
+%A muy grosso modo, el test PSR estima localmente  el espectro evolutivo
+% y revisa si estad\'isticamente
+%cambia en el tiempo.
+%
+%Para ello, usa un estimador para la funci\'on de densidad espectral
+%que es aproximadamente (asint\'oticamente) insesgado y cuya varianza est\'a
+%determinada aproximadamente. La estimaci\'on se lleva a cabo en puntos en el tiempo y
+%la frecuencia tales que en conjunto son aproximadamente no-correlacionados.
+%Se aplica logaritmo para que la varianza de todos los estimadores sea aproximadamente
+%la misma (el logaritmo ayuda a), amen que los errores conjuntos tengan una
+%distribuci\'on cercana a una multinormal con correlaci\'on cero.
+%Finalmente se aplica una prueba ANOVA de varianza conocida.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Test Priestley-Subba Rao (PSR)}
-
-%(seccion en proceso de re-redaccion)
-
-A muy grosso modo, el test PSR estima localmente  el espectro evolutivo
- y revisa si estad\'isticamente
-cambia en el tiempo.
-
-Para ello, usa un estimador para la funci\'on de densidad espectral
-que es aproximadamente (asint\'oticamente) insesgado y cuya varianza est\'a
-determinada aproximadamente. La estimaci\'on se lleva a cabo en puntos en el tiempo y
-la frecuencia tales que en conjunto son aproximadamente no-correlacionados.
-Se aplica logaritmo para que la varianza de todos los estimadores sea aproximadamente
-la misma (el logaritmo ayuda a), amen que los errores conjuntos tengan una
-distribuci\'on cercana a una multinormal con correlaci\'on cero.
-Finalmente se aplica una prueba ANOVA de varianza conocida.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\subsection{El espectro evolutivo}
-
-Consid\'erese un proceso estoc\'astico a tiempo continuo $\{X(t)\}$, tal que
-$E[X(t)]=0$ y $E\left[ X^{2}(t)\right] < \infty$ para todo $t$. Es decir que su media es constante
-y sus segundos momentos est\'an bien definidos, aunque 
-estos \'ultimos pueden cambiar con el tiempo.
-
-Por el momento se supondr\'a que acepta una representaci\'on de la forma
-
-\begin{equation*}
-X(t) = \int_{-\pi}^{\pi} A(t ; \omega) e^{i\omega t} \, d Z(\omega)
-\end{equation*}
-
-Con $\{ Z(\omega) \}$ una familia de procesos ortogonales\footnote{De nuevo, esto implica que
-$\Cov{dZ(\omega_1,dZ(\omega_2))} = \delta(\omega_1,\omega_1) d\omega$, una condici\'on m\'as
-d\'ebil que la independencia} tales que
-
-\begin{itemize}
-\item $E \left[\abso{ dZ(\omega)}^{2} \right] = d\omega$
-\item Para cada $t$ el m\'aximo de $A(t;\cdot)$ se encuentra en 0
-\end{itemize}
-
-Esta representaci\'on es an\'aloga a la representaci\'on de Cram\'er para un proceso
-estacionario, salvo que se permite que la funci\'on $A$ cambie con el tiempo.
-Siguiendo la analog\'ia, se define 
-el \textbf{espectro evolutivo} de $\{X(t)\}$, con respecto a la la familia
-$\mathcal{F} = \{ e^{i\omega t} A(t; \omega) \}$
- como
- 
-\begin{equation*}
-d F(\omega;t) = \lvert A(t;\omega) \lvert^{2} d\omega
-\end{equation*}
-
-Ahora bien, si se supone que $\{X(t)\}$ es estoc\'asticametne diferenciable, entonces
-se puede definir una \textbf{funci\'on de densidad espectral}
-
-\begin{equation*}
-f(t;\omega) = \lvert A(t;\omega) \lvert^{2}
-\end{equation*}
-
-Cabe destaca que si la funci\'on $A(t;\omega)$ fuera constante con respecto a $t$, se obtendr\'ia
-un proceso estacionario de orden dos tal cual fue descrito en la secci\'on anterior.
+%\subsection{El espectro evolutivo}
+%
+%Consid\'erese un proceso estoc\'astico a tiempo continuo $\{X(t)\}$, tal que
+%$E[X(t)]=0$ y $E\left[ X^{2}(t)\right] < \infty$ para todo $t$. Es decir que su media es constante
+%y sus segundos momentos est\'an bien definidos, aunque 
+%estos \'ultimos pueden cambiar con el tiempo.
+%
+%Por el momento se supondr\'a que acepta una representaci\'on de la forma
+%
+%\begin{equation*}
+%X(t) = \int_{-\pi}^{\pi} A(t ; \omega) e^{i\omega t} \, d Z(\omega)
+%\end{equation*}
+%
+%Con $\{ Z(\omega) \}$ una familia de procesos ortogonales\footnote{De nuevo, esto implica que
+%$\Cov{dZ(\omega_1,dZ(\omega_2))} = \delta(\omega_1,\omega_1) d\omega$, una condici\'on m\'as
+%d\'ebil que la independencia} tales que
+%
+%\begin{itemize}
+%\item $E \left[\abso{ dZ(\omega)}^{2} \right] = d\omega$
+%\item Para cada $t$ el m\'aximo de $A(t;\cdot)$ se encuentra en 0
+%\end{itemize}
+%
+%Esta representaci\'on es an\'aloga a la representaci\'on de Cram\'er para un proceso
+%estacionario, salvo que se permite que la funci\'on $A$ cambie con el tiempo.
+%Siguiendo la analog\'ia, se define 
+%el \textbf{espectro evolutivo} de $\{X(t)\}$, con respecto a la la familia
+%$\mathcal{F} = \{ e^{i\omega t} A(t; \omega) \}$
+% como
+% 
+%\begin{equation*}
+%d F(\omega;t) = \lvert A(t;\omega) \lvert^{2} d\omega
+%\end{equation*}
+%
+%Ahora bien, si se supone que $\{X(t)\}$ es estoc\'asticametne diferenciable, entonces
+%se puede definir una \textbf{funci\'on de densidad espectral}
+%
+%\begin{equation*}
+%f(t;\omega) = \lvert A(t;\omega) \lvert^{2}
+%\end{equation*}
+%
+%Cabe destaca que si la funci\'on $A(t;\omega)$ fuera constante con respecto a $t$, se obtendr\'ia
+%un proceso estacionario de orden dos tal cual fue descrito en la secci\'on anterior.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{El estimador de doble ventana}
+\subsection{El test PSR}
 
-Esta t\'ecnica fue presentada por Priestley en 1965. Muy a grosso modo, es un estimador de la
-funci\'on de densidad espectral con ciertas propiedades y que parte de la idea que un proceso
-no-estacionario puede verse localmente como un proceso lineal generalizado.
+Esta t\'ecnica fue presentada por Priestley en 1965 \cite{Priestley69}; 
+muy grosso modo, consiste en estimar localmente  el espectro
+del proceso en cuesti\'on y revisa si se puede rechazar la hip\'otesis de que no
+var\'ia en el tiempo.
+%
+%Para ello, usa un estimador para la funci\'on de densidad espectral
+%que es aproximadamente (asint\'oticamente) insesgado y cuya varianza est\'a
+%determinada aproximadamente. La estimaci\'on se lleva a cabo en puntos en el tiempo y
+%la frecuencia tales que en conjunto son aproximadamente no-correlacionados.
+%Se aplica logaritmo para que la varianza de todos los estimadores sea aproximadamente
+%la misma (el logaritmo ayuda a), amen que los errores conjuntos tengan una
+%distribuci\'on cercana a una multinormal con correlaci\'on cero.
+%Finalmente se aplica una prueba ANOVA de varianza conocida.
+%Muy a grosso modo, es un estimador de la
+%funci\'on de densidad espectral con ciertas propiedades y que parte de la idea que un proceso
+%no-estacionario puede verse localmente como un proceso lineal generalizado.
+Muy a grosso modo, supone que localmente todo proceso estoc\'astico a tiempo continuo de varianza 
+finita puede verse como un proceso lineal generalizado que es d\'ebilmente estacionario;
+luego se pueden usar las ventanas espectrales y los filtros LIS sobre una porci\'on 
+de tiempo ''peque\~na'' para estimar el espectro localmente.
 
-Como meta-nota, yo empec\'e a estudiar este tipo de estimadores porque es \textit{el qeu ven\'ia
-con el m\'etodo} ya que el test esta implementado en R; desde un punto de vista de difusi\'on,
-es una ventaja usar un m\'etodo implementado en un software gratuito y de c\'odigo abierto --y
-no una mera excusa para no explorar otros m\'etodos. En todo caso, he revisado varios otros test,
-pero de momento solo este ha arrojado suficientes resultados para llenar un informe.
+
+
+%Como meta-nota, yo empec\'e a estudiar este tipo de estimadores porque es \textit{el qeu ven\'ia
+%con el m\'etodo} ya que el test esta implementado en R; desde un punto de vista de difusi\'on,
+%es una ventaja usar un m\'etodo implementado en un software gratuito y de c\'odigo abierto --y
+%no una mera excusa para no explorar otros m\'etodos. En todo caso, he revisado varios otros test,
+%pero de momento solo este ha arrojado suficientes resultados para llenar un informe.
 
 %{Estimador de doble ventana (Priestley, 1965 \& 1966)}
 Para construir el estimador se reuieren dos funciones, $g$ y $w_T$, que servir\'an como ventanas
@@ -993,39 +1164,40 @@ y las frecuencias para la serie.
 
 ---
 
-Ahora bien, se toma una segunda ventana $W_\tau$ con las siguientes
-restricciones para
-su funci\'on de respuesta ante frecuencia $w_\tau$
+Ahora bien, se toma una funci\'on $W_\tau$ que cubre el papel de ventana de retrasos,
+con su respectiva ventana espectrasl $w_\tau$; se piden las siguientes propiedades
 
 \begin{itemize}
 \item $w_{\tau}(t) \geq 0$ para cualesquiera $t$, $\tau$
 \item $w_{\tau}(t) \rightarrow 0$ cuando $\lvert t \lvert \rightarrow \infty$, para todo $\tau$
 \item $\displaystyle \int_{-\infty}^{\infty} w_{\tau}(t) dt = 1$ para todo $\tau$
 \item $\displaystyle \int_{-\infty}^{\infty} \left( w_{\tau}(t) \right)^{2} dt < \infty$ para todo $\tau$
-\item Existe una constante $C$ tal que  [T est\'a relacionado con el 'tiempo 0', pero para
-tiempos de muestreo grandes se puede reemplazar por $-\infty$ EXCEPTO cerca del inicio y el final dle muestreo]
-$$\lim_{\tau\rightarrow\infty} \left[ \tau \int_{t-T}^{t} \lvert W_{\tau}(\lambda) \lvert^{2} d\lambda \right] = C$$
+\item $\exists C$ tal que  
+$\displaystyle \lim_{\tau\rightarrow\infty} \tau \int_{-\infty}^{t} \abso{ W_{\tau}(\lambda) }^{2} d\lambda = C$
 \end{itemize}
-
+%[T est\'a relacionado con el 'tiempo 0', pero para
+%tiempos de muestreo grandes se puede reemplazar por $-\infty$ EXCEPTO cerca del inicio y el final dle muestreo]
+%$$\lim_{\tau\rightarrow\infty} \left[ \tau \int_{t-T}^{t} \lvert W_{\tau}(\lambda) \lvert^{2} d\lambda \right] = C$$
 %Ahora, si se define 
 %$\displaystyle W_{T'}(\lambda) = \int_{-\infty}^{\infty} e^{-i\lambda t}w_{T'}(t) dt $
+%[posteriormente annadire mas detalles sobre el papel que juega el par $w_\tau$, $W_\tau$]
 
-[posteriormente annadire mas detalles sobre el papel que juega el par $w_\tau$, $W_\tau$]
+%Como ejemplo, se puede tomar la siguiente funci\'on llamada \textbf{ventana de Daniell}
 
-Como ejemplo, se puede tomar la siguiente funci\'on llamada \textbf{ventana de Daniell}
+%\begin{equation*}
+%W_\tau (t) = 
+%\begin{cases}
+%{1 \big{/} \tau} & \text{ , } -\nicefrac{1}{2} \tau \leq t \leq \nicefrac{1}{2} \tau
+%\\
+%0 & \text{ , otro caso}
+%\end{cases}
+%\end{equation*}
+%
+%La cual se puede demostrar [tengo en algun lado esa demostracion]
 
-\begin{equation*}
-W_\tau (t) = 
-\begin{cases}
-{1 \big{/} \tau} & \text{ , } -\nicefrac{1}{2} \tau \leq t \leq \nicefrac{1}{2} \tau
-\\
-0 & \text{ , otro caso}
-\end{cases}
-\end{equation*}
+Por ejemplo, se puede calcular que para la ventana de Daniell
 
-La cual se puede demostrar [tengo en algun lado esa demostracion]
-
-$$\lim_{\tau\rightarrow\infty} \left[ \tau \int_{t-T}^{t} \lvert W_{\tau}(\lambda) \lvert^{2} d\lambda \right] = 2\pi$$
+$$\lim_{\tau\rightarrow\infty} \tau \int_{t-T}^{t} \lvert W_{\tau}(\lambda) \lvert^{2} d\lambda = 2\pi$$
 
 -----
 
@@ -1102,14 +1274,14 @@ sobre si los $\varepsilon_{i,j}$ son estad\'isticamente negligibles en total, so
 las frecuencias. Para el fin de estudiar la estacionariedad, basta con que sean estad\'iticamente
 no-negligibles sobre el tiempo.
 
-[Por supuesto que los otros dos test tienen interpretacion: la negigibilidad total da informacion
-sobre las marginales, y si estas pueden ser estimadas adecuadamente usando el estimador, si se
-combina con negativo para no-estacionariedad es \textbf{efectivamente positivo} para estacionariedad
-y toma una forma muy particular (proceso uniformemente modulado). Si sobre las frecuencias resulta
-significativo (no-negligible) da informacion sobre la 'aeatoridad total' del proceso.
-De tener tiempo, lo incluire como anexo, ya que ninguna de estas caracteristicas es estudiada :( ]
+%[Por supuesto que los otros dos test tienen interpretacion: la negigibilidad total da informacion
+%sobre las marginales, y si estas pueden ser estimadas adecuadamente usando el estimador, si se
+%combina con negativo para no-estacionariedad es \textbf{efectivamente positivo} para estacionariedad
+%y toma una forma muy particular (proceso uniformemente modulado). Si sobre las frecuencias resulta
+%significativo (no-negligible) da informacion sobre la 'aeatoridad total' del proceso.
+%De tener tiempo, lo incluire como anexo, ya que ninguna de estas caracteristicas es estudiada :( ]
 
-Lo detalles de la implementaci\'on en R estar\'an en la secci\'on de resultados.
+%Lo detalles de la implementaci\'on en R estar\'an en la secci\'on de resultados.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

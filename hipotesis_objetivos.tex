@@ -3,37 +3,85 @@
 
 %\chapter{Planteamiento del problema}
 
-La idea que una serie de tiempo puede no ser estacionaria, ni a\'un en un sentido d\'ebil, 
-se puede rastrear en el tiempo a los a\~nos 50’s \cite{Page52,Silverman57}. 
-Sin embargo, estas interrogantes en el contexto de series electrofisiol\'ogicas --en particular 
-EEG-- no se ven claramente reflejados sino hasta los años 70’s 
-\cite{Kawabata73,McEwen75,Cohen77,Sugimoto78}.
-Esta brecha temporal se debe, quiz\'a, a la aparici\'on de computadoras digitales de bajo costo, 
-gracias a las cuales es posible analizar mayores volúmenes de datos; m\'as a\'un, la escasa 
-capacidad de c\'omputo promovi\'o la hip\'otesis de que las series de tiempo 
-''cortas'' son estacionarias --al menos d\'ebilmente--, un hecho que ha sido 
-rebatido \cite{Melard89,Adak98,Klonowski09}.
+El presente trabajo parte de cuestionar si un determinado sistema --registros de PSG en adultos 
+mayores-- tienen la propiedad de estacionariedad, un supuesto b\'asico en series de tiempo y que 
+regularmente se acepta o rechaza sin mayor formalidad.
+%: ¿una serie de tiempo tal puede ser una
+%realizaci\'on de un proceso estoc\'astico estacionario?
+La motivaci\'on principal para estudiar esta caracter\'istica es un trabajo previo [el de Valeria,
+no se c\'omo citarlo] en el cual se describen diferencias significaivas entre registros PSG de
+adultos mayores con y sin PDC; las diferencias observadas son en cuanto al exponente de Hurst 
+estimado, $H_\alpha$.
+
+La cantidad $H_\alpha$, a veces referida como el ''color'' de la se\~nal, 
+mide la fractalidad\footnote{Este concepto no se
+describir\'a en este trabajo, para m\'as informaci\'on ver el trabajo de Valeria} 
+de un proceso estoc\'astico, y es una caracter\'istica generalizada desde sistemas ca\'oticos.
+En aqu\'el trabajo, se reporta que
+para registros de PSG en adultos mayores con PSG la cantidad $H_\alpha$ es menos, m\'as
+cercana a la misma cantidad calculada para procesos ruido blanco.
+Luego entonces, cabe preguntarse m\'as sobre la naturaleza de las diferencias detectadas en 
+el trabajo de Valeria: los registros de PSG en adultos mayores con PDC ¿son ''menos complejos'' o 
+s\'olo ''tienen otro color''?
+De manera concreta, en este trabajo se ha hipotetizado sobre la primera opci\'on. 
+
+Formalmente se inicia
+este trabajo bajo el supuesto de que durante el deterioro cognitivo, la actividad cerebral
+del sujeto tiene caracter\'isticas diferentes; 
+dada la evidencia del estudio referido, se plantea la hip\'otesis de que este cambio puede ser
+una ''menor complejidad'' en cuanto a sus propiedades estad\'isticas 
+dependientes del tiempo, y que quiz\'a el proceso es m\'as parecido a un proceso ruido blanco.
+La forma que se ha elegido para comprobar esta hip\'otesis es midiendo la ''presencia'' de
+estacionariedad d\'ebil en estos registros --como ya se ha mencionado.
+
+%%\subsubsection{Antecedentes hist\'oricos}
+%%
+%%El registro sistem\'atico de la actividad el\'ectrica del cerebro se considera 
+%%iniciado por Hans Berger \cite{Berger29}, y entonces la electrofisiolog\'ia tiene una larga 
+%%tradici\'on hist\'orica.
+%%Por otro lado, la idea que una se\~nal ''ruido'' puede no ser regular --en particular, 
+%%estacionaria--
+%%%, ni a\'un en un sentido d\'ebil, 
+%%se puede rastrear en el tiempo a los a\~nos 50’s \cite{Page52,Silverman57}. 
+%%Sin embargo, las interrogantes sobre la regularidad de las se\~nales electrofisiol\'ogicas
+%%no aparecen claramente sino hasta los a\~nos 70's
+%%%Sin embargo, estas interrogantes en el contexto de se\~nales electrofisiol\'ogicas --en particular 
+%%%EEG-- no se ven claramente reflejados sino hasta los años 70’s 
+%%\cite{Kawabata73,McEwen75,Cohen77,Sugimoto78}.
+%%Esta brecha temporal se debe, quiz\'a, a la aparici\'on de computadoras digitales de bajo costo, 
+%%gracias a las cuales es posible analizar mayores vol\'umenes de datos.
+%%%; m\'as a\'un, la escasa 
+%%%capacidad de c\'omputo promovi\'o la hip\'otesis de que las series de tiempo 
+%%%''cortas'' son estacionarias --al menos d\'ebilmente--, un hecho que ha sido 
+%%%rebatido \cite{Melard89,Adak98,Klonowski09}.
+%%M\'as a\'un, la escasa capacidad de c\'omputo previa a estos estudios promovi\'o indirectamente
+%%la hip\'otesis de que \textbf{toda} serie de tiempo suficientemente corta pod\'ia entenderse
+%%como generada por un proceso estoc\'astico al menos debilmente estacionario; 
+%%en estudios de esos a\~nos
+%%pueden encontrarse
+%%cotas informales sobre la duraci\'on m\'axima de estacionariedad garantizada, aunque este efecto
+%%se considera rebatido \cite{Melard89,Adak98,Klonowski09}.
 
 %Recientemente rige un dogma según el cual las series biológicas son –casi definición– complejas: no lineales, no estacionarias y sin equilibrio por naturaleza. Una vez se ha aceptado que las señales biológicas son naturalmente complejas, este trabajo retoma una pregunta en voga: ¿Qué implicaciones tiene haber captado una señal biológica que no es compleja? En particular, se sospecha que 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{quotation}
-Usualmente se asume que las series fisiol\'ogicas son complejas:
-no-estacionarias, no-lineales y no en equilibrio por naturaleza. Sin embargo, estas propiedades
-no se suelen probar formalmente.
-\end{quotation}
+%%\begin{quotation}
+%%Usualmente se asume que las series fisiol\'ogicas son complejas:
+%%no-estacionarias, no-lineales y no en equilibrio por naturaleza. Sin embargo, estas propiedades
+%%no se suelen probar formalmente.
+%%\end{quotation}
 
-%En los ochentas, antes de que las computadoras personales fueran usadas en la medicina, las
-%de\~nales de EEG eran registradas en una tira de papel. El registro se llevaba a cabo
-%en l\'ineas separadas entre s\'i por 3 cm aproximadamente, mientras que el papel se mov\'ia a 
-%raz\'on de 1.5, 3 o 6 cm/s seg\'un el aparato. Un m\'edico dedicado a interpetar el EEG pod\'ia
-%observar f\'acilmente la frecuancia de las ondas al contar el n\'umero de espigas dibujadas
-%en un segundo, si hab\'ia entre 2 y 30 de ellas entre dos l\'ineas verticales. De estos registros
-%en papel vienen los nombres cl\'asicos de las bandas, en especial las $\alpha$ y $\beta$; si las
-%ondas ten\'ian una frecuencia muy baja no podr\'ian distinguirse por el ojo, 
-%mientras que si su frecuencia era muy alta el aparato las registrar\'ia como un bloque 
-%indistinguible\cite{Klonowski09}.
+%%%En los ochentas, antes de que las computadoras personales fueran usadas en la medicina, las
+%%%de\~nales de EEG eran registradas en una tira de papel. El registro se llevaba a cabo
+%%%en l\'ineas separadas entre s\'i por 3 cm aproximadamente, mientras que el papel se mov\'ia a 
+%%%raz\'on de 1.5, 3 o 6 cm/s seg\'un el aparato. Un m\'edico dedicado a interpetar el EEG pod\'ia
+%%%observar f\'acilmente la frecuancia de las ondas al contar el n\'umero de espigas dibujadas
+%%%en un segundo, si hab\'ia entre 2 y 30 de ellas entre dos l\'ineas verticales. De estos registros
+%%%en papel vienen los nombres cl\'asicos de las bandas, en especial las $\alpha$ y $\beta$; si las
+%%%ondas ten\'ian una frecuencia muy baja no podr\'ian distinguirse por el ojo, 
+%%%mientras que si su frecuencia era muy alta el aparato las registrar\'ia como un bloque 
+%%%indistinguible\cite{Klonowski09}.
 
 %Esta secci\'on debiera partir de los comentarios expresados 
 %en 'Everything you wanted to ask about EEG (..)'

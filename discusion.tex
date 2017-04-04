@@ -39,20 +39,77 @@ se acent\'ua m\'as en individuos con problemas adicionales.
 
 \subsubsection{La inclusi\'on de sujetos}
 
-Con respecto a los sujetos con problemas adicionales, cabe mencionar el caso de FGH
+%Con respecto a los sujetos con problemas adicionales, cabe mencionar el caso de FGH
+
+Durante el trabajo se menciona constantemente a tres sujetos (FGH,MGG,EMT) que fueron considerados
+pero que no son considerados dentro de las estad\'isticas; 
+como se mencion\'o anteriormente,
+cada uno de ellos fue exclu\'ido del
+trabajo original por diversos motivos, pero dieron su consentimiento informado para la etapa
+de registro de sue\~no debido a lo cual se decidi\'o analizar el efecto de su inclusi\'on dentro 
+de los estad\'isticas.
+
+El caso m\'as notorio es el sujeto FGH, quien padece de par\'alisis facial, problemas 
+no especificados en la 
+hipotiroides, en la columna y tiene cataratas. Seg\'un se reporta en el trabajo original,
+el sujeto no inform\'o de la par\'alsis facial sino hasta despu\'es del registro de PSG, por lo
+que su exlusi\'on se efectu\'o a posteriori.
+Si bien la metodolog\'ia presentada aqu\'i no tiene como objetivo el diagn\'ostico
+de tal padecimiento --y bajo el etendido que hay m\'etodos menos invasivos para ello--, los
+registros confirman picos inusuales 
 
 
-\subsubsection{Estimadores espectrales de ventana}
+uashdflhasjkdfhlkasjdhflkajdhlkadfkasld+
+
+
+\begin{comment}
+\subsubsection{Otros estimadores espectrales}
+
+Cabe mencionar que una motivaci\'on muy fuerte para utilizar el test PSR para detectar 
+estacionariedad d\'ebil, tiene su origen en el objetivo informal de
+''usar un m\'etodo previamente validado, f\'acil de
+usar e interppretar, y que se encuentre implementado en software de f\'acil acceso''.
+Este anhelo parece cumplido usando la functi\'on \texttt{stationarity} del paquete
+\texttt{fractal}, en el software estad\'istico multiplataforma, gratuito y de c\'odigo abierto 
+\texttt{R} --al menos en el \'ultimo punto.
+
+Sin embargo, dado que la prueba PSR fue mostrada por primera vez en 1969 \cite{Priestley69}, es
+intuitivo que debieran existir enfoques ''m\'as actuales''. En ese sentido
+se puede hablar, por ejemplo, de la estimaci\'on del espectro que en este trabajo se realiz\'o a
+trav\'es del estimador de doble ventana; un enfoque m\'as moderno que
+cabe destacar
+con mucho \'enfasis es
+la familia de estimadores que satisfacen una serie depropiedades descritas por Cohen 
+\cite{Cohen89} y que son referidos
+como \textbf{la clase de Cohen}.
+Esta clase puede ser interpretada como una ''suavizaci\'on'' del espectrograma, de forma similar al
+uso de la ventana espectral; su uso parece m\'as adecuado para 
+funciones 
+deterministas cuyo espectro cambia en el tiempo, y se ha generalizado su uso para procesos 
+d\'ebilmente estacionarios. 
+El autor desconoce si existe alguna generalizaci\'on
+para espectros de procesos estoc\'asticos.
+%, pero se pueden exhibir trabajos donde se usan para
+%calcular el espectro de realizaciones de procesos que presuponene como aleatorios [citar].
+M\'as a\'un, un enfoque m\'as reciente se basa en la definici\'on de estacionariedad local
+
+\end{comment}
 
 \subsubsection{Otros usos para las t\'ecnicas utilizadas}
 
-
-Un primer tratamiento cualitativo que se dio a los resultados obtenidos del test PSR, es su
-disposici\'on gr\'afica.
+Como una etapa exploratoria de este trabajo, se dio un
+%Un primer 
+tratamiento cualitativo a los resultados obtenidos del test PSR
+% es su
+%disposici\'on gr\'afica.
+grafic\'andolos de varias formas distintas; cabe destacar una de ellas que pudiera resultar
+\'util pero que no hubo aportado suficiente informaci\'on clara sobre la hip\'otesis
+principal de este trabajo.
 %Una vez se hubo realizado el test para todas las \'epocas consideradas, se dispuso de los 
 %resultados de manera gr\'afica  
 %como se muestra en la figura \ref{ejemplo1}.
-Se coloc\'o en l\'inea horizontal un cuadro blanco por cada
+En esta disposici\'on gr\'afica,
+se coloc\'o en l\'inea horizontal un cuadro blanco por cada
 \'epoca PE (negro para \'epocas no-estacionarias);
 % seg\'un el 
 %el segmento en cuesti\'on halla sido clasi
@@ -61,8 +118,8 @@ Se coloc\'o en l\'inea horizontal un cuadro blanco por cada
 posteriormente se colocaron verticalmente las
 l\'ineas as\'i obtenidas.
 % de todos los canales.
-Esta disposici\'on gr\'afica pretende ser consistente con las representaciones gr\'aficas
-usuales de EEG.
+%Esta disposici\'on gr\'afica pretende ser consistente con las representaciones gr\'aficas
+%usuales de EEG.
 %, tomando en cuanta una escala m\'as amplia de tiempo gracias a que por
 %cada \'epoca s\'olo se ha obtenido un dato.
 Puede verse en la figura \ref{ejemplo1} un ejemplo de esta disposici\'on gr\'afica, mientras
@@ -87,8 +144,8 @@ claros en el tiempo, \'estos no se pueden cuantificar de una manera obvia y se d
 comparaci\'on entre sujetos, raz\'on por la cual se omiti\'on del cuerpo principal del trabajo. 
 %Se han inclu\'ido estos resultados porque sus caracter\'isticas 
 %sugieren una posible utilizaci\'on para otros fines --en alg\'un trabajo futuro.
-Sin embargo, dentro de un mismo sujeto parecen visibles diferencias cualitativas
-entre el sue\~no MOR y el resto del sue\~no.
+Sin embargo, dentro de un mismo sujeto, parecen visibles diferencias cualitativas
+entre el sue\~no MOR y el resto del sue\~no nocturno.
 
 Conviene mencionar que el origen de esta representaci\'on gr\'afica es un intento preeliminar de
 fragmentar los an\'alsis de sue\~no MOR en grupos de \'epocas consecutivas en sue\~no MOR ya que,
@@ -96,7 +153,7 @@ en general, el sue\~no MOR aparece fragmetnado durante el sue\~no nocturno \cite
 La hip\'otesis de que se podr\'ian definir diferencias que involucraran la componente espacial,
 sin embargo, se vio opacada por la dificultad de definir formalmente tales diferencias a modo
 que pudieran compararse entre sujetos.
-La sugerencia recibida consiste en seguir explorando estos patrones en el tiempo, pero quiz\'a
+Una sugerencia recibida consiste en seguir explorando estos patrones en el tiempo, pero quiz\'a
 no con la intenci\'on de detectar deterioro cognitivo sino como apoyo para la identificaci\'on de
 diferentes etapas de sue\~no.
 
@@ -126,6 +183,23 @@ diferentes etapas de sue\~no.
 %    \end{landscape}
 %    \clearpage% Flush page
 %}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Trabajo a futuro}
+
+Como se ha sugerido, los bloques de estacionariedad pueden tener un uso como 
+caracter\'isticas auxiliares
+para la detecci\'on autom\'atica de \'epocas MOR en registros de PSG: el hecho que la proporci\'on
+de \'epocas PE no se vea afectada --estad\'isticamente-- por el PDC del paciente, sugiere que es
+posible obtener resultados independientes de ello. Para ello cabe recordar, como se mencion\'o 
+en la secci\'on de discusi\'on, que sujetos fuera del rango de los grupos considerados puede
+que fallen respecto a esta conclusi\'on: hace falta m\'as indagaci\'on al respecto. 
+
+Por otro lado, el uso de estimadores espectrales de ventana pueden explorarse de manera m\'as
+puntual para detectar estacionariedad sobre componentes de frecuencia espec\'ificas, de modo
+que es en principio posible separar las ondas cerebrales.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
