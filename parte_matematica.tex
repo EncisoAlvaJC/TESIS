@@ -801,7 +801,7 @@ del proceso
 %\end{align*}
 \begin{equation*}
 \rho(\tau)
-= \E{X(n\Delta t)X(n\Delta t + \tau)}
+= \E{X(n\Delta t)X(n\Delta t + \tau)} \text{  ,  } n = 0,\pm 1,\pm 2, \pm 3,\dots
 \end{equation*}
 para $n = 0, 1, 2, \dots, N$ y siempre que $\tau$ sea m\'ultiplo de
 $\Delta t$. Luego, un estimador muy natural para $\rho$ est\'a dado por
@@ -946,7 +946,11 @@ un estimador consistente de la SDF}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Representaci\'on espectral}
+\subsection{Representaci\'on espectral y filtros}
+
+Una consecuencia de los teoremas de Wiener-Khintchine y de Wold, de la que no se hab\'ia hablado
+en este trabajo, es poder caracterizar a los procesos estacionarios a tiempo continuo de cierta
+forma; esta representaci\'on ser\'a auxiliar para estimar la SDF.
 
 \begin{thrm}
 Sea $\{X(t)\}$ un proceso estoc\'astico a tiempo continuo d\'ebilmente estacionario
