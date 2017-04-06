@@ -896,14 +896,15 @@ Cabe destacar la forma que adopta $\est{h}$ como convoluci\'on del periodograma 
 $W$, que bien puede interpretarse como que esta \'ultima funciona como una funci\'on de pesos
 --exactamente como $\lambda$, pero en el ''dominio de las frecuencias. Por ello, $W$ es
 referida como \textbf{ventana de retrasos}.
-En la tabla \ref{ventanas} hay una lista corta de algunas ventanas propuestas; en la ventana
-(otra) se tienen sus respectivos valres esperados y varianzas.
+En la tabla \ref{ventanas} hay una lista corta de algunas ventanas propuestas; en la tabla 
+\ref{ventaneando}
+se tienen sus respectivos valres esperados y varianzas.
 
-\begin{table}
+
+\begin{SidewaysFigure}
 \centering
 \begin{tabular}{c||c|c}
  & Ventana de retrasos & Ventana en las frecuencias \\
-% & $\lambda(s)$ & $W(\theta)$ \\
  \hline
   \hline
 P. truncado & 
@@ -913,7 +914,8 @@ $\displaystyle
 0 &\text{, otro caso}
 \end{cases}$ &
 $\displaystyle
-W(\theta) = \frac{1}{2\pi} \frac{\SEN{(M+\frac{1}{2})\theta}}{\SEN{\nicefrac{\theta}{2}}}$
+W(\theta) = \frac{1}{2\pi} \frac{\SEN{(M+\frac{1}{2})\theta}}{\SEN{\nicefrac{\theta}{2}}}
+=: D_M(\theta)$
 \\
  \hline
 Bartlet &
@@ -924,7 +926,8 @@ $\displaystyle
 \end{cases}$ &
 $\displaystyle
 W(\theta) = \frac{1}{2\pi M} 
-\left( \frac{\SEN{ \nicefrac{M\theta}{2}}}{\SEN{\nicefrac{\theta}{2}}} \right)^{2}$
+\left( \frac{\SEN{ \nicefrac{M\theta}{2}}}{\SEN{\nicefrac{\theta}{2}}} \right)^{2}
+=: F_M(\theta)$
 \\
  \hline
 Daniell &
@@ -935,11 +938,43 @@ W(\theta) = \begin{cases}
 \nicefrac{M}{2\pi} &\text{, si } \abso{\theta} \leq \nicefrac{\pi}{M} \\
 0 &\text{, otro caso}
 \end{cases}$
+\\
+ \hline
+Tukey-Hanning &
+$\displaystyle
+\lambda(s) = \begin{cases}
+\nicefrac{1}{2}\left( 1+ \COS{\nicefrac{\pi s}{M}} \right) &\text{, si } \abso{s} \leq M \\
+0 &\text{, otro caso}
+\end{cases}$ &
+$\displaystyle
+W(\theta) = \frac{1}{4} D_M\left(\theta - \frac{\pi}{M} \right) 
++\frac{1}{2} D_M\left(\theta \right)
+\frac{1}{4} D_M\left(\theta + \frac{\pi}{M} \right)$
+%\\
+% \hline
+%Parzen &
+%$\displaystyle
+%\lambda(s) = \begin{cases}
+%1-6\left( \nicefrac{s}{M} \right)^{2} + 6\left( \nicefrac{\abso{s}}{M} \right)^{3} 
+%&\text{, si } \abso{s} \leq \nicefrac{M}{2} \\
+%2\left( 1 - \nicefrac{\abso{s}}{M} \right)^{3}
+% &\text{, si } \nicefrac{M}{2} \leq \abso{s} \leq M \\
+%0 &\text{, otro caso}
+%\end{cases}$ &
+%$W(\theta) = \frac{3}{8 \pi M^{3}} \left( 
+%\frac{\SEN{\nicefrac{M\theta}{4}}}{\nicefrac{1}{2}\SEN{\nicefrac{\theta}{2}}} 
+%\right)^{4}
+%\left( 1- \nicefrac{2}{3} \SEN{\nicefrac{\theta}{2}}^{2}$
+%\\
+% \hline
+%Bartlet-Priestley
 \end{tabular}
 \caption{Ejemplos de algunas ventanas que suavizan el periodograma, formando
-un estimador consistente de la SDF}
+estimadores consistente de la SDF para el caso de espectro puramente continuo.
+Las funciones $F_M$ y $D_M$ toman los nombres respectivos de \textit{n\'ucelo de Fejer} y
+\textit{N\'ucleo de Dirichlet} de orden $M$}
 \label{ventanas}
-\end{table}
+\end{SidewaysFigure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -970,6 +1005,42 @@ Donde el proceso $\{Z(t)\}$ tiene las siguientes propiedades para todo $\omega$
 \end{itemize}
 Donde $dH(\omega)$ es el espectro integrado no-normalizado de $\{X(t)\}$
 \end{thrm}
+
+Los filtros LTS se introducen por su importancia 
+%hist\'orica 
+para la estimaci\'on espectral
+anal\'ogica tradicional dentro de la teor\'ia de circuitos --aunque en este trabajo se presenta
+una abstracci\'on matem\'atica m\'as pragm\'atica en cuanto a la estimaci\'on de la SDF.
+El nombre proviene de \textit{Linear Time-invariant Systems}, y en sus or\'igenes consiste en
+un circuito conformado por componentes ''lineales'' (resistencias, capacitores, repetidores),
+el cual se alimenta con la se\~nal a estudiar con el objetivo de medir en otro punto del
+circuito la se\~nal resultante; este circuito es referido como \textbf{filtro}.
+
+Bajo las leyes de Kirchoff, el voltaje en todo punto de un ''circuito lineal'' viene dado
+por una ecuaci\'on diferencial lineal de orden finito, lo cual constituye una motivaci\'on
+m\'as clara para los elementos permitidos en ellos. De manera general, y omitiendo detalles,
+la se\~nal que ''sale'' de un filtro es una combinaci\'on lineal de todos los tiempos anteriores;
+%de manera general, 
+saltando algunos pasos m\'as,
+esta caracter\'istica puede expresarse como
+%puede expresarse como
+\begin{equation}
+Y(t) = \intR g(s) X(t-s) ds
+\label{LTS}
+\end{equation}
+
+Donde $g$ es una funci\'on en $L^{2}$ tal que es cero para valores negativos\footnote{Esta
+propiedad se conoce como \textit{f\'isicamente realizable}, y destaca en el dise\~no de 
+filtros con propiedades especificadas}.
+
+De manera pragm\'atica, la introducci\'on sobre los circuitos LTS representa s\'olo un bosquejo,
+y se utilizar\'a la ecuaci\'on \ref{LTS} como definici\'on de los filtros LTS d\'andole
+el nombre de \textit{filtro} a la funci\'on $g$ siempre que est\'e en $L^{2}$.
+Una motivaci\'on para introducir este tipo de funciones es que los modelos est\'andar en 
+series de tiempo (AR, MA, ARMA, ARIMA) pueden ser entendidos en tiempo continuo como un filtro
+LTS aplicado a un proceso ruido blanco --por simplicidad, en este trabajo se entender\'a la integral
+en el sentido de media cuadr\'atica, y por el momento s\'olo ser\'a aplicada a procesos 
+d\'ebilmente estacionarios.
 
 %Quiero y me siento obligado a citar la excelente discuci\'on
 %filos\'ofica
@@ -1070,9 +1141,9 @@ Donde $dH(\omega)$ es el espectro integrado no-normalizado de $\{X(t)\}$
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{El test PSR}
+\subsection{El test de Priestley-Subba Rao}
 
-Esta t\'ecnica fue presentada por Priestley en 1965 \cite{Priestley69}; 
+Esta t\'ecnica fue presentada por Priestley y Subba Rao en 1965 \cite{Priestley69}; 
 muy grosso modo, consiste en estimar localmente  el espectro
 del proceso en cuesti\'on y revisa si se puede rechazar la hip\'otesis de que no
 var\'ia en el tiempo.
@@ -1103,30 +1174,32 @@ de tiempo ''peque\~na'' para estimar el espectro localmente.
 
 %{Estimador de doble ventana (Priestley, 1965 \& 1966)}
 Para construir el estimador se reuieren dos funciones, $g$ y $w_T$, que servir\'an como ventanas
-para extraer informaci\'on local de los datos. Debido a que sus propiedades tienen una interpretaci\'on
-f\'isica desde la teor\'ia de circuitos, absorben su terminolog\'ia
+para extraer informaci\'on local de los datos. 
+%Debido a que sus propiedades tienen una interpretaci\'on
+%f\'isica desde la teor\'ia de circuitos, absorben su terminolog\'ia
 
-\textit{
-nota al pie: deberia incluir una motivacion de estos nombres,
-que en parte tiene relevancia en la interpretacion. Los 
-Linear Invariant Systems (LIS) suponen dependencia lineal
---constante-- respecto a todos los tiempos anteriores; 
-a tiempo continuo son equivalentes a una ecuacion diferencial ordinaria lineal,
-y a su vez a modelos AR. Un modelo fisico para ello son los circuitos RC, que
-fueron usables en radios, y para los cuales las palabras 'filtro' y 'frecuencia'
-tienen una interpretacion clara. Esta terminologia de circuitos electricos tiene sentido
-para mi ya que todos los modelos de neuronas y poblaciones de neuronas que he visto hasta ahora,
-por ejemplo de Ermentrout (falta citar), {Clark98,Priestley81}, PARTEN de considerar
-circuitos equivalentes a los componentes neuronales, lo cual me hace pensar que es buena idea
-mantener esta vision conjunta.
-}
+%\textit{
+%nota al pie: deberia incluir una motivacion de estos nombres,
+%que en parte tiene relevancia en la interpretacion. Los 
+%Linear Invariant Systems (LIS) suponen dependencia lineal
+%--constante-- respecto a todos los tiempos anteriores; 
+%a tiempo continuo son equivalentes a una ecuacion diferencial ordinaria lineal,
+%y a su vez a modelos AR. Un modelo fisico para ello son los circuitos RC, que
+%fueron usables en radios, y para los cuales las palabras 'filtro' y 'frecuencia'
+%tienen una interpretacion clara. Esta terminologia de circuitos electricos tiene sentido
+%para mi ya que todos los modelos de neuronas y poblaciones de neuronas que he visto hasta ahora,
+%por ejemplo de Ermentrout (falta citar), {Clark98,Priestley81}, PARTEN de considerar
+%circuitos equivalentes a los componentes neuronales, lo cual me hace pensar que es buena idea
+%mantener esta vision conjunta.
+%}
 
 Primeramente se toma una funci\'on $g(u)$ normalizada, que en conjunto a su
-transformada inversa de Fourier\footnote{Esta funci\'on 
-$\Gamma(u) = \int_{-\infty}^{\infty} g(u) e^{i u \omega} du$
-es referida como
-\textbf{frequency-response function}, nombre tiene un poco de encanto cuando
-$g$ adopta ciertas formas particulares (senos y cosenos).} 
+transformada inversa de Fourier
+%\footnote{Esta funci\'on 
+%$\Gamma(u) = \int_{-\infty}^{\infty} g(u) e^{i u \omega} du$
+%es referida como
+%\textbf{frequency-response function}, nombre tiene un poco de encanto cuando
+%$g$ adopta ciertas formas particulares (senos y cosenos).} 
 $\Gamma$ tiene las siguientes propiedades
 
 \begin{equation*}
@@ -1136,8 +1209,10 @@ $\Gamma$ tiene las siguientes propiedades
 = 1
 \end{equation*}
 
-
-A partir de $g$ y $\Gamma$ se define el filtro $U$ como una convoluci\'on
+Se puede entender a $g$ y $\Gamma$ como un filtro LTS que ''absorbe informaci\'on local''
+en el dominio de las frecuencias.
+%A partir de $g$ y $\Gamma$ 
+Se define el filtro $U$ como una convoluci\'on
 con las realizaciones del proceso
 
 \begin{equation*}
@@ -1203,59 +1278,80 @@ Por ejemplo, se puede calcular que para la ventana de Daniell
 
 $$\lim_{\tau\rightarrow\infty} \tau \int_{t-T}^{t} \lvert W_{\tau}(\lambda) \lvert^{2} d\lambda = 2\pi$$
 
------
+%-----
 
 Se define el estimador para $f_t$, con $0 \leq t \leq T$
 \begin{equation*}
 \widehat{f_t}(\omega) = \int_{t-T}^{t} w_{T'}(u) \lvert U(t-u,\omega) \lvert^{2} du
+\label{estimador_doble_ventana}
 \end{equation*}
 
-Fue demostrado por Priestley (1965, falta citar) que 
+Fue demostrado por Priestley \cite{Priestley69} que los estimadores tipo
+\ref{estimador_doble_ventana} son asint\'oticamente insesgados y consistentes.
 
-[aqui van las expresiones para el valor esperado y la varianza de $\widehat{f_t}$, me falta
-escribirlas]
+%Fue demostrado por Priestley (1965, falta citar) que 
+%
+%[aqui van las expresiones para el valor esperado y la varianza de $\widehat{f_t}$, me falta
+%escribirlas]
 
-Pero, bajo varios supuesto adicionales [que me falta trascribir] se puede aproximar
+%Pero, bajo varios supuesto adicionales [que me falta trascribir] se puede aproximar
+%
+%\begin{equation*}
+%E\left[ \widehat{f_t}(\omega) \right] \sim f_t(\omega)
+%\end{equation*}
+%
+%\begin{equation*}
+%\Var{\widehat{f_t}(\omega)} 
+%\sim 
+%\frac{C}{\tau} \left(f_t(\omega)\right)^{2} \int_{-\infty}^{\infty} \abso{\Gamma(\theta)}^{4} d\theta
+%\end{equation*}
+%
+%Se advierte claramente que $\widehat{f_t}$ es unnestimados aproximadamente insesgado.
+%Para las ventanas de Bartlett y Daniell usadas como ejemplo, se tiene
 
-\begin{equation*}
-E\left[ \widehat{f_t}(\omega) \right] \sim f_t(\omega)
-\end{equation*}
+%\begin{equation*}
+%\Var{\widehat{f_t}} 
+%\sim 
+%\frac{4h}{3\tau} \left(f_t(\omega)\right)^{2}
+%\end{equation*}
 
-\begin{equation*}
-\Var{\widehat{f_t}(\omega)} 
-\sim 
-\frac{C}{\tau} \left(f_t(\omega)\right)^{2} \int_{-\infty}^{\infty} \abso{\Gamma(\theta)}^{4} d\theta
-\end{equation*}
+%Cabe mencionar que hay una expresi\'on expl\'icita para la covarianza de $\widehat{f_t}$
+%en para diferentes puntos en el tiempo y las frecuencias. Lamentablemente,
+%aun me falta escribirlas, son complicadas, y se describen situaciones bajo las
+%cuales estas covarianzas son negligibles; cabe destacar que TODAS las condiciones 
+%que se usan para aproximar son b\'asicamente las mismas, y dependen de que la distancia
+%entre los tiempos y las frecuencias sean tan grandes como sea posible.
 
-Se advierte claramente que $\widehat{f_t}$ es unnestimados aproximadamente insesgado.
-Para las ventanas de Bartlett y Daniell usadas como ejemplo, se tiene
+%------------
+%
+%El \'ultimo ingrediente del test PSR es una transformaci\'on logar\'itmica
+%para regular la varianza, y quiza para cortar los bordes de las aproxiamciones.
 
-\begin{equation*}
-\Var{\widehat{f_t}} 
-\sim 
-\frac{4h}{3\tau} \left(f_t(\omega)\right)^{2}
-\end{equation*}
+Un hecho muy importante para la estimaci\'on de la SDF son los intervalos de confianza para los
+estimadores de ventana, que en este caso resultan tiene la propiedad de depender 
+''multiplicativamente''
+del verdadero espectro. Este hecho tiene una interpretaci\'on com\'un en las ingenier\'ias,
+donde la ''potencia'' de una se\~nal se mide en una escala logar\'itmica respecto a un ''volumen''
+estandarizado --esta unidad logar\'itmica se conoce como decibeles.
+Entonces tiene sentido definir una ''transformaci\'on logar\'itmica'' del estiimador
+definido anteriormente; como el espectro es una funci\'on positiva, y se le aplica una funci\'on
+continua invertible tal que la funci\'on y su inversa son derivables, entonces el nuevo estimador
+es asint\'oticamente insesgado y consistente para el logaritmo del espectro.
+Junto con la discretizaci\'on del estimador, se presentan las propiedades mencionadas con el fin
+de introducir la notaci\'on
 
-Cabe mencionar que hay una expresi\'on expl\'icita para la covarianza de $\widehat{f_t}$
-en para diferentes puntos en el tiempo y las frecuencias. Lamentablemente,
-aun me falta escribirlas, son complicadas, y se describen situaciones bajo las
-cuales estas covarianzas son negligibles; cabe destacar que TODAS las condiciones 
-que se usan para aproximar son b\'asicamente las mismas, y dependen de que la distancia
-entre los tiempos y las frecuencias sean tan grandes como sea posible.
-
-------------
-
-El \'ultimo ingrediente del test PSR es una transformaci\'on logar\'itmica
-para regular la varianza, y quiza para cortar los bordes de las aproxiamciones.
-Se define $Y_{i,j} = \log \left( \widehat{f_{t_i}}(\omega_j) \right)$, con las siguientes propiedades
-
+% estad\'stico discreto que es el logaritmo del primero,
+$$Y_{i,j} = \log \left( \widehat{f_{t_i}}(\omega_j) \right)$$
+%, y que tiene las siguientes propiedades
 \begin{equation*}
 E\left[ Y_{i,j} \right] \thicksim \log \left( f_{t_i}(\omega_j) \right)
 \hspace{4em}
 \text{Var}\left( {Y\left(t,\omega\right)}\right) \thicksim \sigma^{2}
 \end{equation*}
 
-Luego as\'i, puede escribirse aproximadamente que
+%Luego as\'i, puede escribirse aproximadamente que
+La propiedad ''multiplicativa'' para los intervalos de confianza de $\widehat{f_{t_i}}(\omega_j)$
+se traduce de manera muy agradable para $Y_{i,j}$
 
 $$Y_{i,j} = \log \left( f_{t_i}(\omega_j) \right) + \varepsilon_{i,j}$$
 
@@ -1268,10 +1364,12 @@ E\left[ \varepsilon_{i,j} \right] = 0
 $
 
 Priestley cita que con esta informaci\'on incluso se puede considerar que los $\varepsilon_{i,j}$
-siguen una distribuci\'on normal cada uno; Nason (2015, falta citar) comenta que
-este supuesto no tiene por que cumplirse, y que es una popsible fuente de falsos positivos
-para el test. Yo he hecho pruebas de normalidad a los datos, que incluire como anexos
-mas tarde.
+siguen cada uno una distribuci\'on aproximadamente normal; Nason %(2015, falta citar) 
+comenta que
+este supuesto no tiene por que cumplirse, y que es una posible fuente de falsos positivos
+para el test. 
+%Yo he hecho pruebas de normalidad a los datos, que incluire como anexos
+%mas tarde.
 
 El test PSR \textit{per se} son tres test ANOVA --en su versi\'on en la que la varianza es conocida--
 sobre si los $\varepsilon_{i,j}$ son estad\'isticamente negligibles en total, sobre el tiempo y sobre
