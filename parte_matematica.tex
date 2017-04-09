@@ -950,24 +950,40 @@ $\displaystyle
 W(\theta) = \frac{1}{4} D_M\left(\theta - \frac{\pi}{M} \right) 
 +\frac{1}{2} D_M\left(\theta \right)
 \frac{1}{4} D_M\left(\theta + \frac{\pi}{M} \right)$
-%\\
-% \hline
-%Parzen &
+\\
+ \hline
+Parzen &
+$\displaystyle
+\lambda(s) = \begin{cases}
+1-6\left( \nicefrac{s}{M} \right)^{2} + 6\left( \nicefrac{\abso{s}}{M} \right)^{3} 
+&\text{, si } \abso{s} \leq \nicefrac{M}{2} \\
+2\left( 1 - \nicefrac{\abso{s}}{M} \right)^{3}
+ &\text{, si } \nicefrac{M}{2} \leq \abso{s} \leq M \\
+0 &\text{, otro caso}
+\end{cases}$ &
+$\displaystyle
+W(\theta) = \frac{3}{8 \pi M^{3}} \left( 
+\frac{\SEN{\nicefrac{M\theta}{4}}}{\nicefrac{1}{2}\SEN{\nicefrac{\theta}{2}}} 
+\right)^{4}
+\left( 1- \nicefrac{2}{3} \SEN{\nicefrac{\theta}{2}}^{2} \right)$
+\\
+ \hline
+Bartlet-Priestley &
+$\displaystyle
+\lambda(s) = \frac{3M^{2}}{\left(\pi s\right)^{2} }
+\left( \frac{\SEN{\nicefrac{\pi s}{M}}}{\nicefrac{\pi s}{M}} - \COS{\nicefrac{\pi s}{M}}
+\right)
+$ 
 %$\displaystyle
-%\lambda(s) = \begin{cases}
-%1-6\left( \nicefrac{s}{M} \right)^{2} + 6\left( \nicefrac{\abso{s}}{M} \right)^{3} 
-%&\text{, si } \abso{s} \leq \nicefrac{M}{2} \\
-%2\left( 1 - \nicefrac{\abso{s}}{M} \right)^{3}
-% &\text{, si } \nicefrac{M}{2} \leq \abso{s} \leq M \\
-%0 &\text{, otro caso}
-%\end{cases}$ &
-%$W(\theta) = \frac{3}{8 \pi M^{3}} \left( 
-%\frac{\SEN{\nicefrac{M\theta}{4}}}{\nicefrac{1}{2}\SEN{\nicefrac{\theta}{2}}} 
-%\right)^{4}
-%\left( 1- \nicefrac{2}{3} \SEN{\nicefrac{\theta}{2}}^{2}$
-%\\
-% \hline
-%Bartlet-Priestley
+%\lambda(s) = \frac{3M^{2}}{\left(\pi s)^{2}}
+%$ 
+&
+$\displaystyle
+W(\theta) = \begin{cases}
+\frac{3M}{4\pi} \left( 1- \left(\frac{M \theta}{\pi} \right)^{2} \right)
+&\text{, si } \abso{\theta} \leq \nicefrac{\pi}{M} \\
+0 &\text{, otro caso}
+\end{cases}$
 \end{tabular}
 \caption{Ejemplos de algunas ventanas que suavizan el periodograma, formando
 estimadores consistente de la SDF para el caso de espectro puramente continuo.
@@ -975,6 +991,14 @@ Las funciones $F_M$ y $D_M$ toman los nombres respectivos de \textit{n\'ucelo de
 \textit{N\'ucleo de Dirichlet} de orden $M$}
 \label{ventanas}
 \end{SidewaysFigure}
+
+%\begin{table}
+%\centering
+%\begin{tabular}{c||c|c}
+%Ventana & Sesgo & Grados de libertad equivalentes
+%
+%\end{tabular}
+%\end{table}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

@@ -4,18 +4,18 @@
 
 En cada canal que conforma el PSG (EEG, EOG y EMG), 
 cada una de las \'epocas consideradas fue clasificada como 
-''\'Epoca Posiblemente Estacionaria'' (EPE) si no pudo ser rechazado la hip\'otesis de 
-estacionariedad usando el test PSR ($\alpha = 0.05$), mientra que 
+''Posiblemente Estacionaria'' (PE) si no pudo ser rechazado la hip\'otesis de 
+estacionariedad usando el test PSR ($\alpha = 0.05$), mientras que 
 %el rechazo de esta misma 
 %hip\'otesis es argumento ''suficiente'' para afirmar que el segmento de registro en cuenti\'on
 %puede ser clasificado omo no.estacionario.
-fue clasificado como ''No-estacionario'' en caso contrario. Variar el valor cr\'itico
-para la clasificaci\'on no pareci\'o generar diferencias significativas.
-
-La cantidad de \'epocas que no fueron para las cuales no es posible rechazar la hip\'otesis de
-estacionariedad ($\alpha=0.05$)
-clasificadas como ''Posiblemente Estacionarias'' (PE). 
-La cantidad de \'epocas PE en cada individuo %con respecto a la cantidad total de \'epocas
+fue clasificado como ''No-estacionaria'' en caso contrario. Variar el valor cr\'itico
+para la clasificaci\'on, siempre menor a 0.05, no pareci\'o generar diferencias significativas.
+%La cantidad de \'epocas que no fueron para las cuales no es posible rechazar la hip\'otesis de
+%estacionariedad ($\alpha=0.05$)
+%clasificadas como ''Posiblemente Estacionarias'' (PE). 
+La cantidad de \'epocas PE en cada individuo 
+%con respecto a la cantidad total de \'epocas
 durante el sue\~no MOR y no-MOR
 muestra en las tablas \ref{total_gpos_mor}, \ref{total_gpos_nmor} y
 \ref{total_gpos_total}; debido a que entre los sujetos hubo una gran variabilidad entre el tiempo 
@@ -31,28 +31,30 @@ est\'andar muestrales entre los dos grupos que son comparados.
 \begin{tabular}{c||ccccc||cccc||ccc}
 &VCR&MJH&JAE&GHA&MFGR&CLO&RLO&RRU&JGZ&FGH&MGG&EMT \\
 \hline
-C3& & &*& &***& &**&*& & & &  \\
-C4& & &***& &***& &***& & & &*&  \\
-CZ& & & & &***& & & & & &***&  \\
-F3& & & &***& & &***& & & &*&  \\
-F4& & & &***& & &***& & & &***&  \\
-F7& & &***& &*& & &***& & &***&  \\
-F8& & & &***&*& &*&***& & &***&  \\
-FP1&*& & &***& & & &***& & &***&  \\
-FP2& & & &***&*& & &**& & &***&  \\
+C3&**& &*&**& & &**&*& & & &  \\
+C4&*& &***&*& & &***& & & &*&  \\
+CZ&***& & & & & & & & & &***&  \\
+F3&**& & &**& & &***& & & &*&** \\
+F4& & & &*& & &***& & & &***&  \\
+F7&*& &***&***& & & &*& & &***&*** \\
+F8&**& & &**& & &*&*& & &***&  \\
+FP1&***& & &*&*& & &*& & &***&  \\
+FP2&***& & &*& & & & & & &***&  \\
 FZ& & & &***& & &***&*& & &*&  \\
-O1&***& & &***& & & &*& &*& &  \\
-O2&*& &*&***& & &***& & & &***&  \\
-P3& & &*&*&***& &**& & & &*&  \\
-P4& & &***&*&***& & & & &*&***&  \\
-PZ& & &***& &***& & & & & &***&  \\
-T3&***& &**& &***& &***& & & & &  \\
-T4& & & &*&*& &***& & & &*&* \\
+O1&*& & &***& & & & & &*& &  \\
+O2& & &*&***& & &***& & & &***& \\ 
+P3&*& &*&***& & &**& & & &*&  \\
+P4&***& &***&*& & & & & &*&***&  \\
+PZ&**& &***&*& & & &*& & &***&  \\
+T3& & &**& & & &***& & & & &** \\
+T4& & & &*& & &***& & & &*&  \\
 T5&*& & &***& & &***& & & & &  \\
-T6& & &*&*&*& & & & & &***&  \\
+T6& & &*& & & & & & & &***&  \\
 LOG&***& &***&***&**&***&**&***&*& &***&  \\
 ROG&***& &***&***&*&*&***&*&*& &***&  \\
-EMG& & & & & &***& &*& & & & 
+EMG& & & & & &***& &*& & & &  \\
+\hline
+General& & & & & &***& &*& & & & 
 \end{tabular}
 \caption{Diferencias significativas para la comparaci\'on entre la proporci\'on
 de \'epocas PE en sue\~no MOR (fase R) y no-MOR (fases W y N).
@@ -66,11 +68,16 @@ se compar\'o la proporci\'on de \'epocas PE en sue\~no MOR contra el registro co
 el fin de ello es verificar si el sue\~no MOR --entendido como muestra no-aleatoria
 del sue\~no-- tiene propiedades similares o no, y si \'esta similaridad pudiera estar
 relacionada con el PDC del paciente. 
-Las comparaciones se llevaron a cabo usando una prueba $\chi^{2}$ para proporciones,
-y los resultados se muestran en la tabla \ref{comparacion_mor_vs_total}.
+Las comparaciones se llevaron a cabo usando la prueba $\chi^{2}$ para 
+proporciones\footnote{Implementada en R como la funci\'on \texttt{prop.test()}},
+los resultados se muestran en la tabla \ref{comparacion_mor_vs_total}.
 Se encontr\'o que no hay una relaci\'on clara entre el estado de salud del sujeto y
-la aparici\'on de diferencias significativas entre estas proporciones; en la secci\'on
-de discusi\'on se mencionan algunos datos que se ''recuperaron'' de este an\'alisis.
+la aparici\'on de diferencias significativas entre estas proporciones, se hallaron
+consistentemente diferencias en los canales LOG y ROG --que pueden explicarse como la actividad
+ocular caracter\'istica del sue\~no MOR.
+%; en la secci\'on
+%de discusi\'on se mencionan algunos datos que se ''recuperaron'' de este an\'alisis.
+
 
 Posteriormente se procedi\'o a comparar, por cada canal, si la proporci\'on de \'epocas PE
 presenta diferencias significativas entre los grupos. Esta comparaci\'on se realiz\'o tomando
@@ -86,33 +93,72 @@ los datos de las tablas \ref{gpos_mor}, \ref{gpos_nmor} y
 \begin{figure}
 \centering
 \subfloat[Comparaci\'on entre \'epocas MOR (fase R)]{
-\includegraphics[width=0.9\linewidth]
-{./material170331/Comparacion_gpos_MOR.pdf} 
+\includegraphics[width=0.95\linewidth]
+{./muypreeliminar170408/Comparacion_gpos_MOR.png} 
 }\\
 \subfloat[Comparaci\'on entre \'epocas no-MOR (fases W y N)]{
-\includegraphics[width=0.9\linewidth]
-{./material170331/Comparacion_gpos_NMOR.pdf} 
+\includegraphics[width=0.95\linewidth]
+{./muypreeliminar170408/Comparacion_gpos_NMOR.png} 
 }\\
-\subfloat[Comparaci\'on entre el total de \'epocas registradas]{
-\includegraphics[width=0.9\linewidth]
-{./material170331/Comparacion_gpos_TOT.pdf} 
-}\\
-\caption{Comparaci\'on entre las proporciones de \'epocas PE en diferentes
-etapas de sue\~no; 
-se sobrelapan en diferentes colores los sujetos con y sin PDC.}
+%\subfloat[Comparaci\'on entre el total de \'epocas registradas]{
+%\includegraphics[width=0.95\linewidth]
+%{./muypreeliminar170408/Comparacion_gpos_TOT.png} 
+%}\\
+\caption{Comparaci\'on sobre las proporciones de \'epocas PE entre los grupos, para diferentes
+etapas de sue\~no. Se han graficado las proporciones de PE en todos los sujetos de ambos grupos,
+as\'i como sus respectivos promedios, para cada etapa de sue\~no.}
 \label{comparacion_graf}
 \end{figure}
 
-La comparaci\'on per se se llev\'o a cabo usando las pruebas %no param\'etrica
-$t$ de Student y $U$ de Mann-Whitney-Wilcoxon.
-El primer test arroja diferencias significativas para los canales LOG, ROG y EMG, mientras que
-el segundo indica que no hay diferencias significativas. 
+La comparaci\'on per se se llev\'o a cabo usando la prueba %no param\'etrica
+%$t$ de Student y 
+$U$ de Mann-Whitney\footnote{Implementada en R como la funci\'on \texttt{wilcox.test()}}.
+%El primer test arroja diferencias significativas para los canales LOG, ROG y EMG, mientras que
+%el segundo indica que no hay diferencias significativas. 
+No se encontraron diferencias significativas para ninguno de los canales.
 
-Debido a que los canales
-donde se hallaron diferencias significativas no corresponden a registros de actividad
-cerebral, se considera que \textbf{esta caracter\'istica no proporciona evidencias
-suficientes sobre diferencias significativas entre adultos mayores con y sin PDC diagnosticado}.
-Este resultado es clave en el desarrollo de este trabajo.
+%Debido a que los canales
+%donde se hallaron diferencias significativas no corresponden a registros de actividad
+%cerebral, se considera que \textbf{esta caracter\'istica no proporciona evidencias
+%suficientes sobre diferencias significativas entre adultos mayores con y sin PDC diagnosticado}.
+%Este resultado es clave en el desarrollo de este trabajo.
+
+Una tercera prueba efectuada sobre los datos fue una comparaci\'on para la proporci\'on de \'epocas
+PE en cada canal, para revisar diferencias grupales entre sue\~no MOR y NMOR.
+Esta prueba tiene una interpretaci\'on m\'as bien complicada, aunque su motivaci\'on es clara:
+una vez hecha la comparaci\'on individial de las proporciones de PE al 
+''transitar'' los sujetos entre etapas de sue\~no, y viendo que 
+no hay diferencias claras entre grupos, cabe preguntarse si conviene considerar a los grupos 
+como unidades.
+Se encuentra que hay diferencias significativas ($\alpha<.1$) para el grupo normal
+en los canales C3, C4, F7, F8, FP1, FP2, O2, P4, LOG, ROG; en el grupo PDC no se encontr\'o
+ninguna diferencia.
+Las diferencias encontradas pueden ser relevantes fisiol\'ogicamente, ya que 
+abarcan gran parte de los l\'obulos frontal y parietal, y una regi\'on occipital-parietal derecha.
+Se resta importancia a las diferencias halladas en LOG y ROG, ya que en el grupo PDC puede
+aceptarse esta diferencia ''con no mucha probabilidad'' ($\alpha<.15$) y porque se esperaba
+esta diferencia t\'ipica del sue\~no MOR
+
+\begin{figure}
+\centering
+\subfloat[Comparaci\'on para el grupo control]{
+\includegraphics[width=0.95\linewidth]
+{./muypreeliminar170408/comp_etapas_gpos_NORMALMOR_vs_TOTAL.png} 
+}\\
+\subfloat[Comparaci\'on para el grupo PDC]{
+\includegraphics[width=0.95\linewidth]
+{./muypreeliminar170408/comp_etapas_gpos_PDCMOR_vs_TOTAL.png} 
+}\\
+\subfloat[Comparaci\'on de los p-valores para aceptar diferencias]{
+\includegraphics[width=0.95\linewidth]
+{./muypreeliminar170408/Comparacion_pvals_gpos_MOR_vs_TOTAL.png} 
+}\\
+\caption{Comparaci\'on sobre las proporciones de \'epocas PE entre las etapas de sue\~no, 
+para ambos grupos por separado. 
+Se han graficado las proporciones de PE en todos los sujetos de cada grupo,
+para todo el sue\~no y la etapa MOR.}
+\label{comparacion_verde}
+\end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
