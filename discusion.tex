@@ -128,14 +128,15 @@ que el resto de estos gr\'aficos se incluye como anexo.
 %como se muestra en la figura \ref{ejemplo1}.
 
 \begin{figure}
-\includegraphics[width=\textwidth]{MJNNVIGILOS_127_mor127_tot1032_esttotal.pdf} 
+\includegraphics[width=\textwidth]%{MJNNVIGILOS_127_mor127_tot1032_esttotal.pdf} 
+{./muypreeliminar170408/MJNNVIGILOS_est.png}
 \caption{Disposici\'on gr\'afica para los resultados del test PSR en el sujeto MJH, 
 para 1032 \'epocas de sue\~no y 22 canales. 
 En el eje horizontal se muestra el tiempo desde el inicio de registro, en el eje vertical se muestra al 
 nombre del canal. 
 Se han resaltado con color verde las \'epocas clasificadas como sue\~no MOR (ver texto), que son 127.
 Para este gr\'afico se consider\'o con un p-valor cr\'itico de 0.01 para la hip\'otesis
-de estacionariedad. Ver texto para m\'as detalles.}
+de estacionariedad. (Ver texto para m\'as detalles)}
 \label{ejemplo1}
 \end{figure}
 
@@ -237,29 +238,149 @@ proporci\'on de \'epocas PE en todos los sujetos en distintas etapas de sue\~no}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\subsection{Efecto del tama\~no de las \'epoca}
+
+Debido a un problema t\'ecnico, en alg\'un momento de este trabajo se usaron los registros
+de PSG segmentados en \'epocas de 10 segundos de duraci\'on.
+%; aquellos sujetos cuyo PSG fue
+%registrado a 200 Hz .
+Al hacer los tres an\'alisis descritos anteriormente, pero con esta segmentaci\'on mixta, se 
+obtuvieron resultados seg\'un los cuales no hay diferencias significativas entre los grupos
+control y PDC. Estos resultados se muestran en las gr\'aficas \ref{comparacion_graf_mixto}.
+
+\begin{figure}
+\centering
+\subfloat[Comparaci\'on entre \'epocas MOR (fase R)]{
+\includegraphics[width=0.95\linewidth]
+{./material170331/Comparacion_gpos_MOR.pdf} 
+}\\
+\subfloat[Comparaci\'on entre \'epocas no-MOR (fases W y N)]{
+\includegraphics[width=0.95\linewidth]
+{./material170331/Comparacion_gpos_NMOR.pdf} 
+}\\
+\caption{Comparaci\'on sobre las proporciones de \'epocas PE entre los grupos, para diferentes
+etapas de sue\~no; se han usado los datos calculados con la segmentaci\'on de los
+registros en \'epocas de 30s y 10 s replicando un detalle t\'ecnico.}
+\label{comparacion_graf_mixto}
+\end{figure}
+
+El hecho de que los resultados encontrados sean afectados de manera contundente
+por la forma en que se segmentan los
+datos, merece prestar atenci\'on a la naturaleza de las diferencias encontradas y su 
+posible interpretaci\'on en la fisiolog\'ia del problema.
+
+El uso de \'epocas de 30 segundos est\'a motivado por las recomendaciones de la AAMS para 
+clasificar de manera estandarizada las etapas de sue\~no --en particular el sue\~no MOR-- 
+a partir de registros de PSG \cite{AASM07}. Cabe mencionar que 
+en la literatura se han usado una gran variedad de
+longitudes para observar el EEG, cada una de las cuales se ajusta a la naturaleza de los
+fen\'omenos de inter\'es; en este trabajo se ha optado por proseguir los est\'andares en cuanto
+al estudio del sue\~no, por fines de comparabilidad con trabajos afines.
+%Las \'epocas de 10 segundos fueron consideradas debido a la disponibilidad de los datos.
+
+No se discutir\'an en este trabajo motivaciones o evidencia para usar esta longitud de 
+\'epoca en particular, ni para el caso contrario. Conviene, m\'as bien, presentar una posible
+explicaci\'on sobre el cambio cualitativo de los datos al cambiar la longitud de las \'epocas
+--entendida como un par\'ametro.
+La hip\'otesis que se propone corresponde al enfoque manejado Adak \cite{Adak98}, 
+quien describe una familia de procesos estacionarios ''a trozos'', que bien puede
+formularse como la definici\'on \ref{a_trozos}. A grosso modo, un proceso no-estacionario
+que cambia
+
+\begin{defn}[Estacionariedad a trozos]
+ahfsdjfhkdjshfkjs
+\label{a_trozos}
+\end{defn}
+
+\begin{figure}
+\centering
+\subfloat[Usando \'epocas de 10 s]{
+\includegraphics[width=0.95\linewidth]
+{./grafiquitos170404/VCNNS1_est.png} 
+}\\
+\subfloat[Usando \'epocas de 30 s]{
+\includegraphics[width=0.95\linewidth]
+{./muypreeliminar170408/VCNNS1_est.png} 
+}\\
+\caption{Compilaci\'on gr\'afica de las \'epocas clasificadas como PE, distribuidas en el tiempo
+para cada uno de los canales. El registro corresponde al sujeto VCR dado que su registro fuera
+segmentado de dos maneras difrentes, variando la duraci\'on de las \'epocas.}
+\label{comp_VCR}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \section{Conclusiones}
 
 Se aportan evidencias sobre que la presencia proporcional de estacionariedad d\'ebil en registros 
-de PSG para adultos mayores, 
-no presenta diferencias significativas entre sujetos con y sin PDC diagnosticado.
-Luego entonces, esta caracter\'istica no es un indicador fiable 
+de PSG para adultos mayores, segmentado en \'epocas de 30 segundos, 
+presenta diferencias significativas al ser medida durante el sue\~no MOR y el resto del sue\~no
+nocturno. Estas diferencia se pudieron observar, de manera grupal, 
+en sujetos control para los canales 
+C3, C4, F7, F8, FP1, FP2, O2, P4, LOG, ROG; en sujetos con PDC s\'olo se detectaron estas 
+diferencias para los canales LOG y ROG.
+%sujetos con y sin PDC diagnosticado.
+%Luego entonces, esta caracter\'istica no es un indicador fiable 
+Las diferencias grupales no se expresan claramente al considerar individualmente
+a los sujetos excepto en los canales LOG y ROG, siendo consistente este dato con la 
+caracterizaci\'on del sue\~no MOR: movimientos oculares r\'apidos y aton\'ia muscular.
+Se concluye que esta caracter\'istica no es un indicador claro para ser usado
+en el diagn\'ostico de PDC.
+
+Los resultados encontrados sugieren, en cambio, que es --en principio-- posible interpretar los
+cambios neurofisiol\'ogicos durante el deterioro cognitivo como un cambio en las 
+en el ''mecanismo'' que genera las se\~nales del EEG, y que este cambio es detectable en el 
+sue\~no nocturno mientras el sujeto transita entre las diferentes etapas del sue\~no 
+(en particular, cuando transita entre el sue\~no MOR y no-MOR).
+%Este cambio hipot\'etico explicar\'ia las se\~nales cualitativamente diferentes, en el sentido
+%de contener una ''menor'' cantidad de cambios estructurales y eventos; la escasa presencia de 
+%estas caracter\'isticas conlleva a clasificar los segmentos de registro como posiblemente
+%estacionarios.
+Esta interpretaci\'on propuesta es consistente con [los resultados de Valeria].
+
+%Adicionalmente los
+En otro \'ambito, los
+%el hallazgos incidental de 
+patrones cualitativos en el tiempo --vistos al
+mostrar gr\'aficamente la distribuci\'on de \'epocas PE-- coinciden parcialmente con las \'epocas
+de sue\~no MOR, clasificadas por un experto.
+Adicionalmente se han encontrado diferencias significativas entre la proporci\'on de \'epocas PE,
+durante sue\~no MOR y el resto del sue\~no registrado, y que son consistentes para todos los
+sujetos en los canales LOG y ROG --diferencias calculadas una vez desprovista de la estructura
+en el tiempo. En conjunto, se propone que la representaci\'on gr\'afica pudiera ser usado
+como auxiliar en la clasificaci\'on de segmentos de registro seg\'un la etapa de sue\~no.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Trabajo a futuro}
 
-Como se ha sugerido, los bloques de estacionariedad pueden tener un uso como 
+Como se ha sugerido, los patrones cualitativos hallados en la representaci\'on gr\'afica 
+(''bloques de estacionariedad'') pueden tener un uso como 
 caracter\'isticas auxiliares
-para la detecci\'on autom\'atica de \'epocas MOR en registros de PSG: el hecho que la proporci\'on
-de \'epocas PE no se vea afectada --estad\'isticamente-- por el PDC del paciente, sugiere que es
-posible obtener resultados independientes de ello. Para ello cabe recordar, como se mencion\'o 
-en la secci\'on de discusi\'on, que sujetos fuera del rango de los grupos considerados puede
-que fallen respecto a esta conclusi\'on: hace falta m\'as indagaci\'on al respecto. 
+para la detecci\'on autom\'atica de \'epocas MOR en registros de PSG.
+%: el hecho que la proporci\'on
+%de \'epocas PE no se vea afectada --estad\'isticamente-- por el PDC del paciente, sugiere que es
+%posible obtener resultados independientes de ello. 
+Para ello cabe recordar, como se mencion\'o 
+en la secci\'on de discusi\'on, que en sujetos exclu\'idos de los grupos considerados, puede
+que falle esta conclusi\'on: hace falta m\'as indagaci\'on al respecto. 
 
-Por otro lado, el uso de estimadores espectrales de ventana pueden explorarse de manera m\'as
-puntual para detectar estacionariedad sobre componentes de frecuencia espec\'ificas, de modo
-que es en principio posible separar las ondas cerebrales.
+%Por otro lado, el uso de estimadores espectrales de ventana pueden explorarse de manera m\'as
+%puntual para detectar estacionariedad sobre componentes de frecuencia espec\'ificas, de modo
+%que es en principio posible separar las ondas cerebrales.
+
+As\'i tambi\'en se mantiene a nivel de ''posiblidad'' varias de las conlcusiones mencionadas,
+en cuanto a la cantidad de sujetos analizados en este trabajo es relativamente baja.
+En este trabajo se han analizado tantos datos como estuvieron disponibles;
+se entendie esta caracter\'istica no s\'olo como la 
+capacidad real para obtener registros de PSG, sino como el conjunto de factores que conlleva
+el contacto de los pacientes con las caracter\'isticas ''adecuadas'' para el estudio y su
+participaci\'on voluntaria dentro del estudio bajo el marco de regulaciones \'eticas y legales 
+vigentes. A esto hay que sumar el permiso para manejar estos datos en un estudio secundario,
+de modo que no es realista ''exigir'' m\'as datos; a\'un as\'i, en caso de tenerlos ser\'ia
+posible obtener conlcusiones estad\'isticamente m\'as generales.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
