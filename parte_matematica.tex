@@ -1005,18 +1005,21 @@ Las funciones $F_M$ y $D_M$ toman los nombres respectivos de \textit{n\'ucelo de
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Representaci\'on espectral y filtros}
+\subsection{Representaci\'on de Wold-Cram\'er}
 
 Una consecuencia de los teoremas de Wiener-Khintchine y de Wold, de la que no se hab\'ia hablado
-en este trabajo, es poder caracterizar a los procesos estacionarios a tiempo continuo de cierta
-forma; esta representaci\'on ser\'a auxiliar para estimar la SDF.
+en este trabajo, es poder caracterizar a los procesos d\'ebilmente estacionarios
+con una cierta forma; esta representaci\'on ser\'a auxiliar para estimar la SDF.
+Esta represetnaci\'on existe en virtud del teorema \ref{rep_espectral}, cuya demostraci\'on
+no ser\'a incluida en este trabajo;
+el lector interesado en tan imponente teorema puede referirse a \cite{Priestley81}.
 
 \begin{thrm}
 Sea $\{X(t)\}$ un proceso estoc\'astico a tiempo continuo d\'ebilmente estacionario
 de media 0
 y estoc\'asticamente continuo --en el 
-sentido de media cuadr\'atica. Entonces, existe un proceso ortogonal $\{Z(t)\}$ tal que, para 
-todo tiempo $t$ admisible, se puede escribir\footnote{La integral se encuentra definida en el
+sentido de media cuadr\'atica. Entonces, existe un proceso ortogonal $\{Z(\omega)\}$ tal que, para 
+todo tiempo $\omega$ admisible, se puede escribir\footnote{La integral se encuentra definida en el
 sentido de media cuadr\'atica.}
 \begin{equation*}
 X(t) = \intR e^{i t \omega} dZ(\omega)
@@ -1027,11 +1030,17 @@ Donde el proceso $\{Z(t)\}$ tiene las siguientes propiedades para todo $\omega$
 \item $\E{\abso{dZ(\omega)}^{2}} = dH(\omega)$
 \item $\Cov{dZ(\omega),dZ(\omega^{\prime})} = 0 \Leftrightarrow \omega \neq \omega^{\prime}$
 \end{itemize}
-Donde $dH(\omega)$ es el espectro integrado no-normalizado de $\{X(t)\}$
+Donde $dH(\omega)$ la SDF integrada no-normalizada de $\{X(t)\}$
+\label{rep_espectral}
 \end{thrm}
 
+La forma en que se escribe un proceso seg\'un el teorema \ref{rep_espectral} es referida como
+{representaci\'on de Cram\'er}; en virtud del teorema de Wold, se puede tener una variante
+del mismo teorema para series de tiempo a tiempo discreto, raz\'on por la cual
+en sentido amplio se le refiere como \textbf{representaci\'on de Wold-Cram\'er}.
+
 Los filtros LTS se introducen por su importancia 
-%hist\'orica 
+hist\'orica 
 para la estimaci\'on espectral
 anal\'ogica tradicional dentro de la teor\'ia de circuitos --aunque en este trabajo se presenta
 una abstracci\'on matem\'atica m\'as pragm\'atica en cuanto a la estimaci\'on de la SDF.
@@ -1039,6 +1048,17 @@ El nombre proviene de \textit{Linear Time-invariant Systems}, y en sus or\'igene
 un circuito conformado por componentes ''lineales'' (resistencias, capacitores, repetidores),
 el cual se alimenta con la se\~nal a estudiar con el objetivo de medir en otro punto del
 circuito la se\~nal resultante; este circuito es referido como \textbf{filtro}.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.6\linewidth]{rc.png} 
+\caption{Circuito el\'ectrico con una resistencia (R) y un capacitor (C); es alimentado por
+una corriente de entrada $V_e(t)$ y produce una corriente de salida $V_a(t)$. 
+Este circuito es un 
+ejemplo cl\'asico de circuito lineal, donde la corriente de salida est\'a dada por la expresi\'on
+}
+\label{rrcc}
+\end{figure}
 
 Bajo las leyes de Kirchoff, el voltaje en todo punto de un ''circuito lineal'' viene dado
 por una ecuaci\'on diferencial lineal de orden finito, lo cual constituye una motivaci\'on

@@ -94,11 +94,11 @@ los datos de las tablas \ref{gpos_mor}, \ref{gpos_nmor} y
 \centering
 \subfloat[Comparaci\'on entre \'epocas MOR (fase R)]{
 \includegraphics[width=0.95\linewidth]
-{./muypreeliminar170408/Comparacion_gpos_MOR.png} 
+{./graficos170409/Comparacion_gpos_MOR.pdf} 
 }\\
 \subfloat[Comparaci\'on entre \'epocas no-MOR (fases W y N)]{
 \includegraphics[width=0.95\linewidth]
-{./muypreeliminar170408/Comparacion_gpos_NMOR.png} 
+{./graficos170409/Comparacion_gpos_NMOR.pdf} 
 }\\
 %\subfloat[Comparaci\'on entre el total de \'epocas registradas]{
 %\includegraphics[width=0.95\linewidth]
@@ -143,15 +143,15 @@ esta diferencia t\'ipica del sue\~no MOR
 \centering
 \subfloat[Comparaci\'on para el grupo control]{
 \includegraphics[width=0.95\linewidth]
-{./muypreeliminar170408/comp_etapas_gpos_NORMALMOR_vs_TOTAL.png} 
+{./graficos170409/comp_etapas_gpos_NORMALMOR_vs_TOTAL.pdf} 
 }\\
 \subfloat[Comparaci\'on para el grupo PDC]{
 \includegraphics[width=0.95\linewidth]
-{./muypreeliminar170408/comp_etapas_gpos_PDCMOR_vs_TOTAL.png} 
+{./graficos170409/comp_etapas_gpos_PDCMOR_vs_TOTAL.pdf} 
 }\\
 \subfloat[Comparaci\'on de los p-valores para aceptar diferencias]{
 \includegraphics[width=0.95\linewidth]
-{./muypreeliminar170408/Comparacion_pvals_gpos_MOR_vs_TOTAL.png} 
+{./graficos170409/Comparacion_pvals_gpos_MOR_vs_TOTAL.pdf} 
 }\\
 \caption{Comparaci\'on sobre las proporciones de \'epocas PE entre las etapas de sue\~no, 
 para ambos grupos por separado. 
@@ -159,6 +159,97 @@ Se han graficado las proporciones de PE en todos los sujetos de cada grupo,
 para todo el sue\~no y la etapa MOR.}
 \label{comparacion_verde}
 \end{figure}
+
+
+Un \'ultimo an\'alisis que ser\'a reportado, es 
+respecto a
+una forma particular en que se han graficado los
+datos obtenidos y que parece contener informaci\'on relevante.
+Para esta disposici\'on gr\'afica, se colocaron en l\'inea horizontal 
+''cuadros'' blanco y negros por cada
+\'epoca analizada seg\'un haya sido clasificada usando el test PSR 
+(blanco para PE, negro para no-estacionario)
+Puede verse en la figura \ref{ejemplo_graf} un ejemplo de esta disposici\'on gr\'afica, mientras
+que el resto de estos gr\'aficos se incluye como anexo.
+
+\begin{figure}
+\includegraphics[width=\textwidth]%{MJNNVIGILOS_127_mor127_tot1032_esttotal.pdf} 
+{./muypreeliminar170408/MJNNVIGILOS_est.png}
+\caption{Disposici\'on gr\'afica para los resultados del test PSR en el sujeto MJH., 
+%para 1032 \'epocas de sue\~no y 22 canales. 
+En el eje horizontal se muestra el tiempo desde el inicio de registro, en el eje vertical se 
+muestra el nombre del canal. 
+Se han resaltado con color verde las \'epocas clasificadas como de 
+sue\~no MOR.
+%, que son 127.
+%Para este gr\'afico las \'epocas PE se clasificaron si la hip\'otesis de estacionaeriedad
+%se pod\'ia rechazar la hip\'otesis de estacionariedad con en p-valor de 0.05
+%seg\'un el test PSR.
+}
+\label{ejemplo_graf}
+\end{figure}
+
+Una debilidad 
+a considerar sobre estos gr\'aficos
+%importante de los gr\'aficos as\'i obtenidos 
+es que, si bien hay patrones 
+visuales en el tiempo,
+deben ser definidos formalmente y cuantizados antes de poder ser
+estudiados de manera efectiva; esta tarea ha sido poco fruct\'ifera 
+y no ha aportado datos relevantes en cuanto a los objetivos planteados en un principio,
+de modo que se ha exclu\'ido del cuepro principal de este trabajo.
+%
+% \'estos no se pueden cuantificar de una manera obvia y se dificulta la
+%comparaci\'on entre sujetos, raz\'on por la cual se omiti\'o del cuerpo principal del trabajo. 
+%%Se han inclu\'ido estos resultados porque sus caracter\'isticas 
+%%sugieren una posible utilizaci\'on para otros fines --en alg\'un trabajo futuro.
+
+Al ''calcular'' estos gr\'aficos para cada sujeto,
+%Dentro de un mismo sujeto, 
+aparecen diferencias cualitativas visibles
+entre el sue\~no MOR y el resto del sue\~no nocturno; en la figura
+\ref{patroncito} se muestra este patr\'on visual propuesto que,
+%que vagamente est\'a caracterizado que, 
+se observa, siempre contiene al sue\~no MOR si \'este no es fragmentado.
+Se propone la siguiente caracterizaci\'on
+para el patr\'on:
+\begin{itemize}
+\item Un ''bloque'' con muy pocas \'epocas PE, seguido por un bloque abundante en
+\'epocas PE
+\item Un bloque con una cantidad ''media'' de \'epocas PE en casi todos los canales,
+excepto en LOG y ROG donde pr\'acticamente est\'an ausentes
+\item Un bloque con muchas \'epocas PE en LOG y ROG, que interrumpe el bloque anterior
+\end{itemize}
+%Se observa que el segundo bloque siempre contiene al sue\~no MOR, si este no es fragmentado.
+El tercer bloque, casi carente de \'epocas PE en los cnales LOG y ROG, parece contener
+al sue\~no MOR si bien no es muy espec\'ifico. En un anexo se incluyen
+todos los gr\'aficos obtenidos de esta forma.
+
+\begin{figure}
+\includegraphics[width=\textwidth]
+%{./complementario170409/patrones_MJH.png}
+{./complementario170409/ehemplo.png}
+\caption{Se han resaltado con color azul 
+los patrones gr\'aficos 
+cualitativos propuestos.}
+\label{patroncito}
+\end{figure}
+
+Conviene mencionar que el origen de esta representaci\'on gr\'afica es un intento preeliminar de
+fragmentar los an\'alsis de sue\~no MOR en grupos de \'epocas consecutivas en sue\~no MOR ya que,
+en general, eesta etapa aparece fragmetnada durante el sue\~no nocturno \cite{CarrilloMora};
+en otras palabras, existe una vaga motivaci\'on fisiol\'ogica para investigar estos patrones.
+%La hip\'otesis de que se podr\'ian definir diferencias que involucraran la componente espacial,
+%sin embargo, se vio opacada por la dificultad de definir formalmente tales diferencias a modo
+%que pudieran compararse entre sujetos.
+%Una sugerencia recibida consiste en seguir explorando estos patrones en el tiempo, pero quiz\'a
+%no con la intenci\'on de detectar deterioro cognitivo sino como apoyo para la identificaci\'on de
+%diferentes etapas de sue\~no.
+
+Las hip\'otesis vertidas aqu\'i respecto a los patrones se mantendr\'an como comentarios
+al cierre de este trabajo,
+o como posible motivaci\'on para un trabajo futuro;
+debido a que el hallazgo puede clasificarse como incidental, era menester mencionarlo.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
