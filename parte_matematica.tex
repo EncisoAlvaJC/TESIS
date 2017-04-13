@@ -1324,16 +1324,64 @@ $$\lim_{\tau\rightarrow\infty} \tau \int_{t-T}^{t} \lvert W_{\tau}(\lambda) \lve
 
 %-----
 
-Se define el estimador para $f_t$, con $0 \leq t \leq T$
+Se define el estimador para $f$, con $0 \leq t \leq T$ y $-\pi \leq \omega < \pi$
 \begin{equation*}
-\widehat{f_t}(\omega) = \int_{t-T}^{t} w_{T'}(u) \lvert U(t-u,\omega) \lvert^{2} du
+\widehat{f}(t,\omega) = \int_{t-T}^{t} w_{\tau}(u) \lvert U(t-u,\omega) \lvert^{2} du
 \label{estimador_doble_ventana}
 \end{equation*}
 
-Fue demostrado por Priestley \cite{Priestley69} que los estimadores tipo
-\ref{estimador_doble_ventana} son asint\'oticamente insesgados y consistentes.
+Fue demostrado por Priestley \cite{Priestley65} que los estimadores tipo
+\ref{estimador_doble_ventana} son asint\'oticamente insesgados y consistentes;
+m\'as a\'un, conviene exhibir las siguientes expresiones aproximadas propuestas en aqu\'el trabajo
+\begin{itemize}
+\item $\displaystyle
+\E{\est{f}(t,\omega)} \approx 
+\intR \widetilde{f}(t,\omega+\theta) \abso{\Gamma(\theta)}^{2} d\theta$
+\item $\displaystyle
+\Var{\est{f}(t,\omega)} \approx \frac{C}{\tau} \left( \overline{f}^{2}(\omega) \right)
+\intR \abso{\Gamma(\theta)}^{4} d\theta $
+\end{itemize}
 
-%Fue demostrado por Priestley (1965, falta citar) que 
+Donde las funciones $\widetilde{f}$ y $\overline{f}$ son versiones ''suavizadas'' de la
+SDF normalizada $f$, y est\'an definidas de la siguiente manera
+\begin{equation*}
+\widetilde{f}(t,\omega+\theta) = 
+\intR W_{\tau}(u) f(t-u,\omega+\theta) du
+\end{equation*}
+\begin{equation*}
+\overline{f}^{2} (t,\omega) =
+\frac{\intR f^{2}\left(t-u,W_{\tau}^{2}(u)\right) du}
+{\intR \left( W_{\tau}(u) \right)^{2} du}
+\end{equation*}
+
+Para revisar las propiedades de estos estimadores --y en cierto sentido justficar sus 
+definiciones-- conviene interpretar algunas de las propiedades de los ventanas. 
+Primeramente $W_{\tau}$ tiene las propiedades de una ventana espectral\footnote{Ver esta secci\'on
+en p\'aginas anteriores},
+%tiene propiedades de ''ventana'':
+decrece lejos del origen e idealmente converge ($\tau \rightarrow \infty$) 
+a una funci\'on tipo delta de Dirac;
+luego $\widetilde{f}$ es ''casi'' una convoluci\'on de $f$ con una funci\'on tipo delta Dirac, por
+lo que ''recupera aproximadamente su forma''. Una aproximaci\'on muy similar puede hacerse
+respecto al
+%$\overline{f}^{2}$
+segundo t\'ermino, de modo que aproximadamente $\widetilde{f}\approx f$ y 
+$\overline{f}^{2}\approx f^{2}$. Hay que destacar que esta aproximaci\'on ser\'a mejor en 
+tanto las ventanas $w_{\tau}$ y $W_{\tau}$ sean m\'as cercanas a una funci\'on delta Dirac; 
+y m\'as a\'un, una condici\'on adecuada es que estas funciones tengan ''una forma m\'as 
+delgada''\footnote{Esta idea se puede definir formalmente bajo el concepto de \textbf{ancho de 
+banda}, como ''el ancho del pico m\'as grande''. En este trabajo no se tratar\'an detalles
+al respecto, por brevedad}
+que el espacio entre los tiempos y frecuencias donde se estimar\'a $f$.
+%$\intR \abso{\Gamma}^{2} d\theta = 1$
+Si las condiciones anteriores se satisfacen, se pueden hacer las siguientes aproximaciones, algo
+m\'as arriesgadas
+\begin{itemize}
+\item $\displaystyle \E{\est{f}(t,\omega)} \approx f(t,\omega)$
+\item $\displaystyle \Var{\est{f}(t,\omega)} \approx 
+\frac{C}{\tau} f^{2}(t,\omega) \intR \abso{\Gamma (\theta)}^{4} d\theta$
+\end{itemize}
+
 %
 %[aqui van las expresiones para el valor esperado y la varianza de $\widehat{f_t}$, me falta
 %escribirlas]
@@ -1371,54 +1419,97 @@ Fue demostrado por Priestley \cite{Priestley69} que los estimadores tipo
 %El \'ultimo ingrediente del test PSR es una transformaci\'on logar\'itmica
 %para regular la varianza, y quiza para cortar los bordes de las aproxiamciones.
 
-Un hecho muy importante para la estimaci\'on de la SDF son los intervalos de confianza para los
-estimadores de ventana, que en este caso resultan tiene la propiedad de depender 
-''multiplicativamente''
-del verdadero espectro. Este hecho tiene una interpretaci\'on com\'un en las ingenier\'ias,
-donde la ''potencia'' de una se\~nal se mide en una escala logar\'itmica respecto a un ''volumen''
-estandarizado --esta unidad logar\'itmica se conoce como decibeles.
-Entonces tiene sentido definir una ''transformaci\'on logar\'itmica'' del estiimador
-definido anteriormente; como el espectro es una funci\'on positiva, y se le aplica una funci\'on
-continua invertible tal que la funci\'on y su inversa son derivables, entonces el nuevo estimador
-es asint\'oticamente insesgado y consistente para el logaritmo del espectro.
-Junto con la discretizaci\'on del estimador, se presentan las propiedades mencionadas con el fin
-de introducir la notaci\'on
-
-% estad\'stico discreto que es el logaritmo del primero,
-$$Y_{i,j} = \log \left( \widehat{f_{t_i}}(\omega_j) \right)$$
-%, y que tiene las siguientes propiedades
+Un hecho importante para la estimaci\'on de la SDF normalizada $f$ por este m\'etodo,
+es la forma muy particular que adopta la varianza del
+estimador $\widehat{f}$, que depende ''multiplicativamente'' de la verdadera SDF.
+Una interpretaci\'on sobre este hecho --muy difundida dentro de las ingenier\'ias-- es el de la 
+modulaci\'on de ondas, que pueden verse como una ''multiplicaci\'on de ondas'' y debido a lo cual
+es com\'um el uso de la ''transformaci\'o logar\'itmica''.
+Formalmente, esto motiva a introducir el siguiente estimador
 \begin{equation*}
-E\left[ Y_{i,j} \right] \thicksim \log \left( f_{t_i}(\omega_j) \right)
-\hspace{4em}
-\text{Var}\left( {Y\left(t,\omega\right)}\right) \thicksim \sigma^{2}
+Y(t,\omega) = \log{\left( \est{f}(t,\omega)\right)}
 \end{equation*}
 
-%Luego as\'i, puede escribirse aproximadamente que
-La propiedad ''multiplicativa'' para los intervalos de confianza de $\widehat{f_{t_i}}(\omega_j)$
-se traduce de manera muy agradable para $Y_{i,j}$
+A la luz de los comentarios anteriores, $Y$ tiene las siguientes propiedades
+\begin{itemize}
+\item $\displaystyle 
+\E{ Y(t,\omega) } \approx \log \left( f(t,\omega) \right)$
+\item $\displaystyle 
+\Var{ Y(T,\omega) } 
+\approx \frac{C}{\tau} \intR \abso{\Gamma (\theta)}^{4} d\theta $
+\end{itemize}
+las cuales motivan, a su vez, que el estimador $Y$ puede ser representado paroximadamente de la
+siguiente forma
+\begin{equation*}
+Y(t,\omega) = \log \left( f(t,\omega) \right) + \varepsilon(t,\omega)
+\end{equation*}
+donde las variables $\varepsilon(t,\omega)$ satisfacen que
+\begin{itemize}
+\item $\displaystyle \E{\varepsilon(t,\omega)} = 0$
+\item $\displaystyle \Var{\varepsilon(t,\omega)}
+\approx \frac{C}{\tau} \intR \abso{\Gamma (\theta)}^{4} d\theta$
+\end{itemize}
 
-$$Y_{i,j} = \log \left( f_{t_i}(\omega_j) \right) + \varepsilon_{i,j}$$
 
-donde $\varepsilon_{i,j}$ va iid tales que
+%Un hecho muy importante para la estimaci\'on de la SDF son los intervalos de confianza para los
+%estimadores de ventana, que en este caso resultan tiene la propiedad de depender 
+%''multiplicativamente''
+%del verdadero espectro. 
+%Este hecho tiene una interpretaci\'on com\'un en las ingenier\'ias,
+%donde la ''potencia'' de una se\~nal se mide en una escala logar\'itmica respecto a un ''volumen''
+%estandarizado --esta unidad logar\'itmica se conoce como decibeles.
+%Entonces tiene sentido definir una ''transformaci\'on logar\'itmica'' del estiimador
+%definido anteriormente; como el espectro es una funci\'on positiva, y se le aplica una funci\'on
+%continua invertible tal que la funci\'on y su inversa son derivables, entonces el nuevo estimador
+%es asint\'oticamente insesgado y consistente para el logaritmo del espectro.
+%Junto con la discretizaci\'on del estimador, se presentan las propiedades mencionadas con el fin
+%de introducir la notaci\'on
 
-$
-E\left[ \varepsilon_{i,j} \right] = 0
-\hspace{4em}
-\text{Var}\left( \varepsilon_{i,j} \right) \sigma^{2}
-$
+%% estad\'stico discreto que es el logaritmo del primero,
+%$$Y_{i,j} = \log \left( \widehat{f_{t_i}}(\omega_j) \right)$$
+%%, y que tiene las siguientes propiedades
+%\begin{equation*}
+%E\left[ Y_{i,j} \right] \thicksim \log \left( f_{t_i}(\omega_j) \right)
+%\hspace{4em}
+%\text{Var}\left( {Y\left(t,\omega\right)}\right) \thicksim \sigma^{2}
+%\end{equation*}
 
-Priestley cita que con esta informaci\'on incluso se puede considerar que los $\varepsilon_{i,j}$
-siguen cada uno una distribuci\'on aproximadamente normal; Nason %(2015, falta citar) 
-comenta que
-este supuesto no tiene por que cumplirse, y que es una posible fuente de falsos positivos
-para el test. 
+%%Luego as\'i, puede escribirse aproximadamente que
+%La propiedad ''multiplicativa'' para los intervalos de confianza de $\widehat{f_{t_i}}(\omega_j)$
+%se traduce de manera muy agradable para $Y_{i,j}$
+%
+%$$Y_{i,j} = \log \left( f_{t_i}(\omega_j) \right) + \varepsilon_{i,j}$$
+%
+%donde $\varepsilon_{i,j}$ va iid tales que
+%
+%$
+%E\left[ \varepsilon_{i,j} \right] = 0
+%\hspace{4em}
+%\text{Var}\left( \varepsilon_{i,j} \right) \sigma^{2}
+%$
+
+Priestley \cite{Priestley81} destaca que la transformaci\'on logar\'itmica tiene la propiedad
+de hacer al estimador $Y$ m\'as ''normal'' y que en la pr\'actica bien puede usarse que las
+variables $\varepsilon$'s pueden considerarse con distribuci\'on normal de media 0.
+Es muy destacable que las variables $\varepsilon$'s comparten la misma media y varianza, 
+adem\'as de que --si se satisfacen las condiciones sobre $w_\tau$ y $W_\tau$-- son
+aproximadamente no-correlacionadas.
+
+%Priestley cita que con esta informaci\'on incluso se puede considerar que los $\varepsilon_{i,j}$
+%siguen cada uno una distribuci\'on aproximadamente normal; Nason %(2015, falta citar) 
+%comenta que
+%este supuesto no tiene por que cumplirse, y que es una posible fuente de falsos positivos
+%para el test. 
 %Yo he hecho pruebas de normalidad a los datos, que incluire como anexos
 %mas tarde.
 
-El test PSR \textit{per se} son tres test ANOVA --en su versi\'on en la que la varianza es conocida--
-sobre si los $\varepsilon_{i,j}$ son estad\'isticamente negligibles en total, sobre el tiempo y sobre
-las frecuencias. Para el fin de estudiar la estacionariedad, basta con que sean estad\'iticamente
-no-negligibles sobre el tiempo.
+El test de Priestley-Subba Rao, como se mencion\'o anteriormente, funciona calculando el
+estad\'stico $Y$ sobre 
+
+%El test PSR \textit{per se} son tres test ANOVA --en su versi\'on en la que la varianza es conocida--
+%sobre si los $\varepsilon_{i,j}$ son estad\'isticamente negligibles en total, sobre el tiempo y sobre
+%las frecuencias. Para el fin de estudiar la estacionariedad, basta con que sean estad\'iticamente
+%no-negligibles sobre el tiempo.
 
 %[Por supuesto que los otros dos test tienen interpretacion: la negigibilidad total da informacion
 %sobre las marginales, y si estas pueden ser estimadas adecuadamente usando el estimador, si se
