@@ -417,27 +417,79 @@ Debido a problemas t\'ecnicos con el electroencefal\'ografo, el registro se llev
 a 512 Hz para algunos sujetos y a 200 Hz para otros; en la tabla \ref{frecuencias}
 se presenta tal informaci\'on.
 
+%\begin{table}
+%\begin{tabular}{c|cc}
+%Sujeto & Frec. de muestreo \\
+%& 512 & 200 \\
+%\hline
+%\hline
+%VCR & & * \\
+%MJH & * & \\ 
+%JAE & * & \\
+%GHA &  & * \\
+%MFGR &  & * \\
+%CLO & * & \\
+%RLO & * & \\
+%RRU &  & * \\
+%JGZ &  & * \\
+%\hline
+%FGH & * & \\
+%MGG &  & * \\
+%EMT &  & * \\
+%\end{tabular}
+%\label{frecuencias}
+%\end{table}
+
 \begin{table}
-\begin{tabular}{c|cc}
-Sujeto & Frec. de muestreo \\
-& 512 & 200 \\
+%\begin{SidewaysFigure}
+\centering
+%\begin{tabular}{c||c|ccc|cccc}
+%    &Frecuencia&\'Epocas &Puntos  &  Tiempo   &\'Epocas &Puntos  &  Tiempo   &  \% MOR \\
+%\hline
+%\hline
+%VCR &200       &861      & 5166000&   7:10:30 &73       &438000  &   0:36:30 & 8\% \\
+%MJH &512       &1032     &15851520&   8:36:00 &127      &1950720 &   1:03:30 &12\% \\
+%JAE &512       &907      &13931520&   7:33:30 &171      &2626560 &   1:25:30 &19\% \\
+%GHA &200       &1093     &6558000 &   9:06:00 &55       &330000  &   0:27:30 & 5\% \\
+%MFGR&200       &822      &4932000 &   6:51:00 &95       &570000  &   0:47:30 &12\% \\
+%\hline
+%CLO &512       &944      &14499840&   7:52:00 &132      &2027520 &   1:06:00 &14\% \\
+%RLO &512       &846      &12994560&   7:03:00 &99       &1520640 &   0:49:30 &12\% \\
+%RRU &200       &414      &2484000 &   3:27:00 &38       &228000  &   0:19:00 & 9\% \\
+%JGZ &512       &1207     &18539520&  10:03:30 &33       &506880  &   0:16:30 & 3\% \\
+%\hline
+%FGH &512       &405      &6220800 &   3:22:30 &22       &337920  &   0:11:00 & 5\% \\
+%MGG &512       &1030     &15820800&   8:35:00 &166      &2549760 &   1:23:00 &16\% \\
+%EMT &512       &1423     &21857280&  11:51:30 &47       &721920  &   0:23:30 & 3\%
+%\end{tabular}
+\begin{tabular}{c||c|cc|ccc}
+    &Frecuencia& \underline{Total}& &   &\underline{MOR} &         \\
+    &muestreo  &Puntos  &  Tiempo   &Puntos  &  Tiempo   &  \% MOR \\
 \hline
 \hline
-VCR & & * \\
-MJH & * & \\ 
-JAE & * & \\
-GHA &  & * \\
-MFGR &  & * \\
-CLO & * & \\
-RLO & * & \\
-RRU &  & * \\
-JGZ &  & * \\
+VCR &200       & 5166000&   7:10:30 &438000  &   0:36:30 & 8\% \\
+MJH &512       &15851520&   8:36:00 &1950720 &   1:03:30 &12\% \\
+JAE &512       &13931520&   7:33:30 &2626560 &   1:25:30 &19\% \\
+GHA &200       &6558000 &   9:06:00 &330000  &   0:27:30 & 5\% \\
+MFGR&200       &4932000 &   6:51:00 &570000  &   0:47:30 &12\% \\
 \hline
-FGH & * & \\
-MGG &  & * \\
-EMT &  & * \\
+CLO &512       &14499840&   7:52:00 &2027520 &   1:06:00 &14\% \\
+RLO &512       &12994560&   7:03:00 &1520640 &   0:49:30 &12\% \\
+RRU &200       &2484000 &   3:27:00 &228000  &   0:19:00 & 9\% \\
+JGZ &512       &18539520&  10:03:30 &506880  &   0:16:30 & 3\% \\
+\hline
+FGH &512       &6220800 &   3:22:30 &337920  &   0:11:00 & 5\% \\
+MGG &512       &15820800&   8:35:00 &2549760 &   1:23:00 &16\% \\
+EMT &512       &21857280&  11:51:30 &721920  &   0:23:30 & 3\%
 \end{tabular}
+\caption{Cantidad de datos analizados para cada sujeto. Debido a un cambio repentino en el
+polisomn\'ografo usado, la frecuencia de muestreo --en Hz-- cambia entre sujetos; la recomendaci\'on 
+de la AASM es de un m\'inimo de 128 Hz, y ha sido cumplida.
+Debido a que que los registros fueron segmentados en \'epocas de 30 segundos,
+algunos datos al final de los registros fueron deshechados. 
+El sue\~no MOR aparece fragmentado, se reporta la suma de esos tiempos.}
 \label{frecuencias}
+%\end{SidewaysFigure}
 \end{table}
 
 \begin{figure}
@@ -488,26 +540,26 @@ La clasificaci\'on de las diferentes fases del sue\~no en el registro PSG se rea
 sobre \'epocas de EEG de 30 segundos (filtro paso de banda de 0.5--30 Hz) siguiendo los criterios 
 estandarizados de la AAIC\cite{Hori01}, que se exponen a continuación:
 \begin{description}
-\item[Vigilia relajada con ojos cerrados] Presencia de ritmo alfa contin\'uo con m\'axima amplitud 
+\item[Vigilia (W)] Presencia de ritmo alfa contin\'uo con m\'axima amplitud 
 sobre regiones de la corteza parieto-occipital. Tono muscular relativamente alto y ausencia de 
 movimientos oculares.
 
-\item[Fase 1] %Transici\'on entre la vigilia y el sue\~no ligero. 
+\item[Fase 1 (N1)] %Transici\'on entre la vigilia y el sue\~no ligero. 
 Presencia intermitente de 
 actividad alfa en menos del 50\% de la \'epoca junto con movimientos oculares lentos y una ligera 
 reducci\'on del tono muscular respecto al de vigilia.
 
-\item[Fase 2] Presencia de complejos K y husos de sue\~no. Puede aparecer hasta un 20\% de ondas 
+\item[Fase 2 (N2)] Presencia de complejos K y husos de sue\~no. Puede aparecer hasta un 20\% de ondas 
 lentas (ritmo delta, 0.5-3 Hz) en la \'epoca. Ausencia de actividad ocular y tono muscular bajo.
 
-\item[Fase 3] Presencia de ondas lentas con amplitudes superiores a 75 $\mu$V en m\'as del
+\item[Fase 3 (N3)] Presencia de ondas lentas con amplitudes superiores a 75 $\mu$V en m\'as del
 20\% y menos del 50\% de la \'epoca. Pueden tambi\'en aparecer complejos K y husos de sue\~no de 
 forma espor\'adica. Ausencia de actividad ocular y tono muscular bajo.
 
-\item[Fase 4] Presencia de ondas lentas en m\'as del 50\% de la época. Las dem\'as 
+\item[Fase 4 (N4)] Presencia de ondas lentas en m\'as del 50\% de la época. Las dem\'as 
 caracter\'isticas son similares a las de la fase 3.
 
-\item[Fase MOR] Presencia de actividad EEG de baja amplitud y frecuencias entremezcladas 
+\item[Fase MOR (R)] Presencia de actividad EEG de baja amplitud y frecuencias entremezcladas 
 (theta-alfa-beta) similar a la observada en el estado de vigilia activa con ojos abiertos.
 \end{description}
 
