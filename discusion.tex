@@ -204,11 +204,25 @@ registros en \'epocas de 30s y 10 s replicando un detalle t\'ecnico.}
 
 Debido a un problema t\'ecnico, en alg\'un momento de este trabajo se usaron los registros
 de PSG segmentados en \'epocas de 10 segundos de duraci\'on.
+El uso de \'epocas de 30 segundos est\'a motivado por las recomendaciones de la AAMS para 
+clasificar de manera estandarizada las etapas de sue\~no --en particular el sue\~no MOR-- 
+a partir de registros de PSG \cite{AASM07}. 
+No se discutir\'an en este trabajo motivaciones o evidencia para usar esta longitud de 
+\'epoca en particular, ni para el caso contrario. 
+
 %; aquellos sujetos cuyo PSG fue
 %registrado a 200 Hz .
-Al hacer los tres an\'alisis descritos anteriormente, pero con esta segmentaci\'on mixta, se 
+Debido a tales circunstancias, se realizaron
+%Al hacer 
+los tres an\'alisis descritos anteriormente usando esta segmentaci\'on mixta
+(algunos sujetos con \'epocas de 10 s, otros con \'epocas de 30 s); se 
 obtuvieron resultados seg\'un los cuales no hay diferencias significativas entre los grupos
-control y PDC. Estos resultados se muestran en las gr\'aficas \ref{comparacion_graf_mixto}.
+control y PDC. %Estos resultados se muestran en las gr\'aficas \ref{comparacion_graf_mixto}.
+El hecho de que los resultados encontrados sean afectados de manera contundente
+por la forma en que se organizan los
+datos, indica que ser\'a provechoso
+prestar atenci\'on a la naturaleza de las diferencias encontradas y a su 
+posible interpretaci\'on en la fisiolog\'ia del problema.
 
 \begin{figure}
 \centering
@@ -226,33 +240,7 @@ registros en \'epocas de 30s y 10 s replicando un detalle t\'ecnico.}
 \label{comparacion_graf_mixto}
 \end{figure}
 
-El hecho de que los resultados encontrados sean afectados de manera contundente
-por la forma en que se segmentan los
-datos, merece prestar atenci\'on a la naturaleza de las diferencias encontradas y su 
-posible interpretaci\'on en la fisiolog\'ia del problema.
-
-El uso de \'epocas de 30 segundos est\'a motivado por las recomendaciones de la AAMS para 
-clasificar de manera estandarizada las etapas de sue\~no --en particular el sue\~no MOR-- 
-a partir de registros de PSG \cite{AASM07}. Cabe mencionar que 
-en la literatura se han usado una gran variedad de
-longitudes para observar el EEG, cada una de las cuales se ajusta a la naturaleza de los
-fen\'omenos de inter\'es; en este trabajo se ha optado por proseguir los est\'andares en cuanto
-al estudio del sue\~no, por fines de comparabilidad con trabajos afines.
-%Las \'epocas de 10 segundos fueron consideradas debido a la disponibilidad de los datos.
-
-No se discutir\'an en este trabajo motivaciones o evidencia para usar esta longitud de 
-\'epoca en particular, ni para el caso contrario. Conviene, m\'as bien, presentar una posible
-explicaci\'on sobre el cambio cualitativo de los datos al cambiar la longitud de las \'epocas
---entendida como un par\'ametro.
-La hip\'otesis que se propone corresponde al enfoque manejado Adak \cite{Adak98}, 
-quien describe una familia de procesos estacionarios ''a trozos'', que bien puede
-formularse como la definici\'on \ref{a_trozos}. A grosso modo, un proceso no-estacionario
-que cambia
-
-\begin{defn}[Estacionariedad local]
-
-\label{a_trozos}
-\end{defn}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{figure}
 \centering
@@ -269,6 +257,113 @@ para cada uno de los canales. El registro corresponde al sujeto VCR dado que su 
 segmentado de dos maneras difrentes, variando la duraci\'on de las \'epocas.}
 \label{comp_VCR}
 \end{figure}
+
+%El uso de \'epocas de 30 segundos est\'a motivado por las recomendaciones de la AAMS para 
+%clasificar de manera estandarizada las etapas de sue\~no --en particular el sue\~no MOR-- 
+%a partir de registros de PSG \cite{AASM07}. 
+%Cabe mencionar que 
+%en la literatura se han usado una gran variedad de
+%longitudes para observar el EEG, cada una de las cuales se ajusta a la naturaleza de los
+%fen\'omenos de inter\'es --en este caso, el sue\~no MOR.
+%; en este trabajo se ha optado por proseguir los est\'andares en cuanto
+%al estudio del sue\~no, por fines de comparabilidad con trabajos afines.
+%%Las \'epocas de 10 segundos fueron consideradas debido a la disponibilidad de los datos.
+%No se discutir\'an en este trabajo motivaciones o evidencia para usar esta longitud de 
+%\'epoca en particular, ni para el caso contrario. 
+
+%Conviene, m\'as bien, presentar una posible
+%explicaci\'on sobre el cambio cualitativo de los datos al cambiar la longitud de las \'epocas
+%--entendida como un par\'ametro.
+La hip\'otesis que se propone 
+requiere del concepto de ''estacionariedad local'', introducido por Dahlhaus 
+\cite{Dahlhaus97}
+%corresponde al enfoque manejado por Dahlhaus \cite{Adak98}, 
+%quien describe una familia de procesos estacionarios ''a trozos'', que bien puede
+%formularse como la definici\'on \ref{est_local}. A grosso modo, un proceso no-estacionario
+%que cambia
+%quien describe la ''estacionariedad local'' 
+como formalizaci\'on de procesos no-estacionarios
+cuyas propiedades cambian ''muy lentamente'' en el tiempo;
+se reescribe a continuaci\'on como la definici\'on \ref{est_local}. 
+
+\begin{defn}[Estacionariedad local]
+Una secuencia de procesos estoc\'asticos de media cero, 
+$\{ X_{t,N} \}$ con $t = 1, 2, \dots, N$, se dicen localmente estacionarios en el 
+tiempo $t_0 \in [0,1]$ si existe una representaci\'on del tipo
+\begin{equation*}
+X_{t,N} = \intPI \widetilde{A_{t,N}}(\omega) e^{i \omega t} dZ(\omega)
+\end{equation*}
+donde se satisface que:
+\begin{itemize}
+\item $\{ Z(\omega) \}$ es un proceso de media cero con incrementos ortogonales, es decir
+\begin{equation*}
+\Cov{dZ(\omega_1),dZ(\omega_2)} =
+\begin{cases}
+d\omega &\text{, } \omega_1 = \omega_1 \\
+0 &\text{, otro caso}
+\end{cases}
+\end{equation*}
+\item Existe una constante $K$ y una funci\'on suave 
+$A: [0,1]\times [-\pi,\pi] \rightarrow \mathbb{C}$, 
+con $A(t_0,\omega) = \overline{A(t_0,-\omega)}$, tal que para toda $N$
+\begin{equation*}
+\sup_{\nicefrac{t}{N}\in \varepsilon_N(t_0)} 
+\sup_{\omega} \abso{ \widetilde{A_{t,N}}(\omega) - A(t_0,\omega) }
+\leq \frac{K}{N}
+\end{equation*}
+con $\varepsilon_N(t_0)$ es una vecindad de $t_0$ 
+tal que $\abso{\abso{\nicefrac{t}{N}-t_0}} = O(N^{-\alpha})$,
+%cuyo tama\~no es del orden $O(N^{-\alpha})$,
+con $0\leq \alpha < 1$
+\item $A(t_0,\omega)$ es continuo en $\{ t_0 \} \times [-\pi,\pi]$
+\end{itemize}
+\label{est_local}
+\end{defn}
+
+A grosso modo, un proceso localmente estacionario 
+%a tiempo continuo
+es aqu\'el definido cuya SDF --dependiente del tiempo--
+puede ser aproximada a trozos ''pegando'' SDF's correspondientes a procesos que poseen una
+representaci\'on espectral de Cram\'er
+(d\'ebilmente estacionarios y estoc\'asticamente continuos), que est\'an definidos
+para el intervalo de tiempo $[0,1]$ y que est\'an ''correctamente ensamblados''.
+
+La hip\'otesis propuesta aqu\'i, per se, es que los registros de PSG se comportan como procesos
+localmente estacionarios, quiz\'a d\'ebilmente estacionarios ''a trozos''; 
+m\'as a\'un, esta estacionariedad local es ''diferente'' en
+adultos mayores con y sin PDC. 
+Una motivaci\'on que sugiere esta hip\'otesis es la estructura de los registros PSG: 
+el conjunto de los ''eventos'' registrados
+--complejos K, husos de sue\~no, grupos bien definidos de ondas cerebrales--
+conforman una se\~nal claramente no-estacionaria, pero si se consideran secciones peque\~nas
+del registro es posible que se observe un evento individual (como un grupo de ondas cerebrales).
+Dado que los eventos aportan no estacionariedad a la se\~nal, su ausencia relativa --o la falta
+de variedad relativa en ellos-- puede resultar en una clasificaci\'on como PE, qu es lo que se
+propone que pudo haber ocurrido. 
+Esta hip\'otesis explicar\'ia el cambio observado al cambiar el tama\~no de la \'epoca; tambi\'en
+llevar\'ia a concluir que, entre los individuos con PDC, la presencia de eventos es
+''estad\'sticamente muy similar'' en las etapas de sue\~no MOR y noMOR, 
+mientras que en los sujetos control 
+la presencia de estos eventos es ''estad\'isticamente diferente''.
+
+
+La hip\'otesis de la estacionariedad local trae a la discusi\'on
+%Un punto inmediato 
+un punto
+en contra de esta definici\'on, similar a otras presentadas anteriormente, y
+es que esta caracterizaci\'on carece de utilidad pr\'actica para ser detectada
+en una serie de tiempo dada. El enfoque m\'as intuitivo es que, como un proceso
+localmente estacionario puede ser aproximado como procesos ''d\'ebilmente 
+estacionarios a trozos'', tiene sentido intentar construir esos procesos de alguna forma;
+sin embargo, el verdadero problema es hallar un proceso que garantice la convergencia
+y que informe si esto no es posible. En este trabajo no se ha investigado
+suficiente al respecto.
+
+Con respecto a la hip\'otesis de los eventos, bien puede tomarse un enfoque de reconocimiento de
+patrones, ''contando'' las incidencias de eventos y revisando si se relaciona con la
+clasificaci\'on como PE. Ese enfoque va m\'as all\'a de los objetivos de este trabajo.
+
+%Ahora bien, con respecto a variar la duraci\'on de las \'epocas, la se.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
