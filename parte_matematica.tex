@@ -1105,52 +1105,117 @@ La forma en que se escribe un proceso seg\'un el teorema \ref{rep_espectral} es 
 del mismo teorema para series de tiempo a tiempo discreto, raz\'on por la cual
 en sentido amplio se le refiere como \textbf{representaci\'on de Wold-Cram\'er}.
 
-Los filtros LTS se introducen por su importancia 
-hist\'orica 
-para la estimaci\'on espectral
-anal\'ogica tradicional dentro de la teor\'ia de circuitos --aunque en este trabajo se presenta
-una abstracci\'on matem\'atica m\'as pragm\'atica en cuanto a la estimaci\'on de la SDF.
-El nombre proviene de \textit{Linear Time-invariant Systems}, y en sus or\'igenes consiste en
-un circuito conformado por componentes ''lineales'' (resistencias, capacitores, repetidores),
-el cual se alimenta con la se\~nal a estudiar con el objetivo de medir en otro punto del
-circuito la se\~nal resultante; este circuito es referido como \textbf{filtro}.
+\subsubsection{Filtros lineales independientes del tiempo}
+
+Los filtros  
+lineales independientes del tiempo se describen aqu\'i por su importancia hist\'orica en la 
+estimaci\'on anal\'ogica de las SDF,
+%LTS se introducen por su importancia 
+%hist\'orica 
+%para la estimaci\'on espectral
+%anal\'ogica tradicional dentro de la teor\'ia de circuitos --
+aunque en este trabajo se presenta
+una abstracci\'on m\'as pragm\'atica en cuanto a la estimaci\'on de la SDF.
+Este tipo de filtros ser\'an referidos como filtros LTI (Linear Time-Invariant)
+ya que se les pedir\'a que dependan linealmente de toda la se\~nal\footnote{Se
+entiende que es una mapeo lineal que toma toda la se\~nal --entendida como funci\'on del tiempo--
+y ''produce'' otra funci\'on del tiempo --que a su vez puede interpretarse como una segunda 
+se\~nal. Cabe
+destacar que formalmente es necesario que el mapeo sea lineal sobre las se\~nales, pero no es 
+obligatorio que ''utilice'' todos los valores: no se le pide ser invertible, ni continuidad}
+y que no dependan del tiempo. Luego entonces, deben tener la forma \ref{LTI}.
+\begin{equation*}
+Y(t) = \intR g(s) X(t-s) ds
+\label{LTI}
+\end{equation*}
+%El nombre proviene de \textit{Linear Time-invariant Systems}, y en sus or\'igenes consiste en
+%un circuito conformado por componentes ''lineales'' (resistencias, capacitores, repetidores),
+%el cual se alimenta con la se\~nal a estudiar con el objetivo de medir en otro punto del
+%circuito la se\~nal resultante; este circuito es referido como \textbf{filtro}.
+
+N\'otese que un filtro como \ref{LTI} est\'a completamente determinado por la funci\'on $g$. 
+Sobre el contexto hist\'orico mencionado, conviene mencionar la existencia de ''circuitos 
+lineales'' cuya composici\'on permite modelarlos como filtros LTI; un ejemplo cl\'asico
+son los circuitos RC, como el mostrado en \ref{rrcc} y que est\'a determinado por
+$g(u) = \frac{1}{R C} \text{exp}\left( -\nicefrac{u}{R C} \right)$ --donde $R$ y $C$ son la
+resistencia y capactiancia, respectivamente.
 
 \begin{figure}
 \centering
 \includegraphics[width=0.6\linewidth]{rc.png} 
 \caption{Circuito el\'ectrico con una resistencia (R) y un capacitor (C); es alimentado por
 una corriente de entrada $V_e(t)$ y produce una corriente de salida $V_a(t)$. 
-Este circuito es un 
-ejemplo cl\'asico de circuito lineal, donde la corriente de salida est\'a dada por la expresi\'on
+%Este circuito es un 
+%ejemplo cl\'asico de circuito lineal, donde la corriente de salida est\'a dada por la expresi\'on
 }
 \label{rrcc}
 \end{figure}
 
-Bajo las leyes de Kirchoff, el voltaje en todo punto de un ''circuito lineal'' viene dado
-por una ecuaci\'on diferencial lineal de orden finito, lo cual constituye una motivaci\'on
-m\'as clara para los elementos permitidos en ellos. De manera general, y omitiendo detalles,
-la se\~nal que ''sale'' de un filtro es una combinaci\'on lineal de todos los tiempos anteriores;
-%de manera general, 
-saltando algunos pasos m\'as,
-esta caracter\'istica puede expresarse como
-%puede expresarse como
-\begin{equation}
-Y(t) = \intR g(s) X(t-s) ds
-\label{LTS}
-\end{equation}
+%Bajo las leyes de Kirchoff, el voltaje en todo punto de un ''circuito lineal'' viene dado
+%por una ecuaci\'on diferencial lineal de orden finito, lo cual constituye una motivaci\'on
+%m\'as clara para los elementos permitidos en ellos. De manera general, y omitiendo detalles,
+%la se\~nal que ''sale'' de un filtro es una combinaci\'on lineal de todos los tiempos anteriores;
+%%de manera general, 
+%saltando algunos pasos m\'as,
+%esta caracter\'istica puede expresarse como
+%%puede expresarse como
+%\begin{equation}
+%Y(t) = \intR g(s) X(t-s) ds
+%\label{LTS}
+%\end{equation}
 
-Donde $g$ es una funci\'on en $L^{2}$ tal que es cero para valores negativos\footnote{Esta
-propiedad se conoce como \textit{f\'isicamente realizable}, y destaca en el dise\~no de 
-filtros con propiedades especificadas}.
+Se puede decir, por ejemplo, que para que un circuito sea ''f\'isicamente contruible'' es
+necesario que $g$ sea cero en los negativos --que el valor actual no dependa de los valores
+futuros. En este trabajo se pedir\'a que $g\in L^{2}$ y que posea una transformada de
+Fourier bien definida.
 
-De manera pragm\'atica, la introducci\'on sobre los circuitos LTS representa s\'olo un bosquejo,
-y se utilizar\'a la ecuaci\'on \ref{LTS} como definici\'on de los filtros LTS d\'andole
-el nombre de \textit{filtro} a la funci\'on $g$ siempre que est\'e en $L^{2}$.
-Una motivaci\'on para introducir este tipo de funciones es que los modelos est\'andar en 
-series de tiempo (AR, MA, ARMA, ARIMA) pueden ser entendidos en tiempo continuo como un filtro
-LTS aplicado a un proceso ruido blanco --por simplicidad, en este trabajo se entender\'a la integral
-en el sentido de media cuadr\'atica, y por el momento s\'olo ser\'a aplicada a procesos 
-d\'ebilmente estacionarios.
+%Donde $g$ es una funci\'on en $L^{2}$ tal que es cero para valores negativos\footnote{Esta
+%propiedad se conoce como \textit{f\'isicamente realizable}, y destaca en el dise\~no de 
+%filtros con propiedades especificadas}.
+
+%De manera pragm\'atica, la introducci\'on sobre los circuitos LTS representa s\'olo un bosquejo,
+%y se utilizar\'a la ecuaci\'on \ref{LTS} como definici\'on de los filtros LTS d\'andole
+%el nombre de \textit{filtro} a la funci\'on $g$ siempre que est\'e en $L^{2}$.
+%Una motivaci\'on para introducir este tipo de funciones es que los modelos est\'andar en 
+%series de tiempo (AR, MA, ARMA, ARIMA) pueden ser entendidos en tiempo continuo como un filtro
+%LTS aplicado a un proceso ruido blanco --por simplicidad, en este trabajo se entender\'a la integral
+%en el sentido de media cuadr\'atica, y por el momento s\'olo ser\'a aplicada a procesos 
+%d\'ebilmente estacionarios.
+
+Una motivaci\'on muy fuerte para mencionar los filtros LTI es que permiten expresar de manera
+''c\'omoda'' a los procesos est\'andares: un proceso MA 
+%es el promedio de variables aleatorias
+%independientes, aunque 
+bien puede interpretarse como un filtro con forma de ventana rectangular
+acotada, y esta caracterizaci\'on puede extenderse a tiempo continuo.
+Un proceso AR en tiempo continuo se puede ver como una ecuaci\'on diferencial lineal y homog\'enea,
+m\'as un proceso ruido blanco; este tipo de ecuaciones pueden interpretarse como circuitos lineales
+--y por tanto, como filtros LTI-- antes de intetntar resolverse.
+En esa direcci\'on, conviene considerar procesos de la forma
+\begin{equation*}
+Y(t) = \intR g(u) X(t) du
+\end{equation*}
+donde $g$ corresponde a un filtro LTI y $\{ X(t) \}$ es un proceso d\'ebilomente estacionario que
+admite una representaci\'on de Wold-Cram\'er. Se puede mostrar que estas condiciones implican
+que
+\begin{equation*}
+h_X(\omega) = h_Y(\omega) \abso{\Gamma(\omega)}^{2}
+\end{equation*}
+donde $h_X$ y $h_Y$ son las respectivas SDF de $\{X(t)\}$ y $\{Y(t)\}$, y 
+$\Gamma(\omega) = \intR g(u) e^{i \omega u} du$.
+
+La funci\'on $g$ es referida como \textbf{funci\'on de respuesta}; este nombre tiene sentido en la
+interpretaci\'on de circuito si \'este es ''alimentado'' con un ''impulso unitario'' (una funci\'on
+tipo \ddd de Dirac) en un tiempo dado, y posteriormente se mide la respuesta del sistema.
+La funci\'on $\Gamma$ es referida como \textbf{funci\'on de transferencia}; su motivaci\'on
+respectiva viene de realizar el mismo experimento te\'orico, pero ahora con una funci\'on
+tipo $e^{i \omega t}$; el sistema producir\'a una funci\'on del tipo $e^{i\lambda t}$, que tiene
+una forma similar pero con otra frecuencia. La conexi\'on de estas dos funciones se vuelve m\'as
+clara a\'un si se interpretan las funciones del segundo experimento como funciones tipo
+\ddd de Dirac en el especio de las frecuencias.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %Quiero y me siento obligado a citar la excelente discuci\'on
 %filos\'ofica
@@ -1307,10 +1372,10 @@ algoritmo no-param\'etrico STL (ver m\'as adelante).
 %pero de momento solo este ha arrojado suficientes resultados para llenar un informe.
 
 %{Estimador de doble ventana (Priestley, 1965 \& 1966)}
-El m\'etodo de estimaci\'on de doble ventana fue introducido por Priestley \cite{Priestley66} para
-procesos semi-estacionarios; 
-Para construir el estimador se requieren dos funciones, $g$ y $w_T$, que servir\'an como ventanas
-para extraer informaci\'on local de los datos. 
+%El m\'etodo de estimaci\'on de doble ventana fue introducido por Priestley \cite{Priestley66} para
+%procesos semi-estacionarios; 
+%Para construir el estimador se requieren dos funciones, $g$ y $w_T$, que servir\'an como ventanas
+%para extraer informaci\'on local de los datos. 
 %Debido a que sus propiedades tienen una interpretaci\'on
 %f\'isica desde la teor\'ia de circuitos, absorben su terminolog\'ia
 
@@ -1329,15 +1394,23 @@ para extraer informaci\'on local de los datos.
 %mantener esta vision conjunta.
 %}
 
-Primeramente se toma una funci\'on $g(u)$ normalizada, que en conjunto a su
-transformada inversa de Fourier
-%\footnote{Esta funci\'on 
-%$\Gamma(u) = \int_{-\infty}^{\infty} g(u) e^{i u \omega} du$
-%es referida como
-%\textbf{frequency-response function}, nombre tiene un poco de encanto cuando
-%$g$ adopta ciertas formas particulares (senos y cosenos).} 
-$\Gamma$ tiene las siguientes propiedades
+Con respecto a la estimaci\'on local del espectro, se usa el \textbf{estimador de doble ventana},
+una t\'ecnica introducida por Priestley y Subba Rao \cite{Priestley69}.
+Requiere que se proporcionen a priori dos funciones arbitrarias $w_\tau$ y $g$ que cumplan ciertas
+propiedades; deber\'ian funcionar, respectivamente, como ventana de retrasos y como
+filtro LTI.
 
+%Primeramente se toma una funci\'on $g(u)$ normalizada, que en conjunto a su
+%transformada inversa de Fourier
+%%\footnote{Esta funci\'on 
+%%$\Gamma(u) = \int_{-\infty}^{\infty} g(u) e^{i u \omega} du$
+%%es referida como
+%%\textbf{frequency-response function}, nombre tiene un poco de encanto cuando
+%%$g$ adopta ciertas formas particulares (senos y cosenos).} 
+%$\Gamma$ tiene las siguientes propiedades
+
+En cuando a $g$ (as\'i como $\Gamma(u) = \intR g(u) e^{i u \omega} du$) se les pide que tengan 
+integral normalizada, es decir
 \begin{equation*}
 2\pi \int_{-\infty}^{\infty} \lvert g(u) \lvert^{2} du 
 = 
@@ -1345,12 +1418,19 @@ $\Gamma$ tiene las siguientes propiedades
 = 1
 \end{equation*}
 
-Se puede entender a $g$ y $\Gamma$ como un filtro LTS que ''absorbe informaci\'on local''
-en el dominio de las frecuencias.
+%Se puede entender a $g$ y $\Gamma$ como un filtro LTS que ''absorbe informaci\'on local''
+%en el dominio de las frecuencias.
 %A partir de $g$ y $\Gamma$ 
-Se define el filtro $U$ como una convoluci\'on
-con las realizaciones del proceso
-
+En base a ello se puede definir el siguiente estimador, que funciona no s\'olo como filtro del
+proceso, sino como una aproximaci\'on un tanto burda de la representaci\'on de Wold-Cram\'er
+para el 
+proceso\footnote{Una segunda funci\'on de $U$, y que no se discutir\'a a fondo por brevedad, 
+es ''aislar'' en los
+valores de la SDF cercanos en el tiempo a aqu\'el unto donde se desea estimar.
+Tambi\'en cabe mencionar que las ventanas espectrales mostradas en la tabla \ref{ventanas}
+bien pueden cumplir las propiedades requeridas para ser filtros LTI.}
+%Se define el filtro $U$ como una convoluci\'on
+%con las realizaciones del proceso
 \begin{equation*}
 U(t,\omega) = \int_{t-T}^{t} g(u) X({t-u}) e^{i \omega (t-u)} du
 \end{equation*}
@@ -1393,10 +1473,9 @@ puede considerarse que $\E{\abso{U(t,\omega)}^{2}} \approx f_t(\omega)$; sin emb
 demuestra en \cite{Priestley66} que $\Var{\abso{U(t,\omega)}^{2}} \nrightarrow 0$ como en el
 caso del periodograma.
 
-
 %---
 
-Debido a ello, se usa una segunda funci\'on tipo ventana para ''suavizar'' el estimador 
+Debido a ello es que se usa la segunda funci\'on, tipo ventana, para ''suavizar'' el estimador 
 y hacerlo consistente
 --de forma muy similar a como se usaron ventanas espectrales para suavizar el periodograma.
 %que se usaron 
