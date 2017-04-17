@@ -181,11 +181,11 @@ es una funci\'on que \'unicamente depende de $\tau$
 \label{est_usual}
 \end{thrm}
 
-A grosso modo, cuando uno se refiere a un proceso d\'ebilmente estacionario seg\'un
-\ref{est_orden_m} se le pide que su primer y segundo momentos sean constantes, as\'i como
-el primer momento conjunto s\'olo dependa del lag en el tiempo. A su vez, seg\'un 
-\ref{est_usual} un proceso es d\'ebilmente estacionario si su media y varianza son constantes en
-el tiempo, y su funci\'on de autocovarianza s\'olo depende del lag en el tiempo.
+%A grosso modo, cuando uno se refiere a un proceso d\'ebilmente estacionario seg\'un
+%\ref{est_orden_m} se le pide que su primer y segundo momentos sean constantes, as\'i como
+%el primer momento conjunto s\'olo dependa del lag en el tiempo. A su vez, seg\'un 
+%\ref{est_usual} un proceso es d\'ebilmente estacionario si su media y varianza son constantes en
+%el tiempo, y su funci\'on de autocovarianza s\'olo depende del lag en el tiempo.
 
 Cabe mencionar, como comentario, que es posible contruir procesos que sean fuertemente
 estacionarios pero que no sean estacionarios de ning\'un orden finito; dado que
@@ -196,11 +196,12 @@ aleatorias independientes id\'enticamente distribuidas con distribuci\'on de Cau
 
 Dado que en el EEG se miden fluctuaciones en potenciales de campos el\'ectricos
 %(medida en mV),
-que (en este trabajo) se modelan como variables aleatorias, 
+y que en este trabajo son modelados como variables aleatorias, 
 la intepretaci\'on usual para los momentos de estas variables est\'a ligado a la distribuci\'on de
 energ\'ia asociada al sistema. Luego, es plausible considerar que el EEG es un fen\'omeno
 ''suficientemente regular'' como para que las variables aleatorias del modelo tengan cuando
-menos segundos momentos bien definidos.
+menos segundos momentos bien definidos; m\'as adelante discutir\'a un poco m\'as sobre por
+qu\'e es importante este suspuesto.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -315,42 +316,42 @@ realizaciones que son funciones continuas, sino que sus realizaciones deben ser 
 casi en todas partes\footnote{Una funci\'on es \textit{continua casi en todas partes} si
 es continua en todo su dominio excepto por un conjunto de medida cero}.
 
-El arquetipo de esta clase de procesos es el proceso de Wiener.
-%
-%Por ejemplo, un proceso de Poisson es estoc\'asticamente continuo aunque sus realizaciones
-%nunca son continuas; un proceso ruido blanco (variables aleatorias indepentiendes
-%e id\'enticamente distribuidas)
-%no es estoc\'asticamente continuo ya que puede 
-%
-%Para explorar este concepto de manera concreta, consid\'erese un proceso de Wiener; como es 
-%un ejemplo ''r\'apido'', se definir\'a a apartir de sus propiedades:
-%
-%\begin{defn}[Proceso de Wiener]
-%Un proceso estoc\'astico a tiempo continuo $\{ W(t) \}$ recibe el nombre de proceso
-%de Wiener si satisface que
-%\begin{itemize}
-%\item $W(0) = 0$
-%\item La variable aleatoria $W(t) - W(s)$ tiene una distribuci\'on normal con media 0 y 
-%varianza $\abso{t-s}$
-%\item Las variables aleatorias ${W(t)}$ y ${W(t) - W(s)}$ son independientes para
-%todos los tiempo permitidos $t$, $s$
-%\end{itemize} 
-%\end{defn}
-%
-%Ahora bien, se considera un proceso de Wiener $\{W(t)\}$ con $t\geq 0$, y se verificar\'a su 
-%continuidad estoc\'astica para un punto arbitrario $t_0 > 0$. 
-%Por definici\'on, se tiene
-Para mostrarlo, consid\'erese un proceso de Wiener $\{W_t\}$; 
-por su definici\'on se tiene que
-$$W(t) - W(t_0) \sim N(0,\abso{t-t_0}) \sim \sqrt{\abso{t-t_0}} N(0,1)$$
-donde el s\'imbolo $\sim$ indica que dos variables tienen la misma funci\'on de densidad de 
-probabilidad. Luego, como $ \left( W(t) - W(t_0) \right)^{2} \sim \chi^{2}(1) $, se cumple que
-$$
-\E{\left( W(t) - W(t_0) \right)^{2}}
-$$
-y luego entonces es claro que $\lim_{t \rightarrow t_0} \E{\left( X(t) - X(t_0) \right)^{2}} = 0$.
-Esta aritm\'etica de variables aleatorias puede formalizarse, pero a lo largo de
-este trabajo se supondr\'an conocidos los detalles respectivos.
+%%El arquetipo de esta clase de procesos es el proceso de Wiener.
+%%%
+%%%Por ejemplo, un proceso de Poisson es estoc\'asticamente continuo aunque sus realizaciones
+%%%nunca son continuas; un proceso ruido blanco (variables aleatorias indepentiendes
+%%%e id\'enticamente distribuidas)
+%%%no es estoc\'asticamente continuo ya que puede 
+%%%
+%%%Para explorar este concepto de manera concreta, consid\'erese un proceso de Wiener; como es 
+%%%un ejemplo ''r\'apido'', se definir\'a a apartir de sus propiedades:
+%%%
+%%%\begin{defn}[Proceso de Wiener]
+%%%Un proceso estoc\'astico a tiempo continuo $\{ W(t) \}$ recibe el nombre de proceso
+%%%de Wiener si satisface que
+%%%\begin{itemize}
+%%%\item $W(0) = 0$
+%%%\item La variable aleatoria $W(t) - W(s)$ tiene una distribuci\'on normal con media 0 y 
+%%%varianza $\abso{t-s}$
+%%%\item Las variables aleatorias ${W(t)}$ y ${W(t) - W(s)}$ son independientes para
+%%%todos los tiempo permitidos $t$, $s$
+%%%\end{itemize} 
+%%%\end{defn}
+%%%
+%%%Ahora bien, se considera un proceso de Wiener $\{W(t)\}$ con $t\geq 0$, y se verificar\'a su 
+%%%continuidad estoc\'astica para un punto arbitrario $t_0 > 0$. 
+%%%Por definici\'on, se tiene
+%%Para mostrarlo, consid\'erese un proceso de Wiener $\{W_t\}$; 
+%%por su definici\'on se tiene que
+%%$$W(t) - W(t_0) \sim N(0,\abso{t-t_0}) \sim \sqrt{\abso{t-t_0}} N(0,1)$$
+%%donde el s\'imbolo $\sim$ indica que dos variables tienen la misma funci\'on de densidad de 
+%%probabilidad. Luego, como $ \left( W(t) - W(t_0) \right)^{2} \sim \chi^{2}(1) $, se cumple que
+%%$$
+%%\E{\left( W(t) - W(t_0) \right)^{2}}
+%%$$
+%%y luego entonces es claro que $\lim_{t \rightarrow t_0} \E{\left( X(t) - X(t_0) \right)^{2}} = 0$.
+%%Esta aritm\'etica de variables aleatorias puede formalizarse, pero a lo largo de
+%%este trabajo se supondr\'an conocidos los detalles respectivos.
 
 De manera m\'as general, cabe mencionar un teorema que permite tipificar de manera m\'as
 adecuada esta clase de procesos.
@@ -359,35 +360,36 @@ adecuada esta clase de procesos.
 Un proceso d\'ebilmente estacionario a tiempo continuo es estoc\'asticamente continuo si y s\'olo si
 su funci\'on de autocorrelaci\'on es continua en 0
 \end{thrm}
-\begin{demostracion}
-Sea $\{ X(t) \}$ un proceso d\'ebilmente estacionario, y sea $t_0$ un tiempo admisible arbitrario. 
-Luego, para todo $t$ admisible se cumple que
-\begin{align*}
-\E{\left( X(t) - X(t_0) \right)^{2}}
-&= \Var{X(t)} + \Var{X(t_0)} - 2 \Cov{X(t)}{X(t_0)}
-\\
-&= 2 \sigma_X^{2} \left( 1 - \rho(t-t_0) \right)
-\end{align*}
-donde $\rho$ es la funci\'on de autocorrelaci\'on y $\sigma_X^{2}$ la varianza del proceso. 
-Luego es claro que
-\begin{align*}
-\lim_{t\rightarrow t_0} \E{\left( X(t) - X(t_0) \right)^{2}} = 0  
-&{\Leftrightarrow}
-\lim_{t\rightarrow t_0} 2 \sigma_X^{2} \left( 1 - \rho(t-t_0) \right) = 0
-\\
-&{\Leftrightarrow}
-\lim_{\tau \rightarrow 0} \rho(\tau) = 1
-\end{align*}
-Como siempre se cumple que $\rho(0)=1$, la condici\'on final se traduce en que $\rho$ sea continua 
-en 0
-\end{demostracion}
+%\begin{demostracion}
+%Sea $\{ X(t) \}$ un proceso d\'ebilmente estacionario, y sea $t_0$ un tiempo admisible arbitrario. 
+%Luego, para todo $t$ admisible se cumple que
+%\begin{align*}
+%\E{\left( X(t) - X(t_0) \right)^{2}}
+%&= \Var{X(t)} + \Var{X(t_0)} - 2 \Cov{X(t)}{X(t_0)}
+%\\
+%&= 2 \sigma_X^{2} \left( 1 - \rho(t-t_0) \right)
+%\end{align*}
+%donde $\rho$ es la funci\'on de autocorrelaci\'on y $\sigma_X^{2}$ la varianza del proceso. 
+%Luego es claro que
+%\begin{align*}
+%\lim_{t\rightarrow t_0} \E{\left( X(t) - X(t_0) \right)^{2}} = 0  
+%&{\Leftrightarrow}
+%\lim_{t\rightarrow t_0} 2 \sigma_X^{2} \left( 1 - \rho(t-t_0) \right) = 0
+%\\
+%&{\Leftrightarrow}
+%\lim_{\tau \rightarrow 0} \rho(\tau) = 1
+%\end{align*}
+%Como siempre se cumple que $\rho(0)=1$, la condici\'on final se traduce en que $\rho$ sea continua 
+%en 0
+%\end{demostracion}
 
 Con esta segunda caracterizaci\'on a la mano, es f\'acil afirmar que un proceso %donde todas
 %conformado por variables aleatorias independientes 
 ruido blanco
 no es estoc\'asticamente continuo,
 ya que su funci\'on de autocorrelaci\'on vale 0 en todos los puntos
-excepto en 0, donde vale 1.
+excepto en 0, donde vale 1. 
+El proceso de Wiener, en cambio, es el arquetipo de un proceso estoc\'asticamente continuo.
 
 En este trabajo se supondr\'a que los registros de PSG corresponden a realizaciones
 de procesos estoc\'asticamente continuos; se considera la posiblidad de que est\'en
@@ -510,7 +512,7 @@ como \ref{Lebesgue_decomp}) seg\'un el cual una funci\'on con ciertas caracter\'
 separar como suma de tres funciones: una ''muy regular'', una ''compuesta \'unicamente por 
 saltos'' y un residuo con ''propiedades extravagantes''.
 
-\begin{thrm}[Descomposici\'on de Lebesgue, fun. de variaci\'on acotada]
+\begin{thrm}[Descomposici\'on de Lebesgue]%, fun. de variaci\'on acotada]
 Sea $f:I\rightarrow \R$ una funci\'on de variaci\'on acotada, con $I$ un intervalo. Entonces
 pueden hallarse funciones $f_j, f_c, f_a :I\rightarrow \R$ tales que
 \begin{itemize}
@@ -556,26 +558,27 @@ un proceso estoc\'atico --o cuando menos a alguna sus realizaciones.
 ¿Bajo qu\'e condiciones las realizaciones de un proceso estoc\'astico admiten una representaci\'on
 como series/integrales de Fourier/Fourier-Stieltjes?
 
-(Por simplicidad se abordar\'a primero esta pregunta para procesos a tiempo continuo, y 
-posteriormente se tratar\'a el caso a tiempo disreto.)
+%(Por simplicidad se abordar\'a primero esta pregunta para procesos a tiempo continuo, y 
+%posteriormente se tratar\'a el caso a tiempo disreto.)
 
 Se sabe que una condici\'on suficiente para que exista la transformada de Fourier de una funci\'on
-dada, es que pertenezca al espacio de las funciones $L^2$, definido como
-\begin{equation*}
-L^2(\R) = \left\{ f: \R \rightarrow \R {\biggr\rvert} \int_{-\infty}^{\infty} f(x) dx < \infty \right\}
-\end{equation*}
+dada, es que pertenezca al espacio de las funciones cuadrado-integrables, $L^2$.
+%, definido como
+%$
+%L^2(\R) = \left\{ f: \R \rightarrow \R {\biggr\rvert} \int_{-\infty}^{\infty} f(x) dx < \infty \right\}
+%$
 
 Sin embargo, considerando un proceso estacionario $\{ X(t) \}$, y dado que tiene varianza constante 
 en el tiempo, se 
-espera que sus realizaciones $x(t)$ no decaigan en infinito. Por otro lado, tampoco hay garant\'ia
-que admita una representaci\'on de Fourier-Stieltjes. M\'as a\'un, no hay garant\'ia alguna que
+espera que sus realizaciones $x(t)$ no decaigan en infinito. Tampoco hay garant\'ia
+que admitan una representaci\'on de Fourier-Stieltjes. M\'as a\'un, no hay garant\'ia alguna que
 una realizaci\'on arbitraria pueda expresarse como la suma de una funci\'on en $L^2$ y una
 funci\'on que admita representaci\'on de Fourier-Stieltjes.
 
 El enfoque que se aborda es construir una sucesi\'on de funciones 
 %peri\'odicas 
 en $L^{2}$
-que convergen a ''cada''
+que convergen a ''cada'' realizaci\'on
 $x(t)$, y luego revisar la convergencia de sus respectivas integrales de Fourier.
 As\'i entonces, para cada $T>0$ se define
 \begin{equation}
@@ -587,8 +590,8 @@ x(t) & \text{ , } -T\leq t \leq T
 \end{cases}
 \end{equation}
 
-Claramente, para todo $T$ se tiene que $x_T \in L^2$, y entonces admite la siguiente 
-representaci\'on
+Claramente, para todo $T$ se tiene que $x_T \in L^2$, y entonces la siguiente 
+representaci\'on est\'a bien definida
 \begin{equation}
 x_T (t) = \frac{1}{\sqrt{2 \pi}} \intR G_T(\omega) e^{i \omega t} d\omega
 \end{equation}
@@ -600,23 +603,36 @@ G_T (\omega) = \frac{1}{\sqrt{2 \pi}} \intR x_T(t) e^{-i \omega t} dt
 = \frac{1}{\sqrt{2 \pi}} \int_{-T}^{T} x(t) e^{-i \omega t} dt
 \end{equation}
 
-Como se mencion\'o anteriormente no hay garant\'ia de que $x(t)$, una realizaci\'on arbitraria de
+Como se mencion\'o anteriormente, no hay garant\'ia de que $x(t)$, una realizaci\'on arbitraria de
 $\{X(t)\}$, tenga una integral de Fourier bien definida. Luego entonces no hay garant\'ia que 
 $G_T$ converja cuando $T\rightarrow \infty$. Recuperando la interpretaci\'on de 
-$\left| G_T(\omega) \right|^{2}$ como una funci\'on de densidad para la energ\'ia total del sistema 
-asociada a la frecuencia
-puntual $\omega$, destaca un argumento f\'isico seg\'un el cual $G_T$ no tiene por qu\'e converger:
+$\left| G_T(\omega) \right|^{2}$ como una funci\'on de distribuci\'on para la energ\'ia total del sistema 
+%asociada a la frecuencia
+sobre las frecuencias
+puntualse $\omega$, destaca un argumento f\'isico seg\'un el cual $G_T$ {deber\'ia} diverger:
 durante un tiempo infinito, un sistema que maneja ''niveles constantes'' de 
 energ\'ia puede registrar una cantidad infinita de energ\'ia en su historial. 
 %Curiosamente,
 %esta segunda interpretaci\'on del
 %problema motiva una soluci\'on para el mismo: usando un tipo de promedio para la
 %distribuci\'on de energ\'ia involucrando a $T$
-Este problema puede remediarse resolviendo el enredo de palabras y t\'erminos, 
-ya que no es tan importante la
-cantidad de energ\'ia concentrada en cada frecuencia, sino qu\'e frecuencias concentran m\'as
-energ\'ia. Luego entonces conviene usar un promedio que ''tome en cuenta'' el tama\~no
-del intervalo
+
+Este problema puede remediarse 
+%resolviendo el enredo de palabras y t\'erminos, 
+siguiendo la interpretaci\'on f\'isica del objeto que se intenta investigar:
+%ya que 
+no es tan importante la
+cantidad total de energ\'ia 
+sobre todos los tiempos posibles, ya que s\'olo es importante lo que ocurra en intervalos finitos
+de tiempo.
+%concentrada en cada frecuencia, 
+%sino qu\'e frecuencias concentran m\'as
+%energ\'ia. 
+Luego entonces conviene usar un promedio que 
+%''tome en cuenta'' el tama\~no
+%del intervalo
+involucre el tama\~no de los intervalos ''recortados'' y que pueda converger a una suerte de 
+densidad de energ\''ia en el tiempo.
 
 \begin{equation}
 \lim_{T\rightarrow{\infty}} = \frac{ \left| G_T(\omega) \right|^{2}}{2 T}
@@ -625,11 +641,15 @@ del intervalo
 
 La expresi\'on en \ref{yacasi} es una adaptaci\'on de la integral de Fourier para una realizaci\'on
 de un proceso estoc\'astico a tiempo continuo; los detalles sobre la convergencia de esta 
-cantidad se discutir\'an m\'as adelante.
+cantidad se discutir\'an m\'as adelante;
+cabe destacar que la forma en que se promedia s\'olo resulta significativa para procesos estacionarios.
 %conserva una parte clave de la interpretaci\'on.
-Por mientras, en cierta medida se ha contestado una de las interrogantes al inicio de esta 
-secci\'on sobre la posibilidad y
-el posible significado de una transformada de Fourier para las realizaciones de un proceso 
+Por mientras, y en cierta medida, se ha contestado una de las interrogantes 
+%al inicio de esta 
+previas
+%secci\'on 
+sobre la posibilidad y
+el significado de una transformada de Fourier para las realizaciones de un proceso 
 estoc\'astico; con respecto a la posibilidad de una transformada para el proceso per se, vale la 
 pena
 ajustar la definici\'on en \ref{yacasi} para que sea ''representativa'' del proceso --y no s\'olo
@@ -773,6 +793,10 @@ y tal que para todo $\tau \in \R$ se cumple que
 \end{equation*}
 \end{thrm}
 
+Una diferencia fundamental entre estos dos teoremas es que el primero se refiere a procesos a
+tiempo continuo, mientras que el segundo se refiere a procesos a tiempo discreto; un caso de
+particularmente interesante es el de procesos a tiempo continuo que son observados en puntos
+
 Si bien no es claro que el teorema de Wiener-Khintchine, o su extensi\'on por Wold, tengan una
 interpretaci\'on f\'sica clara, tienen una interpretaci\'on clave para los estimadores en el
 dominio de las frecuencias:
@@ -835,8 +859,10 @@ estimador \ref{estimador_R_ast} tiene las siguientes propiedades
 %\item $\Cov{\aste{\rho}(\tau),\aste{\rho}(\tau+\nu)} \approx \frac{1}{N} 
 %\sum_{r=-\infty}^{\infty} \left( \rho(r)\rho(r+\nu) + \rho(r-\tau)\rho(r+\tau+\nu) \right)$
 \end{itemize}
-La segunda aproximaci\'on es exacta si el proceso es gaussiano, y mejora asint\'oticamente
-con el n\'umero de puntos.
+La aproximaci\'on 
+para la varianza se vuelve
+exacta si el proceso es normal, aunque es asint\'otica en general.
+%con el n\'umero de puntos.
 
 As\'i entonces se puede definir, como se mencion\'o, 
 el periodograma $I_N(\omega)$ de la siguiente manera
@@ -847,8 +873,11 @@ I_N(\omega) = 2 \sum_{r = -(N-1)}^{N-1} \aste{R}(r) \COS{r \omega}
 \end{equation}
 
 Ahora bien, la definici\'on cl\'asica del periodograma est\'a dada por la expresi\'on
-en \ref{periodograma_rho}, y lo que pasa es que es equivalente a la definici\'on
-en \ref{periodograma}
+en \ref{periodograma_rho}, 
+aunque igualmente se puede definir por la expresi\'on equivalente
+%y lo que pasa es que es equivalente a la definici\'on
+en \ref{periodograma}; aunque la segunda es clara y efectiva computacionalmente, se usar\'a
+la primera de manera recurrente.
 
 \begin{equation}
 I_N(\omega) = \frac{2}{N} \abso{ \sum_{t=0}^{N} e^{i \omega t} x_t }^{2}
@@ -859,25 +888,46 @@ I_N(\omega) = \frac{2}{N} \abso{ \sum_{t=0}^{N} e^{i \omega t} x_t }^{2}
 %espectro puramente discreto y el caso con espectro puramente continuo.
 %En el primer caso, las siguientes formas fueron propuestas por Bartlet
 
-Si bien en el caso continuo se cumple que $\E{I_N(\omega)}=h(\omega)$, lamentablemente
-se da el caso en que $\lim_{N\rightarrow 0} \Var{I_N(\omega)} = h^{2}(\omega)$. Luego el
-periodograma ''cl\'asico'' --o cualquiera de sus formulaciones equivalentes-- es un estimador
-insesgado para la SDF, pero su varianza no decae a cero al incrementar el n\'umero de puntos, es
-decir, aumentar la cantidad de datos no implica que la estimaci\'on mejore\footnote{La 
-demostraci\'on de esta propiedad es omitida por brevedad
+Si bien se puede deostrar que en el caso continuo 
+%se cumple que 
+$\E{I_N(\omega)}=h(\omega)$, si el proceso tuviera un espectro puramente continuo,
+ocurre que $\lim_{N\rightarrow 0} \Var{I_N(\omega)} = h^{2}(\omega)$. Luego el
+periodograma ''cl\'asico'' --o cualquiera de sus formulaciones equivalentes-- es 
+en general
+un estimador
+insesgado para la SDF, pero su varianza no decae a cero al incrementar el n\'umero de puntos;
+intuitivamente esto sgnifica que en promedio se espera que funcione adecuadamente como
+estimador, pero
+%decir, 
+aumentar la cantidad de datos no implica que la estimaci\'on mejore,%\footnote{La 
+%demostraci\'on de esta propiedad es omitida por brevedad
 %Este 
 %comentario se puede hacer m\'as claro, pero no se ha hecho porque implica incluir m\'as material
-}.
+%}.
+y es muy posible que nunca sea realmente buena.
 
-Un problema indicao como comentario es que el periodograma --a seg\'un \ref{periodograma_rho}--
-est\'a siendo calculado usando estimadores para la funci\'on de autocovarianza en todos los 
-retrasos posibles; el problema con ello es que los retrasos m\'as grandes son calculados usando
-menos puntos, de modo que generan una mayor varianza.
+%Un problema indicao 
+Priestley comenta que este efecto ocurre porque
+%como comentario es que 
+el periodograma --calculado seg\'un \ref{periodograma_rho}--
+est\'a siendo depende de estimadores para la funci\'on de autocovarianza evaluada en todos los 
+puntos accesibles; 
+el problema con ello es que para evaluarla en retrasos m\'as grandes, 
+%son calculados usando
+se requieren puntos m\'as alejados, y como hay muy pocos disponibles
+%generan una mayor varianza.
+generan un estimador con varianza muy alta.
 
-Entonces, el periodograma aumenta su varianza porque incluye las colas de la funci\'on de
-autocorrelaci\'on. Una respuesta cl\'asica a este problema es tratar de evitar en lo posible estas
-colas, elimin\'andolas o multiplicando por una funci\'on de pesos que disminuya r\'apidamente.
-En este sentido, se considerar\'an los estimadores con la forma
+Puesto que el periodograma aumenta su varianza porque incluye las ''colas'' de la 
+funci\'on de
+autocovarianza, una respuesta cl\'asica 
+%a este problema 
+es tratar de evitar en lo posible estas
+colas 
+%elimin\'andolas o 
+multiplicando por una funci\'on de pesos.
+% que disminuya r\'apidamente.
+En este sentido, se considerar\'an los estimadores con la siguiente forma
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
