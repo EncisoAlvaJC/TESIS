@@ -1,0 +1,485 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\documentclass[12pt,a4paper]{article}
+\documentclass[12pt,a4paper]{mitthesis}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\decimalpoint
+
+% en algun momento queria cambiar el formato de las referencias
+\usepackage{cite}
+
+% tienen algunos comandos que ocupo, como align o defn
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+
+% sin este no se pueden incluir imagenes
+\usepackage{graphicx}
+
+\usepackage{cmap}
+\pagestyle{plain}
+
+% para incluir el reporte en pdf, temporalmente
+\usepackage{pdfpages}
+
+% para importar el codigo de R y que se vea bien
+\usepackage{listings}
+\usepackage{color}
+
+% para hacer cuadros de color
+%\usepackage{tcolorbox}
+
+% este paquete pone las fracciones bonitas
+\usepackage{nicefrac}
+
+% este paquete
+\usepackage{url}
+
+% para el simbolo TM de marca registrada
+\usepackage{textcomp}
+
+% para poner imagenes verticales en pagina completa
+\usepackage{pdflscape}
+\usepackage{afterpage}
+\usepackage{everypage}
+\usepackage{environ}
+
+% paquete para tablas a hoja completa
+\usepackage{tabularx}
+
+% para que las tablas tengan lineas gruesas
+%\usepackage{booktabs}
+
+% para poner grandes cantidades de codigo como comentario
+\usepackage{verbatim}
+
+% para poner etquetas a un multiplot
+\usepackage[caption=false]{subfig}
+\usepackage{float}
+
+% para repartir un subfig entre varias paginas
+%\usepackage{caption}
+%\usepackage{subcaption}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcounter{abspage}% \thepage not reliab
+
+\makeatletter
+\newcommand{\newSFPage}[1]% #1 = \theabspage
+  {\global\expandafter\let\csname SFPage@#1\endcsname\null}
+
+\NewEnviron{SidewaysFigure}{
+\begin{figure}[p]
+\protected@write\@auxout{\let\theabspage=\relax}% delays expansion until shipout
+  {\string\newSFPage{\theabspage}}%
+\ifdim\textwidth=\textheight
+  \rotatebox{90}{\parbox[c][\textwidth][c]{\linewidth}{\BODY}}%
+\else
+  \rotatebox{90}{\parbox[c][\textwidth][c]{\textheight}{\BODY}}%
+\fi
+\end{figure}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\abbrlabel}[1]{\makebox[3cm][l]{\textbf{#1}\ \dotfill}}
+\newenvironment{abbreviations}{\begin{list}{}{\renewcommand{\makelabel}{\abbrlabel}}}{\end{list}}
+
+\pagestyle{plain}
+
+\newtheorem{defn}{Definici\'on}
+\newtheorem{thrm}{Teorema}
+\newtheorem{demostracion}{Demostraci\'on}
+
+\newcommand{\R}{\mathbb{R}}
+%\newcommand{\el2}{L^2}
+\newcommand{\intR}{\int_{-\infty}^{\infty}}
+\newcommand{\intZ}{\int_{-\infty}^{0}}
+\newcommand{\intPI}{\int_{-\pi}^{\pi}}
+\newcommand{\prima}{^{\prime}}
+
+\newcommand{\ddd}{$\delta$}
+
+\newcommand{\aste}[1]{\widehat{ #1 }^{\star}}
+\newcommand{\est}[1]{\widehat{ #1 }}
+
+\newcommand{\COS}[1]{\mathrm{cos}\left( #1 \right)}
+\newcommand{\SEN}[1]{\mathrm{sen}\left( #1 \right)}
+
+\newcommand{\E}[1]{\mathrm{E}\left[ #1 \right]}
+\newcommand{\Var}[1]{\mathrm{Var}\left( #1 \right)}
+\newcommand{\Cov}[1]{\mathrm{Cov}\left( #1 \right)}
+\newcommand{\abso}[1]{\left| #1 \right|}
+
+%\newcommand{\hline2}{•}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{ %
+  language=R,                     % the language of the code
+  basicstyle=\footnotesize,       % the size of the fonts that are used for the code
+% basicstyle=\tiny,               % the size of the fonts that are used for the code
+  numbers=left,                   % where to put the line-numbers
+  numberstyle=\tiny\color{gray},  % the style that is used for the line-numbers
+  stepnumber=1,                   % the step between two line-numbers. If it's 1, each line
+                                  % will be numbered
+  numbersep=5pt,                  % how far the line-numbers are from the code
+  backgroundcolor=\color{white},  % choose the background color. You must add \usepackage{color}
+  showspaces=false,               % show spaces adding particular underscores
+  showstringspaces=false,         % underline spaces within strings
+  showtabs=false,                 % show tabs within strings adding particular underscores
+  frame=single,                   % adds a frame around the code
+  rulecolor=\color{black},        % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. commens (green here))
+  tabsize=2,                      % sets default tabsize to 2 spaces
+  captionpos=b,                   % sets the caption-position to bottom
+  breaklines=true,                % sets automatic line breaking
+  breakatwhitespace=false,        % sets if automatic breaks should only happen at whitespace
+  title=\lstname,                 % show the filename of files included with \lstinputlisting;
+                                  % also try caption instead of title
+  keywordstyle=\color{blue},      % keyword style
+  commentstyle=\color{dkgreen},   % comment style
+  stringstyle=\color{mauve},      % string literal style
+  escapeinside={\%*}{*)},         % if you want to add a comment within your code
+  morekeywords={*,/,.}            % if you want to add more keywords to the set
+  deletekeywords={t,_,max,R}      % to remove keywords
+} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title{Estacionariedad d\'ebil en registros polisomnogr\'aficos de adultos mayores,
+como posible marcador de deterioro cognitivo}
+%
+\author{Julio Cesar Enciso Alva}
+
+\begin{center}
+\huge{Estacionariedad d\'ebil en registros polisomnogr\'aficos de adultos mayores,
+como posible marcador de deterioro cognitivo}
+
+
+\Large{Julio Cesar Enciso Alva}
+\end{center}
+
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter*{Abstract}
+
+Los avances m\'edicos del \'ultimo siglo se han traducido en un incremento tanto en la esperanza
+de vida como en la calidad de la misma. Sin embargo, tambi\'en se ve incrementada la presencia
+de enfermedades no-transmisibles esterotipadas como \textit{propias de la edad} --entre ellas la 
+demencia.
+Sin embargo, todav\'ia son incipientes las investigaciones para identificar los factores de riesgo 
+modificables asociados a la demencia. \cite{PlanAlzheimer04}.
+
+Los trastornos del sue\~no han sido se\~nalados recientemente como posiblemente relacionados con el 
+deterioro cognitivo durante la vejez \cite{Amer13,Miyata13}.
+
+%Por otro lado, hallazgos recientes han puesto de manifiesto la posible relación entre las alteraciones del sueño y el deterioro cognitivo asociado al envejecimiento 77–79. Concretamente, una duración más corta del sueño nocturno y una mala eficiencia de sueño en personas mayores se relaciona con una peor ejecución en tareas de memoria, sugiriendo que la pérdida de calidad de sueño durante el envejecimiento podría incidir negativamente sobre los mecanismos cerebrales que subyacen a la memoria 72. Por lo tanto, el insomnio en personas mayores podría ser más problemático que en otros grupos de edad, dado que cursa con deterioro cognitivo y empeora con la edad (79.
+%Un estudio cuantitativo realizado en 2015 por Brayet, Petit, Frauscher, Gagnon, Gosselin, Gagnon, Rouleau y Montplaisir80,tenía por objetivo comparar grupos de superioridad del sueño MOR por medio de una electroencefalografía como una herramienta de detección para enfermedad de Alzheimer preclínica. Su muestra fue de 22 sujetos con deterioro cognitivo leve amnésico (entre 63 y 70 años), 10 sujetos sin deterioro cognitivo (de 64 a 68 años) y 32 controles (de 63 a 69 años). El grupo “amnésico” mostró desaceleración encefalografica en las regiones laterales y frontales en comparación tanto con el “no amnésico” y el grupo control. Esta desaceleración encefalografíca estaba presente en la vigilia (en comparación con los controles), pero fue mucho más prominente en el sueño MOR. En cuanto a la comparación entre grupo “amnésico” y grupo “no amnésico” se encontró significativa sólo para el encefalogama del sueño MOR. Con estos hallazgos se la superioridad de la encefalografía del sueño MOR en la distinción del grupo “amnésico” y el grupo “no amnésico” y los sujetos control.
+
+En este trabajo se busca identificar patrones en la actividad cerebral del adulto
+mayor durante el sue\~no
+--de naturaleza muy espec\'ifica-- 
+que pudieran servir como marcadores para un diagn\'ostico cl\'inico del deterioro cognitivo.
+Se toma una metodolog\'ia de estudio de casos a posteriori, siendo analizados datos 
+correspondientes a adultos mayores previamente diagnosticados en cuanto a 
+posible deterioro cognitivo (PDC), a trav\'es de una bater\'ia de pruebas neuropscol\'ogicas.
+
+%A trav\'es de un estudio de casos \textit{a posteriori}
+%se analizan registros de actividad cerebral durante el sue\~no
+%en busca de carater\'isticas estad\'isticas espec\'ificas (estacionariedad d\'ebil) para adultos 
+%mayores con PDC diagn\'osticado --a trav\'es de una bater\'ia de test neuropsicol\'ogicos--
+%adem\'as de individuos control.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter*{Acr\'onimos}
+
+\begin{tabular}{rl}
+%\textbf{DCL} & Deterioro Cognitivo Leve
+%\\
+\textbf{EEG} & Electroencefalograma %/ Electroencefalograf\'ia
+\\
+\textbf{EMG} & Electromiograma %/ Electromiograf\'ia
+\\
+\textbf{EOG} & Electrooculograma %/ Electrooculograf\'ia
+\\
+\textbf{MCI} & Deterioro Cognitivo Leve (Mild Cognitive Impairment)
+\\
+\textbf{MOR} & Movimientos Oculares R\'apidos
+\\
+\textbf{PSG} & Polisomnograma %/ Polisomnograf\'ia
+\\
+\textbf{PDC} & Posible Deterioro Cognitivo
+\\
+\textbf{SDF} & Funci\'on de Densidad Espectral (Spectral Density Function)
+\end{tabular}
+
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\tableofcontents
+\newpage
+%\listoffigures
+%\newpage
+%\listoftables
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Antecedentes}
+
+La motivaci\'on principal para este trabajo proviene de los resultados reportados en otro trabajo 
+[de Valeria], en el cual se describen diferencias significaivas entre registros de actividad
+cerebral durante el sue\~no en adultos mayores con y sin deterioro cognitivo. Las diferencias 
+reportadas se refieren al exponente de Hurst, $H_\alpha$, calculado para registros de
+polisomnogr\'aficos (PSG)\footnote{Para mayores detalles revisar aqu\'el trabajo}.
+
+La cantidad $H_\alpha$, a veces referida como el ''color'' de la se\~nal, est\'a asociada con la
+''estructura fractal'' de un proceso estoc\'astico. De manera m\'as detallada, en aqu\'el trabajo 
+se reporta que para registros de PSG correspondientes adultos mayores con posible deterioro
+cognitivo (PDC) la cantidad $H_\alpha$ es menor. Dado que un menor coeficiente de Hurst est\'a 
+asociado con se\~nales con estructura m\'as simple, cabe preguntarse si los registros de PSG en 
+adultos mayores con PDC son ''m\'as simples'' o solamente tienen una estructura ''diferente''. De 
+manera concreta, en este trabajo se ha hipotetizado sobre la primera opci\'on; se pretende probar
+tal hip\'otesis revisando si los registros de actividad cerebral poseen propiedades que son
+t\'ipicas en se\~nales ''sencillas''.
+
+Formalmente, dentro de la modelaci\'on matem\'atica, las se\~nales electrofisiol\'ogicas usualmente 
+son entendidas como series de tiempo o como sistemas din\'amicos.
+%, cual si fueran polos opuestos: 
+%conjuntos de datos esparcidos en el tiempo que pueden (o no) ser en parte aleatorios, que 
+%bajo condiciones iniciales muy parecidas tienden a estados similares (o completamente diferentes).
+En el presente trabajo se opta por la primera opci\'on: los registros de electroencefalograma (EEG)
+son entendidos como generados por procesos estoc\'asticos, y se investiga si es plausible que estos
+procesos posean algunas propiedades --en particular, ser d\'ebilmente estacionarios\footnote{Para
+m\'as detalles sobre estos conceptos, ver el texto}.
+%si \'estos pueden modelarse como procesos estoc\'asticos \textbf{d\'ebilmente estacionarios}
+Este supuesto es b\'asico en el estudio de series de tiempo, y usualmente se acepta o rechaza como 
+propiedades int\'insecas del fen\'omeno pero sin un tratamiento formal.
+
+El registro sistem\'atico de la actividad el\'ectrica del cerebro se considera iniciado por Hans 
+Berger \cite{Berger29}, quien a su vez acu\~n\'o el t\'ermino electroencefalograma (EEG).
+Por otro lado, la idea que una se\~nal puede no ser regular (en particular, estacionaria) se puede 
+rastrear en el tiempo a los a\~nos 50’s \cite{Page52,Silverman57}. 
+Sin embargo, estas interrogantes sobre la regularidad de se\~nales electrofisiol\'ogicas no se 
+hacen claramente presentes sino hasta los a\~nos 70's \cite{Kawabata73,McEwen75,Cohen77,Sugimoto78}.
+
+Esta brecha temporal se debe, quiz\'a, a la aparici\'on de computadoras digitales de bajo costo, 
+gracias a las cuales es posible analizar mayores vol\'umenes de datos.
+%Se cuenta en an\'ecdotas que, antes de la era digital, las se\~nales de EEG eran registradas en una
+%tira de papel; el registro se llevaba a cabo sobre una tira de papel que se mov\'ia, a trav\'es de 
+%agujas similares a las de un sism\'grafo.
+%El encargado de interpetar el EEG med\'ia la frecuancia de las ondas al contar el n\'umero de 
+%espigas dibujadas en un segundo, motivando la caracterizaci\'on de las ondas cerebrales
+%\cite{Klonowski09}.
+Curiosamente, estos primeros estudios aparec\'ian disconexos del sustento te\'orico asociado a las 
+t\'ecnicas  utilizadas. Conviene citar, por ejemplo, que la escasa capacidad de c\'omputo 
+%en los ochentas
+promovi\'o, indirectamente, la hip\'otesis de que {toda} serie de tiempo suficientemente corta 
+pod\'ia entenderse como generada por un proceso estoc\'astico d\'ebilmente estacionario.
+%e incluso pueden encontrarse cotas tentativas sobre la duraci\'on m\'axima de estacionariedad 
+%garantizada. 
+Actualmente, la estacionariedad d\'ebil ''garantizada'' para series cortas se considera rebatida\cite{Melard89,Adak98,Klonowski09}.
+%Hoy en d\'ia se considera que las series de tiempo de origen biol\'ogico son, en general,
+%no-estacionarias, no-lineales y no en equilibrio por naturaleza.
+
+Formalmente se inicia
+este trabajo bajo el supuesto de que durante el PDC la actividad cerebral
+del sujeto tiene caracter\'isticas diferentes; 
+dada la evidencia del estudio referido, se plantea la hip\'otesis de que este cambio puede ser
+una ''menor complejidad'' en cuanto a sus propiedades estad\'isticas 
+dependientes del tiempo, y que quiz\'a el proceso es m\'as parecido a un proceso ruido blanco.
+La forma que se ha elegido para comprobar esta hip\'otesis es midiendo la ''presencia'' de
+estacionariedad d\'ebil en estos registros --como ya se hab\'ia mencionado.
+
+\subsubsection{Sobre la brevedad de este trabajo}
+
+Debido a su naturaleza de reporte, en este documento no es extensivo en cuanto a teor\'ia sino que
+describe los conceptos clave para entender e interpretar los resultados obtenidos.
+Este enfoque tiene su origen en la intenci\'on de que pueda 
+ser accesible a un p\'ublico ''diverso'' (no s\'olo de fisiolog\'ia, no s\'olo de matem\'aticas)
+y que haga su peque\~no aporte en una larga tradici\'on colaborativa entre estas \'areas.
+Se presenta una gran variedad de teoremas, siendo citadas publicaciones que contienen
+sus respectivas demostraciones. As\'imismo, conviene advertir que se expone material respecto a
+la ''representaci\'on espectral'' de procesos estoc\'asticos d\'ebilmente estacionarios y
+estoc\'asticamente continuos, pero inmediatamente despu\'es 
+se exhiben estimadores espectrales para procesos 
+que admiten un ''espectro evolutivo'' en el sentido de Priestley; se han omitido una gran cantidad
+de detalles en aras de obtener brevedad y mostrar s\'olo los detalles b\'asicos
+para interpretar los resultados obtenidos. 
+El lector interesado puede ser dirigido al libro ''Spectral Analysis and Time Series'' de
+M. Priestley \cite{Priestley81}, el cual resume en gran parte la teor\'ia espectral ''cl\'asica''.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Justificaci\'on}
+
+El cuidado de enfermedades cr\'onicas en la poblaci\'on de edad avanzada representa un gran peso 
+econ\'onomico y de recursos humanos, que recae sobre el sistema de salud y los familiares de 
+aquellos afectados. 
+De acuerdo a la Encuesta Nacional de Salud y Nutrici\'on (ENSANUT) efectuada en M\'exico 2002, se 
+estima que existen 800,000 adultos mayores \cite{Sosa12}. 
+La mejor o menor calidad de vida del adulto mayor depende tanto de la calidad de los servicios de s
+alud a los que tenga acceso, como de una valoraci\'on adecuada de su cuadro cl\'inico, para un 
+tratamiento acorde. Por ello, cobra importancia un diagn\'ostico temprano del deterioro cognitivo 
+que disminuya el risgo de su avance irreversible a demencia.
+
+El deterioro cognitivo leve (MCI, por sus siglas en ingl\'es) es el estado cl\'inico anterior a la
+demencia, y se define como ''un s\'indrome caracterizado por una alteraci\'on adquirida y 
+prolongada de una o varias funciones cognitivas, que no corresponde a un s\'indrome focal y no 
+cumple criterios suficientes de gravedad para ser calificada como demencia'' \cite{Robles02}.
+
+En este trabajo se retoman %los datos adquiridos por [citar]; 
+la l\'inea de investigaci\'on trazada por \cite{VazquezTagle16}.
+En aqu\'el estudio se analizaron
+posibles cambios en la estructura funcional\footnote{Se suele hablar de 
+\textit{conectividad funcional} cuando hay una ''buena'' relaci\'on entre la informaci\'on
+que se maneja en las partes involucradas; este t\'ermino se contrapone al de
+\textit{conectividad anat\'omica}, que se refiere a conexiones f\'isicas}
+del cerebro para adultos mayores con PDC, con 
+respecto a individuos sanos; se report\'o que estos cambios son manifiestos durante el sue\~no
+profundo --etapa denominada sue\~no MOR o fase R-- 
+a trav\'es de la actividad el\'ectrica del cerebro registrada desde el cuero 
+cabelludo\footnote{Ver parte de Conceptos fisiol\'ogicos para m\'as informaci\'on}. 
+
+Se hubo estudiado espec\'ificamente la etapa MOR del sue\~no en adultos mayores
+%particularmente el sue\~no MOR en adultos mayores 
+con el fin de discriminar
+cambios permanentes en la funci\'on cerebral, con respecto a cambios transitorios asociados
+a actividades espec\'ificas.
+A grosso modo, en la literatura se ha reportado cambios en la conectividad anat\'omica
+ante da\~nos en tejido nervioso y que tienen como resultado la recuperaci\'on parcial
+de la conectividad funcional global; si estos cambios ocurren en el cerebro, se espera que las
+funciones cognitivas no reflejen fielmente la gravedad del deterioro/da\~no en el tejido cerebral
+--el deterioro cognitivo ser\'ia in\'util para diagnosticar el deterioro cerebral.
+As\'i pues, se ha buscado aminorar el efecto de la capacidad cognitiva compensada
+registrando una fase de sue\~no en la que no hay presente actividad cerebral 
+dirigida\footnote{Ver [conceptos fisiol\'ogicos] para myor informaci\'on}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Pregunta de investigaci\'on}
+
+¿Es plausible que la clasificaci\'on, para fragmentos de registros de PSG, como ''series de tiempo 
+d\'ebilmente estacionarias'' pueda ser usada como un marcador usable en el diagn\'ostico cl\'inico
+de posible deterioro cognitivo en adultos mayores?
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Hip\'otesis}
+
+Existen diferencias estad\'isticamente significativas entre la ''presencia'' de estacionariedad 
+d\'ebil en registros de PSG, durante etapas espec\'ificas de sue\~no, en adultos mayores con PDC 
+respecto a individuos sin este padecimiento.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Objetivo general}
+
+Deducir, a partir de pruebas estad\'isticas formales, las presencia de estacionariedad d\'ebil en
+registros de PSG para adultos mayores con PDC, as\'i como individuos control.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Objetivos espec\'ificos}
+
+\begin{itemize}
+\item Estudiar la definici\'on de estacionariedad para procesos estoc\'asticos y sus posibles 
+consecuencias dentro de un modelo para los datos considerados
+
+\item Investigar en la literatura c\'omo detectar si es plausible que una serie de tiempo dada sea 
+una realizaci\'on para un proceso estoc\'astico d\'ebilmente estacionario, y bajo qu\'e supuestos 
+es v\'alida esta caracterizaci\'on
+
+\item Usando los an\'alisis hallados en la literatura, determinar si las series de tiempo 
+obtenidas a partir de los datos considerados provienen de procesos debilmente estacionarios.
+Revisar si la informaci\'on obtenida en los diferentes sujetos muestra diferencias entre sujetos 
+con y sin PDC
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\include{parte_fisiologica}
+
+\include{parte_matematica}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\include{metodologia}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\include{resultados}
+
+\include{discusion}
+
+%\include{conclusion}
+%
+%\include{futuro}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%\include{parte_historia_conjunta}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\appendix
+
+%%%\chapter{C\'odigo en R del test PSR}
+%%%
+%%%\lstinputlisting[caption=C\'odigo usado]{multipsr08.R}
+
+\include{tablas_y_graficos}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\bibliography{referencias_estacionariedad,referencias_fisiologia,referencias_otros,referencias_mixto}{}
+%\bibliographystyle{apalike-es}
+\bibliographystyle{abbrv}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
