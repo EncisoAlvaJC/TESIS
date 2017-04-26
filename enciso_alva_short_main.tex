@@ -197,10 +197,11 @@ Sin embargo, todav\'ia son incipientes las investigaciones para identificar los 
 modificables asociados a la demencia. \cite{PlanAlzheimer04}.
 
 Los trastornos del sue\~no han sido se\~nalados recientemente como posiblemente relacionados con el 
-deterioro cognitivo durante la vejez \cite{Amer13,Miyata13}.
-
-%Por otro lado, hallazgos recientes han puesto de manifiesto la posible relación entre las alteraciones del sueño y el deterioro cognitivo asociado al envejecimiento 77–79. Concretamente, una duración más corta del sueño nocturno y una mala eficiencia de sueño en personas mayores se relaciona con una peor ejecución en tareas de memoria, sugiriendo que la pérdida de calidad de sueño durante el envejecimiento podría incidir negativamente sobre los mecanismos cerebrales que subyacen a la memoria 72. Por lo tanto, el insomnio en personas mayores podría ser más problemático que en otros grupos de edad, dado que cursa con deterioro cognitivo y empeora con la edad (79.
-%Un estudio cuantitativo realizado en 2015 por Brayet, Petit, Frauscher, Gagnon, Gosselin, Gagnon, Rouleau y Montplaisir80,tenía por objetivo comparar grupos de superioridad del sueño MOR por medio de una electroencefalografía como una herramienta de detección para enfermedad de Alzheimer preclínica. Su muestra fue de 22 sujetos con deterioro cognitivo leve amnésico (entre 63 y 70 años), 10 sujetos sin deterioro cognitivo (de 64 a 68 años) y 32 controles (de 63 a 69 años). El grupo “amnésico” mostró desaceleración encefalografica en las regiones laterales y frontales en comparación tanto con el “no amnésico” y el grupo control. Esta desaceleración encefalografíca estaba presente en la vigilia (en comparación con los controles), pero fue mucho más prominente en el sueño MOR. En cuanto a la comparación entre grupo “amnésico” y grupo “no amnésico” se encontró significativa sólo para el encefalogama del sueño MOR. Con estos hallazgos se la superioridad de la encefalografía del sueño MOR en la distinción del grupo “amnésico” y el grupo “no amnésico” y los sujetos control.
+deterioro cognitivo durante la vejez \cite{Amer13,Miyata13,Potvin12}; una duraci\'on menor del 
+sue\~no nocturno y una mala eficiencia del mismo, en personas mayores, se relaciona con una peor 
+ejecuci\'on en tareas de memoria \cite{Reid06}. Estos estudios sugieren que las afectaciones
+relativas al sue\~no en personas mayores podr\'ian ser m\'as problem\'atico que en otros grupos de 
+edad, dado que cursa con deterioro cognitivo y empeora con la edad \cite{Potvin12}.
 
 En este trabajo se busca identificar patrones en la actividad cerebral del adulto
 mayor durante el sue\~no
@@ -307,43 +308,37 @@ gracias a las cuales es posible analizar mayores vol\'umenes de datos.
 %El encargado de interpetar el EEG med\'ia la frecuancia de las ondas al contar el n\'umero de 
 %espigas dibujadas en un segundo, motivando la caracterizaci\'on de las ondas cerebrales
 %\cite{Klonowski09}.
-Curiosamente, estos primeros estudios aparec\'ian disconexos del sustento te\'orico asociado a las 
-t\'ecnicas  utilizadas. Conviene citar, por ejemplo, que la escasa capacidad de c\'omputo 
-%en los ochentas
-promovi\'o, indirectamente, la hip\'otesis de que {toda} serie de tiempo suficientemente corta 
-pod\'ia entenderse como generada por un proceso estoc\'astico d\'ebilmente estacionario.
-%e incluso pueden encontrarse cotas tentativas sobre la duraci\'on m\'axima de estacionariedad 
-%garantizada. 
+Se puede se\~nalar que estos primeros estudios aparentan estar disconexos del sustento te\'orico 
+asociado a las t\'ecnicas  utilizadas en cuanto a la interpretaci\'on de los datos obtenidos. 
+Conviene citar, por ejemplo, que la escasa capacidad de c\'omputo promovi\'o, indirectamente, la 
+hip\'otesis de que {toda} serie de tiempo suficientemente corta pod\'ia entenderse como generada 
+por un proceso estoc\'astico d\'ebilmente estacionario.
 Actualmente, la estacionariedad d\'ebil ''garantizada'' para series cortas se considera rebatida\cite{Melard89,Adak98,Klonowski09}.
-%Hoy en d\'ia se considera que las series de tiempo de origen biol\'ogico son, en general,
-%no-estacionarias, no-lineales y no en equilibrio por naturaleza.
 
-Formalmente se inicia
-este trabajo bajo el supuesto de que durante el PDC la actividad cerebral
-del sujeto tiene caracter\'isticas diferentes; 
-dada la evidencia del estudio referido, se plantea la hip\'otesis de que este cambio puede ser
-una ''menor complejidad'' en cuanto a sus propiedades estad\'isticas 
-dependientes del tiempo, y que quiz\'a el proceso es m\'as parecido a un proceso ruido blanco.
-La forma que se ha elegido para comprobar esta hip\'otesis es midiendo la ''presencia'' de
-estacionariedad d\'ebil en estos registros --como ya se hab\'ia mencionado.
+En cuanto a los uspuestos aceptados en este trabajo, el central de ellos es que, dado el detrioro
+cognitivo, la actividad cerebral del sujeto tiene caracter\'isticas diferentes con respecto a un
+individuo sano. Se plantea la hip\'otesis de que este cambio puede ser una ''menor complejidad'' 
+en cuanto a las propiedades estad\'isticas de la se\~nal registrada. 
+%La forma que se ha elegido para comprobar esta hip\'otesis es midiendo la ''presencia'' de 
+%estacionariedad d\'ebil en estos registros --como ya se hab\'ia mencionado.
 
-\subsubsection{Sobre la brevedad de este trabajo}
-
-Debido a su naturaleza de reporte, en este documento no es extensivo en cuanto a teor\'ia sino que
-describe los conceptos clave para entender e interpretar los resultados obtenidos.
-Este enfoque tiene su origen en la intenci\'on de que pueda 
-ser accesible a un p\'ublico ''diverso'' (no s\'olo de fisiolog\'ia, no s\'olo de matem\'aticas)
-y que haga su peque\~no aporte en una larga tradici\'on colaborativa entre estas \'areas.
-Se presenta una gran variedad de teoremas, siendo citadas publicaciones que contienen
-sus respectivas demostraciones. As\'imismo, conviene advertir que se expone material respecto a
-la ''representaci\'on espectral'' de procesos estoc\'asticos d\'ebilmente estacionarios y
-estoc\'asticamente continuos, pero inmediatamente despu\'es 
-se exhiben estimadores espectrales para procesos 
-que admiten un ''espectro evolutivo'' en el sentido de Priestley; se han omitido una gran cantidad
-de detalles en aras de obtener brevedad y mostrar s\'olo los detalles b\'asicos
-para interpretar los resultados obtenidos. 
-El lector interesado puede ser dirigido al libro ''Spectral Analysis and Time Series'' de
-M. Priestley \cite{Priestley81}, el cual resume en gran parte la teor\'ia espectral ''cl\'asica''.
+%\subsubsection{Sobre la brevedad de este trabajo}
+%
+%Debido a su naturaleza de reporte, en este documento no es extensivo en cuanto a teor\'ia sino que
+%describe los conceptos clave para entender e interpretar los resultados obtenidos.
+%Este enfoque tiene su origen en la intenci\'on de que pueda 
+%ser accesible a un p\'ublico ''diverso'' (no s\'olo de fisiolog\'ia, no s\'olo de matem\'aticas)
+%y que haga su peque\~no aporte en una larga tradici\'on colaborativa entre estas \'areas.
+%Se presenta una gran variedad de teoremas, siendo citadas publicaciones que contienen
+%sus respectivas demostraciones. As\'imismo, conviene advertir que se expone material respecto a
+%la ''representaci\'on espectral'' de procesos estoc\'asticos d\'ebilmente estacionarios y
+%estoc\'asticamente continuos, pero inmediatamente despu\'es 
+%se exhiben estimadores espectrales para procesos 
+%que admiten un ''espectro evolutivo'' en el sentido de Priestley; se han omitido una gran cantidad
+%de detalles en aras de obtener brevedad y mostrar s\'olo los detalles b\'asicos
+%para interpretar los resultados obtenidos. 
+%El lector interesado puede ser dirigido al libro ''Spectral Analysis and Time Series'' de
+%M. Priestley \cite{Priestley81}, el cual resume en gran parte la teor\'ia espectral ''cl\'asica''.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -376,7 +371,7 @@ del cerebro para adultos mayores con PDC, con
 respecto a individuos sanos; se report\'o que estos cambios son manifiestos durante el sue\~no
 profundo --etapa denominada sue\~no MOR o fase R-- 
 a trav\'es de la actividad el\'ectrica del cerebro registrada desde el cuero 
-cabelludo\footnote{Ver parte de Conceptos fisiol\'ogicos para m\'as informaci\'on}. 
+cabelludo. 
 
 Se hubo estudiado espec\'ificamente la etapa MOR del sue\~no en adultos mayores
 %particularmente el sue\~no MOR en adultos mayores 
@@ -390,7 +385,7 @@ funciones cognitivas no reflejen fielmente la gravedad del deterioro/da\~no en e
 --el deterioro cognitivo ser\'ia in\'util para diagnosticar el deterioro cerebral.
 As\'i pues, se ha buscado aminorar el efecto de la capacidad cognitiva compensada
 registrando una fase de sue\~no en la que no hay presente actividad cerebral 
-dirigida\footnote{Ver [conceptos fisiol\'ogicos] para myor informaci\'on}.
+dirigida.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
