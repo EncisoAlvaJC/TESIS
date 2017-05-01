@@ -157,6 +157,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -189,7 +190,7 @@ como posible marcador de deterioro cognitivo}
 \chapter*{Abstract}
 
 Los avances m\'edicos del \'ultimo siglo se han traducido en un incremento tanto en la esperanza
-de vida como en la calidad de la misma. En consecuencia, tambi\'en se ve incrementada la presencia
+de vida como en la calidad de la misma. Sin embargo, tambi\'en se ve incrementada la presencia
 de enfermedades no-transmisibles esterotipadas como \textit{propias de la edad} --entre ellas la 
 demencia.
 Sin embargo, todav\'ia son incipientes las investigaciones para identificar los factores de riesgo 
@@ -198,20 +199,17 @@ modificables asociados a la demencia. \cite{PlanAlzheimer04}.
 Los trastornos del sue\~no han sido se\~nalados recientemente como posiblemente relacionados con el 
 deterioro cognitivo durante la vejez \cite{Amer13,Miyata13,Potvin12}; una duraci\'on menor del 
 sue\~no nocturno y una mala eficiencia del mismo, en personas mayores, se relaciona con una peor 
-ejecuci\'on en tareas de memoria \cite{Reid06}. 
-%Estos estudios sugieren que las 
-Las afectaciones
-del sue\~no en personas mayores podr\'ian ser m\'as problem\'aticas que en otros grupos de 
-edad
-%, dado que cursa con deterioro cognitivo y empeora con la edad 
-\cite{Potvin12}.
+ejecuci\'on en tareas de memoria \cite{Reid06}. Estos estudios sugieren que las afectaciones
+relativas al sue\~no en personas mayores podr\'ian ser m\'as problem\'atico que en otros grupos de 
+edad, dado que cursa con deterioro cognitivo y empeora con la edad \cite{Potvin12}.
 
-En este trabajo se busca identificar patrones en la actividad cerebral del adulto mayor durante el 
-sue\~no --de naturaleza muy espec\'ifica-- que pudieran servir como marcadores para un 
-diagn\'ostico cl\'inico del deterioro cognitivo;
-se emplea una metodolog\'ia de estudio de casos a posteriori, siendo analizados datos 
+En este trabajo se busca identificar patrones en la actividad cerebral del adulto
+mayor durante el sue\~no
+--de naturaleza muy espec\'ifica-- 
+que pudieran servir como marcadores para un diagn\'ostico cl\'inico del deterioro cognitivo.
+Se toma una metodolog\'ia de estudio de casos a posteriori, siendo analizados datos 
 correspondientes a adultos mayores previamente diagnosticados en cuanto a 
-posible deterioro cognitivo (PDC) a trav\'es de una bater\'ia de pruebas neuropscol\'ogicas.
+posible deterioro cognitivo (PDC), a trav\'es de una bater\'ia de pruebas neuropscol\'ogicas.
 
 %A trav\'es de un estudio de casos \textit{a posteriori}
 %se analizan registros de actividad cerebral durante el sue\~no
@@ -268,15 +266,14 @@ posible deterioro cognitivo (PDC) a trav\'es de una bater\'ia de pruebas neurops
 
 La motivaci\'on principal para este trabajo proviene de los resultados reportados en otro trabajo 
 [de Valeria], en el cual se describen diferencias significaivas entre registros de actividad
-cerebral durante el sue\~no en adultos mayores con y sin deterioro cognitivo. 
-Las diferencias 
-reportadas se refieren al exponente de Hurst ($H_\alpha$) 
-%calculado para registros de
-%polisomnogr\'aficos (PSG)\footnote{Para mayores detalles revisar aqu\'el trabajo}.
+cerebral durante el sue\~no en adultos mayores con y sin deterioro cognitivo. Las diferencias 
+reportadas se refieren al exponente de Hurst, $H_\alpha$, calculado para registros de
+polisomnogr\'aficos (PSG)\footnote{Para mayores detalles revisar aqu\'el trabajo}.
+
 La cantidad $H_\alpha$, a veces referida como el ''color'' de la se\~nal, est\'a asociada con la
-''estructura fractal'' de un proceso estoc\'astico. Concretamente, en aqu\'el trabajo 
-se reporta que la cantidad $H_\alpha$ es menor para registros de PSG correspondientes adultos 
-mayores con posible deterioro cognitivo (PDC). Dado que un menor coeficiente de Hurst est\'a 
+''estructura fractal'' de un proceso estoc\'astico. De manera m\'as detallada, en aqu\'el trabajo 
+se reporta que para registros de PSG correspondientes adultos mayores con posible deterioro
+cognitivo (PDC) la cantidad $H_\alpha$ es menor. Dado que un menor coeficiente de Hurst est\'a 
 asociado con se\~nales con estructura m\'as simple, cabe preguntarse si los registros de PSG en 
 adultos mayores con PDC son ''m\'as simples'' o solamente tienen una estructura ''diferente''. De 
 manera concreta, en este trabajo se ha hipotetizado sobre la primera opci\'on; se pretende probar
@@ -318,10 +315,30 @@ hip\'otesis de que {toda} serie de tiempo suficientemente corta pod\'ia entender
 por un proceso estoc\'astico d\'ebilmente estacionario.
 Actualmente, la estacionariedad d\'ebil ''garantizada'' para series cortas se considera rebatida\cite{Melard89,Adak98,Klonowski09}.
 
-%En cuanto a los uspuestos aceptados en este trabajo, el central de ellos es que, dado el detrioro
-%cognitivo, la actividad cerebral del sujeto tiene caracter\'isticas diferentes con respecto a un
-%individuo sano. Se plantea la hip\'otesis de que este cambio puede ser una ''menor complejidad'' 
-%en cuanto a las propiedades estad\'isticas de la se\~nal registrada. 
+En cuanto a los uspuestos aceptados en este trabajo, el central de ellos es que, dado el detrioro
+cognitivo, la actividad cerebral del sujeto tiene caracter\'isticas diferentes con respecto a un
+individuo sano. Se plantea la hip\'otesis de que este cambio puede ser una ''menor complejidad'' 
+en cuanto a las propiedades estad\'isticas de la se\~nal registrada. 
+%La forma que se ha elegido para comprobar esta hip\'otesis es midiendo la ''presencia'' de 
+%estacionariedad d\'ebil en estos registros --como ya se hab\'ia mencionado.
+
+%\subsubsection{Sobre la brevedad de este trabajo}
+%
+%Debido a su naturaleza de reporte, en este documento no es extensivo en cuanto a teor\'ia sino que
+%describe los conceptos clave para entender e interpretar los resultados obtenidos.
+%Este enfoque tiene su origen en la intenci\'on de que pueda 
+%ser accesible a un p\'ublico ''diverso'' (no s\'olo de fisiolog\'ia, no s\'olo de matem\'aticas)
+%y que haga su peque\~no aporte en una larga tradici\'on colaborativa entre estas \'areas.
+%Se presenta una gran variedad de teoremas, siendo citadas publicaciones que contienen
+%sus respectivas demostraciones. As\'imismo, conviene advertir que se expone material respecto a
+%la ''representaci\'on espectral'' de procesos estoc\'asticos d\'ebilmente estacionarios y
+%estoc\'asticamente continuos, pero inmediatamente despu\'es 
+%se exhiben estimadores espectrales para procesos 
+%que admiten un ''espectro evolutivo'' en el sentido de Priestley; se han omitido una gran cantidad
+%de detalles en aras de obtener brevedad y mostrar s\'olo los detalles b\'asicos
+%para interpretar los resultados obtenidos. 
+%El lector interesado puede ser dirigido al libro ''Spectral Analysis and Time Series'' de
+%M. Priestley \cite{Priestley81}, el cual resume en gran parte la teor\'ia espectral ''cl\'asica''.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
