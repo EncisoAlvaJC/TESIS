@@ -2,29 +2,29 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Resultados}
 
-En cada canal que conforma el PSG (EEG, EOG y EMG), 
-cada una de las \'epocas consideradas fue clasificada como 
-''Posiblemente Estacionaria'' (PE) si no pudo ser rechazado la hip\'otesis de 
-estacionariedad usando el test PSR ($\alpha = 0.05$), mientras que 
-%el rechazo de esta misma 
-%hip\'otesis es argumento ''suficiente'' para afirmar que el segmento de registro en cuenti\'on
-%puede ser clasificado omo no.estacionario.
-fue clasificado como ''No-estacionaria'' en caso contrario. Variar el valor cr\'itico
-para la clasificaci\'on (siempre menor a 0.05) no pareci\'o generar diferencias significativas.
-%La cantidad de \'epocas que no fueron para las cuales no es posible rechazar la hip\'otesis de
-%estacionariedad ($\alpha=0.05$)
-%clasificadas como ''Posiblemente Estacionarias'' (PE). 
-La cantidad de \'epocas PE en cada individuo 
-%con respecto a la cantidad total de \'epocas
-durante el sue\~no MOR y no-MOR
-muestra en las tablas \ref{total_gpos_mor}, \ref{total_gpos_nmor} y
-\ref{total_gpos_total}; debido a que entre los sujetos hubo una gran variabilidad entre el tiempo 
-que permanecieron en sue\~no MOR, se sugiri\'o comparar no el total de \'epocas PE sino
-la proporci\'on --con respecto a la duraci\'on, medida en \'epocas-- de estas etapas, 
-mustr\'andose estos resultados en las tablas \ref{gpos_mor}, \ref{gpos_nmor} y
-\ref{gpos_total}. En estas \'ultimas tablas, se han calculado promedios y desviaciones
-est\'andar muestrales entre los dos grupos que son comparados.
+En cada canal que conforma el PSG (EEG, EOG y EMG), cada una de las \'epocas consideradas fue 
+clasificada como 'posiblemente estacionaria' (PE) si no pudo ser rechazado la hip\'otesis de 
+estacionariedad usando el test PSR ($\alpha < 0.05$), o como 'no--estacionaria en caso contrario'.
+Variar el valor cr\'itico para esta clasificaci\'on no pareci\'o generar diferencias significativas.
+La cantidad de \'epocas PE en cada individuo durante el sue\~no MOR y NMOR se muestra en las tablas 
+\ref{total_gpos_mor}, \ref{total_gpos_nmor} y \ref{total_gpos_total}; debido a que hubo una gran 
+variabilidad entre los sujetos para el tiempo que permanecieron en sue\~no MOR, se consider\'o no 
+el total de \'epocas PE sino la proporci\'on de estas \'epocas en las respectivas etapas de sue\~no; 
+estos resultados se muestran en las tablas \ref{gpos_mor}, \ref{gpos_nmor} y \ref{gpos_total}. 
+Adicionalmente se han calculado promedios y desviaciones est\'andar grupales, seg\'un la
+clasificaci\'on arrojada por las pruebas neuropsicol\'ogicas.
 
+Como un primer an\'alisis se verific\'o si el sue\~no MOR, entendido como muestra del registro
+completo, tiene o no prpiedades estad\'sticas pareceidas a este \'ultimo --y si \'esta similaridad 
+pudiera estar relacionada con el PDC. 
+Se compar\'o la proporci\'on de \'epocas PE en cada canal durante sue\~no MOR y NMOR usando la 
+prueba $\chi^{2}$ para proporciones\footnote{Implementada en R como la funci\'on 
+\texttt{prop.test()}}; los resultados se muestran en la tabla \ref{comparacion_mor_vs_total}.
+
+Se encontr\'o que no hay diferencias significativas, consistentes en todos los sujetos, en los 
+canales LOG y ROG, lo cual puede ser explicado por la tipificaci\'on del sue\~no MOR. 
+Por otro lado, no se encontr\'o una relaci\'on clara entre el estado de salud del sujeto y la 
+aparici\'on de diferencias significativas entre estas proporciones.
 
 \begin{SidewaysFigure}
 \centering
@@ -62,21 +62,6 @@ Los asteriscos representan el pvalor con el cual se rechaza la hip\'otesis de
 que las diferencias son significativas: *=0.05 , **=0.01 , ***=0.005}
 \label{comparacion_mor_vs_total}
 \end{SidewaysFigure}
-
-Como un primer an\'alisis, para cada sujeto y en cada canal 
-se compar\'o la proporci\'on de \'epocas PE en sue\~no MOR contra el registro completo;
-el fin de ello es verificar si el sue\~no MOR --entendido como muestra no-aleatoria
-del sue\~no-- tiene propiedades similares o no, y si \'esta similaridad pudiera estar
-relacionada con el PDC del paciente. 
-Las comparaciones se llevaron a cabo usando la prueba $\chi^{2}$ para 
-proporciones\footnote{Implementada en R como la funci\'on \texttt{prop.test()}},
-los resultados se muestran en la tabla \ref{comparacion_mor_vs_total}.
-Se encontr\'o que no hay una relaci\'on clara entre el estado de salud del sujeto y
-la aparici\'on de diferencias significativas entre estas proporciones, se hallaron
-consistentemente diferencias en los canales LOG y ROG --que pueden explicarse como la actividad
-ocular caracter\'istica del sue\~no MOR.
-%; en la secci\'on
-%de discusi\'on se mencionan algunos datos que se ''recuperaron'' de este an\'alisis.
 
 
 Posteriormente se procedi\'o a comparar, por cada canal, si la proporci\'on de \'epocas PE
