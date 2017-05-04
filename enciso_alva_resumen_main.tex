@@ -196,44 +196,62 @@ como posible marcador de deterioro cognitivo}
 
 \chapter*{Res\'umen}
 
+{\small
+
 Los avances m\'edicos del \'ultimo siglo se han traducido en un incremento tanto en la esperanza
 de vida como en la calidad de la misma. Sin embargo, tambi\'en se ve incrementada la presencia
 de enfermedades no-transmisibles asociadas con la edad --entre ellas la demencia.
-Todav\'ia son incipientes las investigaciones para identificar los factores de riesgo 
-modificables asociados a la demencia \cite{PlanAlzheimer04}.
-
+%Todav\'ia son incipientes las investigaciones para identificar los factores de riesgo 
+%modificables asociados a la demencia \cite{PlanAlzheimer04}.
 Los trastornos del sue\~no han sido se\~nalados recientemente como relacionados con el deterioro 
-cognitivo durante la vejez \cite{Amer13,Miyata13,Potvin12}; una duraci\'on menor del sue\~no 
-nocturno y una mala eficiencia del mismo, en personas mayores, se relaciona con una peor 
-ejecuci\'on en tareas de memoria \cite{Reid06}. 
+cognitivo (DC) durante la vejez \cite{Amer13,Miyata13,Potvin12}
+%; una duraci\'on menor del sue\~no 
+%nocturno y una mala eficiencia del mismo, en personas mayores, se relaciona con una peor 
+%ejecuci\'on en tareas de memoria \cite{Reid06}. 
 
-En este trabajo se investiga la posibilidad de que los registros de elecetroencefalograma (EEG) 
-en personas con afecciones cognitivas exhibe una estructura m\'as simple, en el sentido de
-reducirse a series d\'ebilmente estacionarias \cite{McEwen75,Cohen77,Sugimoto78,Kawabata73}. 
-Esta hip\'otesis se basa en datos reportados en un trabajo anterior [Valeria]. 
+Dentro de la modelaci\'on matem\'atica, usualmente se supone que las se\~nales electrofisiol\'ogicas
+son no-estacionarias, no-lineales y sin-equilibrio por naturaleza, aunque estas propiedades no
+suelen ser investigadas formalmente;
+se ha sugerido que en casos at\'ipicos (en particular, afeccciones en el sistema nervioso),
+esto puede no ser cierto \cite{McEwen75,Cohen77,Sugimoto78,Kawabata73}. 
+En este trabajo se investiga la posibilidad de que los registros de 
+actividad cerebral durante el sue\~no (polisomnograma, PSG)
+%elecetroencefalograma (EEG) 
+en personas con DC exhibe una estructura m\'as simple, en el sentido de
+reducirse a series d\'ebilmente estacionarias;
+esta hip\'otesis se basa en datos reportados en un trabajo anterior [Valeria]. 
 %Cuando se emplean herramientas matem\'aticas para modelar series electrofisiol\'ogicas, usualmente
 %se supone que son no--lineales y no--estacionarias sin un tratamiento formal.
+Se utiliza la prueba para detectar estacionariedad d\'ebil propuesta por Priestley y 
+Subba Rao \cite{Priestley69}, basada en la estimaci\'on local de espectros de potencias
+en procesos estoc\'asticos.
+Se trabaja especialmente en la etapa de sue\~no denominada
+MOR (Movimientos oculares r\'apidos), que se cartacteriza por exhibir aton\'ia
+muscular, actividad cerebral de baja amplitud y frecuencias mixtas, y MOR's.
 
-En el sue\~no, la etapa MOR (Movimientos oculares r\'apidos) se cartacteriza por exhibir aton\'ia
-muscular, actividad cerebral de baja amplitud y frecuencias mixtas, y MOR's. Se ha sugerido que
-
------------------------
-
-Se estudiaron los registros de actividad el\'ectrica cerebral durante el sue\~no (polisomnograma, 
-PSG) de 9 adultos mayores, quienes previamente fueron sometidos a una bater\'ia de pruebas 
-neuropsicol\'ogicas y en conseciencia fueron clasificados en dos grupos: Posible Deterioro Cognitivo 
-[edad: $66.3 \pm 2.8$, educaci\'on: $8.5 \pm 2.5$] y Control [edad: $68.2 \pm 7.2$, educaci\'on: 
-$9.2 \pm 2.7$].
-Se encontraron diferencias significativas para la presencia proporcional de 
-estacionariedad d\'ebil en \'epocas de 30 segundos, medida durante el sue\~no MOR y NMOR;
-estas diferencias fueron claras en el grupo control, pero estuvieron ausentes en el grupo con
-deterioro cognitivo diasgnosticado.
-Estos resultados sugieren que, durante el deterioro cognitivo, cambia la din\'amica del PSG al 
-transitar entre etapas del sue\~no.
-
+Se estudiaron los registros de PSG para 
+9 adultos mayores, quienes previamente fueron sometidos a una bater\'ia de pruebas 
+neuropsicol\'ogicas. %y en conseciencia fueron clasificados en dos grupos: DC
+%[edad: $66.3 \pm 2.8$, educaci\'on: $8.5 \pm 2.5$] 
+%y Control.
+%[edad: $68.2 \pm 7.2$, educaci\'on: 
+%$9.2 \pm 2.7$].
+Se encontraron diferencias significativas, en el grupo control, para la presencia proporcional de 
+estacionariedad d\'ebil, 
+%en \'epocas de 30 segundos, 
+medida durante el sue\~no MOR y no-MOR.
+%estas diferencias fueron claras en el grupo control. 
+%en las regiones frontales y posteriores,
+%pero estuvieron ausentes en el grupo conDC.
+Estos resultados sugieren que, durante el DC, cambia la din\'amica del PSG al 
+transitar entre etapas del sue\~no. 
+Se encontraron diferencis significativas en el grupo Control vs DC en las regiones 
+frontales y posteriores, que son acordes a la literatura.
 Adicionalmente, se reporta una serie de patrones visuales respecto a la presencia de 
 estacionariedad d\'ebil a trav\'es del tiempo, y que pudieran usarse para se\~nalar el sue\~no
-MOR de forma semi-autom\'atica.
+MOR de forma semi-autom\'atica, la cual no es detectada eficientemente actualmente.
+
+}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -832,9 +850,9 @@ vizualizaci\'on, \'estos se han graficado en la figura \ref{comparacion_graf}.
 \includegraphics[width=0.95\linewidth]
 {./new170424/Comparacion_gpos_NMOR.pdf} 
 }\\
-\caption{Comparaci\'on sobre las proporciones de \'epocas PE entre los grupos, para diferentes
-etapas de sue\~no. Se han graficado las proporciones de PE en todos los sujetos de ambos grupos,
-as\'i como sus respectivos promedios, para cada etapa de sue\~no.}
+\caption{Comparaci\'on sobre las proporciones de \'epocas PE entre los grupos Control (azul) y
+PDC (rojo), para diferentes etapas de sue\~no (MOR y NMOR). Se grafica el promedio grupal $\pm$
+1 desviac\'on est\'andar $^{\nicefrac{3}{2}}$, como visualizaci\'on aproximada de la varianza.}
 \label{comparacion_graf}
 \end{figure}
 
@@ -854,20 +872,22 @@ indican esquem\'aticamente estas regiones.
 \centering
 \subfloat[Comparaci\'on para el grupo control]{
 \includegraphics[width=0.95\linewidth]
-{./new170424/comp_etapas_gpos_NORMALMOR_vs_TOTAL.pdf} 
+{./new170424/comp_etapas_gpos_NORMALMOR_vs_NMOR.pdf} 
 }\\
 \subfloat[Comparaci\'on para el grupo PDC]{
 \includegraphics[width=0.95\linewidth]
-{./new170424/comp_etapas_gpos_PDCMOR_vs_TOTAL.pdf} 
+{./new170424/comp_etapas_gpos_PDCMOR_vs_NMOR.pdf} 
 }\\
 \subfloat[Comparaci\'on de los p-valores para aceptar diferencias]{
 \includegraphics[width=0.95\linewidth]
-{./new170424/Comparacion_pvals_gpos_MOR_vs_TOTAL.pdf} 
+{./new170424/Comparacion_pvals_gpos_MOR_vs_NMOR.pdf} 
 }\\
-\caption{Comparaci\'on sobre las proporciones de \'epocas PE entre las etapas de sue\~no, para 
-ambos grupos por separado. 
-Se han graficado las proporciones de PE en todos los sujetos de cada grupo, para todo el sue\~no y 
-la etapa MOR.}
+\caption{Comparaci\'on sobre las proporciones de \'epocas PE entre las etapas de sue\~no MOR
+(verde) y NMOR (negro), para ambos grupos por separado. 
+%Se han graficado las proporciones de PE en todos los sujetos de cada grupo, para todo el sue\~no y 
+%la etapa MOR.
+Se grafica el promedio grupal $\pm$
+1 desviac\'on est\'andar $^{\nicefrac{3}{2}}$, como visualizaci\'on aproximada de la varianza.}
 \label{comparacion_verde}
 \end{figure}
 
@@ -947,7 +967,7 @@ bien peque\~na del sue~no nocturno; luego entonces, no es adecuado analizar este
 con m\'etodos que supongan estacionariedad --por ejemplo, an\'alisis cl\'asico de Fourier. 
 M\'as a\'un este comentario se acent\'ua en individuos con PDC.
 
-\subsubsection{La inclusi\'on de sujetos}
+\subsection{La inclusi\'on de sujetos}
 
 Durante el trabajo se menciona constantemente a tres sujetos (FGH, MGG, EMT) cuyos registros de PSG 
 fueron analizados pero que no son considerados estad\'isticamente; cada uno de ellos fue exclu\'ido 
@@ -1580,45 +1600,49 @@ Control (izquierda) y PDC (centro).}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{figure}
-\centering
-\includegraphics[width=0.9\linewidth]
-{./g170413/azul_VCR.png} 
-\label{azul_VCR}
-\end{figure}
+%\begin{figure}
+%\centering
+%\includegraphics[width=0.9\linewidth]
+%{./g170413/azul_VCR.png} 
+%\label{azul_VCR}
+%\end{figure}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%\begin{figure}
+%\centering
+%\includegraphics[width=0.9\linewidth]
+%{./g170413/azul_MJH.png} 
+%\label{azul_MJH}
+%\end{figure}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%\begin{figure}
+%\centering
+%\includegraphics[width=0.9\linewidth]
+%{./g170413/azul_JAE.png} 
+%\label{azul_JAE}
+%\end{figure}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%\begin{figure}
+%\centering
+%\includegraphics[width=0.9\linewidth]
+%{./g170413/azul_GHA.png} 
+%\label{azul_GHA}
+%\end{figure}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{figure}
-\centering
-\includegraphics[width=0.9\linewidth]
-{./g170413/azul_MJH.png} 
-\label{azul_MJH}
-\end{figure}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{figure}
-\centering
-\includegraphics[width=0.9\linewidth]
-{./g170413/azul_JAE.png} 
-\label{azul_JAE}
-\end{figure}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{figure}
-\centering
-\includegraphics[width=0.9\linewidth]
-{./g170413/azul_GHA.png} 
-\label{azul_GHA}
-\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\phantomsection
+%
+%\addcontentsline{toc}{chapter*}{Bibliograf\'ia}
 
 \bibliography{referencias_estacionariedad,referencias_fisiologia,referencias_otros,referencias_mixto}{}
 %\bibliographystyle{apalike-es}
