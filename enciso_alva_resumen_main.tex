@@ -1,5 +1,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %\documentclass[12pt,a4paper]{article}
 \documentclass[12pt,a4paper]{mitthesis}
@@ -118,8 +120,7 @@
 \newcommand{\Cov}[1]{\mathrm{Cov}\left( #1 \right)}
 \newcommand{\abso}[1]{\left| #1 \right|}
 
-%\newcommand{\hline2}{•}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\\
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \definecolor{dkgreen}{rgb}{0,0.6,0}
@@ -158,17 +159,9 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \setcounter{page}{0}
 \thispagestyle{empty}
@@ -218,29 +211,24 @@ sue\~no (polisomnograma, PSG) en personas con posible deterioro cognitivo (PDC) 
 estructura 'm\'as simple', en el sentido de tratrse de series d\'ebilmente estacionarias.
 Para ello, se utiliza la prueba propuesta por Priestley y Subba Rao,
 %\cite{Priestley69}, 
-que consiste
-en la estimaci\'on local del espectro de potencias --para procesos estoc\'asticos-- y su 
-%posterior
-comparaci\'on en el tiempo.
+que consiste en la estimaci\'on local del espectro de potencias --para procesos estoc\'asticos-- y 
+su comparaci\'on en el tiempo.
 
 Fueron analizaron los registros de PSG correspondientes a 9 adultos mayores, previamente 
 diagnosticados a trav\'es de una bater\'ia de pruebas neuropsicol\'ogicas.
 Se prest\'o especial atenci\'on a la etapa de sue\~no MOR, cartacterizada por exhibir aton\'ia
 muscular, actividad cerebral de baja amplitud y frecuencias mixtas, y movimientos oculares r\'apidos
 (MOR).
-Fueron halladas diferencias significativas para el grupo control en las regiones
-frontales y posteriores, respecto a
-la presencia proporcional de 
-estacionariedad d\'ebil 
-medida durante sue\~no MOR y no-MOR.
-Estos resultados
-sugieren que durante el DC cambia la din\'amica del PSG al transitar entre 
-etapas del sue\~no. 
+Fueron halladas diferencias significativas para el grupo control en las regiones frontales y 
+posteriores, respecto a la presencia proporcional de estacionariedad d\'ebil medida durante sue\~no 
+MOR y no-MOR.
+Estos resultados sugieren que durante el DC cambia la din\'amica del PSG al transitar entre etapas 
+del sue\~no. 
 %Se encontraron diferencis significativas en el grupo Control vs DC en las regiones 
 %frontales y posteriores, que son acordes a la literatura.
 Adicionalmente, se reporta una serie de patrones visuales respecto a la presencia de 
-estacionariedad a trav\'es del tiempo, y que pudieran usarse para se\~nalar el sue\~no
-MOR de forma semi-autom\'atica.%, la cual no es detectada eficientemente actualmente.
+estacionariedad a trav\'es del tiempo, y que pudieran usarse para se\~nalar el sue\~no MOR de forma 
+semi-autom\'atica.%, la cual no es detectada eficientemente actualmente.
 
 }
 
@@ -254,8 +242,6 @@ MOR de forma semi-autom\'atica.%, la cual no es detectada eficientemente actualm
 \chapter*{Acr\'onimos}
 
 \begin{tabular}{rl}
-%\textbf{DCL} & Deterioro Cognitivo Leve
-%\\
 \textbf{EEG} & Electroencefalograma %/ Electroencefalograf\'ia
 \\
 \textbf{EMG} & Electromiograma %/ Electromiograf\'ia
@@ -313,22 +299,19 @@ est\'an estad\'isticamente ''muy'' correlacionadas; este t\'ermino se contrapone
 cerebro para adultos mayores con PDC, con respecto a individuos sanos, durante el sue\~no.
 Las diferencias reportadas se refieren al exponente de Hurst ($H_\alpha$) calculado para los 
 registros de PSG.
-La cantidad $H_\alpha$, a veces referida como el ''color'' de la se\~nal, est\'a asociada con la
-''estructura fractal'' de un proceso estoc\'astico. De manera concreta, en el trabajo referido
-se reporta que para registros de PSG correspondientes adultos mayores con 
-PDC la cantidad $H_\alpha$ es menor. Dado que un menor exponente de Hurst est\'a 
-asociado con se\~nales cuya estructura es ''m\'as simple'', cabe preguntarse si 
-los registros de PSG en adultos mayores con PDC son efectivamente diferentes --en cuanto a 
-complejidad-- a sus
-contrapartes para individuos sanos. 
+La cantidad $H_\alpha$, a veces referida como el 'color' de la se\~nal, est\'a asociada con la
+'estructura fractal' de un proceso estoc\'astico. De manera concreta, en el trabajo referidovse 
+reporta que para registros de PSG correspondientes adultos mayores con PDC la cantidad $H_\alpha$ 
+es menor. Dado que un menor exponente de Hurst est\'a asociado con se\~nales cuya estructura es 
+'m\'as simple', cabe preguntarse si los registros de PSG en adultos mayores con PDC son 
+efectivamente diferentes --en cuanto a complejidad-- a sus contrapartes para individuos sanos. 
 
 En este trabajo se pretende comprobar la hip\'otesis anterior revisando si los registros de PSG en 
-adultos mayores con PDC poseen una caracter\'istica particular que tipifica se\~nales 
-''sencillas'': siendo que los registros de PSG son entendidos como generados por procesos 
-estoc\'asticos, se investiga si estos pueden considerarse como estacionarios --cuando menos en el 
-sentido d\'ebil.
-Este supuesto es b\'asico en el estudio de series de tiempo, y usualmente se acepta o rechaza 
-sin un tratamiento formal.
+adultos mayores con PDC poseen una caracter\'istica particular que tipifica se\~nales 'sencillas': 
+siendo que los registros de PSG son entendidos como generados por procesos estoc\'asticos, se 
+investiga si estos pueden considerarse como estacionarios --cuando menos en el sentido d\'ebil.
+Este supuesto es b\'asico en el estudio de series de tiempo, y usualmente se acepta o rechaza sin 
+un tratamiento formal.
 La idea de que los sujetos con PDC presentan, en mayor medida, estacionariedad d\'ebil en sus 
 registros de EEG fue sugerida por Cohen \cite{Cohen77}, quien a su vez se refiere a trabajos 
 anteriores sobre regularidad estad\'stica --estacionariedad y normalidad-- en registros de EEG \cite{McEwen75,Sugimoto78,Kawabata73}. 
@@ -343,16 +326,13 @@ PDC tengan una estructura m\'as simple --m\'as aleatoria.
 
 \begin{comment}
 
-Hist\'oricamente,
-el registro sistem\'atico de la actividad el\'ectrica del cerebro se considera iniciado 
-a principios del siglo XX
-por Hans Berger \cite{Berger29}, 
-quien acu\~n\'o el t\'ermino electroencefalograma (EEG).
-Por otro lado, la idea que una se\~nal estoc\'astica puede no ser estacionaria se puede 
-rastrear a los a\~nos 50’s \cite{Page52,Silverman57}. 
-Sin embargo, las interrogantes sobre la regularidad de se\~nales electrofisiol\'ogicas no 
-aparecen plasmadas claramente sino hasta los a\~nos 
-70's \cite{Kawabata73,McEwen75,Cohen77,Sugimoto78}.
+Hist\'oricamente, el registro sistem\'atico de la actividad el\'ectrica del cerebro se considera 
+iniciado a principios del siglo XX por Hans Berger \cite{Berger29}, quien acu\~n\'o el t\'ermino 
+electroencefalograma (EEG).
+Por otro lado, la idea que una se\~nal estoc\'astica puede no ser estacionaria se puede rastrear a 
+los a\~nos 50’s \cite{Page52,Silverman57}. 
+Sin embargo, las interrogantes sobre la regularidad de se\~nales electrofisiol\'ogicas no aparecen 
+plasmadas claramente sino hasta los a\~nos 70's \cite{Kawabata73,McEwen75,Cohen77,Sugimoto78}.
 Esta brecha temporal se debe, quiz\'a, a la aparici\'on de computadoras digitales de bajo costo, 
 gracias a las cuales es posible analizar mayores vol\'umenes de datos.
 
@@ -381,15 +361,16 @@ econ\'onomico y de recursos humanos, que recae sobre el sistema de salud y los f
 afectados; por ello, cobra importancia un diagn\'ostico temprano del deterioro cognitivo que 
 disminuya el risgo de su avance irreversible a demencia.
 
-Todav\'ia son incipientes las investigaciones para identificar los factores de riesgo 
-modificables asociados a la demencia \cite{PlanAlzheimer04}; recientemente, los trastornos del 
-sue\~no han sido se\~nalados como posiblemente relacionados con el deterioro cognitivo durante la 
-vejez \cite{Amer13,Miyata13,Potvin12}. Concretamente, una duraci\'on menor del sue\~no nocturno y 
-una mala eficiencia del mismo, en personas mayores, se relaciona con una peor ejecuci\'on en tareas 
-de memoria \cite{Reid06}. Las afectaciones relativas al sue\~no en personas mayores podr\'ian ser 
+Todav\'ia son incipientes las investigaciones para identificar los factores de riesgo modificables 
+asociados a la demencia \cite{PlanAlzheimer04}; recientemente, los trastornos del sue\~no han sido 
+se\~nalados como posiblemente relacionados con el deterioro cognitivo durante la vejez 
+\cite{Amer13,Miyata13,Potvin12}. Concretamente, una duraci\'on menor del sue\~no nocturno y una 
+mala eficiencia del mismo, en personas mayores, se relaciona con una peor ejecuci\'on en tareas de 
+memoria \cite{Reid06}. Las afectaciones relativas al sue\~no en personas mayores podr\'ian ser 
 m\'as problem\'aticas que para otros grupos de edad, dado que el individuo cursa con deterioro 
 cognitivo y empeora con la edad \cite{Potvin12}.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Pregunta de investigaci\'on}
@@ -398,10 +379,7 @@ cognitivo y empeora con la edad \cite{Potvin12}.
 estacionarias, pueda ser usada como un marcador en el diagn\'ostico cl\'inico de PDC en adultos 
 mayores?
 
-%¿Es plausible que la clasificaci\'on, para fragmentos de registros de PSG, como ''series de tiempo 
-%d\'ebilmente estacionarias'' pueda ser usada como un marcador usable en el diagn\'ostico cl\'inico
-%de posible deterioro cognitivo en adultos mayores?
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Hip\'otesis}
@@ -444,9 +422,6 @@ con y sin PDC
 
 A continuaci\'on se exponen definiciones relativas a la componente fisiol\'ogica del problema
 estudiado, y que son parte integral del mismo. 
-%Se pretende que la exposici\'on sea accesible a\'un 
-%sin una preparaci\'on especializada en medicina, especialmente considerando que el autor pertenece 
-%a tal grupo.
 
 \subsection{Adulto mayor}
 
@@ -461,9 +436,9 @@ contexto de la psicolog\'ia --y que es usado durante este trabajo.
 El envejecimiento considerado normal es determinado por una serie de procesos moleculares, 
 celulares, fisiol\'ogicos y psicol\'ogicos que conducen directamente al deterioro de funciones 
 cognitivas, específicamente en la atenci\'on y memoria \cite{Navarrete03,Park09}. 
-%En esta etapa el organismo sufre cambios fisiolo\'ogicos y psicol\'ogicos que dificultan la capacidad de
-%adaptaci\'on al ambiente, teniendo como consecuencia una mayor suceptibilidad a padecer enfermedades
-%y morir en consecuencia \cite{Hita14}.
+%En esta etapa el organismo sufre cambios fisiolo\'ogicos y psicol\'ogicos que dificultan la 
+%capacidad de adaptaci\'on al ambiente, teniendo como consecuencia una mayor suceptibilidad a 
+%padecer enfermedades y morir en consecuencia \cite{Hita14}.
 En un principio se consideraba que el envejecimiento cerebral ocurr\'ia fundamentalmente por una 
 muerte neuronal programada \cite{Coleman87}, sin embargo, estudios realizados con tejido cerebral 
 post mortem de adultos mayores que en vida fueron sanos, mostraron que dicha muerte neuronal no 
@@ -491,14 +466,18 @@ cumple criterios suficientes de gravedad para ser calificada como demencia \cite
 %abundantes, observ\'andose una importante disminuci\'on de la arborizaci\'n dendr\'itica as\'i como 
 %en la densidad y volumen \cite{Hita14}. 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \subsection{Electroencefalograma}
 
-Si bien es perfectamente posible definir el sue\~no sin necesidad de hablar de 
-electroencefalogramas, conviene hablar primero de \'este debido a la forma en que son tipificadas
+Si bien es perfectamente posible definir el sue\~no sin necesidad de hablar del 
+electroencefalograma, conviene hablar primero de \'este debido a la forma en que son tipificadas
 cl\'inicamente las diferentes etapas del sue\~no.
 
 \begin{description}
-\item[Electroencefalograma (EEG).] Registro de las fluctuaciones en potenciales de acci\'on en el cerebro.
+\item[Electroencefalograma (EEG).] Registro de las fluctuaciones en potenciales el\'ectricos en el 
+cerebro.
 \end{description}
 
 De manera convencional, la actividad el\'ectrica del cerebro se registra en tres locaciones: en la 
@@ -508,17 +487,14 @@ En cualquiera de tales sitios, el registro representa una superposici\'on de pot
 producidos por una amplia variedad de generadores de corriente dentro de un medio conductor 
 volum\'etrico: los elementos neuronales generan, cada cual, corrientes que son conducidas y 
 disipadas a trav\'es del espacio en el cerebro.
-%A su vez, estos generadores de campos el\'ectricos corresponden a agregados de elementos neuronales 
-%con interconexiones complejas: dendritas, somas y axones.
 A ello hay que adicionar que la arquitectura cerebral es altamente no homog\'enea.
 
 Debido a que los axones en la corteza cerebral tienen orientaciones muy diversas con respecto a la 
 superficie, y a que disparan de manera as\'incrona, el aporte neto de estos campos al potencial 
 registrado es negligible bajo condiciones normales.
-Una excepci\'on muy importante ocurre en caso de un est\'imulo simult\'aneo (s\'incronizado) del 
-del n\'ucleo tal\'amico o de las aferentes nerviosas.
-Estas respuestas sincronizadas suelen tener una amplitud relativamente alta, y son referidas como 
-'potenciales evocados'.
+Una excepci\'on muy importante ocurre en el caso de un est\'imulo simult\'aneo (s\'incronizado) del 
+del n\'ucleo tal\'amico o de las aferentes nerviosas; estas respuestas sincronizadas suelen tener 
+una amplitud relativamente alta, y son referidas como 'potenciales evocados'.
 
 El registro de los electrodos (los canales) son referidos como un \textbf{montaje}: en un montaje 
 bipolar, cada canal mide la diferencia entre dos electrodos adyacentes, mientras que en un montaje 
@@ -530,33 +506,24 @@ Los potenciales son amplificados anal\'ogicamente y posteriormente registrados.
 El sistema m\'as usado para la colocaci\'on de los electrodos con fines cl\'inicos es el 
 \textit{International Federation 10--20 system}, que fue propuesto por la International Federation 
 of EEG Societies \cite{Jasper58,AASM07} y es mostrado en la figura \ref{img1020}. 
-%Este sistema usa referentes anat\'omicos estandarizados para la ubicaci\'on de los electrodos.
 
 \begin{figure}
 \centering
-%\includegraphics[width=0.8\linewidth]{figura_6.png} 
 \includegraphics[width=0.9\linewidth]{Fig.png} 
 \caption{El sistema 10--20, recomendado por la
 International Federation of EEG Societies. [Este gr\'afico se volver\'a a dibujar]
-%\cite{Jasper58,AASM07}
 }
 \label{img1020}
 \end{figure}
 
-Usualmente el EEG muestra una actividad el\'ectrica oscilatoria continua y cambiante. 
-%Tanto la intensidad como los patrones de esta actividad est\'an determinados por los eventos de 
-%excitaci\'on conjunta del cerebro, resultante de las funciones en el sistema reticular de 
-%activaci\'on del tallo cerebral \cite{Clark98}.
+Usualmente el EEG muestra una actividad el\'ectrica oscilatoria continua y cambiante.% \cite{Clark98}.   
 Estas 'ondas' observadas en los registros de potenciales el\'ectricos en el cerebro son referidas 
 como \textbf{ondas cerebrales}; la 'frecuencia' de estas ondas var\'ia entre 0.5 y 100 Hz, y se ha 
-identificado que su composici\'on est\'a fuertemente relacionada con el grado de actividad cerebral: 
-hay diferencias claras entre registros durante vigilia y sue\~no.
+identificado que su composici\'on est\'a fuertemente relacionada con el grado de actividad 
+cerebral: hay diferencias claras entre registros durante vigilia y sue\~no.
 En general la frecuencia promedio del EEG incrementa progresivamente cuando hay un altos grados 
 de actividad cerebral: las ondas se vuelven m\'as as\'incronas, de modo que la magnitud del 
 potencial integrado de superficie decrece a pesar de la alta actividad cortical.
-%Por ejemplo, las ondas delta se encuentran frecuentemente durante el estupor, anestesia 
-%quir\'urgica, y sue\~no; las ondas theta son comunes en infantes; las ondas alfa ocurren en 
-%estado de relajaci\'on; las ondas beta aparecen durante actividad mental intensa.
 Aunque la mayor parte del tiempo el EEG es irregular y no muestra patrones claros, es com\'un que 
 muestre ondas cerebrales relativamente organizadas que, para su estudio, han sido clasificadas en 
 cuatro grandes grupos: alfa, beta, gamma, delta.
@@ -567,8 +534,6 @@ Estos grupos son ilustrados en la figura \ref{ritmos}.
 \includegraphics[width=0.5\linewidth]{figura_4.png} 
 \caption{(a) Diferentes tipos de ondas normales en el EEG. (b) Supresi\'on del ritmo alfa debido a 
 una descarga desincronizada cuando el paciente abre los ojos.
-%(From A. C. Guyton, Structure and Function of the Nervous System, 2nd ed.,
-%Philadelphia: W.B. Saunders, 1972; used with permission.)
 [Estos gr\'aficos ser\'an reconstruidos]
 }
 \label{ritmos}
@@ -579,12 +544,12 @@ una descarga desincronizada cuando el paciente abre los ojos.
 quietud del pensamiento. Aparecen m\'as frecuentemente en la regi\'on occipital, pero tambi\'en 
 pueden ser registradas en las regiones frontal y parietal. Su voltaje aproximado est\'a entre 20 y 
 200 mV. Cuando el sujeto duerme, las ondas alfa desaparecen completamente. Si el sujeto est\'a
-despierto y su atenci\'on se dirige a una actividad mental espec\'ifica, las ondas alfa
-son reemplazadas por ondas dessincronizadas de mayor frecuencia y menor voltaje.
+despierto y su atenci\'on se dirige a una actividad mental espec\'ifica, las ondas alfa son 
+reemplazadas por ondas dessincronizadas de mayor frecuencia y menor voltaje.
 
 \item[Ondas beta.] Frecuencias de 14 a 30 Hz. Normalmente se registran en las regiones parietal y 
-frontal. A veces se les divide en dos tipos: beta I y beta II. Las ondas beta I (14--20 Hz)
-son afectadas por la actividad mental de manera similar a las ondas alfa.
+frontal. A veces se les divide en dos tipos: beta I y beta II. Las ondas beta I (14--20 Hz) son 
+afectadas por la actividad mental de manera similar a las ondas alfa.
 Las ondas beta II (20--30 Hz), en cambio, aparecen durante una activaci\'on intensa del sistema 
 nervioso central y durante tensi\'on.
 
@@ -595,33 +560,21 @@ todo durante periodos de decepsi\'on y frustraci\'on.
 \item[Ondas delta.] Incluye todas las ondas del EEG 'abajo de' 3.5 Hz. Ocurren generalmente en el 
 sue\~no profundo en infantes, y despu\'es de enfermedades org\'anicas serias del cerebro.
 \end{description}
-%Tambi\'en pueden ser registradas en cerebros de animales a los cuales se ha hecho transsecci\'on 
-%subcortical, produciendo una separaci\'on funcional entre la corteza cerebral y el sistema 
-%reticular de activaci\'on del tallo cerebral. 
-
 
 Cabe mencionar que el espectro de frecuencias del potencial de campo producido por m\'usculos 
 faciales medianamente contra\'idos, incluye componentes de frecuencia que bien cuadran en el rango 
-usual del EEG (0.5--100 Hz).
-%Una vez se ha conseguido el estado de reposo en un adulto normal, sus registros del cuero cabelludo
-%muestran un ritmo alfa (ver m\'as adelante) dominante en el \'area parietal-occipital, mientras que 
-%en \'area frontal ha un ritmo beta con baja amplitud y alta frecuencia --adem\'as del ritmo alfa.
-%En un sujeto normal hay cierta simetr\'ia entre los registros de los hemisferios derecho e 
-%izquierdo. 
-La variedad de artefactos conocidos es muy basta, y constituye un tema muy complejo.
+usual del EEG (0.5--100 Hz); la variedad de artefactos conocidos es muy basta, y constituye un tema 
+muy complejo.
 
 \subsection{Sue\~no}
 
-Conviene presentar una definicici\'on formal de lo que es el sue\~no.
-% y las etapas en que se
-%divide para fines cl\'inicos --en particular, se manejan las caracter\'isticas recomendadas por 
-%la AAMS \cite{AASM07}.
+%Conviene presentar una definicici\'on formal de lo que es el sue\~no.
 El sue\~no normal se divide en dos etapas principales: MOR (fase R) y NMOR (fase N), que se 
 diferenc\'ian por sus rasgos electroencefalogr\'aficos y una serie de caracter\'isticas 
-fisiol\'ogicas (de los cuales obtienen sus nombres).
+fisiol\'ogicas --de los cuales obtienen sus nombres.
 Cabe mencionar que la nomenclatura acerca de las fases del sue\~no ha sido recientemente modificada 
-por la American Association of Sleep Medicine en 2007 \cite{AASM07}, de modo que en este trabajo 
-se usar\'an ambas nomenclaturas siempre que sea posible, por fines de compatibilidad.
+por la American Association of Sleep Medicine en 2007 \cite{AASM07}, de modo que en este trabajo se 
+usar\'an ambas nomenclaturas siempre que sea posible, por fines de compatibilidad.
 
 \begin{description}
 \item[Sue\~no] Proceso vital c\'iclico complejo y activo, compuesto por varias fases y que posee 
@@ -640,68 +593,27 @@ fisiol\'ogicas, adem\'as de que genera una ''deuda'' acumulativa
 \end{enumerate}
 \end{description}
 
-
-Durante el sue\~no MOR (fase R), ocurre que
-las ondas lentas y amplitud alta son reemplazadas por ondas r\'apidas 
-de bajo voltaje, irregulares, y que recuerdan la actividad en el EEG durante el estado de alerta.
+Durante el sue\~no MOR (fase R), ocurre que las ondas lentas y amplitud alta son reemplazadas por 
+ondas r\'apidas de bajo voltaje, irregulares, y que recuerdan la actividad en el EEG durante el 
+estado de alerta.
 La presencia de estos patrones irregulares no interrumpen el sue\~no, sino que incrementan el 
-umbral para los est\'imulos externos; 
-este comportamiento es referido como 'sue\~no parad\'ojico'.
+umbral para los est\'imulos externos; este comportamiento es referido como 'sue\~no parad\'ojico'.
 Durante esta etapa de sue\~no, el sujeto exhibe movimientos oculares r\'apidos (MOR), raz\'on por 
-la 
-cual esta etapa recibe su nombre caracter\'istico.
-%La etapa fuera del sue\~no
-%es referida como sue\~no no-MOR (NMOR) o sue\~no de ondas lentas.
-%Los sujetos humanos que despiertan durante la fase de sue\~no MOR suelen reportar que
-%ten\'ian enso\~naciones, a diferencia de aquellos que despiertan durante la fase NREM.
-Durante el sue\~no MOR se producen la mayor\'ia de las enso\~naciones (lo que conocemos 
-coloquialmente como sue\~nos), y la mayor\'ia de los pacientes que despiertan durante esta fase 
-suelen recordar v\'ividamente el contenido de sus enso\~naciones \cite{Chokroverty09}.
+la cual esta etapa recibe su nombre caracter\'istico.
+Durante el sue\~no MOR se producen la mayor\'ia de las enso\~naciones (referidos coloquialmente 
+como sue\~nos), y la mayor\'ia de los pacientes que despiertan durante esta fase suelen recordar 
+v\'ividamente el contenido de sus enso\~naciones \cite{Chokroverty09}.
 F\'isicamente el tono de todos los m\'usculos disminuye (con excepción de los m\'usculos 
-respiratorios y los esf\'interes vesical 
-y anal), as\'i mismo la frecuencia cardiaca y respiratoria se vuelve irregular.%,
+respiratorios y los esf\'interes vesical y anal), as\'i mismo la frecuencia cardiaca y respiratoria 
+se vuelve irregular.
 
-El sue\~no fuera de la etapa MOR es referido como no-MOR (NMOR, fase N), y es dividido en 
-etapas seg\'un la 'profundidad' del sue\~no --entendida en t\'erminos de la actividad cerebral registrada.
+El sue\~no fuera de la etapa MOR es referido como no-MOR (NMOR, fase N), y es dividido en etapas 
+seg\'un la 'profundidad' del sue\~no --entendida en t\'erminos de la actividad cerebral registrada.
 En el sue\~no profundo se observan ondas delta muy irregulares, y junto con ellas ocurren trenes 
 cortos de ondas, parecidas a las alfa, y que son referidas como \textit{husos de sue\~no}. 
 El ritmo alfa y los husos de sue\~no est\'an sincronizados en el sue\~no y la somnolencia 
 --en contraste con la actividad irregular, desincronizada y de bajo voltaje registrada en estado de 
 alerta.
-
-
-%\begin{figure}
-%\centering
-%\includegraphics[width=0.5\linewidth]{figura_7.png} 
-%\caption{Los cambios en el EEG que ocurren durante el sue\~no en un sujeto.
-%Las marcas de calibraci\'on corresponden a 50 mV.
-%%H. Jasper, ‘‘Electrocephalography.’’ In Epilepsy and Cerebral Localization, W.
-%%G. Penfield and T. C. Erickson (eds.). Springfield, IL: Charles C. Thomas,
-%%1941.)
-%[Estos gr\'aficos ser\'an redibujados]
-%}
-%\label{ritmosEEG}
-%\end{figure}
-
-
-
-%El sue\~no MOR se caracteriza por la presencia de ondas de bajo voltaje y alta frecuencia en el 
-%EEG, aton\'ia muscular y movimientos oculares r\'apidos, adem\'as es donde se presentan 
-%la mayor\'ia de los sue\~nos. 
-%El sue\~no no-MOR se compone de cuatro fases, 1 y 2, que son de sue\~no ligero, y 3 y 4 de 
-%sue\~no profundo, las mismas que transcurren de manera secuencial desde la primera hasta la 
-%cuarta fase, que es la fase reparadora del sue\~no, aquella que produce en la persona la 
-%sensaci\'on de haber descansado cuando se levanta 13,22,43.
-
-%Las características de las fases del sueño no-MOR incluyen cuatro etapas, la primera que 
-%corresponde a la transición de la vigilia al sueño; la etapa 2 es la intermedia (mayor porcentaje 
-%del tiempo de sueño) y en el EEG aparecen husos de sueño y los complejos K. La etapa 3 es la del 
-%sueño relativamente profundo, representado en el electroencefalograma por ondas lentas de gran 
-%amplitud, y la etapa 4o de sueño profundo con más del 50\% de ondas lentas de gran amplitud13.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%\begin{description}
 
 \begin{description}
 \item[Fase 1 (N1)] Corresponde con la somnolencia o el inicio del sue\~no ligero, en ella es muy 
@@ -717,38 +629,18 @@ comienzan a disminuir paulatinamente.
 \item[Fases 3 y 4 (N3)] La fase m\'as profunda del sue\~no NMOR. Se observan ondas con frecuencias 
 muy bajas ($<2$ Hz), por lo que es referido como 'sue\~no de ondas lentas'.
 \end{description}
-%\item[Sueño MOR (fase R)] Se caracteriza por la presencia de movimientos oculares r\'apidos. F\'isicamente el tono de todos 
-%los m\'usculos disminuye (con excepción de los m\'usculos respiratorios y los esf\'interes vesical 
-%y anal), as\'i mismo la frecuencia cardiaca y respiratoria se vuelve irregular.%,
-%%e incluso puede 
-%%incrementarse y 
-%%existe erección espontánea del pene o del clítoris. 
-%%Durante el sue\~no MOR se producen la mayor\'ia de las enso\~naciones (lo que conocemos 
-%%coloquialmente como sue\~nos), y la mayor\'ia de los pacientes que despiertan durante esta fase 
-%%suelen recordar v\'ividamente el contenido de sus enso\~naciones \cite{Chokroverty09}.
-%\end{description}
 
 Un adulto j\'oven pasa aproximadamente entre 70--100 minutos en el sue\~no NMOR para despu\'es 
 entrar al sue\~no MOR, el cual puede durar entre 5--30 min; este ciclo se repite cada hora y media.
-%A lo largo de la noche pueden presentarse normalmente entre 4 y 6 ciclos de sue\~no MOR.
 En los ancianos se va fragmentando el sue\~no nocturno con frecuentes episodios de despertar, se 
 reduce mucho el porcentaje de sue\~no en fase 4, pero se mantiene constante el porcentaje de 
 sue\~no MOR. Adicionalmente, muchos adultos mayores dormitan durante el d\'ia varias siestas 
 cortas \cite{CarrilloMora}.
 
-%
-%Los adultos mayores informan que duermen menos durante la noche, y se acuestan y se despiertan 
-%m\'as temprano de lo habitual. Adem\'as, tardan m\'as tiempo en conciliar el sue\~no, se 
-%despiertan con m\'as frecuencia durante la noche y la duraci\'on de estos despertares es 
-%m\'as prolongada 58,59.
-%
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%\include{parte_matematica}
 
 \section{Conceptos, matem\'aticas}
 
@@ -759,91 +651,69 @@ De forma m\'as bien pragm\'atica, la descripci\'on est\'a
 de M. B. Priestley \cite{Priestley81}, ya que este est\'a expl\'icitamente dirigido a un p\'ublico 
 sin un trasfondo matem\'atico.
 
-Se suponen conocidos varios temas b\'asicos de probabilidad y estad\'istica:
-variables aleatorias, valores esperados y momentos, estimadores y sus propiedades.
-Sin embargo, con el fin de presentar la notaci\'on usada, se incluyen algunos 
-%conceptos previos a la 
-%definici\'on per se de estacionariedad y estimadores en el dominio de frecuencias.
-de estos conceptos.
-%Chatfield (The Analysis of Time Series: An Introduction, 2003)
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Se suponen conocidos varios temas b\'asicos de probabilidad y estad\'istica: variables aleatorias, 
+valores esperados y momentos, estimadores y sus propiedades.
+Sin embargo, con el fin de presentar la notaci\'on usada, se incluyen algunos de estos conceptos.
 
 \subsection{Estacionariedad d\'ebil}
 
-Para hablar formalmente de procesos estoc\'asticos como modelos, antes 
-conviene escribir su definici\'on desde el punto de vista matem\'atico. Las siguientes definiciones
-son aplicables tanto para procesos en tiempo continuo
-como para procesos a tiempo discreto; aunque el objeto de estudio, el EEG, se considera 
-un fen\'omeno continuo, s\'olo es posible registrarlo durante un conjunto finito de puntos 
-en el tiempo.
+Para hablar formalmente de procesos estoc\'asticos como modelos, antes conviene escribir su 
+definici\'on desde el punto de vista matem\'atico. Las siguientes definiciones son aplicables tanto 
+para procesos en tiempo continuo como para procesos a tiempo discreto; aunque el objeto de estudio, 
+el EEG, se considera un fen\'omeno continuo, s\'olo es posible registrarlo durante un conjunto 
+finito de puntos en el tiempo.
 
 \begin{defn}[Proceso estoc\'astico]
-Un proceso estoc\'astico $\{ X(t) \}$ es una familia de variables aleatorias 
-en los reales,
-indexadas por
-$t \in T \subseteq \R$.
-%, mientras que una observaci\'on
-%de $\{X(t)\}$ ser\'a denotada por $(x_1,x_2,\dots)$
+Un proceso estoc\'astico $\{ X(t) \}$ es una familia de variables aleatorias en los reales, 
+indexadas por $t \in T \subseteq \R$.
 \end{defn}
 
-Como notaci\'on, una realizaci\'on de $X(t)$ ser\'a denota por $x_t$. 
-Las funciones de densidad de probabilidad y de probabilidad acumulada para $X(t)$ ser\'an
-referidas, respectivamente, como $f_{X(t)}$ y $F_{X(t)}$
-%Cabe destacar que en esta definici\'on se omiti\'o intencionalmente pedir que las variables
-%aleatorias sea reales, ya que eventualmente se considerar\'an procesos en los complejos.
-Cabe enfatizar que para cada valor de $t$,
-%tiempo $t$, 
-$X(t)$ es una variable aleatoria; no se presupone ninguna conexi\'on entre ellas.
-%con su funci\'on de densidad de probabilidad,
-%sus momentos [s\'olo se consideran va's con al menos segundos momentos finitos], etc.
+Como notaci\'on, una realizaci\'on de $X(t)$ ser\'a denota por $x_t$. Las funciones de densidad de 
+probabilidad y de probabilidad acumulada para $X(t)$ ser\'an referidas, respectivamente, como 
+$f_{X(t)}$ y $F_{X(t)}$. Cabe enfatizar que para cada valor de $t$, $X(t)$ es una variable 
+aleatoria; no se presupone ninguna conexi\'on entre ellas.
 
-
-La caracter\'istica principal 
-investigada en este trabajo hace referencia a la ''estacionariedad''. De manera 
-informal, esta propiedad se refiere a que las variables aleatorias que conforman un proceso
-estoc\'astico sean b\'asicamente iguales --dicho con otras palabras, que las propiedades
+La caracter\'istica principal investigada en este trabajo hace referencia a la 'estacionariedad'. 
+De manera informal, esta propiedad se refiere a que las variables aleatorias que conforman un 
+proceso estoc\'astico sean b\'asicamente iguales --dicho con otras palabras, que las propiedades
 del proceso sean invariantes en el tiempo. 
-Una definici\'on que satisface fielmente est\'a descripci\'on es la de estacionariedad 
-en el sentido fuerte o estricto.
-El t\'ermino ''tiempos admisibles'' simplemente indica que la definici\'on es la misma para
-procesos a tiempo discreto o continuo, bajo restricciones obvias.
+Una definici\'on que satisface fielmente est\'a descripci\'on es la de estacionariedad en el 
+sentido fuerte o estricto.
+El t\'ermino 'tiempos admisibles' simplemente indica que la definici\'on es la misma para
+procesos a tiempo discreto o continuo, bajo restricciones obvias, adem\'as de que se dber\'ia
+sobreentender las limitaciones cuando el tiempo considerado es finito.
 
 \begin{defn}[Estacionariedad fuerte]
-Un proceso estoc\'astico $\{ X(t) \}$ es fuertemente estacionario si, para cualquier 
-conjunto de tiempos admisibles $t_1,t_2,\dots,t_n$ y cualquier $\tau$ tal que 
- $t_i+\tau$ son tiempos admisibles para $i = 1, 2, \dots n$;
-se cumple que
+Un proceso estoc\'astico $\{ X(t) \}$ es fuertemente estacionario si, para cualquier conjunto de 
+tiempos admisibles $t_1,t_2,\dots,t_n$ y cualquier $\tau$ tal que $t_i+\tau$ son tiempos admisibles 
+para $i = 1, 2, \dots n$; se cumple que
 \begin{equation*}
 F_{\left(X(t_1),X(t_2),\dots,X(t_n)\right) }
 \equiv
 F_{\left(X(t_1+\tau),X(t_2+\tau),\dots,X(t_n+\tau)\right)}
 \end{equation*}
 
-Donde $F_{\left(X(t_1),X(t_2),\dots,X(t_n)\right) }$ es la funci\'on de distribuci\'on de
+Donde $F_{\left(X(t_1),X(t_2),\dots,X(t_n)\right) }$ es la funci\'on de distribuci\'on de 
 probabilidad conjunta del vector $\left(X(t_1),X(t_2),\dots,X(t_n)\right)$
 \end{defn}
 
-Esta definici\'on, sin embargo, no resulta muy \'util en el contexto de la estad\'istica:
-si se supone que el registro de un fen\'omeno puede interpretarse como \textbf{una} 
-realizaci\'on de
-un proceso estoc\'astico, entonces para cada tiempo se tiene una \'unica observaci\'on
-de cada variable aleatoria. A esto hay que a\~nadir que, para un fen\'omeno continuo,
-no todas los tiempos son registrables.
-Luego, si no existe la garant\'ia de que las propiedades de estas variables aletorias sean
-''similares'', entonces es virtualmente imposible obtener mayor informaci\'on de ellas.
+Esta definici\'on, sin embargo, no resulta muy \'util en el contexto de la estad\'istica: si se 
+supone que el registro de un fen\'omeno puede interpretarse como \textbf{una} realizaci\'on de un 
+proceso estoc\'astico, entonces para cada tiempo se tiene una \'unica observaci\'on de cada 
+variable aleatoria. A esto hay que a\~nadir que, para un fen\'omeno continuo, no todas los tiempos 
+son registrables.
+Luego, si no existe la garant\'ia de que las propiedades de estas variables aletorias sean 
+'similares', entonces es virtualmente imposible obtener mayor informaci\'on de ellas.
 
 Es bajo estas limitaciones que se motiva un concepto de estacionariedad m\'as d\'ebil, pero que
-satisfaga ''suficientes teoremas importantes'' y que sea relevante bajo las restricciones
-propias de diferentes campos. En este trabajo se ha optado por la llamada 
-''estacionariedad d\'ebil'' o estacionariedad de orden 2, que recibe su nombre como caso
-particular de la ''estacionariedad de orden $m$''.
+satisfaga ''suficientes teoremas importantes'' y que sea relevante bajo las restricciones propias 
+de diferentes campos. En este trabajo se ha optado por la llamada 'estacionariedad d\'ebil' o 
+estacionariedad de orden 2, que recibe su nombre como caso particular de la 'estacionariedad de 
+orden $m$'.
 
 \begin{defn}[Estacionariedad de orden $m$]
-Un proceso estoc\'astico $\{ X(t) \}$
-se dice estacionario de orden $m$ si, para cualquier 
-conjunto de tiempos admisibles $t_1,t_2,\dots,t_n$ y cualquier $\tau \in \R$
-se cumple que
+Un proceso estoc\'astico $\{ X(t) \}$ se dice estacionario de orden $m$ si, para cualquier conjunto 
+de tiempos admisibles $t_1,t_2,\dots,t_n$ y cualquier $\tau \in \R$ se cumple que
 \begin{equation*}
 \E{ X^{m_1}(t_1)X^{m_2}(t_2)\cdots X^{m_n}(t_n) }
 =
@@ -853,127 +723,87 @@ Para cualesquiera enteros $m_1,m_2,\dots,m_n$ tales que $m_1+m_2+\dots+m_n \leq 
 \label{est_orden_m}
 \end{defn}
 
-La estacionariedad d\'ebil no pide que la funci\'on
-de distribuci\'on conjunta tenga determinada forma, sino que los momentos conjuntos sean 
-invariantes ante traslaciones en el tiempo. Para entender mejor esta diferencia, consid\'erense
-tres procesos $\{X(t)\}$, $\{Y_1(t)\}$ y $\{Y_2(t)\}$, de modo que el primero es
-estacionario en el sentido fuerte, el segundo es estacionario de orden 1 y el tercero es
-estacionario de orden 2.
+La estacionariedad d\'ebil no pide que la funci\'on de distribuci\'on conjunta tenga determinada 
+forma, sino que los momentos conjuntos sean invariantes ante traslaciones en el tiempo. Para 
+entender mejor esta diferencia, consid\'erense tres procesos $\{X(t)\}$, $\{Y_1(t)\}$ y 
+$\{Y_2(t)\}$, de modo que el primero es estacionario en el sentido fuerte, el segundo es 
+estacionario de orden 1 y el tercero es estacionario de orden 2.
 \begin{itemize}
-\item Por definici\'on $F_{X(t) } \equiv F_{X(t+\tau)}$ para cualesquieras $t$, $t+\tau$
+\item Por definici\'on $F_{X(t) } \equiv F_{X(t+\tau)}$ para cualesquieras $t$, $t+\tau$ 
 admisibles; entonces $\E{X(t)} = \mu_X$ es constante
-\item Por definici\'on
-para cualesquieras $t$, $t+\tau$ admisibles se tiene que $\E{Y_1(t)}=\E{Y_1(t+\tau)}$ y
-$\E{Y_2(t)}=\E{Y_2(t+\tau)}$. Se deduce que $\E{Y_1(t)} = \mu_{Y_1}$, 
-$\E{Y_2(t)} = \mu_{Y_2}$ son constantes
+\item Por definici\'on, para cualesquieras $t$, $t+\tau$ admisibles se tiene que 
+$\E{Y_1(t)}=\E{Y_1(t+\tau)}$ y $\E{Y_2(t)}=\E{Y_2(t+\tau)}$. Se deduce que 
+$\E{Y_1(t)} = \mu_{Y_1}$, $\E{Y_2(t)} = \mu_{Y_2}$ son constantes
 \item Usando nuevamente que $F_{X(t) } \equiv F_{X(t+\tau)}$ para cualesquieras $t$, $t+\tau$
 admisibles, se deduce que $\Var{X(t)} = \sigma_X$ es constante
-\item Por definici\'on de $\mathrm{Var}$ y de $Y_i$ ($i=2,1$)
+\item Por definici\'on de $\mathrm{Var}$ y de $Y_i$ ($i=2,1$) 
 $$\Var{Y_i(t)} = \E{Y_i^{2}(t)} - \left( \E{Y_i(t)} \right)^{2} = \E{Y_i^{2}(t)} - \mu_{Y_i}$$
-Luego se puede deducir que 
-$\Var{Y_2(t)}$ es
-% $\E{Y_2^{2}(t)}$ es
-constante, mientras que no se puede garantizar lo mismo para $\Var{Y_1(t)}$
-% Se concluye que la varianza
-%de $Y_2$ es constante en el tiempo mientras que la de $Y_1$ no necesariamente lo es
-\item El \textit{coeficiente de asimetr\'ia de Fisher} 
-de una variable aleatoria $V$ se define como
-$$
-\gamma_1(V) = \frac{\E{\left(V-\E{V}\right)^{3}}}{\Var{V}^{\nicefrac{3}{2}}}
-$$
-%= \frac{\E{X^{3}}-3\mu_V \E{V^{2}}+2\mu_V^{3}}{\Var{V}^{\nicefrac{3}{2}}}
-%$$
+Luego se puede deducir que $\Var{Y_2(t)}$ es constante, mientras que no se puede garantizar lo 
+mismo para $\Var{Y_1(t)}$
+\item El \textit{coeficiente de asimetr\'ia de Fisher} de una variable aleatoria $V$ se define como
+$$ \gamma_1(V) = \frac{\E{\left(V-\E{V}\right)^{3}}}{\Var{V}^{\nicefrac{3}{2}}} $$
 Sin entrar en detalles, se puede deducir que $\gamma_1(X(t))$ es constante mientras que no se
 puede garantizar lo mismo para $\gamma_1(Y_1(t))$, $\gamma_1(Y_2(t))$
 \end{itemize}
 
-Naturalmente hay una relaci\'on de contenci\'on clara en
-la familia de los conjuntos de procesos estacionarios de orden finito:
-si un proceso es estacionario de orden $m$, entonces es estacionario de orden $n$ para todo
-$n \leq m$. Es posible incluso describir procesos que sean estacionarios de orden ''infinito''
-y preguntarse bajo qu\'e condiciones son fuertemente estacionarios.
+Naturalmente hay una relaci\'on de contenci\'on clara en la familia de los conjuntos de procesos 
+estacionarios de orden finito: si un proceso es estacionario de orden $m$, entonces es estacionario 
+de orden $n$ para todo $n \leq m$. Es posible incluso describir procesos que sean estacionarios 'de 
+orden infinito' y preguntarse bajo qu\'e condiciones son fuertemente estacionarios.
 Tal discusi\'on no se incluye en el presente trabajo.
-%,
-%% con el fin de ser concreto.
-%ya que 
-%%el enfoque es de modelaci\'on y 
-%se ha intentado hacer la menor cantidad posible de supuestos y de proporcionara a cada uno una
-%''interpretaci\'on fisiol\'ogica''.
 
-
-%As\'i pues, y dadas 
-Una vez hechas
-las consideraciones anteriores, conviente
-introducir una segunda caracter\'izaci\'on de los procesos estacionarios de orden 2 --d\'ebilmente 
-estacionarios--
-% enlistar las siguientes propiedades para un proceso
-%estacionario de orden 2 --o d\'ebilmente estacionario-- 
-que es equivalente
-%\footnote{Este hecho se vuelve claro si se analizan cuidadosamente las propiedades
-%enlistadas y se comparan con las deficiniones de las ''cantidades'' involucradas}
-a la definici\'on \ref{est_orden_m} pero cuya interpretaci\'on suele considerarse como m\'as clara
-%Hay una especie de consenso seg\'un el cual la estacionariedad de orden 2, tambi\'en
-%llamada \textbf{estacionariedad d\'ebil} es suficiente para
-%que se cumplan los teoremas m\'as comunes sobre medias y varianzas.
-%Algunas consecuencias que un
-%proceso sea estacionario debilmente son las siguientes:
+Una vez hechas las consideraciones anteriores, conviente introducir una segunda caracter\'izaci\'on 
+de los procesos estacionarios de orden 2 --d\'ebilmente estacionarios-- que es equivalente a la 
+definici\'on \ref{est_orden_m} pero cuya interpretaci\'on suele considerarse como m\'as clara
 \begin{thrm}
-Un proceso es d\'ebilmente estacionario si y s\'olo si para cualesquiera tiempos admisibles
-$t$, $s$ se tiene que
+Un proceso es d\'ebilmente estacionario si y s\'olo si para cualesquiera tiempos admisibles $t$, 
+$s$ se tiene que
 \begin{itemize}
 \item $\E{X(t)} = \mu_X$
 \item $\Var{X(t)} = \sigma^{2}_X$
 \item $\Cov{X(t),X(s)} = \rho (s-t)$
 \end{itemize}
-Donde $\mu_X$, $\sigma^{2}_X$ son constantes, $\rho(\tau)$
-es una funci\'on que \'unicamente depende de $\tau$
+Donde $\mu_X$, $\sigma^{2}_X$ son constantes, $\rho(\tau)$ es una funci\'on que \'unicamente 
+depende de $\tau$
 \label{est_usual}
 \end{thrm}
 
-%A grosso modo, cuando uno se refiere a un proceso d\'ebilmente estacionario seg\'un
-%\ref{est_orden_m} se le pide que su primer y segundo momentos sean constantes, as\'i como
-%el primer momento conjunto s\'olo dependa del lag en el tiempo. A su vez, seg\'un 
-%\ref{est_usual} un proceso es d\'ebilmente estacionario si su media y varianza son constantes en
-%el tiempo, y su funci\'on de autocovarianza s\'olo depende del lag en el tiempo.
+Cabe mencionar, como comentario, que es posible contruir procesos que sean fuertemente 
+estacionarios pero que no sean estacionarios de ning\'un orden finito; 
+%dado que la primera 
+%definici\'on se basa en funciones de densidad de probabilidad mientras que la segunda se basa en 
+%momentos, es suficiente con usar variables aleatorias que no tengan todos sus momentos bien 
+%definidos. Por ejemplo, 
+consid\'erese un proceso conformado por variables aleatorias independientes id\'enticamente 
+distribuidas con distribuci\'on de Cauchy.
 
-Cabe mencionar, como comentario, que es posible contruir procesos que sean fuertemente
-estacionarios pero que no sean estacionarios de ning\'un orden finito; dado que
-la primera definici\'on se basa en funciones de densidad de probabilidad mientras que la segunda
-se basa en momentos, es suficiente con usar variables aleatorias que no tengan todos
-sus momentos bien definidos. Por ejemplo, consid\'erese un proceso conformado por variables
-aleatorias independientes id\'enticamente distribuidas con distribuci\'on de Cauchy.
+Dado que en el EEG se miden fluctuaciones en potenciales de campos el\'ectricos y que en este 
+trabajo son modelados como variables aleatorias, la intepretaci\'on usual para los momentos de 
+estas variables est\'a ligado a la distribuci\'on de energ\'ia asociada al sistema (ver m\'as
+adelante). Luego, es plausible considerar que el EEG es un fen\'omeno 'suficientemente regular' como 
+para que las variables aleatorias del modelo tengan cuando menos segundos momentos bien definidos.%; 
+%m\'as adelante discutir\'a un poco m\'as sobre por qu\'e es importante este suspuesto.
 
-Dado que en el EEG se miden fluctuaciones en potenciales de campos el\'ectricos
-%(medida en mV),
-y que en este trabajo son modelados como variables aleatorias, 
-la intepretaci\'on usual para los momentos de estas variables est\'a ligado a la distribuci\'on de
-energ\'ia asociada al sistema. Luego, es plausible considerar que el EEG es un fen\'omeno
-''suficientemente regular'' como para que las variables aleatorias del modelo tengan cuando
-menos segundos momentos bien definidos; m\'as adelante discutir\'a un poco m\'as sobre por
-qu\'e es importante este suspuesto.
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Espectro de un proceso estacionario}
 
 Existe una larga tradici\'on en las ciencias biom\'edicas para interpretar a los registros
-electrofisiol\'ogicos en t\'erminos de ondas y frecuencias, ya que fundamentalmente se
-trata de fen\'omenos el\'ectricos \cite{Kaiser00}. 
-As\'imismo existe una teor\'ia matem\'atica bien desarrollada sobre estad\'istica en el 
-llamado ''dominio de las frecuencias''. 
-En este trabajo se aborda la segunda como forma de tener coherencia con la primera; a continuaci\'on
-se describen los conceptos m\'as importantes en el modelo usado.
+electrofisiol\'ogicos en t\'erminos de ondas y frecuencias, ya que fundamentalmente se trata de 
+fen\'omenos el\'ectricos \cite{Kaiser00}. As\'imismo existe una teor\'ia matem\'atica bien 
+desarrollada sobre estad\'istica en el llamado 'dominio de las frecuencias'. 
+En este trabajo se aborda la segunda como forma de tener coherencia con la primera; a 
+continuaci\'on se describen los conceptos m\'as importantes en el modelo usado.
 
-Un objeto fundamental para el estudio del dominio de las frecuencias\footnote{Este concepto 
-no se
-%discutir\'a en el presente trabajo, sino que 
-ser\'a manejado pragm\'aticamente para referirse
-al cambio de coordenadas inducido por la transformada de Fourier o alguna generalizaci\'on de la 
-misma} son las series de Fourier y sus generalizaciones. 
+Un objeto fundamental para el estudio del 'dominio de las frecuencias'
+%\footnote{Este concepto no se ser\'a manejado pragm\'aticamente para referirse al cambio de 
+%coordenadas inducido por la transformada de Fourier o alguna generalizaci\'on de la misma} 
+son las series de Fourier y sus generalizaciones. 
 
 \begin{defn}[Serie de Fourier]
-Sea $f$ una funci\'on peri\'odica con periodo $2\pi$ tal que $\intR \abso{f(t)} dt < \infty$. 
-Si se calculan los coeficientes
+Sea $f$ una funci\'on peri\'odica con periodo $2\pi$ tal que $\intR \abso{f(t)} dt < \infty$. Si se 
+calculan los coeficientes
 \begin{equation*}
 A_n = \frac{1}{2\pi} \intPI f(t) e^{- i n t} dt
 \end{equation*}
@@ -986,213 +816,107 @@ $f$.
 \label{FourierClasico}
 \end{defn}
 
-%\begin{defn}[Transformada de Fourier (funciones peri\'odicas)]
-%Sea $f$ una funci\'on peri\'odica con periodo $2\pi$ tal que $\intR \abso{f(t)} dt < \infty$.
-%hjkjkjkj
-%\end{defn}
+En este trabajo no se discutir\'an los detalles sobre la convergencia de las sucesiones de 
+\ref{FourierClasico}, siempre que se limite a funciones peri\'odicas, continuas y absolutamente 
+sumables, o se permita que sean acotadas y con una cantidad finita de discontinuidades --y se ponga 
+ninguna atenci\'on sobre ellas.
+Parece claro que se puede definir una funci\'on --quiz\'a invertible-- que mapee funciones a sus 
+respectivas series de Fourier; esta funci\'on es referida como \textbf{transformada de Fourier}. 
+Por lo pronto se considerar\'a que las propiedades y limitaciones de la transformada de Fourier son 
+conocidas al menos a grosso modo, m\'as que nada por brevedad; se pretende exhibir el espectro de 
+potencias para una serie de tiempo como una extensi\'on de la transformada de Fourier de modo que 
+se espera poder enfatizar sobre algunas interpretaciones dentro de la modelaci\'on.
 
-Por el momento no se discutir\'an los detalles sobre la convergencia de las sucesiones de 
-\ref{FourierClasico}, siempre que se limite a funciones 
-peri\'odicas,
-continuas y absolutamente sumables,
-%$L^{1}\left([-\pi,\pi])\right)$
-o se permita que sean acotadas y con
-una cantidad finita de discontinuidades --y se ponga ninguna atenci\'on sobre ellas.
-Parece claro que se puede definir una funci\'on --quiz\'a invertible-- que mapee funciones 
-a sus respectivas series de Fourier;
-%que
-%poseen serie de Fourier a ''alg\'un'' conjunto de series absolutamente sumables $\ell$; 
-esta
-funci\'on es referida como \textbf{transformada de Fourier}. Por lo pronto se considerar\'a
-que las propiedades y limitaciones de la transformada de Fourier son conocidas
-al menos a grosso modo, m\'as que nada por brevedad; se pretende exhibir
-el espectro de potencias para una serie de tiempo como una extensi\'on de la
-transformada de Fourier de modo que se espera
-poder enfatizar sobre algunas
-interpretaciones dentro de la modelaci\'on.
-%conocidas y demostradas todas sus propiedades.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsubsection{Notas sobre interpretaci\'on f\'isica}
 
-Las series de Fourier gozan de una interpretación física muy extendida como que una 
-se\~nal\footnote{Esta palabra se usar\'a para referirse a un fen\'omeno f\'isisco 
-que est\'a siendo 
-registrado, bajo el entendido que es casi lo mismo referirse al registro o al proceso
-que lo genera si \'este es determinista}
-peri\'odica
-puede verse como la superposici\'on de se\~nales peri\'odicas m\'as simples. 
+Las series de Fourier gozan de una interpretación física muy extendida como que una se\~nal
+\footnote{Esta palabra se usar\'a para referirse a un fen\'omeno f\'isisco que est\'a siendo 
+registrado, bajo el entendido que es casi lo mismo referirse al registro o al proceso que lo genera 
+si \'este es determinista} peri\'odica puede verse como la superposici\'on de se\~nales 
+peri\'odicas m\'as simples. 
 De igual forma es destacable su interpretaci\'on como ''coordenadas'' en un espacio de funciones
 dada una base ortonormal del mismo. 
-El estudio de estos espacios dentro del an\'alisis trae a la mente
-la cuesti\'on de convergencia,
-el problema del subespacio de
-funciones medibles de medida cero, y la posibilidad de otras bases; estos fen\'omenos tienen a su 
-vez una interpretaci\'on f\'isica como cambios s\'ubitos en la energ\'ia, el ruido y la 
-tipificaci\'on de ondas ''simples'' --por ejemplo, las ondas cuadradas y triangulares son 
-m\'as comunes en teor\'ia de circuitos.
+El estudio de estos espacios dentro del an\'alisis trae a la mente la cuesti\'on de convergencia,
+el problema del subespacio de funciones medibles de medida cero, y la posibilidad de otras bases; 
+estos fen\'omenos tienen a su  vez una interpretaci\'on f\'isica como cambios s\'ubitos en la 
+energ\'ia, el ruido y la tipificaci\'on de ondas ''simples'' --por ejemplo, las ondas cuadradas y 
+triangulares son comunes en teor\'ia de circuitos.
 
-Para limar estas ambig\"uedades, en este trabajo se considerar\'a la base de Fourier como la
-''m\'as natural'' por su conexi\'on simple con las exponenciales complejas. El t\'ermino
-''ruido'' ser\'a evitado en la medida de lo posible ya que, en la terminolog\'ia de se\~nales,
-suele referirse a registros con un comportamiento err\'atico y poco
-predecible; dentro del contexto de electrofisiolog\'ia, tal descricpi\'on bien
-puede englobar tanto
-se\~nales que
-se desea estudiar, como interferencias y errores.
-%Para los procesos estoc\'asticos que son considerados en este trabajo, 
-Conviene definir
-un tipo de ''regularidad estoc\'astica'' que sirva para distinguir los patrones buscados
-de errores de medici\'on e interferencias.
+Para limar estas ambig\"uedades, en este trabajo se considerar\'a la base de Fourier como la 'm\'as 
+natural' por su conexi\'on simple con las exponenciales complejas. El t\'ermino 'ruido' ser\'a 
+evitado en la medida de lo posible ya que, en la terminolog\'ia de se\~nales, suele referirse a 
+registros con un comportamiento err\'atico y poco predecible; dentro del contexto de 
+electrofisiolog\'ia, tal descricpi\'on bien puede englobar tanto se\~nales que se desea estudiar, 
+como interferencias y errores.
+Conviene definir un tipo de 'regularidad estoc\'astica' que sirva para distinguir los patrones 
+buscados de errores de medici\'on e interferencias.
 
 \begin{defn}[Continuidad estoc\'astica (media cuadr\'atica)]
-Un proceso estoc\'astico a tiempo continuo $\{ X(t) \}$ es estoc\'asticamente continuo
-(en el sentido de media cuadr\'atica)
-en un tiempo admisible $t_0$ si y s\'olo si
+Un proceso estoc\'astico a tiempo continuo $\{ X(t) \}$ es estoc\'asticamente continuo (en el 
+sentido de media cuadr\'atica) en un tiempo admisible $t_0$ si y s\'olo si
 \begin{equation*}
 \lim_{t \rightarrow t_0} \E{\left( X(t) - X(t_0) \right)^{2}} = 0
 \end{equation*}
 \label{cont_est}
 \end{defn}
 
-Una forma natural de pensar en la definici\'on \ref{cont_est} es esperar que en promedio
+Una forma natural de pensar en la definici\'on \ref{cont_est} es esperar que, en promedio,
 $\lim_{t \rightarrow t_0} \left( X(t) - X(t_0) \right)^{2} = 0$. 
-No es la \'unica forma de presentar un l\'imite de variables aletorias, sino que se ha elegido
-esta forma por algunas propiedades que ser\'an explotadas m\'as adelante. 
+No es la \'unica forma de presentar un l\'imite de variables aletorias, sino que se ha elegido esta 
+forma por algunas propiedades que ser\'an explotadas m\'as adelante. 
 As\'imismo cabe destacar que un proceso estoc\'asticamente continuo no necesariamente produce 
-realizaciones que son funciones continuas, sino que sus realizaciones deben ser continuas 
-casi en todas partes\footnote{Una funci\'on es \textit{continua casi en todas partes} si
-es continua en todo su dominio excepto por un conjunto de medida cero}.
-
-%%El arquetipo de esta clase de procesos es el proceso de Wiener.
-%%%
-%%%Por ejemplo, un proceso de Poisson es estoc\'asticamente continuo aunque sus realizaciones
-%%%nunca son continuas; un proceso ruido blanco (variables aleatorias indepentiendes
-%%%e id\'enticamente distribuidas)
-%%%no es estoc\'asticamente continuo ya que puede 
-%%%
-%%%Para explorar este concepto de manera concreta, consid\'erese un proceso de Wiener; como es 
-%%%un ejemplo ''r\'apido'', se definir\'a a apartir de sus propiedades:
-%%%
-%%%\begin{defn}[Proceso de Wiener]
-%%%Un proceso estoc\'astico a tiempo continuo $\{ W(t) \}$ recibe el nombre de proceso
-%%%de Wiener si satisface que
-%%%\begin{itemize}
-%%%\item $W(0) = 0$
-%%%\item La variable aleatoria $W(t) - W(s)$ tiene una distribuci\'on normal con media 0 y 
-%%%varianza $\abso{t-s}$
-%%%\item Las variables aleatorias ${W(t)}$ y ${W(t) - W(s)}$ son independientes para
-%%%todos los tiempo permitidos $t$, $s$
-%%%\end{itemize} 
-%%%\end{defn}
-%%%
-%%%Ahora bien, se considera un proceso de Wiener $\{W(t)\}$ con $t\geq 0$, y se verificar\'a su 
-%%%continuidad estoc\'astica para un punto arbitrario $t_0 > 0$. 
-%%%Por definici\'on, se tiene
-%%Para mostrarlo, consid\'erese un proceso de Wiener $\{W_t\}$; 
-%%por su definici\'on se tiene que
-%%$$W(t) - W(t_0) \sim N(0,\abso{t-t_0}) \sim \sqrt{\abso{t-t_0}} N(0,1)$$
-%%donde el s\'imbolo $\sim$ indica que dos variables tienen la misma funci\'on de densidad de 
-%%probabilidad. Luego, como $ \left( W(t) - W(t_0) \right)^{2} \sim \chi^{2}(1) $, se cumple que
-%%$$
-%%\E{\left( W(t) - W(t_0) \right)^{2}}
-%%$$
-%%y luego entonces es claro que $\lim_{t \rightarrow t_0} \E{\left( X(t) - X(t_0) \right)^{2}} = 0$.
-%%Esta aritm\'etica de variables aleatorias puede formalizarse, pero a lo largo de
-%%este trabajo se supondr\'an conocidos los detalles respectivos.
+realizaciones que son funciones continuas, sino que sus realizaciones deben ser continuas casi en 
+todas partes\footnote{Una funci\'on es \textit{continua casi en todas partes} si es continua en 
+todo su dominio excepto por un conjunto de medida cero}.
 
 De manera m\'as general, cabe mencionar un teorema que permite tipificar de manera m\'as
 adecuada esta clase de procesos.
 
 \begin{thrm}
-Un proceso d\'ebilmente estacionario a tiempo continuo es estoc\'asticamente continuo si y s\'olo si
-su funci\'on de autocorrelaci\'on es continua en 0
+Un proceso d\'ebilmente estacionario a tiempo continuo es estoc\'asticamente continuo si y s\'olo 
+si su funci\'on de autocorrelaci\'on es continua en 0
 \end{thrm}
-%\begin{demostracion}
-%Sea $\{ X(t) \}$ un proceso d\'ebilmente estacionario, y sea $t_0$ un tiempo admisible arbitrario. 
-%Luego, para todo $t$ admisible se cumple que
-%\begin{align*}
-%\E{\left( X(t) - X(t_0) \right)^{2}}
-%&= \Var{X(t)} + \Var{X(t_0)} - 2 \Cov{X(t)}{X(t_0)}
-%\\
-%&= 2 \sigma_X^{2} \left( 1 - \rho(t-t_0) \right)
-%\end{align*}
-%donde $\rho$ es la funci\'on de autocorrelaci\'on y $\sigma_X^{2}$ la varianza del proceso. 
-%Luego es claro que
-%\begin{align*}
-%\lim_{t\rightarrow t_0} \E{\left( X(t) - X(t_0) \right)^{2}} = 0  
-%&{\Leftrightarrow}
-%\lim_{t\rightarrow t_0} 2 \sigma_X^{2} \left( 1 - \rho(t-t_0) \right) = 0
-%\\
-%&{\Leftrightarrow}
-%\lim_{\tau \rightarrow 0} \rho(\tau) = 1
-%\end{align*}
-%Como siempre se cumple que $\rho(0)=1$, la condici\'on final se traduce en que $\rho$ sea continua 
-%en 0
-%\end{demostracion}
 
-Con esta segunda caracterizaci\'on a la mano, es f\'acil afirmar que un proceso %donde todas
-%conformado por variables aleatorias independientes 
-ruido blanco
-no es estoc\'asticamente continuo,
-ya que su funci\'on de autocorrelaci\'on vale 0 en todos los puntos
+Con esta segunda caracterizaci\'on a la mano, es f\'acil afirmar que un proceso ruido blanco no es 
+estoc\'asticamente continuo, ya que su funci\'on de autocorrelaci\'on vale 0 en todos los puntos
 excepto en 0, donde vale 1. 
 El proceso de Wiener, en cambio, es el arquetipo de un proceso estoc\'asticamente continuo.
 
-En este trabajo se supondr\'a que los registros de PSG corresponden a realizaciones
-de procesos estoc\'asticamente continuos; se considera la posiblidad de que est\'en
-''contaminados'' por ''ruidos'', entendidos como procesos independientes de los potenciales de 
-campo 
-en el cerebro, de amplitud negligible y que ''muy posiblmente'' son estoc\'asticamente discontinuos 
-casi en todas partes.
+En este trabajo se supondr\'a que los registros de PSG corresponden a realizaciones de procesos 
+estoc\'asticamente continuos; se considera la posiblidad de que est\'en 'contaminados' por 
+'ruidos', entendidos como procesos independientes de los potenciales de campo en el cerebro, de 
+amplitud negligible y que ''muy posiblmente'' son estoc\'asticamente discontinuos casi en todas 
+partes.
 
-%---------------------------------------------------------------------------------------------------
-
-Con respecto al concepto de energ\'ia, en este trabajo se usar\'a 
-%formalmente desde un resultado
-%usual, que se tomar\'a como definici\'on: 
-desde la interpretaci\'on usual de teor\'ia de circuitos, pero que formalmente fungir\'a 
-como definici\'on:
-la energ\'ia disipada por la se\~nal $f$ 
-%en el intervalo
-%de tiempo $(t_1,t_2)$
-est\'a dada por la expresi\'on \ref{energia}; si se divide tal expresi\'on
-por $T$ se obtiene la \textit{potencia} (energ\'ia por unidad de tiempo)
-
-%\begin{definition}[Energ\'ia y potencia de una se\~nal]
-%
-%\end{definition}
+Con respecto al concepto de energ\'ia, en este trabajo se usar\'a un resultado usual de teor\'ia de 
+circuitos, pero que formalmente fungir\'a como definici\'on: la energ\'ia disipada por la se\~nal 
+$f$ est\'a dada por la expresi\'on \ref{energia}; si se divide tal expresi\'on por $T$ se obtiene 
+la \textit{potencia} (energ\'ia por unidad de tiempo)
 
 \begin{equation}
 \int_{-T}^{T} \abso{f\left(t\right)}^{2} dt
 \label{energia}
 \end{equation}
 
-%En este contexto
-Vale la pena mencionar que este concepto de energ\'ia, como 
-integral
-%aporte conjunto
-de una forma cuadr\'atica, es com\'un a varias ramas de la f\'isica y se encuentra ampliamente
-extendido en las ingenier\'ias; en la econom\'ia, en cambio, no hay una motivaci\'on clara para
-hacer uso de este concepto. 
-Las t\'ecnicas electrofisi\'ologicas, concebidas dentro de la teor\'ia de circuitos, hereda la
-terminolog\'ia e interpretaci\'on de energ\'ia.
-%de modo que en 
-En
-este trabajo no s\'olo se contempla
-como ''muy natural'' la idea de energ\'ia en los campos el\'ectricos del cerebro, sino que se
-supondr\'a que esta es acotada para cualquier intervalo finito.
-%Despu\'es de todo, el an\'alisis espectral tiene sus orignes en la f\'sicia, 
+Vale la pena mencionar que este concepto de energ\'ia, como integral de una forma cuadr\'atica, es 
+com\'un a varias ramas de la f\'isica y se encuentra ampliamente extendido en las ingenier\'ias; en 
+la econom\'ia, en cambio, no hay una motivaci\'on clara para hacer uso de este concepto. 
+%Las t\'ecnicas electrofisi\'ologicas, concebidas dentro de la teor\'ia de circuitos, hereda la
+%terminolog\'ia e interpretaci\'on de energ\'ia.
+En este trabajo no s\'olo se contempla como 'muy natural' la idea de energ\'ia en los campos 
+el\'ectricos del cerebro, sino que se supondr\'a que esta es acotada para cualquier intervalo 
+finito.
 
-Contemplando este panorama, conviene se\~nalar
-una relaci\'on cl\'asica entre la energ\'ia de una se\~nal
-peri\'odica y su serie de Fourier (teorema \ref{parseval_serie});
-tal idea ser\'a de gran importancia posteriormente en este trabajo.  
+Contemplando este panorama, conviene se\~nalar una relaci\'on cl\'asica entre la energ\'ia de una 
+se\~nal peri\'odica y su serie de Fourier (teorema \ref{parseval_serie}); tal idea ser\'a de gran 
+importancia posteriormente en este trabajo.  
 
 \begin{defn}[Relaci\'on de Parseval (funciones peri\'odicas)]
-Sea $f$ una funci\'on peri\'odica de periodo $2T$ tal que acepta una representaci\'on como serie
-de Fourier
+Sea $f$ una funci\'on peri\'odica de periodo $2T$ tal que acepta una representaci\'on como serie de 
+Fourier
 \begin{equation*}
 f(x) = \sum_{n=-\infty}^{\infty} A_n e^{i n t}
 \end{equation*}
@@ -1203,76 +927,53 @@ con $A_n = \frac{1}{2\pi} \intPI f(t) e^{- i n t} dt$. Entonces se cumple que
 \label{parseval_serie}
 \end{defn}
 
-Aunque esta afirmaci\'on
-es relativamente simple desde la \'optica del An\'alisis funcional, tiene una interpretaci\'on
-f\'isica importante: si una se\~nal puede descomponerse como una transposici\'on (suma) de 
-se\~nales ortogonales simples, entonces su energ\'ia debe ser la suma de las energ\'ias 
-asociadas a cada una de estas se\~nales. M\'as a\'un, un cambio en alguna de las se\~nales
-ortogonales (base) afecta a la cantidad total de energ\'ia --pero no a las otras se\~nales base.
-Incluso,
-la independencia de las se\~nales base sugiere que la energ\'ia puede ser tratada separadamente
-para cada se\~nal base. Luego, el m\'odulo de la serie de Fourier indica de cierto modo
-c\'omo se distribuye la energ\'ia (o potencia) sobre las se\~nales base; por esta raz\'on se le
-suele referir como \textbf{espectro de potencia}\footnote{Dada esta discusi\'on, conviene 
-distinguir el \textit{espectro de potencia no-normalizado} como la energ\'ia definida como
-en \ref{energia} usando \ref{parseval_serie}, mientras que un \textit{espectro de potencia 
-normalizado} se puede definir de la misma forma pero diviendo la expresi\'on en 
-\ref{energia} por $2T$}.
+Aunque esta afirmaci\'on es relativamente simple desde la \'optica del An\'alisis funcional, tiene 
+una interpretaci\'on f\'isica importante: si una se\~nal puede descomponerse como una 
+transposici\'on (suma) de se\~nales ortogonales simples, entonces su energ\'ia debe ser la suma de 
+las energ\'ias asociadas a cada una de estas se\~nales. M\'as a\'un, un cambio en alguna de las 
+se\~nales ortogonales (base) afecta a la cantidad total de energ\'ia --pero no a las otras 
+se\~nales base.
+Incluso, la independencia de las se\~nales base sugiere que la energ\'ia puede ser tratada 
+separadamente para cada se\~nal base. Luego, el m\'odulo de la serie de Fourier indica de cierto 
+modo c\'omo se distribuye la energ\'ia (o potencia) sobre las se\~nales base; por esta raz\'on se 
+le suele referir como \textbf{espectro de potencia}\footnote{Dada esta discusi\'on, conviene 
+distinguir el \textit{espectro de potencia no-normalizado} como la energ\'ia definida como en 
+\ref{energia} usando \ref{parseval_serie}, mientras que un \textit{espectro de potencia 
+normalizado} se puede definir de la misma forma pero diviendo la expresi\'on en \ref{energia} por 
+$2T$}.
 
-%---------------------------------------------------------------------------------------------------
-
-%En el contexto de series electrofisiol\'ogicas, se mencion\'o que en el EEG se han descrito y
-%patrones llamados ''ondas de sue\~no'' \footnote{Para m\'as informaci\'on ver
-%las secciones anteriores}. Hist\'oricamente estas ondas fueron tipificados mediante el 
-%uso de registros electroencefalogr\'aficos en papel, de modo que se define emp\'iricamente
-%la ''frecuencia'' de una onda se sue\~no al contar el n\'umero de altibajos en una unidad
-%de tiempo \cite{Klonowski09}. En un plano muy formal, no se espera que una onda  de sue\~no
-%tenga una transformada de Fourier, al menos en el sentido cl\'asico; por otro lado, se espera que
-%pueda formalizarse el concepto de una onda ''parecida'' a unacua frecuencia es tal.
-
-En este caso, se presentar\'a la transformada de Fourier-Stieltjes. En primera instancia
-%permite frecuencias puntuales que son inconmensurables con respecto al intervalo $[-\pi,'pi]$,
-%de modo que 
-acepta funciones no-peri\'odicas pero que pueden ser representadas como suma de funciones
-peri\'odicas, la diferencia m\'as notable es que permite involucar funciones cuya frecuencia
-es inconmensurable con respecto al intervalo $[-\pi,\pi]$ como por ejemplo la funci\'on
-$$
-f(x) = \COS{x} + \COS{x\sqrt{2}}
-$$
+En este caso, se presentar\'a la transformada de Fourier-Stieltjes. En primera instancia acepta 
+funciones no-peri\'odicas pero que pueden ser representadas como suma de funciones peri\'odicas, la 
+diferencia m\'as notable es que permite involucar funciones cuya frecuencia es inconmensurable con 
+respecto al intervalo $[-\pi,\pi]$ como por ejemplo la funci\'on $f(x) = \COS{x} + \COS{x\sqrt{2}}$
 no tiene una serie de Fourier, pero puede ser representada como una integral de Fourier-Stieltjes.
 
-%---------------------------------------------------------------------------------------------------
-
-Dicho esto, conviene indagar sobre las propiedades de las
-funciones involucradas en una
+Dicho esto, conviene indagar sobre las propiedades de las funciones involucradas en una 
 transformada de Fourier-Stieltjes: no-negativas, monotonamente crecientes; si se habla de funciones
-con energ\'ia finita se puede tambi\'en asegurar que son acotadas.
-%son similares a una 
-La transformada de Fourier-Stieltjes es una medida en alg\'un espacio --el nombre daba
-algunas pistas al respecto. 
-%--el nombre da pistas al respecto.
+con energ\'ia finita se puede tambi\'en asegurar que son acotadas. La transformada de 
+Fourier-Stieltjes es una medida en alg\'un espacio --el nombre daba algunas pistas al respecto. 
 
-Si bien, dentro de la interpretaci\'on f\'isica, parece muy
-la caracterizaci\'on de la transformada de Fourier-Stieltjes como una medida en alg\'un espacio 
---que posiblemente est\'e asociado a la distribuci\'on de energ\'ia--, desde el punto de vista
-formal tiene consecuencias bastante interesantes.
-Por ejemplo, basta citar un corolario del teorema de separaci\'on de Lebesgue (escrito
-como \ref{Lebesgue_decomp}) seg\'un el cual una funci\'on con ciertas caracter\'isticas se puede 
-separar como suma de tres funciones: una ''muy regular'', una ''compuesta \'unicamente por 
-saltos'' y un residuo con ''propiedades extravagantes''.
+Si bien, dentro de la interpretaci\'on f\'isica, parece muy la caracterizaci\'on de la transformada 
+de Fourier-Stieltjes como una medida en alg\'un espacio --que posiblemente est\'e asociado a la 
+distribuci\'on de energ\'ia--, desde el punto de vista formal tiene consecuencias bastante 
+interesantes.
+Por ejemplo, basta citar un corolario del teorema de separaci\'on de Lebesgue (escrito como 
+\ref{Lebesgue_decomp}) seg\'un el cual una funci\'on con ciertas caracter\'isticas se puede separar 
+como suma de tres funciones: una 'muy regular', una 'compuesta \'unicamente por saltos' y 
+un residuo con 'propiedades extravagantes'.
 
-\begin{thrm}[Descomposici\'on de Lebesgue]%, fun. de variaci\'on acotada]
-Sea $f:I\rightarrow \R$ una funci\'on de variaci\'on acotada, con $I$ un intervalo. Entonces
-pueden hallarse funciones $f_j, f_c, f_a :I\rightarrow \R$ tales que
+\begin{thrm}[Descomposici\'on de Lebesgue]
+Sea $f:I\rightarrow \R$ una funci\'on de variaci\'on acotada, con $I$ un intervalo. Entonces pueden 
+hallarse funciones $f_j, f_c, f_a :I\rightarrow \R$ tales que
 \begin{itemize}
 \item $f = f_j+ f_c+ f_a$
 \item $f_j = \sum_{y \leq x} f(x-0) + f(x+0)$
 \item $f_a$ es absolutamente continua\footnote{Para que una funci\'on sea absolutamente continua,
 basta que sea de variaci\'on acotada y que mapee conjuntos de medida cero en conjuntos de medida
 cero} en $I$
-\item $f_c$ es una funci\'on singular\footnote{Una funci\'on es singular si es continua, 
-de variaci\'on acotada y no-constante, y se cumple que tiene derivada cero casi en todas partes} 
-en $I$
+\item $f_c$ es una funci\'on singular\footnote{Una funci\'on es singular si es continua, de 
+variaci\'on acotada y no-constante, y se cumple que tiene derivada cero casi en todas partes} en 
+$I$
 \end{itemize}
 Estas funciones son \'unicas excepto por constantes, y en conjunto son llamados la 
 \textit{descomposici\'on de Lebesgue} de $f$
@@ -1280,67 +981,52 @@ Estas funciones son \'unicas excepto por constantes, y en conjunto son llamados 
 \end{thrm}
 
 Una vez mencionado el teorema \ref{Lebesgue_decomp}, combinado con el hecho de que las funciones de 
-distribuci\'on de probabilidad
-son de variaci\'on acotada, implica que --en cierto sentido-- una variable aleatoria se puede
-''descomponer'' como una variable aletoria discreta, una variable aleatoria continua y una
-variable aleatoria patol\'ogica; por brevedad no se profundizar\'a m\'as sobre ello.
+distribuci\'on de probabilidad son de variaci\'on acotada, implica que --en cierto sentido-- una 
+variable aleatoria se puede 'descomponer' como una variable aletoria discreta, una variable 
+aleatoria continua y una variable aleatoria patol\'ogica; por brevedad no se profundizar\'a m\'as 
+sobre ello.
 Dado que la transformada de Fourier tiene propiedades similares a una funci\'on de distribuci\'on,
-el aplicar el teorema \ref{Lebesgue_decomp} sobre ella da pie a descomponer una funci\'on
-que admite una transformada de Fourier-Stieltjes como suma de tres funciones: una
-con espectro discreto, una con espectro continuo, y una funci\'on patol\'ogica.
+el aplicar el teorema \ref{Lebesgue_decomp} sobre ella da pie a descomponer una funci\'on que 
+admite una transformada de Fourier-Stieltjes como suma de tres funciones: una con espectro 
+discreto, una con espectro continuo, y una funci\'on patol\'ogica.
 
-Dentro del contexto de electrofisiolog\'ia, en este trabajo se supone
-que una se\~nal puede descomponerse
-como suma de dos funciones, una con espectro discreto --que tiene una serie de Fourier cl\'asica--
-y otra con espectro continuo --que se estimar\'a como derivada de ''algo''.
-Este supuesto equivale a que la ''componente'' patol\'ogica del espectro es negligible.
+Dentro del contexto de electrofisiolog\'ia, en este trabajo se supone que una se\~nal puede 
+descomponerse como suma de dos funciones, una con espectro discreto --que tiene una serie de 
+Fourier cl\'asica-- y otra con espectro continuo --que se estimar\'a como derivada de 'algo'. Este 
+supuesto equivale a que la 'componente' patol\'ogica del espectro es negligible.
 
-%---------------------------------------------------------------------------------------------------
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsubsection{Espectros estoc\'asticos}
 
-Una pregunta natural cuando se toma la terminolog\'ia de ondas y frecuencias dentro
-del estudio de series de tiempo, es sobre el significado de aplicar la transformada de Fourier a
-un proceso estoc\'atico --o cuando menos a alguna sus realizaciones.
+Una pregunta natural cuando se toma la terminolog\'ia de ondas y frecuencias dentro del estudio de 
+series de tiempo, es sobre el significado de aplicar la transformada de Fourier a un proceso 
+estoc\'atico --o cuando menos a alguna sus realizaciones.
 ¿Bajo qu\'e condiciones las realizaciones de un proceso estoc\'astico admiten una representaci\'on
 como series/integrales de Fourier/Fourier-Stieltjes?
 
-%(Por simplicidad se abordar\'a primero esta pregunta para procesos a tiempo continuo, y 
-%posteriormente se tratar\'a el caso a tiempo disreto.)
-
 Se sabe que una condici\'on suficiente para que exista la transformada de Fourier de una funci\'on
 dada, es que pertenezca al espacio de las funciones cuadrado-integrables, $L^2$.
-%, definido como
-%$
-%L^2(\R) = \left\{ f: \R \rightarrow \R {\biggr\rvert} \int_{-\infty}^{\infty} f(x) dx < \infty \right\}
-%$
-
 Sin embargo, considerando un proceso estacionario $\{ X(t) \}$, y dado que tiene varianza constante 
-en el tiempo, se 
-espera que sus realizaciones $x(t)$ no decaigan en infinito. Tampoco hay garant\'ia
-que admitan una representaci\'on de Fourier-Stieltjes. M\'as a\'un, no hay garant\'ia alguna que
-una realizaci\'on arbitraria pueda expresarse como la suma de una funci\'on en $L^2$ y una
-funci\'on que admita representaci\'on de Fourier-Stieltjes.
+en el tiempo, se espera que sus realizaciones $x(t)$ no decaigan en infinito. Tampoco hay 
+garant\'ia que admitan una representaci\'on de Fourier-Stieltjes. M\'as a\'un, no hay garant\'ia 
+alguna que una realizaci\'on arbitraria pueda expresarse como la suma de una funci\'on en $L^2$ y 
+una funci\'on que admita representaci\'on de Fourier-Stieltjes.
 
-El enfoque que se aborda es construir una sucesi\'on de funciones 
-%peri\'odicas 
-en $L^{2}$
-que convergen a ''cada'' realizaci\'on
-$x(t)$, y luego revisar la convergencia de sus respectivas integrales de Fourier.
+El enfoque que se aborda es construir una sucesi\'on de funciones en $L^{2}$ que convergen a 'cada' 
+realizaci\'on $x(t)$, y luego revisar la convergencia de sus respectivas integrales de Fourier. 
 As\'i entonces, para cada $T>0$ se define
 \begin{equation}
 x_T(t) = 
 \begin{cases}
-x(t) & \text{ , } -T\leq t \leq T
-\\
+x(t) & \text{ , } -T\leq t \leq T \\
 0 & \text{ , otro caso}
 \end{cases}
 \end{equation}
 
-Claramente, para todo $T$ se tiene que $x_T \in L^2$, y entonces la siguiente 
-representaci\'on est\'a bien definida
+Claramente, para todo $T$ se tiene que $x_T \in L^2$, y entonces la siguiente representaci\'on 
+est\'a bien definida
 \begin{equation}
 x_T (t) = \frac{1}{\sqrt{2 \pi}} \intR G_T(\omega) e^{i \omega t} d\omega
 \end{equation}
@@ -1355,33 +1041,16 @@ G_T (\omega) = \frac{1}{\sqrt{2 \pi}} \intR x_T(t) e^{-i \omega t} dt
 Como se mencion\'o anteriormente, no hay garant\'ia de que $x(t)$, una realizaci\'on arbitraria de
 $\{X(t)\}$, tenga una integral de Fourier bien definida. Luego entonces no hay garant\'ia que 
 $G_T$ converja cuando $T\rightarrow \infty$. Recuperando la interpretaci\'on de 
-$\left| G_T(\omega) \right|^{2}$ como una funci\'on de distribuci\'on para la energ\'ia total del sistema 
-%asociada a la frecuencia
-sobre las frecuencias
-puntualse $\omega$, destaca un argumento f\'isico seg\'un el cual $G_T$ {deber\'ia} diverger:
-durante un tiempo infinito, un sistema que maneja ''niveles constantes'' de 
-energ\'ia puede registrar una cantidad infinita de energ\'ia en su historial. 
-%Curiosamente,
-%esta segunda interpretaci\'on del
-%problema motiva una soluci\'on para el mismo: usando un tipo de promedio para la
-%distribuci\'on de energ\'ia involucrando a $T$
+$\left| G_T(\omega) \right|^{2}$ como una funci\'on de distribuci\'on para la energ\'ia total del 
+sistema sobre las frecuencias puntualse $\omega$, destaca un argumento f\'isico seg\'un el cual 
+$G_T$ {deber\'ia} diverger: durante un tiempo infinito, un sistema que maneja 'niveles constantes' 
+de energ\'ia puede registrar una cantidad infinita de energ\'ia en su historial. 
 
-Este problema puede remediarse 
-%resolviendo el enredo de palabras y t\'erminos, 
-siguiendo la interpretaci\'on f\'isica del objeto que se intenta investigar:
-%ya que 
-no es tan importante la
-cantidad total de energ\'ia 
-sobre todos los tiempos posibles, ya que s\'olo es importante lo que ocurra en intervalos finitos
-de tiempo.
-%concentrada en cada frecuencia, 
-%sino qu\'e frecuencias concentran m\'as
-%energ\'ia. 
-Luego entonces conviene usar un promedio que 
-%''tome en cuenta'' el tama\~no
-%del intervalo
-involucre el tama\~no de los intervalos ''recortados'' y que pueda converger a una suerte de 
-densidad de energ\''ia en el tiempo.
+Este problema puede remediarse siguiendo la interpretaci\'on f\'isica del objeto que se intenta 
+investigar: no es tan importante la cantidad total de energ\'ia sobre todos los tiempos posibles, 
+sino que s\'olo es importante lo que ocurra en intervalos finitos de tiempo.
+Luego entonces conviene usar un promedio que involucre el tama\~no de los intervalos 'recortados' 
+y que pueda converger a una suerte de densidad de energ\''ia en el tiempo.
 
 \begin{equation}
 \lim_{T\rightarrow{\infty}} = \frac{ \left| G_T(\omega) \right|^{2}}{2 T}
@@ -1390,19 +1059,13 @@ densidad de energ\''ia en el tiempo.
 
 La expresi\'on en \ref{yacasi} es una adaptaci\'on de la integral de Fourier para una realizaci\'on
 de un proceso estoc\'astico a tiempo continuo; los detalles sobre la convergencia de esta 
-cantidad se discutir\'an m\'as adelante;
-cabe destacar que la forma en que se promedia s\'olo resulta significativa para procesos estacionarios.
-%conserva una parte clave de la interpretaci\'on.
-Por mientras, y en cierta medida, se ha contestado una de las interrogantes 
-%al inicio de esta 
-previas
-%secci\'on 
-sobre la posibilidad y
-el significado de una transformada de Fourier para las realizaciones de un proceso 
+cantidad se discutir\'an m\'as adelante; cabe destacar que la forma en que se promedia s\'olo 
+resulta significativa para procesos estacionarios.
+Por mientras, y en cierta medida, se ha contestado una de las interrogantes previas sobre la 
+posibilidad y el significado de una transformada de Fourier para las realizaciones de un proceso 
 estoc\'astico; con respecto a la posibilidad de una transformada para el proceso per se, vale la 
-pena
-ajustar la definici\'on en \ref{yacasi} para que sea ''representativa'' del proceso --y no s\'olo
-de una realizaci\'on particular. Priestley introduce la siguiente funci\'on
+pena ajustar la definici\'on en \ref{yacasi} para que sea ''representativa'' del proceso --y no 
+s\'olo de una realizaci\'on particular. Priestley introduce la siguiente funci\'on
 
 \begin{equation}
 h(\omega) = \lim_{T\rightarrow \infty} \E{ \frac{ \left| G_T(\omega) \right|^{2}}{2 T} }
@@ -1410,26 +1073,11 @@ h(\omega) = \lim_{T\rightarrow \infty} \E{ \frac{ \left| G_T(\omega) \right|^{2}
 
 La funci\'on $h$ es referida como la \textit{funci\'on de densidad espectral no-normalizada} para
 $\{X(t)\}$. Posteriormente se definir\'a una versi\'on ''normalizada'' de la SDF.
-%, pero antes debe
-%definirse la ''potencia total'' del proceso; por simplicidad, antes de ello se exhibir\'an
-%algunas propiedades de la SDF, adem\'as algunos teoremas importantes.
-
 La discuci\'on sobre la convergencia de $h$ se omiti\'o por tiempo y simpleza de la explicaci\'on,
-%aunque basta con intentar aplicar la definici\'on \ref{SDF} a una funci\'on determinista
-%continua y peri\'odica --puede interpretarse como un proceso estoc\'astico degenerado, 
-%con varianza 0
-%para cualquier tiempo permitido. 
-%Como toda funci\'on peri\'odica continua posee una serie de Fourier bien definida, la SDF del
-%proceso debe ''coincidir'' en cierto sentido. 
-%Desde la interpretaci\'on f\'isica, tiene sentido que la energ\'ia de una se\~nal peri\'odica
-%debe estar distribuida entre se\~nales peri\'odicas --caso contrario, sus ''modos'' ser\'ian
-%imcompatibles y perder\'ian energ\'ia al interactuar--; luego la distribuci\'on de energ\'ia
-%debe tener picos tipo ''delta de Dirac'' en las frecuencias compatibles.
-ya que es posible un proceso con espectro discreto o mixto (una idea similar a una funci\'on 
-con espectro discreto, pero con sus diferencias obvias):
-un proceso cuya SDF no est\'a bien definida en 
+ya que es posible un proceso con espectro discreto o mixto (una idea similar a una funci\'on con 
+espectro discreto, pero con sus diferencias obvias): un proceso cuya SDF no est\'a bien definida en 
 todos sus puntos, pero tal que estos puntos no pueden ser ignorados.
-En parte, el objetivo de la discusi\'on sobre la integral de Fourier-Stieltjes es que parezca
+En parte, el objetivo de la discusi\'on sobre la integral de Fourier-Stieltjes es que parezca 
 natural definir un la integral de la SDF, el \textbf{espectro integrado} $H$
 \begin{equation*}
 H(\omega) = \lim_{T\rightarrow \infty} 
@@ -1437,29 +1085,27 @@ H(\omega) = \lim_{T\rightarrow \infty}
 \end{equation*}
 
 De manera completamente an\'aloga al caso en que la transformada de Fourier-Stieltjes puede
-interpretarse como una medida, $H$ tambi\'en puede ser vista como una medida; m\'as a\'un,
-siempre que $h(\omega)$ est\'e bien definida puede decirse que 
-$\frac{dH(\omega)}{d\omega}= h(\omega)$ --una analog\'ia interesante con que la funci\'on
-de densidad de probabilidad es la derivada de la funci\'on de probabilidad acumulada siempre
-que la segunda sea derivable.
-No se discutir\'a con detalle am\'en de no repetir, pero $H$ es positiva, no-decreciente y
-acotada para condiciones que se discutir\'an m\'as adelante.
+interpretarse como una medida, $H$ tambi\'en puede ser vista como una medida; m\'as a\'un, siempre 
+que $h(\omega)$ est\'e bien definida puede decirse que $\frac{dH(\omega)}{d\omega}= h(\omega)$ 
+--una analog\'ia interesante con que la funci\'on de densidad de probabilidad es la derivada de la 
+funci\'on de probabilidad acumulada siempre que la segunda sea derivable.
+No se discutir\'a con detalle am\'en de no repetir, pero $H$ es positiva, no-decreciente y acotada 
+para condiciones que se discutir\'an m\'as adelante.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Estimaci\'on de la funci\'on de densidad espectral}
 
 En la subsecci\'on anterior se exhibi\'o una forma de definir un espectro de potencias para 
-procesos estoc\'asticos estacionarios --hasta ahora se ha supuesto que tienen cuando menos
-segundos momentos finitos. Esta definici\'on es resumida en \ref{SDF} para el caso no-normalizado;
-como el operador $\mathrm{E}$ indica el valor esperado sobre todas las realizaciones del proceso,
-la definici\'on se hescribi\'o en t\'erminos del proceso y no de sus realizaciones.
+procesos estoc\'asticos estacionarios --hasta ahora se ha supuesto que tienen cuando menos segundos 
+momentos finitos. Esta definici\'on es resumida en \ref{SDF} para el caso no-normalizado; como el 
+operador $\mathrm{E}$ indica el valor esperado sobre todas las realizaciones del proceso, la 
+definici\'on se hescribi\'o en t\'erminos del proceso y no de sus realizaciones.
 
 \begin{defn}[Funci\'on de densidad espectral (SDF) no-normalizada]
-Sea $\{X(t)\}$ un proceso estoc\'astico at iempo continuo, d\'ebilmente estacionario. Se define
-la funci\'on de densidad espectral (SDF) de $\{X(t)\}$ como
-%a tiempo continuo 
-%tal que para todo tiempo admisible $t$ se cumple que $\E{X(t)}$
+Sea $\{X(t)\}$ un proceso estoc\'astico at iempo continuo, d\'ebilmente estacionario. Se define la 
+funci\'on de densidad espectral (SDF) de $\{X(t)\}$ como
 \begin{equation*}
 h(\omega) = \lim_{T\rightarrow \infty} \E{ \frac{ \left| G_T(\omega) \right|^{2}}{2 T} }
 \end{equation*}
@@ -1467,50 +1113,17 @@ Donde $G_T (\omega) = \frac{1}{\sqrt{2 \pi}} \int_{-T}^{T} X(t) e^{-i \omega t} 
 \label{SDF}
 \end{defn}
 
-%Como se mencion\'o anteriormente, se omiti\'o intencionalmente una discusi\'on sobre el proceso hasta
-%ahora. Y e
-
-%Consid\'erese un ejemplo hip\'otetico de ondas cerebrales alfa de 10 Hz, donde el ruido externo 
-%ha sido eliminado completamente; este registro te\'orico se 
-
-%Desde el punto de vista matem\'atico, m\'as interesante,
-%el conjunto de las funciones que tienen transformada de 
-%Fourier bien definida es un subconjunto de las funciones que tienen transformada de
-%Fourier-Stieltjes bien definida; si bien esto ya se hab\'ia mencionado anteriormente, conviene
-%extender tal discusi\'on reflexionando sobre la estructura de este segundo espacio.
-%
-%Dada una serie de Fourier, se puede construir una funci\'on que posee una transformada de
-%Fourier,
-%%y dada una funci\'on acotada
-%%mon\'otonamente creciente, se puede hacer lo equivalente; lo inte
-%y, como buena generalizaci\'on, esta funci\'on tambi\'en posee una transformada de 
-%Fourier-Stieltjes bien definida; basta tomar [continuar despues]
-
-%Algo que salta a la vista de estas funciones con espectro discontinuo es que su SDF no est\'a
-%bien definida en todos los puntos, al menos no como la derivada de la SDF integrada.
-%Este fen\''omeno es b\'asicametn id\'entico al de las variables aleatorias discretas:
-%su funci\'on
-%de distribuci\'on de probabilidad acumulada es discontinua, luego no es cierto que su
-%funci\'on de densidad de probabilidad sea la derivada ''de algo''.
-
-%Se espera poder definir $h$ para funciones deterministas --no sólo para proceso estoc\'asticos--
-%en el caso que exista una ''componente determinista'' que resulte ser importante; por ejemplo, los
-%una presencia marcada de ondas cerebrales.
-
-Es importante un comentario que imita a aqu\'el sobre la definici\'on de estacionariedad:
-la definici\'on \ref{SDF} es sumamente ineficiente en t\'erminos de estimaci\'on, ya que implica
-tomar un valor esperado sobre todas las posibles realizaciones del proceso.
-En este caso se exhiben varios teoremas respecto a la SDF, y que permiten estimarla aprovechando
+Es importante un comentario que imita a aqu\'el sobre la definici\'on de estacionariedad: la 
+definici\'on \ref{SDF} es sumamente ineficiente en t\'erminos de estimaci\'on, ya que implica tomar 
+un valor esperado sobre todas las posibles realizaciones del proceso.
+En este caso se exhiben varios teoremas respecto a la SDF, y que permiten estimarla aprovechando 
 las regularidades de un proceso d\'ebilmente estacionario. 
 En este sentido, son fundamentales los teoremas de Wiener-Khintchine y de Wold.
 
 \begin{thrm}[Wiener-Khintchine]
 Una condici\'on suficiente y necesaria para que $\rho$ sea una funci\'on de autocorrelaci\'on de 
 alg\'un proceso estoc\'astico a tiempo continuo $\{X(t)\}$ estacionario y estoc\'asticamente 
-continuo, es que exista una funci\'on $F$ que tenga las 
-%mismas propiedades que una funci\'on de 
-%densidad de probabilidad
-siguientes propiedades
+continuo, es que exista una funci\'on $F$ que tenga las siguientes propiedades
 \begin{itemize}
 \item Monotonamente creciente
 \item $F(-\infty) = 0$
@@ -1524,13 +1137,8 @@ y tal que para todo $\tau \in \R$ se cumple que
 
 \begin{thrm}[Wold]
 Una condici\'on suficiente y necesaria para que $\rho$ sea una funci\'on de autocorrelaci\'on de 
-alg\'un proceso estoc\'astico a tiempo discreto $\{X(t)\}$ estacionario
-% y estoc\'asticamente 
-%continuo, 
-es que exista una funci\'on $F$ con las 
-%mismas propiedades que una funci\'on de 
-%densidad de probabilidad
-siguientes propiedades
+alg\'un proceso estoc\'astico a tiempo discreto $\{X(t)\}$ estacionario es que exista una funci\'on 
+$F$ con las siguientes propiedades
 \begin{itemize}
 \item Monotonamente creciente
 \item $F(-\pi) = 0$
@@ -1542,42 +1150,25 @@ y tal que para todo $\tau \in \R$ se cumple que
 \end{equation*}
 \end{thrm}
 
-Una diferencia fundamental entre estos dos teoremas es que el primero se refiere a procesos a
-tiempo continuo, mientras que el segundo se refiere a procesos a tiempo discreto; un caso de
-particularmente interesante es el de procesos a tiempo continuo que son observados en puntos
+%Una diferencia fundamental entre estos dos teoremas es que el primero se refiere a procesos a
+%tiempo continuo, mientras que el segundo se refiere a procesos a tiempo discreto; un caso de
+%particularmente interesante es el de procesos a tiempo continuo que son observados en puntos
 
-Si bien no es claro que el teorema de Wiener-Khintchine, o su extensi\'on por Wold, tengan una
-interpretaci\'on f\'sica clara, tienen una interpretaci\'on clave para los estimadores en el
-dominio de las frecuencias:
-la SDF normalizada es la transformada de Fourier-Stieltjes de la 
+Si bien no es claro que el teorema de Wiener-Khintchine, o su extensi\'on por Wold, tengan una 
+interpretaci\'on f\'sica clara, tienen una interpretaci\'on clave para los estimadores en el 
+dominio de las frecuencias: la SDF normalizada es la transformada de Fourier-Stieltjes de la 
 funci\'on de autocorrelaci\'on.
-Intuitivamente, esto significa que un estimador ''muy natural'' para la SDF normalizada
-%se puede construir 
-%a partir del estimador para la funci\'on de autocovarianza, aplic\'andole alg\'un tipo
-%de transformada de Fourier. 
-%M\'as adelante se mostrar\'a que ello no es la mejor opci\'on, p
-es la transformada de Fourier de la funci\'on de autocorrelaci\'on (estimada);
-esta funci\'on se conoce como \textit{periodograma}. Se usar\'an, sin embargo, la funci\'on
-de autocovarianza ($R$) ya que en teor\'ia s\'olo difiere de la funci\'on de autocorrelaci\'on
-al ser multiplicada por una constante, pero en la pr\'actica esta cantidad es un par\'ametro m\'as
-para ser estimado.
+Intuitivamente, esto significa que un estimador ''muy natural'' para la SDF normalizada es la 
+transformada de Fourier de la funci\'on de autocorrelaci\'on (estimada); esta funci\'on se conoce 
+como \textit{periodograma}. Se usar\'an, sin embargo, la funci\'on de autocovarianza ($R$) ya que 
+en teor\'ia s\'olo difiere de la funci\'on de autocorrelaci\'on al ser multiplicada por una 
+constante, pero en la pr\'actica esta cantidad es un par\'ametro m\'as para ser estimado.
 
-Conviene introducir, antes, el estimador ''est\'andar''
-para la funci\'on de autocovarianza de un proceso
-d\'ebilmente estacionario a tiempo continuo de media cero $\{ X(t) \}$, 
-a partir de un conjunto de $N$ 
-observaciones distribuidas uniformemente en el tiempo con separaci\'on $\Delta t$.
-Por simplicidad, se denotar\'a a estas observaciones como $x_1, x_2 , \dots, x_N$ .
-Ahora bien, 
-por definici\'on se cumple la siguiente propiedad para la funci\'on de autocovarianza, $R$,
-del proceso
-%\begin{align*}
-%\rho(\tau) 
-%&= \E{X(0)X(\tau)} \\
-%&= \E{X(\Delta t)X(\Delta t + \tau)} \\
-%&= \E{X(2\Delta t)X(2\Delta t + \tau)} \\
-%&= \cdots
-%\end{align*}
+Conviene introducir, antes, el estimador 'est\'andar' para la funci\'on de autocovarianza de un 
+proceso d\'ebilmente estacionario a tiempo continuo de media cero $\{ X(t) \}$, a partir de un 
+conjunto de $N$ observaciones distribuidas uniformemente en el tiempo con separaci\'on $\Delta t$.
+Por simplicidad, se denotar\'a a estas observaciones como $x_1, x_2 , \dots, x_N$. Ahora bien, por 
+definici\'on se cumple la siguiente propiedad para la funci\'on de autocovarianza, $R$, del proceso
 \begin{equation*}
 R(\tau)
 = \E{X(n\Delta t)X(n\Delta t + \tau)} \text{  ,  } n = 0,\pm 1,\pm 2, \pm 3,\dots
@@ -1590,107 +1181,71 @@ $\Delta t$. Luego, un estimador muy natural para $\rho$ est\'a dado por
 \label{estimador_R}
 \end{equation}
 
-Resulta que $\widehat{R}$ es un estimador insesgado y consistente de $R$;
-sin embargo y por simplicidad en un tratamiento futuro, 
-conviene introducir un estimador sesgado para $R$ con algunas propiedades convenientes
+Resulta que $\widehat{R}$ es un estimador insesgado y consistente de $R$; sin embargo y por 
+simplicidad en un tratamiento futuro, conviene introducir un estimador sesgado para $R$ con algunas 
+propiedades convenientes
 \begin{equation}
 \aste{R}(\tau) = \frac{1}{N} 
 \sum_{t = 1}^{N-\abso{\tau}} x_t x_{t+\abso{\tau}}
 \label{estimador_R_ast}
 \end{equation}
 
-Por tiempo s\'olo se citar\'a que --para un proceso d\'ebilmente estacionario-- el
-estimador \ref{estimador_R_ast} tiene las siguientes propiedades
+Por tiempo s\'olo se citar\'a que --para un proceso d\'ebilmente estacionario-- el estimador 
+\ref{estimador_R_ast} tiene las siguientes propiedades
 \begin{itemize}
 \item $\E{\aste{R}(\tau)} = \left(1 - \frac{\abso{\tau}}{N} \right) R(\omega)$
 \item $\Var{\aste{R}(\tau)} \approx \frac{1}{N} 
 \sum_{r=-\infty}^{\infty} \left( R^{2}(r) + R(r-\tau)R(r+\tau) \right)$
-%\item $\Cov{\aste{\rho}(\tau),\aste{\rho}(\tau+\nu)} \approx \frac{1}{N} 
-%\sum_{r=-\infty}^{\infty} \left( \rho(r)\rho(r+\nu) + \rho(r-\tau)\rho(r+\tau+\nu) \right)$
+\item $\Cov{\aste{\rho}(\tau),\aste{\rho}(\tau+\nu)} \approx \frac{1}{N} 
+\sum_{r=-\infty}^{\infty} \left( \rho(r)\rho(r+\nu) + \rho(r-\tau)\rho(r+\tau+\nu) \right)$
 \end{itemize}
-La aproximaci\'on 
-para la varianza se vuelve
-exacta si el proceso es normal, aunque es asint\'otica en general.
-%con el n\'umero de puntos.
+La aproximaci\'on para la varianza se vuelve exacta si el proceso es normal, aunque es asint\'otica 
+en general.
 
-As\'i entonces se puede definir, como se mencion\'o, 
-el periodograma $I_N(\omega)$ de la siguiente manera
+As\'i entonces se puede definir, como se mencion\'o, el periodograma $I_N(\omega)$ de la siguiente 
+manera
 
 \begin{equation}
 I_N(\omega) = 2 \sum_{r = -(N-1)}^{N-1} \aste{R}(r) \COS{r \omega}
 \label{periodograma_rho}
 \end{equation}
 
-Ahora bien, la definici\'on cl\'asica del periodograma est\'a dada por la expresi\'on
-en \ref{periodograma_rho}, 
-aunque igualmente se puede definir por la expresi\'on equivalente
-%y lo que pasa es que es equivalente a la definici\'on
-en \ref{periodograma}; aunque la segunda es clara y efectiva computacionalmente, se usar\'a
-la primera de manera recurrente.
+Ahora bien, la definici\'on cl\'asica del periodograma est\'a dada por la expresi\'on en 
+\ref{periodograma_rho}, aunque igualmente se puede definir por la expresi\'on equivalente en 
+\ref{periodograma}; aunque la segunda es clara y efectiva computacionalmente, se usar\'a la primera 
+de manera recurrente.
 
 \begin{equation}
 I_N(\omega) = \frac{2}{N} \abso{ \sum_{t=0}^{N} e^{i \omega t} x_t }^{2}
 \label{periodograma}
 \end{equation}
 
-%Para hablar de la media y varianza del periodograma, es fundamental distinguir el caso con
-%espectro puramente discreto y el caso con espectro puramente continuo.
-%En el primer caso, las siguientes formas fueron propuestas por Bartlet
+Si bien se puede deostrar que en el caso continuo $\E{I_N(\omega)}=h(\omega)$, si el proceso 
+tuviera un espectro puramente continuo, ocurre que 
+$\lim_{N\rightarrow 0} \Var{I_N(\omega)} = h^{2}(\omega)$. Luego el periodograma 'cl\'asico' --o 
+cualquiera de sus formulaciones equivalentes-- es en general un estimador insesgado para la SDF, 
+pero su varianza no decae a cero al incrementar el n\'umero de puntos; intuitivamente esto sgnifica 
+que en promedio se espera que funcione adecuadamente como estimador, pero aumentar la cantidad de 
+datos no implica que la estimaci\'on mejore, y es muy posible que nunca sea realmente buena.
 
-Si bien se puede deostrar que en el caso continuo 
-%se cumple que 
-$\E{I_N(\omega)}=h(\omega)$, si el proceso tuviera un espectro puramente continuo,
-ocurre que $\lim_{N\rightarrow 0} \Var{I_N(\omega)} = h^{2}(\omega)$. Luego el
-periodograma ''cl\'asico'' --o cualquiera de sus formulaciones equivalentes-- es 
-en general
-un estimador
-insesgado para la SDF, pero su varianza no decae a cero al incrementar el n\'umero de puntos;
-intuitivamente esto sgnifica que en promedio se espera que funcione adecuadamente como
-estimador, pero
-%decir, 
-aumentar la cantidad de datos no implica que la estimaci\'on mejore,%\footnote{La 
-%demostraci\'on de esta propiedad es omitida por brevedad
-%Este 
-%comentario se puede hacer m\'as claro, pero no se ha hecho porque implica incluir m\'as material
-%}.
-y es muy posible que nunca sea realmente buena.
+Priestley comenta que este efecto ocurre porque el periodograma --calculado seg\'un 
+\ref{periodograma_rho}-- est\'a siendo depende de estimadores para la funci\'on de autocovarianza 
+evaluada en todos los puntos accesibles; el problema con ello es que para evaluarla en retrasos 
+m\'as grandes, se requieren puntos m\'as alejados, y como hay muy pocos disponibles generan un 
+estimador con varianza muy alta.
 
-%Un problema indicao 
-Priestley comenta que este efecto ocurre porque
-%como comentario es que 
-el periodograma --calculado seg\'un \ref{periodograma_rho}--
-est\'a siendo depende de estimadores para la funci\'on de autocovarianza evaluada en todos los 
-puntos accesibles; 
-el problema con ello es que para evaluarla en retrasos m\'as grandes, 
-%son calculados usando
-se requieren puntos m\'as alejados, y como hay muy pocos disponibles
-%generan una mayor varianza.
-generan un estimador con varianza muy alta.
-
-Puesto que el periodograma aumenta su varianza porque incluye las ''colas'' de la 
-funci\'on de
-autocovarianza, una respuesta cl\'asica 
-%a este problema 
-es tratar de evitar en lo posible estas
-colas 
-%elimin\'andolas o 
-multiplicando por una funci\'on de pesos.
-% que disminuya r\'apidamente.
-En este sentido, se considerar\'an los estimadores con la siguiente forma
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%Se considerar\'an los estimadores de la forma
+Puesto que el periodograma aumenta su varianza porque incluye las 'colas' de la funci\'on de
+autocovarianza, una respuesta cl\'asica es tratar de evitar en lo posible estas colas multiplicando 
+por una funci\'on de pesos. En este sentido, se considerar\'an los estimadores con la siguiente 
+forma
 \begin{equation}
 \est{h}(\omega) = \frac{1}{2\pi} \sum_{s = -(N-1)}^{N-1} 
 \lambda(s) \aste{R}(s) e^{i \omega t}
 \label{ventaneando}
 \end{equation}
-
-donde $\lambda$ es la funci\'on que ''decae muy r\'apidamente'', y ser\'a referida como
-\textbf{ventana de retrasos}. Para estudiar las propiedades de los estimadores
-dle tipo \ref{ventaneando}, conviene reescribirlos como funci\'on directa del periodograma
+donde $\lambda$ es la funci\'on que 'decae muy r\'apidamente', y ser\'a referida como 
+\textbf{ventana de retrasos}. Para estudiar las propiedades de los estimadores del tipo 
+\ref{ventaneando}, conviene reescribirlos como funci\'on directa del periodograma
 
 \begin{equation*}
 \est{h}(\omega) = \intPI I_N(\theta) W(\omega-\theta) d\theta
@@ -1702,19 +1257,11 @@ W(\theta) = \frac{1}{2\pi} \sum_{s = -(N-1)}^{N-1} \lambda(s) e^{-is\theta}
 
 Cabe destacar la forma que adopta $\est{h}$ como convoluci\'on del periodograma con la funci\'on
 $W$, que bien puede interpretarse como que esta \'ultima funciona como una funci\'on de pesos
---exactamente como $\lambda$, pero en el ''dominio de las frecuencias. Por ello, $W$ es
-referida como \textbf{ventana de retrasos}.
-En la tabla \ref{ventanas} hay una lista corta de algunas ventanas propuestas.
-%; en la tabla 
-%\ref{ventaneando}
-%se tienen sus respectivos valres esperados y varianzas.
-Esta familia de estimadores
-%, si bien tienen una varianza que deace a cero conforme aumenta el
-%n\'umero de puntos, en promedio no convergen al valor deseado; 
-son consistentes pero
-sesgados, aunque son asint\'oticamente insesgados, ya que el sesgo disminuye conforme aumenta el
-n\'umero de puntos.
-
+--exactamente como $\lambda$, pero en el ''dominio de las frecuencias. Por ello, $W$ es referida 
+como \textbf{ventana de retrasos}.
+En la tabla \ref{ventanas} hay una lista corta de algunas funciones ventana.
+Esta familia de estimadores son consistentes pero sesgados, aunque son asint\'oticamente 
+insesgados, ya que el sesgo disminuye conforme aumenta el n\'umero de puntos.
 
 \begin{SidewaysFigure}
 \centering
@@ -1793,9 +1340,6 @@ $\displaystyle
 \left( \frac{\SEN{\nicefrac{\pi s}{M}}}{\nicefrac{\pi s}{M}} - \COS{\nicefrac{\pi s}{M}}
 \right)
 $ 
-%$\displaystyle
-%\lambda(s) = \frac{3M^{2}}{\left(\pi s)^{2}}
-%$ 
 &
 $\displaystyle
 W(\theta) = \begin{cases}
@@ -1804,42 +1348,30 @@ W(\theta) = \begin{cases}
 0 &\text{, otro caso}
 \end{cases}$
 \end{tabular}
-\caption{Ejemplos de algunas ventanas que suavizan el periodograma, formando
-estimadores consistente de la SDF para el caso de espectro puramente continuo.
+\caption{Ejemplos de algunas ventanas que suavizan el periodograma, formando estimadores 
+consistente de la SDF para el caso de espectro puramente continuo.
 Las funciones $F_M$ y $D_M$ toman los nombres respectivos de \textit{n\'ucelo de Fejer} y
 \textit{N\'ucleo de Dirichlet} de orden $M$}
 \label{ventanas}
 \end{SidewaysFigure}
 
-%\begin{table}
-%\centering
-%\begin{tabular}{c||c|c}
-%Ventana & Sesgo & Grados de libertad equivalentes
-%
-%\end{tabular}
-%\end{table}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Representaci\'on de Wold-Cram\'er}
 
 Una consecuencia de los teoremas de Wiener-Khintchine y de Wold, de la que no se hab\'ia hablado
-en este trabajo, es poder caracterizar a los procesos d\'ebilmente estacionarios
-con una cierta forma; esta representaci\'on ser\'a auxiliar para estimar la SDF.
-Esta represetnaci\'on existe en virtud del teorema \ref{rep_espectral}, cuya demostraci\'on
-no ser\'a incluida en este trabajo;
-el lector interesado en tan imponente teorema puede referirse a \cite{Priestley81}.
+en este trabajo, es poder caracterizar a los procesos d\'ebilmente estacionarios con una cierta 
+forma; esta representaci\'on ser\'a auxiliar para estimar la SDF.
+Esta represetnaci\'on existe en virtud del teorema \ref{rep_espectral}, cuya demostraci\'on no 
+ser\'a incluida en este trabajo; el lector interesado en tan imponente teorema puede referirse a 
+\cite{Priestley81}.
 
 \begin{thrm}
-Sea $\{X(t)\}$ un proceso estoc\'astico a tiempo continuo d\'ebilmente estacionario
-de media 0
-y estoc\'asticamente continuo --en el 
-sentido de media cuadr\'atica. Entonces, existe un proceso ortogonal $\{Z(\omega)\}$ tal que, para 
-todo tiempo $\omega$ admisible, se puede escribir\footnote{La integral se encuentra definida en el
-sentido de media cuadr\'atica.}
+Sea $\{X(t)\}$ un proceso estoc\'astico a tiempo continuo d\'ebilmente estacionario de media 0 y 
+estoc\'asticamente continuo --en el sentido de media cuadr\'atica. Entonces, existe un proceso 
+ortogonal $\{Z(\omega)\}$ tal que, para todo tiempo $\omega$ admisible, se puede 
+escribir\footnote{La integral se encuentra definida en el sentido de media cuadr\'atica.}
 \begin{equation*}
 X(t) = \intR e^{i t \omega} dZ(\omega)
 \end{equation*}
@@ -1854,93 +1386,53 @@ Donde $dH(\omega)$ la SDF integrada no-normalizada de $\{X(t)\}$
 \end{thrm}
 
 La forma en que se escribe un proceso seg\'un el teorema \ref{rep_espectral} es referida como
-{representaci\'on de Cram\'er}; en virtud del teorema de Wold, se puede tener una variante
-del mismo teorema para series de tiempo a tiempo discreto, raz\'on por la cual
-en sentido amplio se le refiere como \textbf{representaci\'on de Wold-Cram\'er}.
+{representaci\'on de Cram\'er}; en virtud del teorema de Wold, se puede tener una variante del 
+mismo teorema para series de tiempo a tiempo discreto, raz\'on por la cual en sentido amplio se le 
+refiere como \textbf{representaci\'on de Wold-Cram\'er}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsubsection{Filtros lineales independientes del tiempo}
 
-Los filtros  
-lineales independientes del tiempo se describen aqu\'i por su importancia hist\'orica en la 
-estimaci\'on anal\'ogica de las SDF,
-%LTS se introducen por su importancia 
-%hist\'orica 
-%para la estimaci\'on espectral
-%anal\'ogica tradicional dentro de la teor\'ia de circuitos --
-aunque en este trabajo se presenta
-una abstracci\'on m\'as pragm\'atica en cuanto a la estimaci\'on de la SDF.
-Este tipo de filtros ser\'an referidos como filtros LTI (Linear Time-Invariant)
-ya que se les pedir\'a que dependan linealmente de toda la se\~nal\footnote{Se
-entiende que es una mapeo lineal que toma toda la se\~nal --entendida como funci\'on del tiempo--
-y ''produce'' otra funci\'on del tiempo --que a su vez puede interpretarse como una segunda 
-se\~nal. Cabe
-destacar que formalmente es necesario que el mapeo sea lineal sobre las se\~nales, pero no es 
-obligatorio que ''utilice'' todos los valores: no se le pide ser invertible, ni continuidad}
-y que no dependan del tiempo. Luego entonces, deben tener la forma \ref{LTI}.
+Los filtros lineales independientes del tiempo se describen aqu\'i por su importancia hist\'orica 
+en la estimaci\'on anal\'ogica de las SDF, aunque en este trabajo se presenta una abstracci\'on m
+\'as pragm\'atica en cuanto a la estimaci\'on de la SDF.
+Este tipo de filtros ser\'an referidos como filtros LTI (Linear Time-Invariant) ya que se les 
+pedir\'a que dependan linealmente de toda la se\~nal\footnote{Se entiende que es una mapeo lineal 
+que toma toda la se\~nal --entendida como funci\'on del tiempo-- y 'produce' otra funci\'on del 
+tiempo --que a su vez puede interpretarse como una segunda se\~nal. Cabe destacar que formalmente 
+es necesario que el mapeo sea lineal sobre las se\~nales, pero no es obligatorio que 'utilice' 
+todos los valores: no se le pide ser invertible, ni continuidad} y que no dependan del tiempo. 
+Luego entonces, deben tener la forma \ref{LTI}.
 \begin{equation*}
 Y(t) = \intR g(s) X(t-s) ds
 \label{LTI}
 \end{equation*}
-%El nombre proviene de \textit{Linear Time-invariant Systems}, y en sus or\'igenes consiste en
-%un circuito conformado por componentes ''lineales'' (resistencias, capacitores, repetidores),
-%el cual se alimenta con la se\~nal a estudiar con el objetivo de medir en otro punto del
-%circuito la se\~nal resultante; este circuito es referido como \textbf{filtro}.
 
 N\'otese que un filtro como \ref{LTI} est\'a completamente determinado por la funci\'on $g$. 
-Sobre el contexto hist\'orico mencionado, conviene mencionar la existencia de ''circuitos 
-lineales'' cuya composici\'on permite modelarlos como filtros LTI; un ejemplo cl\'asico
-son los circuitos RC, como el mostrado en \ref{rrcc} y que est\'a determinado por
+Sobre el contexto hist\'orico mencionado, conviene mencionar la existencia de 'circuitos lineales' 
+cuya composici\'on permite modelarlos como filtros LTI; un ejemplo cl\'asico son los circuitos RC, 
+como el mostrado en \ref{rrcc} y que est\'a determinado por
 $g(u) = \frac{1}{R C} \text{exp}\left( -\nicefrac{u}{R C} \right)$ --donde $R$ y $C$ son la
 resistencia y capactiancia, respectivamente.
 
 \begin{figure}
 \centering
 \includegraphics[width=0.4\linewidth]{rc.png} 
-\caption{Circuito el\'ectrico con una resistencia (R) y un capacitor (C); es alimentado por
-una corriente de entrada $V_e(t)$ y produce una corriente de salida $V_a(t)$. 
-%Este circuito es un 
-%ejemplo cl\'asico de circuito lineal, donde la corriente de salida est\'a dada por la expresi\'on
+\caption{Circuito el\'ectrico con una resistencia (R) y un capacitor (C); es alimentado por una 
+corriente de entrada $V_e(t)$ y produce una corriente de salida $V_a(t)$. 
 }
 \label{rrcc}
 \end{figure}
 
-%Bajo las leyes de Kirchoff, el voltaje en todo punto de un ''circuito lineal'' viene dado
-%por una ecuaci\'on diferencial lineal de orden finito, lo cual constituye una motivaci\'on
-%m\'as clara para los elementos permitidos en ellos. De manera general, y omitiendo detalles,
-%la se\~nal que ''sale'' de un filtro es una combinaci\'on lineal de todos los tiempos anteriores;
-%%de manera general, 
-%saltando algunos pasos m\'as,
-%esta caracter\'istica puede expresarse como
-%%puede expresarse como
-%\begin{equation}
-%Y(t) = \intR g(s) X(t-s) ds
-%\label{LTS}
-%\end{equation}
-
-Se puede decir, por ejemplo, que para que un circuito sea ''f\'isicamente contruible'' es
-necesario que $g$ sea cero en los negativos --que el valor actual no dependa de los valores
-futuros. En este trabajo se pedir\'a que $g\in L^{2}$ y que posea una transformada de
-Fourier bien definida.
-
-%Donde $g$ es una funci\'on en $L^{2}$ tal que es cero para valores negativos\footnote{Esta
-%propiedad se conoce como \textit{f\'isicamente realizable}, y destaca en el dise\~no de 
-%filtros con propiedades especificadas}.
-
-%De manera pragm\'atica, la introducci\'on sobre los circuitos LTS representa s\'olo un bosquejo,
-%y se utilizar\'a la ecuaci\'on \ref{LTS} como definici\'on de los filtros LTS d\'andole
-%el nombre de \textit{filtro} a la funci\'on $g$ siempre que est\'e en $L^{2}$.
-%Una motivaci\'on para introducir este tipo de funciones es que los modelos est\'andar en 
-%series de tiempo (AR, MA, ARMA, ARIMA) pueden ser entendidos en tiempo continuo como un filtro
-%LTS aplicado a un proceso ruido blanco --por simplicidad, en este trabajo se entender\'a la integral
-%en el sentido de media cuadr\'atica, y por el momento s\'olo ser\'a aplicada a procesos 
-%d\'ebilmente estacionarios.
+Se puede decir, por ejemplo, que para que un circuito sea 'f\'isicamente contructible' es necesario 
+que $g$ sea cero en los negativos --que el valor actual no dependa de los valores futuros. En este 
+trabajo se pedir\'a que $g\in L^{2}$ y que posea una transformada de Fourier bien definida.
 
 Una motivaci\'on muy fuerte para mencionar los filtros LTI es que permiten expresar de manera
-''c\'omoda'' a los procesos est\'andares: un proceso MA 
-%es el promedio de variables aleatorias
-%independientes, aunque 
-bien puede interpretarse como un filtro con forma de ventana rectangular
-acotada, y esta caracterizaci\'on puede extenderse a tiempo continuo.
+'c\'omoda' a los procesos est\'andares: un proceso MA bien puede interpretarse como un filtro con 
+forma de ventana rectangular acotada, y esta caracterizaci\'on puede extenderse a tiempo continuo.
 Un proceso AR en tiempo continuo se puede ver como una ecuaci\'on diferencial lineal y homog\'enea,
 m\'as un proceso ruido blanco; este tipo de ecuaciones pueden interpretarse como circuitos lineales
 --y por tanto, como filtros LTI-- antes de intetntar resolverse.
@@ -1949,8 +1441,7 @@ En esa direcci\'on, conviene considerar procesos de la forma
 Y(t) = \intR g(u) X(t) du
 \end{equation*}
 donde $g$ corresponde a un filtro LTI y $\{ X(t) \}$ es un proceso d\'ebilomente estacionario que
-admite una representaci\'on de Wold-Cram\'er. Se puede mostrar que estas condiciones implican
-que
+admite una representaci\'on de Wold-Cram\'er. Se puede mostrar que estas condiciones implican que
 \begin{equation*}
 h_X(\omega) = h_Y(\omega) \abso{\Gamma(\omega)}^{2}
 \end{equation*}
@@ -1958,209 +1449,42 @@ donde $h_X$ y $h_Y$ son las respectivas SDF de $\{X(t)\}$ y $\{Y(t)\}$, y
 $\Gamma(\omega) = \intR g(u) e^{i \omega u} du$.
 
 La funci\'on $g$ es referida como \textbf{funci\'on de respuesta}; este nombre tiene sentido en la
-interpretaci\'on de circuito si \'este es ''alimentado'' con un ''impulso unitario'' (una funci\'on
+interpretaci\'on de circuito si \'este es 'alimentado' con un 'impulso unitario' (una funci\'on
 tipo \ddd de Dirac) en un tiempo dado, y posteriormente se mide la respuesta del sistema.
 La funci\'on $\Gamma$ es referida como \textbf{funci\'on de transferencia}; su motivaci\'on
-respectiva viene de realizar el mismo experimento te\'orico, pero ahora con una funci\'on
-tipo $e^{i \omega t}$; el sistema producir\'a una funci\'on del tipo $e^{i\lambda t}$, que tiene
-una forma similar pero con otra frecuencia. La conexi\'on de estas dos funciones se vuelve m\'as
-clara a\'un si se interpretan las funciones del segundo experimento como funciones tipo
-\ddd de Dirac en el especio de las frecuencias.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%Quiero y me siento obligado a citar la excelente discuci\'on
-%filos\'ofica
-%de Loynes \cite{Loynes68}, resaltando la frase ''Los espectros instant\'aneos no existen''.
-%Tambi\'en quiero citar una discusi\'on m\'as moderna de M\'elard \cite{Melard89}, donde una
-%frase a favor es ''El supuesto de estacionariedad ha sido v\'alido previamente debido a la corta
-%duraci\'on de las series y la baja capacidad de c\'omputo''.
-
-%\begin{equation*}
-%X(t) = \int_{\Lambda} A(\omega) e^{i 2\pi \omega t} dZ(\omega)
-%\end{equation*}
-%
-%Donde el proceso $\{ Z(\omega) \}$ tiene incrementos ortogonales, es decir 
-%\begin{equation*}
-%\Cov{dZ(\omega_1,dZ(\omega_2))} = \delta(\omega_1,\omega_1) d\omega
-%\end{equation*}
-%Con $\delta$ la funci\'on delta de Dirac. Cabe mencionar que es suficiente si los incrementos
-%son independientes, pero se puede debilitar ese requerimiento; incluso es de notarse que no
-%se exige que el proceso sea al menos continuo --en el sentido estoc\'astico.
-
-%El espectro de potencia de $\{X(t)\}$ se define como
-%
-%\begin{equation*}
-%f(\omega) = \abso{A(\omega)}^{2}
-%\end{equation*}
-%
-%Citar\'e de Adak \cite{Adak98} una tabla donde compara varias definiciones de espectro, para
-%procesos no-estacionarios.
-
-%\begin{figure}
-%\centering
-%\includegraphics[width=0.9\textwidth]{tabla.png} 
-%\end{figure}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%\subsection{Test Priestley-Subba Rao (PSR)}
-%
-%%(seccion en proceso de re-redaccion)
-%
-%A muy grosso modo, el test PSR estima localmente  el espectro evolutivo
-% y revisa si estad\'isticamente
-%cambia en el tiempo.
-%
-%Para ello, usa un estimador para la funci\'on de densidad espectral
-%que es aproximadamente (asint\'oticamente) insesgado y cuya varianza est\'a
-%determinada aproximadamente. La estimaci\'on se lleva a cabo en puntos en el tiempo y
-%la frecuencia tales que en conjunto son aproximadamente no-correlacionados.
-%Se aplica logaritmo para que la varianza de todos los estimadores sea aproximadamente
-%la misma (el logaritmo ayuda a), amen que los errores conjuntos tengan una
-%distribuci\'on cercana a una multinormal con correlaci\'on cero.
-%Finalmente se aplica una prueba ANOVA de varianza conocida.
+respectiva viene de realizar el mismo experimento te\'orico, pero ahora con una funci\'on tipo 
+$e^{i \omega t}$; el sistema producir\'a una funci\'on del tipo $e^{i\lambda t}$, que tiene una 
+forma similar pero con otra frecuencia. La conexi\'on de estas dos funciones se vuelve m\'as clara 
+a\'un si se interpretan las funciones del segundo experimento como funciones tipo \ddd de Dirac en 
+el especio de las frecuencias.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%\subsection{El espectro evolutivo}
-%
-%Consid\'erese un proceso estoc\'astico a tiempo continuo $\{X(t)\}$, tal que
-%$E[X(t)]=0$ y $E\left[ X^{2}(t)\right] < \infty$ para todo $t$. Es decir que su media es constante
-%y sus segundos momentos est\'an bien definidos, aunque 
-%estos \'ultimos pueden cambiar con el tiempo.
-%
-%Por el momento se supondr\'a que acepta una representaci\'on de la forma
-%
-%\begin{equation*}
-%X(t) = \int_{-\pi}^{\pi} A(t ; \omega) e^{i\omega t} \, d Z(\omega)
-%\end{equation*}
-%
-%Con $\{ Z(\omega) \}$ una familia de procesos ortogonales\footnote{De nuevo, esto implica que
-%$\Cov{dZ(\omega_1,dZ(\omega_2))} = \delta(\omega_1,\omega_1) d\omega$, una condici\'on m\'as
-%d\'ebil que la independencia} tales que
-%
-%\begin{itemize}
-%\item $E \left[\abso{ dZ(\omega)}^{2} \right] = d\omega$
-%\item Para cada $t$ el m\'aximo de $A(t;\cdot)$ se encuentra en 0
-%\end{itemize}
-%
-%Esta representaci\'on es an\'aloga a la representaci\'on de Cram\'er para un proceso
-%estacionario, salvo que se permite que la funci\'on $A$ cambie con el tiempo.
-%Siguiendo la analog\'ia, se define 
-%el \textbf{espectro evolutivo} de $\{X(t)\}$, con respecto a la la familia
-%$\mathcal{F} = \{ e^{i\omega t} A(t; \omega) \}$
-% como
-% 
-%\begin{equation*}
-%d F(\omega;t) = \lvert A(t;\omega) \lvert^{2} d\omega
-%\end{equation*}
-%
-%Ahora bien, si se supone que $\{X(t)\}$ es estoc\'asticametne diferenciable, entonces
-%se puede definir una \textbf{funci\'on de densidad espectral}
-%
-%\begin{equation*}
-%f(t;\omega) = \lvert A(t;\omega) \lvert^{2}
-%\end{equation*}
-%
-%Cabe destaca que si la funci\'on $A(t;\omega)$ fuera constante con respecto a $t$, se obtendr\'ia
-%un proceso estacionario de orden dos tal cual fue descrito en la secci\'on anterior.
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{El test de Priestley-Subba Rao}
 
-Esta t\'ecnica fue presentada por Priestley y Subba Rao en 1965 \cite{Priestley69}; 
-muy grosso modo, consiste en estimar el espectro
-del proceso 
-%en cuesti\'on 
-''localmente en muchos lugares'',
-y luego compararlos, revisando si se puede rechazar o no --como prueba de hip\'otesis-- 
-%si se puede rechazar la hip\'otesis de que no
-el que sean estad\'sticamente constantes en el tiempo.
-%var\'ia en el tiempo.
-%
-%Para ello, usa un estimador para la funci\'on de densidad espectral
-%que es aproximadamente (asint\'oticamente) insesgado y cuya varianza est\'a
-%determinada aproximadamente. La estimaci\'on se lleva a cabo en puntos en el tiempo y
-%la frecuencia tales que en conjunto son aproximadamente no-correlacionados.
-%Se aplica logaritmo para que la varianza de todos los estimadores sea aproximadamente
-%la misma (el logaritmo ayuda a), amen que los errores conjuntos tengan una
-%distribuci\'on cercana a una multinormal con correlaci\'on cero.
-%Finalmente se aplica una prueba ANOVA de varianza conocida.
-%Muy a grosso modo, es un estimador de la
-%funci\'on de densidad espectral con ciertas propiedades y que parte de la idea que un proceso
-%no-estacionario puede verse localmente como un proceso lineal generalizado.
-%Muy a grosso modo, 
-Para ello 
-supone que 
-%localmente todo 
-se est\'an lidiando con una cantidad finita de observaciones, provenientes de un
-proceso estoc\'astico a tiempo continuo, \'este deber\'ia tener media cero y varianza 
-finita en todo momento, adem\'as de ser estoc\'asticamente continuo y tener un espectro
-puramente continuo.
-% puede verse como un proceso lineal generalizado que es d\'ebilmente estacionario;
-%luego se pueden usar las ventanas espectrales y los filtros LIS sobre una porci\'on 
-%de tiempo ''peque\~na'' para estimar el espectro localmente.
-Considerando estas hip\'otesis, describen los estimadores ''de doble ventana'', cuyas
-propiedades permiten construir una prueba para detectar estacionariedad d\'ebil.
+Esta t\'ecnica fue presentada por Priestley y Subba Rao en 1965 \cite{Priestley69}; muy grosso 
+modo, consiste en estimar el espectro del proceso 'localmente en muchos lugares', y luego 
+compararlos, revisando si se puede rechazar o no --como prueba de hip\'otesis-- el que sean 
+estad\'sticamente constantes en el tiempo.
 
-Cabe mencionar que anteriormente se presentaron
-motivos por las cuales conviene considerar a las se\~nales del PSG como
-estoc\'asticamente continuas y de varianza finita; la propiedad de tener media cero
-y un espectro puramente continuo ser\'an ''forzadas'' llevando a cabo 
-num\'ericamente
-una descomposici\'on de
-Lebesgue (definici\'on \ref{Lebesgue_decomp}) para las partes peri\'odicas y no-peri\'odicas
-de cada registro, para lo cual se usar\'a el
-algoritmo no-param\'etrico STL (ver m\'as adelante).
+Para ello supone que se est\'an lidiando con una cantidad finita de observaciones, provenientes de 
+un proceso estoc\'astico a tiempo continuo, \'este deber\'ia tener media cero y varianza finita en 
+todo momento, adem\'as de ser estoc\'asticamente continuo y tener un espectro puramente continuo.
+Considerando estas hip\'otesis, describen los estimadores ''de doble ventana'', cuyas propiedades 
+permiten construir una prueba para detectar estacionariedad d\'ebil.
 
-
-
-%Como meta-nota, yo empec\'e a estudiar este tipo de estimadores porque es \textit{el qeu ven\'ia
-%con el m\'etodo} ya que el test esta implementado en R; desde un punto de vista de difusi\'on,
-%es una ventaja usar un m\'etodo implementado en un software gratuito y de c\'odigo abierto --y
-%no una mera excusa para no explorar otros m\'etodos. En todo caso, he revisado varios otros test,
-%pero de momento solo este ha arrojado suficientes resultados para llenar un informe.
-
-%{Estimador de doble ventana (Priestley, 1965 \& 1966)}
-%El m\'etodo de estimaci\'on de doble ventana fue introducido por Priestley \cite{Priestley66} para
-%procesos semi-estacionarios; 
-%Para construir el estimador se requieren dos funciones, $g$ y $w_T$, que servir\'an como ventanas
-%para extraer informaci\'on local de los datos. 
-%Debido a que sus propiedades tienen una interpretaci\'on
-%f\'isica desde la teor\'ia de circuitos, absorben su terminolog\'ia
-
-%\textit{
-%nota al pie: deberia incluir una motivacion de estos nombres,
-%que en parte tiene relevancia en la interpretacion. Los 
-%Linear Invariant Systems (LIS) suponen dependencia lineal
-%--constante-- respecto a todos los tiempos anteriores; 
-%a tiempo continuo son equivalentes a una ecuacion diferencial ordinaria lineal,
-%y a su vez a modelos AR. Un modelo fisico para ello son los circuitos RC, que
-%fueron usables en radios, y para los cuales las palabras 'filtro' y 'frecuencia'
-%tienen una interpretacion clara. Esta terminologia de circuitos electricos tiene sentido
-%para mi ya que todos los modelos de neuronas y poblaciones de neuronas que he visto hasta ahora,
-%por ejemplo de Ermentrout (falta citar), {Clark98,Priestley81}, PARTEN de considerar
-%circuitos equivalentes a los componentes neuronales, lo cual me hace pensar que es buena idea
-%mantener esta vision conjunta.
-%}
+Cabe mencionar que anteriormente se presentaron motivos por las cuales conviene considerar a las 
+se\~nales del PSG como estoc\'asticamente continuas y de varianza finita; la propiedad de tener 
+media cero y un espectro puramente continuo ser\'an ''forzadas'' llevando a cabo num\'ericamente
+una descomposici\'on de Lebesgue (definici\'on \ref{Lebesgue_decomp}) para las partes peri\'odicas 
+y no-peri\'odicas de cada registro, para lo cual se usar\'a el algoritmo no-param\'etrico STL (ver 
+m\'as adelante).
 
 Con respecto a la estimaci\'on local del espectro, se usa el \textbf{estimador de doble ventana},
 una t\'ecnica introducida por Priestley y Subba Rao \cite{Priestley69}.
 Requiere que se proporcionen a priori dos funciones arbitrarias $w_\tau$ y $g$ que cumplan ciertas
-propiedades; deber\'ian funcionar, respectivamente, como ventana de retrasos y como
-filtro LTI.
-
-%Primeramente se toma una funci\'on $g(u)$ normalizada, que en conjunto a su
-%transformada inversa de Fourier
-%%\footnote{Esta funci\'on 
-%%$\Gamma(u) = \int_{-\infty}^{\infty} g(u) e^{i u \omega} du$
-%%es referida como
-%%\textbf{frequency-response function}, nombre tiene un poco de encanto cuando
-%%$g$ adopta ciertas formas particulares (senos y cosenos).} 
-%$\Gamma$ tiene las siguientes propiedades
+propiedades; deber\'ian funcionar, respectivamente, como ventana de retrasos y como filtro LTI.
 
 En cuando a $g$ (as\'i como $\Gamma(u) = \intR g(u) e^{i u \omega} du$) se les pide que tengan 
 integral normalizada, es decir
@@ -2171,70 +1495,31 @@ integral normalizada, es decir
 = 1
 \end{equation*}
 
-%Se puede entender a $g$ y $\Gamma$ como un filtro LTS que ''absorbe informaci\'on local''
-%en el dominio de las frecuencias.
-%A partir de $g$ y $\Gamma$ 
 En base a ello se puede definir el siguiente estimador, que funciona no s\'olo como filtro del
-proceso, sino como una aproximaci\'on un tanto burda de la representaci\'on de Wold-Cram\'er
-para el 
-proceso\footnote{Una segunda funci\'on de $U$, y que no se discutir\'a a fondo por brevedad, 
-es ''aislar'' en los
-valores de la SDF cercanos en el tiempo a aqu\'el unto donde se desea estimar.
-Tambi\'en cabe mencionar que las ventanas espectrales mostradas en la tabla \ref{ventanas}
-bien pueden cumplir las propiedades requeridas para ser filtros LTI.}
-%Se define el filtro $U$ como una convoluci\'on
-%con las realizaciones del proceso
+proceso, sino como una aproximaci\'on un tanto burda de la representaci\'on de Wold-Cram\'er para 
+el proceso\footnote{Una segunda funci\'on de $U$, y que no se discutir\'a a fondo por brevedad, es 
+'aislar' en los valores de la SDF cercanos en el tiempo a aqu\'el unto donde se desea estimar.
+Tambi\'en cabe mencionar que las ventanas espectrales mostradas en la tabla \ref{ventanas} bien 
+pueden cumplir las propiedades requeridas para ser filtros LTI.}
 \begin{equation*}
 U(t,\omega) = \int_{t-T}^{t} g(u) X({t-u}) e^{i \omega (t-u)} du
 \end{equation*}
 
-%Un ejemplo que est\'a en el libro de Priestley es tomar funciones del tipo
-%
-%\begin{equation*}
-%g_h(u) = 
-%\begin{cases}
-%{1 \big{/} 2\sqrt{\pi h}} & \text{ , } \abso{u} \leq h
-%\\
-%0 & \text{ , } \abso{u} > 0
-%\end{cases}
-%\end{equation*}
-%
-%Su correspondiente funci\'on de respuesta de frecuencia es complicada [me falta 
-%escribirla]. Es referida como la \textbf{ventana de Bartlett} y
-%est\'a totalmente caracterizada la siguiente propiedad
-%
-%\begin{equation*}
-%\abso{\Gamma_h(\omega)}^{2} = \frac{1}{\pi h} \left( \frac{\text{sen} (h \omega)}{\omega} \right)^{2}
-%\end{equation*}
-
-%Cabe mencionar que puede entenderse al par $g$ y $\Gamma$ como ventanas en el tiempo
-%y las frecuencias para la serie.
-
 Bajo el entendido que la funci\'on $\Gamma$ converge a una funci\'on tipo $\delta$ de 
-Dirac\footnote{La funci\'on $\delta_x:\R\rightarrow \R$ 
-es una funci\'on $\delta$ de Dirac si puede verse como la funci\'on de distribuci\'on de masa
-para una medida finita que es cero para todo conjunto que no contenga a $x$.
-% si vale cero en
-%todos los puntos excepto para $x$, y satisface que $\intR \delta_x(t) dt = k > 0$. 
-Debido a estas propiedades, 
-%conviene considerarlas como derivadas en el sentido de distribuci\'on
-%dentro de integrales de Stieltjes. En 
-en este trabajo no se les usar\'a directamente, sino que se les har\'a alusi\'on bien por su 
-interpretaci\'on intuitiva (una masa concentrada en un s\'olo punto) o por que las funciones tipo
-ventana suelen converger a funciones de este tipo}
-puede considerarse que $\E{\abso{U(t,\omega)}^{2}} \approx f_t(\omega)$; sin embargo, se
-demuestra en \cite{Priestley66} que $\Var{\abso{U(t,\omega)}^{2}} \nrightarrow 0$ como en el
-caso del periodograma.
+Dirac\footnote{La funci\'on $\delta_x:\R\rightarrow \R$ es una funci\'on $\delta$ de Dirac si puede 
+verse como la funci\'on de distribuci\'on de masa para una medida finita que es cero para todo 
+conjunto que no contenga a $x$.
+Debido a estas propiedades, en este trabajo no se les usar\'a directamente, sino que se les har\'a 
+alusi\'on bien por su interpretaci\'on intuitiva (una masa concentrada en un s\'olo punto) o por 
+que las funciones tipo ventana suelen converger a funciones de este tipo} puede considerarse que 
+$\E{\abso{U(t,\omega)}^{2}} \approx f_t(\omega)$; sin embargo, se demuestra en \cite{Priestley66} 
+que $\Var{\abso{U(t,\omega)}^{2}} \nrightarrow 0$ como en el caso del periodograma.
 
-%---
-
-Debido a ello es que se usa la segunda funci\'on, tipo ventana, para ''suavizar'' el estimador 
-y hacerlo consistente
---de forma muy similar a como se usaron ventanas espectrales para suavizar el periodograma.
-%que se usaron 
-Se toma una funci\'on $W_\tau$ que tomar\'a el papel de ventana de retrasos,
-con su respectiva ventana espectrasl $w_\tau$; se le piden las siguientes propiedades
-
+Debido a ello es que se usa la segunda funci\'on, tipo ventana, para 'suavizar' el estimador y 
+hacerlo consistente --de forma muy similar a como se usaron ventanas espectrales para suavizar el 
+periodograma.
+Se toma una funci\'on $W_\tau$ que tomar\'a el papel de ventana de retrasos, con su respectiva 
+ventana espectrasl $w_\tau$; se le piden las siguientes propiedades
 \begin{itemize}
 \item $w_{\tau}(t) \geq 0$ para cualesquiera $t$, $\tau$
 \item $w_{\tau}(t) \rightarrow 0$ cuando $\lvert t \lvert \rightarrow \infty$, para todo $\tau$
@@ -2243,50 +1528,20 @@ con su respectiva ventana espectrasl $w_\tau$; se le piden las siguientes propie
 \item $\exists C$ tal que  
 $\displaystyle \lim_{\tau\rightarrow\infty} \tau \int_{-\infty}^{t} \abso{ W_{\tau}(\lambda) }^{2} d\lambda = C$
 \end{itemize}
-%[T est\'a relacionado con el 'tiempo 0', pero para
-%tiempos de muestreo grandes se puede reemplazar por $-\infty$ EXCEPTO cerca del inicio y el final dle muestreo]
-%$$\lim_{\tau\rightarrow\infty} \left[ \tau \int_{t-T}^{t} \lvert W_{\tau}(\lambda) \lvert^{2} d\lambda \right] = C$$
-%Ahora, si se define 
-%$\displaystyle W_{T'}(\lambda) = \int_{-\infty}^{\infty} e^{-i\lambda t}w_{T'}(t) dt $
-%[posteriormente annadire mas detalles sobre el papel que juega el par $w_\tau$, $W_\tau$]
 
-%Como ejemplo, se puede tomar la siguiente funci\'on llamada \textbf{ventana de Daniell}
+Por ejemplo, la ventana de Daniell satisface estas propiedades; para ello, conviene calcular que
+$\lim_{\tau\rightarrow\infty} \tau \int_{t-T}^{t} \lvert W_{\tau}(\lambda) \lvert^{2} d\lambda = 2\pi$;
+m\'as a\'un, todas las ventanas referidas en \ref{ventanas} satisfacen las propiedades descritas.
 
-%\begin{equation*}
-%W_\tau (t) = 
-%\begin{cases}
-%{1 \big{/} \tau} & \text{ , } -\nicefrac{1}{2} \tau \leq t \leq \nicefrac{1}{2} \tau
-%\\
-%0 & \text{ , otro caso}
-%\end{cases}
-%\end{equation*}
-%
-%La cual se puede demostrar [tengo en algun lado esa demostracion]
-
-Por ejemplo, 
-la ventana de Daniell satisface estas propiedades; para ello, conviene calcular que
-%se puede calcular para la ventana de Daniell
-$\lim_{\tau\rightarrow\infty}
-\tau \int_{t-T}^{t} \lvert W_{\tau}(\lambda) \lvert^{2} d\lambda = 2\pi$;
-todas las ventanas referidas en \ref{ventanas} satisfacen las propiedades descritas.
-
-%-----
-
-%
-%[aqui van las expresiones para el valor esperado y la varianza de $\widehat{f_t}$, me falta
-%escribirlas]
-
-Finalmente se define el estimador $\est{f}$ para las SDF normalizada, $f_t$, 
-%con $0 \leq t \leq T$
-como
+Finalmente se define el estimador $\est{f}$ para las SDF normalizada, $f_t$, como
 \begin{equation*}
 \widehat{f_t}(\omega) = \int_{t-T}^{t} w_{T'}(u) \lvert U(t-u,\omega) \lvert^{2} du
 \label{estimador_doble_ventana}
 \end{equation*}
 
-Fue demostrado por Priestley \cite{Priestley65} que los estimadores tipo
-\ref{estimador_doble_ventana} son asint\'oticamente insesgados y consistentes;
-m\'as a\'un, conviene exhibir las siguientes expresiones aproximadas propuestas en aqu\'el trabajo
+Fue demostrado por Priestley \cite{Priestley65} que los estimadores tipo 
+\ref{estimador_doble_ventana} son asint\'oticamente insesgados y consistentes; m\'as a\'un, 
+conviene exhibir las siguientes expresiones aproximadas propuestas en aqu\'el trabajo
 \begin{itemize}
 \item $\displaystyle
 \E{\est{f}(t,\omega)} \approx 
@@ -2296,8 +1551,8 @@ m\'as a\'un, conviene exhibir las siguientes expresiones aproximadas propuestas 
 \intR \abso{\Gamma(\theta)}^{4} d\theta $
 \end{itemize}
 
-Donde las funciones $\widetilde{f}$ y $\overline{f}$ son versiones ''suavizadas'' de la
-SDF normalizada $f$, y est\'an definidas de la siguiente manera
+Donde las funciones $\widetilde{f}$ y $\overline{f}$ son versiones 'suavizadas' de la SDF 
+normalizada $f$, y est\'an definidas de la siguiente manera
 \begin{equation*}
 \widetilde{f}(t,\omega+\theta) = 
 \intR W_{\tau}(u) f(t-u,\omega+\theta) du
@@ -2308,31 +1563,17 @@ SDF normalizada $f$, y est\'an definidas de la siguiente manera
 {\intR \left( W_{\tau}(u) \right)^{2} du}
 \end{equation*}
 
-%Para revisar las propiedades de estos estimadores --y en cierto sentido justficar sus 
-%definiciones-- conviene interpretar algunas de las propiedades de los ventanas. 
-Como $W_{\tau}$ tiene las propiedades de una ventana espectral\footnote{Ver esta secci\'on
-en p\'aginas anteriores},
-%tiene propiedades de ''ventana'':
-decrece lejos del origen y converge ($\tau \rightarrow \infty$) 
-a una funci\'on tipo \ddd de Dirac;
-luego $\widetilde{f}$ 
-es ''casi'' una convoluci\'on de $f$ con una funci\'on tipo \ddd de Dirac, por
-lo que ''recupera aproximadamente su forma''. Una aproximaci\'on muy similar puede hacerse
-respecto al
-%$\overline{f}^{2}$
-segundo t\'ermino, de modo que aproximadamente $\widetilde{f}\approx f$ y 
-$\overline{f}^{2}\approx f^{2}$. Hay que destacar que esta aproximaci\'on ser\'a mejor en 
-tanto las ventanas $w_{\tau}$ y $W_{\tau}$ sean m\'as cercanas a una funci\'on delta Dirac; 
-y m\'as a\'un, una condici\'on adecuada es que estas funciones tengan ''una forma m\'as 
-delgada''\footnote{Esta idea se puede formalizar explorando m\'as a fondo el concepto de 
-\textit{ancho de 
-banda}.
-%, como ''el ancho del pico m\'as grande''. 
-En este trabajo no se tratar\'a tal asunto,
-%detalles al respecto, 
-por brevedad}
-que el espacio entre los tiempos y frecuencias donde se estimar\'a $f$.
-%$\intR \abso{\Gamma}^{2} d\theta = 1$
+Como $W_{\tau}$ tiene las propiedades de una ventana espectral\footnote{Ver esta secci\'on en 
+p\'aginas anteriores}, decrece lejos del origen y converge ($\tau \rightarrow \infty$) a una 
+funci\'on tipo \ddd de Dirac; luego $\widetilde{f}$  es 'casi' una convoluci\'on de $f$ con una 
+funci\'on tipo \ddd de Dirac, por lo que ''recupera aproximadamente su forma''. Una aproximaci\'on 
+muy similar puede hacerse respecto al segundo t\'ermino, de modo que aproximadamente 
+$\widetilde{f}\approx f$ y $\overline{f}^{2}\approx f^{2}$. Hay que destacar que esta 
+aproximaci\'on ser\'a mejor en tanto las ventanas $w_{\tau}$ y $W_{\tau}$ sean m\'as cercanas a una 
+funci\'on delta Dirac; y m\'as a\'un, una condici\'on adecuada es que estas funciones tengan 'una 
+forma m\'as delgada'\footnote{Esta idea se puede formalizar explorando m\'as a fondo el concepto de 
+\textit{ancho de banda}. En este trabajo no se tratar\'a tal asunto, por brevedad} que el espacio 
+entre los tiempos y frecuencias donde se estimar\'a $f$.
 Si las condiciones anteriores se satisfacen, se pueden hacer las siguientes aproximaciones, algo
 m\'as arriesgadas
 \begin{itemize}
@@ -2341,67 +1582,28 @@ m\'as arriesgadas
 \frac{C}{\tau} f^{2}(t,\omega) \intR \abso{\Gamma (\theta)}^{4} d\theta$
 \end{itemize}
 
-
-Por otro lado, tambi\'en es importante mostrar las expresiones exhibidas en aqu\'el trabajo
-para la covarianza de este estimador en diferentes puntos del tiempo y las frecuencias;
-se reescriben aqu\'i unas simplificaciones hechas en el caso que el proceso, adem\'as de
-cumplir las hip\'otesis de semi-estacionariedad, sea ''normal''
+Por otro lado, tambi\'en es importante mostrar las expresiones exhibidas en aqu\'el trabajo para la 
+covarianza de este estimador en diferentes puntos del tiempo y las frecuencias; se reescriben 
+aqu\'i unas simplificaciones hechas en el caso que el proceso, adem\'as de cumplir las hip\'otesis 
+de semi-estacionariedad, sea 'normal'
 \begin{equation*}
 \Cov{\est{f}(t_1,\omega_1) , \est{f}(t_2,\omega_2)} \approx \intR \intR
 w_\tau (u) w_\tau(v) \Cov{ \abso{U(t_1-u,\omega_1)}^{2} , \abso{U(t_2-u,\omega_2)}^{2} }
 du dv
 \end{equation*}
-Se puede decucir que la varianza ser\'a negligible en cuanto $w_\tau$ se comporte como una
+Se puede decucir que la varianza ser\'a negligible en cuanto $w_\tau$ se comporte como una 
 funci\'on \ddd de Dirac, con un pico m\'as delgado que la distancia entre $\omega_1$ y $\omega_2$.
-El mismo efecto se logra si $\abso{U(t_1-u,\omega_1)}^{2}$ y $\abso{U(t_2-u,\omega_2)}^{2}$
-son no-correlacionados; por brevedad s\'olo se citar\'a de \cite{Priestley65} que, para que la
-correlaci\'on sea negligible, basta que $\Gamma$ sea muy pareceida a una funci\'on \ddd
-de Driac, y que su ancho sea menor a la distancia entre $t_1$ y $t_2$.
+El mismo efecto se logra si $\abso{U(t_1-u,\omega_1)}^{2}$ y $\abso{U(t_2-u,\omega_2)}^{2}$ son 
+no-correlacionados; por brevedad s\'olo se citar\'a de \cite{Priestley65} que, para que la 
+correlaci\'on sea negligible, basta que $\Gamma$ sea muy pareceida a una funci\'on \ddd de Dirac, y 
+que su ancho sea menor a la distancia entre $t_1$ y $t_2$.
 
-%Pero, bajo varios supuesto adicionales [que me falta trascribir] se puede aproximar
-%
-%\begin{equation*}
-%E\left[ \widehat{f_t}(\omega) \right] \sim f_t(\omega)
-%\end{equation*}
-%
-%\begin{equation*}
-%\Var{\widehat{f_t}(\omega)} 
-%\sim 
-%\frac{C}{\tau} \left(f_t(\omega)\right)^{2} \int_{-\infty}^{\infty} \abso{\Gamma(\theta)}^{4} d\theta
-%\end{equation*}
-%
-%Se advierte claramente que $\widehat{f_t}$ es unnestimados aproximadamente insesgado.
-%Para las ventanas de Bartlett y Daniell usadas como ejemplo, se tiene
-
-%\begin{equation*}
-%\Var{\widehat{f_t}} 
-%\sim 
-%\frac{4h}{3\tau} \left(f_t(\omega)\right)^{2}
-%\end{equation*}
-
-%Cabe mencionar que hay una expresi\'on expl\'icita para la covarianza de $\widehat{f_t}$
-%en para diferentes puntos en el tiempo y las frecuencias. Lamentablemente,
-%aun me falta escribirlas, son complicadas, y se describen situaciones bajo las
-%cuales estas covarianzas son negligibles; cabe destacar que TODAS las condiciones 
-%que se usan para aproximar son b\'asicamente las mismas, y dependen de que la distancia
-%entre los tiempos y las frecuencias sean tan grandes como sea posible.
-
-%------------
-%
-%El \'ultimo ingrediente del test PSR es una transformaci\'on logar\'itmica
-%para regular la varianza, y quiza para cortar los bordes de las aproxiamciones.
-
-Por otro lado,
-un dato importante para la estimaci\'on de la SDF normalizada por este m\'etodo,
-es la forma 
-%muy particular 
-que adopta la varianza del
-estimador $\widehat{f}$; para los estimadores de doble ventana, 
-el tama\~no del intervalo
-depende ''multiplicativamente'' de la verdadera SDF.
+Por otro lado, un dato importante para la estimaci\'on de la SDF normalizada por este m\'etodo, es 
+la forma que adopta la varianza del estimador $\widehat{f}$; para los estimadores de doble ventana, 
+el tama\~no del intervalo depende 'multiplicativamente' de la verdadera SDF.
 Una interpretaci\'on sobre este hecho --muy difundida dentro de las ingenier\'ias-- es el de la 
-modulaci\'on de ondas, que pueden verse como una ''multiplicaci\'on de ondas'' y debido a lo cual
-es com\'um el uso de la ''transformaci\'o logar\'itmica''.
+modulaci\'on de ondas, que pueden verse como una 'multiplicaci\'on de ondas' y debido a lo cual es 
+com\'um el uso de la 'transformaci\'o logar\'itmica'.
 Formalmente, esto motiva a introducir el siguiente estimador
 \begin{equation*}
 Y(t,\omega) = \log{\left( \est{f}(t,\omega)\right)}
@@ -2427,90 +1629,24 @@ donde las variables $\varepsilon(t,\omega)$ satisfacen que
 \approx \frac{C}{\tau} \intR \abso{\Gamma (\theta)}^{4} d\theta$
 \end{itemize}
 
+Priestley \cite{Priestley81} destaca que la transformaci\'on logar\'itmica tiene la propiedad de 
+hacer al estimador $Y$ m\'as 'normal' y que en la pr\'actica bien puede usarse que las variables 
+$\varepsilon$'s pueden considerarse con distribuci\'on normal de media 0.
+Es muy destacable que las variables $\varepsilon$'s comparten la misma media y varianza, adem\'as 
+de que --si se satisfacen las condiciones para las ventanas-- son aproximadamente 
+no-correlacionadas.
 
-%Un hecho muy importante para la estimaci\'on de la SDF son los intervalos de confianza para los
-%estimadores de ventana, que en este caso resultan tiene la propiedad de depender 
-%''multiplicativamente''
-%del verdadero espectro. 
-%Este hecho tiene una interpretaci\'on com\'un en las ingenier\'ias,
-%donde la ''potencia'' de una se\~nal se mide en una escala logar\'itmica respecto a un ''volumen''
-%estandarizado --esta unidad logar\'itmica se conoce como decibeles.
-%Entonces tiene sentido definir una ''transformaci\'on logar\'itmica'' del estiimador
-%definido anteriormente; como el espectro es una funci\'on positiva, y se le aplica una funci\'on
-%continua invertible tal que la funci\'on y su inversa son derivables, entonces el nuevo estimador
-%es asint\'oticamente insesgado y consistente para el logaritmo del espectro.
-%Junto con la discretizaci\'on del estimador, se presentan las propiedades mencionadas con el fin
-%de introducir la notaci\'on
-
-%% estad\'stico discreto que es el logaritmo del primero,
-%$$Y_{i,j} = \log \left( \widehat{f_{t_i}}(\omega_j) \right)$$
-%%, y que tiene las siguientes propiedades
-%\begin{equation*}
-%E\left[ Y_{i,j} \right] \thicksim \log \left( f_{t_i}(\omega_j) \right)
-%\hspace{4em}
-%\text{Var}\left( {Y\left(t,\omega\right)}\right) \thicksim \sigma^{2}
-%\end{equation*}
-
-%%Luego as\'i, puede escribirse aproximadamente que
-%La propiedad ''multiplicativa'' para los intervalos de confianza de $\widehat{f_{t_i}}(\omega_j)$
-%se traduce de manera muy agradable para $Y_{i,j}$
-%
-%$$Y_{i,j} = \log \left( f_{t_i}(\omega_j) \right) + \varepsilon_{i,j}$$
-%
-%donde $\varepsilon_{i,j}$ va iid tales que
-%
-%$
-%E\left[ \varepsilon_{i,j} \right] = 0
-%\hspace{4em}
-%\text{Var}\left( \varepsilon_{i,j} \right) \sigma^{2}
-%$
-
-Priestley \cite{Priestley81} destaca que la transformaci\'on logar\'itmica tiene la propiedad
-de hacer al estimador $Y$ m\'as ''normal'' y que en la pr\'actica bien puede usarse que las
-variables $\varepsilon$'s pueden considerarse con distribuci\'on normal de media 0.
-Es muy destacable que las variables $\varepsilon$'s comparten la misma media y varianza, 
-adem\'as de que --si se satisfacen las condiciones para las ventanas-- son
-aproximadamente no-correlacionadas.
-
-%Priestley cita que con esta informaci\'on incluso se puede considerar que los $\varepsilon_{i,j}$
-%siguen cada uno una distribuci\'on aproximadamente normal; Nason %(2015, falta citar) 
-%comenta que
-%este supuesto no tiene por que cumplirse, y que es una posible fuente de falsos positivos
-%para el test. 
-%Yo he hecho pruebas de normalidad a los datos, que incluire como anexos
-%mas tarde.
-
-El test de Priestley-Subba Rao, como se mencion\'o anteriormente, funciona calculando el
+El test de Priestley-Subba Rao, como se mencion\'o anteriormente, funciona calculando el 
 estad\'stico $Y$ sobre varios puntos en el tiempo y la frecuencia, y luego revisando si se puede
-afirmar que el vector 
-$\left( Y(t,\omega_1), Y(t,\omega_2), \dots, Y(t,\omega_N) \right)$ sea constante en el tiempo;
-de forma concreta --computacional-- se calcula la siguiente aproximaci\'on
+afirmar que el vector  $\left( Y(t,\omega_1), Y(t,\omega_2), \dots, Y(t,\omega_N) \right)$ sea 
+constante en el tiempo; de forma concreta --computacional-- se calcula la siguiente aproximaci\'on
 \begin{equation*}
 \sum_{i = 1 }^{N} \left( Y(t,\omega_i) - \overline{Y}(\bullet,\omega_i) \right)^{2} 
 \sim \sigma^{2} \chi^{2}(N)
 \end{equation*}
 donde $\sigma^{2} = \Var{\varepsilon(t,\omega)}$, y
-% es como se describi\'o previamente, y 
 $\overline{Y}(\bullet,\omega) = \frac{1}{M} \sum_{j=1}^{M} Y(t_j,\omega)$.
 Con esta caracterizaci\'on se puede usar un test ANOVA de manera relativamente f\'acil.
-
-%El test PSR \textit{per se} son tres test ANOVA --en su versi\'on en la que la varianza es conocida--
-%sobre si los $\varepsilon_{i,j}$ son estad\'isticamente negligibles en total, sobre el tiempo y sobre
-%las frecuencias. Para el fin de estudiar la estacionariedad, basta con que sean estad\'iticamente
-%no-negligibles sobre el tiempo.
-
-%[Por supuesto que los otros dos test tienen interpretacion: la negigibilidad total da informacion
-%sobre las marginales, y si estas pueden ser estimadas adecuadamente usando el estimador, si se
-%combina con negativo para no-estacionariedad es \textbf{efectivamente positivo} para estacionariedad
-%y toma una forma muy particular (proceso uniformemente modulado). Si sobre las frecuencias resulta
-%significativo (no-negligible) da informacion sobre la 'aeatoridad total' del proceso.
-%De tener tiempo, lo incluire como anexo, ya que ninguna de estas caracteristicas es estudiada :( ]
-
-%Lo detalles de la implementaci\'on en R estar\'an en la secci\'on de resultados.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%\include{metodologia}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -2519,145 +1655,63 @@ Con esta caracterizaci\'on se puede usar un test ANOVA de manera relativamente f
 
 \chapter{Metodolog\'ia}
 
-%El presente trabajo se llev\'o a cabo \textit{a posteriori}, usando los datos obtenidos en un 
-%estudio previo \cite[V\'azquez Tagle, 2016]{VazquezTagle16}; 
-%se espera que los resultados encontrados sean una
-%extensi\'on de los resultados hallados previamente. 
-En esta secci\'on se cita la metodolog\'ia 
-manejada en \cite{VazquezTagle16}, 
-siendo que el presente trabajo es una extensi\'on de aquel y que parte de los registros obtenidos;
-debido a que la naturaleza y origen de estos datos es crucial para el trabajo presente, se trata de
-presentar la metodolog\'ia original de la manera m\'as fiel posible.
-%, por respeto a los autores y debido a su relevancia en el 
-%reciente ana\'alisis sobre los mismos datos. 
-Posteriormente se describen los an\'alisis realizados
-sobre los datos, a nivel de implementaci\'on, usando el software estad\'istico R
-y el paquete \texttt{fractal} \cite{R_citar,R_fractal};
-las bases de estos an\'alisis se exponene en secciones anteriores.
+En esta secci\'on se cita la metodolog\'ia manejada en \cite{VazquezTagle16}, siendo que el 
+presente trabajo es una extensi\'on de aquel y que parte de los registros obtenidos; debido a que 
+la naturaleza y origen de estos datos es crucial para el trabajo presente, se trata de presentar la 
+metodolog\'ia original de la manera m\'as fiel posible.
+Posteriormente se describen los an\'alisis realizados sobre los datos, a nivel de implementaci\'on, 
+usando el software estad\'istico R y el paquete \texttt{fractal} \cite{R_citar,R_fractal}; las 
+bases de estos an\'alisis se exponene en secciones anteriores.
 
-En la primera etapa del tarbajo de \cite{VazquezTagle16},
-los individuos se sometieron voluntariamente a una bater\'ia de pruebas
-neuropsicol\'ogicas para diagnosticar PDC y depresi\'on geri\'atrica (ver m\'as adelante), 
-que a su vez fungieron como criterios de
-inclusi\'on para una segunda fase del estudio.
+En la primera etapa del tarbajo de \cite{VazquezTagle16}, los individuos se sometieron 
+voluntariamente a una bater\'ia de pruebas neuropsicol\'ogicas para diagnosticar PDC y depresi\'on 
+geri\'atrica (ver m\'as adelante), que a su vez fungieron como criterios de inclusi\'on para una 
+segunda fase del estudio.
 En el presente trabajo se han analizado sujetos que fueron excluidos de la segunda etapa de aqu\'el
-trabajo, pero que accedieron a participar en la misma; esto se ha hecho con el fin de
-verificar si los datos recabados justifican esta restricci\'on en futuros estudios.
+trabajo, pero que accedieron a participar en la misma; esto se ha hecho con el fin de verificar si 
+los datos recabados justifican esta restricci\'on en futuros estudios.
 
-En la etapa posterior, los individuos se sometieron voluntariamente a un estudio de la
-actividad el\'ectrica cerebral durante el
-sue\~no; se realizaron
-registros de EEG en 22 sitios de muestreo, adicionalmente se midi\'o
-actividad ocular y muscular a trav\'es de EOG y EMG --respectivamente-- con
-el fin de detectar adecuadamente las etapas cl\'inicas del sue\~no\cite{AASM07}.
-El registro simult\'aneo de estas se\~nales durante el sue\~no recibe el nombre de PSG.
+%En la etapa posterior, los individuos se sometieron voluntariamente a un estudio de la actividad 
+%el\'ectrica cerebral durante el sue\~no; se realizaron registros de EEG en 22 sitios de muestreo, 
+%adicionalmente se midi\'o actividad ocular y muscular a trav\'es de EOG y EMG --respectivamente-- 
+%con el fin de detectar adecuadamente las etapas cl\'inicas del sue\~no\cite{AASM07}.
+%El registro simult\'aneo de estas se\~nales durante el sue\~no recibe el nombre de PSG.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Pruebas sobre deterioro cognitivo}
 
 La calidad de 'deterioro cognitivo' y 'depresi\'on geri\'atrica' en los participantes fue
-determinada a partir de la aplicaci\'on de una pila de pruebas neuropsicol\'ogicas, que se
-listan a continuaci\'on.
+determinada a partir de la aplicaci\'on de una pila de pruebas neuropsicol\'ogicas, que se listan a 
+continuaci\'on.
 
 \begin{itemize}
-
 \item {Evaluaci\'on Neuropsicol\'ogica (Neuropsi)} \cite{Solis03}
-%El esquema está constituido por reactivos sencillos y cortos. 
-%En la medida de lo posible se incluyeron pruebas con alta validez neuropsicológica y/o se 
-%adaptaron estas pruebas para poder evaluar poblaciones de ancianos o psiqui\'atricas. 
-%Las \'areas cognoscitivas que eval\'ua 
-%el instrumento son 
-%\begin{itemize}
-%\item[I.] Orientaci\'on
-%\item[II.] Atenci\'on y concentraci\'on
-%\begin{itemize}
-%\item[(a)] Deficiencias en el nivel de conciencia o estado de activaci\'on
-%\item[(b)] Atenci\'on selectiva
-%\item[(c)] Atenci\'on sostenida
-%\item[(d)] Control atencional
-%\end{itemize}
-%\item[III.] Memoria
-%\begin{itemize}
-%\item[(a)] Memoria sensorial
-%\item[(b)] Memoria a corto plazo
-%\item[(c)] Memoria a largo plazo
-%\item[(d)] Memoria de trabajo
-%\end{itemize}
-%\end{itemize}
-
-\item {Mini Mental State Examination (MMSE)} 
-%Creado en 1975 como instrumento para 
-%la evaluación breve del estado mental, es el test m\'as utilizado para la evaluación cognitiva 
-%estandarizada en el \'ambito cl\'inico, sobre todo en el anciano. Es el que dispone de m\'as 
-%datos para el cribado, estadiaje y seguimiento de las demencias. As\'i mismo permite detectar 
-%alteraciones cognitivas sutiles en pacientes con demencia incipiente o alteraci\'on cognitiva 
-%leve, adem\'as de establecer un perfil cognitivo de los diferentes subtipos de 
-%demencias.
-\cite{Velasco15}
-
-\item {Escala breve para la detecci\'on de ansiedad del anciano (SATS)} 
-%Es un instrumento 
-%que 
-%consta de 10 preguntas espec\'ificas sobre malestar psicol\'ogico que se refieren a los 
-%s\'intomas de ansiedad que puede tener una persona durante las cuatro semanas previas a la 
-%aplicaci\'on. Las opciones de respuesta de las preguntas son tipo Likert, categorizadas en una 
-%escala ordinal de cinco niveles: siempre, casi siempre, a veces, casi nunca y nunca. 
-%A la respuesta \textit{nunca} se le asigna el valor escalar de 1 y a la respuesta 
-%\textit{siempre}, de 5 puntos. La suma de las puntaciones tiene un m\'inimo de 10 y un máximo de 
-%50. Los rangos del instrumento presentan cuatro niveles: bajo (10–15), moderado (16–21), 
-%alto (22–29), y muy alto (30–50). La consistencia interna del instrumento fue de $\alpha$=0.90
-\cite{Vargas11}
-
-\item {Escala sobre las actividades cotidianas de la vida diaria (KATZ)} 
-%Eval\'ua el nivel
-%de independencia de las actividades de la vida diaria en pacientes con deterioro cognoscitivo y 
-%demencia. Su aplicaci\'on es de alrededor de diez a quince minutos y no requiere de capacitaci\'on 
-%previa. Consta de una primera parte donde se consignan los datos del paciente y del informante, 
-%lugar, fecha y nombre del evaluador. Una segunda parte, est\'a formada por nueve \'items que se 
-%corresponden con las actividades de la vida diaria b\'asicas (continencia urinaria, continencia 
-%fecal, aseo, toilette, alimentaci\'on, movilidad, traslado dentro y fuera del hogar, ba\~no y 
-%vestido), a su vez cada una de ellas est\'a desglosada en las acciones que conforman la tarea y la 
-%forma en que el paciente la lleva a cabo. A cada actividad le corresponde un puntaje parcial, que 
-%refleja la capacidad funcional del paciente. Se debe tener en cuenta que el \'item se corresponde 
-%con el nivel \'optimo de funcionamiento y le corresponde el puntaje m\'as alto dentro de la escala,
-%6 puntos. La suma de todos los resultados sirve para arribar a un puntaje total, que se 
-%correlaciona con uno de los siete niveles de desempe\~no, determinando cu\'ando una persona 
-%requiere indicaci\'on, supervisi\'on o asistencia f\'isica/verbal de otra para ejecutar todos los 
-%pasos de una actividad. El puntaje total es 60 puntos, que corresponde al desempe\~no 
-%independiente.
-\cite{Roumec14}
-
-\item {Escala de Depresi\'on Geri\'atrica (Gds)} 
-%Esta escala ha sido probada y usada 
-%extensamente 
-%en la población adulta mayor. Con la escala Gds se valora la depresión en el adulto mayor que 
-%puede confundirse con el deterioro cognitivo. Es conocido que la depresi\'on puede disparar el 
-%deterioro f\'isico, cognitivo y social particularmente en el adulto 
-%mayor. 
-\cite{Greenberg12,Cuijpers13}
-
+\item {Mini Mental State Examination (MMSE)} \cite{Velasco15}
+\item {Escala breve para la detecci\'on de ansiedad del anciano (SATS)} \cite{Vargas11}
+\item {Escala sobre las actividades cotidianas de la vida diaria (KATZ)} \cite{Roumec14}
+\item {Escala de Depresi\'on Geri\'atrica (Gds)} \cite{Greenberg12,Cuijpers13}
 \end{itemize}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Participantes}
 
-En el trabajo original,
-la muestra se eligi\'o de una manera no probabilística de sujetos tipo \cite{Garcia09}. De aquellos
-s\'olo se han considerado 11 sujetos que accedieron a la segunda fase del estudio (obtenci\'on
-de registros de PSG), que en conjunto conforman una muestra no necesariamente respresentativa de
-la muestra total.
+En el trabajo original, la muestra se eligi\'o de una manera no probabilística de sujetos tipo 
+\cite{Garcia09}. De aquellos s\'olo se han considerado 11 sujetos que accedieron a la segunda fase 
+del estudio (obtenci\'on de registros de PSG), que en conjunto conforman una muestra no 
+necesariamente respresentativa de la muestra total.
 
-Usando los reultados de la bater\'ia de pruebas neuropsicol\'ogicas, los sujetos se dividieron
-en tres grupos seg\'un los siguientes criterios
+Usando los reultados de la bater\'ia de pruebas neuropsicol\'ogicas, los sujetos se dividieron en 
+tres grupos seg\'un los siguientes criterios
 \begin{description}
-\item[Grupo PDC] Adultos Mayores sin depresi\'on geri\'atrica %(puntuaci\''on Gds baja) 
-ni enfermedades ''graves'' [preguntar t\'ermino exacto],
-y cuya puntuaci\'on en Neuropsi fuera menor a 3 desviaciones est\'andar la repotada para poblaciones
+\item[Grupo PDC] Adultos Mayores sin ansiedad, depresi\'on geri\'atrica ni s\'intomas focales, y 
+cuya puntuaci\'on en Neuropsi fuera menor a 3 desviaciones est\'andar la repotada para poblaciones
 control \cite{Solis03}
-\item[Grupo control] Adultos Mayores sin depresi\'on geri\'atrica ni enfermedades ''graves'',
-que no fueran considerados en el Grupo PDC
+\item[Grupo control] Adultos Mayores sin depresi\'on geri\'atrica ni s\'indromes focales, que no 
+fueran considerados en el Grupo PDC
 \item[Sujetos exclu\'idos] Sujetos que no cumplen los requerimientos para ser clasificados dentro de
 los dos primeros grupos, pero que se sometieron voluntariamente al estudio
 \end{description}
