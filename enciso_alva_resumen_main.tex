@@ -276,27 +276,35 @@ M\'exico
 %% \cite{Amer13,Miyata13,Potvin12}
 
 Si bien los avances m\'edicos del \'ultimo siglo se han traducido en un incremento tanto en la 
-esperanza de vida como en la calidad de la misma, se ha observado [] un incremento en la presencia 
+esperanza de vida como en la calidad de la misma, se ha observado \cite{PlanAlzheimer04} 
+un incremento en la presencia 
 de enfermedades no-transmisibles asociadas con la edad, de entre las cuales destacaremos la 
 demencia.
-En particular, se cuenta con estudios estad\'isticos [] que sugieren una relaci\'on entre los 
+En particular, se cuenta con estudios estad\'isticos \cite{Amer13,Miyata13,Potvin12}
+que sugieren una relaci\'on entre los 
 trastornos del sue\~no y el deterioro cognitivo (DC) que ocurre durante la vejez.
-Este trabajo se centra en la posibilidad de la existencia de dicha relaci\'on, y pretende aportar
-maracadores de misma para su uso cl\'inico.
+%Este trabajo se centra en la posibilidad de la existencia de dicha relaci\'on, y pretende aportar
+%marcadores de misma para su uso cl\'inico.
 % \cite{Amer13,Miyata13,Potvin12}
+Este trabajo pretende identificar marcadores cl\'inicos para el deterioro cognitivo, 
+derivados de tal relaci\'on.
 
-El objeto de estudio del presente trabajo consiste en registros de actividad cerebral y muscular
-durante el sue\~no (polisomnograf\'ia, PSG). La modelaci\'on matem\'atica de estos registros los 
-entiende como como procesos estoc\'asticos a tiempo continuo cuyas propiedades son, por naturaleza,
-no-estacionarias, no-lineales y sin-equilibrio. La propiedad de no-estacionariedad es de particular
-relevancia, por ejemplo, en el an\'alisis de fractalidad y en la obtenci\'on dle espectro de
+El objeto de estudio del presente trabajo consiste en registros de actividad cerebral %y muscular
+durante el sue\~no nocturno (polisomnograf\'ia, PSG). La modelaci\'on matem\'atica de estos 
+registros los 
+entiende como como procesos estoc\'asticos a tiempo continuo, y usualmente se presupone 
+tienes las siguientes propiedades:
+%cuyas propiedades son, por naturaleza,
+no-estacionarias, no-lineales y sin-equilibrio. La no-estacionariedad es de particular
+relevancia, por ejemplo, en el an\'alisis de fractalidad y en la obtenci\'on del espectro de
 potencias de estas se\~nales; sin embargo, esta propiedad rara vez se verifica.
-De hecho se ha sugerido [] que en casos at\'ipicos, como el del DC, la no-estacionariedad podr\'ia
-no ser cierta. En este trabajo se investiga la posibilidad de que los registros de PSG en adultos
+De hecho se ha sugerido \cite{McEwen75,Cohen77,Sugimoto78} 
+que en casos at\'ipicos, como el del DC, la no-estacionariedad podr\'ia
+no estar presente. En este trabajo se investiga la posibilidad de que los registros de PSG en adultos
 mayores puedan modelarse efectivamente como procesos d\'ebilmente estacionarios.
 Para verificar lo anterior se utiliza la prueba propuesta por Priestley y Subba Rao, que
 consiste en la estimaci\'on local del espectro de potencias (para procesos estoc\'asticos) y su
-comparaci\'on en el tiempo.
+comparaci\'on a trav\'es del tiempo.
 
 %%En la modelaci\'on matem\'atica, usualmente se supone que las se\~nales electrofisiol\'ogicas son 
 %%no-estacionarias, 
@@ -316,19 +324,22 @@ comparaci\'on en el tiempo.
 %%que consiste en la estimaci\'on local del espectro de potencias (para procesos estoc\'asticos) y 
 %%su comparaci\'on en el tiempo.
 
-Se analizaron los registros de PSG correspondientes a 9 aultos mayores previamente diagn\'osticados
-con o sin DC a trav\'es de una bater\'ia de pruebas neuropsicol\'ogicas. Se prest\'o especial
+Fueron analizados registros de PSG correspondientes a adultos mayores diagn\'osticados,
+a trav\'es de pruebas 
+neuropsicol\'ogicas, como controles o con DC (5 y 4 sujetos, respectivamente). 
+Se prest\'o especial
 atenci\'on a la etapa de sue\~no denominada MOR, caracterizada por exhibir aton\'ia muscular, 
 actividad cerebral de baja amplitud y frecuencias mixtas, y movimientos oculares r\'apidos (de 
 ah\'i su acr\'onimo).
-Se encontr\'o que solamente en el grupo control (sin DC) existen diferencias significativas en el
-porcentaje proporcional de estacionariedad en las regiones frontales y posteriores.
-Estos resultados sugieren que en presencia de DC cambia la organizaci\'on funcional del cerebro al
+Se encontr\'o, solamente en el grupo control, que existen diferencias significativas
+respecto al porcentaje de tiempo que las se\~nales son estacionarias, en las regiones 
+frontal y posterior.
+Estos resultados sugieren que, en presencia de DC, cambia la organizaci\'on funcional del cerebro al
 transitar entre etapas de sue\~no.
 
-Por \'ultimo destacamos que en los adultos mayores sin DC es posible reconocer a simple vista
-patrones muy definidos de etapas de estacionariedad, seguidas por una etapa de no-estacionariedad
-seguidos por una etapa de sue\~no MOR.
+Por \'ultimo destacamos que en adultos mayores sin DC es posible reconocer, a simple vista,
+patrones muy definidos de etapas de estacionariedad/no-estacionariedad que, en un orden 
+espec\'ifico, son consistentes con la aparici\'on del sue\~no MOR.
 
 %Fueron analizaron los registros de PSG correspondientes a 9 adultos mayores, previamente 
 %diagnosticados a trav\'es de una bater\'ia de pruebas neuropsicol\'ogicas.
@@ -760,48 +771,81 @@ cortas \cite{CarrilloMora}.
 
 \section{Conceptos, matem\'aticas}
 
-En esta secci\'on se describen los conceptos b\'asicos de la teor\'ia espectral 'cl\'asica' para 
-procesos estacionarios, y la generalizaci\'on hecha por Priestley para procesos no-estacionarios. 
-De forma m\'as bien pragm\'atica, la descripci\'on est\'a
- fuertemente inspirada por el libro 'Spectral Analysis and Time Series' 
-de M. B. Priestley \cite{Priestley81}, ya que este est\'a expl\'icitamente dirigido a un p\'ublico 
-sin un trasfondo matem\'atico.
+%En esta secci\'on se 
+Se describen algunos conceptos sobre estimaci\'on espectral
+para procesos estoc\'asticos d\'ebilmente estacionarios (incluyendo las definiciones 
+de estos conceptos), y la generalizaci\'on propuesta por Priestley para procesos no-estacionarios. 
+%%De forma m\'as bien pragm\'atica, la 
+%La descripci\'on est\'a
+% fuertemente inspirada por el libro 'Spectral Analysis and Time Series' 
+%de M. B. Priestley \cite{Priestley81}.
+%%, ya que este est\'a expl\'icitamente dirigido a un p\'ublico 
+%%sin un trasfondo matem\'atico.
+Se suponen conocidos varios 
+conceptos b\'asicos de probabilidad y estad\'istica (variable aleatoria, 
+valor esperado y momentos, estimadores),
+%Sin embargo, con el fin de presentar la notaci\'on usada, se incluyen algunos de estos conceptos.
+%De la misma forma se supondr\'a 
+as\'i como
+cierta familiaridad con la transformada de Fourier 'cl\'asica' y
+sus propiedades.%, adem\'as de su interpretaci\'on f\'isica usual.
 
-Se suponen conocidos varios temas b\'asicos de probabilidad y estad\'istica: variables aleatorias, 
-valores esperados y momentos, estimadores y sus propiedades.
-Sin embargo, con el fin de presentar la notaci\'on usada, se incluyen algunos de estos conceptos.
+%Para hablar formalmente de procesos estoc\'asticos como modelos, antes conviene escribir su 
+%definici\'on desde el punto de vista matem\'atico. 
+%Las siguientes definiciones son aplicables tanto 
+%para procesos en tiempo continuo como para procesos a tiempo discreto; aunque el objeto de estudio, 
+%el EEG, se considera un fen\'omeno continuo, s\'olo es posible registrarlo durante un conjunto 
+%finito de puntos en el tiempo.
 
-\subsection{Estacionariedad d\'ebil}
-
-Para hablar formalmente de procesos estoc\'asticos como modelos, antes conviene escribir su 
-definici\'on desde el punto de vista matem\'atico. Las siguientes definiciones son aplicables tanto 
-para procesos en tiempo continuo como para procesos a tiempo discreto; aunque el objeto de estudio, 
-el EEG, se considera un fen\'omeno continuo, s\'olo es posible registrarlo durante un conjunto 
-finito de puntos en el tiempo.
+Como se mencion\'o, el objeto de estudio en este trabajo son registros de se\~nales
+electrofisiol\'ogicas (en particular, de PSG) que son modeladas como procesos estoc\'asticos;
+(por simplicidad, se escribir\'a simplemente 'procesos');
+antes de continuar, conviene presentar la definici\'on de este concepto. 
 
 \begin{defn}[Proceso estoc\'astico]
 Un proceso estoc\'astico $\{ X(t) \}$ es una familia de variables aleatorias en los reales, 
 indexadas por $t \in T \subseteq \R$.
+\label{proc_estocastico}
 \end{defn}
 
-Como notaci\'on, una realizaci\'on de $X(t)$ ser\'a denota por $x_t$. Las funciones de densidad de 
-probabilidad y de probabilidad acumulada para $X(t)$ ser\'an referidas, respectivamente, como 
-$f_{X(t)}$ y $F_{X(t)}$. Cabe enfatizar que para cada valor de $t$, $X(t)$ es una variable 
-aleatoria; no se presupone ninguna conexi\'on entre ellas.
+Se denotar\'a a una
+realizaci\'on de $X(t)$ como $x(t)$, mientras que la funci\'on
+de probabilidad acumulada para $X(t)$ ser\'a 
+$F_{X(t)}$. Cabe enfatizar que para cada valor de $t$, $X(t)$ es una variable 
+aleatoria, y que no se presuponen relaciones entre ellas.
 
-La caracter\'istica principal investigada en este trabajo hace referencia a la 'estacionariedad'. 
-De manera informal, esta propiedad se refiere a que las variables aleatorias que conforman un 
-proceso estoc\'astico sean b\'asicamente iguales --dicho con otras palabras, que las propiedades
-del proceso sean invariantes en el tiempo. 
-Una definici\'on que satisface fielmente est\'a descripci\'on es la de estacionariedad en el 
-sentido fuerte o estricto.
-El t\'ermino 'tiempos admisibles' simplemente indica que la definici\'on es la misma para
-procesos a tiempo discreto o continuo, bajo restricciones obvias, adem\'as de que se deber\'ia
-sobreentender las limitaciones cuando el tiempo considerado es finito.
+La definici\'on en \ref{proc_estocastico} es aplicable tanto para procesos
+en tiempo continuo como para tiempo discreto\footnote{Un proceso se dice \textbf{a tiempo discreto} 
+cuando el \'indice $t$ (tradicionalmente asociado al tiempo) pertenece a un conjunto a lo m\'as 
+numerable, mientras que se dice \textbf{a tiempo discreto} si este conjunto es un intervalo cerrado;
+en este trabajo s\'olo se consideran estos dos tipos de 'tiempos'}.
+Como modelo, se entiende que las se\~nales del PSG son fen\'omenos a tiempo continuo, pero que no
+es registrable sino en un conjunto finito de puntos en el tiempo; en otras palabras, se espera
+que tenga caracter\'isticas propias de un proceso a tiempo continuo aunque en la pr\'actica
+se trate con un proceso a tiempo discreto.
+
+\subsection{Estacionariedad d\'ebil}
+
+Una vez definidos los procesos estoc\'asticos, es posible definir una caracter\'istica de los
+mismos y que se investiga en el presente trabajo: la estacionariedad.
+%La caracter\'istica principal investigada en este trabajo hace referencia a la 'estacionariedad'. 
+Informalmente, esta propiedad se refiere a que la 'estructura' del proceso sea invariante en el
+tiempo; para un proceso estacionario, calcular el promedio sobre cualquier subconjunto de datos 
+deber\'ia arrojar resultados estad\'isticamente id\'enticos, mientras que no hay tal garant\'ia
+para proceso no-estacionarios.
+%variables aleatorias que conforman un 
+%proceso estoc\'astico sean b\'asicamente iguales --dicho con otras palabras, que las propiedades
+%del proceso sean invariantes en el tiempo. 
+La definici\'on \ref{est_fuerte}, referida como estacionariedad fuerte o estricta, 
+induce fielmente estas propiedades.
+%descripci\'on es la de estacionariedad en el 
+%sentido fuerte o estricto.
 
 \begin{defn}[Estacionariedad fuerte]
 Un proceso estoc\'astico $\{ X(t) \}$ es fuertemente estacionario si, para cualquier conjunto de 
-tiempos admisibles $t_1,t_2,\dots,t_n$ y cualquier $\tau$ tal que $t_i+\tau$ son tiempos admisibles 
+tiempos admisibles\footnote{El t\'ermino \textbf{tiempos admisibles} indica que la definici\'on 
+es la misma para procesos a tiempo discreto o continuo bajo las restricciones adecuadas} 
+$t_1,t_2,\dots,t_n$ y cualquier $\tau$ tal que $t_i+\tau$ son tiempos admisibles 
 para $i = 1, 2, \dots n$; se cumple que
 \begin{equation*}
 F_{\left(X(t_1),X(t_2),\dots,X(t_n)\right) }
@@ -810,24 +854,42 @@ F_{\left(X(t_1+\tau),X(t_2+\tau),\dots,X(t_n+\tau)\right)}
 \end{equation*}
 
 Donde $F_{\left(X(t_1),X(t_2),\dots,X(t_n)\right) }$ es la funci\'on de distribuci\'on de 
-probabilidad conjunta del vector $\left(X(t_1),X(t_2),\dots,X(t_n)\right)$
+probabilidad conjunta para el vector $\left(X(t_1),X(t_2),\dots,X(t_n)\right)$
+\label{est_fuerte}
 \end{defn}
 
-Esta definici\'on, sin embargo, no resulta muy \'util en el contexto de la estad\'istica: si se 
-supone que el registro de un fen\'omeno puede interpretarse como \textbf{una} realizaci\'on de un 
-proceso estoc\'astico, entonces para cada tiempo se tiene una \'unica observaci\'on de cada 
-variable aleatoria. A esto hay que a\~nadir que, para un fen\'omeno continuo, no todas los tiempos 
-son registrables.
-Luego, si no existe la garant\'ia de que las propiedades de estas variables aleatorias sean 
-'similares', entonces es virtualmente imposible obtener mayor informaci\'on de ellas.
+Sin embargo, la definici\'on \ref{est_fuerte} resulta in\'util
+% en estad\'istica
+%: dado
+%que el PSG se modela como un proceso estoc\'astico, los registros corresponden a realizaciones del 
+%mismo. 
+si se pretende verificar que un registro dado pudiera ser modelado como la realizaci\'on de un
+proceso es fuertemente estacionario (un objetivo descartado para este trabajo). En ese
+escenario,
+%pues, dada una realizaci\'on del proceso, >
+%Entonces 
+para cada tiempo registrado $t$ se tiene s\'olo una observaci\'on para cada 
+variable aleatoria $X(t)$, lo cual es muy poca informaci\'on como para estimar las funciones de 
+probabilidad acumulada mencionadas en la definici\'on.
+% (y que deber\'ian ser comparadas entre s\'i).
+%, adem\'as de que no todas los tiempos son registrables.
+%Luego, si no existe la garant\'ia de que las propiedades de estas variables aleatorias sean 
+%'similares', entonces es virtualmente imposible obtener mayor informaci\'on de ellas.
+Estas limitaciones motivan una definici\'on m\'as d\'ebil de estacionariedad,
+pero que 
+%conserve 'suficientes' caracter\'isticas propias de la estacionariedad y 
+pueda ser 
+detectada en realizaciones dadas de procesos;
+%satisfaga 'suficientes teoremas importantes' y que sea relevante bajo las restricciones propias 
+%de diferentes campos. 
+%En este trabajo se ha optado por la llamada 'estacionariedad d\'ebil' o 
+%estacionariedad de orden 2, que recibe su nombre como caso particular de la 'estacionariedad de 
+%orden $m$'.
+se exhibe la definici\'on \ref{est_orden_m} como alternativa.
+%, aunque en particular se usar\'a
+%el caso $m=2$, referida como estacionariedad d\'ebil o de orden 2.
 
-Es bajo estas limitaciones que se motiva un concepto de estacionariedad m\'as d\'ebil, pero que
-satisfaga ''suficientes teoremas importantes'' y que sea relevante bajo las restricciones propias 
-de diferentes campos. En este trabajo se ha optado por la llamada 'estacionariedad d\'ebil' o 
-estacionariedad de orden 2, que recibe su nombre como caso particular de la 'estacionariedad de 
-orden $m$'.
-
-\begin{defn}[Estacionariedad de orden $m$]
+\begin{defn}[Estacionariedad de orden $\boldsymbol{m}$]
 Un proceso estoc\'astico $\{ X(t) \}$ se dice estacionario de orden $m$ si, para cualquier conjunto 
 de tiempos admisibles $t_1,t_2,\dots,t_n$ y cualquier $\tau \in \R$ se cumple que
 \begin{equation*}
@@ -839,71 +901,120 @@ Para cualesquiera enteros $m_1,m_2,\dots,m_n$ tales que $m_1+m_2+\dots+m_n \leq 
 \label{est_orden_m}
 \end{defn}
 
-La estacionariedad d\'ebil no pide que la funci\'on de distribuci\'on conjunta tenga determinada 
-forma, sino que los momentos conjuntos sean invariantes ante traslaciones en el tiempo. Para 
-entender mejor esta diferencia, consid\'erense tres procesos $\{X(t)\}$, $\{Y_1(t)\}$ y 
-$\{Y_2(t)\}$, de modo que el primero es estacionario en el sentido fuerte, el segundo es 
-estacionario de orden 1 y el tercero es estacionario de orden 2.
+Para entender mejor la definici\'on \ref{est_orden_m} y sus limitaciones frente a la 
+estacionariedad fuerte, consid\'erense tres procesos: $\{X(t)\}$ es fuertemente estacionario, 
+$\{Y_1(t)\}$ es estacionario de orden 1, y $\{Y_2(t)\}$ es estacionario de orden 2. Luego
 \begin{itemize}
-\item Por definici\'on $F_{X(t) } \equiv F_{X(t+\tau)}$ para cualesquiera $t$, $t+\tau$ 
-admisibles; entonces $\E{X(t)} = \mu_X$ es constante
-\item Por definici\'on, para cualesquiera $t$, $t+\tau$ admisibles se tiene que 
-$\E{Y_1(t)}=\E{Y_1(t+\tau)}$ y $\E{Y_2(t)}=\E{Y_2(t+\tau)}$. Se deduce que 
-$\E{Y_1(t)} = \mu_{Y_1}$, $\E{Y_2(t)} = \mu_{Y_2}$ son constantes
-\item Usando nuevamente que $F_{X(t) } \equiv F_{X(t+\tau)}$ para cualesquiera $t$, $t+\tau$
-admisibles, se deduce que $\Var{X(t)} = \sigma_X$ es constante
-\item Por definici\'on de $\mathrm{Var}$ y de $Y_i$ ($i=2,1$) 
-$$\Var{Y_i(t)} = \E{Y_i^{2}(t)} - \left( \E{Y_i(t)} \right)^{2} = \E{Y_i^{2}(t)} - \mu_{Y_i}$$
-Luego se puede deducir que $\Var{Y_2(t)}$ es constante, mientras que no se puede garantizar lo 
-mismo para $\Var{Y_1(t)}$
-\item El \textit{coeficiente de asimetr\'ia de Fisher} de una variable aleatoria $V$ se define como
-$$ \gamma_1(V) = \frac{\E{\left(V-\E{V}\right)^{3}}}{\Var{V}^{\nicefrac{3}{2}}} $$
-Sin entrar en detalles, se puede deducir que $\gamma_1(X(t))$ es constante mientras que no se
-puede garantizar lo mismo para $\gamma_1(Y_1(t))$, $\gamma_1(Y_2(t))$
+\item Las medias\footnote{La media de una variable aleatoria $V$ se define como 
+$ \mu_V := \E{V}$} 
+$ \mu_{X(t)}$, $ \mu_{Y_1(t)}$ y $ \mu_{Y_2(t)}$ 
+no dependen de $t$
+
+\item Las varianzas\footnote{La varianza de una variable aleatoria $V$ se define como 
+$ \Var{V} := \E{\left(V - \mu_V \right)^{2}}$} 
+$ \Var{Y_1(t)}$ y $ \Var{Y_2(t)}$ no dependen de $t$, 
+pero no se puede garantizar lo mismo para $\Var{X(t)}$
+
+\item El coeficiente de asimetr\'ia\footnote{El coeficiente de asimetr\'ia %de Fisher 
+para 
+una variable aleatoria $V$ se define como 
+$\gamma_V = \frac{\E{\left(V-\mu_V\right)^{3}}}{\Var{V}^{\nicefrac{3}{2}}}$}
+$ \gamma_X(t)$ no dependen de $t$, pero no se puede garantizar lo mismo para
+$ \gamma_{Y_1(t)}$ ni para $ \gamma_{Y_2(t)}$
+
+%\item Por definici\'on de $\mathrm{Var}$ y de $Y_i$ ($i=2,1$) 
+%$$\Var{Y_i(t)} = \E{Y_i^{2}(t)} - \left( \E{Y_i(t)} \right)^{2} = \E{Y_i^{2}(t)} - \mu_{Y_i}$$
+%Luego se puede deducir que $\Var{Y_2(t)}$ es constante, mientras que no se puede garantizar lo 
+%mismo para $\Var{Y_1(t)}$
+%\item El \textit{coeficiente de asimetr\'ia de Fisher} de una variable aleatoria $V$ se define como
+%$$ \gamma_1(V) = \frac{\E{\left(V-\E{V}\right)^{3}}}{\Var{V}^{\nicefrac{3}{2}}} $$
+%Sin entrar en detalles, se puede deducir que $\gamma_1(X(t))$ es constante mientras que no se
+%puede garantizar lo mismo para $\gamma_1(Y_1(t))$, $\gamma_1(Y_2(t))$
 \end{itemize}
 
-Naturalmente hay una relaci\'on de contenci\'on clara en la familia de los conjuntos de procesos 
-estacionarios de orden finito: si un proceso es estacionario de orden $m$, entonces es estacionario 
-de orden $n$ para todo $n \leq m$. Es posible incluso describir procesos que sean estacionarios 'de 
-orden infinito' y preguntarse bajo qu\'e condiciones son fuertemente estacionarios.
-Tal discusi\'on no se incluye en el presente trabajo.
+Cabe mencionar que
+hay una relaci\'on de contenci\'on clara en familia de los conjuntos de procesos 
+estacionarios de orden finito (si un proceso es estacionario de orden $m$, entonces es estacionario 
+de orden $n$ para todo $n \leq m$); es posible definir procesos estacionarios de 
+orden 'infinito' seg\'un \ref{est_orden_m}, que intuitivamente ser\'ian fuertemente estacionarios. 
+%y preguntarse bajo qu\'e condiciones son fuertemente estacionarios.
+%Tal discusi\'on no se incluye en el presente trabajo.
+De manera pragm\'atica, en este trabajo no se discuten tales interrogantes, sino que se 
+usar\'a \'unicamente la definici\'on correspondiente al caso %particular
+%aunque en particular se usar\'a
+$m=2$, referida como estacionariedad d\'ebil o de orden 2, y repetida en la definici\'on 
+\ref{est_orden_2}.
 
-Una vez hechas las consideraciones anteriores, conviene introducir una segunda caracter\'izaci\'on 
-de los procesos estacionarios de orden 2 --d\'ebilmente estacionarios-- que es equivalente a la 
-definici\'on \ref{est_orden_m} pero cuya interpretaci\'on suele considerarse como m\'as clara
+\begin{defn}[Estacionariedad d\'ebil]
+Un proceso estoc\'astico $\{ X(t) \}$ es d\'ebilmente estacionario si, para cualesquiera
+tiempos admisibles $t, s, t+\tau, s+\tau$,
+% y cualquier $\tau \in \R$ 
+se cumple que
+\begin{center}
+\begin{tabular}{cc}
+%\begin{equation*}
+$\E{X(t)} = \E{X(t+\tau)}$
+%\end{equation*}
+&
+%\begin{equation*}
+$\E{X(t)X(s)} = \E{X(t+\tau)X(s+\tau)}$
+%\end{equation*}
+\end{tabular}
+\end{center}
+\label{est_orden_2}
+\end{defn}
+
+%Una vez hechas las consideraciones anteriores, 
+%Por simplicidad en la interpretaci\'on,
+M\'as a\'un, parece conveniente exhibir una caracter\'izaci\'on equivalente para
+los procesos d\'ebilmente estacionarios, pero que 
+%tradicionalmente se
+%considera m\'as f\'acil de interpretar
+tiene una interpretaci\'on m\'as sencilla.
+% que es equivalente a la 
+%definici\'on \ref{est_orden_m} pero cuya interpretaci\'on suele considerarse como m\'as clara
 \begin{thrm}
-Un proceso es d\'ebilmente estacionario si y s\'olo si para cualesquiera tiempos admisibles $t$, 
+Un proceso estoc\'astico 
+es d\'ebilmente estacionario si y s\'olo si para cualesquiera tiempos admisibles $t$, 
 $s$ se tiene que
 \begin{itemize}
 \item $\E{X(t)} = \mu_X$
 \item $\Var{X(t)} = \sigma^{2}_X$
-\item $\Cov{X(t),X(s)} = \rho (s-t)$
+\item $\Cov{X(t),X(s)} = \rho_X (s-t)$
 \end{itemize}
-Donde $\mu_X$, $\sigma^{2}_X$ son constantes, $\rho(\tau)$ es una funci\'on que \'unicamente 
+Donde $\mu_X$, $\sigma^{2}_X$ son constantes, $\rho_X(\tau)$ es una funci\'on que \'unicamente 
 depende de $\tau$
 \label{est_usual}
 \end{thrm}
 
-Cabe mencionar, como comentario, que es posible construir procesos que sean fuertemente 
-estacionarios pero que no sean estacionarios de ning\'un orden finito; 
+Cabe mencionar, como comentario, la existencia de procesos que son fuertemente 
+estacionarios pero que no son estacionarios de ning\'un orden (finito): 
 %dado que la primera 
 %definici\'on se basa en funciones de densidad de probabilidad mientras que la segunda se basa en 
 %momentos, es suficiente con usar variables aleatorias que no tengan todos sus momentos bien 
 %definidos. Por ejemplo, 
-consid\'erese un proceso conformado por variables aleatorias independientes id\'enticamente 
-distribuidas con distribuci\'on de Cauchy.
+consid\'erese, por ejemplo,
+un proceso de variables aleatorias independientes id\'enticamente 
+distribuidas y con distribuci\'on de Cauchy\footnote{Una variable aleatoria tiene distribuci\'on
+de Cauchy si su funci\'on de probabilidad acumulada es de la forma
+$\displaystyle F(x) = \frac{1}{\pi} \int_{-\infty}^{x} \frac{1}{1+y^{2}} dy$}.
+M\'as adelante se argumenta por qu\'e se espera que las se\~nales registradas en el
+EEG, entendidas como procesos estoc\'asticos, deber\'ian 
+%se suficientemente regulares 
+%como para 
+tener (cuando menos) segundos momentos bien definidos.
 
-Dado que en el EEG se miden fluctuaciones en potenciales de campos el\'ectricos y que en este 
-trabajo son modelados como variables aleatorias, la intepretaci\'on usual para los momentos de 
-estas variables est\'a ligado a la distribuci\'on de energ\'ia asociada al sistema (ver m\'as
-adelante). Luego, es plausible considerar que el EEG es un fen\'omeno 'suficientemente regular' como 
-para que las variables aleatorias del modelo tengan cuando menos segundos momentos bien definidos.%; 
-%m\'as adelante discutir\'a un poco m\'as sobre por qu\'e es importante este suspuesto.
+%Dado que en el EEG se miden fluctuaciones en potenciales de campos el\'ectricos y que en este 
+%trabajo son modelados como variables aleatorias, la intepretaci\'on usual para los momentos de 
+%estas variables est\'a ligado a la distribuci\'on de energ\'ia asociada al sistema (ver m\'as
+%adelante). Luego, es plausible considerar que el EEG es un fen\'omeno 'suficientemente regular' como 
+%para que las variables aleatorias del modelo tengan cuando menos segundos momentos bien definidos.%; 
+%%m\'as adelante discutir\'a un poco m\'as sobre por qu\'e es importante este suspuesto.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Espectro de un proceso estacionario}
+\subsection{Espectro de potencias para procesos estacionarios}
 
 Existe una larga tradici\'on en las ciencias biom\'edicas para interpretar a los registros
 electrofisiol\'ogicos en t\'erminos de ondas y frecuencias, ya que fundamentalmente se trata de 
@@ -1913,7 +2024,22 @@ el Comit\'e \'Etico de Investigaci\'on en humanos de la Universidad Autónoma de
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Electroencefal\'ografo utilizado}
+\section{Registro del polisomnograma}
+
+Una vez aplicada la bater\'ia de pruebas ya mencionada, los adultos mayores participantes fueron 
+invitados a acudir a las instalaciones de la Cl\'inica Gerontol\'ogica de Sue\~no, ubicada en las 
+instalaciones del Instituto de Ciencias de la Salud de la Universidad Aut\'onoma del Estado de 
+Hidalgo.
+
+Los participantes recibieron instrucciones de realizar una rutina normal de actividades durante la 
+semana que precedi\'o al estudio. Tambi\'en se les recomend\'o que no ingirieran bebidas 
+alcoh\'olicas o energizantes como caf\'e o refrescos durante las 24 horas previas al experimento, 
+ni durmieran siesta el d\'ia del estudio. 
+El protocolo de PSG incluye 19 electrodos de EEG, 4 electrodos de EOG para registrar movimientos 
+oculares horizontales y verticales, y 2 electrodos de EMG colocados en los m\'usculos 
+submentonianos para registrar la actividad muscular. 
+La colocaci\'on de los electrodos para registrar la actividad EEG se realiz\'o siguiendo las 
+coordenadas del Sistema Internacional 10-20\cite{Coleman87}.
 
 Para registrar el PSG se ha usado electroencefal\'ografo digital MEDICID 5 (Neuronic mexicana S.A. 
 de C.V.). Especificaciones T\'ecnicas:
@@ -1933,26 +2059,6 @@ de C.V.). Especificaciones T\'ecnicas:
 \item Bloque amplificadores: 1.0 kg
 \item Seguridad el\'ectrica: Clase I Tipo BF (Certificado según EN60601-1)
 \end{itemize}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{Registro del polisomnograma}
-
-Una vez aplicada la bater\'ia de pruebas ya mencionada, los adultos mayores participantes fueron 
-invitados a acudir a las instalaciones de la Cl\'inica Gerontol\'ogica de Sue\~no, ubicada en las 
-instalaciones del Instituto de Ciencias de la Salud de la Universidad Aut\'onoma del Estado de 
-Hidalgo.
-
-Los participantes recibieron instrucciones de realizar una rutina normal de actividades durante la 
-semana que precedi\'o al estudio. Tambi\'en se les recomend\'o que no ingirieran bebidas 
-alcoh\'olicas o energizantes como caf\'e o refrescos durante las 24 horas previas al experimento, 
-ni durmieran siesta el d\'ia del estudio. 
-El protocolo de PSG incluye 19 electrodos de EEG, 4 electrodos de EOG para registrar movimientos 
-oculares horizontales y verticales, y 2 electrodos de EMG colocados en los m\'usculos 
-submentonianos para registrar la actividad muscular. 
-La colocaci\'on de los electrodos para registrar la actividad EEG se realiz\'o siguiendo las 
-coordenadas del Sistema Internacional 10-20\cite{Coleman87}.
 
 Las se\~nales electrofisiol\'ogicas de cada registro PSG fueron amplificadas, filtradas y 
 digitalizadas para su posterior an\'alisis.
