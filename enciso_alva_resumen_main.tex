@@ -240,7 +240,7 @@ Julio Cesar Enciso Alva\\
 \textbf{Bajo la direcci\'on de}\\
 \vspace*{.5em}}
 {\Large
-Dra. Ericka Elizabeth Rodr\'iguez Torres\\
+Dra. Erika Elizabeth Rodr\'iguez Torres\\
 Dr. Jorge Viveros Rogel\\
 \vspace*{4em}
 }
@@ -267,41 +267,84 @@ M\'exico
 
 {\small
 
-Los avances m\'edicos del \'ultimo siglo se han traducido en un incremento tanto en la esperanza
-de vida como en la calidad de la misma; sin embargo, aumenta la presencia de enfermedades 
-no-transmisibles asociadas con la edad --entre ellas la demencia.
-Recientemente, los trastornos del sue\~no han sido se\~nalados como relacionados con el deterioro 
-cognitivo durante la vejez.
+%Los avances m\'edicos del \'ultimo siglo se han traducido en un incremento tanto en la esperanza
+%de vida como en la calidad de la misma; sin embargo, aumenta la presencia de enfermedades 
+%no-transmisibles asociadas con la edad, entre ellas la demencia y la
+%enfermedad de Alzheimer.
+%Recientemente, los trastornos del sue\~no han sido se\~nalados como relacionados con el deterioro 
+%cognitivo (DC) durante la vejez.
+%% \cite{Amer13,Miyata13,Potvin12}
+
+Si bien los avances m\'edicos del \'ultimo siglo se han traducido en un incremento tanto en la 
+esperanza de vida como en la calidad de la misma, se ha observado [] un incremento en la presencia 
+de enfermedades no-transmisibles asociadas con la edad, de entre las cuales destacaremos la 
+demencia.
+En particular, se cuenta con estudios estad\'isticos [] que sugieren una relaci\'on entre los 
+trastornos del sue\~no y el deterioro cognitivo (DC) que ocurre durante la vejez.
+Este trabajo se centra en la posibilidad de la existencia de dicha relaci\'on, y pretende aportar
+maracadores de misma para su uso cl\'inico.
 % \cite{Amer13,Miyata13,Potvin12}
 
-En la modelaci\'on matem\'atica, usualmente se supone que las se\~nales electrofisiol\'ogicas son 
-no-estacionarias, no-lineales y sin-equilibrio por naturaleza, aunque estas propiedades no suelen 
-ser confirmadas; se ha sugerido que en casos at\'ipicos esto podr\'ia no ser cierto.
-%\cite{McEwen75,Cohen77,Sugimoto78},
-%lo qu epodr\'ia explicar los resultados reportados en un trabajo anterior.% [Valeria]. 
-En este trabajo se investiga la posibilidad de que los registros de actividad cerebral durante el 
-sue\~no (polisomnograf\'ia, PSG) en personas con posible deterioro cognitivo (PDC) exhiban una 
-estructura m\'as simple, en el sentido de tratarse de series d\'ebilmente estacionarias.
-Para ello, se utiliza la prueba propuesta por Priestley y Subba Rao,
-%\cite{Priestley69}, 
-que consiste en la estimaci\'on local del espectro de potencias --para procesos estoc\'asticos-- y 
-su comparaci\'on en el tiempo.
+El objeto de estudio del presente trabajo consiste en registros de actividad cerebral y muscular
+durante el sue\~no (polisomnograf\'ia, PSG). La modelaci\'on matem\'atica de estos registros los 
+entiende como como procesos estoc\'asticos a tiempo continuo cuyas propiedades son, por naturaleza,
+no-estacionarias, no-lineales y sin-equilibrio. La propiedad de no-estacionariedad es de particular
+relevancia, por ejemplo, en el an\'alisis de fractalidad y en la obtenci\'on dle espectro de
+potencias de estas se\~nales; sin embargo, esta propiedad rara vez se verifica.
+De hecho se ha sugerido [] que en casos at\'ipicos, como el del DC, la no-estacionariedad podr\'ia
+no ser cierta. En este trabajo se investiga la posibilidad de que los registros de PSG en adultos
+mayores puedan modelarse efectivamente como procesos d\'ebilmente estacionarios.
+Para verificar lo anterior se utiliza la prueba propuesta por Priestley y Subba Rao, que
+consiste en la estimaci\'on local del espectro de potencias (para procesos estoc\'asticos) y su
+comparaci\'on en el tiempo.
 
-Fueron analizaron los registros de PSG correspondientes a 9 adultos mayores, previamente 
-diagnosticados a trav\'es de una bater\'ia de pruebas neuropsicol\'ogicas.
-Se prest\'o especial atenci\'on a la etapa de sue\~no MOR, caracterizada por exhibir aton\'ia
-muscular, actividad cerebral de baja amplitud y frecuencias mixtas, y movimientos oculares r\'apidos
-(MOR).
-Fueron halladas diferencias significativas s\'olo para el grupo control en las regiones frontales y 
-posteriores, respecto a la presencia proporcional de estacionariedad d\'ebil medida durante sue\~no 
-MOR y no-MOR.
-Estos resultados sugieren, que durante el DC, cambia la din\'amica al transitar entre etapas 
-del sue\~no --vista desde la PSG. 
-%Se encontraron diferencis significativas en el grupo Control vs DC en las regiones 
-%frontales y posteriores, que son acordes a la literatura.
-Adicionalmente, se reporta una serie de patrones visuales respecto a la presencia de 
-estacionariedad a trav\'es del tiempo, y que pudieran usarse para se\~nalar el sue\~no MOR de forma 
-semi-autom\'atica.%, la cual no es detectada eficientemente actualmente.
+%%En la modelaci\'on matem\'atica, usualmente se supone que las se\~nales electrofisiol\'ogicas son 
+%%no-estacionarias, 
+%%%no-lineales y sin-equilibrio por naturaleza, 
+%%aunque estas propiedades no suelen 
+%%ser confirmadas formalmente; se ha sugerido que en casos at\'ipicos (como el DC), esto podr\'ia no ser cierto.
+%%%\cite{McEwen75,Cohen77,Sugimoto78},
+%%%lo qu epodr\'ia explicar los resultados reportados en un trabajo anterior.% [Valeria]. 
+%%En este trabajo se investiga la posibilidad de que los registros de actividad cerebral durante el 
+%%sue\~no (polisomnograf\'ia, PSG) en personas con DC exhiban una 
+%%%estructura m\'as simple, en el sentido de 
+%%puedan modelarse como
+%%%tratarse de 
+%%series d\'ebilmente estacionarias.
+%%Para ello, se utiliza la prueba propuesta por Priestley y Subba Rao,
+%%%\cite{Priestley69}, 
+%%que consiste en la estimaci\'on local del espectro de potencias (para procesos estoc\'asticos) y 
+%%su comparaci\'on en el tiempo.
+
+Se analizaron los registros de PSG correspondientes a 9 aultos mayores previamente diagn\'osticados
+con o sin DC a trav\'es de una bater\'ia de pruebas neuropsicol\'ogicas. Se prest\'o especial
+atenci\'on a la etapa de sue\~no denominada MOR, caracterizada por exhibir aton\'ia muscular, 
+actividad cerebral de baja amplitud y frecuencias mixtas, y movimientos oculares r\'apidos (de 
+ah\'i su acr\'onimo).
+Se encontr\'o que solamente en el grupo control (sin DC) existen diferencias significativas en el
+porcentaje proporcional de estacionariedad en las regiones frontales y posteriores.
+Estos resultados sugieren que en presencia de DC cambia la organizaci\'on funcional del cerebro al
+transitar entre etapas de sue\~no.
+
+Por \'ultimo destacamos que en los adultos mayores sin DC es posible reconocer a simple vista
+patrones muy definidos de etapas de estacionariedad, seguidas por una etapa de no-estacionariedad
+seguidos por una etapa de sue\~no MOR.
+
+%Fueron analizaron los registros de PSG correspondientes a 9 adultos mayores, previamente 
+%diagnosticados a trav\'es de una bater\'ia de pruebas neuropsicol\'ogicas.
+%Se prest\'o especial atenci\'on a la etapa de sue\~no MOR, caracterizada por exhibir aton\'ia
+%muscular, actividad cerebral de baja amplitud y frecuencias mixtas, y movimientos oculares r\'apidos
+%(MOR).
+%Fueron halladas diferencias significativas s\'olo para el grupo control en las regiones frontales y 
+%posteriores, respecto a la presencia proporcional de estacionariedad d\'ebil medida durante sue\~no 
+%MOR y no-MOR.
+%Estos resultados sugieren, que durante el DC, cambia la din\'amica al transitar entre etapas 
+%del sue\~no, vista desde la PSG. 
+%%Se encontraron diferencis significativas en el grupo Control vs DC en las regiones 
+%%frontales y posteriores, que son acordes a la literatura.
+%Adicionalmente, se reporta una serie de patrones visuales respecto a la presencia de 
+%estacionariedad a trav\'es del tiempo, y que pudieran usarse para se\~nalar el sue\~no MOR de forma 
+%semi-autom\'atica.%, la cual no es detectada eficientemente actualmente.
 
 }
 
@@ -377,22 +420,22 @@ La cantidad $H_\alpha$, a veces referida como el 'color' de la se\~nal, est\'a a
 reporta que para registros de PSG correspondientes adultos mayores con PDC la cantidad $H_\alpha$ 
 es menor. Dado que un menor exponente de Hurst est\'a asociado con se\~nales cuya estructura es 
 'm\'as simple', cabe preguntarse si los registros de PSG en adultos mayores con PDC son 
-efectivamente diferentes --en cuanto a complejidad-- a sus contrapartes para individuos sanos. 
+efectivamente diferentes (en cuanto a complejidad) a sus contrapartes para individuos sanos. 
 
 En este trabajo se pretende comprobar la hip\'otesis anterior revisando si los registros de PSG en 
 adultos mayores con PDC poseen una caracter\'istica particular que tipifica se\~nales 'sencillas': 
 siendo que los registros de PSG son entendidos como generados por procesos estoc\'asticos, se 
-investiga si estos pueden considerarse como estacionarios --cuando menos en el sentido d\'ebil.
+investiga si estos pueden considerarse como estacionarios cuando menos en el sentido d\'ebil.
 Este supuesto es b\'asico en el estudio de series de tiempo, y usualmente se acepta o rechaza sin 
 un tratamiento formal.
 La idea de que los sujetos con PDC presentan, en mayor medida, estacionariedad d\'ebil en sus 
 registros de EEG fue sugerida por Cohen \cite{Cohen77}, quien a su vez se refiere a trabajos 
-anteriores sobre regularidad estad\'stica --estacionariedad y normalidad-- en registros de EEG \cite{McEwen75,Sugimoto78,Kawabata73}. 
+anteriores sobre regularidad estad\'stica (estacionariedad y normalidad) en registros de EEG \cite{McEwen75,Sugimoto78,Kawabata73}. 
 Si bien en estos primeros estudios se palpa la posibilidad de que los registros de EEG fueran
 ruido de alg\'un tipo, esta idea se ha probado \'erronea en estudios m\'as recientes 
 \cite{Klonowski09}; esta posibilidad se retoma a la luz de los resultados reportados por
 [Valeria] pues, como se mencion\'o, es en principio posible que los registros de EEG durante el 
-PDC tengan una estructura m\'as simple --m\'as aleatoria.
+PDC tengan una estructura m\'as simple (m\'as aleatoria).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1534,7 +1577,7 @@ el espacio de las frecuencias.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{El test de Priestley-Subba Rao}
+\subsection{Prueba de Priestley-Subba Rao}
 
 Esta t\'ecnica fue presentada por Priestley y Subba Rao en 1965 \cite{Priestley69}; muy grosso 
 modo, consiste en estimar el espectro del proceso 'localmente en muchos lugares', y luego 
@@ -1709,7 +1752,7 @@ Es muy destacable que las variables $\varepsilon$'s comparten la misma media y v
 de que --si se satisfacen las condiciones para las ventanas-- son aproximadamente 
 no-correlacionadas.
 
-El test de Priestley-Subba Rao, como se mencion\'o anteriormente, funciona calculando el 
+La prueba de Priestley-Subba Rao, como se mencion\'o anteriormente, funciona calculando el 
 estad\'stico $Y$ sobre varios puntos en el tiempo y la frecuencia, y luego revisando si se puede
 afirmar que el vector  $\left( Y(t,\omega_1), Y(t,\omega_2), \dots, Y(t,\omega_N) \right)$ sea 
 constante en el tiempo; de forma concreta --computacional-- se calcula la siguiente aproximaci\'on
@@ -1719,7 +1762,7 @@ constante en el tiempo; de forma concreta --computacional-- se calcula la siguie
 \end{equation*}
 donde $\sigma^{2} = \Var{\varepsilon(t,\omega)}$, y
 $\overline{Y}(\bullet,\omega) = \frac{1}{M} \sum_{j=1}^{M} Y(t_j,\omega)$.
-Con esta caracterizaci\'on se puede usar un test ANOVA de manera relativamente f\'acil.
+Con esta caracterizaci\'on se puede usar una prueba ANOVA de manera relativamente f\'acil.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1846,10 +1889,11 @@ trabajo, adem\'as de algunos datos generales de estos mismos sujetos.
 }
 \end{table}
 
-Cabe mencionar que, aunque se aplic\'o la bater\'ia entera de test neuropsicol\'ogicos mencionados
+Cabe mencionar que, aunque se aplic\'o la bater\'ia entera de pruebas 
+neuropsicol\'ogicos mencionados
 anteriormente, se ha valorado fuertemente el resultado de Neuropsi dentro del diagn\'ostico de PDC
 como conclusi\'on del trabajo original \cite{VazquezTagle16}.
-Se han inclu\'ido los resultados de la bater\'ia completa de test con el fin de citarla en la 
+Se han inclu\'ido los resultados de la bater\'ia completa de pruebas con el fin de citarla en la 
 discusi\'on, ya que cada uno se 'especializa' en aspectos particulares --atenci\'on, memoria a 
 corto y largo plazo, memoria declarativa y de trabajo, etc; si bien no se profundizar\'a en estos
 conceptos, no puede omitirse el hecho que estas actividades espec\'ificas se consideran localizadas 
@@ -2001,7 +2045,7 @@ caracter\'isticas son similares a las de la fase 3.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Aplicaci\'on del test de Priestley-Subba Rao}
+\section{Aplicaci\'on de la prueba de Priestley-Subba Rao}
 
 Para el an\'alisis de los registros de PSG se us\'o el software estad\'istico R\cite{R_citar}, 
 as\'i como el paquete \texttt{fractal} \cite{R_fractal}.
@@ -2014,7 +2058,7 @@ muestreo de cada sujeto.
 %\'epocas de sue\~no MOR
 Las \'epocas MOR y NMOR, previamente clasificadas, fueron se\~naladas en archivos a parte.
 
-Como se mencion\'o anteriormente, el test PSR est\'a pensado para series de tiempo de media 0, 
+Como se mencion\'o anteriormente, la prueba PSR est\'a pensado para series de tiempo de media 0, 
 varianza finita y espectro puramente continuo (ver secciones anteriores). Si bien la segunda 
 condici\'on se ha supuesto satisfecha, las otras dos son 'forzadas' aplicando  un filtro que 
 elimine la media y la componente peri\'odica.
@@ -2025,15 +2069,15 @@ En este trabajo se usa el algoritmo no-param\'etrico Seasonal-Trend decompositio
 %filtro.
 
 %Con respecto al test PSR, sus detalles te\'oricos fueron discutidos en secciones anteriores.
-Los detalles te\'oricos del test PSR fueron discutidos con anterioridad. A modo de resumen: se 
+Los detalles te\'oricos de la prueba PSR fueron discutidos con anterioridad. A modo de resumen: se 
 estima localmente la SDF para algunos tiempos y frecuencias puntuales, se obtiene el logaritmo de
 su m\'odulo, y se procede a revisar si las cantidades obtenidas son estad\'isticamente constantes
 en el tiempo --como prueba de hip\'otesis.
-El test PSR se encuentra implementado en R bajo la funci\'on \texttt{stationarity()} del paquete 
+La prueba PSR se encuentra implementado en R bajo la funci\'on \texttt{stationarity()} del paquete 
 \texttt{fractal}; en la figura \ref{res_psr} puede verse un ejemplo de los resultados de esta 
 funci\'on en la consola de R.
 
-Los resultados del test PSR, aplicado a todas las \'epocas contenidas en los registros de PSG,
+Los resultados de la prueba PSR, aplicado a todas las \'epocas contenidas en los registros de PSG,
 fueron almacenados para su an\'alisis posterior, mismo que se presenta m\'as adelante.
 
 \begin{figure}
@@ -2076,7 +2120,7 @@ hip\'otesis de estacionariedad d\'ebil --en el tiempo.}
 \chapter{Resultados}
 
 En cada canal que conforma el PSG (EEG, EOG y EMG), cada \'epoca registrada fue clasificada como 
-'posiblemente estacionaria' (PE) si, usando el test PSR no pudo rechazarse la hip\'otesis de 
+'posiblemente estacionaria' (PE) si, usando la prueba PSR no pudo rechazarse la hip\'otesis de 
 estacionariedad ($\alpha < 0.05$), o como 'no--estacionaria' en caso contrario.
 La cantidad de \'epocas PE en cada individuo, durante el sue\~no MOR y NMOR, se muestra en las 
 tablas \ref{total_gpos_mor}, \ref{total_gpos_nmor} y \ref{total_gpos_total}. Debido a la gran 
@@ -2204,7 +2248,7 @@ para el grupo Control (ver texto)}
 \section{Patrones visuales}
 
 Como un an\'alisis exploratorio, buscando explicar la variabilidad entre los resultados, se 
-graficaron los resultados obtenidos con el test PSR de la siguiente manera: se colocan en 
+graficaron los resultados obtenidos con la prueba PSR de la siguiente manera: se colocan en 
 l\'inea horizontal una serie de cuadros, uno por cada \'epoca analizada seg\'un fue clasificada 
 (blanco: PE, negro: no-estacionario), y posteriormente se juntaron verticalmente las l\'ineas
 correspondientes a los diferentes canales; en la figura \ref{ejemplo_graf} se muestra un ejemplo de
@@ -2226,7 +2270,7 @@ abundante en \'epocas no-estacionarias en esta zona del tiempo
 \begin{figure}
 \includegraphics[width=\textwidth]
 {./g170413/MJNNVIGILOS_est.png}
-\caption{Disposici\'on gr\'afica para los resultados del test PSR en el sujeto MJH. Se han 
+\caption{Disposici\'on gr\'afica para los resultados de la prueba PSR en el sujeto MJH. Se han 
 resaltado con color verde las \'epocas clasificadas como de sue\~no MOR.
 }
 \label{ejemplo_graf}
@@ -2467,7 +2511,7 @@ cerebro.
 En particular, un marcador conocido del deterioro cognitivo es el 'enlentecimiento de la actividad
 cerebral', entendido como un cambio en la concentraci\'on de energ\'ia desde ondas r\'apidas a 
 ondas lentas.
-Dado que para detectar la estacionariedad \'ebil se ha usado un test basado en estimadores para la 
+Dado que para detectar la estacionariedad \'ebil se ha usado una prueba basado en estimadores para la 
 SDF, fue recomendado en repetidas ocasiones el usar como tal la SDF estimada. 
 M\'as \'un, si bien los estimadores espectrales de ventana son un m\'etodo viejo, es un m\'etodo 
 bastante r\'apido (de orden $N \log{N}$) y que admite una interpretaci\'on relativamente sencilla 
