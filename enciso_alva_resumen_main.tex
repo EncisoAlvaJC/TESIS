@@ -105,6 +105,7 @@
 \newcommand{\intR}{\int_{-\infty}^{\infty}}
 \newcommand{\intZ}{\int_{-\infty}^{0}}
 \newcommand{\intPI}{\int_{-\pi}^{\pi}}
+\newcommand{\simint}[1]{\int_{- #1 }^{ #1 }}
 \newcommand{\prima}{^{\prime}}
 
 \newcommand{\ddd}{$\delta$}
@@ -180,42 +181,7 @@ como posible marcador de deterioro cognitivo}
 %\end{center}
 {
 \setstretch{1.0}
-%%\begin{center}
-%%\includegraphics[width=0.2\linewidth]{./portada/logo_uaeh.png}\\
-%%{\Large \textbf{ \textsc{
-%%Universidad Aut\'onoma del Estado de Hidalgo\\
-%%Instituto de Ciencias B\'asicas e Ingenier\'ia\\
-%%}}
-%%\vspace*{2em}
-%%}
-%%{\LARGE
-%%Estacionariedad d\'ebil en registros polisomnogr\'aficos de adultos mayores,
-%%como posible marcador de deterioro cognitivo\\
-%%\vspace*{2em}
-%%}
-%%{\large
-%%\textbf{Presenta}\\
-%%%\vspace*{.5em}
-%%}
-%%{\Large
-%%Julio Cesar Enciso Alva\\
-%%\vspace*{2em}
-%%}
-%%{\large
-%%\textbf{Bajo la direcci\'on de}\\
-%%%\vspace*{.5em}}
-%%
-%%{\Large
-%%Dra. Ericka Elizabeth Rodr\'iguez Torres\\
-%%Dr. Jorge Viveros Rogel\\
-%%\vspace*{2em}
-%%}
-%%{\large
-%%Pachuca, Hidalgo, mayo de 2017\\
-%%M\'exico
-%%}
-%%
-%%\end{center}
+
 \begin{center}
 \includegraphics[width=0.2\linewidth]{./portada/logo_uaeh.png}\\
 {\Large \textbf{ \textsc{
@@ -267,95 +233,46 @@ M\'exico
 
 {\small
 
-%Los avances m\'edicos del \'ultimo siglo se han traducido en un incremento tanto en la esperanza
-%de vida como en la calidad de la misma; sin embargo, aumenta la presencia de enfermedades 
-%no-transmisibles asociadas con la edad, entre ellas la demencia y la
-%enfermedad de Alzheimer.
-%Recientemente, los trastornos del sue\~no han sido se\~nalados como relacionados con el deterioro 
-%cognitivo (DC) durante la vejez.
 %% \cite{Amer13,Miyata13,Potvin12}
 
 Si bien los avances m\'edicos del \'ultimo siglo se han traducido en un incremento tanto en la 
-esperanza de vida como en la calidad de la misma, se ha observado \cite{PlanAlzheimer04} 
-un incremento en la presencia 
-de enfermedades no-transmisibles asociadas con la edad, de entre las cuales destacaremos la 
-demencia.
-En particular, se cuenta con estudios estad\'isticos \cite{Amer13,Miyata13,Potvin12}
-que sugieren una relaci\'on entre los 
-trastornos del sue\~no y el deterioro cognitivo (DC) que ocurre durante la vejez.
-%Este trabajo se centra en la posibilidad de la existencia de dicha relaci\'on, y pretende aportar
-%marcadores de misma para su uso cl\'inico.
+esperanza de vida como en la calidad de la misma, se ha observado \cite{PlanAlzheimer04} un 
+incremento en la presencia de enfermedades no-transmisibles asociadas con la edad, de entre las 
+cuales destacaremos la demencia.
+En particular, se cuenta con estudios estad\'isticos \cite{Amer13,Miyata13,Potvin12} que sugieren 
+una relaci\'on entre los trastornos del sue\~no y el deterioro cognitivo (DC) que ocurre durante 
+la vejez.
 % \cite{Amer13,Miyata13,Potvin12}
-Este trabajo pretende identificar marcadores cl\'inicos para el deterioro cognitivo, 
-derivados de tal relaci\'on.
+Este trabajo pretende identificar marcadores cl\'inicos para el deterioro cognitivo, derivados de 
+tal relaci\'on.
 
-El objeto de estudio del presente trabajo consiste en registros de actividad cerebral %y muscular
-durante el sue\~no nocturno (polisomnograf\'ia, PSG). La modelaci\'on matem\'atica de estos 
-registros los 
-entiende como como procesos estoc\'asticos a tiempo continuo, y usualmente se presupone 
-tienes las siguientes propiedades:
-%cuyas propiedades son, por naturaleza,
-no-estacionarias, no-lineales y sin-equilibrio. La no-estacionariedad es de particular
-relevancia, por ejemplo, en el an\'alisis de fractalidad y en la obtenci\'on del espectro de
-potencias de estas se\~nales; sin embargo, esta propiedad rara vez se verifica.
-De hecho se ha sugerido \cite{McEwen75,Cohen77,Sugimoto78} 
-que en casos at\'ipicos, como el del DC, la no-estacionariedad podr\'ia
-no estar presente. En este trabajo se investiga la posibilidad de que los registros de PSG en adultos
-mayores puedan modelarse efectivamente como procesos d\'ebilmente estacionarios.
-Para verificar lo anterior se utiliza la prueba propuesta por Priestley y Subba Rao, que
-consiste en la estimaci\'on local del espectro de potencias (para procesos estoc\'asticos) y su
+El objeto de estudio del presente trabajo consiste en registros de actividad cerebral durante el 
+sue\~no nocturno (polisomnograf\'ia, PSG). La modelaci\'on matem\'atica de estos registros los 
+entiende como como procesos estoc\'asticos a tiempo continuo, y usualmente se presupone tienes las 
+siguientes propiedades: no-estacionarias, no-lineales y sin-equilibrio. La no-estacionariedad es de 
+particular relevancia, por ejemplo, en el an\'alisis de fractalidad y en la obtenci\'on del 
+espectro de potencias de estas se\~nales; sin embargo, esta propiedad rara vez se verifica.
+De hecho se ha sugerido \cite{McEwen75,Cohen77,Sugimoto78} que en casos at\'ipicos, como el del DC, 
+la no-estacionariedad podr\'ia no estar presente. 
+En este trabajo se investiga la posibilidad de que los registros de PSG en adultos mayores puedan 
+modelarse efectivamente como procesos d\'ebilmente estacionarios.
+Para verificar lo anterior se utiliza la prueba propuesta por Priestley y Subba Rao, que consiste 
+en la estimaci\'on local del espectro de potencias (para procesos estoc\'asticos) y su 
 comparaci\'on a trav\'es del tiempo.
 
-%%En la modelaci\'on matem\'atica, usualmente se supone que las se\~nales electrofisiol\'ogicas son 
-%%no-estacionarias, 
-%%%no-lineales y sin-equilibrio por naturaleza, 
-%%aunque estas propiedades no suelen 
-%%ser confirmadas formalmente; se ha sugerido que en casos at\'ipicos (como el DC), esto podr\'ia no ser cierto.
-%%%\cite{McEwen75,Cohen77,Sugimoto78},
-%%%lo qu epodr\'ia explicar los resultados reportados en un trabajo anterior.% [Valeria]. 
-%%En este trabajo se investiga la posibilidad de que los registros de actividad cerebral durante el 
-%%sue\~no (polisomnograf\'ia, PSG) en personas con DC exhiban una 
-%%%estructura m\'as simple, en el sentido de 
-%%puedan modelarse como
-%%%tratarse de 
-%%series d\'ebilmente estacionarias.
-%%Para ello, se utiliza la prueba propuesta por Priestley y Subba Rao,
-%%%\cite{Priestley69}, 
-%%que consiste en la estimaci\'on local del espectro de potencias (para procesos estoc\'asticos) y 
-%%su comparaci\'on en el tiempo.
+Fueron analizados registros de PSG correspondientes a adultos mayores diagn\'osticados, a trav\'es 
+de pruebas neuropsicol\'ogicas, como controles o con DC (5 y 4 sujetos, respectivamente). 
+Se prest\'o especial atenci\'on a la etapa de sue\~no denominada MOR, caracterizada por exhibir 
+aton\'ia muscular, actividad cerebral de baja amplitud y frecuencias mixtas, y movimientos oculares 
+r\'apidos (de ah\'i su acr\'onimo).
+Se encontr\'o, solamente en el grupo control, que existen diferencias significativas respecto al 
+porcentaje de tiempo que las se\~nales son estacionarias, en las regiones frontal y posterior.
+Estos resultados sugieren que, en presencia de DC, cambia la organizaci\'on funcional del cerebro 
+al transitar entre etapas de sue\~no.
 
-Fueron analizados registros de PSG correspondientes a adultos mayores diagn\'osticados,
-a trav\'es de pruebas 
-neuropsicol\'ogicas, como controles o con DC (5 y 4 sujetos, respectivamente). 
-Se prest\'o especial
-atenci\'on a la etapa de sue\~no denominada MOR, caracterizada por exhibir aton\'ia muscular, 
-actividad cerebral de baja amplitud y frecuencias mixtas, y movimientos oculares r\'apidos (de 
-ah\'i su acr\'onimo).
-Se encontr\'o, solamente en el grupo control, que existen diferencias significativas
-respecto al porcentaje de tiempo que las se\~nales son estacionarias, en las regiones 
-frontal y posterior.
-Estos resultados sugieren que, en presencia de DC, cambia la organizaci\'on funcional del cerebro al
-transitar entre etapas de sue\~no.
-
-Por \'ultimo destacamos que en adultos mayores sin DC es posible reconocer, a simple vista,
+Por \'ultimo destacamos que en adultos mayores sin DC es posible reconocer, a simple vista, 
 patrones muy definidos de etapas de estacionariedad/no-estacionariedad que, en un orden 
 espec\'ifico, son consistentes con la aparici\'on del sue\~no MOR.
-
-%Fueron analizaron los registros de PSG correspondientes a 9 adultos mayores, previamente 
-%diagnosticados a trav\'es de una bater\'ia de pruebas neuropsicol\'ogicas.
-%Se prest\'o especial atenci\'on a la etapa de sue\~no MOR, caracterizada por exhibir aton\'ia
-%muscular, actividad cerebral de baja amplitud y frecuencias mixtas, y movimientos oculares r\'apidos
-%(MOR).
-%Fueron halladas diferencias significativas s\'olo para el grupo control en las regiones frontales y 
-%posteriores, respecto a la presencia proporcional de estacionariedad d\'ebil medida durante sue\~no 
-%MOR y no-MOR.
-%Estos resultados sugieren, que durante el DC, cambia la din\'amica al transitar entre etapas 
-%del sue\~no, vista desde la PSG. 
-%%Se encontraron diferencis significativas en el grupo Control vs DC en las regiones 
-%%frontales y posteriores, que son acordes a la literatura.
-%Adicionalmente, se reporta una serie de patrones visuales respecto a la presencia de 
-%estacionariedad a trav\'es del tiempo, y que pudieran usarse para se\~nalar el sue\~no MOR de forma 
-%semi-autom\'atica.%, la cual no es detectada eficientemente actualmente.
 
 }
 
@@ -1014,154 +931,159 @@ tener (cuando menos) segundos momentos bien definidos.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Espectro de potencias para procesos estacionarios}
+\subsection{Espectro de potencias para procesos estoc\'asticos}
 
-Existe una larga tradici\'on en las ciencias biom\'edicas para interpretar a los registros
-electrofisiol\'ogicos en t\'erminos de ondas y frecuencias, ya que fundamentalmente se trata de 
-fen\'omenos el\'ectricos \cite{Kaiser00}. As\'imismo existe una teor\'ia matem\'atica bien 
-desarrollada sobre estad\'istica en el llamado 'dominio de las frecuencias'. 
-En este trabajo se aborda la segunda como forma de tener coherencia con la primera; a 
-continuaci\'on se describen los conceptos m\'as importantes en el modelo usado.
-
-Un objeto fundamental para el estudio del 'dominio de las frecuencias'
-%\footnote{Este concepto no se ser\'a manejado pragm\'aticamente para referirse al cambio de 
-%coordenadas inducido por la transformada de Fourier o alguna generalizaci\'on de la misma} 
-son las series de Fourier y sus generalizaciones. 
+Existe una larga tradici\'on en ciencias biom\'edicas para entender/modelar las se\~nales
+electrofisiol\'ogicos en t\'erminos de ondas y frecuencias, ya que fundamentalmente son
+fen\'omenos el\'ectricos \cite{Kaiser00}. 
+%As\'imismo existe una teor\'ia matem\'atica bien 
+%desarrollada sobre estad\'istica en el llamado 'dominio de las frecuencias'. 
+%En este trabajo se aborda la segunda como forma de tener coherencia con la primera; a 
+%continuaci\'on se describen los conceptos m\'as importantes en el modelo usado.
+%Un objeto fundamental para el estudio del 'dominio de las frecuencias'
+%%\footnote{Este concepto no se ser\'a manejado pragm\'aticamente para referirse al cambio de 
+%%coordenadas inducido por la transformada de Fourier o alguna generalizaci\'on de la misma} 
+%son las series de Fourier y sus generalizaciones. 
+En matem\'aticas, estos modelos est\'an t\'ipicamente asociados con las series de Fourier
+que se muestran en la definici\'on \ref{FourierClasico} en su formulaci\'on 'cl\'asica'
+para exponentes en los complejos. Otro objeto destacable es la funci\'on que relaciona 
+funciones pri\'odicas con sus respectivas series de Fourier, referida como la transformada de
+Fourier (definici\'on \ref{trFourier}).
 
 \begin{defn}[Serie de Fourier]
-Sea $f$ una funci\'on peri\'odica con periodo $2\pi$ tal que $\intR \abso{f(t)} dt < \infty$. Si se 
-calculan los coeficientes
+Sea $k$ una funci\'on real peri\'odica (con periodo $2T$) tal que 
+$\simint{T} \abso{k(t)} dt < \infty$. 
+Se le llamar\'a 'serie de Fourier para la funci\'on $k$' a la sucesi\'on
+$\left( A_n \right)$, calculada de la siguiente manera
 \begin{equation*}
-A_n = \frac{1}{2\pi} \intPI f(t) e^{- i n t} dt
+A_n = \frac{1}{2 T} \simint{T} k(t) e^{-\nicefrac{ i n t}{2T}} dt
 \end{equation*}
-entonces la siguiente igualdad se cumple casi en todas partes
-\begin{equation*}
-f(x) = \sum_{n=-\infty}^{\infty} A_n e^{i n t}
-\end{equation*}
-La sucesi\'on $\left( A_n \right)$ ser\'a referida como \textbf{serie de Fourier} de la funci\'on
-$f$.
 \label{FourierClasico}
 \end{defn}
 
-En este trabajo no se discutir\'an los detalles sobre la convergencia de las sucesiones de 
-\ref{FourierClasico}, siempre que se limite a funciones peri\'odicas, continuas y absolutamente 
-sumables, o se permita que sean acotadas y con una cantidad finita de discontinuidades --y se ponga 
-ninguna atenci\'on sobre ellas.
-Parece claro que se puede definir una funci\'on --quiz\'a invertible-- que mapee funciones a sus 
-respectivas series de Fourier; esta funci\'on es referida como \textbf{transformada de Fourier}. 
-Por lo pronto se considerar\'a que las propiedades y limitaciones de la transformada de Fourier son 
-conocidas al menos a grosso modo, m\'as que nada por brevedad; se pretende exhibir el espectro de 
-potencias para una serie de tiempo como una extensi\'on de la transformada de Fourier de modo que 
-se espera poder enfatizar sobre algunas interpretaciones dentro de la modelaci\'on.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\subsubsection{Notas sobre interpretaci\'on f\'isica}
-
-Las series de Fourier gozan de una interpretación física muy extendida como que una se\~nal
-\footnote{Esta palabra se usar\'a para referirse a un fen\'omeno f\'isisco que est\'a siendo 
-registrado, bajo el entendido que es casi lo mismo referirse al registro o al proceso que lo genera 
-si \'este es determinista} peri\'odica puede verse como la superposici\'on de se\~nales 
-peri\'odicas m\'as simples. 
-De igual forma es destacable su interpretaci\'on como ''coordenadas'' en un espacio de funciones
-dada una base ortonormal del mismo. 
-El estudio de estos espacios dentro del an\'alisis trae a la mente la cuesti\'on de convergencia,
-el problema del subespacio de funciones medibles de medida cero, y la posibilidad de otras bases; 
-estos fen\'omenos tienen a su  vez una interpretaci\'on f\'isica como cambios s\'ubitos en la 
-energ\'ia, el ruido y la tipificaci\'on de ondas ''simples'' --por ejemplo, las ondas cuadradas y 
-triangulares son comunes en teor\'ia de circuitos.
-
-Para limar estas ambig\"uedades, en este trabajo se considerar\'a la base de Fourier como la 'm\'as 
-natural' por su conexi\'on simple con las exponenciales complejas. El t\'ermino 'ruido' ser\'a 
-evitado en la medida de lo posible ya que, en la terminolog\'ia de se\~nales, suele referirse a 
-registros con un comportamiento err\'atico y poco predecible; dentro del contexto de 
-electrofisiolog\'ia, tal descricpi\'on bien puede englobar tanto se\~nales que se desea estudiar, 
-como interferencias y errores.
-Conviene definir un tipo de 'regularidad estoc\'astica' que sirva para distinguir los patrones 
-buscados de errores de medici\'on e interferencias.
-
-\begin{defn}[Continuidad estoc\'astica (media cuadr\'atica)]
-Un proceso estoc\'astico a tiempo continuo $\{ X(t) \}$ es estoc\'asticamente continuo (en el 
-sentido de media cuadr\'atica) en un tiempo admisible $t_0$ si y s\'olo si
-\begin{equation*}
-\lim_{t \rightarrow t_0} \E{\left( X(t) - X(t_0) \right)^{2}} = 0
-\end{equation*}
-\label{cont_est}
+\begin{defn}[Transformada de Fourier]
+Sea $P_T$ el espacio de las funciones peri\'odicas con periodo $2T$ que tienen una
+serie de Fourier bien definida. Existe una funci\'on
+$\mathfrak{F}$ que mapea cada funci\'on a su
+respectiva serie de Fourier, y \'esta ser\'a referida como la transformada de Fourier
+\label{trFourier}
 \end{defn}
 
-Una forma natural de pensar en la definici\'on \ref{cont_est} es esperar que, en promedio,
-$\lim_{t \rightarrow t_0} \left( X(t) - X(t_0) \right)^{2} = 0$. 
-No es la \'unica forma de presentar un l\'imite de variables aleatorias, sino que se ha elegido esta 
-forma por algunas propiedades que ser\'an explotadas m\'as adelante. 
-As\'imismo cabe destacar que un proceso estoc\'asticamente continuo no necesariamente produce 
-realizaciones que son funciones continuas, sino que sus realizaciones deben ser continuas casi en 
-todas partes\footnote{Una funci\'on es \textit{continua casi en todas partes} si es continua en 
-todo su dominio excepto por un conjunto de medida cero}.
+%entonces la siguiente igualdad se cumple casi en todas partes\footnote{Una propiedad se dice es 
+%satisfecha \textbf{casi en todas partes} si se cumple en un conjunto cuyo complemento tiene 
+%medidad cero; en este caso particular, se toman los reales con la medida usual} 
+%\begin{equation*}
+%f(x) = \sum_{n=-\infty}^{\infty} A_n e^{i n t}
+%\end{equation*}
 
-De manera m\'as general, cabe mencionar un teorema que permite tipificar de manera m\'as
-adecuada esta clase de procesos.
+Como se mencion\'o, en este trabajo se suponene conocidas las propiedades de 
+las series de Fourier (seg\'un la definici\'on \ref{FourierClasico}),
+%no se discutir\'an detalles sobre cu\'ando est\'an bien definidas, o la convergencia de 
+%las sumas indicadas,
+%siempre que se limite su uso a funciones peri\'odicas acotadas absolutamente sumables 
+%(en un intervalo hasdask), ignorando el comportamiento de la serie en puntos de discontinuidad.
+%sumables, o se permita que sean acotadas y con una cantidad finita de discontinuidades --y se ponga 
+%ninguna atenci\'on sobre ellas.
+%Parece claro que se puede definir una funci\'on --quiz\'a invertible-- que mapee funciones a sus 
+%respectivas series de Fourier; esta funci\'on es referida como \textbf{transformada de Fourier}. 
+%Por lo pronto se considerar\'a que las propiedades y limitaciones de la transformada de Fourier son 
+%conocidas al menos a grosso modo, m\'as que nada por brevedad; se pretende exhibir el espectro de 
+%potencias para una serie de tiempo como una extensi\'on de la transformada de Fourier de modo que 
+%se espera poder enfatizar sobre algunas interpretaciones dentro de la modelaci\'on.
+de entre las cuales se destacan las siguientes:
+\begin{itemize}
+\item Las series de Fourier  son cuadrado-sumables\footnote{Una sucesi\'oin $\left( S_n \right)$ 
+se dice cuadrado-integrable si cumple que $\sum_{n\in \mathbb{Z}} \abso{S_n}^{2} < \infty$. El
+conjunto de estas series es denotado por $\ell^{2}$}
 
-\begin{thrm}
-Un proceso d\'ebilmente estacionario a tiempo continuo es estoc\'asticamente continuo si y s\'olo 
-si su funci\'on de autocorrelaci\'on es continua en 0
-\end{thrm}
+\item La transformada de Fourier, $\mathfrak{F}$, no es invertible en general. Es com\'un definir
+una pseudoinversa como 
+$\mathfrak{F}_{\text{inv}} : \left( A_n \right) \mapsto \sum_{n \in \mathbb{Z}} A_n e^{\nicefrac{i n t}{2 T}} $
+\end{itemize}
 
-Con esta segunda caracterizaci\'on a la mano, es f\'acil afirmar que un proceso ruido blanco no es 
-estoc\'asticamente continuo, ya que su funci\'on de autocorrelaci\'on vale 0 en todos los puntos
-excepto en 0, donde vale 1. 
-El proceso de Wiener, en cambio, es el arquetipo de un proceso estoc\'asticamente continuo.
+%Una vez mencionada la transformada de Fourier como una funci\'on de un espacio de funciones a 
+%un espacio de sucesiones
 
-En este trabajo se supondr\'a que los registros de PSG corresponden a realizaciones de procesos 
-estoc\'asticamente continuos; se considera la posibilidad de que est\'en 'contaminados' por 
-'ruidos', entendidos como procesos independientes de los potenciales de campo en el cerebro, de 
-amplitud negligible y que ''muy posiblemente'' son estoc\'asticamente discontinuos casi en todas 
-partes.
+%\subsubsection{Notas sobre interpretaci\'on f\'isica}
 
-Con respecto al concepto de energ\'ia, en este trabajo se usar\'a un resultado usual de teor\'ia de 
-circuitos, pero que formalmente fungir\'a como definici\'on: la energ\'ia disipada por la se\~nal 
-$f$ est\'a dada por la expresi\'on \ref{energia}; si se divide tal expresi\'on por $T$ se obtiene 
-la \textit{potencia} (energ\'ia por unidad de tiempo)
+La transformada de Fourier goza de una interpretación física muy extendida, seg\'un la cual 
+toda se\~nal
+%\footnote{Esta palabra se usar\'a para referirse a un fen\'omeno f\'isisco que est\'a siendo 
+%registrado, bajo el entendido que es casi lo mismo referirse al registro o al proceso que lo genera 
+%si \'este es determinista} 
+peri\'odica puede verse como la superposici\'on (suma) de funciones senoidales de diferentes
+frecuencias\footnote{De manera pragm\'atica, en el presente trabajo la palabra 'frecuencia' se usar\'a
+para referirse a la cantidad $q$ en expresiones del tipo $e^{i q t}$} que 'no interact\'uan entre s\'i' 
+--presuponiendo que
+las se\~nales pueden sumarse y multiplicarse por escalares de la manera usual. 
+Formalmente, esta afirmaci\'on es equivalente a que el conjunto de funciones peri\'odicas (suficientemente
+regulares) tiene la estructura de espacio vectorial, y que \'este admite una base de funciones
+senoidales ortonormales (referida como la base de Fourier). 
+Sin embargo, adquiere mayor relevancia
+la interpretaci\'on f\'isica en el momento
+que se exhibe el concepto de energ\'ia\footnote{De manera equivalente se define la potencia de la 
+se\~nal como $\text{Potencia}_{[a,b]} = \frac{1}{b-a} \text{Energ\'ia}_{[a,b]}$} 
+para una se\~nal (definici\'on \ref{energia}), ya que 
+bien puede mezclarse con el teorema \ref{parseval_serie} para admitir una interpretaci\'on m\'as
+audaz: toda se\~nal peri\'odica puede verse como suma de se\~nales peri\'odicas \textbf{y}
+su energ\'ia puede verse como la sumatoria de los respectivos 'aportes' de estas se\~nales,
+entiendos como el m\'odulo de las amplitudes en la frecuencia dada.
 
-\begin{equation}
-\int_{-T}^{T} \abso{f\left(t\right)}^{2} dt
-\label{energia}
-\end{equation}
+%De igual forma es destacable su interpretaci\'on como ''coordenadas'' en un espacio de funciones
+%dada una base ortonormal del mismo. 
+%El estudio de estos espacios dentro del an\'alisis trae a la mente la cuesti\'on de convergencia,
+%el problema del subespacio de funciones medibles de medida cero, y la posibilidad de otras bases; 
+%estos fen\'omenos tienen a su  vez una interpretaci\'on f\'isica como cambios s\'ubitos en la 
+%energ\'ia, el ruido y la tipificaci\'on de ondas ''simples'' --por ejemplo, las ondas cuadradas y 
+%triangulares son comunes en teor\'ia de circuitos.
 
-Vale la pena mencionar que este concepto de energ\'ia, como integral de una forma cuadr\'atica, es 
-com\'un a varias ramas de la f\'isica y se encuentra ampliamente extendido en las ingenier\'ias; en 
-la econom\'ia, en cambio, no hay una motivaci\'on clara para hacer uso de este concepto. 
-%Las t\'ecnicas electrofisi\'ologicas, concebidas dentro de la teor\'ia de circuitos, hereda la
-%terminolog\'ia e interpretaci\'on de energ\'ia.
-En este trabajo no s\'olo se contempla como 'muy natural' la idea de energ\'ia en los campos 
-el\'ectricos del cerebro, sino que se supondr\'a que esta es acotada para cualquier intervalo 
-finito.
-
-Contemplando este panorama, conviene se\~nalar una relaci\'on cl\'asica entre la energ\'ia de una 
-se\~nal peri\'odica y su serie de Fourier (teorema \ref{parseval_serie}); tal idea ser\'a de gran 
-importancia posteriormente en este trabajo.  
-
-\begin{defn}[Relaci\'on de Parseval (funciones peri\'odicas)]
-Sea $f$ una funci\'on peri\'odica de periodo $2T$ tal que acepta una representaci\'on como serie de 
-Fourier
+\begin{defn}[Energ\'ia de una se\~nal]
+Sea $k$ una funci\'on real que modela una se\~nal. La energ\'ia dispada por $k$ en el intervalo de
+tiempo $[a,b]$ est\'a dada por
 \begin{equation*}
-f(x) = \sum_{n=-\infty}^{\infty} A_n e^{i n t}
+\text{Energ\'ia}_{[a,b]} = 
+\int_{a}^{b} \abso{k\left(t\right)}^{2} dt
 \end{equation*}
-con $A_n = \frac{1}{2\pi} \intPI f(t) e^{- i n t} dt$. Entonces se cumple que
+\label{energia}
+\end{defn}
+
+\begin{thrm}[Relaci\'on de Parseval]
+Sea $k$ una funci\'on peri\'odica (de periodo $2T$) que admite una serie de Fourier bien definida
+$(A_n)$. Se cumple que
 \begin{equation*}
-\int_T^{T} X^{2}(t) dt = \sum_{n=-\infty}^{\infty} \abso{A_n}
+\int_T^{T} X^{2}(t) dt = \sum_{n=-\infty}^{\infty} \abso{A_n}^{2}
 \end{equation*}
 \label{parseval_serie}
-\end{defn}
+\end{thrm}
 
-Aunque esta afirmaci\'on es relativamente simple desde la \'optica del An\'alisis funcional, tiene 
-una interpretaci\'on f\'isica importante: si una se\~nal puede descomponerse como una 
-transposici\'on (suma) de se\~nales ortogonales simples, entonces su energ\'ia debe ser la suma de 
-las energ\'ias asociadas a cada una de estas se\~nales. M\'as a\'un, un cambio en alguna de las 
-se\~nales ortogonales (base) afecta a la cantidad total de energ\'ia --pero no a las otras 
-se\~nales base.
-Incluso, la independencia de las se\~nales base sugiere que la energ\'ia puede ser tratada 
-separadamente para cada se\~nal base. Luego, el m\'odulo de la serie de Fourier indica de cierto 
+%Con respecto al concepto de energ\'ia, en este trabajo se usar\'a un resultado usual de teor\'ia de 
+%circuitos, pero que formalmente fungir\'a como definici\'on: la energ\'ia disipada por la se\~nal 
+%$f$ est\'a dada por la expresi\'on \ref{energia}; si se divide tal expresi\'on por $T$ se obtiene 
+%la \textit{potencia} (energ\'ia por unidad de tiempo)
+
+Es importante mencionar que la energ\'ia, entendida como la integral de una forma cuadr\'atica, es 
+un concepto
+com\'un a varias ramas de la f\'isica y las ingenier\'ias; en cambio,
+en econom\'ia o en epidemiolog\'ia, por ejemplo, no hay una motivaci\'on clara para usar el concepto
+de energ\'ia seg\'un \ref{energia}.
+%Las t\'ecnicas electrofisi\'ologicas, concebidas dentro de la teor\'ia de circuitos, hereda la
+%terminolog\'ia e interpretaci\'on de energ\'ia.
+En el presente trabajo no s\'olo se manejar\'a este concepto de energ\'ia, sino que se supondr\'a
+que los registros de PSG contienen energ\'ia finita para cualquier intervalo finito de tiempo.
+
+%Contemplando este panorama, conviene se\~nalar una relaci\'on cl\'asica entre la energ\'ia de una 
+%se\~nal peri\'odica y su serie de Fourier (teorema \ref{parseval_serie}); tal idea ser\'a de gran 
+%importancia posteriormente en este trabajo.  
+
+%Aunque esta afirmaci\'on es relativamente simple desde la \'optica del An\'alisis funcional, tiene 
+%una interpretaci\'on f\'isica importante: si una se\~nal puede descomponerse como una 
+%transposici\'on (suma) de se\~nales ortogonales simples, entonces su energ\'ia debe ser la suma de 
+%las energ\'ias asociadas a cada una de estas se\~nales. M\'as a\'un, un cambio en alguna de las 
+%se\~nales ortogonales (base) afecta a la cantidad total de energ\'ia --pero no a las otras 
+%se\~nales base.
+%Incluso, la independencia de las se\~nales base sugiere que la energ\'ia puede ser tratada 
+%separadamente para cada se\~nal base. 
+Luego, el m\'odulo de la serie de Fourier indica de cierto 
 modo c\'omo se distribuye la energ\'ia (o potencia) sobre las se\~nales base; por esta raz\'on se 
 le suele referir como \textbf{espectro de potencia}\footnote{Dada esta discusi\'on, conviene 
 distinguir el \textit{espectro de potencia no-normalizado} como la energ\'ia definida como en 
@@ -1222,6 +1144,52 @@ descomponerse como suma de dos funciones, una con espectro discreto --que tiene 
 Fourier cl\'asica-- y otra con espectro continuo --que se estimar\'a como derivada de 'algo'. Este 
 supuesto equivale a que la 'componente' patol\'ogica del espectro es negligible.
 
+%Para limar estas ambig\"uedades, en este trabajo se considerar\'a la base de Fourier como la 'm\'as 
+%natural' por su conexi\'on simple con las exponenciales complejas. El t\'ermino 'ruido' ser\'a 
+%evitado en la medida de lo posible ya que, en la terminolog\'ia de se\~nales, suele referirse a 
+%registros con un comportamiento err\'atico y poco predecible; dentro del contexto de 
+%electrofisiolog\'ia, tal descricpi\'on bien puede englobar tanto se\~nales que se desea estudiar, 
+%como interferencias y errores.
+Conviene definir un tipo de 'regularidad estoc\'astica' que sirva para distinguir los patrones 
+buscados de errores de medici\'on e interferencias.
+
+\begin{defn}[Continuidad estoc\'astica (media cuadr\'atica)]
+Un proceso estoc\'astico a tiempo continuo $\{ X(t) \}$ es estoc\'asticamente continuo (en el 
+sentido de media cuadr\'atica) en un tiempo admisible $t_0$ si y s\'olo si
+\begin{equation*}
+\lim_{t \rightarrow t_0} \E{\left( X(t) - X(t_0) \right)^{2}} = 0
+\end{equation*}
+\label{cont_est}
+\end{defn}
+
+Una forma natural de pensar en la definici\'on \ref{cont_est} es esperar que, en promedio,
+$\lim_{t \rightarrow t_0} \left( X(t) - X(t_0) \right)^{2} = 0$. 
+No es la \'unica forma de presentar un l\'imite de variables aleatorias, sino que se ha elegido esta 
+forma por algunas propiedades que ser\'an explotadas m\'as adelante. 
+As\'imismo cabe destacar que un proceso estoc\'asticamente continuo no necesariamente produce 
+realizaciones que son funciones continuas, sino que sus realizaciones deben ser continuas casi en 
+todas partes\footnote{Una funci\'on es \textit{continua casi en todas partes} si es continua en 
+todo su dominio excepto por un conjunto de medida cero}.
+
+De manera m\'as general, cabe mencionar un teorema que permite tipificar de manera m\'as
+adecuada esta clase de procesos.
+
+\begin{thrm}
+Un proceso d\'ebilmente estacionario a tiempo continuo es estoc\'asticamente continuo si y s\'olo 
+si su funci\'on de autocorrelaci\'on es continua en 0
+\end{thrm}
+
+Con esta segunda caracterizaci\'on a la mano, es f\'acil afirmar que un proceso ruido blanco no es 
+estoc\'asticamente continuo, ya que su funci\'on de autocorrelaci\'on vale 0 en todos los puntos
+excepto en 0, donde vale 1. 
+El proceso de Wiener, en cambio, es el arquetipo de un proceso estoc\'asticamente continuo.
+
+En este trabajo se supondr\'a que los registros de PSG corresponden a realizaciones de procesos 
+estoc\'asticamente continuos; se considera la posibilidad de que est\'en 'contaminados' por 
+'ruidos', entendidos como procesos independientes de los potenciales de campo en el cerebro, de 
+amplitud negligible y que ''muy posiblemente'' son estoc\'asticamente discontinuos casi en todas 
+partes.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -1252,11 +1220,11 @@ x(t) & \text{ , } -T\leq t \leq T \\
 \end{cases}
 \end{equation}
 
-Claramente, para todo $T$ se tiene que $x_T \in L^2$, y entonces la siguiente representaci\'on 
-est\'a bien definida
-\begin{equation}
-x_T (t) = \frac{1}{\sqrt{2 \pi}} \intR G_T(\omega) e^{i \omega t} d\omega
-\end{equation}
+%Claramente, para todo $T$ se tiene que $x_T \in L^2$, y entonces la siguiente representaci\'on 
+%est\'a bien definida
+%\begin{equation}
+%x_T (t) = \frac{1}{\sqrt{2 \pi}} \intR G_T(\omega) e^{i \omega t} d\omega
+%\end{equation}
 
 Donde se define la funci\'on $G_T$ como
 
