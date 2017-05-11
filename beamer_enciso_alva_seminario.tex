@@ -1,5 +1,5 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \documentclass{beamer}
 \usepackage[utf8]{inputenc}
 \usepackage[spanish]{babel}
@@ -18,9 +18,11 @@
 \usepackage{listings}
 \usepackage{color}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\usetheme{Luebeck}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\usetheme{Luebeck}
+\usetheme{CambridgeUS}
 \usecolortheme{beaver}
 {
 %\usetheme{Luebeck}
@@ -40,7 +42,7 @@
 
 
 \definecolor{UniBlue}{RGB}{83,121,170}
-\setbeamercolor{title}{fg=white}
+\setbeamercolor{title}{fg=white,bg=rojo}
 \setbeamercolor{frametitle}{fg=white,bg=rojo}
 \setbeamercolor{structure}{fg=cafe,bg=rosa}
 
@@ -54,8 +56,8 @@
 
 \setbeamertemplate{itemize item}{\color{naranja}$\bullet$}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %\DeclareUnicodeCharacter{00A0}{ }
 
@@ -68,29 +70,32 @@
 \theoremstyle{definition}
 \newtheorem{defn}{Definici\'on}[section]
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\title[Pruebas de estacionariedad en series electrofisiol\'ogicas]
-{Aplicaci\'on de pruebas de estacionariedad d\'ebil en series electrofisiol\'ogicas}
+\title[Estacionariedad en PSG de adultos mayores]
+{Estacionariedad d\'ebil en registros de polisomnogr\'aficaos de adultos mayores,
+como posible marcador de deterioror cognitivo}
 
-\author[Enciso Alva $\lvert$ Rodr\'iguez Torres $\lvert$ Tetlalmatzi Montiel]
-{Erika Rodr\'iguez Torres, Margarita Tetlalmatzi Montiel \\ Julio Cesar Enciso Alva}
+\author[Enciso Alva]
+{Julio Cesar Enciso Alva}
 
-\institute[UAEH]
-{Universidad Aut\'onoma del Estado de Hidalgo}
+\institute[LIMA]
+{Licenciatura en Matem\'aticas Aplicadas}
 
-\date[Octubre 2016]
-{49 Congreso Nacional de la SMM\\ 27 de Octubre de 2016}
+\date[Mayo 2017]
+{Seminario de investigaci\'on\\ Mayo de 2017}
 
 \titlegraphic{
 \hspace*{8cm}~
 \includegraphics[width=9em]{./material1/SIGLAS_UAEH_02.png}
 }
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
 
 \frame{\titlepage}
@@ -99,11 +104,53 @@
 \tableofcontents
 \end{frame}
 
-%\section{Introducci\'on}
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
+\section{Introducci\'on}
+
+\begin{frame}\frametitle{Motivaci\'on}
+
+\begin{itemize}
+\item Encuesta Nacional de Salud y Nutrici\'on (ENSANUT, M\'exico 2002): 
+800,000 adultos mayores\cite{PlanAlzheimer04}
+\end{itemize}
+\end{frame}
+
+\subsection{Antecedentes}
+
+\subsection{Objetivos}
+
+\subsection{Conceptos}
+
+\subsubsection{Fisiolog\'ia}
+
+\subsubsection{Matem\'aticas}
+
+\section{Metodolog\'ia}
+
+\section{Resultados}
+
+\subsection{Discusi\'on}
+
+\subsection{Conclusiones}
+
+\subsection{Trabajo a futuro}
+
+
+\begin{frame}[allowframebreaks]
+\frametitle{Bibliograf\'ia}
+%\nocite{*}
+\footnotesize{
+%\bibliography{referencias}
+\bibliography{referencias_estacionariedad,referencias_fisiologia,referencias_otros,referencias_mixto}{}
+%\bibliographystyle{apalike-es}
+\bibliographystyle{abbrv}
+}
+\end{frame}
+
+\end{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 %\begin{frame}\frametitle{Motivaci\'on}
 %El estudio y diagnóstico de una gran cantidad de enfermedades depende de nuestra habilidad para
 %registrar y analizar se\~nales electrofisiol\'ogicas. 
@@ -488,4 +535,4 @@
 %}
 %\end{frame}
 
-\end{document}
+%\end{document}
