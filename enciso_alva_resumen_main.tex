@@ -68,6 +68,9 @@
 % para que el indice tenga hipervinculos
 \usepackage{hyperref}
 
+% para que la bibliografia aparezca en el indice
+\usepackage[nottoc]{tocbibind}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -980,7 +983,7 @@ estoc\'astica
 \begin{thrm}
 Un proceso d\'ebilmente estacionario a tiempo continuo es estoc\'asticamente continuo, en el 
 sentido de medias cuadr\'aticas, si y s\'olo si su funci\'on de autocovarianza es continua en 0
-\label{cont_est}
+\label{cont_est_deb}
 \end{thrm}
 
 %Con esta segunda caracterizaci\'on a la mano, es f\'acil afirmar que un proceso ruido blanco no es 
@@ -3088,9 +3091,8 @@ propuestos.
 
 %\phantomsection
 %
-%\addcontentsline{toc}{chapter*}{Bibliograf\'ia}
-
 \bibliography{referencias_estacionariedad,referencias_fisiologia,referencias_otros,referencias_mixto}{}
+%\addcontentsline{toc}{chapter*}{Bibliograf\'ia}
 %\bibliographystyle{apalike-es}
 \bibliographystyle{abbrv}
 
