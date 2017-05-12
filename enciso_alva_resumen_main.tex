@@ -338,7 +338,7 @@ entre una menor eficiencia del sue\~no y la presencia de deterioro cognitivo.
 
 En el segundo trabajo se analizaron posibles cambios en la estructura funcional\footnote{Se suele 
 hablar de \textbf{conectividad funcional} cuando las se\~nales registradas en dos elementos/lugares 
-est\'an estad\'isticamente ''muy'' correlacionadas; este t\'ermino se contrapone al de
+est\'an estad\'isticamente 'muy' correlacionadas; este t\'ermino se contrapone al de
 \textbf{conectividad anat\'omica}, que se refiere a conexiones f\'isicas entre los mismos} del 
 cerebro para adultos mayores con PDC, con respecto a individuos sanos, durante el sue\~no.
 Las diferencias reportadas se refieren al exponente de Hurst ($H_\alpha$) calculado para los 
@@ -905,29 +905,96 @@ depende de $\tau$
 \label{est_usual}
 \end{thrm}
 
-Cabe mencionar, como comentario, la existencia de procesos que son fuertemente 
-estacionarios pero que no son estacionarios de ning\'un orden (finito): 
+Cabe comentar  sobre la existencia de procesos que son fuertemente 
+estacionarios pero que no son estacionarios de ning\'un orden: 
 %dado que la primera 
 %definici\'on se basa en funciones de densidad de probabilidad mientras que la segunda se basa en 
 %momentos, es suficiente con usar variables aleatorias que no tengan todos sus momentos bien 
 %definidos. Por ejemplo, 
-consid\'erese, por ejemplo,
-un proceso de variables aleatorias independientes id\'enticamente 
-distribuidas y con distribuci\'on de Cauchy\footnote{Una variable aleatoria tiene distribuci\'on
+por ejemplo,
+un proceso de variables aleatorias independientes 
+con distribuci\'on de Cauchy\footnote{Una variable aleatoria tiene distribuci\'on
 de Cauchy si su funci\'on de probabilidad acumulada es de la forma
 $\displaystyle F(x) = \frac{1}{\pi} \int_{-\infty}^{x} \frac{1}{1+y^{2}} dy$}.
-M\'as adelante se argumenta por qu\'e se espera que las se\~nales registradas en el
-EEG, entendidas como procesos estoc\'asticos, deber\'ian 
+Una condici\'on suficiente para que un proceso fuertemente estacionario sea estacionario de
+orden $m$ es que tenga sus primeros $m$ momentos bien definidos.
+Con respecto a las se\~nales registradas en el EEG, entendidas como procesos estoc\'asticos, 
+se espera que tengan
 %se suficientemente regulares 
 %como para 
-tener (cuando menos) segundos momentos bien definidos.
-
+(cuando menos) segundos momentos bien definidos;
+m\'as adelante se presentan argumentos, desde una interpretaci\'on f\'isica, sobre por qu\'e se 
+espera que ocurra lo anterior.
+%esta misma caracterizaci\'on bien puede fallar en el caso de
+%se\~nales registrados y ajenas al EEG (ruido).
+%
 %Dado que en el EEG se miden fluctuaciones en potenciales de campos el\'ectricos y que en este 
 %trabajo son modelados como variables aleatorias, la intepretaci\'on usual para los momentos de 
 %estas variables est\'a ligado a la distribuci\'on de energ\'ia asociada al sistema (ver m\'as
 %adelante). Luego, es plausible considerar que el EEG es un fen\'omeno 'suficientemente regular' como 
 %para que las variables aleatorias del modelo tengan cuando menos segundos momentos bien definidos.%; 
 %%m\'as adelante discutir\'a un poco m\'as sobre por qu\'e es importante este suspuesto.
+%
+%Para limar estas ambig\"uedades, en este trabajo se considerar\'a la base de Fourier como la 'm\'as 
+%natural' por su conexi\'on simple con las exponenciales complejas. El t\'ermino 'ruido' ser\'a 
+%evitado en la medida de lo posible ya que, en la terminolog\'ia de se\~nales, suele referirse a 
+%registros con un comportamiento err\'atico y poco predecible; dentro del contexto de 
+%electrofisiolog\'ia, tal descricpi\'on bien puede englobar tanto se\~nales que se desea estudiar, 
+%como interferencias y errores.
+%
+%De manera m\'as formal, 
+%Conviene exhibir (cuando menos) un tipo de regularidad que,
+%%sirva para distinguir los patrones 
+%%buscados de errores de medici\'on e interferencias.
+%se espera, presenten las se\~nales investigadas pero no el ruido.
+
+A continuaci\'on (definici\'on \ref{cont_est}) se presenta una segunda forma de regularidad que, se 
+espera, exhiben las se\~nales registradas en el EEG.
+
+\begin{defn}[Continuidad estoc\'astica en media cuadr\'atica]
+Un proceso estoc\'astico a tiempo continuo $\{ X(t) \}$ es estoc\'asticamente continuo, en el 
+sentido de media cuadr\'atica, en un tiempo admisible $t_0$ si y s\'olo si
+\begin{equation*}
+\lim_{t \rightarrow t_0} \E{\left( X(t) - X(t_0) \right)^{2}} = 0
+\end{equation*}
+\label{cont_est}
+\end{defn}
+
+Una forma natural de pensar en 
+la definici\'on \ref{cont_est} 
+es que, 
+%en promedio,
+%$\lim_{t \rightarrow t_0} \left( X(t) - X(t_0) \right)^{2} = 0$. 
+%No es la \'unica forma de presentar un l\'imite de variables aleatorias, sino que se ha elegido esta 
+%forma por algunas propiedades que ser\'an explotadas m\'as adelante. 
+si $\abso{t-t_0}$ es muy peque\~no, entonces $X(t)$ y $X(t_0)$ difieren muy poco entre s\'i.
+Es destacable que las realizaciones de un proceso que es estoc\'asticamente continuo en un intervalo, 
+solamente son continuas (en el sentido cl\'asico) casi en 
+todas partes \footnote{Una propiedad se cumple \textbf{casi en todas partes} si se 
+cumple en un conjunto cuyocomplemento tiene medida cero} en ese intervalo.
+%De manera m\'as general, cabe mencionar un teorema que permite tipificar de manera m\'as
+%adecuada esta clase de procesos.
+En el teorema \ref{cont_est} se relacionan los proceso d\'ebilmente estacionarios con la continuidad
+estoc\'astica
+
+\begin{thrm}
+Un proceso d\'ebilmente estacionario a tiempo continuo es estoc\'asticamente continuo, en el 
+sentido de medias cuadr\'aticas, si y s\'olo si su funci\'on de autocovarianza es continua en 0
+\label{cont_est}
+\end{thrm}
+
+%Con esta segunda caracterizaci\'on a la mano, es f\'acil afirmar que un proceso ruido blanco no es 
+%estoc\'asticamente continuo, ya que su funci\'on de autocorrelaci\'on vale 0 en todos los puntos
+%excepto en 0, donde vale 1. 
+Un corolario inmediato del teorema \ref{cont_est} es que los procesos ruido blanco no son
+estoc\'asticamente continuos;
+el proceso de Wiener, en contraparte, es el arquetipo de un proceso estoc\'asticamente continuo.
+
+%En este trabajo se supondr\'a que los registros de PSG corresponden a realizaciones de procesos 
+%estoc\'asticamente continuos; se considera la posibilidad de que est\'en 'contaminados' por 
+%'ruidos', entendidos como procesos independientes de los potenciales de campo en el cerebro, de 
+%amplitud negligible y que ''muy posiblemente'' son estoc\'asticamente discontinuos casi en todas 
+%partes.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1086,11 +1153,14 @@ que los registros de PSG contienen energ\'ia finita para cualquier intervalo fin
 %separadamente para cada se\~nal base. 
 Luego, el m\'odulo de la serie de Fourier indica de cierto 
 modo c\'omo se distribuye la energ\'ia (o potencia) sobre las se\~nales base; por esta raz\'on se 
-le suele referir como \textbf{espectro de potencia}\footnote{Dada esta discusi\'on, conviene 
-distinguir el \textit{espectro de potencia no-normalizado} como la energ\'ia definida como en 
-\ref{energia} usando \ref{parseval_serie}, mientras que un \textit{espectro de potencia 
-normalizado} se puede definir de la misma forma pero dividiendo la expresi\'on en \ref{energia} por 
-$2T$}.
+le suele referir como \textbf{espectro de potencia}.
+%\footnote{Dada esta discusi\'on, conviene 
+%distinguir el \textit{espectro de potencia no-normalizado} como la energ\'ia definida como en 
+%\ref{energia} usando \ref{parseval_serie}, mientras que un \textit{espectro de potencia 
+%normalizado} se puede definir de la misma forma pero dividiendo la expresi\'on en \ref{energia} por 
+%$2T$}.
+
+-------------------------------------
 
 En este caso, se presentar\'a la transformada de Fourier-Stieltjes. En primera instancia acepta 
 funciones no-peri\'odicas pero que pueden ser representadas como suma de funciones peri\'odicas, la 
@@ -1144,52 +1214,6 @@ Dentro del contexto de electrofisiolog\'ia, en este trabajo se supone que una se
 descomponerse como suma de dos funciones, una con espectro discreto --que tiene una serie de 
 Fourier cl\'asica-- y otra con espectro continuo --que se estimar\'a como derivada de 'algo'. Este 
 supuesto equivale a que la 'componente' patol\'ogica del espectro es negligible.
-
-%Para limar estas ambig\"uedades, en este trabajo se considerar\'a la base de Fourier como la 'm\'as 
-%natural' por su conexi\'on simple con las exponenciales complejas. El t\'ermino 'ruido' ser\'a 
-%evitado en la medida de lo posible ya que, en la terminolog\'ia de se\~nales, suele referirse a 
-%registros con un comportamiento err\'atico y poco predecible; dentro del contexto de 
-%electrofisiolog\'ia, tal descricpi\'on bien puede englobar tanto se\~nales que se desea estudiar, 
-%como interferencias y errores.
-Conviene definir un tipo de 'regularidad estoc\'astica' que sirva para distinguir los patrones 
-buscados de errores de medici\'on e interferencias.
-
-\begin{defn}[Continuidad estoc\'astica (media cuadr\'atica)]
-Un proceso estoc\'astico a tiempo continuo $\{ X(t) \}$ es estoc\'asticamente continuo (en el 
-sentido de media cuadr\'atica) en un tiempo admisible $t_0$ si y s\'olo si
-\begin{equation*}
-\lim_{t \rightarrow t_0} \E{\left( X(t) - X(t_0) \right)^{2}} = 0
-\end{equation*}
-\label{cont_est}
-\end{defn}
-
-Una forma natural de pensar en la definici\'on \ref{cont_est} es esperar que, en promedio,
-$\lim_{t \rightarrow t_0} \left( X(t) - X(t_0) \right)^{2} = 0$. 
-No es la \'unica forma de presentar un l\'imite de variables aleatorias, sino que se ha elegido esta 
-forma por algunas propiedades que ser\'an explotadas m\'as adelante. 
-As\'imismo cabe destacar que un proceso estoc\'asticamente continuo no necesariamente produce 
-realizaciones que son funciones continuas, sino que sus realizaciones deben ser continuas casi en 
-todas partes\footnote{Una funci\'on es \textit{continua casi en todas partes} si es continua en 
-todo su dominio excepto por un conjunto de medida cero}.
-
-De manera m\'as general, cabe mencionar un teorema que permite tipificar de manera m\'as
-adecuada esta clase de procesos.
-
-\begin{thrm}
-Un proceso d\'ebilmente estacionario a tiempo continuo es estoc\'asticamente continuo si y s\'olo 
-si su funci\'on de autocorrelaci\'on es continua en 0
-\end{thrm}
-
-Con esta segunda caracterizaci\'on a la mano, es f\'acil afirmar que un proceso ruido blanco no es 
-estoc\'asticamente continuo, ya que su funci\'on de autocorrelaci\'on vale 0 en todos los puntos
-excepto en 0, donde vale 1. 
-El proceso de Wiener, en cambio, es el arquetipo de un proceso estoc\'asticamente continuo.
-
-En este trabajo se supondr\'a que los registros de PSG corresponden a realizaciones de procesos 
-estoc\'asticamente continuos; se considera la posibilidad de que est\'en 'contaminados' por 
-'ruidos', entendidos como procesos independientes de los potenciales de campo en el cerebro, de 
-amplitud negligible y que ''muy posiblemente'' son estoc\'asticamente discontinuos casi en todas 
-partes.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -2157,7 +2181,7 @@ fueron almacenados para su an\'alisis posterior, mismo que se presenta m\'as ade
 
 \begin{figure}
 \centering
-\begin{lstlisting}
+\begin{lstlisting}[caption={}]
 Priestley-Subba Rao stationarity Test for datos
 -----------------------------------------------
 Samples used              : 3072 
