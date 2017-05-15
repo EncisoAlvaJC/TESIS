@@ -331,6 +331,7 @@ espec\'ifico, son consistentes con la aparici\'on del sue\~no MOR.
 
 \chapter{Antecedentes}
 
+Se destaca
 En este trabajo se retoma la l\'inea de investigaci\'on trazada por \cite{VazquezTagle16} [y
 Valeria]. 
 En el primero se estudi\'o la epidemiolog\'ia del deterioro cognitivo dentro del estado de
@@ -344,14 +345,12 @@ hablar de \textbf{conectividad funcional} cuando las se\~nales registradas en do
 est\'an estad\'isticamente 'muy' correlacionadas; este t\'ermino se contrapone al de
 \textbf{conectividad anat\'omica}, que se refiere a conexiones f\'isicas entre los mismos} del 
 cerebro para adultos mayores con PDC, con respecto a individuos sanos, durante el sue\~no.
-Las diferencias reportadas se refieren al exponente de Hurst ($H_\alpha$) calculado para los 
-registros de PSG.
-La cantidad $H_\alpha$, a veces referida como el 'color' de la se\~nal, est\'a asociada con la
-'estructura fractal' de un proceso estoc\'astico. De manera concreta, en el trabajo referido se 
-reporta que para registros de PSG correspondientes adultos mayores con PDC la cantidad $H_\alpha$ 
-es menor. Dado que un menor exponente de Hurst est\'a asociado con se\~nales cuya estructura es 
-'m\'as simple', cabe preguntarse si los registros de PSG en adultos mayores con PDC son 
-efectivamente diferentes (en cuanto a complejidad) a sus contrapartes para individuos sanos. 
+Las diferencias reportadas se refieren al exponente de Hurst ($alpha$, asociada con la 'estructura 
+fractal' de un proceso estoc\'astico) calculado para los registros de PSG; de manera concreta, se
+reporta que para registros correspondientes a adultos mayores con PDC la cantidad $alpha$ es mayor. 
+Dado que un menor exponente de Hurst est\'a asociado con se\~nales cuya estructura es m\'as 
+'est\'atica' y menos responsiva, cabe indagar m\'as sobre en qu\'e manera los registros de PSG en 
+adultos mayores con PDC son diferentes a sus contrapartes para individuos sanos. 
 
 En este trabajo se pretende comprobar la hip\'otesis anterior revisando si los registros de PSG en 
 adultos mayores con PDC poseen una caracter\'istica particular que tipifica se\~nales 'sencillas': 
@@ -540,7 +539,7 @@ Debido a que los axones en la corteza cerebral tienen orientaciones muy diversas
 superficie, y a que disparan de manera as\'incrona, el aporte neto de estos campos al potencial 
 registrado es negligible bajo condiciones normales.
 Una excepci\'on muy importante ocurre en el caso de un est\'imulo simult\'aneo (s\'incronizado) del 
-del n\'ucleo tal\'amico o de las aferentes nerviosas; estas respuestas sincronizadas suelen tener 
+del n\'ucleo tal\'amico o de las aferentes nerviosas; estas respuestas suelen tener 
 una amplitud relativamente alta, y son referidas como 'potenciales evocados'.
 
 El registro de los electrodos (los canales) son referidos como un \textbf{montaje}: en un montaje 
@@ -580,8 +579,8 @@ Estos grupos son ilustrados en la figura \ref{ritmos}.
 \begin{figure}
 \centering
 \includegraphics[width=0.5\linewidth]{figura_4.png} 
-\caption{(a) Diferentes tipos de ondas normales en el EEG. (b) Supresi\'on del ritmo alfa debido a 
-una descarga as\'incrona cuando el paciente abre los ojos.
+\caption{(a) Diferentes tipos de ondas cerebrales encomntradas en el EEG. (b) Supresi\'on del 
+ritmo alfa cuando el paciente abre los ojos.
 [Estos gr\'aficos ser\'an reconstruidos]
 }
 \label{ritmos}
@@ -692,36 +691,17 @@ cortas \cite{CarrilloMora}.
 
 \section{Conceptos, matem\'aticas}
 
-%En esta secci\'on se 
-Se describen algunos conceptos sobre estimaci\'on espectral
-para procesos estoc\'asticos d\'ebilmente estacionarios (incluyendo las definiciones 
-de estos conceptos), y la generalizaci\'on propuesta por Priestley para procesos no-estacionarios. 
-%%De forma m\'as bien pragm\'atica, la 
-%La descripci\'on est\'a
-% fuertemente inspirada por el libro 'Spectral Analysis and Time Series' 
-%de M. B. Priestley \cite{Priestley81}.
-%%, ya que este est\'a expl\'icitamente dirigido a un p\'ublico 
-%%sin un trasfondo matem\'atico.
-Se suponen conocidos varios 
-conceptos b\'asicos de probabilidad y estad\'istica (variable aleatoria, 
-valor esperado y momentos, estimadores),
-%Sin embargo, con el fin de presentar la notaci\'on usada, se incluyen algunos de estos conceptos.
-%De la misma forma se supondr\'a 
-as\'i como
-cierta familiaridad con la transformada de Fourier 'cl\'asica' y
-sus propiedades.%, adem\'as de su interpretaci\'on f\'isica usual.
-
-%Para hablar formalmente de procesos estoc\'asticos como modelos, antes conviene escribir su 
-%definici\'on desde el punto de vista matem\'atico. 
-%Las siguientes definiciones son aplicables tanto 
-%para procesos en tiempo continuo como para procesos a tiempo discreto; aunque el objeto de estudio, 
-%el EEG, se considera un fen\'omeno continuo, s\'olo es posible registrarlo durante un conjunto 
-%finito de puntos en el tiempo.
+Se describen algunos conceptos sobre estimaci\'on espectral para procesos estoc\'asticos 
+d\'ebilmente estacionarios (incluyendo las definiciones de \'estos), y la generalizaci\'on 
+propuesta por Priestley para procesos no-estacionarios. 
+Se suponen conocidos varios conceptos b\'asicos de probabilidad y estad\'istica (variable 
+aleatoria, valor esperado y momentos, estimadores), as\'i como cierta familiaridad con la 
+transformada de Fourier 'cl\'asica' y sus propiedades.
 
 Como se mencion\'o, el objeto de estudio en este trabajo son registros de se\~nales
-electrofisiol\'ogicas (en particular, de PSG) que son modeladas como procesos estoc\'asticos;
-(por simplicidad, se escribir\'a simplemente 'procesos');
-antes de continuar, conviene presentar la definici\'on de este concepto. 
+electrofisiol\'ogicas (en particular, de PSG) que son modeladas como procesos estoc\'asticos; (por 
+simplicidad, se escribir\'a simplemente 'procesos'); antes de continuar, conviene presentar la 
+definici\'on de este concepto. 
 
 \begin{defn}[Proceso estoc\'astico]
 Un proceso estoc\'astico $\{ X(t) \}$ es una familia de variables aleatorias en los reales, 
@@ -729,45 +709,37 @@ indexadas por $t \in T \subseteq \R$.
 \label{proc_estocastico}
 \end{defn}
 
-Se denotar\'a a una
-realizaci\'on de $X(t)$ como $x(t)$, mientras que la funci\'on
-de probabilidad acumulada para $X(t)$ ser\'a 
-$F_{X(t)}$. Cabe enfatizar que para cada valor de $t$, $X(t)$ es una variable 
-aleatoria, y que no se presuponen relaciones entre ellas.
+Se denotar\'a a una realizaci\'on de $X(t)$ como $x(t)$, mientras que la funci\'on de probabilidad 
+acumulada para $X(t)$ ser\'a $F_{X(t)}$. Cabe enfatizar que para cada valor de $t$, $X(t)$ es una 
+variable  aleatoria, y que no se presuponen relaciones entre ellas.
 
-La definici\'on en \ref{proc_estocastico} es aplicable tanto para procesos
-en tiempo continuo como para tiempo discreto\footnote{Un proceso se dice \textbf{a tiempo discreto} 
-cuando el \'indice $t$ (tradicionalmente asociado al tiempo) pertenece a un conjunto a lo m\'as 
-numerable, mientras que se dice \textbf{a tiempo discreto} si este conjunto es un intervalo cerrado;
-en este trabajo s\'olo se consideran estos dos tipos de 'tiempos'}.
+La definici\'on en \ref{proc_estocastico} es aplicable tanto para procesos en tiempo continuo como 
+para tiempo discreto\footnote{Un proceso se dice \textbf{a tiempo discreto} cuando el \'indice $t$ 
+(tradicionalmente asociado al tiempo) pertenece a un conjunto a lo m\'as numerable, mientras que se 
+dice \textbf{a tiempo discreto} si este conjunto es un intervalo cerrado; en este trabajo s\'olo se 
+consideran estos dos tipos de 'tiempos'}.
 Como modelo, se entiende que las se\~nales del PSG son fen\'omenos a tiempo continuo, pero que no
-es registrable sino en un conjunto finito de puntos en el tiempo; en otras palabras, se espera
-que tenga caracter\'isticas propias de un proceso a tiempo continuo aunque en la pr\'actica
-se trate con un proceso a tiempo discreto.
+es registrable sino en un conjunto finito de puntos en el tiempo; en otras palabras, se espera que 
+tenga caracter\'isticas propias de un proceso a tiempo continuo aunque en la pr\'actica se trate 
+con un proceso a tiempo discreto.
 
 \subsection{Estacionariedad d\'ebil}
 
-Una vez definidos los procesos estoc\'asticos, es posible definir una caracter\'istica de los
+Una vez definidos los procesos estoc\'asticos, es posible definir una caracter\'istica de los 
 mismos y que se investiga en el presente trabajo: la estacionariedad.
-%La caracter\'istica principal investigada en este trabajo hace referencia a la 'estacionariedad'. 
 Informalmente, esta propiedad se refiere a que la 'estructura' del proceso sea invariante en el
 tiempo; para un proceso estacionario, calcular el promedio sobre cualquier subconjunto de datos 
 deber\'ia arrojar resultados estad\'isticamente id\'enticos, mientras que no hay tal garant\'ia
 para proceso no-estacionarios.
-%variables aleatorias que conforman un 
-%proceso estoc\'astico sean b\'asicamente iguales --dicho con otras palabras, que las propiedades
-%del proceso sean invariantes en el tiempo. 
-La definici\'on \ref{est_fuerte}, referida como estacionariedad fuerte o estricta, 
-induce fielmente estas propiedades.
-%descripci\'on es la de estacionariedad en el 
-%sentido fuerte o estricto.
+La definici\'on \ref{est_fuerte}, referida como estacionariedad fuerte o estricta, induce fielmente 
+estas propiedades.
 
 \begin{defn}[Estacionariedad fuerte]
 Un proceso estoc\'astico $\{ X(t) \}$ es fuertemente estacionario si, para cualquier conjunto de 
-tiempos admisibles\footnote{El t\'ermino \textbf{tiempos admisibles} indica que la definici\'on 
-es la misma para procesos a tiempo discreto o continuo bajo las restricciones adecuadas} 
-$t_1,t_2,\dots,t_n$ y cualquier $\tau$ tal que $t_i+\tau$ son tiempos admisibles 
-para $i = 1, 2, \dots n$; se cumple que
+tiempos admisibles\footnote{El t\'ermino \textbf{tiempos admisibles} indica que la definici\'on es 
+la misma para procesos a tiempo discreto o continuo bajo las restricciones adecuadas} 
+$t_1,t_2,\dots,t_n$ y cualquier $\tau$ tal que $t_i+\tau$ son tiempos admisibles para 
+$i = 1, 2, \dots n$; se cumple que
 \begin{equation*}
 F_{\left(X(t_1),X(t_2),\dots,X(t_n)\right) }
 \equiv
@@ -779,36 +751,15 @@ probabilidad conjunta para el vector $\left(X(t_1),X(t_2),\dots,X(t_n)\right)$
 \label{est_fuerte}
 \end{defn}
 
-Sin embargo, la definici\'on \ref{est_fuerte} resulta in\'util
-% en estad\'istica
-%: dado
-%que el PSG se modela como un proceso estoc\'astico, los registros corresponden a realizaciones del 
-%mismo. 
-si se pretende verificar que un registro dado pudiera ser modelado como la realizaci\'on de un
-proceso es fuertemente estacionario (un objetivo descartado para este trabajo). En ese
-escenario,
-%pues, dada una realizaci\'on del proceso, >
-%Entonces 
-para cada tiempo registrado $t$ se tiene s\'olo una observaci\'on para cada 
-variable aleatoria $X(t)$, lo cual es muy poca informaci\'on como para estimar las funciones de 
-probabilidad acumulada mencionadas en la definici\'on.
-% (y que deber\'ian ser comparadas entre s\'i).
-%, adem\'as de que no todas los tiempos son registrables.
-%Luego, si no existe la garant\'ia de que las propiedades de estas variables aleatorias sean 
-%'similares', entonces es virtualmente imposible obtener mayor informaci\'on de ellas.
-Estas limitaciones motivan una definici\'on m\'as d\'ebil de estacionariedad,
-pero que 
-%conserve 'suficientes' caracter\'isticas propias de la estacionariedad y 
-pueda ser 
-detectada en realizaciones dadas de procesos;
-%satisfaga 'suficientes teoremas importantes' y que sea relevante bajo las restricciones propias 
-%de diferentes campos. 
-%En este trabajo se ha optado por la llamada 'estacionariedad d\'ebil' o 
-%estacionariedad de orden 2, que recibe su nombre como caso particular de la 'estacionariedad de 
-%orden $m$'.
-se exhibe la definici\'on \ref{est_orden_m} como alternativa.
-%, aunque en particular se usar\'a
-%el caso $m=2$, referida como estacionariedad d\'ebil o de orden 2.
+Sin embargo, la definici\'on \ref{est_fuerte} resulta in\'util si se pretende verificar que un 
+registro dado pudiera ser modelado como la realizaci\'on de un proceso es fuertemente estacionario 
+(un objetivo descartado para este trabajo). En ese escenario, para cada tiempo registrado $t$ se 
+tiene s\'olo una observaci\'on para cada variable aleatoria $X(t)$, lo cual es muy poca 
+informaci\'on como para estimar las funciones de probabilidad acumulada mencionadas en la 
+definici\'on.
+Estas limitaciones motivan una definici\'on m\'as d\'ebil de estacionariedad, pero que pueda ser 
+detectada en realizaciones dadas de procesos; se exhibe la definici\'on \ref{est_orden_m} como 
+alternativa.
 
 \begin{defn}[Estacionariedad de orden $\boldsymbol{m}$]
 Un proceso estoc\'astico $\{ X(t) \}$ se dice estacionario de orden $m$ si, para cualquier conjunto 
@@ -826,78 +777,46 @@ Para entender mejor la definici\'on \ref{est_orden_m} y sus limitaciones frente 
 estacionariedad fuerte, consid\'erense tres procesos: $\{X(t)\}$ es fuertemente estacionario, 
 $\{Y_1(t)\}$ es estacionario de orden 1, y $\{Y_2(t)\}$ es estacionario de orden 2. Luego
 \begin{itemize}
-\item Las medias\footnote{La media de una variable aleatoria $V$ se define como 
-$ \mu_V := \E{V}$} 
-$ \mu_{X(t)}$, $ \mu_{Y_1(t)}$ y $ \mu_{Y_2(t)}$ 
-no dependen de $t$
+\item Las medias\footnote{La media de una variable aleatoria $V$ se define como $ \mu_V := \E{V}$} 
+$ \mu_{X(t)}$, $ \mu_{Y_1(t)}$ y $ \mu_{Y_2(t)}$ no dependen de $t$
 
 \item Las varianzas\footnote{La varianza de una variable aleatoria $V$ se define como 
-$ \Var{V} := \E{\left(V - \mu_V \right)^{2}}$} 
-$ \Var{Y_1(t)}$ y $ \Var{Y_2(t)}$ no dependen de $t$, 
-pero no se puede garantizar lo mismo para $\Var{X(t)}$
+$ \Var{V} := \E{\left(V - \mu_V \right)^{2}}$} $ \Var{Y_1(t)}$ y $ \Var{Y_2(t)}$ no dependen de 
+$t$, pero no se puede garantizar lo mismo para $\Var{X(t)}$
 
-\item El coeficiente de asimetr\'ia\footnote{El coeficiente de asimetr\'ia %de Fisher 
-para 
-una variable aleatoria $V$ se define como 
+\item El coeficiente de asimetr\'ia\footnote{El coeficiente de asimetr\'ia para una variable 
+aleatoria $V$ se define como 
 $\gamma_V = \frac{\E{\left(V-\mu_V\right)^{3}}}{\Var{V}^{\nicefrac{3}{2}}}$}
-$ \gamma_X(t)$ no dependen de $t$, pero no se puede garantizar lo mismo para
-$ \gamma_{Y_1(t)}$ ni para $ \gamma_{Y_2(t)}$
-
-%\item Por definici\'on de $\mathrm{Var}$ y de $Y_i$ ($i=2,1$) 
-%$$\Var{Y_i(t)} = \E{Y_i^{2}(t)} - \left( \E{Y_i(t)} \right)^{2} = \E{Y_i^{2}(t)} - \mu_{Y_i}$$
-%Luego se puede deducir que $\Var{Y_2(t)}$ es constante, mientras que no se puede garantizar lo 
-%mismo para $\Var{Y_1(t)}$
-%\item El \textit{coeficiente de asimetr\'ia de Fisher} de una variable aleatoria $V$ se define como
-%$$ \gamma_1(V) = \frac{\E{\left(V-\E{V}\right)^{3}}}{\Var{V}^{\nicefrac{3}{2}}} $$
-%Sin entrar en detalles, se puede deducir que $\gamma_1(X(t))$ es constante mientras que no se
-%puede garantizar lo mismo para $\gamma_1(Y_1(t))$, $\gamma_1(Y_2(t))$
+$ \gamma_X(t)$ no dependen de $t$, pero no se puede garantizar lo mismo para $ \gamma_{Y_1(t)}$ ni 
+para $ \gamma_{Y_2(t)}$
 \end{itemize}
 
-Cabe mencionar que
-hay una relaci\'on de contenci\'on clara en familia de los conjuntos de procesos 
+Cabe mencionar que hay una relaci\'on de contenci\'on clara en familia de los conjuntos de procesos 
 estacionarios de orden finito (si un proceso es estacionario de orden $m$, entonces es estacionario 
-de orden $n$ para todo $n \leq m$); es posible definir procesos estacionarios de 
-orden 'infinito' seg\'un \ref{est_orden_m}, que intuitivamente ser\'ian fuertemente estacionarios. 
-%y preguntarse bajo qu\'e condiciones son fuertemente estacionarios.
-%Tal discusi\'on no se incluye en el presente trabajo.
-De manera pragm\'atica, en este trabajo no se discuten tales interrogantes, sino que se 
-usar\'a \'unicamente la definici\'on correspondiente al caso %particular
-%aunque en particular se usar\'a
-$m=2$, referida como estacionariedad d\'ebil o de orden 2, y repetida en la definici\'on 
-\ref{est_orden_2}.
+de orden $n$ para todo $n \leq m$); es posible definir procesos estacionarios de orden 'infinito' 
+seg\'un \ref{est_orden_m}, que intuitivamente ser\'ian fuertemente estacionarios. 
+De manera pragm\'atica, en este trabajo no se discuten tales interrogantes, sino que se usar\'a 
+\'unicamente la definici\'on correspondiente al caso $m=2$, referida como estacionariedad d\'ebil o 
+de orden 2, y repetida en la definici\'on \ref{est_orden_2}.
 
 \begin{defn}[Estacionariedad d\'ebil]
-Un proceso estoc\'astico $\{ X(t) \}$ es d\'ebilmente estacionario si, para cualesquiera
-tiempos admisibles $t, s, t+\tau, s+\tau$,
-% y cualquier $\tau \in \R$ 
-se cumple que
+Un proceso estoc\'astico $\{ X(t) \}$ es d\'ebilmente estacionario si, para cualesquiera tiempos 
+admisibles $t, s, t+\tau, s+\tau$, se cumple que
 \begin{center}
 \begin{tabular}{cc}
-%\begin{equation*}
 $\E{X(t)} = \E{X(t+\tau)}$
-%\end{equation*}
 &
-%\begin{equation*}
 $\E{X(t)X(s)} = \E{X(t+\tau)X(s+\tau)}$
-%\end{equation*}
 \end{tabular}
 \end{center}
 \label{est_orden_2}
 \end{defn}
 
-%Una vez hechas las consideraciones anteriores, 
-%Por simplicidad en la interpretaci\'on,
-M\'as a\'un, parece conveniente exhibir una caracter\'izaci\'on equivalente para
-los procesos d\'ebilmente estacionarios, pero que 
-%tradicionalmente se
-%considera m\'as f\'acil de interpretar
-tiene una interpretaci\'on m\'as sencilla.
-% que es equivalente a la 
-%definici\'on \ref{est_orden_m} pero cuya interpretaci\'on suele considerarse como m\'as clara
+M\'as a\'un, parece conveniente exhibir una caracter\'izaci\'on equivalente para los procesos 
+d\'ebilmente estacionarios, pero que tiene una interpretaci\'on m\'as sencilla.
 \begin{thrm}
-Un proceso estoc\'astico 
-es d\'ebilmente estacionario si y s\'olo si para cualesquiera tiempos admisibles $t$, 
-$s$ se tiene que
+Un proceso estoc\'astico es d\'ebilmente estacionario si y s\'olo si para cualesquiera tiempos 
+admisibles $t$, $s$ se tiene que
 \begin{itemize}
 \item $\E{X(t)} = \mu_X$
 \item $\Var{X(t)} = \sigma^{2}_X$
@@ -908,51 +827,19 @@ depende de $\tau$
 \label{est_usual}
 \end{thrm}
 
-Cabe comentar  sobre la existencia de procesos que son fuertemente 
-estacionarios pero que no son estacionarios de ning\'un orden: 
-%dado que la primera 
-%definici\'on se basa en funciones de densidad de probabilidad mientras que la segunda se basa en 
-%momentos, es suficiente con usar variables aleatorias que no tengan todos sus momentos bien 
-%definidos. Por ejemplo, 
-por ejemplo,
-un proceso de variables aleatorias independientes 
-con distribuci\'on de Cauchy\footnote{Una variable aleatoria tiene distribuci\'on
-de Cauchy si su funci\'on de probabilidad acumulada es de la forma
+Cabe comentar  sobre la existencia de procesos que son fuertemente estacionarios pero que no son 
+estacionarios de ning\'un orden: por ejemplo, un proceso de variables aleatorias independientes con 
+distribuci\'on de Cauchy\footnote{Una variable aleatoria tiene distribuci\'on de Cauchy si su 
+funci\'on de probabilidad acumulada es de la forma 
 $\displaystyle F(x) = \frac{1}{\pi} \int_{-\infty}^{x} \frac{1}{1+y^{2}} dy$}.
-Una condici\'on suficiente para que un proceso fuertemente estacionario sea estacionario de
-orden $m$ es que tenga sus primeros $m$ momentos bien definidos.
-Con respecto a las se\~nales registradas en el EEG, entendidas como procesos estoc\'asticos, 
-se espera que tengan
-%se suficientemente regulares 
-%como para 
-(cuando menos) segundos momentos bien definidos;
-m\'as adelante se presentan argumentos, desde una interpretaci\'on f\'isica, sobre por qu\'e se 
-espera que ocurra lo anterior.
-%esta misma caracterizaci\'on bien puede fallar en el caso de
-%se\~nales registrados y ajenas al EEG (ruido).
-%
-%Dado que en el EEG se miden fluctuaciones en potenciales de campos el\'ectricos y que en este 
-%trabajo son modelados como variables aleatorias, la intepretaci\'on usual para los momentos de 
-%estas variables est\'a ligado a la distribuci\'on de energ\'ia asociada al sistema (ver m\'as
-%adelante). Luego, es plausible considerar que el EEG es un fen\'omeno 'suficientemente regular' como 
-%para que las variables aleatorias del modelo tengan cuando menos segundos momentos bien definidos.%; 
-%%m\'as adelante discutir\'a un poco m\'as sobre por qu\'e es importante este suspuesto.
-%
-%Para limar estas ambig\"uedades, en este trabajo se considerar\'a la base de Fourier como la 'm\'as 
-%natural' por su conexi\'on simple con las exponenciales complejas. El t\'ermino 'ruido' ser\'a 
-%evitado en la medida de lo posible ya que, en la terminolog\'ia de se\~nales, suele referirse a 
-%registros con un comportamiento err\'atico y poco predecible; dentro del contexto de 
-%electrofisiolog\'ia, tal descricpi\'on bien puede englobar tanto se\~nales que se desea estudiar, 
-%como interferencias y errores.
-%
-%De manera m\'as formal, 
-%Conviene exhibir (cuando menos) un tipo de regularidad que,
-%%sirva para distinguir los patrones 
-%%buscados de errores de medici\'on e interferencias.
-%se espera, presenten las se\~nales investigadas pero no el ruido.
+Una condici\'on suficiente para que un proceso fuertemente estacionario sea estacionario de orden 
+$m$ es que tenga sus primeros $m$ momentos bien definidos.
+Con respecto a las se\~nales registradas en el EEG, entendidas como procesos estoc\'asticos, se 
+espera que tengan (cuando menos) segundos momentos bien definidos; m\'as adelante se presentan 
+argumentos, desde una interpretaci\'on f\'isica, sobre por qu\'e se espera que ocurra lo anterior.
 
-A continuaci\'on (definici\'on \ref{cont_est}) se presenta una segunda forma de regularidad que, se 
-espera, exhiben las se\~nales registradas en el EEG.
+A continuaci\'on (definici\'on \ref{cont_est}) se presenta una tipo de regularidad que se supone
+para las se\~nales registradas en el EEG: continuidad.
 
 \begin{defn}[Continuidad estoc\'astica en media cuadr\'atica]
 Un proceso estoc\'astico a tiempo continuo $\{ X(t) \}$ es estoc\'asticamente continuo, en el 
@@ -963,22 +850,14 @@ sentido de media cuadr\'atica, en un tiempo admisible $t_0$ si y s\'olo si
 \label{cont_est}
 \end{defn}
 
-Una forma natural de pensar en 
-la definici\'on \ref{cont_est} 
-es que, 
-%en promedio,
-%$\lim_{t \rightarrow t_0} \left( X(t) - X(t_0) \right)^{2} = 0$. 
-%No es la \'unica forma de presentar un l\'imite de variables aleatorias, sino que se ha elegido esta 
-%forma por algunas propiedades que ser\'an explotadas m\'as adelante. 
-si $\abso{t-t_0}$ es muy peque\~no, entonces $X(t)$ y $X(t_0)$ difieren muy poco entre s\'i.
-Es destacable que las realizaciones de un proceso que es estoc\'asticamente continuo en un intervalo, 
-solamente son continuas (en el sentido cl\'asico) casi en 
-todas partes \footnote{Una propiedad se cumple \textbf{casi en todas partes} si se 
-cumple en un conjunto cuyocomplemento tiene medida cero} en ese intervalo.
-%De manera m\'as general, cabe mencionar un teorema que permite tipificar de manera m\'as
-%adecuada esta clase de procesos.
-En el teorema \ref{cont_est} se relacionan los proceso d\'ebilmente estacionarios con la continuidad
-estoc\'astica
+Una forma natural de pensar en la definici\'on \ref{cont_est} es que, si $\abso{t-t_0}$ es muy 
+peque\~no, entonces $X(t)$ y $X(t_0)$ difieren muy poco entre s\'i (en promedio).
+Es destacable que si proceso es estoc\'asticamente continuo en un intervalo, sus realizaciones 
+solamente se pueden garantizar continuas casi en todas partes \footnote{Una propiedad se cumple 
+\textbf{casi en todas partes} si se cumple en un conjunto cuyocomplemento tiene medida cero} en ese 
+intervalo.
+El teorema \ref{cont_est} relaciona los proceso d\'ebilmente estacionarios con la continuidad
+estoc\'astica.
 
 \begin{thrm}
 Un proceso d\'ebilmente estacionario a tiempo continuo es estoc\'asticamente continuo, en el 
@@ -986,18 +865,9 @@ sentido de medias cuadr\'aticas, si y s\'olo si su funci\'on de autocovarianza e
 \label{cont_est_deb}
 \end{thrm}
 
-%Con esta segunda caracterizaci\'on a la mano, es f\'acil afirmar que un proceso ruido blanco no es 
-%estoc\'asticamente continuo, ya que su funci\'on de autocorrelaci\'on vale 0 en todos los puntos
-%excepto en 0, donde vale 1. 
 Un corolario inmediato del teorema \ref{cont_est} es que los procesos ruido blanco no son
-estoc\'asticamente continuos;
-el proceso de Wiener, en contraparte, es el arquetipo de un proceso estoc\'asticamente continuo.
-
-%En este trabajo se supondr\'a que los registros de PSG corresponden a realizaciones de procesos 
-%estoc\'asticamente continuos; se considera la posibilidad de que est\'en 'contaminados' por 
-%'ruidos', entendidos como procesos independientes de los potenciales de campo en el cerebro, de 
-%amplitud negligible y que ''muy posiblemente'' son estoc\'asticamente discontinuos casi en todas 
-%partes.
+estoc\'asticamente continuos; en contraparte, el proceso de Wiener es el arquetipo de un proceso 
+que s\'i tiene esta caracter\'istica.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1005,27 +875,19 @@ el proceso de Wiener, en contraparte, es el arquetipo de un proceso estoc\'astic
 \subsection{Espectro de potencias para procesos estoc\'asticos}
 
 Existe una larga tradici\'on en ciencias biom\'edicas para entender/modelar las se\~nales
-electrofisiol\'ogicos en t\'erminos de ondas y frecuencias, ya que fundamentalmente son
-fen\'omenos el\'ectricos \cite{Kaiser00}. 
-%As\'imismo existe una teor\'ia matem\'atica bien 
-%desarrollada sobre estad\'istica en el llamado 'dominio de las frecuencias'. 
-%En este trabajo se aborda la segunda como forma de tener coherencia con la primera; a 
-%continuaci\'on se describen los conceptos m\'as importantes en el modelo usado.
-%Un objeto fundamental para el estudio del 'dominio de las frecuencias'
-%%\footnote{Este concepto no se ser\'a manejado pragm\'aticamente para referirse al cambio de 
-%%coordenadas inducido por la transformada de Fourier o alguna generalizaci\'on de la misma} 
-%son las series de Fourier y sus generalizaciones. 
-En matem\'aticas, estos modelos est\'an t\'ipicamente asociados con las series de Fourier
-que se muestran en la definici\'on \ref{FourierClasico} en su formulaci\'on 'cl\'asica'
-para exponentes en los complejos. Otro objeto destacable es la funci\'on que relaciona 
-funciones pri\'odicas con sus respectivas series de Fourier, referida como la transformada de
-Fourier (definici\'on \ref{trFourier}).
+electrofisiol\'ogicos en t\'erminos de ondas y frecuencias, ya que fundamentalmente son fen\'omenos 
+el\'ectricos \cite{Kaiser00}.  
+En matem\'aticas, estos modelos est\'an t\'ipicamente asociados con las series de Fourier que se 
+muestran en la definici\'on \ref{FourierClasico} en su formulaci\'on 'cl\'asica' para exponentes en 
+los complejos. Otro objeto destacable es la funci\'on que relaciona funciones pri\'odicas con sus 
+respectivas series de Fourier, referida como la transformada de Fourier (definici\'on 
+\ref{trFourier}).
 
 \begin{defn}[Serie de Fourier]
 Sea $k$ una funci\'on real peri\'odica (con periodo $2T$) tal que 
 $\simint{T} \abso{k(t)} dt < \infty$. 
-Se le llamar\'a 'serie de Fourier para la funci\'on $k$' a la sucesi\'on
-$\left( A_n \right)$, calculada de la siguiente manera
+Se le llamar\'a 'serie de Fourier para la funci\'on $k$' a la sucesi\'on $\left( A_n \right)$, 
+calculada de la siguiente manera
 \begin{equation*}
 A_n = \frac{1}{2 T} \simint{T} k(t) e^{-\nicefrac{ i n t}{2T}} dt
 \end{equation*}
@@ -1033,80 +895,45 @@ A_n = \frac{1}{2 T} \simint{T} k(t) e^{-\nicefrac{ i n t}{2T}} dt
 \end{defn}
 
 \begin{defn}[Transformada de Fourier]
-Sea $P_T$ el espacio de las funciones peri\'odicas con periodo $2T$ que tienen una
-serie de Fourier bien definida. Existe una funci\'on
-$\mathfrak{F}$ que mapea cada funci\'on a su
-respectiva serie de Fourier, y \'esta ser\'a referida como la transformada de Fourier
+Sea $P_T$ el espacio de las funciones peri\'odicas con periodo $2T$ que tienen una serie de Fourier 
+bien definida. Existe una funci\'on $\mathcal{F}$ que mapea cada funci\'on a su respectiva serie de 
+Fourier, y \'esta ser\'a referida como la transformada de Fourier
 \label{trFourier}
 \end{defn}
 
-%entonces la siguiente igualdad se cumple casi en todas partes\footnote{Una propiedad se dice es 
-%satisfecha \textbf{casi en todas partes} si se cumple en un conjunto cuyo complemento tiene 
-%medidad cero; en este caso particular, se toman los reales con la medida usual} 
-%\begin{equation*}
-%f(x) = \sum_{n=-\infty}^{\infty} A_n e^{i n t}
-%\end{equation*}
-
-Como se mencion\'o, en este trabajo se suponene conocidas las propiedades de 
-las series de Fourier (seg\'un la definici\'on \ref{FourierClasico}),
-%no se discutir\'an detalles sobre cu\'ando est\'an bien definidas, o la convergencia de 
-%las sumas indicadas,
-%siempre que se limite su uso a funciones peri\'odicas acotadas absolutamente sumables 
-%(en un intervalo hasdask), ignorando el comportamiento de la serie en puntos de discontinuidad.
-%sumables, o se permita que sean acotadas y con una cantidad finita de discontinuidades --y se ponga 
-%ninguna atenci\'on sobre ellas.
-%Parece claro que se puede definir una funci\'on --quiz\'a invertible-- que mapee funciones a sus 
-%respectivas series de Fourier; esta funci\'on es referida como \textbf{transformada de Fourier}. 
-%Por lo pronto se considerar\'a que las propiedades y limitaciones de la transformada de Fourier son 
-%conocidas al menos a grosso modo, m\'as que nada por brevedad; se pretende exhibir el espectro de 
-%potencias para una serie de tiempo como una extensi\'on de la transformada de Fourier de modo que 
-%se espera poder enfatizar sobre algunas interpretaciones dentro de la modelaci\'on.
-de entre las cuales se destacan las siguientes:
+Como se mencion\'o, en este trabajo se suponene conocidas las propiedades de las series de Fourier 
+(seg\'un la definici\'on \ref{FourierClasico}), de entre las cuales se destacan las siguientes:
 \begin{itemize}
-\item Las series de Fourier  son cuadrado-sumables\footnote{Una sucesi\'oin $\left( S_n \right)$ 
-se dice cuadrado-integrable si cumple que $\sum_{n\in \mathbb{Z}} \abso{S_n}^{2} < \infty$. El
+\item Las series de Fourier  son cuadrado-sumables\footnote{Una sucesi\'oin $\left( S_n \right)$ se 
+dice cuadrado-integrable si cumple que $\sum_{n\in \mathbb{Z}} \abso{S_n}^{2} < \infty$. El 
 conjunto de estas series es denotado por $\ell^{2}$}
 
 \item La transformada de Fourier, $\mathfrak{F}$, no es invertible en general. Es com\'un definir
 una pseudoinversa como 
-$\mathfrak{F}_{\text{inv}} : \left( A_n \right) \mapsto \sum_{n \in \mathbb{Z}} A_n e^{\nicefrac{i n t}{2 T}} $
+$\mathcal{F}_{\text{inv}} : \left( A_n \right) \mapsto \sum_{n \in \mathbb{Z}} A_n e^{\nicefrac{i n t}{2 T}} $
+
+\item Los conjuntos $P_T$ y $\ell^{2}$, con la suma y producto usuales,tienen la estructura de 
+espacio vectorial. M\'as a\'un, usando las respectivas normas $\Vert k \Vert = \intR k(t) dt$ y 
+$\left\Vert \left( A_n \right) \right\Vert_2 = \sum_{n\in \mathbb{Z}} \abso{S_n}^{2} < \infty$,
+ambos son espacios de Hilbert.
 \end{itemize}
 
-%Una vez mencionada la transformada de Fourier como una funci\'on de un espacio de funciones a 
-%un espacio de sucesiones
-
-%\subsubsection{Notas sobre interpretaci\'on f\'isica}
-
-La transformada de Fourier goza de una interpretación física muy extendida, seg\'un la cual 
-toda se\~nal
-%\footnote{Esta palabra se usar\'a para referirse a un fen\'omeno f\'isisco que est\'a siendo 
-%registrado, bajo el entendido que es casi lo mismo referirse al registro o al proceso que lo genera 
-%si \'este es determinista} 
-peri\'odica puede verse como la superposici\'on (suma) de funciones senoidales de diferentes
-frecuencias\footnote{De manera pragm\'atica, en el presente trabajo la palabra 'frecuencia' se usar\'a
-para referirse a la cantidad $q$ en expresiones del tipo $e^{i q t}$} que 'no interact\'uan entre s\'i' 
---presuponiendo que
-las se\~nales pueden sumarse y multiplicarse por escalares de la manera usual. 
-Formalmente, esta afirmaci\'on es equivalente a que el conjunto de funciones peri\'odicas (suficientemente
-regulares) tiene la estructura de espacio vectorial, y que \'este admite una base de funciones
-senoidales ortonormales (referida como la base de Fourier). 
-Sin embargo, adquiere mayor relevancia
-la interpretaci\'on f\'isica en el momento
-que se exhibe el concepto de energ\'ia\footnote{De manera equivalente se define la potencia de la 
-se\~nal como $\text{Potencia}_{[a,b]} = \frac{1}{b-a} \text{Energ\'ia}_{[a,b]}$} 
-para una se\~nal (definici\'on \ref{energia}), ya que 
-bien puede mezclarse con el teorema \ref{parseval_serie} para admitir una interpretaci\'on m\'as
-audaz: toda se\~nal peri\'odica puede verse como suma de se\~nales peri\'odicas \textbf{y}
-su energ\'ia puede verse como la sumatoria de los respectivos 'aportes' de estas se\~nales,
-entiendos como el m\'odulo de las amplitudes en la frecuencia dada.
-
-%De igual forma es destacable su interpretaci\'on como ''coordenadas'' en un espacio de funciones
-%dada una base ortonormal del mismo. 
-%El estudio de estos espacios dentro del an\'alisis trae a la mente la cuesti\'on de convergencia,
-%el problema del subespacio de funciones medibles de medida cero, y la posibilidad de otras bases; 
-%estos fen\'omenos tienen a su  vez una interpretaci\'on f\'isica como cambios s\'ubitos en la 
-%energ\'ia, el ruido y la tipificaci\'on de ondas ''simples'' --por ejemplo, las ondas cuadradas y 
-%triangulares son comunes en teor\'ia de circuitos.
+La transformada de Fourier goza de una interpretación física muy extendida, seg\'un la cual toda 
+se\~nal peri\'odica puede verse como la superposici\'on (suma) de funciones senoidales de 
+diferentes frecuencias\footnote{De manera pragm\'atica, en el presente trabajo la palabra 
+'frecuencia' se usar\'a para referirse a la cantidad $q$ en expresiones del tipo $e^{i q t}$} que 
+'no interact\'uan entre s\'i' --presuponiendo que las se\~nales pueden sumarse y multiplicarse por 
+escalares de la manera usual. 
+Formalmente, esta afirmaci\'on es equivalente a que el conjunto de funciones peri\'odicas 
+(suficientemente regulares) tiene la estructura de espacio vectorial, y que \'este admite una base 
+de funciones senoidales ortonormales (referida como la base de Fourier). 
+Sin embargo, adquiere mayor relevancia la interpretaci\'on f\'isica en el momento que se exhibe el 
+concepto de energ\'ia\footnote{De manera equivalente se define la potencia de la se\~nal como 
+$\text{Potencia}_{[a,b]} = \frac{1}{b-a} \text{Energ\'ia}_{[a,b]}$} para una se\~nal (definici\'on 
+\ref{energia}), ya que bien puede mezclarse con el teorema \ref{parseval_serie} para admitir una 
+interpretaci\'on m\'as audaz: toda se\~nal peri\'odica puede verse como suma de se\~nales 
+peri\'odicas \textbf{y} su energ\'ia puede verse como la sumatoria de los respectivos 'aportes' 
+de estas se\~nales, entiendos como el m\'odulo de las amplitudes en la frecuencia dada.
 
 \begin{defn}[Energ\'ia de una se\~nal]
 Sea $k$ una funci\'on real que modela una se\~nal. La energ\'ia dispada por $k$ en el intervalo de
@@ -1127,41 +954,16 @@ $(A_n)$. Se cumple que
 \label{parseval_serie}
 \end{thrm}
 
-%Con respecto al concepto de energ\'ia, en este trabajo se usar\'a un resultado usual de teor\'ia de 
-%circuitos, pero que formalmente fungir\'a como definici\'on: la energ\'ia disipada por la se\~nal 
-%$f$ est\'a dada por la expresi\'on \ref{energia}; si se divide tal expresi\'on por $T$ se obtiene 
-%la \textit{potencia} (energ\'ia por unidad de tiempo)
-
 Es importante mencionar que la energ\'ia, entendida como la integral de una forma cuadr\'atica, es 
-un concepto
-com\'un a varias ramas de la f\'isica y las ingenier\'ias; en cambio,
-en econom\'ia o en epidemiolog\'ia, por ejemplo, no hay una motivaci\'on clara para usar el concepto
-de energ\'ia seg\'un \ref{energia}.
-%Las t\'ecnicas electrofisi\'ologicas, concebidas dentro de la teor\'ia de circuitos, hereda la
-%terminolog\'ia e interpretaci\'on de energ\'ia.
+un concepto com\'un a varias ramas de la f\'isica y las ingenier\'ias; en cambio, en econom\'ia o 
+en epidemiolog\'ia, por ejemplo, no hay una motivaci\'on clara para usar el concepto de energ\'ia 
+seg\'un \ref{energia}.
 En el presente trabajo no s\'olo se manejar\'a este concepto de energ\'ia, sino que se supondr\'a
 que los registros de PSG contienen energ\'ia finita para cualquier intervalo finito de tiempo.
 
-%Contemplando este panorama, conviene se\~nalar una relaci\'on cl\'asica entre la energ\'ia de una 
-%se\~nal peri\'odica y su serie de Fourier (teorema \ref{parseval_serie}); tal idea ser\'a de gran 
-%importancia posteriormente en este trabajo.  
-
-%Aunque esta afirmaci\'on es relativamente simple desde la \'optica del An\'alisis funcional, tiene 
-%una interpretaci\'on f\'isica importante: si una se\~nal puede descomponerse como una 
-%transposici\'on (suma) de se\~nales ortogonales simples, entonces su energ\'ia debe ser la suma de 
-%las energ\'ias asociadas a cada una de estas se\~nales. M\'as a\'un, un cambio en alguna de las 
-%se\~nales ortogonales (base) afecta a la cantidad total de energ\'ia --pero no a las otras 
-%se\~nales base.
-%Incluso, la independencia de las se\~nales base sugiere que la energ\'ia puede ser tratada 
-%separadamente para cada se\~nal base. 
-Luego, el m\'odulo de la serie de Fourier indica de cierto 
-modo c\'omo se distribuye la energ\'ia (o potencia) sobre las se\~nales base; por esta raz\'on se 
-le suele referir como \textbf{espectro de potencia}.
-%\footnote{Dada esta discusi\'on, conviene 
-%distinguir el \textit{espectro de potencia no-normalizado} como la energ\'ia definida como en 
-%\ref{energia} usando \ref{parseval_serie}, mientras que un \textit{espectro de potencia 
-%normalizado} se puede definir de la misma forma pero dividiendo la expresi\'on en \ref{energia} por 
-%$2T$}.
+Luego, el m\'odulo de la serie de Fourier indica de cierto modo c\'omo se distribuye la energ\'ia 
+(o potencia) sobre las se\~nales base; por esta raz\'on se le suele referir como \textbf{espectro 
+de potencia}.
 
 -------------------------------------
 

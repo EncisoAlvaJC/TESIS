@@ -391,6 +391,14 @@
          id="path13106"
          d="m 57.6,43.2 h 432 v 144 h -432 z" />
     </clipPath>
+    <clipPath
+       id="clipPath5280"
+       clipPathUnits="userSpaceOnUse">
+      <path
+         inkscape:connector-curvature="0"
+         id="path5282"
+         d="M 0,612 792,612 792,0 0,0 0,612 Z" />
+    </clipPath>
   </defs>
   <sodipodi:namedview
      id="base"
@@ -399,9 +407,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.47398382"
-     inkscape:cx="4334.3864"
-     inkscape:cy="1734.2115"
+     inkscape:zoom="0.23699191"
+     inkscape:cx="4895.0014"
+     inkscape:cy="806.85396"
      inkscape:document-units="cm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -446,8 +454,7 @@
      inkscape:groupmode="layer"
      id="layer3"
      inkscape:label="Capa 3"
-     style="display:inline"
-     sodipodi:insensitive="true">
+     style="display:inline">
     <rect
        style="opacity:1;fill:#fff6d5;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:5.49194479;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect5028"
@@ -470,7 +477,7 @@
        id="rect4980"
        style="opacity:1;fill:#7c241a;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:6.47740316;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
     <rect
-       y="602.36218"
+       y="620.07874"
        x="1948.8188"
        height="177.16534"
        width="4889.7637"
@@ -505,7 +512,7 @@
        x="1948.8188"
        y="2409.4487" />
     <rect
-       style="opacity:1;fill:#e3dedb;fill-opacity:0.68627451;fill-rule:nonzero;stroke:none;stroke-width:8.56879711;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       style="opacity:1;fill:#f4e3d7;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:8.56879711;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect5018"
        width="1948.8188"
        height="814.96063"
@@ -519,7 +526,7 @@
        x="4889.7637"
        y="2533.4636" />
     <rect
-       style="opacity:1;fill:#ece8e6;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:8.19333744;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       style="opacity:1;fill:#f4e3d7;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:8.19333744;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect5024"
        width="1948.8188"
        height="1101.9685"
@@ -540,19 +547,19 @@
        x="3543.3069"
        y="2533.4653" />
     <rect
-       style="opacity:1;fill:#f4e3d7;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:8.60047626;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       style="opacity:1;fill:#e3dedb;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:8.60047626;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect6148"
-       width="4889.7637"
-       height="602.36218"
-       x="1948.8188"
-       y="-3.589434e-07" />
+       width="4907.4805"
+       height="620.07874"
+       x="1931.1024"
+       y="7.8302674e-06" />
     <rect
-       style="fill:#e3dbdb;fill-opacity:0.68627451;stroke:none;stroke-width:8.03426838;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:#cedee3;fill-opacity:0.55555558;stroke:none;stroke-width:8.03426838;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect7154"
        width="4889.7637"
-       height="779.52753"
+       height="761.81104"
        x="1948.8188"
-       y="779.52753" />
+       y="797.24402" />
   </g>
   <g
      inkscape:label="Capa 1"
@@ -576,12 +583,12 @@
          y="100.60858"
          x="35.954922"
          sodipodi:role="line"
-         id="tspan4465">stationarity[], estimates the spectral density function (SDF) and </tspan><tspan
+         id="tspan4465">stationarity [2,3], estimates the spectral density function (SDF) and </tspan><tspan
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:56.25px;line-height:1.25;font-family:'Bookman Old Style';-inkscape-font-specification:'Bookman Old Style'"
          y="170.92108"
          x="35.954922"
          sodipodi:role="line"
-         id="tspan636">then tests the hypothesis ''SDF doesn't vary over time'' --which is </tspan><tspan
+         id="tspan636">then tests the hypothesis ''SDF doesn't vary over time'' –which is </tspan><tspan
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:56.25px;line-height:1.25;font-family:'Bookman Old Style';-inkscape-font-specification:'Bookman Old Style'"
          y="241.23358"
          x="35.954922"
@@ -603,54 +610,56 @@
        x="2189.6079"
        y="-1598.7882"
        id="text4138"
-       transform="scale(0.94145249,1.0621885)"><tspan
+       transform="scale(0.94145249,1.0621885)"
+       sodipodi:linespacing="0%"><tspan
          sodipodi:role="line"
          id="tspan4140"
          x="2189.6079"
          y="-1598.7882"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:182.79124451px;line-height:1.25;font-family:'Bookman Old Style';-inkscape-font-specification:'Bookman Old Style Bold';fill:#483e37;stroke-width:1.04452157px">Stationarity during REM sleep in Old Adults</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:182.79124451px;line-height:1.25;font-family:'Bookman Old Style';-inkscape-font-specification:'Bookman Old Style Bold';fill:#483e37;fill-opacity:1;stroke-width:1.04452157px">Stationarity during REM sleep in Old Adults</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:12.61726475px;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.05143881px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-style:normal;font-weight:normal;font-size:12.61726475px;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#483e37;fill-opacity:1;stroke:none;stroke-width:1.05143881px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        x="4037.3928"
        y="-1588.11"
-       id="text4159"><tspan
+       id="text4159"
+       sodipodi:linespacing="0%"><tspan
          sodipodi:role="line"
          x="4046.865"
          y="-1588.11"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:59.14340591px;line-height:1.25;font-family:'Bookman Old Style';-inkscape-font-specification:'Bookman Old Style';text-align:center;text-anchor:middle;fill:#000000;stroke-width:1.05143881px"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:59.14340591px;line-height:1.25;font-family:'Bookman Old Style';-inkscape-font-specification:'Bookman Old Style';text-align:center;text-anchor:middle;fill:#483e37;fill-opacity:1;stroke-width:1.05143881px"
          id="tspan5906">Alejandra Rosales-Lagarde, PhD<tspan
-   style="font-size:36.04053116px;baseline-shift:super;fill:#000000;stroke-width:1.05143881px"
+   style="font-size:36.04053116px;baseline-shift:super;fill:#483e37;fill-opacity:1;stroke-width:1.05143881px"
    id="tspan5960">1,2</tspan>, Erika Rodríguez-Torres, PhD<tspan
-   style="font-size:36.04053116px;baseline-shift:super;fill:#000000;stroke-width:1.05143881px"
+   style="font-size:36.04053116px;baseline-shift:super;fill:#483e37;fill-opacity:1;stroke-width:1.05143881px"
    id="tspan5964">3</tspan>, Julio Enciso-Alva, BS Student<tspan
-   style="font-size:36.04053116px;baseline-shift:super;fill:#000000;stroke-width:1.05143881px"
+   style="font-size:36.04053116px;baseline-shift:super;fill:#483e37;fill-opacity:1;stroke-width:1.05143881px"
    id="tspan5970">3</tspan>, Claudia Martínez-Alcalá, PhD<tspan
-   style="font-size:36.04053116px;baseline-shift:super;fill:#000000;stroke-width:1.05143881px"
+   style="font-size:36.04053116px;baseline-shift:super;fill:#483e37;fill-opacity:1;stroke-width:1.05143881px"
    id="tspan5972">1,2</tspan>, Génesis </tspan><tspan
          sodipodi:role="line"
          x="4037.3928"
-         y="-1514.0798"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:59.14340591px;line-height:1.25;font-family:'Bookman Old Style';-inkscape-font-specification:'Bookman Old Style';fill:#000000;stroke-width:1.05143881px"
+         y="-1514.1808"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:59.14340591px;line-height:1.25;font-family:'Bookman Old Style';-inkscape-font-specification:'Bookman Old Style';fill:#483e37;fill-opacity:1;stroke-width:1.05143881px"
          id="tspan12672"><tspan
-   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:59.14340591px;line-height:1.25;font-family:'Bookman Old Style';-inkscape-font-specification:'Bookman Old Style';text-align:center;text-anchor:middle;fill:#000000;stroke-width:1.05143881px"
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:59.14340591px;line-height:1.25;font-family:'Bookman Old Style';-inkscape-font-specification:'Bookman Old Style';text-align:center;text-anchor:middle;fill:#483e37;fill-opacity:1;stroke-width:1.05143881px"
    id="tspan12674">Vázquez-Tagle, MD Student<tspan
-   style="font-size:36.04053116px;baseline-shift:super;fill:#000000;stroke-width:1.05143881px"
+   style="font-size:36.04053116px;baseline-shift:super;fill:#483e37;fill-opacity:1;stroke-width:1.05143881px"
    id="tspan5974">1</tspan>, </tspan><tspan
-   style="font-size:59.14340591px;text-align:center;text-anchor:middle;fill:#000000;stroke-width:1.05143881px"
+   style="font-size:59.14340591px;text-align:center;text-anchor:middle;fill:#483e37;fill-opacity:1;stroke-width:1.05143881px"
    id="tspan5904"> Margarita Tetlalmatzi-Montiel, MD<tspan
-   style="font-size:36.04053116px;baseline-shift:super;fill:#000000;stroke-width:1.05143881px"
+   style="font-size:36.04053116px;baseline-shift:super;fill:#483e37;fill-opacity:1;stroke-width:1.05143881px"
    id="tspan5976">3</tspan>, Jorge Viveros, PhD<tspan
-   style="font-size:36.04053116px;baseline-shift:super;fill:#000000;stroke-width:1.05143881px"
+   style="font-size:36.04053116px;baseline-shift:super;fill:#483e37;fill-opacity:1;stroke-width:1.05143881px"
    id="tspan5978">3</tspan>, and </tspan><tspan
-   style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-family:'Bookman Old Style';-inkscape-font-specification:'Bookman Old Style Semi-Bold';stroke-width:1.05143881px"
+   style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-family:'Bookman Old Style';-inkscape-font-specification:'Bookman Old Style Semi-Bold';fill:#483e37;fill-opacity:1;stroke-width:1.05143881px"
    id="tspan5982">José Sócrates López-Noguerola</tspan>, PhD Student<tspan
-   style="font-size:36.04053116px;baseline-shift:super;fill:#000000;stroke-width:1.05143881px"
+   style="font-size:36.04053116px;baseline-shift:super;fill:#483e37;fill-opacity:1;stroke-width:1.05143881px"
    id="tspan5980">1,4</tspan></tspan><tspan
          sodipodi:role="line"
          x="4037.3928"
-         y="-1488.9199"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:94.62947845px;line-height:1.25;font-family:'Bookman Old Style';-inkscape-font-specification:'Bookman Old Style';fill:#000000;stroke-width:1.05143881px"
+         y="-1439.5651"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:94.62947845px;line-height:1.25;font-family:'Bookman Old Style';-inkscape-font-specification:'Bookman Old Style';fill:#483e37;fill-opacity:1;stroke-width:1.05143881px"
          id="tspan5822" /></text>
     <text
        xml:space="preserve"
@@ -658,7 +667,8 @@
        x="3799.094"
        y="555.4491"
        id="text4165"
-       transform="scale(0.94567514,1.0574456)"><tspan
+       transform="scale(0.94567514,1.0574456)"
+       sodipodi:linespacing="0%"><tspan
          sodipodi:role="line"
          id="tspan4167"
          x="3799.094"
@@ -681,7 +691,8 @@
        style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        x="67.448174"
        y="-1792.1942"
-       id="text4215"><tspan
+       id="text4215"
+       sodipodi:linespacing="0%"><tspan
          sodipodi:role="line"
          id="tspan4217"
          x="67.448174"
@@ -715,12 +726,13 @@
          id="tspan4938">Priestley-Subba Rao (PSR) test</tspan></text>
     <text
        id="text4247"
-       y="-1188.6162"
+       y="-1170.9163"
        x="2069.1594"
        style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       xml:space="preserve"><tspan
+       xml:space="preserve"
+       sodipodi:linespacing="0%"><tspan
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:125px;line-height:1.25;font-family:'Bookman Old Style';-inkscape-font-specification:'Bookman Old Style Bold';fill:#ffffff"
-         y="-1188.6162"
+         y="-1170.9163"
          x="2069.1594"
          id="tspan4249"
          sodipodi:role="line">Results</tspan></text>
@@ -763,7 +775,7 @@
          id="tspan5336">AASM[] and every epoch of W, NREM and REM sleep was subjected </tspan><tspan
          sodipodi:role="line"
          x="39.460537"
-         y="-252.02098"
+         y="-252.021"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:56.25px;line-height:1.25;font-family:'Bookman Old Style';-inkscape-font-specification:'Bookman Old Style'"
          id="tspan5142">to PSR tests (below). </tspan></text>
     <text
@@ -782,7 +794,7 @@
          x="34.71896"
          y="-1570.1335"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:59.375px;line-height:1.25;font-family:'Bookman Old Style';-inkscape-font-specification:'Bookman Old Style'"
-         id="tspan5136">frequencies, muscular atonia and REMs. When quantitative </tspan><tspan
+         id="tspan5136">frequencies, muscular atonia and REMs [4]. When quantitative </tspan><tspan
          sodipodi:role="line"
          x="34.71896"
          y="-1495.9148"
@@ -826,50 +838,50 @@
     <text
        id="text6169"
        y="658.56879"
-       x="4917.3589"
+       x="4909.3589"
        style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        xml:space="preserve"
        sodipodi:linespacing="0%"><tspan
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40.625px;line-height:1.25;font-family:'Bookman Old Style';-inkscape-font-specification:'Bookman Old Style'"
          y="658.56879"
-         x="4917.3589"
+         x="4909.3589"
          sodipodi:role="line"
-         id="tspan6262">&gt; R. B. Cleveland, W. S. Cleveland, J. E. McRae, I. Terpenning. STL: A seasonal-trend decom-</tspan><tspan
+         id="tspan6262">[1] R. B. Cleveland, W. S. Cleveland, J. E. McRae, I. Terpenning. STL: A seasonal-trend decom-</tspan><tspan
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40.625px;line-height:1.25;font-family:'Bookman Old Style';-inkscape-font-specification:'Bookman Old Style'"
          y="709.35004"
-         x="4917.3589"
+         x="4909.3589"
          sodipodi:role="line"
-         id="tspan5990">position procedure based on loess. Journal of Official Statistics, 6:3–73, 1990.</tspan><tspan
+         id="tspan5990">     position procedure based on loess. Journal of Official Statistics, 6:3–73, 1990.</tspan><tspan
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40.625px;line-height:1.25;font-family:'Bookman Old Style';-inkscape-font-specification:'Bookman Old Style'"
          y="760.13129"
-         x="4917.3589"
+         x="4909.3589"
          sodipodi:role="line"
-         id="tspan6222">&gt; M. B. Priestley. Spectral Analysis and Time Series, volume 1,2. Academic Press,1981.</tspan><tspan
+         id="tspan6222">[2] M. B. Priestley. Spectral Analysis and Time Series, volume 1,2. Academic Press,1981.</tspan><tspan
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40.625px;line-height:1.25;font-family:'Bookman Old Style';-inkscape-font-specification:'Bookman Old Style'"
          y="810.91254"
-         x="4917.3589"
+         x="4909.3589"
          sodipodi:role="line"
-         id="tspan6238">&gt; M. B. Priestley and T. S. Rao. A test for non-stationarity of time-series. Journal of the Royal </tspan><tspan
+         id="tspan6238">[3] M. B. Priestley and T. S. Rao. A test for non-stationarity of time-series. Journal of the Royal </tspan><tspan
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40.625px;line-height:1.25;font-family:'Bookman Old Style';-inkscape-font-specification:'Bookman Old Style'"
          y="861.69379"
-         x="4917.3589"
+         x="4909.3589"
          sodipodi:role="line"
-         id="tspan5994">Statistical Society: Series B  (Methodological), 1(31):140–149, 1969.</tspan><tspan
+         id="tspan5994">     Statistical Society: Series B  (Methodological), 1(31):140–149, 1969.</tspan><tspan
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40.625px;line-height:1.25;font-family:'Bookman Old Style';-inkscape-font-specification:'Bookman Old Style'"
          y="912.47504"
-         x="4917.3589"
+         x="4909.3589"
          sodipodi:role="line"
-         id="tspan4851">&gt; Rosales-Lagarde A., Yolanda-del-Río-Portilla I., Guevara M., Corsi-Cabrera M. Caída abrupta </tspan><tspan
+         id="tspan4851">[4] Rosales-Lagarde A., Yolanda-del-Río-Portilla I., Guevara M., Corsi-Cabrera M. Caída abrupta </tspan><tspan
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40.625px;line-height:1.25;font-family:'Bookman Old Style';-inkscape-font-specification:'Bookman Old Style'"
          y="963.25629"
-         x="4917.3589"
+         x="4909.3589"
          sodipodi:role="line"
-         id="tspan5232">del tono muscular al entrar a sueño MOR en el ser humano. Salud Mental. 2009; </tspan><tspan
+         id="tspan5232">     del tono muscular al entrar a sueño MOR en el ser humano. Salud Mental. 2009; </tspan><tspan
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40.625px;line-height:1.25;font-family:'Bookman Old Style';-inkscape-font-specification:'Bookman Old Style'"
          y="1014.0375"
-         x="4917.3589"
+         x="4909.3589"
          sodipodi:role="line"
-         id="tspan6079">32(2): 117-123</tspan></text>
+         id="tspan6079">     32(2): 117-123</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:9.29419613px;line-height:0%;font-family:'Bookman Old Style';-inkscape-font-specification:'Bookman Old Style Light';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.77451634px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -927,7 +939,8 @@
        style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        x="12288.396"
        y="-2247.384"
-       id="text10682"><tspan
+       id="text10682"
+       sodipodi:linespacing="0%"><tspan
          sodipodi:role="line"
          id="tspan10684"
          x="12288.396"
@@ -938,7 +951,8 @@
        y="-2247.384"
        x="11813.992"
        style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       xml:space="preserve"><tspan
+       xml:space="preserve"
+       sodipodi:linespacing="0%"><tspan
          y="-2247.384"
          x="11813.992"
          id="tspan10688"
@@ -981,7 +995,7 @@
            inkscape:connector-curvature="0"
            id="path160"
            style="fill:#7c241a;fill-opacity:1;fill-rule:nonzero;stroke:none"
-           d="M 0,0 V -112.905 H -114.974 V 0 h -64.585 v -299.934 h 64.585 v 133.441 H 0 V -300.017 H 66.189 V 0 Z" />
+           d="m 0,0 0,-112.905 -114.974,0 0,112.905 -64.585,0 0,-299.934 64.585,0 0,133.441 114.974,0 0,-133.524 66.189,0 0,300.017 z" />
       </g>
       <g
          transform="translate(87.28824,612.36214)"
@@ -990,7 +1004,7 @@
            inkscape:connector-curvature="0"
            id="path164"
            style="fill:#9f1b23;fill-opacity:1;fill-rule:nonzero;stroke:none"
-           d="m 0,0 v -190.95 l 63.493,176.014 0.056,0.153 V 0 Z" />
+           d="m 0,0 0,-190.95 63.493,176.014 0.056,0.153 0,14.783 z" />
       </g>
       <g
          transform="translate(67.53344,371.56774)"
@@ -999,7 +1013,7 @@
            inkscape:connector-curvature="0"
            id="path168"
            style="fill:#9f1b23;fill-opacity:1;fill-rule:nonzero;stroke:none"
-           d="m 0,0 c -9.208,-6.236 -21.817,-9.397 -37.479,-9.397 -16.261,0 -28.976,5.189 -37.792,15.422 -8.839,10.285 -13.322,24.498 -13.322,42.249 v 192.52 h -63.541 V 42.607 c 0,-35.115 10.47,-61.553 31.117,-78.581 20.6,-16.974 48.931,-25.582 84.207,-25.582 5.271,0 10.511,0.194 16.018,0.592 l 0.604,0.044 22.556,62.524 z" />
+           d="m 0,0 c -9.208,-6.236 -21.817,-9.397 -37.479,-9.397 -16.261,0 -28.976,5.189 -37.792,15.422 -8.839,10.285 -13.322,24.498 -13.322,42.249 l 0,192.52 -63.541,0 0,-198.187 c 0,-35.115 10.47,-61.553 31.117,-78.581 20.6,-16.974 48.931,-25.582 84.207,-25.582 5.271,0 10.511,0.194 16.018,0.592 l 0.604,0.044 22.556,62.524 z" />
       </g>
       <g
          transform="translate(238.96404,426.49644)"
@@ -1008,13 +1022,13 @@
            inkscape:connector-curvature="0"
            id="path172"
            style="fill:#ea3a29;fill-opacity:1;fill-rule:nonzero;stroke:none"
-           d="m 0,0 h -73.322 l 37.096,115.651 z m 1.482,185.866 h -73.601 l -107.057,-299.957 h 67.977 l 21.094,61.497 H 18.537 l 15.62,-50.977 V 93.121 Z" />
+           d="m 0,0 -73.322,0 37.096,115.651 z m 1.482,185.866 -73.601,0 -107.057,-299.957 67.977,0 21.094,61.497 108.642,0 15.62,-50.977 0,196.692 z" />
       </g>
       <path
          inkscape:connector-curvature="0"
          id="path174"
          style="fill:#f38852;fill-opacity:1;fill-rule:nonzero;stroke:none"
-         d="m 451.44954,559.92424 h 51.55 v 52.224 h -51.55 z" />
+         d="m 451.44954,559.92424 51.55,0 0,52.224 -51.55,0 z" />
       <g
          transform="translate(373.19554,558.85434)"
          id="g176">
@@ -1022,13 +1036,13 @@
            inkscape:connector-curvature="0"
            id="path178"
            style="fill:#f38852;fill-opacity:1;fill-rule:nonzero;stroke:none"
-           d="M 0,0 V 53.573 H -92.634 V -246.444 H 0 v 54.928 h -30.159 v 75.04 H 0 v 54.484 H -30.159 V 0 Z" />
+           d="m 0,0 0,53.573 -92.634,0 0,-300.017 92.634,0 0,54.928 -30.159,0 0,75.04 30.159,0 0,54.484 -30.159,0 0,61.992 z" />
       </g>
       <path
          inkscape:connector-curvature="0"
          id="path180"
          style="fill:#f38852;fill-opacity:1;fill-rule:nonzero;stroke:none"
-         d="m 451.44954,312.44324 h 58.736 v 53.575 h -58.736 z" />
+         d="m 451.44954,312.44324 58.736,0 0,53.575 -58.736,0 z" />
     </g>
     <text
        id="text2483"
@@ -1192,13 +1206,13 @@
     <image
        sodipodi:absref="/home/laptop_casa/TESIS/TESIS/poster/small_full/VCNNS1_est.png"
        xlink:href="small_full/VCNNS1_est.png"
-       width="850.39368"
-       height="301.18109"
-       preserveAspectRatio="none"
-       style="image-rendering:optimizeQuality"
-       id="image5277"
+       y="-311.811"
        x="2055.1182"
-       y="-311.811" />
+       id="image5277"
+       style="image-rendering:optimizeQuality"
+       preserveAspectRatio="none"
+       height="301.18109"
+       width="850.39368" />
     <rect
        style="fill:none;fill-opacity:0.51758794;stroke:#355d8a;stroke-width:6.6468935;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        y="-263.08774"
@@ -1209,53 +1223,53 @@
     <image
        sodipodi:absref="/home/laptop_casa/TESIS/TESIS/poster/small_full/MJNNVIGILOS_est.png"
        xlink:href="small_full/MJNNVIGILOS_est.png"
-       width="850.39368"
-       height="301.18109"
-       preserveAspectRatio="none"
-       style="image-rendering:optimizeQuality"
-       id="image5288"
+       y="-311.811"
        x="3011.811"
-       y="-311.811" />
+       id="image5288"
+       style="image-rendering:optimizeQuality"
+       preserveAspectRatio="none"
+       height="301.18109"
+       width="850.39368" />
     <image
        sodipodi:absref="/home/laptop_casa/TESIS/TESIS/poster/small_full/JANASUE_est.png"
        xlink:href="small_full/JANASUE_est.png"
-       width="850.39368"
-       height="301.18109"
-       preserveAspectRatio="none"
-       style="image-rendering:optimizeQuality"
-       id="image5299"
+       y="-311.811"
        x="3968.5039"
-       y="-311.811" />
+       id="image5299"
+       style="image-rendering:optimizeQuality"
+       preserveAspectRatio="none"
+       height="301.18109"
+       width="850.39368" />
     <image
        sodipodi:absref="/home/laptop_casa/TESIS/TESIS/poster/small_full/GH24031950SUEÑO_est.png"
        xlink:href="small_full/GH24031950SUEÑO_est.png"
-       width="850.39368"
-       height="301.18109"
-       preserveAspectRatio="none"
-       style="image-rendering:optimizeQuality"
-       id="image5334"
+       y="-311.811"
        x="4925.1968"
-       y="-311.811" />
+       id="image5334"
+       style="image-rendering:optimizeQuality"
+       preserveAspectRatio="none"
+       height="301.18109"
+       width="850.39368" />
     <image
        sodipodi:absref="/home/laptop_casa/TESIS/TESIS/poster/small_full/GURM251148SUE_est.png"
        xlink:href="small_full/GURM251148SUE_est.png"
-       width="850.39368"
-       height="301.18109"
-       preserveAspectRatio="none"
-       style="image-rendering:optimizeQuality"
-       id="image5345"
+       y="-311.811"
        x="5881.8896"
-       y="-311.811" />
+       id="image5345"
+       style="image-rendering:optimizeQuality"
+       preserveAspectRatio="none"
+       height="301.18109"
+       width="850.39368" />
     <image
        sodipodi:absref="/home/laptop_casa/TESIS/TESIS/poster/small_zoom/VCNNS1_est.png"
        xlink:href="small_zoom/VCNNS1_est.png"
-       width="850.39368"
-       height="301.18109"
-       preserveAspectRatio="none"
-       style="image-rendering:optimizeQuality"
-       id="image12519"
+       y="7.0866175"
        x="2055.1182"
-       y="7.0866175" />
+       id="image12519"
+       style="image-rendering:optimizeQuality"
+       preserveAspectRatio="none"
+       height="301.18109"
+       width="850.39368" />
     <path
        style="fill:none;stroke:#000000;stroke-width:8.77218246;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:52.63309877, 8.77218313;stroke-dashoffset:0;stroke-opacity:1"
        d="m 2110.1072,43.518592 395.805,-127.005086"
@@ -1286,26 +1300,27 @@
          y="435.81061"
          x="2066.6626"
          sodipodi:role="line"
-         id="tspan5353">hghlighting details of them: a 'block of stationarity' [red] a 'blank' [blue] and a block containing REM sleep [green]</tspan></text>
+         id="tspan5353">highlighting details of them: a 'block of stationarity' [red] a 'blank' [blue] and a block containing REM sleep [green]</tspan></text>
     <text
        id="text5924"
        y="-1414.1896"
        x="4094.6729"
-       style="font-style:normal;font-weight:normal;font-size:12.68820286px;line-height:0%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#280b0b;fill-opacity:1;stroke:none;stroke-width:1.05735028px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       xml:space="preserve"><tspan
+       style="font-style:normal;font-weight:normal;font-size:12.68820286px;line-height:0%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#483e37;fill-opacity:1;stroke:none;stroke-width:1.05735028px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"
+       sodipodi:linespacing="0%"><tspan
          id="tspan5920"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:52.86751175px;line-height:1.25;font-family:'Bookman Old Style';-inkscape-font-specification:'Bookman Old Style';text-align:center;text-anchor:middle;fill:#280b0b;stroke-width:1.05735028px"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:52.86751175px;line-height:1.25;font-family:'Bookman Old Style';-inkscape-font-specification:'Bookman Old Style';text-align:center;text-anchor:middle;fill:#483e37;fill-opacity:1;stroke-width:1.05735028px"
          y="-1414.1896"
-         x="4103.1396"
+         x="4103.1401"
          sodipodi:role="line">(1) Universidad Autónoma del Estado de Hidalgo, San Agustín Tlaxiaca, Mexico (2) Consejo Nacional de Ciencia y Tecnología, Mexico, </tspan><tspan
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:52.86751175px;line-height:1.25;font-family:'Bookman Old Style';-inkscape-font-specification:'Bookman Old Style';text-align:center;text-anchor:middle;fill:#280b0b;stroke-width:1.05735028px"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:52.86751175px;line-height:1.25;font-family:'Bookman Old Style';-inkscape-font-specification:'Bookman Old Style';text-align:center;text-anchor:middle;fill:#483e37;fill-opacity:1;stroke-width:1.05735028px"
          y="-1348.1052"
          x="4094.6729"
          sodipodi:role="line"
          id="tspan5956">Mexico (3) Universidad Autónoma del Estado de Hidalgo, Pachuca, Mexico, (4) University of Medicine, Göttingen, Germany</tspan><tspan
          id="tspan5922"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:95.16152191px;line-height:1.25;font-family:'Bookman Old Style';-inkscape-font-specification:'Bookman Old Style';text-align:center;text-anchor:middle;fill:#280b0b;stroke-width:1.05735028px"
-         y="-1325.21"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:95.16152191px;line-height:1.25;font-family:'Bookman Old Style';-inkscape-font-specification:'Bookman Old Style';text-align:center;text-anchor:middle;fill:#483e37;fill-opacity:1;stroke-width:1.05735028px"
+         y="-1282.0208"
          x="4094.6729"
          sodipodi:role="line" /></text>
     <text
@@ -1360,43 +1375,43 @@
     <image
        sodipodi:absref="/home/laptop_casa/TESIS/TESIS/poster/small_zoom/MJNNVIGILOS_est.png"
        xlink:href="small_zoom/MJNNVIGILOS_est.png"
-       width="850.39368"
-       height="301.18109"
-       preserveAspectRatio="none"
-       style="stroke:none;image-rendering:optimizeQuality"
-       id="image12563"
+       y="7.0866175"
        x="3011.811"
-       y="7.0866175" />
+       id="image12563"
+       style="stroke:none;image-rendering:optimizeQuality"
+       preserveAspectRatio="none"
+       height="301.18109"
+       width="850.39368" />
     <image
        sodipodi:absref="/home/laptop_casa/TESIS/TESIS/poster/small_zoom/JANASUE_est.png"
        xlink:href="small_zoom/JANASUE_est.png"
-       width="850.39368"
-       height="301.18109"
-       preserveAspectRatio="none"
-       style="image-rendering:optimizeQuality"
-       id="image12552"
+       y="7.0866175"
        x="3968.5039"
-       y="7.0866175" />
+       id="image12552"
+       style="image-rendering:optimizeQuality"
+       preserveAspectRatio="none"
+       height="301.18109"
+       width="850.39368" />
     <image
        sodipodi:absref="/home/laptop_casa/TESIS/TESIS/poster/small_zoom/GH24031950SUEÑO_est.png"
        xlink:href="small_zoom/GH24031950SUEÑO_est.png"
-       width="850.39368"
-       height="301.18109"
-       preserveAspectRatio="none"
-       style="image-rendering:optimizeQuality"
-       id="image12541"
+       y="7.0866175"
        x="4925.1968"
-       y="7.0866175" />
+       id="image12541"
+       style="image-rendering:optimizeQuality"
+       preserveAspectRatio="none"
+       height="301.18109"
+       width="850.39368" />
     <image
        sodipodi:absref="/home/laptop_casa/TESIS/TESIS/poster/small_zoom/GURM251148SUE_est.png"
        xlink:href="small_zoom/GURM251148SUE_est.png"
-       width="850.39368"
-       height="301.18109"
-       preserveAspectRatio="none"
-       style="image-rendering:optimizeQuality"
-       id="image12530"
+       y="7.0866175"
        x="5881.8896"
-       y="7.0866175" />
+       id="image12530"
+       style="image-rendering:optimizeQuality"
+       preserveAspectRatio="none"
+       height="301.18109"
+       width="850.39368" />
     <text
        id="text6200"
        y="-1021.7183"
@@ -3173,12 +3188,12 @@
       <image
          sodipodi:absref="/home/laptop_casa/TESIS/TESIS/poster/s1020.png"
          xlink:href="s1020.png"
-         y="-1057.5127"
-         x="4589.6929"
-         id="image10637"
-         preserveAspectRatio="none"
+         width="567.71393"
          height="481.40021"
-         width="567.71393" />
+         preserveAspectRatio="none"
+         id="image10637"
+         x="4589.6929"
+         y="-1057.5127" />
       <text
          transform="scale(1.0268828,0.97382096)"
          id="text1538"
@@ -3449,29 +3464,29 @@
     <image
        sodipodi:absref="/home/laptop_casa/TESIS/TESIS/poster/MJNNVIGILOS_est.png"
        xlink:href="MJNNVIGILOS_est.png"
-       width="1169.9193"
-       height="603.82935"
-       preserveAspectRatio="none"
-       style="image-rendering:optimizeQuality"
-       id="image12706"
+       y="-1103.3983"
        x="1994.2078"
-       y="-1117.5621" />
+       id="image12706"
+       style="image-rendering:optimizeQuality"
+       preserveAspectRatio="none"
+       height="603.82935"
+       width="1169.9193" />
     <text
        id="text10495"
-       y="-482.27914"
+       y="-468.11536"
        x="2023.0625"
        style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        xml:space="preserve"
        sodipodi:linespacing="0%"><tspan
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:37.5px;line-height:1.25;font-family:'Bookman Old Style';-inkscape-font-specification:'Bookman Old Style Bold'"
-         y="-482.27914"
+         y="-468.11536"
          x="2023.0625"
          sodipodi:role="line"
          id="tspan10520">Figure 2:<tspan
    style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:37.5px;font-family:'Bookman Old Style';-inkscape-font-specification:'Bookman Old Style Light'"
    id="tspan5234"> Distribution of stationary epochs (black) over time, </tspan></tspan><tspan
          style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:37.5px;line-height:1.25;font-family:'Bookman Old Style';-inkscape-font-specification:'Bookman Old Style Light'"
-         y="-434.96896"
+         y="-420.80518"
          x="2023.0625"
          sodipodi:role="line"
          id="tspan10518">for one OA. REM sleep is shown in green.</tspan></text>
@@ -4383,13 +4398,13 @@
     <image
        sodipodi:absref="/home/laptop_casa/TESIS/TESIS/poster/MJH_190_PDG_lucirse_PSG.png"
        xlink:href="MJH_190_PDG_lucirse_PSG.png"
-       width="708.66138"
-       height="389.76376"
-       preserveAspectRatio="none"
-       style="image-rendering:optimizeQuality"
-       id="image13472"
+       y="416.8504"
        x="38.976376"
-       y="416.8504" />
+       id="image13472"
+       style="image-rendering:optimizeQuality"
+       preserveAspectRatio="none"
+       height="389.76376"
+       width="708.66138" />
     <text
        sodipodi:linespacing="0%"
        id="text4218"
@@ -4499,6 +4514,18 @@
          y="-1075.325"
          x="4187.7588">*</tspan>
     </text>
+    <path
+       style="opacity:1;fill:#483e37;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:7.08661413;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       d=""
+       id="path4252"
+       inkscape:connector-curvature="0"
+       transform="translate(0,-1924.0157)" />
+    <path
+       style="opacity:1;fill:#483e37;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:7.08661413;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       d=""
+       id="path4254"
+       inkscape:connector-curvature="0"
+       transform="translate(0,-1924.0157)" />
   </g>
   <g
      inkscape:groupmode="layer"
@@ -4592,36 +4619,36 @@
     <image
        sodipodi:absref="/home/laptop_casa/TESIS/TESIS/poster/MJNNVIGILOS_est.png"
        xlink:href="MJNNVIGILOS_est.png"
-       transform="translate(0,1924.0157)"
-       y="-937.18268"
-       x="8258.3291"
-       id="image7259"
-       style="display:inline;image-rendering:optimizeQuality"
-       preserveAspectRatio="none"
+       width="669.38641"
        height="334.69321"
-       width="669.38641" />
+       preserveAspectRatio="none"
+       style="display:inline;image-rendering:optimizeQuality"
+       id="image7259"
+       x="8258.3291"
+       y="-937.18268"
+       transform="translate(0,1924.0157)" />
     <image
        sodipodi:absref="/home/laptop_casa/TESIS/TESIS/poster/MJNNVIGILOS_est.png"
        xlink:href="MJNNVIGILOS_est.png"
-       transform="translate(0,1924.0157)"
-       y="-929.71698"
-       x="7620.0117"
-       id="image7270"
-       style="display:inline;image-rendering:optimizeQuality"
-       preserveAspectRatio="none"
+       width="646.98932"
        height="323.49466"
-       width="646.98932" />
+       preserveAspectRatio="none"
+       style="display:inline;image-rendering:optimizeQuality"
+       id="image7270"
+       x="7620.0117"
+       y="-929.71698"
+       transform="translate(0,1924.0157)" />
     <image
        sodipodi:absref="/home/laptop_casa/TESIS/TESIS/poster/MJNNVIGILOS_est.png"
        xlink:href="MJNNVIGILOS_est.png"
-       transform="translate(0,1924.0157)"
-       y="-929.71698"
-       x="8911.5781"
-       id="image7281"
-       style="display:inline;image-rendering:optimizeQuality"
-       preserveAspectRatio="none"
+       width="654.45502"
        height="327.22751"
-       width="654.45502" />
+       preserveAspectRatio="none"
+       style="display:inline;image-rendering:optimizeQuality"
+       id="image7281"
+       x="8911.5781"
+       y="-929.71698"
+       transform="translate(0,1924.0157)" />
     <text
        transform="translate(0,1924.0157)"
        id="text7296"
