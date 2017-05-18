@@ -750,16 +750,17 @@ alerta.
 \begin{description}
 \item[Fase 1 (N1)] Corresponde con la somnolencia o el inicio del sue\~no ligero, en ella es muy 
 f\'acil despertarse. La actividad muscular disminuye paulatinamente y pueden observarse algunas 
-breves sacudidas musculares s\'ubitas que a veces coinciden con una sensación de ca\'ida 
-(mioclon\'ias h\'ipnicas). En el EEG se observa actividad de frecuencias mezcladas, pero de bajo 
+sacudidas musculares s\'ubitas que a veces coinciden con una sensación de ca\'ida. 
+En el EEG se observa actividad de frecuencias mezcladas, pero de bajo 
 voltaje y algunas ondas agudas. 
 
 \item[Fase 2 (N2)] Se caracteriza por que aparecen patrones espec\'ificos de actividad 
 cerebral (husos de sue\~no y complejos K). La temperatura, la frecuencia card\'iaca y respiratoria 
 comienzan a disminuir paulatinamente. 
 
-\item[Fases 3 y 4 (N3)] La fase m\'as profunda del sue\~no NMOR. Se observan ondas con frecuencias 
-muy bajas ($<2$ Hz), por lo que es referido como 'sue\~no de ondas lentas'.
+\item[Fases 3 y 4 (N3)] La fase m\'as profunda del sue\~no NMOR y
+referido como 'sue\~no de ondas lentas', pues predominan ondas con frecuencias 
+muy bajas ($<2$ Hz).
 \end{description}
 
 Un adulto j\'oven pasa aproximadamente entre 70--100 minutos en el sue\~no NMOR para despu\'es 
@@ -779,8 +780,8 @@ cortas \cite{CarrilloMora}.
 Se describen algunos conceptos sobre estimaci\'on espectral para procesos estoc\'asticos 
 d\'ebilmente estacionarios (incluyendo las definiciones de \'estos), y la generalizaci\'on 
 propuesta por Priestley para procesos no-estacionarios. 
-Se suponen conocidos varios conceptos b\'asicos de probabilidad y estad\'istica (variable 
-aleatoria, valor esperado y momentos, estimadores), as\'i como cierta familiaridad con la 
+Se suponen conocidos varios conceptos b\'asicos de probabilidad y estad\'istica, 
+as\'i como cierta familiaridad con la 
 transformada de Fourier 'cl\'asica' y sus propiedades.
 
 Como se mencion\'o, el objeto de estudio en este trabajo son registros de se\~nales
@@ -845,6 +846,8 @@ definici\'on.
 Estas limitaciones motivan una definici\'on m\'as d\'ebil de estacionariedad, pero que pueda ser 
 detectada en realizaciones dadas de procesos; se exhibe la definici\'on \ref{est_orden_m} como 
 alternativa.
+
+\newpage
 
 \begin{defn}[Estacionariedad de orden $\boldsymbol{m}$]
 Un proceso estoc\'astico $\{ X(t) \}$ se dice estacionario de orden $m$ si, para cualquier conjunto 
@@ -1007,18 +1010,27 @@ La transformada de Fourier goza de una interpretación física muy extendida, se
 se\~nal peri\'odica puede verse como la superposici\'on (suma) de funciones senoidales de 
 diferentes frecuencias\footnote{De manera pragm\'atica, en el presente trabajo la palabra 
 'frecuencia' se usar\'a para referirse a la cantidad $q$ en expresiones del tipo $e^{i q t}$} que 
-'no interact\'uan entre s\'i' --presuponiendo que las se\~nales pueden sumarse y multiplicarse por 
+'no interact\'uan entre s\'i' --las se\~nales se suman y multiplican por 
 escalares de la manera usual. 
 Formalmente, esta afirmaci\'on es equivalente a que el conjunto de funciones peri\'odicas 
-(suficientemente regulares) tiene la estructura de espacio vectorial, y que \'este admite una base 
-de funciones senoidales ortonormales (referida como la base de Fourier). 
-Sin embargo, adquiere mayor relevancia la interpretaci\'on f\'isica en el momento que se exhibe el 
-concepto de energ\'ia\footnote{De manera equivalente se define la potencia de la se\~nal como 
-$\text{Potencia}_{[a,b]} = \frac{1}{b-a} \text{Energ\'ia}_{[a,b]}$} para una se\~nal (definici\'on 
-\ref{energia}), ya que bien puede mezclarse con el teorema \ref{parseval_serie} para admitir una 
-interpretaci\'on m\'as audaz: toda se\~nal peri\'odica puede verse como suma de se\~nales 
-peri\'odicas \textbf{y} su energ\'ia puede verse como la sumatoria de los respectivos 'aportes' 
-de estas se\~nales, entiendos como el m\'odulo de las amplitudes en la frecuencia dada.
+que aceptan serie de Fourier tiene estructura de espacio vectorial, y admite una base 
+ortonormal
+de funciones senoidales (referida como la base de Fourier). 
+La interpretaci\'on f\'isica adquiere mayor relevancia  cuando se exhibe el 
+concepto de energ\'ia
+%\footnote{De manera equivalente se define la potencia de la se\~nal como 
+%$\text{Potencia}_{[a,b]} = \frac{1}{b-a} \text{Energ\'ia}_{[a,b]}$} 
+%para una se\~nal (definici\'on 
+\ref{energia}), ya que seg\'un el teorema \ref{parseval_serie} se puede formular
+la siguiente interpretaci\'on: la energ\'ia de una se\~nal peri\'odica 
+puede verse como la suma de las energ\'ias de sus componentes, que es 
+equivalentemente a los m\'odulos de los coeficientes de la serie de Fourier.
+Una funci\'on que 'obtiene' estos aportes se conoce como espectro de potencias 
+(definici\'on \ref{espec}).
+% indican, en cierto modo, 
+%c\'omo se distribuye la energ\'ia 
+%sobre las se\~nales base (usualmente referidas como 'frecuencias'); por ello, 
+%esta funci\'on toma cierta importancia.
 
 \begin{defn}[Energ\'ia de una se\~nal]
 Sea $k$ una funci\'on real que modela una se\~nal. La energ\'ia dispada por $k$ en el intervalo de
@@ -1039,6 +1051,20 @@ $(A_n)$. Se cumple que
 \label{parseval_serie}
 \end{thrm}
 
+\begin{defn}[Espectro de potencias]
+Sea $P_T$ el espacio de las funciones peri\'odicas con periodo $2T$ que tienen una serie de Fourier 
+bien definida. Existe una funci\'on $h: P_T \times \mathbb{R} \mapsto \mathbb{R}$ tal que
+\begin{equation*}
+h_k(\omega) = 
+\begin{cases}
+\abso{A_i}^{2} & \text{ , } \omega = \frac{n}{2T} \text{  con } n\in \mathbb{Z} \\
+0 & \text{ ,  otro caso}
+\end{cases}
+\end{equation*}
+donde $\left( A_n \right)$ es la serie de Fourier de $k$
+\label{espec}
+\end{defn}
+
 Es importante mencionar que la energ\'ia, entendida como la integral de una forma cuadr\'atica, es 
 un concepto com\'un a varias ramas de la f\'isica y las ingenier\'ias; en cambio, en econom\'ia o 
 en epidemiolog\'ia, por ejemplo, no hay una motivaci\'on clara para usar el concepto de energ\'ia 
@@ -1046,11 +1072,11 @@ seg\'un \ref{energia}.
 En el presente trabajo no s\'olo se manejar\'a este concepto de energ\'ia, sino que se supondr\'a
 que los registros de PSG contienen energ\'ia finita para cualquier intervalo finito de tiempo.
 
-Luego, el m\'odulo de la serie de Fourier indica de cierto modo c\'omo se distribuye la energ\'ia 
-(o potencia) sobre las se\~nales base; por esta raz\'on se le suele referir como \textbf{espectro 
-de potencia}.
+%-------------------------------------
 
--------------------------------------
+\begin{comment}
+En el momento de 
+
 
 En este caso, se presentar\'a la transformada de Fourier-Stieltjes. En primera instancia acepta 
 funciones no-peri\'odicas pero que pueden ser representadas como suma de funciones peri\'odicas, la 
@@ -1061,7 +1087,7 @@ no tiene una serie de Fourier, pero puede ser representada como una integral de 
 Dicho esto, conviene indagar sobre las propiedades de las funciones involucradas en una 
 transformada de Fourier-Stieltjes: no-negativas, monótonamente crecientes; si se habla de funciones
 con energ\'ia finita se puede tambi\'en asegurar que son acotadas. La transformada de 
-Fourier-Stieltjes es una medida en alg\'un espacio --el nombre daba algunas pistas al respecto. 
+Fourier-Stieltjes es una medida en alg\'un espacio. 
 
 Si bien, dentro de la interpretaci\'on f\'isica, parece muy la caracterizaci\'on de la transformada 
 de Fourier-Stieltjes como una medida en alg\'un espacio --que posiblemente est\'e asociado a la 
@@ -1105,35 +1131,39 @@ descomponerse como suma de dos funciones, una con espectro discreto --que tiene 
 Fourier cl\'asica-- y otra con espectro continuo --que se estimar\'a como derivada de 'algo'. Este 
 supuesto equivale a que la 'componente' patol\'ogica del espectro es negligible.
 
+\end{comment}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsubsection{Espectro de potencias para un proceso estoc\'astico}
 
-Una pregunta natural cuando se toma la terminolog\'ia de ondas y frecuencias dentro del estudio de 
-series de tiempo, es sobre el significado de aplicar la transformada de Fourier a un proceso 
-estoc\'atico --o cuando menos a alguna sus realizaciones.
-¿Bajo qu\'e condiciones las realizaciones de un proceso estoc\'astico admiten una representaci\'on
-como series/integrales de Fourier/Fourier-Stieltjes?
-
-%Se sabe que una condici\'on suficiente para que exista la transformada de Fourier de una funci\'on
-%dada, es que pertenezca al espacio de las funciones cuadrado-integrables, $L^2$.
-%Sin embargo, considerando un proceso estacionario $\{ X(t) \}$, y dado que tiene varianza constante 
-%en el tiempo, se espera que sus realizaciones $x(t)$ no decaigan en infinito. Tampoco hay 
-%garant\'ia que admitan una representaci\'on de Fourier-Stieltjes. M\'as a\'un, no hay garant\'ia 
-%alguna que una realizaci\'on arbitraria pueda expresarse como la suma de una funci\'on en $L^2$ y 
-%una funci\'on que admita representaci\'on de Fourier-Stieltjes.
-
-El enfoque que se aborda es construir una sucesi\'on de funciones en $L^{2}$ que convergen a 'cada' 
-realizaci\'on $x(t)$, y luego revisar la convergencia de sus respectivas integrales de Fourier. 
-As\'i entonces, para cada $T>0$ se define
-\begin{equation}
+Una pregunta muy natural cuando se usa la terminolog\'ia de ondas y frecuencias para se\~nales,
+pero en el estudio de series de tiempo, es sobre la posibilidad de aplicar la transformada de 
+Fourier a un proceso estoc\'atico (o al menos a sus realizaciones);
+%%¿Bajo qu\'e condiciones las realizaciones de un proceso estoc\'astico admiten una representaci\'on
+%%como series/integrales de Fourier/Fourier-Stieltjes?
+%
+%%Se sabe que una condici\'on suficiente para que exista la transformada de Fourier de una funci\'on
+%%dada, es que pertenezca al espacio de las funciones cuadrado-integrables, $L^2$.
+%%Sin embargo, considerando un proceso estacionario $\{ X(t) \}$, y dado que tiene varianza constante 
+%%en el tiempo, se espera que sus realizaciones $x(t)$ no decaigan en infinito. Tampoco hay 
+%%garant\'ia que admitan una representaci\'on de Fourier-Stieltjes. M\'as a\'un, no hay garant\'ia 
+%%alguna que una realizaci\'on arbitraria pueda expresarse como la suma de una funci\'on en $L^2$ y 
+%%una funci\'on que admita representaci\'on de Fourier-Stieltjes.
+dado que no se puede garantizar, en general, que una realizaci\'on del proceso posea una transformada de Fourier
+bien definida, la mera aplicaci\'on de la funci\'on puede no ser significativa.
+El enfoque que se aborda es construir una sucesi\'on de funciones que posean serie de Fourier y 
+que convergen a realizaciones arbitrarias del proceso, $x(t)$;
+%, y luego revisar la convergencia de sus respectivas integrales de Fourier. 
+para cada $T>0$ se define la restricci\'on $x_T$ como
+\begin{equation*}
 x_T(t) = 
 \begin{cases}
 x(t) & \text{ , } -T\leq t \leq T \\
 0 & \text{ , otro caso}
 \end{cases}
-\end{equation}
+\end{equation*}
 
 %Claramente, para todo $T$ se tiene que $x_T \in L^2$, y entonces la siguiente representaci\'on 
 %est\'a bien definida
@@ -1141,15 +1171,21 @@ x(t) & \text{ , } -T\leq t \leq T \\
 %x_T (t) = \frac{1}{\sqrt{2 \pi}} \intR G_T(\omega) e^{i \omega t} d\omega
 %\end{equation}
 
-Donde se define la funci\'on $G_T$ como
+%Donde se define la funci\'on $G_T$ como
+Posteriormente se define a $G_T$, una transformada de Fourier para la restricci\'on
+$x_T$. Bien puede entenderse a $G_T$ como una transformada de Fourier cl\'asica para 
+una funci\'on extendida peri\'odicamente en intervalos, de modo que las frecuencias se vuelven
+infinitesimales; o puede decirse que es una integral sobre un intervalo finito, que siempre
+est\'a bien definida\footnote{Siempre que $\max_t \abso{x(t)} < \infty$}, y que es una aproximaci\'on
+de su equivalente en un intervalo infinito.
 
-\begin{equation}
+\begin{equation*}
 G_T (\omega) = \frac{1}{\sqrt{2 \pi}} \intR x_T(t) e^{-i \omega t} dt
 = \frac{1}{\sqrt{2 \pi}} \int_{-T}^{T} x(t) e^{-i \omega t} dt
-\end{equation}
+\end{equation*}
 
-No hay garant\'ia de que $x(t)$, una realizaci\'on arbitraria de
-$\{X(t)\}$, tenga una integral de Fourier bien definida. Luego entonces no hay garant\'ia que 
+Como no hay garant\'ia de que $x(t)$ 
+tenga una integral de Fourier bien definida, no hay garant\'ia que 
 $G_T$ converja cuando $T\rightarrow \infty$. Recuperando la interpretaci\'on de 
 $\left| G_T(\omega) \right|^{2}$ como una funci\'on de distribuci\'on para la energ\'ia total del 
 sistema sobre las frecuencias puntuales $\omega$, destaca un argumento f\'isico seg\'un el cual 
@@ -1179,11 +1215,17 @@ Habiendo contestado una de las interrogantes previas sobre la
 posibilidad de una transformada de Fourier para las realizaciones de un proceso 
 estoc\'astico, conviene estudiar la posibilidad de una transformada para el proceso 'per se':
 basta ajustar la definici\'on \ref{yacasi} para que sea 'representativa' del proceso. 
-Priestley introduce la siguiente funci\'on
+Priestley introduce la funci\'on definida en \ref{SDF}.
 
-\begin{equation}
+\begin{defn}[Funci\'on de densidad espectral (SDF)]
+Sea $\{X(t)\}$ un proceso estoc\'astico at tiempo continuo, d\'ebilmente estacionario. Se define la 
+funci\'on de densidad espectral (SDF) de $\{X(t)\}$ como
+\begin{equation*}
 h(\omega) = \lim_{T\rightarrow \infty} \E{ \frac{ \left| G_T(\omega) \right|^{2}}{2 T} }
-\end{equation}
+\end{equation*}
+Donde $G_T (\omega) = \frac{1}{\sqrt{2 \pi}} \int_{-T}^{T} X(t) e^{-i \omega t} dt$
+\label{SDF}
+\end{defn}
 
 %La funci\'on $h$ es referida como la \textit{funci\'on de densidad espectral no-normalizada} para
 %$\{X(t)\}$. Posteriormente se definir\'a una versi\'on ''normalizada'' de la SDF.
@@ -1212,21 +1254,8 @@ para condiciones que se discutir\'an m\'as adelante.
 \subsection{Estimaci\'on de la funci\'on de densidad espectral}
 
 En la subsecci\'on anterior se exhibi\'o una forma de definir un espectro de potencias para 
-procesos estoc\'asticos estacionarios (que tienen cuando menos segundos 
-momentos finitos). Esta definici\'on es resumida en \ref{SDF} para el caso no-normalizado; como el 
-operador $\mathrm{E}$ indica el valor esperado sobre todas las realizaciones del proceso, la 
-definici\'on se escribi\'o en t\'erminos del proceso y no de sus realizaciones.
-
-\begin{defn}[Funci\'on de densidad espectral (SDF) no-normalizada]
-Sea $\{X(t)\}$ un proceso estoc\'astico at tiempo continuo, d\'ebilmente estacionario. Se define la 
-funci\'on de densidad espectral (SDF) de $\{X(t)\}$ como
-\begin{equation*}
-h(\omega) = \lim_{T\rightarrow \infty} \E{ \frac{ \left| G_T(\omega) \right|^{2}}{2 T} }
-\end{equation*}
-Donde $G_T (\omega) = \frac{1}{\sqrt{2 \pi}} \int_{-T}^{T} X(t) e^{-i \omega t} dt$
-\label{SDF}
-\end{defn}
-
+procesos estoc\'asticos estacionarios que tienen cuando menos segundos 
+momentos finitos (definici\'on \ref{SDF}). 
 Es importante un comentario que imita a aqu\'el sobre la definici\'on de estacionariedad: la 
 definici\'on \ref{SDF} es sumamente ineficiente en t\'erminos de estimaci\'on, ya que implica tomar 
 un valor esperado sobre todas las posibles realizaciones del proceso.
