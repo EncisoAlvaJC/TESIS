@@ -71,6 +71,12 @@
 % para que la bibliografia aparezca en el indice
 \usepackage[nottoc]{tocbibind}
 
+% para que las tablas tengan otro estilo
+\usepackage{booktabs}
+
+% para tablas de colores
+\usepackage{xcolor,colortbl}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -123,6 +129,13 @@
 \newcommand{\Var}[1]{\mathrm{Var}\left( #1 \right)}
 \newcommand{\Cov}[1]{\mathrm{Cov}\left( #1 \right)}
 \newcommand{\abso}[1]{\left| #1 \right|}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\bordes}[1]{\renewcommand{\arraystretch}{#1}}
+
+\definecolor{gris}{gray}{0.92.5}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1702,46 +1715,92 @@ Se efectuaron los mismos an\'alisis sobre este grupo con la finalidad de exhibir
 limitaciones de las t\'ecnicas utilizadas, debido a lo cual este grupo es ignorado en la secci\'on 
 de resultados, pero retomado en la discusi\'on.
 
+%\begin{table}
+%\centering
+%\begin{tabular}{c}
+%\textbf{Datos generales de los participantes}
+%\vspace{1em}
+%\end{tabular}
+%\begin{small}
+%\begin{tabular}{c|ccc|ccccc}
+%%\hline 
+%%Nombre & Sexo & Edad & Esc. & Neuropsi & MMSE & SATS & KATZ & Gds & Notas \\
+%\textbf{Nombre} & \textbf{Sexo} & \textbf{Edad} & \textbf{Esc.} & \textbf{Neuropsi} & \textbf{MMSE} & \textbf{SATS} & \textbf{KATZ} & \textbf{Gds} \\
+%\hline 
+%\hline 
+%VCR    & F    & 59   & 12   & 107      & 29   & 21   & 0    & 3 \\
+%MJH    & F    & 72   & 9    & 113      & 30   & 18   & 0    & 0 \\
+%JAE    & F    & 78   & 5    & 102      & 28   & 19   & 0    & 5 \\
+%GHA    & M    & 65   & 9    & 107.5    & 30   & 23   & 0    & 7 \\
+%MFGR   & F    & 67   & 11   & 110      & 30   & 18   & 0    &   \\
+%\hline 
+%$\widehat{\mu}$ & 
+%              & 68.20& 9.20 & 107.90   & 29.40& 19.80& 0.00 & 3.00\\
+%$\widehat{\sigma}$ & 
+%              & 7.19 & 2.68 & 4.07     & 0.89 & 2.17 & 0.00 & 3.08\\
+%\hline 
+%\hline 
+%CLO    & F    & 68   & 5    & 81       & 28   & 22   & 1    & 6 \\
+%RLO    & F    & 63   & 9    & 90       & 29   & 20   & 0    & 3 \\
+%RRU    & M    & 69   & 9    & 85       & 27   & 10   & 0    & 3 \\
+%JGZ    & M    & 65   & 11   & 87       & 25   & 20   & 0    & 1 \\
+%\hline 
+%$\widehat{\mu}$ & 
+%              & 66.25& 8.50 & 85.75   & 27.25& 18.00& 0.25 & 3.25\\
+%$\widehat{\sigma}$ & 
+%              & 2.75 & 2.52 & 3.77    & 1.71 & 5.42 & 0.50 & 2.06\\
+%\hline 
+%\hline 
+%FGH    & M    & 71   & 9    & 83.5     & 21   & 23   & 0    & 4  \\
+%MGG    & F    & 61   & 9    & 114      & 28   & 29   & 1    & 14 \\
+%EMT    & M    & 50   & 22   & 106      & 30   & 15   & 0    & 4  \\
+%%\hline 
+%\end{tabular} 
+%\end{small}
+%\label{tab_sujetos}
+%\caption{Resultados de las pruebas neuropsicol\'ogicas aplicadas a los sujetos considerados en este 
+%trabajo, adem\'as de algunos datos generales. 
+%}
+%\end{table}
 \begin{table}
 \centering
+\bordes{1.2}
 \begin{tabular}{c}
 \textbf{Datos generales de los participantes}
 \vspace{1em}
 \end{tabular}
 \begin{small}
-\begin{tabular}{c|ccc|ccccc}
-%\hline 
-%Nombre & Sexo & Edad & Esc. & Neuropsi & MMSE & SATS & KATZ & Gds & Notas \\
+\begin{tabular}{lrrrrrrrr}
+\toprule
 \textbf{Nombre} & \textbf{Sexo} & \textbf{Edad} & \textbf{Esc.} & \textbf{Neuropsi} & \textbf{MMSE} & \textbf{SATS} & \textbf{KATZ} & \textbf{Gds} \\
-\hline 
-\hline 
+\midrule
 VCR    & F    & 59   & 12   & 107      & 29   & 21   & 0    & 3 \\
 MJH    & F    & 72   & 9    & 113      & 30   & 18   & 0    & 0 \\
 JAE    & F    & 78   & 5    & 102      & 28   & 19   & 0    & 5 \\
 GHA    & M    & 65   & 9    & 107.5    & 30   & 23   & 0    & 7 \\
 MFGR   & F    & 67   & 11   & 110      & 30   & 18   & 0    &   \\
-\hline 
-$\widehat{\mu}$ & 
+\rowcolor{gris}
+\multicolumn{1}{c}{$\widehat{\mu}$} & 
               & 68.20& 9.20 & 107.90   & 29.40& 19.80& 0.00 & 3.00\\
-$\widehat{\sigma}$ & 
+\rowcolor{gris}
+\multicolumn{1}{c}{$\widehat{\sigma}$} & 
               & 7.19 & 2.68 & 4.07     & 0.89 & 2.17 & 0.00 & 3.08\\
-\hline 
-\hline 
+\midrule
 CLO    & F    & 68   & 5    & 81       & 28   & 22   & 1    & 6 \\
 RLO    & F    & 63   & 9    & 90       & 29   & 20   & 0    & 3 \\
 RRU    & M    & 69   & 9    & 85       & 27   & 10   & 0    & 3 \\
 JGZ    & M    & 65   & 11   & 87       & 25   & 20   & 0    & 1 \\
-\hline 
-$\widehat{\mu}$ & 
+\rowcolor{gris}
+\multicolumn{1}{c}{$\widehat{\mu}$} & 
               & 66.25& 8.50 & 85.75   & 27.25& 18.00& 0.25 & 3.25\\
-$\widehat{\sigma}$ & 
+\rowcolor{gris}
+\multicolumn{1}{c}{$\widehat{\sigma}$} & 
               & 2.75 & 2.52 & 3.77    & 1.71 & 5.42 & 0.50 & 2.06\\
-\hline 
-\hline 
+\midrule
 FGH    & M    & 71   & 9    & 83.5     & 21   & 23   & 0    & 4  \\
 MGG    & F    & 61   & 9    & 114      & 28   & 29   & 1    & 14 \\
 EMT    & M    & 50   & 22   & 106      & 30   & 15   & 0    & 4  \\
-%\hline 
+\bottomrule
 \end{tabular} 
 \end{small}
 \label{tab_sujetos}
@@ -1962,12 +2021,12 @@ aceptar o rechazar la hip\'otesis de estacionariedad d\'ebil.}
 \chapter{Resultados}
 
 En cada canal que conforma el PSG (EEG, EOG y EMG), cada \'epoca registrada fue clasificada como 
-'posiblemente estacionaria' (PE) si, usando la prueba PSR no pudo rechazarse la hip\'otesis de 
+'posiblemente estacionaria' (PE) si, usando la prueba PSR, no pudo rechazarse la hip\'otesis de 
 estacionariedad ($\alpha < 0.05$), o como 'no-estacionaria' en caso contrario.
 La cantidad de \'epocas PE en cada individuo, durante el sue\~no MOR y NMOR, se muestra en las 
 tablas \ref{total_gpos_mor}, \ref{total_gpos_nmor} y \ref{total_gpos_total}. Debido a la gran 
-variabilidad entre los sujetos para la duraci\'on del sue\~no MOR, se consider\'o no el total de 
-\'epocas PE sino la proporci\'on de \'estas en cada etapa de sue\~no; tales resultados se muestran 
+variabilidad entre los sujetos para la duraci\'on del sue\~no MOR, no se consider\'o el total de 
+\'epocas PE, sino la proporci\'on de \'estas en cada etapa de sue\~no; tales cantidades se muestran 
 en las tablas \ref{gpos_mor}, \ref{gpos_nmor} y \ref{gpos_total}. 
 Adicionalmente se han calculado promedios y desviaciones est\'andar para ambos grupos (Control y 
 PDC).
@@ -1979,8 +2038,8 @@ completo, tiene o no propiedades estad\'sticas parecidas a este \'ultimo, y si \
 pudiera estar relacionada con el PDC. 
 Se compar\'o la proporci\'on de \'epocas PE en cada canal durante sue\~no MOR y NMOR usando la 
 prueba $\chi^{2}$ para proporciones\footnote{Implementada en R como la funci\'on 
-\texttt{prop.test()}}; los resultados se muestran en la tabla \ref{comparacion_mor_vs_total},
-aunque son resumidos esquem\'aticamente en la figura \ref{cabecitas_munchas}.
+\texttt{prop.test()}}; estos resultados se muestran en la tabla \ref{comparacion_mor_vs_total},
+y son resumidos esquem\'aticamente en la figura \ref{cabecitas_munchas}.
 
 Se encontr\'o que no hay diferencias significativas, consistentes en todos los sujetos, en los 
 canales LOG y ROG, lo cual puede ser explicado por la tipificaci\'on del sue\~no MOR. 
@@ -2014,21 +2073,25 @@ CLO & RLO & RRU & JGZ
 FGH & MGG & EMT
 \end{tabular}
 \end{tabular}
-\caption{Representaci\'on esquem\'atica de las
-diferencias significativas para la comparaci\'on entre la proporci\'on de \'epocas PE durante el
-sue\~no MOR y NMOR.
-La intensidad del color representa el p-valor con el cual se rechaza la hip\'otesis en que las 
-proporciones son estad\'sticamente diferentes.}
+%\caption{Representaci\'on esquem\'atica de las
+%diferencias significativas para la comparaci\'on entre la proporci\'on de \'epocas PE durante el
+%sue\~no MOR y NMOR.
+%La intensidad del color representa el p-valor con el cual se rechaza la hip\'otesis en que las 
+%proporciones son estad\'sticamente diferentes.}
+\caption{Se muestra esquem\'aticamente en azul las zonas donde se encontraron diferencias 
+significativas al comparar las proporciones de \'epocas PE durante sue\~no MOR y NMOR. Esta misma
+informaci\'on se muestra en la tabla \ref{comparacion_mor_vs_total} }
 \label{cabecitas_munchas}
 \end{figure}
 
 Posteriormente se busc\'o una diferencia m\'as directa entre los grupos, comparando grupalmente las 
-proporciones de \'epocas PE (en cada canal y durante las diferentes etapas). Para la comparaci\'on 
-per se se us\'o la prueba U de Mann-Whitney\footnote{Implementada en R como la funci\'on 
-\texttt{wilcox.test()}}.
-No se encontraron diferencias significativas para ninguno de los canales, los resultados se 
-muestran en las tablas \ref{gpos_mor}, \ref{gpos_nmor}, \ref{gpos_total}; para una mejor 
-vizualizaci\'on, \'estos se han graficado en la figura \ref{comparacion_graf}.
+proporciones de \'epocas PE (en cada canal y durante las diferentes etapas)
+%. Para la comparaci\'on se us\'o 
+mediante la prueba U de Mann-Whitney\footnote{Implementada en R como la funci\'on 
+\texttt{wilcox.test()}};
+no se encontraron diferencias significativas para ninguno de los canales. Los resultados se 
+muestran en las tablas \ref{gpos_mor}, \ref{gpos_nmor}, \ref{gpos_total}, y para una mejor 
+vizualizaci\'on \'estos se han graficado en la figura \ref{comparacion_graf}.
 
 \begin{figure}
 \centering
