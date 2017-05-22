@@ -76,6 +76,7 @@
 
 % para tablas de colores
 \usepackage{xcolor,colortbl}
+\usepackage{multirow}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -96,6 +97,18 @@
   \rotatebox{90}{\parbox[c][\textwidth][c]{\textheight}{\BODY}}%
 \fi
 \end{figure}}
+
+\NewEnviron{SidewaysTable}{
+\begin{table}[p]
+\bordes{1.1}
+\protected@write\@auxout{\let\theabspage=\relax}% delays expansion until shipout
+  {\string\newSFPage{\theabspage}}%
+\ifdim\textwidth=\textheight
+  \rotatebox{90}{\parbox[c][\textwidth][c]{\linewidth}{\BODY}}%
+\else
+  \rotatebox{90}{\parbox[c][\textwidth][c]{\textheight}{\BODY}}%
+\fi
+\end{table}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -135,7 +148,9 @@
 
 \newcommand{\bordes}[1]{\renewcommand{\arraystretch}{#1}}
 
-\definecolor{gris}{gray}{0.92.5}
+\definecolor{gris}{gray}{0.925}
+
+\definecolor{gris2}{gray}{0.8}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1255,17 +1270,18 @@ En la tabla \ref{ventanas} hay una lista corta de algunas funciones ventana.
 Esta familia de estimadores son consistentes pero sesgados, aunque son asint\'oticamente 
 insesgados, ya que el sesgo disminuye conforme aumenta el n\'umero de puntos.
 
-\begin{SidewaysFigure}
+\begin{SidewaysTable}
 \centering
+\bordes{1.5}
 \begin{tabular}{c}
 \textbf{Algunas funciones tipo ventana}
 \vspace{1em}
 \end{tabular}
-\begin{tabular}{c||c|c}
- & Ventana de retrasos & Ventana en las frecuencias \\
- \hline
-  \hline
-P. truncado & 
+\begin{tabular}{lll}
+\toprule
+ & \textbf{Ventana de retrasos} & \textbf{Ventana en las frecuencias} \\
+\midrule
+\textbf{P. truncado} & 
 $\displaystyle
 \lambda(s) = \begin{cases}
 1 &\text{, si } \abso{s} \leq M \\
@@ -1275,8 +1291,7 @@ $\displaystyle
 W(\theta) = \frac{1}{2\pi} \frac{\SEN{(M+\frac{1}{2})\theta}}{\SEN{\nicefrac{\theta}{2}}}
 =: D_M(\theta)$
 \\
- \hline
-Bartlet &
+\textbf{Bartlet} &
 $\displaystyle
 \lambda(s) = \begin{cases}
 1-\nicefrac{\abso{s}}{M} &\text{, si } \abso{s} \leq M \\
@@ -1287,8 +1302,7 @@ W(\theta) = \frac{1}{2\pi M}
 \left( \frac{\SEN{ \nicefrac{M\theta}{2}}}{\SEN{\nicefrac{\theta}{2}}} \right)^{2}
 =: F_M(\theta)$
 \\
- \hline
-Daniell &
+\textbf{Daniell} &
 $\displaystyle
 \lambda(s) = \frac{\SEN{\nicefrac{\pi s}{M}}}{\nicefrac{\pi s}{M}}$ &
 $\displaystyle
@@ -1297,8 +1311,7 @@ W(\theta) = \begin{cases}
 0 &\text{, otro caso}
 \end{cases}$
 \\
- \hline
-Tukey-Hanning &
+\textbf{Tukey-Hanning} &
 $\displaystyle
 \lambda(s) = \begin{cases}
 \nicefrac{1}{2}\left( 1+ \COS{\nicefrac{\pi s}{M}} \right) &\text{, si } \abso{s} \leq M \\
@@ -1309,8 +1322,7 @@ W(\theta) = \frac{1}{4} D_M\left(\theta - \frac{\pi}{M} \right)
 +\frac{1}{2} D_M\left(\theta \right)
 \frac{1}{4} D_M\left(\theta + \frac{\pi}{M} \right)$
 \\
- \hline
-Parzen &
+\textbf{Parzen} &
 $\displaystyle
 \lambda(s) = \begin{cases}
 1-6\left( \nicefrac{s}{M} \right)^{2} + 6\left( \nicefrac{\abso{s}}{M} \right)^{3} 
@@ -1325,8 +1337,7 @@ W(\theta) = \frac{3}{8 \pi M^{3}} \left(
 \right)^{4}
 \left( 1- \nicefrac{2}{3} \SEN{\nicefrac{\theta}{2}}^{2} \right)$
 \\
- \hline
-Bartlet-Priestley &
+\textbf{Bartlet-Priestley} &
 $\displaystyle
 \lambda(s) = \frac{3M^{2}}{\left(\pi s\right)^{2} }
 \left( \frac{\SEN{\nicefrac{\pi s}{M}}}{\nicefrac{\pi s}{M}} - \COS{\nicefrac{\pi s}{M}}
@@ -1339,13 +1350,15 @@ W(\theta) = \begin{cases}
 &\text{, si } \abso{\theta} \leq \nicefrac{\pi}{M} \\
 0 &\text{, otro caso}
 \end{cases}$
+\\
+\bottomrule
 \end{tabular}
 \caption{Ejemplos de algunas ventanas que suavizan el periodograma, formando estimadores 
 consistente de la SDF para el caso de espectro puramente continuo.
-Las funciones $F_M$ y $D_M$ toman los nombres respectivos de \textit{n\'ucelo de Fejer} y
+Las funciones $F_M$ y $D_M$ toman, respectivamente, los nombres de \textit{n\'ucelo de Fejer} y
 \textit{N\'ucleo de Dirichlet} de orden $M$}
 \label{ventanas}
-\end{SidewaysFigure}
+\end{SidewaysTable}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1715,53 +1728,6 @@ Se efectuaron los mismos an\'alisis sobre este grupo con la finalidad de exhibir
 limitaciones de las t\'ecnicas utilizadas, debido a lo cual este grupo es ignorado en la secci\'on 
 de resultados, pero retomado en la discusi\'on.
 
-%\begin{table}
-%\centering
-%\begin{tabular}{c}
-%\textbf{Datos generales de los participantes}
-%\vspace{1em}
-%\end{tabular}
-%\begin{small}
-%\begin{tabular}{c|ccc|ccccc}
-%%\hline 
-%%Nombre & Sexo & Edad & Esc. & Neuropsi & MMSE & SATS & KATZ & Gds & Notas \\
-%\textbf{Nombre} & \textbf{Sexo} & \textbf{Edad} & \textbf{Esc.} & \textbf{Neuropsi} & \textbf{MMSE} & \textbf{SATS} & \textbf{KATZ} & \textbf{Gds} \\
-%\hline 
-%\hline 
-%VCR    & F    & 59   & 12   & 107      & 29   & 21   & 0    & 3 \\
-%MJH    & F    & 72   & 9    & 113      & 30   & 18   & 0    & 0 \\
-%JAE    & F    & 78   & 5    & 102      & 28   & 19   & 0    & 5 \\
-%GHA    & M    & 65   & 9    & 107.5    & 30   & 23   & 0    & 7 \\
-%MFGR   & F    & 67   & 11   & 110      & 30   & 18   & 0    &   \\
-%\hline 
-%$\widehat{\mu}$ & 
-%              & 68.20& 9.20 & 107.90   & 29.40& 19.80& 0.00 & 3.00\\
-%$\widehat{\sigma}$ & 
-%              & 7.19 & 2.68 & 4.07     & 0.89 & 2.17 & 0.00 & 3.08\\
-%\hline 
-%\hline 
-%CLO    & F    & 68   & 5    & 81       & 28   & 22   & 1    & 6 \\
-%RLO    & F    & 63   & 9    & 90       & 29   & 20   & 0    & 3 \\
-%RRU    & M    & 69   & 9    & 85       & 27   & 10   & 0    & 3 \\
-%JGZ    & M    & 65   & 11   & 87       & 25   & 20   & 0    & 1 \\
-%\hline 
-%$\widehat{\mu}$ & 
-%              & 66.25& 8.50 & 85.75   & 27.25& 18.00& 0.25 & 3.25\\
-%$\widehat{\sigma}$ & 
-%              & 2.75 & 2.52 & 3.77    & 1.71 & 5.42 & 0.50 & 2.06\\
-%\hline 
-%\hline 
-%FGH    & M    & 71   & 9    & 83.5     & 21   & 23   & 0    & 4  \\
-%MGG    & F    & 61   & 9    & 114      & 28   & 29   & 1    & 14 \\
-%EMT    & M    & 50   & 22   & 106      & 30   & 15   & 0    & 4  \\
-%%\hline 
-%\end{tabular} 
-%\end{small}
-%\label{tab_sujetos}
-%\caption{Resultados de las pruebas neuropsicol\'ogicas aplicadas a los sujetos considerados en este 
-%trabajo, adem\'as de algunos datos generales. 
-%}
-%\end{table}
 \begin{table}
 \centering
 \bordes{1.2}
@@ -1770,9 +1736,9 @@ de resultados, pero retomado en la discusi\'on.
 \vspace{1em}
 \end{tabular}
 \begin{small}
-\begin{tabular}{lrrrrrrrr}
+\begin{tabular}{lcrrrrrrr}
 \toprule
-\textbf{Nombre} & \textbf{Sexo} & \textbf{Edad} & \textbf{Esc.} & \textbf{Neuropsi} & \textbf{MMSE} & \textbf{SATS} & \textbf{KATZ} & \textbf{Gds} \\
+ & \textbf{Sexo} & \textbf{Edad} & \textbf{Esc.} & \textbf{Neuropsi} & \textbf{MMSE} & \textbf{SATS} & \textbf{KATZ} & \textbf{Gds} \\
 \midrule
 VCR    & F    & 59   & 12   & 107      & 29   & 21   & 0    & 3 \\
 MJH    & F    & 72   & 9    & 113      & 30   & 18   & 0    & 0 \\
@@ -1785,7 +1751,8 @@ MFGR   & F    & 67   & 11   & 110      & 30   & 18   & 0    &   \\
 \rowcolor{gris}
 \multicolumn{1}{c}{$\widehat{\sigma}$} & 
               & 7.19 & 2.68 & 4.07     & 0.89 & 2.17 & 0.00 & 3.08\\
-\midrule
+%\midrule
+\hline
 CLO    & F    & 68   & 5    & 81       & 28   & 22   & 1    & 6 \\
 RLO    & F    & 63   & 9    & 90       & 29   & 20   & 0    & 3 \\
 RRU    & M    & 69   & 9    & 85       & 27   & 10   & 0    & 3 \\
@@ -1796,7 +1763,8 @@ JGZ    & M    & 65   & 11   & 87       & 25   & 20   & 0    & 1 \\
 \rowcolor{gris}
 \multicolumn{1}{c}{$\widehat{\sigma}$} & 
               & 2.75 & 2.52 & 3.77    & 1.71 & 5.42 & 0.50 & 2.06\\
-\midrule
+%\midrule
+\hline
 FGH    & M    & 71   & 9    & 83.5     & 21   & 23   & 0    & 4  \\
 MGG    & F    & 61   & 9    & 114      & 28   & 29   & 1    & 14 \\
 EMT    & M    & 50   & 22   & 106      & 30   & 15   & 0    & 4  \\
@@ -1808,26 +1776,6 @@ EMT    & M    & 50   & 22   & 106      & 30   & 15   & 0    & 4  \\
 trabajo, adem\'as de algunos datos generales. 
 }
 \end{table}
-
-%Cabe mencionar que, aunque se aplic\'o la bater\'ia entera de pruebas neuropsicol\'ogicos 
-%mencionados anteriormente, se ha valorado fuertemente el resultado de Neuropsi dentro del 
-%diagn\'ostico de PDC como conclusi\'on del trabajo original \cite{VazquezTagle16}.
-%Se han inclu\'ido los resultados de la bater\'ia completa de pruebas con el fin de citarla en la 
-%discusi\'on, ya que cada uno se 'especializa' en aspectos particulares: atenci\'on, memoria a 
-%corto y largo plazo, memoria declarativa y de trabajo, etc; si bien no se profundizar\'a en estos
-%conceptos, no puede omitirse el hecho que estas actividades espec\'ificas se consideran localizadas 
-%en \'areas espec\'ificas del cerebro.
-
-%Para la obtenci\'on de estos datos, los participantes declararon su participaci\'on libre e 
-%informada bajo los siguientes t\'erminos:
-%\begin{quote}
-%La participaci\'on en el estudio es completamente voluntaria, pudiendo los sujetos abandonar las 
-%intervenciones en cualquier momento. Todos los participantes firmaron un consentimiento informado 
-%previamente a su inclusi\'on en el estudio. 
-%Los protocolos experimentales empleados en esta investigaci\'on fueron previamente aprobados por 
-%el Comit\'e \'Etico de Investigaci\'on en humanos de la Universidad Autónoma del Estado de Hidalgo
-%\cite{VazquezTagle16}.
-%\end{quote}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1847,58 +1795,46 @@ submentonianos para registrar la actividad muscular.
 La colocaci\'on de los electrodos para registrar la actividad EEG se realiz\'o siguiendo las 
 coordenadas del Sistema Internacional 10-20\cite{Coleman87}.
 
-%Para registrar el PSG se ha usado electroencefal\'ografo digital MEDICID 5 (Neuronic mexicana S.A. 
-%de C.V.). Especificaciones T\'ecnicas:
-%\begin{itemize}
-%\item 24 canales monopolares (0.05 -- 100 Hz)
-%\item 8 canales bipolares para poligraf\'ia (0.5 -- 100 Hz)
-%\item 3 canales de C.C. (0--160 Hz)
-%\item 1 canal de temperatura (30 -- 40 C)
-%\item 1 estimulador f\'otico (0.5 -- 33 Hz)
-%\item Sistema A/D: 16 bits
-%\item Frec. Muestreo: Hasta 500 Hz (36 canales)
-%\item Voltaje Alimentaci\'on: 100 -- 240 V, 50/60 Hz
-%\item Interfaz: USB
-%\item Dimensiones: Bloque de control: ($257 \times 315 \times 55$ mm)
-%\item Peso: Bloque de control: 2.5 kg
-%\item Bloque amplificadores: ($110\times 187\times 50$ mm)
-%\item Bloque amplificadores: 1.0 kg
-%\item Seguridad el\'ectrica: Clase I Tipo BF (Certificado según EN60601-1)
-%\end{itemize}
-
 Debido a problemas t\'ecnicos con el electroencefal\'ografo, el registro se llev\'o a cabo a 512 Hz 
 para algunos sujetos y a 200 Hz para otros; la recomendaci\'on de la AASM, de un m\'inimo de 128 
 Hz, se satisface. 
 Las se\~nales fueron amplificadas, filtradas y digitalizadas para su posterior an\'alisis.
 En la tabla \ref{frecuencias} se reportan la duraci\'on de estos registros para cada sujeto.
-%, y en 
-%la figura  \ref{ejemplos_mor} se muestra un ejemplo.
 
 \begin{table}
 \centering
+\bordes{1.2}
 \begin{tabular}{c}
 \textbf{Datos generales sobre los registros de PSG}
 \vspace{1em}
 \end{tabular}
-\begin{tabular}{c||c|cc|ccc}
-    &Frecuencia& \underline{Total}& &   &\underline{MOR} &         \\
-    &muestreo  &Puntos  &  Tiempo   &Puntos  &  Tiempo   &  \% MOR \\
-\hline
-\hline
-VCR &200       & 5166000&   7:10:30 &438000  &   0:36:30 & 8\% \\
-MJH &512       &15851520&   8:36:00 &1950720 &   1:03:30 &12\% \\
-JAE &512       &13931520&   7:33:30 &2626560 &   1:25:30 &19\% \\
-GHA &200       &6558000 &   9:06:00 &330000  &   0:27:30 & 5\% \\
-MFGR&200       &4932000 &   6:51:00 &570000  &   0:47:30 &12\% \\
-\hline
-CLO &512       &14499840&   7:52:00 &2027520 &   1:06:00 &14\% \\
-RLO &512       &12994560&   7:03:00 &1520640 &   0:49:30 &12\% \\
-RRU &200       &2484000 &   3:27:00 &228000  &   0:19:00 & 9\% \\
-JGZ &512       &18539520&  10:03:30 &506880  &   0:16:30 & 3\% \\
-\hline
-FGH &512       &6220800 &   3:22:30 &337920  &   0:11:00 & 5\% \\
-MGG &512       &15820800&   8:35:00 &2549760 &   1:23:00 &16\% \\
-EMT &512       &21857280&  11:51:30 &721920  &   0:23:30 & 3\%
+\begin{tabular}{lcrrcrrr}
+\toprule
+    &\multirow{2}{*}{\begin{tabular}{c}\bordes{1}Frecuencia\\ muestreo\end{tabular}}
+    \bordes{1.2}
+    & \multicolumn{2}{c}{Total} & \phantom{l}   & \multicolumn{3}{c}{MOR}\\
+    \cmidrule{3-4}  \cmidrule{6-8}
+    &          &Puntos  &  Tiempo   &&Puntos  &  Tiempo   &  \% MOR \\
+\midrule
+VCR &200       & 5166000&   7:10:30 &&438000  &   0:36:30 & 8\% \\
+MJH &512       &15851520&   8:36:00 &&1950720 &   1:03:30 &12\% \\
+JAE &512       &13931520&   7:33:30 &&2626560 &   1:25:30 &19\% \\
+GHA &200       &6558000 &   9:06:00 &&330000  &   0:27:30 & 5\% \\
+MFGR&200       &4932000 &   6:51:00 &&570000  &   0:47:30 &12\% \\
+
+\rowcolor{gris}
+CLO &512       &14499840&   7:52:00 &&2027520 &   1:06:00 &14\% \\
+\rowcolor{gris}
+RLO &512       &12994560&   7:03:00 &&1520640 &   0:49:30 &12\% \\
+\rowcolor{gris}
+RRU &200       &2484000 &   3:27:00 &&228000  &   0:19:00 & 9\% \\
+\rowcolor{gris}
+JGZ &512       &18539520&  10:03:30 &&506880  &   0:16:30 & 3\% \\
+
+FGH &512       &6220800 &   3:22:30 &&337920  &   0:11:00 & 5\% \\
+MGG &512       &15820800&   8:35:00 &&2549760 &   1:23:00 &16\% \\
+EMT &512       &21857280&  11:51:30 &&721920  &   0:23:30 & 3\% \\
+\bottomrule
 \end{tabular}
 \caption{Cantidad de datos analizados para cada sujeto. Debido a un cambio en el polisomn\'ografo 
 usado, la frecuencia de muestreo (en Hz) cambia entre sujetos.
@@ -2480,86 +2416,118 @@ sujeto usando la prueba $\chi^{2}$ para proporciones.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{SidewaysFigure}
+\begin{SidewaysTable}
 \centering
 \begin{tabular}{c}
 \textbf{\'Epocas clasificadas como PE, sue\~no MOR}
 \vspace{1em}
 \end{tabular}
-\begin{tabular}{c|ccccc|cccc|ccc}
-& VCR & MJH & JAE & GHA & MFGR
-& CLO & RLO & RRU & JGZ
-& FGH & MGG & EMT \\
-\hline
-C3&6&18&10&1&12&6&35&16&1&2&28&22 \\
-C4&7&16&4&2&10&4&40&5&0&1&23&26 \\
-CZ&2&16&13&2&8&5&22&4&1&1&13&19 \\
-F3&5&23&10&0&3&7&43&3&3&6&14&20 \\
-F4&11&23&5&1&1&6&36&5&0&0&4&24 \\
-F7&5&15&2&0&4&1&18&0&0&0&2&24 \\
-F8&4&11&6&1&3&4&23&1&0&0&2&20 \\
-FP1&2&7&1&0&1&0&0&1&0&22&0&22 \\
-FP2&1&6&3&0&2&1&15&1&0&0&1&18 \\
-FZ&11&18&19&0&6&7&38&2&2&0&20&23 \\
-O1&10&20&5&3&23&2&25&9&2&5&18&19 \\
-O2&13&23&3&3&21&3&34&9&1&1&12&16 \\
-P3&6&17&2&2&26&5&33&8&0&1&24&17 \\
-P4&4&19&4&5&18&4&27&5&1&4&15&21 \\
-PZ&4&15&5&3&22&4&32&4&0&1&8&20 \\
-T3&10&29&1&8&26&10&34&4&0&2&29&31 \\
-T4&12&20&2&3&21&3&35&6&1&0&10&17 \\
-T5&10&26&0&3&27&5&34&5&2&2&31&19 \\
-T6&15&18&3&15&20&3&24&4&2&0&9&19 \\
-LOG&6&20&8&0&9&5&11&2&0&1&8&30 \\
-ROG&6&21&17&2&11&9&7&4&1&0&19&33 \\
-EMG&14&11&0&0&17&14&16&4&0&0&3&7 \\
-\hline
-Total&73&127&171&55&95&132&99&38&33&22&166&47
+\begin{tabular}{lrrrrrcrrrrcrrr}
+\toprule
+& \multicolumn{5}{c}{\textbf{Gpo. Control}} && 
+  \multicolumn{4}{c}{\textbf{Gpo. PDC}} && 
+  \multicolumn{3}{c}{\textbf{Exclu\'idos}}\\
+\cmidrule{2-6} \cmidrule{8-11} \cmidrule{13-15}
+& \textbf{VCR} & \textbf{MJH} & \textbf{JAE} & \textbf{GHA} & \textbf{MFGR} & \phantom{l}
+& \textbf{CLO} & \textbf{RLO} & \textbf{RRU} & \textbf{JGZ} & \phantom{l}
+& \textbf{FGH} & \textbf{MGG} & \textbf{EMT} \\
+\midrule
+\textbf{C3} &6 &18&10&1 &12&&6 &35&16&1 &&2 &28&22 \\
+\textbf{C4} &7 &16&4 &2 &10&&4 &40&5 &0 &&1 &23&26 \\
+\textbf{CZ} &2 &16&13&2 &8 &&5 &22&4 &1 &&1 &13&19 \\
+\rowcolor{gris}
+\textbf{F3} &5 &23&10&0 &3 &&7 &43&3 &3 &&6 &14&20 \\
+\rowcolor{gris}
+\textbf{F4} &11&23&5 &1 &1 &&6 &36&5 &0 &&0 &4 &24 \\
+\rowcolor{gris}
+\textbf{F7} &5 &15&2 &0 &4 &&1 &18&0 &0 &&0 &2 &24 \\
+\rowcolor{gris}
+\textbf{F8} &4 &11&6 &1 &3 &&4 &23&1 &0 &&0 &2 &20 \\
+\textbf{FP1}&2 &7 &1 &0 &1 &&0 &0 &1 &0 &&22&0 &22 \\
+\textbf{FP2}&1 &6 &3 &0 &2 &&1 &15&1 &0 &&0 &1 &18 \\
+\textbf{FZ} &11&18&19&0 &6 &&7 &38&2 &2 &&0 &20&23 \\
+\rowcolor{gris}
+\textbf{O1} &10&20&5 &3 &23&&2 &25&9 &2 &&5 &18&19 \\
+\rowcolor{gris}
+\textbf{O2} &13&23&3 &3 &21&&3 &34&9 &1 &&1 &12&16 \\
+\textbf{P3} &6 &17&2 &2 &26&&5 &33&8 &0 &&1 &24&17 \\
+\textbf{P4} &4 &19&4 &5 &18&&4 &27&5 &1 &&4 &15&21 \\
+\textbf{PZ} &4 &15&5 &3 &22&&4 &32&4 &0 &&1 &8 &20 \\
+\rowcolor{gris}
+\textbf{T3} &10&29&1 &8 &26&&10&34&4 &0 &&2 &29&31 \\
+\rowcolor{gris}
+\textbf{T4} &12&20&2 &3 &21&&3 &35&6 &1 &&0 &10&17 \\
+\rowcolor{gris}
+\textbf{T5} &10&26&0 &3 &27&&5 &34&5 &2 &&2 &31&19 \\
+\rowcolor{gris}
+\textbf{T6} &15&18&3 &15&20&&3 &24&4 &2 &&0 &9 &19 \\
+\textbf{LOG}&6 &20&8 &0 &9 &&5 &11&2 &0 &&1 &8 &30 \\
+\textbf{ROG}&6 &21&17&2 &11&&9 &7 &4 &1 &&0 &19&33 \\
+\textbf{EMG}&14&11&0 &0 &17&&14&16&4 &0 &&0&3&7 \\
+\rowcolor{gris2}
+\textbf{Total}&73&127&171&55&95&&132&99&38&33&&22&166&47 \\
+\bottomrule
 \end{tabular}
 \caption{Total de \'epocas PE clasificadas como sue\~no MOR (fase R) para cada canal. En la 
 \'ultima fila se reporta el n\'umero total de \'epocas clasificadas como sue\~no MOR para cada 
 sujeto (en todos los canales se registr\'o la misma cantidad de \'epocas).
 }
 \label{total_gpos_mor}
-\end{SidewaysFigure}
+\end{SidewaysTable}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{SidewaysFigure}
+\begin{SidewaysTable}
 \centering
 \begin{tabular}{c}
 \textbf{\'Epocas clasificadas como PE, sue\~no NMOR}
 \vspace{1em}
 \end{tabular}
-\begin{tabular}{c|ccccc|cccc|ccc}
-& VCR & MJH & JAE & GHA & MFGR
-& CLO & RLO & RRU & JGZ
-& FGH & MGG & EMT \\
-\hline
-C3&187&135&100&175&112&55&153&76&56&16&201&478 \\
-C4&168&129&89&156&87&36&135&94&47&7&207&598 \\
-CZ&167&131&88&107&77&54&145&69&62&8&180&518 \\
-F3&168&134&83&150&73&57&175&79&68&107&143&331 \\
-F4&180&132&55&146&24&41&135&80&49&0&137&549 \\
-F7&158&137&77&213&87&45&112&68&58&0&152&262 \\
-F8&157&123&30&168&36&41&96&86&48&0&128&574 \\
-FP1&163&75&23&128&65&34&0&71&44&381&169&518 \\
-FP2&156&82&44&116&21&33&99&26&44&0&146&449 \\
-FZ&170&134&78&156&51&55&163&91&65&0&177&533 \\
-O1&202&174&51&295&175&48&150&92&96&20&140&675 \\
-O2&166&165&63&247&173&32&136&70&106&22&161&573 \\
-P3&175&122&53&288&132&72&147&108&95&29&212&490 \\
-P4&180&136&108&252&140&56&135&110&73&18&206&495 \\
-PZ&156&131&90&216&112&57&167&112&59&15&177&497 \\
-T3&181&140&52&230&171&81&112&80&102&27&115&603 \\
-T4&181&121&35&182&128&26&110&112&87&10&122&531 \\
-T5&218&146&16&265&199&78&137&104&61&19&208&621 \\
-T6&218&148&49&194&181&38&118&98&84&18&209&558 \\
-LOG&236&224&214&287&170&144&185&128&225&50&437&820 \\
-ROG&236&205&212&334&159&126&179&110&225&67&455&873 \\
-EMG&94&62&16&1&157&20&82&110&10&1&55&266 \\
-\hline
-Total&788&905&736&1038&727&812&747&376&1174&383&864&1376
+\begin{tabular}{lrrrrrcrrrrcrrr}
+\toprule
+& \multicolumn{5}{c}{\textbf{Gpo. Control}} && 
+  \multicolumn{4}{c}{\textbf{Gpo. PDC}} && 
+  \multicolumn{3}{c}{\textbf{Exclu\'idos}}\\
+\cmidrule{2-6} \cmidrule{8-11} \cmidrule{13-15}
+& \textbf{VCR} & \textbf{MJH} & \textbf{JAE} & \textbf{GHA} & \textbf{MFGR} & \phantom{l}
+& \textbf{CLO} & \textbf{RLO} & \textbf{RRU} & \textbf{JGZ} & \phantom{l}
+& \textbf{FGH} & \textbf{MGG} & \textbf{EMT} \\
+\midrule
+\textbf{C3} &187&135&100&175&112&&55 &153&76 &56 &&16 &201&478 \\
+\textbf{C4} &168&129&89 &156&87 &&36 &135&94 &47 &&7  &207&598 \\
+\textbf{CZ} &167&131&88 &107&77 &&54 &145&69 &62 &&8  &180&518 \\
+\rowcolor{gris}
+\textbf{F3} &168&134&83 &150&73 &&57 &175&79 &68 &&107&143&331 \\
+\rowcolor{gris}
+\textbf{F4} &180&132&55 &146&24 &&41 &135&80 &49 &&0  &137&549 \\
+\rowcolor{gris}
+\textbf{F7} &158&137&77 &213&87 &&45 &112&68 &58 &&0  &152&262 \\
+\rowcolor{gris}
+\textbf{F8} &157&123&30 &168&36 &&41 &96 &86 &48 &&0  &128&574 \\
+\textbf{FP1}&163&75 &23 &128&65 &&34 &0  &71 &44 &&381&169&518 \\
+\textbf{FP2}&156&82 &44 &116&21 &&33 &99 &26 &44 &&0  &146&449 \\
+\textbf{FZ} &170&134&78 &156&51 &&55 &163&91 &65 &&0  &177&533 \\
+\rowcolor{gris}
+\textbf{O1} &202&174&51 &295&175&&48 &150&92 &96 &&20 &140&675 \\
+\rowcolor{gris}
+\textbf{O2} &166&165&63 &247&173&&32 &136&70 &106&&22 &161&573 \\
+\textbf{P3} &175&122&53 &288&132&&72 &147&108&95 &&29 &212&490 \\
+\textbf{P4} &180&136&108&252&140&&56 &135&110&73 &&18 &206&495 \\
+\textbf{PZ} &156&131&90 &216&112&&57 &167&112&59 &&15 &177&497 \\
+\rowcolor{gris}
+\textbf{T3} &181&140&52 &230&171&&81 &112&80 &102&&27 &115&603 \\
+\rowcolor{gris}
+\textbf{T4} &181&121&35 &182&128&&26 &110&112&87 &&10 &122&531 \\
+\rowcolor{gris}
+\textbf{T5} &218&146&16 &265&199&&78 &137&104&61 &&19 &208&621 \\
+\rowcolor{gris}
+\textbf{T6} &218&148&49 &194&181&&38 &118&98 &84 &&18 &209&558 \\
+\textbf{LOG}&236&224&214&287&170&&144&185&128&225&&50 &437&820 \\
+\textbf{ROG}&236&205&212&334&159&&126&179&110&225&&67 &455&873 \\
+\textbf{EMG}&94 &62 &16 &1  &157&&20 &82 &110&10 &&1  &55 &266 \\
+\rowcolor{gris2}
+\textbf{Total}&788&905&736&1038&727&&812&747&376&1174&&383&864&1376 \\
+\bottomrule
 \end{tabular}
 \caption{Total  de \'epocas PE dentro del registro pero que no fueron clasificadas como MOR (fases 
 W y N) para cada canal. En la \'ultima fila se reporta el n\'umero total de \'epocas clasificadas 
@@ -2567,57 +2535,73 @@ como sue\~no NMOR para cada sujeto (en todos los canales se registr\'o la misma 
 \'epocas).
 }
 \label{total_gpos_nmor}
-\end{SidewaysFigure}
+\end{SidewaysTable}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{SidewaysFigure}
+\begin{SidewaysTable}
 \centering
 \begin{tabular}{c}
 \textbf{\'Epocas clasificadas como PE, todo el registro}
 \vspace{1em}
 \end{tabular}
-\begin{tabular}{c|ccccc|cccc|ccc}
-& VCR & MJH & JAE & GHA & MFGR
-& CLO & RLO & RRU & JGZ
-& FGH & MGG & EMT \\
-\hline
-C3&193&153&110&176&124&61&188&92&57&18&229&500 \\
-C4&175&145&93&158&97&40&175&99&47&8&230&624 \\
-CZ&169&147&101&109&85&59&167&73&63&9&193&537 \\
-F3&173&157&93&150&76&64&218&82&71&113&157&351 \\
-F4&191&155&60&147&25&47&171&85&49&0&141&573 \\
-F7&163&152&79&213&91&46&130&68&58&0&154&286 \\
-F8&161&134&36&169&39&45&119&87&48&0&130&594 \\
-FP1&165&82&24&128&66&34&0&72&44&403&169&540 \\
-FP2&157&88&47&116&23&34&114&27&44&0&147&467 \\
-FZ&181&152&97&156&57&62&201&93&67&0&197&556 \\
-O1&212&194&56&298&198&50&175&101&98&25&158&694 \\
-O2&179&188&66&250&194&35&170&79&107&23&173&589 \\
-P3&181&139&55&290&158&77&180&116&95&30&236&507 \\
-P4&184&155&112&257&158&60&162&115&74&22&221&516 \\
-PZ&160&146&95&219&134&61&199&116&59&16&185&517 \\
-T3&191&169&53&238&197&91&146&84&102&29&144&634 \\
-T4&193&141&37&185&149&29&145&118&88&10&132&548 \\
-T5&228&172&16&268&226&83&171&109&63&21&239&640 \\
-T6&233&166&52&209&201&41&142&102&86&18&218&577 \\
-LOG&242&244&222&287&179&149&196&130&225&51&445&850 \\
-ROG&242&226&229&336&170&135&186&114&226&67&474&906 \\
-EMG&108&73&16&1&174&34&98&114&10&1&58&273 \\
-\hline
-Total&861&1032&907&1093&822&944&846&414&1207&405&1030&1423
+\begin{tabular}{lrrrrrcrrrrcrrr}
+\toprule
+& \multicolumn{5}{c}{\textbf{Gpo. Control}} && 
+  \multicolumn{4}{c}{\textbf{Gpo. PDC}} && 
+  \multicolumn{3}{c}{\textbf{Exclu\'idos}}\\
+\cmidrule{2-6} \cmidrule{8-11} \cmidrule{13-15}
+& \textbf{VCR} & \textbf{MJH} & \textbf{JAE} & \textbf{GHA} & \textbf{MFGR} & \phantom{l}
+& \textbf{CLO} & \textbf{RLO} & \textbf{RRU} & \textbf{JGZ} & \phantom{l}
+& \textbf{FGH} & \textbf{MGG} & \textbf{EMT} \\
+\midrule
+\textbf{C3} &193&153&110&176&124&&61 &188&92 &57 &&18&229&500 \\
+\textbf{C4} &175&145&93 &158&97 &&40 &175&99 &47 &&8&230&624 \\
+\textbf{CZ} &169&147&101&109&85 &&59 &167&73 &63 &&9&193&537 \\
+\rowcolor{gris}
+\textbf{F3} &173&157&93 &150&76 &&64 &218&82 &71 &&113&157&351 \\
+\rowcolor{gris}
+\textbf{F4} &191&155&60 &147&25 &&47 &171&85 &49 &&0&141&573 \\
+\rowcolor{gris}
+\textbf{F7} &163&152&79 &213&91 &&46 &130&68 &58 &&0&154&286 \\
+\rowcolor{gris}
+\textbf{F8} &161&134&36 &169&39 &&45 &119&87 &48 &&0&130&594 \\
+\textbf{FP1}&165&82 &24 &128&66 &&34 &0  &72 &44 &&403&169&540 \\
+\textbf{FP2}&157&88 &47 &116&23 &&34 &114&27 &44 &&0&147&467 \\
+\textbf{FZ} &181&152&97 &156&57 &&62 &201&93 &67 &&0&197&556 \\
+\rowcolor{gris}
+\textbf{O1} &212&194&56 &298&198&&50 &175&101&98 &&25&158&694 \\
+\rowcolor{gris}
+\textbf{O2} &179&188&66 &250&194&&35 &170&79 &107&&23&173&589 \\
+\textbf{P3} &181&139&55 &290&158&&77 &180&116&95 &&30&236&507 \\
+\textbf{P4} &184&155&112&257&158&&60 &162&115&74 &&22&221&516 \\
+\textbf{PZ} &160&146&95 &219&134&&61 &199&116&59 &&16&185&517 \\
+\rowcolor{gris}
+\textbf{T3} &191&169&53 &238&197&&91 &146&84 &102&&29&144&634 \\
+\rowcolor{gris}
+\textbf{T4} &193&141&37 &185&149&&29 &145&118&88 &&10&132&548 \\
+\rowcolor{gris}
+\textbf{T5} &228&172&16 &268&226&&83 &171&109&63 &&21&239&640 \\
+\rowcolor{gris}
+\textbf{T6} &233&166&52 &209&201&&41 &142&102&86 &&18&218&577 \\
+\textbf{LOG}&242&244&222&287&179&&149&196&130&225&&51&445&850 \\
+\textbf{ROG}&242&226&229&336&170&&135&186&114&226&&67&474&906 \\
+\textbf{EMG}&108&73 &16 &1  &174&&34 &98 &114&10 &&1&58&273 \\
+\rowcolor{gris2}
+\textbf{Total}&861&1032&907&1093&822&&944&846&414&1207&&405&1030&1423 \\
+\bottomrule
 \end{tabular}
 \caption{Total de \'epocas PE registradas (todas las fases) para cada canal. En la \'ultima fila se 
 reporta el n\'umero total de \'epocas registradas para cada sujeto (en todos los canales se 
 registr\'o la misma cantidad de \'epocas).
 }
 \label{total_gpos_total}
-\end{SidewaysFigure}
+\end{SidewaysTable}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{SidewaysFigure}
+\begin{SidewaysTable}
 \centering
 \begin{tabular}{c}
 \textbf{Porcentaje de \'epocas PE, sue\~no MOR}
@@ -2655,11 +2639,11 @@ EMG&0.192&0.087&0.000&0.000&0.179&0.091&0.093&0.106&0.162&0.105&0.000&0.093&0.06
 canal. Se incluyen las medias y desviaciones est\'andar estimadas para los grupos Control 
 (izquierda) y PDC (centro).}
 \label{gpos_mor}
-\end{SidewaysFigure}
+\end{SidewaysTable}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{SidewaysFigure}
+\begin{SidewaysTable}
 \centering
 \begin{tabular}{c}
 \textbf{Porcentaje de \'epocas PE, sue\~no NMOR}
@@ -2697,11 +2681,11 @@ EMG&0.119&0.069&0.022&0.001&0.216&0.085&0.086&0.025&0.110&0.293&0.009&0.109&0.13
 para cada canal. Se incluyen las medias y desviaciones est\'andar estimadas para los grupos Control 
 (izquierda) y PDC (centro).}
 \label{gpos_nmor}
-\end{SidewaysFigure}
+\end{SidewaysTable}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{SidewaysFigure}
+\begin{SidewaysTable}
 \centering
 \begin{tabular}{c}
 \textbf{Porcentaje de \'epocas PE, todo el registro}
@@ -2739,51 +2723,70 @@ EMG&0.125&0.071&0.018&0.001&0.212&0.085&0.086&0.036&0.116&0.275&0.008&0.109&0.12
 fases) para cada canal. Se incluyen las medias y desviaciones est\'andar estimadas para los grupos 
 Control (izquierda) y PDC (centro).}
 \label{gpos_total}
-\end{SidewaysFigure}
+\end{SidewaysTable}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{SidewaysFigure}
+\begin{SidewaysTable}
 \centering
+\bordes{1.1}
 \begin{tabular}{c}
 \textbf{Comparaci\'on individual para proporci\'on de \'epocas PE, MOR vs NMOR}
 \vspace{1em}
 \end{tabular}
-\begin{tabular}{c||ccccc||cccc||ccc}
-&VCR&MJH&JAE&GHA&MFGR&CLO&RLO&RRU&JGZ&FGH&MGG&EMT \\
-\hline
-C3&**& &*&**& & &**&*& & & &  \\
-C4&*& &***&*& & &***& & & &*&  \\
-CZ&***& & & & & & & & & &***&  \\
-F3&**& & &**& & &***& & & &*&** \\
-F4& & & &*& & &***& & & &***&  \\
-F7&*& &***&***& & & &*& & &***&*** \\
-F8&**& & &**& & &*&*& & &***&  \\
-FP1&***& & &*&*& & &*& & &***&  \\
-FP2&***& & &*& & & & & & &***&  \\
-FZ& & & &***& & &***&*& & &*&  \\
-O1&*& & &***& & & & & &*& &  \\
-O2& & &*&***& & &***& & & &***& \\ 
-P3&*& &*&***& & &**& & & &*&  \\
-P4&***& &***&*& & & & & &*&***&  \\
-PZ&**& &***&*& & & &*& & &***&  \\
-T3& & &**& & & &***& & & & &** \\
-T4& & & &*& & &***& & & &*&  \\
-T5&*& & &***& & &***& & & & &  \\
-T6& & &*& & & & & & & &***&  \\
-LOG&***& &***&***&**&***&**&***&*& &***&  \\
-ROG&***& &***&***&*&*&***&*&*& &***&  \\
-EMG& & & & & &***& &*& & & &  \\
-\hline
-General& & & & & &***& &*& & & & 
+\begin{tabular}{lrrrrrcrrrrcrrr}
+\toprule
+& \multicolumn{5}{c}{\textbf{Gpo. Control}} && 
+  \multicolumn{4}{c}{\textbf{Gpo. PDC}} && 
+  \multicolumn{3}{c}{\textbf{Exclu\'idos}}\\
+\cmidrule{2-6} \cmidrule{8-11} \cmidrule{13-15}
+& \textbf{VCR} & \textbf{MJH} & \textbf{JAE} & \textbf{GHA} & \textbf{MFGR} & \phantom{l}
+& \textbf{CLO} & \textbf{RLO} & \textbf{RRU} & \textbf{JGZ} & \phantom{l}
+& \textbf{FGH} & \textbf{MGG} & \textbf{EMT} \\
+\midrule 
+\textbf{C3} &** & &*  &** &  &&   &** &*  & && & &  \\
+\textbf{C4} &*  & &***&*  &  &&   &***&   & && &*&  \\
+\textbf{CZ} &***& &   &   &  &&   &   &   & && &***&  \\
+\rowcolor{gris}
+\textbf{F3} &** & &   &** &  &&   &***&   & && &*&** \\
+\rowcolor{gris}
+\textbf{F4} &   & &   &*  &  &&   &***&   & && &***&  \\
+\rowcolor{gris}
+\textbf{F7} &*  & &***&***&  &&   &   &*  & && &***&*** \\
+\rowcolor{gris}
+\textbf{F8} &** & &   &** &  &&   &*  &*  & && &***&  \\
+\textbf{FP1}&***& &   &*  &* &&   &   &*  & && &***&  \\
+\textbf{FP2}&***& &   &*  &  &&   &   &   & && &***&  \\
+\textbf{FZ} &   & &   &***&  &&   &***&*  & && &*&  \\
+\rowcolor{gris}
+\textbf{O1} &*  & &   &***&  &&   &   &   & &&*& &  \\
+\rowcolor{gris}
+\textbf{O2} &   & &*  &***&  &&   &***&   & && &***& \\ 
+\textbf{P3} &*  & &*  &***&  &&   &** &   & && &*&  \\
+\textbf{P4} &***& &***&*  &  &&   &   &   & &&*&***&  \\
+\textbf{PZ} &** & &***&*  &  &&   &   &*  & && &***&  \\
+\rowcolor{gris}
+\textbf{T3} &   & &** &   &  &&   &***&   & && & &** \\
+\rowcolor{gris}
+\textbf{T4} &   & &   &*  &  &&   &***&   & && &*&  \\
+\rowcolor{gris}
+\textbf{T5} &*  & &   &***&  &&   &***&   & && & &  \\
+\rowcolor{gris}
+\textbf{T6} &   & &*  &   &  &&   &   &   & && &***&  \\
+\textbf{LOG}&***& &***&***&**&&***&** &***&*&& &***&  \\
+\textbf{ROG}&***& &***&***&* &&*  &***&*  &*&& &***&  \\
+\textbf{EMG}&   & &   &   &  &&***&   &*  & && & &  \\
+\rowcolor{gris2}
+\textbf{General}& & & & & &&***& &*& && & & \\
+\bottomrule
 \end{tabular}
 \caption{Diferencias significativas para la comparaci\'on entre la proporci\'on de \'epocas PE en 
 sue\~no MOR (fase R) y NMOR (fases W y N).
 Los asteriscos representan el p-valor con el cual se rechaza la hip\'otesis en que las proporciones
 son estad\'sticamente diferentes: *=0.05 , **=0.01 , ***=0.005}
 \label{comparacion_mor_vs_total}
-\end{SidewaysFigure}
+\end{SidewaysTable}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -2795,41 +2798,52 @@ y que representan la
 distribuci\'on temporal y pseudo-espacial de las ocurrencia de \'epocas PSG dentro de los registros 
 para cada paciente. 
 
-Primeramente se presentan los compilados gr\'aficos per se, donde se ha destacado el sue\~no MOR.
-Posteriormente se presentan los mismos gr\'aficos haciendo \'enfasis a los patrones visuales
-propuestos.
+Primeramente se presentan los compilados gr\'aficos en los que se ha destacado el sue\~no MOR;
+posteriormente se presentan los mismos gr\'aficos resaltando los patrones visuales
+propuestos, que parecen estar relacionados con la aparici\'on de sue\~no MOR.
+
+%\section{Grupo Control}
 
 \begin{figure}
 \centering
-\includegraphics[width=0.9\linewidth]
+\begin{tabular}{ll}
+\Large{\textbf{Grupo Control}}
+%\end{figure}
+%
+%\begin{figure}[h]
+\\
+\begin{tabular}{c}
+\includegraphics[width=0.8\linewidth]
 {./g170413/VCNNS1_est.png} 
+\end{tabular}
+\end{tabular}
 \label{grf_VCR}
 \end{figure}
 
 \begin{figure}
 \centering
-\includegraphics[width=0.9\linewidth]
+\includegraphics[width=0.8\linewidth]
 {./g170413/MJNNVIGILOS_est.png} 
 \label{grf_MJH}
 \end{figure}
 
 \begin{figure}
 \centering
-\includegraphics[width=0.9\linewidth]
+\includegraphics[width=0.8\linewidth]
 {./g170413/JANASUE_est.png} 
 \label{grf_JAE}
 \end{figure}
 
 \begin{figure}
 \centering
-\includegraphics[width=0.9\linewidth]
+\includegraphics[width=0.8\linewidth]
 {./g170413/GH24031950SUENNO_est.png} 
 \label{grf_GHA}
 \end{figure}
 
 \begin{figure}
 \centering
-\includegraphics[width=0.9\linewidth]
+\includegraphics[width=0.8\linewidth]
 {./g170413/GURM251148SUE_est.png} 
 \label{grf_MFGR}
 \end{figure}
@@ -2837,30 +2851,36 @@ propuestos.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%\section{Grupo PDC}
+
+\begin{figure}
+\Large{\textbf{Grupo PDC}}
+\end{figure}
+
 \begin{figure}
 \centering
-\includegraphics[width=0.9\linewidth]
+\includegraphics[width=0.8\linewidth]
 {./g170413/CLMN10SUE_est.png} 
 \label{grf_CLO}
 \end{figure}
 
 \begin{figure}
 \centering
-\includegraphics[width=0.9\linewidth]
+\includegraphics[width=0.8\linewidth]
 {./g170413/RLMN10SUE_est.png} 
 \label{grf_RLO}
 \end{figure}
 
 \begin{figure}
 \centering
-\includegraphics[width=0.9\linewidth]
+\includegraphics[width=0.8\linewidth]
 {./g170413/RRMNS_est.png} 
 \label{grf_RRU}
 \end{figure}
 
 \begin{figure}
 \centering
-\includegraphics[width=0.9\linewidth]
+\includegraphics[width=0.8\linewidth]
 {./g170413/JGMN6SUE_est.png} 
 \label{grf_JGZ}
 \end{figure}
@@ -2868,25 +2888,55 @@ propuestos.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%\section{Sujetos exclu\'idos}
+
+\begin{figure}
+\Large{\textbf{Sujetos exclu\'idos}}
+\end{figure}
+
 \begin{figure}
 \centering
-\includegraphics[width=0.9\linewidth]
+\includegraphics[width=0.8\linewidth]
 {./g170413/FGHSUE_est.png} 
 \label{grf_FGH}
 \end{figure}
 
 \begin{figure}
 \centering
-\includegraphics[width=0.9\linewidth]
+\includegraphics[width=0.8\linewidth]
 {./g170413/MGNA5SUE_est.png} 
 \label{grf_MGG}
 \end{figure}
 
 \begin{figure}
 \centering
-\includegraphics[width=0.9\linewidth]
+\includegraphics[width=0.8\linewidth]
 {./g170413/EMNNS_est.png} 
 \label{grf_EMT}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{figure}
+\bordes{1.5}
+\begin{tabular}{l}
+\Large{\textbf{Patrones visuales}}\\
+\begin{tabular}{c}
+\includegraphics[width=0.45\textwidth]
+{./graphs170427/zoom_VCR.pdf}
+\includegraphics[width=0.45\textwidth]
+{./graphs170427/zoom_MJH.pdf}
+\\
+\includegraphics[width=0.45\textwidth]
+{./graphs170427/zoom_JAE.pdf}
+\includegraphics[width=0.45\textwidth]
+{./graphs170427/zoom_GHA.pdf}
+\\
+\includegraphics[width=0.45\textwidth]
+{./graphs170427/zoom_MFGR.pdf}
+\end{tabular}
+\end{tabular}
 \end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
