@@ -363,9 +363,12 @@ estad\'isticamente 'muy' correlacionadas; este t\'ermino se contrapone al de \te
 anat\'omica}, que se refiere a conexiones f\'isicas} en adultos mayores con posible deterioro 
 cognitivo (PDC), reportando un mayor exponente de Hurst para registros de PSG en adultos mayores 
 con PDC.
-El exponente de Hurst est\'a relacionado con la 'estructura fractal' de un proceso estoc\'astico,
-de modo que un mayor $\alpha$ est\'a asociado con se\~nales cuya funci\'on de autocorrelaci\'on 
-decrece m\'as lentamente.
+El exponente de Hurst, calculado a trav\'es del algoritmo \textit{Detrended Fluctuation Analysis}, 
+est\'a relacionado con la 'estructura fractal' de una serie de tiempo
+(realizaci\'on de un proceso estoc\'astico)
+de modo que un mayor exponente est\'a asociado con se\~nales 
+cuya funci\'on de autocorrelaci\'on 
+decrece m\'as lentamente \cite{Bryce12}.
 En base a que en \cite{Valeria} se ha supuesto que los registros de PSG son no-estacionarios, en 
 este trabajo se pretende verificar si efectivamente estas se\~nales se pueden considerar con tal
 caracter\'istica.
@@ -1254,7 +1257,7 @@ t\'erminos de estimaci\'on, ya que implica los valores esperados del proceso.
 En este caso se muestran algunos teoremas respecto a la SDF que permitir\'an estimarla 
 en el caso de proceso d\'ebilmente estacionarios.
 
-\begin{thrm}[Wiener-Khintchine]
+\begin{thrm}[Wiener-Khinchin]
 Una condici\'on suficiente y necesaria para que $\rho$ sea una funci\'on de autocorrelaci\'on de 
 alg\'un proceso estoc\'astico a tiempo continuo $\{X(t)\}$ estacionario y estoc\'asticamente 
 continuo, es que exista una funci\'on $F$ que tenga las siguientes propiedades
@@ -1284,7 +1287,7 @@ y tal que para todo $\tau \in \R$ se cumple que
 \end{equation*}
 \end{thrm}
 
-Si bien no es claro que el teorema de Wiener-Khintchine, o su extensi\'on por Wold, tengan una 
+Si bien no es claro que el teorema de Wiener-Khinchin, o su extensi\'on por Wold, tengan una 
 interpretaci\'on f\'isica clara, tienen una interpretaci\'on clave para los estimadores en el 
 dominio de las frecuencias: la SDF normalizada es la transformada de Fourier-Stieltjes de la 
 funci\'on de autocorrelaci\'on.
@@ -1490,7 +1493,7 @@ Las funciones $F_M$ y $D_M$ toman, respectivamente, los nombres de \textit{n\'uc
 
 \subsection{Representaci\'on de Wold-Cram\'er}
 
-Una consecuencia de los teoremas de Wiener-Khintchine y de Wold, de la que no se hab\'ia hablado
+Una consecuencia de los teoremas de Wiener-Khinchin y de Wold, de la que no se hab\'ia hablado
 en este trabajo, es poder caracterizar a los procesos d\'ebilmente estacionarios con una cierta 
 forma; esta representaci\'on ser\'a auxiliar para estimar la SDF.
 Esta represetnaci\'on existe en virtud del teorema \ref{rep_espectral}, cuya demostraci\'on no 
@@ -1593,22 +1596,23 @@ el espacio de las frecuencias.
 
 \subsection{Prueba de Priestley-Subba Rao}
 
-Esta t\'ecnica fue presentada por Priestley y Subba Rao en 1965 \cite{Priestley69}; muy grosso 
-modo, consiste en estimar el espectro del proceso 'localmente en muchos lugares', y luego 
-compararlos, revisando si se puede rechazar o no (como prueba de hip\'otesis) el que sean 
+Esta t\'ecnica fue presentada por Priestley y Subba Rao en 1965 \cite{Priestley69}, y
+consiste en estimar el espectro del proceso 'localmente en muchos lugares' para luego 
+revisar si se puede rechazar o no (como prueba de hip\'otesis) el que sean 
 estad\'sticamente constantes en el tiempo.
-
-Para ello supone que se est\'an lidiando con una cantidad finita de observaciones, provenientes de 
-un proceso estoc\'astico a tiempo continuo, \'este deber\'ia tener media cero y varianza finita en 
-todo momento, adem\'as de ser estoc\'asticamente continuo y tener un espectro puramente continuo.
-Considerando estas hip\'otesis, describen los estimadores ''de doble ventana'', cuyas propiedades 
-permiten construir una prueba para detectar estacionariedad d\'ebil.
-
-Cabe mencionar que anteriormente se presentaron motivos por las cuales conviene considerar a las 
-se\~nales del PSG como estoc\'asticamente continuas y de varianza finita; la propiedad de tener 
-media cero y un espectro puramente continuo ser\'an ''forzadas'' llevando a cabo num\'ericamente
-una descomposici\'on de Lebesgue (definici\'on \ref{Lebesgue_decomp}) para las partes peri\'odicas 
-y no-peri\'odicas de cada registro, para lo cual se usar\'a el algoritmo no-param\'etrico STL (ver 
+Para usar el m\'etodo,
+se supone que los datos pueden entenderse como una cantidad finita de observaciones provenientes de 
+un proceso estoc\'astico a tiempo continuo que, para todos los tiempos, tiene media cero y varianza 
+finita, adem\'as de ser estoc\'asticamente continuo y tener un espectro puramente continuo.
+%Considerando estas hip\'otesis, describen los estimadores ''de doble ventana'', cuyas propiedades 
+%permiten construir una prueba para detectar estacionariedad d\'ebil.
+Anteriormente se presentaron motivos por las cuales se considera que las 
+se\~nales del PSG son estoc\'asticamente continuas y de varianza finita; la propiedad de tener 
+media cero y un espectro puramente continuo ser\'an 'forzadas' llevando a cabo num\'ericamente
+una descomposici\'on 
+%de Lebesgue (definici\'on \ref{Lebesgue_decomp}) 
+para las partes peri\'odicas 
+y no-peri\'odicas, para lo cual se usar\'a el algoritmo no-param\'etrico STL (ver 
 m\'as adelante).
 
 Con respecto a la estimaci\'on local del espectro, se usa el \textbf{estimador de doble ventana},
