@@ -1414,9 +1414,9 @@ Las funciones $F_M$ y $D_M$ toman, respectivamente, los nombres de \textit{n\'uc
 
 \subsection{Representaci\'on de Wold-Cram\'er}
 
-Una consecuencia de los teoremas de Wiener-Khinchin y de Wold, de la que no se hab\'ia hablado
-en este trabajo, es poder caracterizar a los procesos d\'ebilmente estacionarios con una cierta 
-forma; esta representaci\'on ser\'a auxiliar para estimar la SDF.
+Una consecuencia de los teoremas de Wiener-Khinchin y de Wold
+es poder caracterizar a los procesos d\'ebilmente estacionarios 
+usando directamente la SDF, y que ser\'a usada en su estimaci\'on.
 Esta represetnaci\'on existe en virtud del teorema \ref{rep_espectral}, cuya demostraci\'on no 
 ser\'a incluida en este trabajo; el lector interesado en tan imponente teorema puede referirse a 
 \cite{Priestley81}.
@@ -1483,23 +1483,63 @@ refiere como \textbf{representaci\'on de Wold-Cram\'er}.
 %que $g$ sea cero en los negativos, es decir,  que el valor actual no dependa de los valores futuros. En este 
 %trabajo se pedir\'a que $g\in L^{2}$ y que posea una transformada de Fourier bien definida.
 
-Una motivaci\'on muy fuerte para mencionar los filtros LTI es que permiten expresar de manera
-'c\'omoda' a los procesos est\'andares: un proceso MA bien puede interpretarse como un filtro con 
-forma de ventana rectangular acotada, y esta caracterizaci\'on puede extenderse a tiempo continuo.
-Un proceso AR en tiempo continuo se puede ver como una ecuaci\'on diferencial lineal y homog\'enea,
-m\'as un proceso ruido blanco; este tipo de ecuaciones pueden interpretarse como circuitos lineales
-antes de intentar resolverse.
-En esa direcci\'on, conviene considerar procesos de la forma
+Una raz\'on muy particular para usar la representaci\'on de Wold-Cram\'er es el manejo de procesos
+'filtrados' del tipo $Y(t) = \intR g(u) X(t-u) du$.
+Hist\'oricamente, los filtros se originan en teor\'ia de circuitos como circuitos f\'isicos con ciertas 
+caracter\'isticas (que no ser\'an discutidas en este texto); destacan dentro de la estimaci\'on 
+anal\'ogica de la SDF y en la 'cancelaci\'on' anal\'ogica de componentes de frecuencia (ver m\'as
+adelante).
+%
+Por otro lado, los filtros permiten interpretar a procesos MA, AR y ARMA, como versiones
+filtradas de procesos ruido blanco; m\'as a\'un, si se permite que los procesos filtrados tengan la
+forma\footnote{La integral est\'a definida en el sentido de Stieltjes} $Y(t) = \intR X(t-u) dG(u)$ 
+entonces es posible manejar operadores discretos, como $B[Y](t) = Y(t)-Y(t-1)$.
+%
+Los filtros, aplicados a proceso d\'ebilmente estacionarios, afectan su SDF de manera
+'simple' (teorema \ref{filtro}).  
+
+\begin{thrm}
+Sea $\{ X(t) \}$ un proceso d\'ebilmente estacionario que admite una 
+representaci\'on de Wold-Cram\'er. 
+Sea $g$ una funci\'on real con $\intR \abso{g(u)} du < \infty$, y 
+sea $\{ Y(t) \}$ un proceso definido de la siguiente forma:
 \begin{equation*}
-Y(t) = \intR g(u) X(t) du
+Y(t) = \intR g(u) X(t-u) du
 \end{equation*}
-donde $g$ corresponde a un filtro LTI y $\{ X(t) \}$ es un proceso d\'ebilomente estacionario que
-admite una representaci\'on de Wold-Cram\'er. Se puede mostrar que estas condiciones implican que
+Entonces, se cumple la siguiente relaci\'on
 \begin{equation*}
 h_X(\omega) = h_Y(\omega) \abso{\Gamma(\omega)}^{2}
 \end{equation*}
 donde $h_X$ y $h_Y$ son las respectivas SDF de $\{X(t)\}$ y $\{Y(t)\}$, y 
 $\Gamma(\omega) = \intR g(u) e^{i \omega u} du$.
+\label{filtro}
+\end{thrm}
+
+En el teorema \ref{filtro}, la funci\'on $g$ es referida como 
+\textbf{funci\'on de respuesta}; tal nombre tiene sentido si $\{X(t)\}$ no fuera un proceso, sino
+un 'impulso unitario' (una funci\'on tipo \dirac).
+%interpretaci\'on de circuito si \'este es 'alimentado' con un 'impulso unitario' (una funci\'on
+%tipo \ddd de Dirac) en un tiempo dado, y posteriormente se mide la respuesta del sistema.
+La funci\'on $\Gamma$ es referida como \textbf{funci\'on de transferencia}, nombre motivado de manera similar
+al considerar a $\{X(t)\}$ una 'se\~nal' senoidal ($X(t) = e^{i \omega t}$);
+%respectiva viene de realizar el mismo experimento te\'orico, pero ahora con una funci\'on tipo 
+%$e^{i \omega t}$; el sistema producir\'a una funci\'on del tipo $e^{i\lambda t}$, que tiene una 
+%forma similar pero con otra frecuencia. 
+la conexi\'on se vuelve m\'as clara 
+si se interpreta esta segunda se\~nal como funci\'on tipo 
+\dirac\footnote{La funci\'on $\delta_x:\R\rightarrow \R$ es una funci\'on $\delta$ de Dirac si puede 
+verse como la funci\'on de distribuci\'on de masa para una medida finita que es cero para todo 
+conjunto que no contenga a $x$.} en el espacio de las frecuencias.
+Respecto a la 'cancelaci\'on' de frecuencias basta decir que, en teor\'ia, 
+se puede construir a $g$ de modo que $\Gamma$ sea 0 fuera de un intervalo cerrado y 1 dentro del mismo;
+este efecto es referido como \textbf{filtro de banda}.
+
+%Una motivaci\'on muy fuerte para mencionar los filtros LTI es que permiten expresar de manera
+%'c\'omoda' a los procesos est\'andares: un proceso MA bien puede interpretarse como un filtro con 
+%forma de ventana rectangular acotada, y esta caracterizaci\'on puede extenderse a tiempo continuo.
+%Un proceso AR en tiempo continuo se puede ver como una ecuaci\'on diferencial lineal y homog\'enea,
+%m\'as un proceso ruido blanco; este tipo de ecuaciones pueden interpretarse como circuitos lineales
+%antes de intentar resolverse.
 
 
 
@@ -1538,9 +1578,9 @@ puramente continuo ser\'an 'forzadas' num\'ericamente (ver subsecci\'on siguient
 Respecto a la estimaci\'on local del espectro, se usa el estimador de doble ventana, t\'ecnica 
 introducida por Priestley y Subba Rao \cite{Priestley69}, la cual requiere que se proporcionen 
 a priori dos funciones $w_\tau$ y $g$ con ciertas caracter\'isticas; deber\'ian 
-funcionar, respectivamente, como ventana de retrasos y como filtro LIT.
+funcionar, respectivamente, como ventana de retrasos y como filtro lineal.
 %
-En cuando a $g$, se define a $\Gamma(u) = \intR g(u) e^{i u \omega} du$) y se les pide que
+En cuando a $g$, se define a $\Gamma(u) = \intR g(u) e^{i u \omega} du$ y se les pide que
 \begin{equation*}
 2\pi \int_{-\infty}^{\infty} \lvert g(u) \lvert^{2} du 
 = 
@@ -1548,23 +1588,18 @@ En cuando a $g$, se define a $\Gamma(u) = \intR g(u) e^{i u \omega} du$) y se le
 = 1
 \end{equation*}
 
-En base a ello se puede definir el siguiente estimador, que funciona no s\'olo como filtro del
-proceso, sino como una aproximaci\'on un tanto burda de la representaci\'on de Wold-Cram\'er para 
-el proceso\footnote{Una segunda funci\'on de $U$, y que no se discutir\'a a fondo por brevedad, es 
-'aislar' en los valores de la SDF cercanos en el tiempo a aqu\'el unto donde se desea estimar.
-Tambi\'en cabe mencionar que las ventanas espectrales mostradas en la tabla \ref{ventanas} bien 
-pueden cumplir las propiedades requeridas para ser filtros LTI.}
+Cabe mencionar que las ventanas espectrales mostradas en la tabla \ref{ventanas} bien 
+pueden cumplir las propiedades requeridas para ser filtros.
+Posteriormente se define el estimador $U$ con el objetivo de asignar pesos en el tiempo para estimar
+a la SDF en el tiempo dado; m\'as a\'un, $U$ sirve 
+como una aproximaci\'on de la representaci\'on de Wold-Cram\'er para 
+el proceso.
 \begin{equation*}
 U(t,\omega) = \int_{t-T}^{t} g(u) X({t-u}) e^{i \omega (t-u)} du
 \end{equation*}
 
 Bajo el entendido que la funci\'on $\Gamma$ converge a una funci\'on tipo $\delta$ de 
-Dirac\footnote{La funci\'on $\delta_x:\R\rightarrow \R$ es una funci\'on $\delta$ de Dirac si puede 
-verse como la funci\'on de distribuci\'on de masa para una medida finita que es cero para todo 
-conjunto que no contenga a $x$.
-Debido a estas propiedades, en este trabajo no se les usar\'a directamente, sino que se les har\'a 
-alusi\'on bien por su interpretaci\'on intuitiva (una masa concentrada en un s\'olo punto) o por 
-que las funciones tipo ventana suelen converger a funciones de este tipo} puede considerarse que 
+Dirac puede considerarse que 
 $\E{\abso{U(t,\omega)}^{2}} \approx f_t(\omega)$; sin embargo, se demuestra en \cite{Priestley66} 
 que $\Var{\abso{U(t,\omega)}^{2}} \nrightarrow 0$ como en el caso del periodograma.
 
