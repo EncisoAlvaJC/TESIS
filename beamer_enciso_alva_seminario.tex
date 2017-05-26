@@ -37,6 +37,15 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%\renewcommand{\bibfont}{\tiny}
+
+%\renewcommand{\footnotesize}{\scriptsize}
+
+\AtEveryCitekey{\iffootnote{\color{red}\scriptsize}{\color{blue}}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 %\usetheme{Luebeck}
 \usetheme{CambridgeUS}
 \usecolortheme{beaver}
@@ -128,8 +137,8 @@ como posible marcador de deterioro cognitivo}
 \institute[LIMA]
 {Licenciatura en Matem\'aticas Aplicadas}
 
-\date[Mayo 2017]
-{Seminario de investigaci\'on\\ Mayo de 2017}
+\date[Junio 2017]
+{Seminario de investigaci\'on\\ Junio de 2017}
 
 \titlegraphic{
 \hspace*{8cm}~
@@ -166,14 +175,15 @@ como posible marcador de deterioro cognitivo}
 \begin{frame}\frametitle{Antecedentes}
 \begin{itemize}
 \item Encuesta Intercensal 2015 (INEGI): 12,500,000 adultos mayores, 10.4 \%  de la 
-poblaci\'on \cite{Intercensal15}
+poblaci\'on %\footcite{Intercensal15}
 
 \item Posible relaci\'on trastornos del sue\~no y DC en la vejez
-\cite{Amer13,Miyata13,Potvin12}
+%\footcite{Miyata13}
 
-\item Epidemiolog\'ia del DC en Hidalgo: eficiencia del sue\~no\cite{VazquezTagle16}
+\item Epidemiolog\'ia del DC en Hidalgo: eficiencia del sue\~no%\footcite{VazquezTagle16}
 
-\item DFA en registros de PSG \cite{Valeria}: exponente de Hurst diferente en sujetos 
+\item DFA en registros de PSG:% \footcite{Valeria}: 
+exponente de Hurst diferente en sujetos 
 con y sin DC 
 
 \item Se buscan marcadores cl\'inicos para el diagn\'ostico de DC
@@ -207,7 +217,6 @@ en registros de PSG para adultos mayores% con y sin PDC
 
 %\textbf{Espec\'ificos} 
 \item[Espec\'ificos:]
-\end{description}
 \begin{itemize}
 \item Estudiar la definici\'on de estacionariedad y sus consecuencias en un modelo
 
@@ -218,6 +227,7 @@ d\'ebilmente estacionario
 procesos débilmente estacionarios.
 Revisar si esta informaci\'on muestra diferencias entre sujetos con y sin PDC
 \end{itemize}
+\end{description}
 }
 \end{frame}
 
@@ -234,18 +244,13 @@ Revisar si esta informaci\'on muestra diferencias entre sujetos con y sin PDC
 
 \begin{frame}\frametitle{Conceptos}
 \begin{description}
-\item[Adulto Mayor.] Individuo de 60 a\~nos o m\'as \cite{Hita14}.
+\item[Adulto Mayor.] Individuo de 60 a\~nos o m\'as %\footcite{Hita14}.
 
 \item[Deterioro cognitivo leve\footnote{Usado como posible deterioro cognitivo (PDC)}.] 
 %\item[Deterioro cognitivo leve.] 
 Alteraci\'on adquirida y prolongada de funciones cognitivas; no s\'indrome focal, no demencia 
-\cite{Robles02}
-%\end{description}
-%\end{frame}
-%
-%\begin{frame}
-%\begin{description}
-\item[Sue\~no.] Proceso vital c\'iclico complejo y activo; caracter\'isticas\cite{CarrilloMora}:
+%\footcite{Robles02}
+\item[Sue\~no.] Proceso vital c\'iclico complejo y activo; caracter\'isticas:%\footcite{CarrilloMora}:
 \begin{itemize}
 \item Disminuci\'on de conciencia y reactividad
 \item F\'acilmente reversible
@@ -281,19 +286,59 @@ International Federation of EEG Societies
 \subsection{Matem\'aticas}
 
 \begin{frame}\frametitle{Conceptos}
-\begin{defn}[Proceso estoc\'astico]
-Un proceso estoc\'astico $\{ X(t) \}$ es una familia de variables aleatorias en los reales, 
-indexadas por $t \in T \subseteq \R$.
-%\label{proc_estocastico}
-\end{defn}
-
+{\small
 \begin{defn}[Estacionariedad d\'ebil]
-Se dice de un proceso $\{ X(t) \}$ si para cualesquiera tiempos 
-admisibles $t, s, t+\tau, s+\tau$ se cumple
+Se dice de un proceso estoc\'astico $\{ X(t) \}$ si (...)
 \begin{itemize}
 \item $\E{X(t)} = \E{X(t+\tau)}$
 \item $\E{X(t)X(s)} = \E{X(t+\tau)X(s+\tau)}$
 \end{itemize}
+\end{defn}
+
+\begin{thrm}
+Un proceso estoc\'astico es d\'ebilmente estacionario si y s\'olo si (...)
+%para cualesquiera tiempos admisibles $t$, $s$ se tiene que
+\begin{itemize}
+\item $\E{X(t)} = \mu_X$
+\item $\Var{X(t)} = \sigma^{2}_X$
+\item $\Cov{X(t),X(s)} = \rho_X (s-t)$
+\end{itemize}
+Con $\mu_X$, $\sigma^{2}_X$ constantes, $\rho_X(\tau)$ \'unicamente depende de $\tau$
+\end{thrm}
+
+\emph{(...) = } para cualesquiera tiempos admisibles $t, s, t+\tau, s+\tau$
+}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}\frametitle{Conceptos}
+\begin{defn}[Continuidad estoc\'astica en media cuadr\'atica]
+Un proceso estoc\'astico a tiempo continuo $\{ X(t) \}$ es estoc\'asticamente continuo
+en un tiempo admisible $t_0$ si y s\'olo si
+\begin{equation*}
+\lim_{t \rightarrow t_0} \E{\left( X\left(t\right) - X\left(t_0\right) \right)^{2}} = 0
+\end{equation*}
+\end{defn}
+
+\begin{figure}
+\includegraphics[width=.92\linewidth]{ehemplitos_ruido.png}
+\end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}\frametitle{Conceptos}
+\begin{defn}[Funci\'on de densidad espectral (SDF)]
+Sea $\{X(t)\}$ un proceso estoc\'astico at tiempo continuo, d\'ebilmente estacionario. 
+Se define la SDF para $\{X(t)\}$ como
+\begin{equation*}
+h(\omega) = \lim_{T\rightarrow \infty} \E{ \frac{1}{2T} \frac{1}{2 \pi}
+\abso{ \int_{-T}^{T} X(t) e^{-i \omega t} dt}^{2} }
+\end{equation*}
+\label{SDF}
 \end{defn}
 \end{frame}
 
@@ -316,10 +361,31 @@ admisibles $t, s, t+\tau, s+\tau$ se cumple
 
 \section{Metodolog\'ia}
 
+\begin{frame}%\frametitle{}
+9 participantes cumplieron los criterios de exclusi\'on y procedieron al regisro de PSG:
+\begin{itemize}
+\item Firma del consentimiento informado
+\item Edad entre 60 y 85 a\~nos
+\item Diestros (mano derecha dominante)
+\item Sin ansiedad, depresi\'on o s\'indromes focales
+\item No usar medicamentos o sustancias para dormir
+\item Voluntario para el registro de PSG
+\end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\begin{frame}%\frametitle{}
+%
+%\end{frame}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Resultados}
+
+\subsection{Resultados principales}
 
 \begin{frame}\frametitle{Resultados principales}
 \begin{itemize}
@@ -419,7 +485,7 @@ CLO & RLO & RRU & JGZ
 \centering
 \includegraphics[width=0.4\linewidth]
 {cabecita.pdf} 
-\caption{Sitios donde se encontraron diferencias 
+\caption{Sitios con diferencias 
 significativas en la comparaci\'on entre el porcentaje de \'epocas PE durante sue\~no MOR y NMOR, 
 para el grupo Control}
 \end{figure}
@@ -461,6 +527,10 @@ para el grupo Control}
 %%\bibliographystyle{apalike-es}
 %\bibstyle{abbrv}
 %}
+%\end{frame}
+
+%\begin{frame}%\frametitle{}
+%\printbibliography
 %\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

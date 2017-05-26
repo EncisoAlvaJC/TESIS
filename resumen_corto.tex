@@ -131,6 +131,7 @@
 \newcommand{\prima}{^{\prime}}
 
 \newcommand{\ddd}{$\delta$}
+\newcommand{\dirac}{$\delta$  de Dirac}
 
 \newcommand{\aste}[1]{\widehat{ #1 }^{\star}}
 \newcommand{\est}[1]{\widehat{ #1 }}
@@ -676,7 +677,7 @@ El ritmo alfa y los husos de sue\~no est\'an sincronizados en el sue\~no y la so
 contraste con la actividad irregular, desincronizada y de bajo voltaje registrada en estado de 
 alerta.
 
-A grosso modo, la AAIC clasifica las etpas del sue\~no \cite{Hori01} con las siguientes 
+A grosso modo, la AAIC clasifica las etapas del sue\~no \cite{Hori01} con las siguientes 
 caracter\'isticas:
 
 \begin{description}
@@ -696,7 +697,7 @@ Puede aparecer hasta un 20\% de ondas lentas (ritmo delta). Ausencia de activida
 ocular y tono muscular bajo.
 La temperatura, la frecuencia card\'iaca y respiratoria disminuyen paulatinamente. 
 
-\item[Fases 3 (N3)] Predominan ondas cdefrecuencias muy bajas ($<2$ Hz) con amplitudes 
+\item[Fases 3 (N3)] Predominan ondas de frecuencias muy bajas ($<2$ Hz) con amplitudes 
 superiores a 75 $\mu$V en m\'as del 20\% y menos del 50\% de la \'epoca. Pueden tambi\'en aparecer 
 complejos K y husos de sue\~no de forma espor\'adica. Ausencia de actividad ocular y tono muscular 
 bajo.
@@ -971,7 +972,7 @@ disipada (definici\'on \ref{energia}) en conjunto con el el teorema \ref{parseva
 permite formular la siguiente interpretaci\'on: la energ\'ia disipada por una se\~nal peri\'odica 
 puede verse como la suma de la energ\'ia disipada por sus componentes en la base de Fourier 
 (usualmente referidos como \textbf{componentes de frecuencias}).
-La funci\'on que 'desgloza' estos componentes se conoce como espectro de potencias (definici\'on 
+La funci\'on que 'desglosa' estos componentes se conoce como espectro de potencias (definici\'on 
 \ref{espec}).
 
 \begin{defn}[Energ\'ia de una se\~nal]
@@ -1084,7 +1085,7 @@ Estas funciones son \'unicas excepto por constantes, y en conjunto son llamados 
 
 \subsubsection{Espectro de potencias para un proceso d\'ebilmente estacionario}
 
-Por simplicidad, el enfoque la difinici\'on que se aborda considera un proceso d\'ebilmente 
+Por simplicidad, el enfoque la definici\'on que se aborda considera un proceso d\'ebilmente 
 estacionario, $\{X(t)\}$, y posteriormente una realizaci\'on particular, $x(t)$; como no hay 
 garant\'ia que $x$ tenga una transformada de Fourier bien definida (o alguna de las 
 generalizaciones presentadas previamente), se procede a aproximarla por una serie de funciones que 
@@ -1109,7 +1110,7 @@ G_T (\omega) = \frac{1}{\sqrt{2 \pi}} \intR x_T(t) e^{-i \omega t} dt
 
 Sin la garant\'ia de que $x(t)$ tenga una integral de Fourier bien definida, no hay garant\'ia 
 que $G_T$ converja cuando $T\rightarrow \infty$. Recuperando el concepto de energ\'ia disipada, 
-ligado a $\left| G_T(\omega) \right|^{2}$, se puede contruir una explicaci\'on f\'isica para la 
+ligado a $\left| G_T(\omega) \right|^{2}$, se puede construir una explicaci\'on f\'isica para la 
 divergencia de $G_T$: un sistema que disipa 'niveles constantes' de energ\'ia (porque 
 $\Var{X(t)} es constante$) puede disipar una cantidad infinita de energ\'ia durante un tiempo 
 infinito. 
@@ -1119,12 +1120,16 @@ $\lim_{T\rightarrow{\infty}} \frac{ \left| G_T(\omega) \right|^{2}}{2 T}$.
 Tal expresi\'on se puede adaptar al proceso per se como en la definici\'on \ref{SDF}.
 
 \begin{defn}[Funci\'on de densidad espectral (SDF)]
-Sea $\{X(t)\}$ un proceso estoc\'astico at tiempo continuo, d\'ebilmente estacionario. Se define la 
-funci\'on de densidad espectral (SDF) de $\{X(t)\}$ como
+Sea $\{X(t)\}$ un proceso estoc\'astico en tiempo continuo, d\'ebilmente estacionario. Se define la 
+funci\'on de densidad espectral (SDF) para $\{X(t)\}$ como
+%\begin{equation*}
+%h(\omega) = \lim_{T\rightarrow \infty} \E{ \frac{ \left| G_T(\omega) \right|^{2}}{2 T} }
+%\end{equation*}
 \begin{equation*}
-h(\omega) = \lim_{T\rightarrow \infty} \E{ \frac{ \left| G_T(\omega) \right|^{2}}{2 T} }
+h(\omega) = \lim_{T\rightarrow \infty} \E{ \frac{1}{2T} \frac{1}{2 \pi}
+\abso{ \int_{-T}^{T} X(t) e^{-i \omega t} dt}^{2} }
 \end{equation*}
-Donde $G_T (\omega) = \frac{1}{\sqrt{2 \pi}} \int_{-T}^{T} X(t) e^{-i \omega t} dt$
+%Donde $G_T (\omega) = \frac{1}{\sqrt{2 \pi}} \int_{-T}^{T} X(t) e^{-i \omega t} dt$
 \label{SDF}
 \end{defn}
 
@@ -1136,22 +1141,26 @@ Este fen\'omeno es similar al caso de variables aleatorias discretas, que no pos
 de densidad de probabilidad bien definida en todos sus puntos.
 Conviene definir una versi\'on 'integral' de la SDF (definici\'on\ref{SDF_integrado}).
 
-\begin{defn}[Funci\'on espectral integrada]
-Sea $\{X(t)\}$ un proceso estoc\'astico at tiempo continuo, d\'ebilmente estacionario. Se define la 
-funci\'on de densidad espectral (SDF) de $\{X(t)\}$ como
+\begin{defn}[Funci\'on de espectro integrado]
+Sea $\{X(t)\}$ un proceso estoc\'astico a tiempo continuo, d\'ebilmente estacionario. Se define la 
+funci\'on de espectro integrado para $\{X(t)\}$ como
 \begin{equation*}
-H(\omega) = \lim_{T\rightarrow \infty} 
-\E{ \frac{1}{2 T} \intR \abso{G_T(\lambda)}^{2} d\lambda }
+H(\omega) = \int_{-\infty}^{\omega} h(\lambda) d\lambda
 \end{equation*}
-Donde $G_T (\omega) = \frac{1}{\sqrt{2 \pi}} \int_{-T}^{T} X(t) e^{-i \omega t} dt$
+Donde $h$ es la funci\'on de densidad espectral para $\{X(t)\}$
 \label{SDF_integrado}
 \end{defn}
 
-En la definici\'on \ref{SDF_integrado}, siempre que $h$ est\'e bien definida puede decirse que 
-$H\prima= h$, en cuyo caso se dir\'a que el proceso tiene un espectro puramente continuo; si, por 
-el contrario, $H$ tiene una forma escalonada, se dir\'a que el espectro es puramente discreto.
+Si la SDF, $h$, est\'a bien definida en todos sus puntos, entonces la funci\'on de espectro integrado
+($H$) satisface que $H\prima= h$ y se dir\'a
+que el proceso tiene un \textbf{espectro puramente continuo}; si $H$ tiene una forma escalonada, con
+escalones rectos, se dir\'a que es un \textbf{espectro puramente discreto}.
 %De manera completamente an\'aloga al caso en que la transformada de Fourier-Stieltjes puede
 %interpretarse como una medida; m\'as a\'un, es positiva y no-decreciente.
+Como es de esperarse, cada tipo de proceso tiene caracter\'istica diferentes y se puede 
+estudiar mejor con herramientas diferentes; para el caso de procesos con un espectro 
+mixto (ninguno de los anteriores), se exhiben herramientas que los reducen a estos casos 'puros'.
+
 Por como se defini\'o la SDF integrada, es claro que es una funci\'on positiva, no-decreciente;
 luego, para saber si es acotada bastar\'a evaluar $H(\infty)$
 
@@ -1159,6 +1168,8 @@ luego, para saber si es acotada bastar\'a evaluar $H(\infty)$
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Estimaci\'on de la funci\'on de densidad espectral}
+
+%\dirac
 
 En la subsecci\'on anterior se exhibi\'o una definici\'on del espectro de potencias para 
 procesos estoc\'asticos d\'ebilmente estacionarios con, cuando menos, segundos momentos finitos 
@@ -1436,42 +1447,41 @@ refiere como \textbf{representaci\'on de Wold-Cram\'er}.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsubsection{Filtros lineales independientes del tiempo}
+%\subsubsection{Filtros lineales independientes del tiempo}
 
-Los filtros lineales independientes del tiempo se describen aqu\'i por su importancia hist\'orica 
-en la estimaci\'on anal\'ogica de las SDF, aunque en este trabajo se presenta una abstracci\'on m
-\'as pragm\'atica en cuanto a la estimaci\'on de la SDF.
-Este tipo de filtros ser\'an referidos como filtros LTI (Linear Time-Invariant) ya que se les 
-pedir\'a que dependan linealmente de toda la se\~nal\footnote{Se entiende que es una mapeo lineal 
-que toma toda la se\~nal (entendida como funci\'on del tiempo) y 'produce' otra funci\'on del 
-tiempo (que a su vez puede interpretarse como una segunda se\~nal). Cabe destacar que formalmente 
-es necesario que el mapeo sea lineal sobre las se\~nales, pero no es obligatorio que 'utilice' 
-todos los valores: no se le pide ser invertible, ni continuidad} y que no dependan del tiempo. 
-Luego entonces, deben tener la forma \ref{LTI}.
-\begin{equation*}
-Y(t) = \intR g(s) X(t-s) ds
-\label{LTI}
-\end{equation*}
+%Los filtros lineales independientes del tiempo se describen aqu\'i por su importancia hist\'orica 
+%en la estimaci\'on anal\'ogica de las SDF, aunque en este trabajo se presenta una abstracci\'on m
+%\'as pragm\'atica en cuanto a la estimaci\'on de la SDF.
+%Este tipo de filtros ser\'an referidos como filtros LTI (Linear Time-Invariant) ya que se les 
+%pedir\'a que dependan linealmente de toda la se\~nal\footnote{Se entiende que es una mapeo lineal 
+%que toma toda la se\~nal (entendida como funci\'on del tiempo) y 'produce' otra funci\'on del 
+%tiempo (que a su vez puede interpretarse como una segunda se\~nal). Cabe destacar que formalmente 
+%es necesario que el mapeo sea lineal sobre las se\~nales, pero no es obligatorio que 'utilice' 
+%todos los valores: no se le pide ser invertible, ni continuidad} y que no dependan del tiempo. 
+%Luego entonces, deben tener la forma \ref{LTI}.
+%\begin{equation*}
+%Y(t) = \intR g(s) X(t-s) ds
+%\end{equation*}
 
-N\'otese que un filtro como \ref{LTI} est\'a completamente determinado por la funci\'on $g$. 
-Sobre el contexto hist\'orico mencionado, conviene mencionar la existencia de 'circuitos lineales' 
-cuya composici\'on permite modelarlos como filtros LTI; un ejemplo cl\'asico son los circuitos RC, 
-como el mostrado en \ref{rrcc} y que est\'a determinado por
-$g(u) = \frac{1}{R C} \text{exp}\left( -\nicefrac{u}{R C} \right)$ (donde $R$ y $C$ son la
-resistencia y capacitancia, respectivamente).
+%N\'otese que un filtro como \ref{LTI} est\'a completamente determinado por la funci\'on $g$. 
+%Sobre el contexto hist\'orico mencionado, conviene mencionar la existencia de 'circuitos lineales' 
+%cuya composici\'on permite modelarlos como filtros LTI; un ejemplo cl\'asico son los circuitos RC, 
+%como el mostrado en \ref{rrcc} y que est\'a determinado por
+%$g(u) = \frac{1}{R C} \text{exp}\left( -\nicefrac{u}{R C} \right)$ (donde $R$ y $C$ son la
+%resistencia y capacitancia, respectivamente).
 
-\begin{figure}
-\centering
-\includegraphics[width=0.4\linewidth]{rc.png} 
-\caption{Circuito el\'ectrico con una resistencia (R) y un capacitor (C); es alimentado por una 
-corriente de entrada $V_e(t)$ y produce una corriente de salida $V_a(t)$. 
-}
-\label{rrcc}
-\end{figure}
+%\begin{figure}
+%\centering
+%\includegraphics[width=0.4\linewidth]{rc.png} 
+%\caption{Circuito el\'ectrico con una resistencia (R) y un capacitor (C); es alimentado por una 
+%corriente de entrada $V_e(t)$ y produce una corriente de salida $V_a(t)$. 
+%}
+%\label{rrcc}
+%\end{figure}
 
-Se puede decir, por ejemplo, que para que un circuito sea 'f\'isicamente contructible' es necesario 
-que $g$ sea cero en los negativos, es decir,  que el valor actual no dependa de los valores futuros. En este 
-trabajo se pedir\'a que $g\in L^{2}$ y que posea una transformada de Fourier bien definida.
+%Se puede decir, por ejemplo, que para que un circuito sea 'f\'isicamente contructible' es necesario 
+%que $g$ sea cero en los negativos, es decir,  que el valor actual no dependa de los valores futuros. En este 
+%trabajo se pedir\'a que $g\in L^{2}$ y que posea una transformada de Fourier bien definida.
 
 Una motivaci\'on muy fuerte para mencionar los filtros LTI es que permiten expresar de manera
 'c\'omoda' a los procesos est\'andares: un proceso MA bien puede interpretarse como un filtro con 
@@ -1491,47 +1501,46 @@ h_X(\omega) = h_Y(\omega) \abso{\Gamma(\omega)}^{2}
 donde $h_X$ y $h_Y$ son las respectivas SDF de $\{X(t)\}$ y $\{Y(t)\}$, y 
 $\Gamma(\omega) = \intR g(u) e^{i \omega u} du$.
 
-La funci\'on $g$ es referida como \textbf{funci\'on de respuesta}; este nombre tiene sentido en la
-interpretaci\'on de circuito si \'este es 'alimentado' con un 'impulso unitario' (una funci\'on
-tipo \ddd de Dirac) en un tiempo dado, y posteriormente se mide la respuesta del sistema.
-La funci\'on $\Gamma$ es referida como \textbf{funci\'on de transferencia}; su motivaci\'on
-respectiva viene de realizar el mismo experimento te\'orico, pero ahora con una funci\'on tipo 
-$e^{i \omega t}$; el sistema producir\'a una funci\'on del tipo $e^{i\lambda t}$, que tiene una 
-forma similar pero con otra frecuencia. La conexi\'on de estas dos funciones se vuelve m\'as clara 
-a\'un si se interpretan las funciones del segundo experimento como funciones tipo \ddd de Dirac en 
-el espacio de las frecuencias.
+
+
+%La funci\'on $g$ es referida como \textbf{funci\'on de respuesta}; este nombre tiene sentido en la
+%interpretaci\'on de circuito si \'este es 'alimentado' con un 'impulso unitario' (una funci\'on
+%tipo \ddd de Dirac) en un tiempo dado, y posteriormente se mide la respuesta del sistema.
+%La funci\'on $\Gamma$ es referida como \textbf{funci\'on de transferencia}; su motivaci\'on
+%respectiva viene de realizar el mismo experimento te\'orico, pero ahora con una funci\'on tipo 
+%$e^{i \omega t}$; el sistema producir\'a una funci\'on del tipo $e^{i\lambda t}$, que tiene una 
+%forma similar pero con otra frecuencia. La conexi\'on de estas dos funciones se vuelve m\'as clara 
+%a\'un si se interpretan las funciones del segundo experimento como funciones tipo \ddd de Dirac en 
+%el espacio de las frecuencias.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Prueba de Priestley-Subba Rao}
 
-Esta t\'ecnica fue presentada por Priestley y Subba Rao en 1965 \cite{Priestley69}, y
-consiste en estimar el espectro del proceso 'localmente en muchos lugares' para luego 
-revisar si se puede rechazar o no (como prueba de hip\'otesis) el que sean 
-estad\'sticamente constantes en el tiempo.
-Para usar el m\'etodo,
-se supone que los datos pueden entenderse como una cantidad finita de observaciones provenientes de 
-un proceso estoc\'astico a tiempo continuo que, para todos los tiempos, tiene media cero y varianza 
-finita, adem\'as de ser estoc\'asticamente continuo y tener un espectro puramente continuo.
-%Considerando estas hip\'otesis, describen los estimadores ''de doble ventana'', cuyas propiedades 
-%permiten construir una prueba para detectar estacionariedad d\'ebil.
-Anteriormente se presentaron motivos por las cuales se considera que las 
-se\~nales del PSG son estoc\'asticamente continuas y de varianza finita; la propiedad de tener 
-media cero y un espectro puramente continuo ser\'an 'forzadas' llevando a cabo num\'ericamente
-una descomposici\'on 
-%de Lebesgue (definici\'on \ref{Lebesgue_decomp}) 
-para las partes peri\'odicas 
-y no-peri\'odicas, para lo cual se usar\'a el algoritmo no-param\'etrico STL (ver 
-m\'as adelante).
+Esta t\'ecnica fue presentada por Priestley y Subba Rao en 1965 \cite{Priestley69}, y consiste en 
+estimar el espectro del proceso 'localmente en muchos lugares' para luego revisar si se puede 
+rechazar o no (como prueba de hip\'otesis) el que sean estad\'sticamente constantes en el tiempo;
+la explicaci\'on presente es m\'as bien somera, los detalles importantes (la existencia del proceso
+evolutivo para cierto tipo de procesos, las propiedades de los estimadores usados) son tomadas de
+\cite{Priestley65} y \cite{Priestley66}.
 
-Con respecto a la estimaci\'on local del espectro, se usa el \textbf{estimador de doble ventana},
-una t\'ecnica introducida por Priestley y Subba Rao \cite{Priestley69}.
-Requiere que se proporcionen a priori dos funciones arbitrarias $w_\tau$ y $g$ que cumplan ciertas
-propiedades; deber\'ian funcionar, respectivamente, como ventana de retrasos y como filtro LTI.
+Para usar este m\'etodo, se supone que los datos pueden entenderse como una cantidad finita de 
+observaciones provenientes de un proceso estoc\'astico a tiempo continuo que, para todos los 
+tiempos, tiene media cero y varianza finita, adem\'as de ser estoc\'asticamente continuo y tener 
+un espectro puramente continuo.
+La cantidad de condiciones puede parecer excesiva, pero es remarcable que no se ha supuesto que
+el proceso sea estacionario y que previamente se presentaron motivos por los que los registros
+de PSG son observaciones de procesos a tiempo continuo, estoc\'asticamente continuos, con valor 
+esperado y varianzas finitas en todo momento; las propiedades de tener media cero y espectro 
+puramente continuo ser\'an 'forzadas' num\'ericamente (ver subsecci\'on siguiente).
 
-En cuando a $g$ (as\'i como $\Gamma(u) = \intR g(u) e^{i u \omega} du$) se les pide que tengan 
-integral normalizada, es decir
+Respecto a la estimaci\'on local del espectro, se usa el estimador de doble ventana, t\'ecnica 
+introducida por Priestley y Subba Rao \cite{Priestley69}, la cual requiere que se proporcionen 
+a priori dos funciones $w_\tau$ y $g$ con ciertas caracter\'isticas; deber\'ian 
+funcionar, respectivamente, como ventana de retrasos y como filtro LIT.
+%
+En cuando a $g$, se define a $\Gamma(u) = \intR g(u) e^{i u \omega} du$) y se les pide que
 \begin{equation*}
 2\pi \int_{-\infty}^{\infty} \lvert g(u) \lvert^{2} du 
 = 
@@ -1716,7 +1725,7 @@ prueba de Priesltey-Subba Rao.
 
 Los sujetos fueron elegidos usando un muestreo no probabilístico de sujetos tipo \cite{Garcia09},
 firmando un consentimiento informado previamente a su inclusi\'on en el estudio. 
-De manera extensiva, los critesios de exclusi\'on para el estudio fueron los siguientes:
+De manera extensiva, los criterios de exclusi\'on para el estudio fueron los siguientes:
 \begin{itemize}
 \item Firma del consentimiento informado
 \item Edad entre 60 y 85 a\~nos
@@ -1726,9 +1735,9 @@ De manera extensiva, los critesios de exclusi\'on para el estudio fueron los sig
 \item Voluntario para el registro de PSG
 \end{itemize}
 
-Un total de 9 participantes cumplieron todos los criterios de exclusi\'on y procedieron al regitro 
+Un total de 9 participantes cumplieron todos los criterios de exclusi\'on y procedieron al registro 
 de PSG; adicionalmente se tom\'o registro de otros tres adultos mayores, bajo
-el concentimiento de \'estos y de los responsables del proyecto.
+el consentimiento de \'estos y de los responsables del proyecto.
 
 La ansiedad y depresi\'on, as\'i como el PDC, fueron diagnosticados aplicando una bater\'ia de
 pruebas neuropsicol\'ogicas, compuesta por las siguientes pruebas. 
@@ -1837,7 +1846,7 @@ coordenadas del Sistema Internacional 10-20\cite{Coleman87}.
 Debido a problemas t\'ecnicos con el electroencefal\'ografo, el registro se llev\'o a cabo a 512 Hz 
 para algunos sujetos y a 200 Hz para otros; la recomendaci\'on de la AASM, de un m\'inimo de 128 
 Hz, se satisface. 
-Las se\~nales fueron amplificadas (amplificador de alta ganacia en cadena), filtradas (filtro paso 
+Las se\~nales fueron amplificadas (amplificador de alta ganancia en cadena), filtradas (filtro paso 
 de banda de 0.5--30 Hz) y digitalizadas para su posterior an\'alisis.
 En la tabla \ref{frecuencias} se reportan la duraci\'on de estos registros para cada sujeto.
 
@@ -2068,7 +2077,7 @@ mediante la prueba U de Mann-Whitney\footnote{Implementada en R como la funci\'o
 \texttt{wilcox.test()}};
 no se encontraron diferencias significativas para ninguno de los canales. Los resultados se 
 muestran en las tablas \ref{gpos_mor}, \ref{gpos_nmor}, \ref{gpos_total}, y para una mejor 
-vizualizaci\'on \'estos se han graficado en la figura \ref{comparacion_graf}.
+visualizaci\'on \'estos se han graficado en la figura \ref{comparacion_graf}.
 
 \begin{figure}
 \centering
@@ -2248,7 +2257,7 @@ r\'itmicos en los canales correspondientes a la zona frontal}
 \includegraphics[width=0.95\linewidth]
 {./muypreeliminar170408/FGHSUE_est.png} 
 \caption{Compilado gr\'afico para el sujeto FGH; n\'otese el patr\'on inusual en los canales
-corresppondientes a la regi\'on frontal}
+correspondientes a la regi\'on frontal}
 \label{FGH_especial}
 \end{figure}
 
@@ -2569,7 +2578,7 @@ sujeto usando la prueba $\chi^{2}$ para proporciones.
 \textbf{Total}&788&905&736&1038&727&&812&747&376&1174&&383&864&1376 \\
 \bottomrule
 \end{tabular}
-\caption{Total de \'epocas clasificadas como PE en sue\~no NMOR, desglozado por canal. 
+\caption{Total de \'epocas clasificadas como PE en sue\~no NMOR, desglosado por canal. 
 En la \'ultima fila se reporta el total de \'epocas en sue\~no NMOR.
 }
 \label{total_gpos_nmor}
@@ -2629,7 +2638,7 @@ En la \'ultima fila se reporta el total de \'epocas en sue\~no NMOR.
 \textbf{Total}&861&1032&907&1093&822&&944&846&414&1207&&405&1030&1423 \\
 \bottomrule
 \end{tabular}
-\caption{Total de \'epocas clasificadas como PE en todo el registro, desglozado por canal. 
+\caption{Total de \'epocas clasificadas como PE en todo el registro, desglosado por canal. 
 En la \'ultima fila se reporta el total de \'epocas registradas para cada sujeto.
 }
 \label{total_gpos_total}
@@ -2694,7 +2703,7 @@ En la \'ultima fila se reporta el total de \'epocas registradas para cada sujeto
 \end{tabular}
 }
 \caption{Proporci\'on estimada de \'epocas PE respecto al total de \'epocas MOR (fase R),
-desglozados por canal. Se incluyen medias y desviaciones est\'andar para los grupos Control 
+desglosados por canal. Se incluyen medias y desviaciones est\'andar para los grupos Control 
 (izquierda) y PDC (centro).}
 \label{gpos_mor}
 \end{SidewaysTable}
@@ -2757,7 +2766,7 @@ desglozados por canal. Se incluyen medias y desviaciones est\'andar para los gru
 \end{tabular}
 }
 \caption{Proporci\'on estimada de \'epocas PE respecto al total de \'epocas NMOR (fases W y N), 
-desglozado por canal. Se incluyen medias y desviaciones est\'andar para los grupos Control y PDC.}
+desglosado por canal. Se incluyen medias y desviaciones est\'andar para los grupos Control y PDC.}
 \label{gpos_nmor}
 \end{SidewaysTable}
 
@@ -2819,7 +2828,7 @@ desglozado por canal. Se incluyen medias y desviaciones est\'andar para los grup
 \end{tabular}
 }
 \caption{Proporci\'on estimada de \'epocas PE respecto al total de \'epocas registradas (todas las 
-fases), desglozado por canal. Se incluyen medias y desviaciones est\'andar para los grupos 
+fases), desglosado por canal. Se incluyen medias y desviaciones est\'andar para los grupos 
 Control y PDC.}
 \label{gpos_total}
 \end{SidewaysTable}
