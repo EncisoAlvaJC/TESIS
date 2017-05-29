@@ -1150,100 +1150,119 @@ Donde $h$ es la funci\'on de densidad espectral para $\{X(t)\}$
 \label{SDF_integrado}
 \end{defn}
 
-Si la SDF, $h$, est\'a bien definida en todos sus puntos, entonces la funci\'on de espectro integrado
-($H$) satisface que $H\prima= h$ y se dir\'a
-que el proceso tiene un \textbf{espectro puramente continuo}; si $H$ tiene una forma escalonada, con
-escalones rectos, se dir\'a que es un \textbf{espectro puramente discreto}.
-%De manera completamente an\'aloga al caso en que la transformada de Fourier-Stieltjes puede
-%interpretarse como una medida; m\'as a\'un, es positiva y no-decreciente.
-Como es de esperarse, cada tipo de proceso tiene caracter\'istica diferentes y se puede 
-estudiar mejor con herramientas diferentes; para el caso de procesos con un espectro 
-mixto (ninguno de los anteriores), se exhiben herramientas que los reducen a estos casos 'puros'.
+Si la SDF, $h$, est\'a bien definida en todos sus puntos, entonces la funci\'on de espectro 
+integrado ($H$) satisface que $H\prima= h$ y se dir\'a que el proceso tiene un \textbf{espectro 
+puramente continuo}; si $H$ tiene una forma escalonada, con escalones rectos, se dir\'a que es un 
+\textbf{espectro puramente discreto}.
+Como es de esperarse, cada tipo de proceso tiene caracter\'istica diferentes y se puede estudiar 
+mejor con herramientas diferentes; para el caso de procesos con un espectro mixto (ninguno de los 
+anteriores), se exhiben herramientas que los reducen a estos casos 'puros'.
 
-Por como se defini\'o la SDF integrada, es claro que es una funci\'on positiva, no-decreciente;
-luego, para saber si es acotada bastar\'a evaluar $H(\infty)$
+Cabe destacar que, por como se defini\'o la SDF integrada, \'esta es una funci\'on positiva, 
+no-decreciente, y que en $-\infty$ vale 0; esta observaci\'on ser\'a importante.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Estimaci\'on de la funci\'on de densidad espectral}
 
-%\dirac
-
-En la subsecci\'on anterior se exhibi\'o una definici\'on del espectro de potencias para 
-procesos estoc\'asticos d\'ebilmente estacionarios con, cuando menos, segundos momentos finitos 
-(definici\'on \ref{SDF}); sin embargo aquella definici\'on es sumamente ineficiente en 
-t\'erminos de estimaci\'on, ya que implica los valores esperados del proceso.
-En este caso se muestran algunos teoremas respecto a la SDF que permitir\'an estimarla en el caso 
-de proceso d\'ebilmente estacionarios.
+Anteriormente se defini\'o espectro de potencias para procesos d\'ebilmente estacionarios con 
+segundos momentos finitos (definici\'on \ref{SDF}); sin embargo, aquella definici\'on es sumamente 
+ineficiente dentro de la estimaci\'on pues requiere valores esperados sobre todo del proceso.
+A continuaci\'on se muestran dos teoremas respecto a la SDF facilitar\'an su estimaci\'on.
 
 \begin{thrm}[Wiener-Khinchin]
 Una condici\'on suficiente y necesaria para que $\rho$ sea una funci\'on de autocorrelaci\'on de 
-alg\'un proceso estoc\'astico a tiempo continuo $\{X(t)\}$ estacionario y estoc\'asticamente 
-continuo, es que exista una funci\'on $F$ que tenga las siguientes propiedades
+alg\'un proceso estoc\'astico a tiempo continuo $\{X(t)\}$ de\'ebilmente estacionario y 
+estoc\'asticamente continuo, es que exista una funci\'on $F$ que tenga las siguientes propiedades
 \begin{itemize}
 \item Monótonamente creciente
 \item $F(-\infty) = 0$
-\item $F(\infty) = 1$
+\item $F(+\infty) = 1$
 \end{itemize}
 y tal que para todo $\tau \in \R$ se cumple que
 \begin{equation*}
 \rho(\tau) = \intR e^{i \omega \tau} dF(\omega)
 \end{equation*}
+\label{t_wienerkhinchin}
 \end{thrm}
 
 \begin{thrm}[Wold]
 Una condici\'on suficiente y necesaria para que $\rho$ sea una funci\'on de autocorrelaci\'on de 
-alg\'un proceso estoc\'astico a tiempo discreto $\{X(t)\}$ estacionario es que exista una funci\'on 
-$F$ con las siguientes propiedades
+alg\'un proceso estoc\'astico a tiempo discreto $\{X(t)\}$ d\'ebimente estacionario es que exista 
+una funci\'on $F$ con las siguientes propiedades
 \begin{itemize}
 \item Monótonamente creciente
 \item $F(-\pi) = 0$
-\item $F(\pi) = 1$
+\item $F(+\pi) = 1$
 \end{itemize}
 y tal que para todo $\tau \in \R$ se cumple que
 \begin{equation*}
 \rho(\tau) = \intPI e^{i \omega \tau} dF(\omega)
 \end{equation*}
+\label{t_wold}
 \end{thrm}
 
-Si bien no es claro que el teorema de Wiener-Khinchin, o su extensi\'on por Wold, tengan una 
-interpretaci\'on f\'isica clara, tienen una interpretaci\'on clave para los estimadores en el 
-dominio de las frecuencias: la SDF normalizada es la transformada de Fourier-Stieltjes de la 
-funci\'on de autocorrelaci\'on.
-Intuitivamente, esto significa que un estimador ''muy natural'' para la SDF normalizada es la 
-transformada de Fourier de la funci\'on de autocorrelaci\'on (estimada); esta funci\'on se conoce 
-como \textit{periodograma}. Se usar\'an, sin embargo, la funci\'on de autocovarianza ($R$) ya que 
-en teor\'ia s\'olo difiere de la funci\'on de autocorrelaci\'on al ser multiplicada por una 
-constante, pero en la pr\'actica esta cantidad es un par\'ametro m\'as para ser estimado.
-
-Conviene introducir, antes, el estimador 'est\'andar' para la funci\'on de autocovarianza de un 
-proceso d\'ebilmente estacionario a tiempo continuo de media cero $\{ X(t) \}$, a partir de un 
-conjunto de $N$ observaciones distribuidas uniformemente en el tiempo con separaci\'on $\Delta t$.
-Por simplicidad, se denotar\'a a estas observaciones como $x_1, x_2 , \dots, x_N$. Ahora bien, por 
-definici\'on se cumple la siguiente propiedad para la funci\'on de autocovarianza, $R$, del proceso
+Una observaci\'on interesante sobre estos teoremas es el caso $\tau = 0$
 \begin{equation*}
-R(\tau) = \E{X(n\Delta t)X(n\Delta t + \tau)} \text{  ,  } n = 0,\pm 1,\pm 2, \pm 3,\dots, N
+\rho(0) = \int_{-A}^{+A} dF(\omega) = F(A) - F(-A)
+\end{equation*}
+donde $A$ vale $\infty$ o $\pi$ seg\'un sea el caso discreto o continuo. Si $R$ es la funci\'on de
+autocovarianza del proceso, entonces la ecuaci\'on anterior se traduce en que
+\begin{equation*}
+R(0) = \sigma^{2} \left( F(A) - F(-A) \right) = \sigma^{2} F(A)
+\end{equation*}
+donde $\sigma^{2}$ es la varianza del proceso. 
+Esta observaci\'on adquiere importancia porque la SDF integrada ($H$), por definici\'on, satisface 
+el papel de $F$ salvo por la condici\'on $F(\infty)=1$; si se puede garantizar que 
+$H(\infty)<\infty$ entonces puede ser normalizada para satisfacer tal condici\'on y, m\'as a\'un,
+si tal fuera el caso entonces $H(\infty)=\sigma^{2}$. Una consecuencia muy fuerte de este 
+comentario es que, como se ha establecido previamente que s\'olo se considerar\'an procesos con
+segundos momentos finitos, entonces la SDF de los procesos considerados siempre es acotada.
+
+%Si bien no es claro que los teoremas \ref{t_wold} y \ref{t_wold} tengan una interpretaci\'on 
+%f\'isica clara, permiten una interpretaci\'on clave como estimadores: 
+Como corolario, se puede afirmar que la SDF de un proceso (d\'ebilmente estacionario y de varianza
+finita) es la transformada de Fourier-Stieltjes de la funci\'on de autocovarianza.
+Esto implica que el estimador m\'as 'natural' para la SDF es la transformada de Fourier (discreta) 
+de la funci\'on de autocorrelaci\'on (estimada); esta funci\'on se conoce como 
+\textit{periodograma}. 
+
+%Por simplicidad, Se usar\'an, sin embargo, la funci\'on de autocovarianza ($R$) ya que 
+%en teor\'ia s\'olo difiere de la funci\'on de autocorrelaci\'on al ser multiplicada por una 
+%constante, pero en la pr\'actica esta cantidad es un par\'ametro m\'as para ser estimado.
+
+Conviene introducir estimadores para la funci\'on de autocovarianza de un proceso d\'ebilmente 
+estacionario, $\{ X(t) \}$, a partir de un conjunto de $N$ observaciones equiespaciadas en el 
+tiempo con separaci\'on $\Delta t$; se denotar\'a a estas observaciones como 
+$x_1, x_2 , \dots, x_N$. Como se cumple la siguiente propiedad para la funci\'on de autocovarianza, 
+$R$, por definici\'on
+\begin{equation*}
+R(\tau) = \E{X(n\Delta t)X(n\Delta t + \tau)} \text{  ,  } n = 0, 1, 2,  3,\dots, N
 \end{equation*}
 %para $n = 0, 1, 2, \dots, N$ y siempre que $\tau$ sea m\'ultiplo de $\Delta t$. 
-Luego, un estimador muy natural para $\rho$ est\'a dado por
-\begin{equation}
+el estimados est\'andar para $R$ est\'a dado por la siguiente expresi\'on
+\begin{equation*}
 \widehat{R}(\tau) = \frac{1}{N-\abso{\tau}} 
 \sum_{t = 1}^{N-\abso{\tau}} x_t x_{t+\abso{\tau}}
 \label{estimador_R}
-\end{equation}
+\end{equation*}
 
-Resulta que $\widehat{R}$ es un estimador insesgado y consistente de $R$; sin embargo y por 
-simplicidad en un tratamiento futuro, conviene introducir un estimador sesgado para $R$ con algunas 
-propiedades convenientes
-\begin{equation}
+Se puede demostrar que $\widehat{R}$ es un estimador 
+insesgado\footnote{Un estimador para el par\'ametro $\theta$, $\widehat{\theta}$, se dice 
+\textbf{insesgado} si $\E{\widehat{\theta}}=\theta$} 
+y consistente\footnote{Un estimador para el par\'ametro $\theta$ que depende de $N$ observaciones, 
+$\widehat{\theta}_N$, se dice \textbf{consistente} si 
+$\lim_{N\rightarrow \infty} \Var{\widehat{\theta}_N} = 0$} 
+para $R$; sin embargo conviene introducir un estimador diferente para $R$
+\begin{equation*}
 \aste{R}(\tau) = \frac{1}{N} 
 \sum_{t = 1}^{N-\abso{\tau}} x_t x_{t+\abso{\tau}}
 \label{estimador_R_ast}
-\end{equation}
+\end{equation*}
 
-Por tiempo s\'olo se citar\'a que, para un proceso d\'ebilmente estacionario, el estimador 
-\ref{estimador_R_ast} tiene las siguientes propiedades
+Se puede demonstrar que $\aste{R}$ tiene las siguientes 
+propiedades:
 \begin{itemize}
 \item $\E{\aste{R}(\tau)} = \left(1 - \frac{\abso{\tau}}{N} \right) R(\omega)$
 \item $\Var{\aste{R}(\tau)} \approx \frac{1}{N} 
@@ -1251,11 +1270,15 @@ Por tiempo s\'olo se citar\'a que, para un proceso d\'ebilmente estacionario, el
 \item $\Cov{\aste{\rho}(\tau),\aste{\rho}(\tau+\nu)} \approx \frac{1}{N} 
 \sum_{r=-\infty}^{\infty} \left( \rho(r)\rho(r+\nu) + \rho(r-\tau)\rho(r+\tau+\nu) \right)$
 \end{itemize}
-La aproximaci\'on para la varianza se vuelve exacta si el proceso es normal, aunque es asint\'otica 
-en general.
+Las aproximaciones para la varianza y covarianza se vuelven exactas si el proceso sigue una 
+distribuci\'on normal en todos los tiempos.
 
-As\'i entonces se puede definir, como se mencion\'o, el periodograma $I_N(\omega)$ de la siguiente 
-manera
+%As\'i entonces se puede definir, como se mencion\'o, el periodograma $I_N(\omega)$ de la siguiente 
+%manera
+
+%\begin{defn}[Periodograma]
+%
+%\end{defn}
 
 \begin{equation}
 I_N(\omega) = 2 \sum_{r = -(N-1)}^{N-1} \aste{R}(r) \COS{r \omega}
@@ -1267,37 +1290,30 @@ Ahora bien, la definici\'on cl\'asica del periodograma est\'a dada por la expres
 \ref{periodograma}; aunque la segunda es clara y efectiva computacionalmente, se usar\'a la primera 
 de manera recurrente.
 
-\begin{equation}
+\begin{equation*}
 I_N(\omega) = \frac{2}{N} \abso{ \sum_{t=0}^{N} e^{i \omega t} x_t }^{2}
 \label{periodograma}
-\end{equation}
+\end{equation*}
 
-Si bien se puede demostrar que en el caso continuo $\E{I_N(\omega)}=h(\omega)$, si el proceso 
-tuviera un espectro puramente continuo, ocurre que 
-$\lim_{N\rightarrow 0} \Var{I_N(\omega)} = h^{2}(\omega)$. Luego el periodograma 'cl\'asico', o 
-cualquiera de sus formulaciones equivalentes, es en general un estimador insesgado para la SDF, 
-pero su varianza no decae a cero al incrementar el n\'umero de puntos; intuitivamente esto significa 
-que en promedio se espera que funcione adecuadamente como estimador, pero aumentar la cantidad de 
-datos no implica que la estimaci\'on mejore, y es muy posible que nunca sea realmente buena.
+Se puede demostrar que el periodograma es un estimador insesgado de la SDF para los proceso 
+considerados; sin embargo, si el proceso tuviera un espectro puramente continuo, ocurre que 
+$\lim_{N\rightarrow 0} \Var{I_N(\omega)} = h^{2}(\omega)$, con $h$ la SDF del proceso: el 
+periodograma, en general, no es consistente.
+En parte esto ocurre porque el periodograma depende de los estimadores para la funci\'on de 
+autocovarianza, $\est{R}$, evaluada en todos los puntos posibles: para calcular $\est{R}$ en 
+valores muy altos se requieren puntos muy alejados, los cuales son menos abundantes e implican 
+una mayor varianza.
 
-Priestley comenta que este efecto ocurre porque el periodograma calculado seg\'un 
-\ref{periodograma_rho} depende de estimadores para la funci\'on de autocovarianza 
-evaluada en todos los puntos accesibles; el problema con ello es que para evaluarla en retrasos 
-m\'as grandes, se requieren puntos m\'as alejados, y como hay muy pocos disponibles generan un 
-estimador con varianza muy alta.
-
-Puesto que el periodograma aumenta su varianza porque incluye las 'colas' de la funci\'on de
-autocovarianza, una respuesta cl\'asica es tratar de evitar en lo posible estas colas multiplicando 
-por una funci\'on de pesos. En este sentido, se considerar\'an los estimadores con la siguiente 
-forma
-\begin{equation}
+Si efectivamente el periodograma aumenta su varianza cuando incluye las 'colas' de la funci\'on de 
+autocovarianza, entonces la soluci\'on es evitar tales colas multiplic\'andolas por una funci\'on 
+de pesos que decae r\'apidamente. En este sentido, se considerar\'an estimadores de la forma
+\begin{equation*}
 \est{h}(\omega) = \frac{1}{2\pi} \sum_{s = -(N-1)}^{N-1} 
 \lambda(s) \aste{R}(s) e^{i \omega t}
 \label{ventaneando}
-\end{equation}
-donde $\lambda$ es la funci\'on que 'decae muy r\'apidamente', y ser\'a referida como 
-\textbf{ventana de retrasos}. Para estudiar las propiedades de los estimadores del tipo 
-\ref{ventaneando}, conviene reescribirlos como funci\'on directa del periodograma
+\end{equation*}
+donde $\lambda$ es la funci\'on de pesos, referida como \textbf{ventana de retrasos}. Para estudiar 
+las propiedades este tipo de estimadores, conviene reescribirlos en funci\'on del periodograma
 
 \begin{equation*}
 \est{h}(\omega) = \intPI I_N(\theta) W(\omega-\theta) d\theta
@@ -1307,13 +1323,11 @@ donde $W$ es la transformada de Fourier finita de $\lambda$
 W(\theta) = \frac{1}{2\pi} \sum_{s = -(N-1)}^{N-1} \lambda(s) e^{-is\theta}
 \end{equation*}
 
-Cabe destacar la forma que adopta $\est{h}$ como convoluci\'on del periodograma con la funci\'on
-$W$, que bien puede interpretarse como que esta \'ultima funciona como una funci\'on de pesos
-(exactamente como $\lambda$, pero en el ''dominio de las frecuencias). Por ello, $W$ es referida 
-como \textbf{ventana de retrasos}.
-En la tabla \ref{ventanas} hay una lista corta de algunas funciones ventana.
-Esta familia de estimadores son consistentes pero sesgados, aunque son asint\'oticamente 
-insesgados, ya que el sesgo disminuye conforme aumenta el n\'umero de puntos.
+Cabe destacar la forma que adopta $\est{h}$ como la convoluci\'on $I_N \ast W$, que bien puede 
+entenderse como que $W$ es una funci\'on de pesos en el 'dominio de las frecuencias'; por ello, $W$ 
+es referida como \textbf{ventana de retrasos}.
+En la tabla \ref{ventanas} hay una lista corta de algunas funciones tipo ventana. Estos estimadores 
+son consistentes y sesgados, aunque son asint\'oticamente insesgados.
 
 \begin{SidewaysTable}
 \centering
