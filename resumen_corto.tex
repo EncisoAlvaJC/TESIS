@@ -1276,24 +1276,30 @@ distribuci\'on normal en todos los tiempos.
 %As\'i entonces se puede definir, como se mencion\'o, el periodograma $I_N(\omega)$ de la siguiente 
 %manera
 
-%\begin{defn}[Periodograma]
-%
-%\end{defn}
+Bajo estas consideraciones, se exhibe formalmente el periodograma (definici\'on 
+\ref{periodograma}); si bien la expresi\'on con que se escribe es f\'acil de intepretar (la 
+transformada de Fourier discreta para la se\~nal) y es eficiente computacionalmente, es conveniente
+ligarla con la funci\'on de autocovarianza ()
 
-\begin{equation}
-I_N(\omega) = 2 \sum_{r = -(N-1)}^{N-1} \aste{R}(r) \COS{r \omega}
-\label{periodograma_rho}
-\end{equation}
-
-Ahora bien, la definici\'on cl\'asica del periodograma est\'a dada por la expresi\'on en 
-\ref{periodograma_rho}, aunque igualmente se puede definir por la expresi\'on equivalente en 
-\ref{periodograma}; aunque la segunda es clara y efectiva computacionalmente, se usar\'a la primera 
-de manera recurrente.
-
+\begin{defn}[Periodograma]
+Sean $x_1, x_2 , \dots, x_N$ observaciones de un proceso estoc\'astico de media cero y varianza
+finita. Se llama periodograma a la funci\'on $I_N: [-\pi,\pi] \rightarrow \R$ calculada como
 \begin{equation*}
 I_N(\omega) = \frac{2}{N} \abso{ \sum_{t=0}^{N} e^{i \omega t} x_t }^{2}
-\label{periodograma}
 \end{equation*}
+\label{periodograma}
+\end{defn}
+
+\begin{thrm}
+Sean $x_1, x_2 , \dots, x_N$ observaciones de un proceso estoc\'astico de media cero y varianza
+finita. Se puede calcular el periodograma para estos datos como
+\begin{equation*}
+I_N(\omega) = 2 \sum_{r = -(N-1)}^{N-1} \aste{R}(r) \COS{r \omega}
+\end{equation*}
+Donde $\aste{R}$ es el estimador para la funci\'on de autovarianza del proceso, calculado como
+$\widehat{R}(\tau) = \frac{1}{N-\abso{\tau}} \sum_{t = 1}^{N-\abso{\tau}} x_t x_{t+\abso{\tau}}$
+\label{periodograma_rho}
+\end{thrm}
 
 Se puede demostrar que el periodograma es un estimador insesgado de la SDF para los proceso 
 considerados; sin embargo, si el proceso tuviera un espectro puramente continuo, ocurre que 
@@ -1305,15 +1311,15 @@ valores muy altos se requieren puntos muy alejados, los cuales son menos abundan
 una mayor varianza.
 
 Si efectivamente el periodograma aumenta su varianza cuando incluye las 'colas' de la funci\'on de 
-autocovarianza, entonces la soluci\'on es evitar tales colas multiplic\'andolas por una funci\'on 
-de pesos que decae r\'apidamente. En este sentido, se considerar\'an estimadores de la forma
+autocovarianza, entonces una soluci\'on es evitarlas, multiplicando por una funci\'on de pesos. 
+Tales consideraciones dan origen a estimadores de la forma
 \begin{equation*}
 \est{h}(\omega) = \frac{1}{2\pi} \sum_{s = -(N-1)}^{N-1} 
 \lambda(s) \aste{R}(s) e^{i \omega t}
 \label{ventaneando}
 \end{equation*}
-donde $\lambda$ es la funci\'on de pesos, referida como \textbf{ventana de retrasos}. Para estudiar 
-las propiedades este tipo de estimadores, conviene reescribirlos en funci\'on del periodograma
+donde la funci\'on de pesos, $\lambda$, es referida como \textbf{ventana de retrasos}. Para estudiar 
+las propiedades estos estimadores, conviene reescribirlos en funci\'on del periodograma
 
 \begin{equation*}
 \est{h}(\omega) = \intPI I_N(\theta) W(\omega-\theta) d\theta
@@ -1425,91 +1431,21 @@ Las funciones $F_M$ y $D_M$ toman, respectivamente, los nombres de \textit{n\'uc
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Representaci\'on de Wold-Cram\'er}
+\subsection{Filtros lineales}
 
-Una consecuencia de los teoremas de Wiener-Khinchin y de Wold
-es poder caracterizar a los procesos d\'ebilmente estacionarios 
-usando directamente la SDF, y que ser\'a usada en su estimaci\'on.
-Esta represetnaci\'on existe en virtud del teorema \ref{rep_espectral}, cuya demostraci\'on no 
-ser\'a incluida en este trabajo; el lector interesado en tan imponente teorema puede referirse a 
-\cite{Priestley81}.
-
-\begin{thrm}
-Sea $\{X(t)\}$ un proceso estoc\'astico a tiempo continuo d\'ebilmente estacionario de media 0 y 
-estoc\'asticamente continuo en el sentido de media cuadr\'atica. Entonces, existe un proceso 
-ortogonal $\{Z(\omega)\}$ tal que, para todo tiempo $\omega$ admisible, se puede 
-escribir\footnote{La integral se encuentra definida en el sentido de media cuadr\'atica.}
-\begin{equation*}
-X(t) = \intR e^{i t \omega} dZ(\omega)
-\end{equation*}
-Donde el proceso $\{Z(t)\}$ tiene las siguientes propiedades para todo $\omega$
-\begin{itemize}
-\item $\E{dZ(\omega)} = 0$
-\item $\E{\abso{dZ(\omega)}^{2}} = dH(\omega)$
-\item $\Cov{dZ(\omega),dZ(\omega^{\prime})} = 0 \Leftrightarrow \omega \neq \omega^{\prime}$
-\end{itemize}
-Donde $dH(\omega)$ la SDF integrada no-normalizada de $\{X(t)\}$
-\label{rep_espectral}
-\end{thrm}
-
-La forma en que se escribe un proceso seg\'un el teorema \ref{rep_espectral} es referida como
-{representaci\'on de Cram\'er}; en virtud del teorema de Wold, se puede tener una variante del 
-mismo teorema para series de tiempo a tiempo discreto, raz\'on por la cual en sentido amplio se le 
-refiere como \textbf{representaci\'on de Wold-Cram\'er}.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%\subsubsection{Filtros lineales independientes del tiempo}
-
-%Los filtros lineales independientes del tiempo se describen aqu\'i por su importancia hist\'orica 
-%en la estimaci\'on anal\'ogica de las SDF, aunque en este trabajo se presenta una abstracci\'on m
-%\'as pragm\'atica en cuanto a la estimaci\'on de la SDF.
-%Este tipo de filtros ser\'an referidos como filtros LTI (Linear Time-Invariant) ya que se les 
-%pedir\'a que dependan linealmente de toda la se\~nal\footnote{Se entiende que es una mapeo lineal 
-%que toma toda la se\~nal (entendida como funci\'on del tiempo) y 'produce' otra funci\'on del 
-%tiempo (que a su vez puede interpretarse como una segunda se\~nal). Cabe destacar que formalmente 
-%es necesario que el mapeo sea lineal sobre las se\~nales, pero no es obligatorio que 'utilice' 
-%todos los valores: no se le pide ser invertible, ni continuidad} y que no dependan del tiempo. 
-%Luego entonces, deben tener la forma \ref{LTI}.
-%\begin{equation*}
-%Y(t) = \intR g(s) X(t-s) ds
-%\end{equation*}
-
-%N\'otese que un filtro como \ref{LTI} est\'a completamente determinado por la funci\'on $g$. 
-%Sobre el contexto hist\'orico mencionado, conviene mencionar la existencia de 'circuitos lineales' 
-%cuya composici\'on permite modelarlos como filtros LTI; un ejemplo cl\'asico son los circuitos RC, 
-%como el mostrado en \ref{rrcc} y que est\'a determinado por
-%$g(u) = \frac{1}{R C} \text{exp}\left( -\nicefrac{u}{R C} \right)$ (donde $R$ y $C$ son la
-%resistencia y capacitancia, respectivamente).
-
-%\begin{figure}
-%\centering
-%\includegraphics[width=0.4\linewidth]{rc.png} 
-%\caption{Circuito el\'ectrico con una resistencia (R) y un capacitor (C); es alimentado por una 
-%corriente de entrada $V_e(t)$ y produce una corriente de salida $V_a(t)$. 
-%}
-%\label{rrcc}
-%\end{figure}
-
-%Se puede decir, por ejemplo, que para que un circuito sea 'f\'isicamente contructible' es necesario 
-%que $g$ sea cero en los negativos, es decir,  que el valor actual no dependa de los valores futuros. En este 
-%trabajo se pedir\'a que $g\in L^{2}$ y que posea una transformada de Fourier bien definida.
-
-Una raz\'on muy particular para usar la representaci\'on de Wold-Cram\'er es el manejo de procesos
-'filtrados' del tipo $Y(t) = \intR g(u) X(t-u) du$.
-Hist\'oricamente, los filtros se originan en teor\'ia de circuitos como circuitos f\'isicos con ciertas 
-caracter\'isticas (que no ser\'an discutidas en este texto); destacan dentro de la estimaci\'on 
-anal\'ogica de la SDF y en la 'cancelaci\'on' anal\'ogica de componentes de frecuencia (ver m\'as
-adelante).
+Como herramienta auxiliar en la estimaci\'on de la SDF, conviene considerar procesos del tipo 
+$Y(t) = \intR g(u) X(t-u) du$, referidos como 'filtrados'.
+Hist\'oricamente los filtros se originan como circuitos f\'isicos que, por dise\~no, son de ayuda 
+en la 'cancelaci\'on' anal\'ogica de componentes de frecuencia (ver m\'as adelante).
 %
-Por otro lado, los filtros permiten interpretar a procesos MA, AR y ARMA, como versiones
-filtradas de procesos ruido blanco; m\'as a\'un, si se permite que los procesos filtrados tengan la
-forma\footnote{La integral est\'a definida en el sentido de Stieltjes} $Y(t) = \intR X(t-u) dG(u)$ 
-entonces es posible manejar operadores discretos, como $B[Y](t) = Y(t)-Y(t-1)$.
+Los filtros, aplicados a proceso d\'ebilmente estacionarios, afectan su SDF de manera 'simple' 
+(teorema \ref{filtro});
 %
-Los filtros, aplicados a proceso d\'ebilmente estacionarios, afectan su SDF de manera
-'simple' (teorema \ref{filtro}).  
+por otro lado, permiten interpretar a procesos autorregresivos (AR) y de medias m\'oviles (MA) como 
+versiones filtradas de procesos ruido blanco; m\'as a\'un, si los procesos filtrados pueden tener 
+la forma\footnote{La integral est\'a definida en el sentido de Stieltjes} $Y(t) = \intR X(t-u) dG(u)$,
+entonces es posible manejar el operador retraso ($B[Y](t) = Y(t)-Y(t-1)$).
+%
 
 \begin{thrm}
 Sea $\{ X(t) \}$ un proceso d\'ebilmente estacionario que admite una 
@@ -1528,70 +1464,77 @@ $\Gamma(\omega) = \intR g(u) e^{i \omega u} du$.
 \label{filtro}
 \end{thrm}
 
-En el teorema \ref{filtro}, la funci\'on $g$ es referida como 
-\textbf{funci\'on de respuesta}; tal nombre tiene sentido si $\{X(t)\}$ no fuera un proceso, sino
-un 'impulso unitario' (una funci\'on tipo \dirac).
-%interpretaci\'on de circuito si \'este es 'alimentado' con un 'impulso unitario' (una funci\'on
-%tipo \ddd de Dirac) en un tiempo dado, y posteriormente se mide la respuesta del sistema.
-La funci\'on $\Gamma$ es referida como \textbf{funci\'on de transferencia}, nombre motivado de manera similar
-al considerar a $\{X(t)\}$ una 'se\~nal' senoidal ($X(t) = e^{i \omega t}$);
-%respectiva viene de realizar el mismo experimento te\'orico, pero ahora con una funci\'on tipo 
-%$e^{i \omega t}$; el sistema producir\'a una funci\'on del tipo $e^{i\lambda t}$, que tiene una 
-%forma similar pero con otra frecuencia. 
-la conexi\'on se vuelve m\'as clara 
-si se interpreta esta segunda se\~nal como funci\'on tipo 
-\dirac\footnote{La funci\'on $\delta_x:\R\rightarrow \R$ es una funci\'on $\delta$ de Dirac si puede 
-verse como la funci\'on de distribuci\'on de masa para una medida finita que es cero para todo 
-conjunto que no contenga a $x$.} en el espacio de las frecuencias.
-Respecto a la 'cancelaci\'on' de frecuencias basta decir que, en teor\'ia, 
-se puede construir a $g$ de modo que $\Gamma$ sea 0 fuera de un intervalo cerrado y 1 dentro del mismo;
-este efecto es referido como \textbf{filtro de banda}.
+En el teorema \ref{filtro}, la funci\'on $g$ es referida como \textbf{funci\'on de respuesta}; tal 
+nombre tiene sentido si $\{X(t)\}$ no fuera un proceso, sino un 'impulso unitario' (una funci\'on 
+tipo \dirac \footnote{La funci\'on $\delta_x:\R\rightarrow \R$ es una funci\'on $\delta$ de Dirac 
+si puede verse como la funci\'on de distribuci\'on de masa para una medida finita que es cero para 
+todo conjunto que no contenga a $x$}).
+La funci\'on $\Gamma$ es referida como \textbf{funci\'on de transferencia}, nombre motivado de 
+manera similar al considerar a $\{X(t)\}$ una 'se\~nal' senoidal ($X(t) = e^{i \omega t}$); la 
+conexi\'on se vuelve m\'as clara si se interpreta esta segunda se\~nal como funci\'on tipo \dirac 
+en el dominio de las frecuencias.
+Respecto a la 'cancelaci\'on' de frecuencias basta decir que, en teor\'ia, se puede construir a $g$ 
+de modo que $\Gamma$ sea 0 fuera de un intervalo cerrado y 1 dentro del mismo; este efecto es 
+referido como \textbf{filtro de banda}.
 
-%Una motivaci\'on muy fuerte para mencionar los filtros LTI es que permiten expresar de manera
-%'c\'omoda' a los procesos est\'andares: un proceso MA bien puede interpretarse como un filtro con 
-%forma de ventana rectangular acotada, y esta caracterizaci\'on puede extenderse a tiempo continuo.
-%Un proceso AR en tiempo continuo se puede ver como una ecuaci\'on diferencial lineal y homog\'enea,
-%m\'as un proceso ruido blanco; este tipo de ecuaciones pueden interpretarse como circuitos lineales
-%antes de intentar resolverse.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
-
-%La funci\'on $g$ es referida como \textbf{funci\'on de respuesta}; este nombre tiene sentido en la
-%interpretaci\'on de circuito si \'este es 'alimentado' con un 'impulso unitario' (una funci\'on
-%tipo \ddd de Dirac) en un tiempo dado, y posteriormente se mide la respuesta del sistema.
-%La funci\'on $\Gamma$ es referida como \textbf{funci\'on de transferencia}; su motivaci\'on
-%respectiva viene de realizar el mismo experimento te\'orico, pero ahora con una funci\'on tipo 
-%$e^{i \omega t}$; el sistema producir\'a una funci\'on del tipo $e^{i\lambda t}$, que tiene una 
-%forma similar pero con otra frecuencia. La conexi\'on de estas dos funciones se vuelve m\'as clara 
-%a\'un si se interpretan las funciones del segundo experimento como funciones tipo \ddd de Dirac en 
-%el espacio de las frecuencias.
+%Como consecuencia de los teoremas \ref{t_wienerkhinchin} y \ref{t_wold}, los procesos d\'ebilmente 
+%estacionarios pueden ser caracterizados de manera m\'as general usando la SDF; en base a ello se
+% y que ser\'a usada en su estimaci\'on.
+%Esta represetnaci\'on existe en virtud del teorema \ref{rep_espectral}, cuya demostraci\'on no 
+%ser\'a incluida en este trabajo; el lector interesado en tan imponente teorema puede referirse a 
+%\cite{Priestley81}.
+%
+%\begin{thrm}
+%Sea $\{X(t)\}$ un proceso estoc\'astico a tiempo continuo d\'ebilmente estacionario de media 0 y 
+%estoc\'asticamente continuo en el sentido de media cuadr\'atica. Entonces, existe un proceso 
+%ortogonal $\{Z(\omega)\}$ tal que, para todo tiempo $\omega$ admisible, se puede 
+%escribir\footnote{La integral se encuentra definida en el sentido de media cuadr\'atica.}
+%\begin{equation*}
+%X(t) = \intR e^{i t \omega} dZ(\omega)
+%\end{equation*}
+%Donde el proceso $\{Z(t)\}$ tiene las siguientes propiedades para todo $\omega$
+%\begin{itemize}
+%\item $\E{dZ(\omega)} = 0$
+%\item $\E{\abso{dZ(\omega)}^{2}} = dH(\omega)$
+%\item $\Cov{dZ(\omega),dZ(\omega^{\prime})} = 0 \Leftrightarrow \omega \neq \omega^{\prime}$
+%\end{itemize}
+%Donde $dH(\omega)$ la SDF integrada de $\{X(t)\}$
+%\label{rep_espectral}
+%\end{thrm}
+%
+%La forma en que se escribe un proceso seg\'un el teorema \ref{rep_espectral} es referida como
+%{representaci\'on de Cram\'er}; en virtud del teorema de Wold, se puede tener una variante del 
+%mismo teorema para series de tiempo a tiempo discreto, raz\'on por la cual en sentido amplio se le 
+%refiere como \textbf{representaci\'on de Wold-Cram\'er}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Prueba de Priestley-Subba Rao}
 
-Esta t\'ecnica fue presentada por Priestley y Subba Rao en 1965 \cite{Priestley69}, y consiste en 
-estimar el espectro del proceso 'localmente en muchos lugares' para luego revisar si se puede 
-rechazar o no (como prueba de hip\'otesis) el que sean estad\'sticamente constantes en el tiempo;
-la explicaci\'on presente es m\'as bien somera, los detalles importantes (la existencia del proceso
-evolutivo para cierto tipo de procesos, las propiedades de los estimadores usados) son tomadas de
-\cite{Priestley65} y \cite{Priestley66}.
+Esta t\'ecnica fue presentada por Priestley y Subba Rao en 1969 \cite{Priestley69}, y consiste en 
+estimar el espectro local del proceso len varios puntos en el tiempo y las frecuencias, para luego 
+probar la hip\'otesis de que el espectro cambia en el tiempo; la explicaci\'on presente es m\'as 
+bien somera, los detalles formales que se omiten en el presente texto (la existencia del proceso 
+evolutivo para cierto tipo de procesos, las propiedades de los estimadores usados) pueden 
+encontrarse son tomadas de \cite{Priestley65} y \cite{Priestley66}.
 
-Para usar este m\'etodo, se supone que los datos pueden entenderse como una cantidad finita de 
+Se pre-supone que los datos pueden entenderse como una cantidad finita de 
 observaciones provenientes de un proceso estoc\'astico a tiempo continuo que, para todos los 
 tiempos, tiene media cero y varianza finita, adem\'as de ser estoc\'asticamente continuo y tener 
 un espectro puramente continuo.
-La cantidad de condiciones puede parecer excesiva, pero es remarcable que no se ha supuesto que
-el proceso sea estacionario y que previamente se presentaron motivos por los que los registros
-de PSG son observaciones de procesos a tiempo continuo, estoc\'asticamente continuos, con valor 
-esperado y varianzas finitas en todo momento; las propiedades de tener media cero y espectro 
-puramente continuo ser\'an 'forzadas' num\'ericamente (ver subsecci\'on siguiente).
+Si bien son numerosas las condiciones, no se ha supuesto que
+el proceso sea estacionario; adem\'as, se ha argumentado porqu\'e los que conviene ver a los 
+registros de PSG  como observaciones de procesos, estoc\'asticamente continuos, con valor 
+esperado y varianzas finitas. El tener media cero y espectro puramente continuo ser\'an 'forzadas' 
+num\'ericamente (ver m\'as adelante).
 
-Respecto a la estimaci\'on local del espectro, se usa el estimador de doble ventana, t\'ecnica 
-introducida por Priestley y Subba Rao \cite{Priestley69}, la cual requiere que se proporcionen 
-a priori dos funciones $w_\tau$ y $g$ con ciertas caracter\'isticas; deber\'ian 
-funcionar, respectivamente, como ventana de retrasos y como filtro lineal.
+Respecto a la estimaci\'on del espectro local se usa el \textbf{estimador de doble ventana}, 
+t\'ecnica introducida por Priestley \cite{Priestley69} y que requiere dos funciones, $w_\tau$ y 
+$g$, que funcionan como ventana de retrasos y como filtro lineal, respectivamente.
 %
 En cuando a $g$, se define a $\Gamma(u) = \intR g(u) e^{i u \omega} du$ y se les pide que
 \begin{equation*}
@@ -1604,23 +1547,24 @@ En cuando a $g$, se define a $\Gamma(u) = \intR g(u) e^{i u \omega} du$ y se les
 Cabe mencionar que las ventanas espectrales mostradas en la tabla \ref{ventanas} bien 
 pueden cumplir las propiedades requeridas para ser filtros.
 Posteriormente se define el estimador $U$ con el objetivo de asignar pesos en el tiempo para estimar
-a la SDF en el tiempo dado; m\'as a\'un, $U$ sirve 
-como una aproximaci\'on de la representaci\'on de Wold-Cram\'er para 
-el proceso.
+a la SDF
+% en el tiempo dado; m\'as a\'un, $U$ sirve 
+%como una aproximaci\'on de la representaci\'on de Wold-Cram\'er para 
+%el proceso.
 \begin{equation*}
 U(t,\omega) = \int_{t-T}^{t} g(u) X({t-u}) e^{i \omega (t-u)} du
 \end{equation*}
 
-Bajo el entendido que la funci\'on $\Gamma$ converge a una funci\'on tipo $\delta$ de 
-Dirac puede considerarse que 
+Bajo el entendido que la funci\'on $\Gamma$ converge a una funci\'on tipo \dirac, puede 
+considerarse que 
 $\E{\abso{U(t,\omega)}^{2}} \approx f_t(\omega)$; sin embargo, se demuestra en \cite{Priestley66} 
-que $\Var{\abso{U(t,\omega)}^{2}} \nrightarrow 0$ como en el caso del periodograma.
-
-Debido a ello es que se usa la segunda funci\'on, tipo ventana, para 'suavizar' el estimador y 
-hacerlo consistente (de forma muy similar a como se usaron ventanas espectrales para suavizar el 
-periodograma).
-Se toma una funci\'on $W_\tau$ que tomar\'a el papel de ventana de retrasos, con su respectiva 
-ventana espectral $w_\tau$; se le piden las siguientes propiedades
+que $\Var{\abso{U(t,\omega)}^{2}} \nrightarrow 0$.
+%
+Debido a ello se usa una segunda funci\'on tipo ventana,
+%, para 'suavizar' el estimador y hacerlo consistente (
+de forma similar al periodograma.
+Se considera la funci\'on $W_\tau$, ventana de retrasos, y su respectiva ventana espectral 
+$w_\tau$; deben satisfacer las siguientes propiedades:
 \begin{itemize}
 \item $w_{\tau}(t) \geq 0$ para cualesquiera $t$, $\tau$
 \item $w_{\tau}(t) \rightarrow 0$ cuando $\lvert t \lvert \rightarrow \infty$, para todo $\tau$
@@ -1630,19 +1574,20 @@ ventana espectral $w_\tau$; se le piden las siguientes propiedades
 $\displaystyle \lim_{\tau\rightarrow\infty} \tau \int_{-\infty}^{t} \abso{ W_{\tau}(\lambda) }^{2} d\lambda = C$
 \end{itemize}
 
-Por ejemplo, la ventana de Daniell satisface estas propiedades; para ello, conviene calcular que
-$\lim_{\tau\rightarrow\infty} \tau \int_{t-T}^{t} \lvert W_{\tau}(\lambda) \lvert^{2} d\lambda = 2\pi$;
-m\'as a\'un, todas las ventanas referidas en \ref{ventanas} satisfacen las propiedades descritas.
-
-Finalmente se define el estimador $\est{f}$ para las SDF normalizada, $f_t$, como
+%Por ejemplo, la ventana de Daniell satisface estas propiedades; para ello, conviene calcular que
+%$\lim_{\tau\rightarrow\infty} \tau \int_{t-T}^{t} \lvert W_{\tau}(\lambda) \lvert^{2} d\lambda = 2\pi$;
+%m\'as a\'un, 
+Cabe mencionar que todas las ventanas mostradas en \ref{ventanas} satisfacen las propiedades 
+anteriores.
+Finalmente, se define el estimador $\est{f}$ para las SDF normalizada, $f_t$, como
 \begin{equation*}
-\widehat{f_t}(\omega) = \int_{t-T}^{t} w_{T'}(u) \lvert U(t-u,\omega) \lvert^{2} du
+\widehat{f}(t,\omega) = \int_{t-T}^{t} w_{T'}(u) \lvert U(t-u,\omega) \lvert^{2} du
 \label{estimador_doble_ventana}
 \end{equation*}
 
-Fue demostrado por Priestley \cite{Priestley65} que los estimadores tipo 
-\ref{estimador_doble_ventana} son asint\'oticamente insesgados y consistentes; m\'as a\'un, 
-conviene exhibir las siguientes expresiones aproximadas propuestas en aqu\'el trabajo
+Fue demostrado por Priestley \cite{Priestley65} que los estimadores de doble ventana son 
+asint\'oticamente insesgados y consistentes, y propone las siguientes aproximaciones:
+%conviene exhibir las siguientes expresiones aproximadas propuestas en aqu\'el trabajo
 \begin{itemize}
 \item $\displaystyle
 \E{\est{f}(t,\omega)} \approx 
@@ -1652,8 +1597,8 @@ conviene exhibir las siguientes expresiones aproximadas propuestas en aqu\'el tr
 \intR \abso{\Gamma(\theta)}^{4} d\theta $
 \end{itemize}
 
-Donde las funciones $\widetilde{f}$ y $\overline{f}$ son versiones 'suavizadas' de la SDF 
-normalizada $f$, y est\'an definidas de la siguiente manera
+donde las funciones $\widetilde{f}$ y $\overline{f}$ son versiones 'suavizadas' de la SDF 
+normalizada, $f$, y est\'an definidas de la siguiente manera
 \begin{equation*}
 \widetilde{f}(t,\omega+\theta) = 
 \intR W_{\tau}(u) f(t-u,\omega+\theta) du
@@ -1664,53 +1609,52 @@ normalizada $f$, y est\'an definidas de la siguiente manera
 {\intR \left( W_{\tau}(u) \right)^{2} du}
 \end{equation*}
 
-Como $W_{\tau}$ tiene las propiedades de una ventana espectral\footnote{Ver esta secci\'on en 
-p\'aginas anteriores}, decrece lejos del origen y converge ($\tau \rightarrow \infty$) a una 
-funci\'on tipo \ddd de Dirac; luego $\widetilde{f}$  es 'casi' una convoluci\'on de $f$ con una 
-funci\'on tipo \ddd de Dirac, por lo que ''recupera aproximadamente su forma''. Una aproximaci\'on 
-muy similar puede hacerse respecto al segundo t\'ermino, de modo que aproximadamente 
-$\widetilde{f}\approx f$ y $\overline{f}^{2}\approx f^{2}$. Hay que destacar que esta 
-aproximaci\'on ser\'a mejor en tanto las ventanas $w_{\tau}$ y $W_{\tau}$ sean m\'as cercanas a una 
-funci\'on delta Dirac; y m\'as a\'un, una condici\'on adecuada es que estas funciones tengan 'una 
-forma m\'as delgada'\footnote{Esta idea se puede formalizar explorando m\'as a fondo el concepto de 
-\textit{ancho de banda}. En este trabajo no se tratar\'a tal asunto, por brevedad} que el espacio 
-entre los tiempos y frecuencias donde se estimar\'a $f$.
-Si las condiciones anteriores se satisfacen, se pueden hacer las siguientes aproximaciones, algo
-m\'as arriesgadas
+Como $W_{\tau}$ funciona como ventana espectral, converge a una 
+funci\'on tipo \dirac; luego $\widetilde{f}$ es aproximadamente la convoluci\'on 
+$\widetilde{f}(t,\omega+\theta) \approx \delta_t \ast f(\bullet,\omega+\theta)$. 
+Una aproximaci\'on muy similar 
+puede hacerse respecto al segundo t\'ermino, de modo que $\widetilde{f}\approx f$ y 
+$\overline{f}^{2}\approx f^{2}$.
+Tales aproximaciones ser\'an mejores en tanto las ventanas $w_{\tau}$ y $W_{\tau}$ sean m\'as 
+cercanas a funciones tipo \dirac.
+%; m\'as a\'un, una condici\'on adecuada es que estas funciones 
+%tengan una forma 'm\'as delgada' que el espacio entre los tiempos y frecuencias donde se estimar\'a 
+%$f$.
+Dicho esto, se pueden hacer las siguientes aproximaciones, un poco m\'as arriesgadas:
 \begin{itemize}
 \item $\displaystyle \E{\est{f}(t,\omega)} \approx f(t,\omega)$
 \item $\displaystyle \Var{\est{f}(t,\omega)} \approx 
 \frac{C}{\tau} f^{2}(t,\omega) \intR \abso{\Gamma (\theta)}^{4} d\theta$
 \end{itemize}
 
-Por otro lado, tambi\'en es importante mostrar las expresiones exhibidas en aqu\'el trabajo para la 
-covarianza de este estimador en diferentes puntos del tiempo y las frecuencias; se reescriben 
-aqu\'i unas simplificaciones hechas en el caso que el proceso, adem\'as de cumplir las hip\'otesis 
-de semi-estacionariedad, sea 'normal'
+%Por otro lado, es importante mostrar expresiones para la covarianza, si bien s\'olo se
+%se reescriben 
+%aqu\'i unas simplificaciones hechas en el caso que el proceso, adem\'as de cumplir las hip\'otesis 
+%de semi-estacionariedad, sea 'normal'
+A continuaci\'on se exhiben expresiones para la covarianza del estimador, en el caso particular
+de un proceso aproximadamente normal
 \begin{equation*}
 \Cov{\est{f}(t_1,\omega_1) , \est{f}(t_2,\omega_2)} \approx \intR \intR
 w_\tau (u) w_\tau(v) \Cov{ \abso{U(t_1-u,\omega_1)}^{2} , \abso{U(t_2-u,\omega_2)}^{2} }
 du dv
 \end{equation*}
-Se puede deducir que la varianza ser\'a negligible en cuanto $w_\tau$ se comporte como una 
-funci\'on \ddd de Dirac, con un pico m\'as delgado que la distancia entre $\omega_1$ y $\omega_2$.
+la covarianza ser\'a negligible en tanto $w_\tau$ se comporte como una 
+funci\'on \dirac, con un pico m\'as delgado que $\abso{\omega_1-\omega_2}$.
 El mismo efecto se logra si $\abso{U(t_1-u,\omega_1)}^{2}$ y $\abso{U(t_2-u,\omega_2)}^{2}$ son 
-no-correlacionados; por brevedad s\'olo se citar\'a de \cite{Priestley65} que, para que la 
-correlaci\'on sea negligible, basta que $\Gamma$ sea muy parecida a una funci\'on \ddd de Dirac, y 
-que su ancho sea menor a la distancia entre $t_1$ y $t_2$.
+no-correlacionados, pero por brevedead s\'olo se citar\'a de \cite{Priestley65} que basta que 
+$\Gamma$ sea una funci\'on \dirac, cuyo ancho sea menor a $\abso{t_1-t_2}$.
 
-Por otro lado, un dato importante para la estimaci\'on de la SDF normalizada por este m\'etodo, es 
-la forma que adopta la varianza del estimador $\widehat{f}$; para los estimadores de doble ventana, 
-el tama\~no del intervalo depende 'multiplicativamente' de la verdadera SDF.
-Una interpretaci\'on sobre este hecho, muy difundida dentro de las ingenier\'ias, es el de la 
-modulaci\'on de ondas, que pueden verse como una 'multiplicaci\'on de ondas' y debido a lo cual es 
-com\'um el uso de la 'transformaci\'o logar\'itmica'.
-Formalmente, esto motiva a introducir el siguiente estimador
+Un dato sumemente importante para la estimaci\'on de la SDF es c\'omo la varianza del estimador 
+$\widehat{f}$ depende 'multiplicativamente' de la verdadera SDF.
+Una interpretaci\'on sobre este hecho, difundida dentro de las ingenier\'ias, es sobre la 
+'modulaci\'on' de ondas, que puede verse como una 'multiplicaci\'on de ondas', y que motiva el uso 
+de la 'transformaci\'o logar\'itmica'.
+Formalmente, se introduce el siguiente estimador
 \begin{equation*}
 Y(t,\omega) = \log{\left( \est{f}(t,\omega)\right)}
 \end{equation*}
 
-A la luz de los comentarios anteriores, $Y$ tiene las siguientes propiedades
+Se puede demostrar que $Y$ tiene las siguientes propiedades:
 \begin{itemize}
 \item $\displaystyle 
 \E{ Y(t,\omega) } \approx \log \left( f(t,\omega) \right)$
@@ -1718,8 +1662,7 @@ A la luz de los comentarios anteriores, $Y$ tiene las siguientes propiedades
 \Var{ Y(T,\omega) } 
 \approx \frac{C}{\tau} \intR \abso{\Gamma (\theta)}^{4} d\theta $
 \end{itemize}
-las cuales motivan, a su vez, que el estimador $Y$ puede ser representado aproximadamente de la
-siguiente forma
+m\'as a\'un, el estimador $Y$ puede ser representado de la siguiente forma
 \begin{equation*}
 Y(t,\omega) = \log \left( f(t,\omega) \right) + \varepsilon(t,\omega)
 \end{equation*}
@@ -1731,23 +1674,23 @@ donde las variables $\varepsilon(t,\omega)$ satisfacen que
 \end{itemize}
 
 Priestley \cite{Priestley81} destaca que la transformaci\'on logar\'itmica tiene la propiedad de 
-hacer al estimador $Y$ m\'as 'normal' y que en la pr\'actica bien puede usarse que las variables 
-$\varepsilon$'s pueden considerarse con distribuci\'on normal de media 0.
-Es muy destacable que las variables $\varepsilon$'s comparten la misma media y varianza, adem\'as 
-de que son aproximadamente 
-no-correlacionadas si se satisfacen las condiciones para las ventanas.
+hacer que el estimador $Y$ tenga una distribuci\'on 'm\'as cercana' a la normal, y que en la 
+pr\'actica bien puede considerarse que las variables $\varepsilon$'s tienen distribuci\'on normal 
+con media 0 y varianza $\sigma^{2}$.
+Es destacable que las variables $\varepsilon$'s comparten la misma media y varianza, adem\'as de 
+que son aproximadamente no-correlacionadas.
 
-La prueba de Priestley-Subba Rao, como se mencion\'o anteriormente, funciona calculando el 
-estad\'istico $Y$ sobre varios puntos en el tiempo y la frecuencia, y luego revisando si se puede
-afirmar que el vector  $\left( Y(t,\omega_1), Y(t,\omega_2), \dots, Y(t,\omega_N) \right)$ sea 
-constante en el tiempo; de forma concreta  se calcula la siguiente aproximaci\'on
+La prueba de Priestley-Subba Rao, como se mencion\'o, funciona calculando el estad\'istico $Y$ 
+sobre varios puntos en el tiempo y la frecuencia, y luego revisando si se puede afirmar que el 
+vector  $\left( Y(t,\omega_1), Y(t,\omega_2), \dots, Y(t,\omega_N) \right)$ es constante en el 
+tiempo; de forma concreta  se maneja la siguiente aproximaci\'on
 \begin{equation*}
 \sum_{i = 1 }^{N} \left( Y(t,\omega_i) - \overline{Y}(\bullet,\omega_i) \right)^{2} 
 \sim \sigma^{2} \chi^{2}(N)
 \end{equation*}
 donde $\sigma^{2} = \Var{\varepsilon(t,\omega)}$, y
 $\overline{Y}(\bullet,\omega) = \frac{1}{M} \sum_{j=1}^{M} Y(t_j,\omega)$.
-Con esta caracterizaci\'on se puede usar una prueba ANOVA de manera relativamente f\'acil.
+Con tal caracterizaci\'on se puede usar una prueba ANOVA de manera relativamente f\'acil.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1832,38 +1775,42 @@ de resultados, pero retomado en la discusi\'on.
 \vspace{1em}
 \end{tabular}
 \begin{small}
-\begin{tabular}{lcrrrrrrr}
+\begin{tabular}{llcrrrrrrr}
 \toprule
+ \phantom{mm}&
  & \textbf{Sexo} & \textbf{Edad} & \textbf{Esc.} & \textbf{Neuropsi} & \textbf{MMSE} & \textbf{SATS} & \textbf{KATZ} & \textbf{Gds} \\
 \midrule
-VCR    & F    & 59   & 12   & 107      & 29   & 21   & 0    & 3 \\
-MJH    & F    & 72   & 9    & 113      & 30   & 18   & 0    & 0 \\
-JAE    & F    & 78   & 5    & 102      & 28   & 19   & 0    & 5 \\
-GHA    & M    & 65   & 9    & 107.5    & 30   & 23   & 0    & 7 \\
-MFGR   & F    & 67   & 11   & 110      & 30   & 18   & 0    &   \\
+\multicolumn{6}{l}{\textbf{Gpo. Control}}\\
+&VCR    & F    & 59   & 12   & 107      & 29   & 21   & 0    & 3 \\
+&MJH    & F    & 72   & 9    & 113      & 30   & 18   & 0    & 0 \\
+&JAE    & F    & 78   & 5    & 102      & 28   & 19   & 0    & 5 \\
+&GHA    & M    & 65   & 9    & 107.5    & 30   & 23   & 0    & 7 \\
+&MFGR   & F    & 67   & 11   & 110      & 30   & 18   & 0    &   \\
 \rowcolor{gris}
-\multicolumn{1}{c}{$\widehat{\mu}$} & 
+&\multicolumn{1}{c}{$\widehat{\mu}$} & 
               & 68.20& 9.20 & 107.90   & 29.40& 19.80& 0.00 & 3.00\\
 \rowcolor{gris}
-\multicolumn{1}{c}{$\widehat{\sigma}$} & 
+&\multicolumn{1}{c}{$\widehat{\sigma}$} & 
               & 7.19 & 2.68 & 4.07     & 0.89 & 2.17 & 0.00 & 3.08\\
-%\midrule
-\hline
-CLO    & F    & 68   & 5    & 81       & 28   & 22   & 1    & 6 \\
-RLO    & F    & 63   & 9    & 90       & 29   & 20   & 0    & 3 \\
-RRU    & M    & 69   & 9    & 85       & 27   & 10   & 0    & 3 \\
-JGZ    & M    & 65   & 11   & 87       & 25   & 20   & 0    & 1 \\
+\midrule
+%\hline
+\multicolumn{6}{l}{\textbf{Gpo. PDC}}\\
+&CLO    & F    & 68   & 5    & 81       & 28   & 22   & 1    & 6 \\
+&RLO    & F    & 63   & 9    & 90       & 29   & 20   & 0    & 3 \\
+&RRU    & M    & 69   & 9    & 85       & 27   & 10   & 0    & 3 \\
+&JGZ    & M    & 65   & 11   & 87       & 25   & 20   & 0    & 1 \\
 \rowcolor{gris}
-\multicolumn{1}{c}{$\widehat{\mu}$} & 
+&\multicolumn{1}{c}{$\widehat{\mu}$} & 
               & 66.25& 8.50 & 85.75   & 27.25& 18.00& 0.25 & 3.25\\
 \rowcolor{gris}
-\multicolumn{1}{c}{$\widehat{\sigma}$} & 
+&\multicolumn{1}{c}{$\widehat{\sigma}$} & 
               & 2.75 & 2.52 & 3.77    & 1.71 & 5.42 & 0.50 & 2.06\\
-%\midrule
-\hline
-FGH    & M    & 71   & 9    & 83.5     & 21   & 23   & 0    & 4  \\
-MGG    & F    & 61   & 9    & 114      & 28   & 29   & 1    & 14 \\
-EMT    & M    & 50   & 22   & 106      & 30   & 15   & 0    & 4  \\
+\midrule
+%\hline
+\multicolumn{6}{l}{\textbf{Sujetos exclu\'idos}}\\
+&FGH    & M    & 71   & 9    & 83.5     & 21   & 23   & 0    & 4  \\
+&MGG    & F    & 61   & 9    & 114      & 28   & 29   & 1    & 14 \\
+&EMT    & M    & 50   & 22   & 106      & 30   & 15   & 0    & 4  \\
 \bottomrule
 \end{tabular} 
 \end{small}
@@ -1905,32 +1852,41 @@ En la tabla \ref{frecuencias} se reportan la duraci\'on de estos registros para 
 \textbf{Datos generales sobre los registros de PSG}
 \vspace{1em}
 \end{tabular}
-\begin{tabular}{lcrrcrrr}
+\begin{tabular}{llcrrcrrr}
 \toprule
+    \phantom{mm}&
     &\multirow{2}{*}{\begin{tabular}{c}\bordes{1}Frecuencia\\ muestreo\end{tabular}}
     \bordes{1.2}
     & \multicolumn{2}{c}{Total} & \phantom{l}   & \multicolumn{3}{c}{MOR}\\
-    \cmidrule{3-4}  \cmidrule{6-8}
-    &          &Puntos  &  Tiempo   &&Puntos  &  Tiempo   &  \% MOR \\
+    \cmidrule{4-5}  \cmidrule{7-9}
+    &&          &Puntos  &  Tiempo   &&Puntos  &  Tiempo   &  \% MOR \\
 \midrule
-VCR &200       & 5166000&   7:10:30 &&438000  &   0:36:30 & 8\% \\
-MJH &512       &15851520&   8:36:00 &&1950720 &   1:03:30 &12\% \\
-JAE &512       &13931520&   7:33:30 &&2626560 &   1:25:30 &19\% \\
-GHA &200       &6558000 &   9:06:00 &&330000  &   0:27:30 & 5\% \\
-MFGR&200       &4932000 &   6:51:00 &&570000  &   0:47:30 &12\% \\
+\multicolumn{6}{l}{\textbf{Gpo. Control}}\\
+&VCR &200       & 5166000&   7:10:30 &&438000  &   0:36:30 & 8\% \\
+&MJH &512       &15851520&   8:36:00 &&1950720 &   1:03:30 &12\% \\
+&JAE &512       &13931520&   7:33:30 &&2626560 &   1:25:30 &19\% \\
+&GHA &200       &6558000 &   9:06:00 &&330000  &   0:27:30 & 5\% \\
+&MFGR&200       &4932000 &   6:51:00 &&570000  &   0:47:30 &12\% \\
+
+\midrule
 
 \rowcolor{gris}
-CLO &512       &14499840&   7:52:00 &&2027520 &   1:06:00 &14\% \\
+\multicolumn{9}{l}{\textbf{Gpo. PDC}}\\
 \rowcolor{gris}
-RLO &512       &12994560&   7:03:00 &&1520640 &   0:49:30 &12\% \\
+&CLO &512       &14499840&   7:52:00 &&2027520 &   1:06:00 &14\% \\
 \rowcolor{gris}
-RRU &200       &2484000 &   3:27:00 &&228000  &   0:19:00 & 9\% \\
+&RLO &512       &12994560&   7:03:00 &&1520640 &   0:49:30 &12\% \\
 \rowcolor{gris}
-JGZ &512       &18539520&  10:03:30 &&506880  &   0:16:30 & 3\% \\
+&RRU &200       &2484000 &   3:27:00 &&228000  &   0:19:00 & 9\% \\
+\rowcolor{gris}
+&JGZ &512       &18539520&  10:03:30 &&506880  &   0:16:30 & 3\% \\
 
-FGH &512       &6220800 &   3:22:30 &&337920  &   0:11:00 & 5\% \\
-MGG &512       &15820800&   8:35:00 &&2549760 &   1:23:00 &16\% \\
-EMT &512       &21857280&  11:51:30 &&721920  &   0:23:30 & 3\% \\
+\midrule
+
+\multicolumn{6}{l}{\textbf{Sujetos exclu\'idos}}\\
+&FGH &512       &6220800 &   3:22:30 &&337920  &   0:11:00 & 5\% \\
+&MGG &512       &15820800&   8:35:00 &&2549760 &   1:23:00 &16\% \\
+&EMT &512       &21857280&  11:51:30 &&721920  &   0:23:30 & 3\% \\
 \bottomrule
 \end{tabular}
 \caption{Cantidad de datos analizados para cada sujeto. Debido a un cambio en el polisomn\'ografo 
