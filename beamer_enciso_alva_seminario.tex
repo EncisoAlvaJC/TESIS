@@ -131,6 +131,7 @@
 \newcommand{\prima}{^{\prime}}
 
 \newcommand{\ddd}{$\delta$}
+\newcommand{\dirac}{$\delta$  de Dirac}
 
 \newcommand{\aste}[1]{\widehat{ #1 }^{\star}}
 \newcommand{\est}[1]{\widehat{ #1 }}
@@ -209,6 +210,16 @@ con y sin DC
 \end{itemize}
 \end{frame}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}\frametitle{El cuarteto de Anscombe}
+\begin{figure}
+\centering
+\includegraphics[width=0.9\linewidth]{anscombe.pdf} 
+\end{figure}
+\end{frame}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -237,14 +248,14 @@ en registros de PSG para adultos mayores% con y sin PDC
 %\textbf{Espec\'ificos} 
 \item[Espec\'ificos:]
 \begin{itemize}
-\item Estudiar la definici\'on de estacionariedad y sus consecuencias en un modelo
+\item Estudiar la definici\'on de estacionariedad y sus implicaciones en un modelo
 
-\item Investigar c\'omo detectar si una serie de tiempo dada proviene de un proceso
-d\'ebilmente estacionario
+\item Investigar c\'omo detectar si una serie de tiempo dada es estacionaria
 
-\item Usando los an\'alisis hallados, determinar si los datos considerados provienen de 
-procesos débilmente estacionarios.
-Revisar si esta informaci\'on muestra diferencias entre sujetos con y sin PDC
+\item Determinar si los datos considerados son estacionarios
+\begin{itemize}
+\item Revisar si hay diferencias entre sujetos con y sin PDC
+\end{itemize}
 \end{itemize}
 \end{description}
 }
@@ -261,55 +272,27 @@ Revisar si esta informaci\'on muestra diferencias entre sujetos con y sin PDC
 
 \subsection{Fisiolog\'ia}
 
-\begin{frame}\frametitle{Conceptos}
+\begin{frame}
+
+\frametitle{Conceptos}
 \begin{description}
-\item[Adulto Mayor.] Individuo de 60 a\~nos o m\'as %\footcite{Hita14}.
+%\item[Adulto Mayor.] Individuo de 60 a\~nos o m\'as %\footcite{Hita14}.
 
 \item[Deterioro cognitivo leve\footnote{Usado como posible deterioro cognitivo (PDC)}.] 
 %\item[Deterioro cognitivo leve.] 
 Alteraci\'on adquirida y prolongada de funciones cognitivas; no s\'indrome focal, no demencia 
 %\footcite{Robles02}
-\item[Sue\~no.] Proceso vital c\'iclico complejo y activo; caracter\'isticas:%\footcite{CarrilloMora}:
-\begin{itemize}
-\item Disminuci\'on de conciencia y reactividad
-\item F\'acilmente reversible
-\item Inmovilidad muscular
-\item Periodicidad circadiana
-\item Postura estereotipada
-\item La privaci\'on induce alteraciones
-\end{itemize}
-\end{description}
-\end{frame}
-
-\begin{frame}\frametitle{Etapas de sue\~no}
+\item[Sue\~no.] Proceso vital c\'iclico complejo y activo%; caracter\'isticas:%\footcite{CarrilloMora}:
 \begin{description}
-\item[Vigilia (W)] Presencia de ritmo alfa contin\'uo con m\'axima amplitud sobre regiones de la 
-corteza parieto-occipital. Tono muscular relativamente alto y ausencia de movimientos oculares.
+\item[MOR ] Sue\~no parad\'ojico
+\begin{itemize}
+\item Movimientos ocualres r\'apidos
+\item Aton\'ia muscular
+\item Actividad cerebral desincronizada
 
-\item[Fase 1 (N1)] Corresponde con la somnolencia o el inicio del sue\~no ligero, en ella es muy 
-f\'acil despertarse. 
-Presencia intermitente de ondas alfa en menos del 50\% de la \'epoca, actividad de frecuencias 
-mezcladas y bajo voltaje, adem\'as de movimientos oculares lentos y algunas ondas agudas. 
-La actividad muscular disminuye paulatinamente, pueden observarse sacudidas musculares s\'ubitas 
-que a veces coinciden con una sensación de ca\'ida. 
-
-\item[Fase 2 (N2)] Se caracteriza por patrones espec\'ificos de actividad cerebral conocidos como 
-husos de sue\~no y complejos K. 
-Puede aparecer hasta un 20\% de ondas lentas (ritmo delta). Ausencia de actividad 
-ocular y tono muscular bajo.
-La temperatura, la frecuencia card\'iaca y respiratoria disminuyen paulatinamente. 
-
-\item[Fases 3 (N3)] Predominan ondas de frecuencias muy bajas ($<2$ Hz) con amplitudes 
-superiores a 75 $\mu$V en m\'as del 20\% y menos del 50\% de la \'epoca. Pueden tambi\'en aparecer 
-complejos K y husos de sue\~no de forma espor\'adica. Ausencia de actividad ocular y tono muscular 
-bajo.
-
-\item[Fase 4 (N4)] La fase m\'as profunda del sue\~no NMOR y referido como 'sue\~no de ondas 
-lentas', pues hay presencia de \'estas ondas en m\'as del 50\% de la época. Las dem\'as 
-caracter\'isticas son similares a las de la fase 3.
-
-\item[Fase MOR (R)] Presencia de actividad EEG de baja amplitud y frecuencias entremezcladas 
-(theta-alfa-beta) similar a la observada en el estado de vigilia activa con ojos abiertos.
+\end{itemize}
+\item[NMOR] 
+\end{description}
 \end{description}
 \end{frame}
 
@@ -378,9 +361,27 @@ h(\omega) = \lim_{T\rightarrow \infty} \E{ \frac{1}{2T} \frac{1}{2 \pi}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%\begin{frame}%\frametitle{}
-%
-%\end{frame}
+\begin{frame}\frametitle{Series de Fourier}
+%\begin{defn}[Serie de Fourier]
+%Sea $k$ funci\'on peri\'odica (con periodo $2T$) tal que $\simint{T} \abso{k(t)} dt < \infty$. 
+%Se le llamar\'a 'serie de Fourier para la funci\'on $k$' a la sucesi\'on $\left( A_n \right)$, 
+%calculada de la siguiente manera
+%\begin{equation*}
+%A_n = \frac{1}{2 T} \simint{T} k(t) e^{-\nicefrac{ i n t}{2T}} dt
+%\end{equation*}
+%\end{defn}
+
+\begin{defn}[Transformada de Fourier]
+Sea $P_T$ el conjunto de funciones peri\'odicas de periodo $2T$ tales que 
+$\simint{T} \abso{k(t)} dt < \infty$, $\ell^{2}$ el conjunto de sucesiones complejas tales que
+$\sum_{n\in \mathbb{Z}} \abso{S_n}^{2} < \infty$.
+Sea $\mathfrak{F} : P_T \rightarrow \ell^{2}$ definida como.
+
+%Sea $P_T$ el espacio de las funciones peri\'odicas con periodo $2T$ que tienen una serie de Fourier 
+%bien definida. Existe una funci\'on $\mathfrak{F}$ que mapea cada funci\'on a su respectiva serie 
+%de Fourier, y \'esta ser\'a referida como la transformada de Fourier
+\end{defn}
+\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -397,7 +398,7 @@ h(\omega) = \lim_{T\rightarrow \infty} \E{ \frac{1}{2T} \frac{1}{2 \pi}
 \subsection{Sujetos}
 
 \begin{frame}\frametitle{Sujetos}
-9 participantes cumplieron los criterios de exclusi\'on y procedieron al regisro de PSG:
+Criterios de inclusi\'on:
 \begin{itemize}
 \item Firma del consentimiento informado
 \item Edad entre 60 y 85 a\~nos
@@ -406,6 +407,8 @@ h(\omega) = \lim_{T\rightarrow \infty} \E{ \frac{1}{2T} \frac{1}{2 \pi}
 \item No usar medicamentos o sustancias para dormir
 \item Voluntario para el registro de PSG
 \end{itemize}
+
+\textbf{9 participantes: 4 control, 5 PDC}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -467,12 +470,13 @@ h(\omega) = \lim_{T\rightarrow \infty} \E{ \frac{1}{2T} \frac{1}{2 \pi}
 \begin{frame}\frametitle{Registro de PSG}
 \begin{figure}
 \centering
-\begin{tabular}{cc}
-\includegraphics[height=15em]{foto_registro.jpg} 
-& 
-\includegraphics[height=10em]{./p_170427/MJH_190_PDG_lucirse_PSG.pdf}
-\\
-\end{tabular}
+%\begin{tabular}{cc}
+%\includegraphics[height=15em]{foto_registro.jpg} 
+%& 
+%\includegraphics[height=10em]{./p_170427/MJH_190_PDG_lucirse_PSG.pdf}
+%\\
+%\end{tabular}
+\includegraphics[width=0.9\linewidth]{./p_170427/MJH_190_PDG_lucirse_PSG.pdf}
 \caption{PSG: 19 electrodos EEG, 4 electrodos EOG (horizontal y vertical), 2 electrodos EMG en 
 m\'usculos submentonianos}
 \end{figure}
@@ -481,17 +485,65 @@ m\'usculos submentonianos}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}\frametitle{Conceptos}
+\begin{frame}\frametitle{PSG: EEG}
 %\begin{description}
 %\item[Electroencefalograma.] Registro de las fluctuaciones en potenciales el\'ectricos en el 
 %cerebro
 %\end{description}
 \begin{figure}
 \centering
-\includegraphics[width=0.8\linewidth]{cabeza_hecha.pdf} 
+\includegraphics[width=0.9\linewidth]{cabeza_hecha.pdf} 
 \caption{Sistema de referencia 10--20}
-\label{img1020}
 \end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}%\frametitle{}
+\begin{table}
+\centering
+\bordes{1.1}
+\begin{tiny}
+\begin{tabular}{llcrrcrrr}
+\toprule
+    \phantom{mm}&
+    &\multirow{2}{*}{\begin{tabular}{c}\bordes{1}Frecuencia\\ muestreo\end{tabular}}
+    \bordes{1.2}
+    & \multicolumn{2}{c}{Total} & \phantom{l}   & \multicolumn{3}{c}{MOR}\\
+    \cmidrule{4-5}  \cmidrule{7-9}
+    &&          &Puntos  &  Tiempo   &&Puntos  &  Tiempo   &  \% MOR \\
+\midrule
+\multicolumn{6}{l}{\textbf{Gpo. Control}}\\
+&VCR &200       & 5166000&   7:10:30 &&438000  &   0:36:30 & 8\% \\
+&MJH &512       &15851520&   8:36:00 &&1950720 &   1:03:30 &12\% \\
+&JAE &512       &13931520&   7:33:30 &&2626560 &   1:25:30 &19\% \\
+&GHA &200       &6558000 &   9:06:00 &&330000  &   0:27:30 & 5\% \\
+&MFGR&200       &4932000 &   6:51:00 &&570000  &   0:47:30 &12\% \\
+
+\midrule
+
+\rowcolor{gris}
+\multicolumn{9}{l}{\textbf{Gpo. PDC}}\\
+\rowcolor{gris}
+&CLO &512       &14499840&   7:52:00 &&2027520 &   1:06:00 &14\% \\
+\rowcolor{gris}
+&RLO &512       &12994560&   7:03:00 &&1520640 &   0:49:30 &12\% \\
+\rowcolor{gris}
+&RRU &200       &2484000 &   3:27:00 &&228000  &   0:19:00 & 9\% \\
+\rowcolor{gris}
+&JGZ &512       &18539520&  10:03:30 &&506880  &   0:16:30 & 3\% \\
+
+\midrule
+
+\multicolumn{6}{l}{\textbf{Sujetos exclu\'idos}}\\
+&FGH &512       &6220800 &   3:22:30 &&337920  &   0:11:00 & 5\% \\
+&MGG &512       &15820800&   8:35:00 &&2549760 &   1:23:00 &16\% \\
+&EMT &512       &21857280&  11:51:30 &&721920  &   0:23:30 & 3\% \\
+\bottomrule
+\end{tabular}
+\end{tiny}
+\end{table}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
