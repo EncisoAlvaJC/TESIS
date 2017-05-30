@@ -212,37 +212,38 @@ como posible marcador de deterioro cognitivo}
 Universidad Aut\'onoma del Estado de Hidalgo\\
 Instituto de Ciencias B\'asicas e Ingenier\'ia\\
 }}
-\vspace*{2.5em}
+\vspace*{3.5em}
 }
 {\huge
 Estacionariedad d\'ebil en registros polisomnogr\'aficos de adultos mayores,
 como posible marcador de deterioro cognitivo\\
-\vspace*{1.5em}
+\vspace*{2.5em}
 }
 {\large
 \textbf{Presenta}\\
 \vspace*{.25em}}
 {\Large
 Julio Cesar Enciso Alva\\
-\vspace*{2em}
+\vspace*{4em}
 }
 {\large
 \textbf{Direcci\'on}\\
 \vspace*{.25em}}
 {\Large
-Dr. Jorge Viveros Rogel\\
-\vspace*{1em}
-}
-{\large
-\textbf{Codirecci\'on}\\
-\vspace*{.25em}}
-{\Large
+%Dr. Jorge Viveros Rogel\\
 Dra. Erika Elizabeth Rodr\'iguez Torres\\
-%Mtra. Margarita Tetlalmatzi Montiel\\
 \vspace*{4em}
 }
+%{\large
+%\textbf{Codirecci\'on}\\
+%\vspace*{.25em}}
+%{\Large
+%Dra. Erika Elizabeth Rodr\'iguez Torres\\
+%%Mtra. Margarita Tetlalmatzi Montiel\\
+%\vspace*{4em}
+%}
 {\large
-Pachuca, Hidalgo, mayo de 2017\\
+Pachuca, Hidalgo, junio de 2017\\
 M\'exico
 }
 
@@ -314,13 +315,15 @@ que, en un orden espec\'ifico, son consistentes con la aparici\'on del sue\~no M
 \\
 %\textbf{MCI} & Deterioro Cognitivo Leve (Mild Cognitive Impairment)
 %\\
-\textbf{MOR} & Movimientos Oculares R\'apidos
+\textbf{MOR} & Movimientos Oculares R\'apidos (acr\'onimo de una etapa de sue\~no)
+\\
+\textbf{NMOR}& No-MOR (acr\'onimo de una etapa de sue\~no)
 \\
 \textbf{PSG} & Polisomnograf\'ia %/ Polisomnograf\'ia
 \\
 \textbf{PDC} & Posible Deterioro Cognitivo
 \\
-\textbf{SDF} & Funci\'on de Densidad Espectral (Spectral Density Function)
+\textbf{SDF} & Funci\'on de densidad espectral (\textit{Spectral Density Function})
 \end{tabular}
 
 \newpage
@@ -1480,35 +1483,38 @@ referido como \textbf{filtro de banda}.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%Como consecuencia de los teoremas \ref{t_wienerkhinchin} y \ref{t_wold}, los procesos d\'ebilmente 
-%estacionarios pueden ser caracterizados de manera m\'as general usando la SDF; en base a ello se
-% y que ser\'a usada en su estimaci\'on.
-%Esta represetnaci\'on existe en virtud del teorema \ref{rep_espectral}, cuya demostraci\'on no 
-%ser\'a incluida en este trabajo; el lector interesado en tan imponente teorema puede referirse a 
-%\cite{Priestley81}.
-%
-%\begin{thrm}
-%Sea $\{X(t)\}$ un proceso estoc\'astico a tiempo continuo d\'ebilmente estacionario de media 0 y 
-%estoc\'asticamente continuo en el sentido de media cuadr\'atica. Entonces, existe un proceso 
-%ortogonal $\{Z(\omega)\}$ tal que, para todo tiempo $\omega$ admisible, se puede 
-%escribir\footnote{La integral se encuentra definida en el sentido de media cuadr\'atica.}
-%\begin{equation*}
-%X(t) = \intR e^{i t \omega} dZ(\omega)
-%\end{equation*}
-%Donde el proceso $\{Z(t)\}$ tiene las siguientes propiedades para todo $\omega$
-%\begin{itemize}
-%\item $\E{dZ(\omega)} = 0$
-%\item $\E{\abso{dZ(\omega)}^{2}} = dH(\omega)$
-%\item $\Cov{dZ(\omega),dZ(\omega^{\prime})} = 0 \Leftrightarrow \omega \neq \omega^{\prime}$
-%\end{itemize}
-%Donde $dH(\omega)$ la SDF integrada de $\{X(t)\}$
-%\label{rep_espectral}
-%\end{thrm}
-%
-%La forma en que se escribe un proceso seg\'un el teorema \ref{rep_espectral} es referida como
-%{representaci\'on de Cram\'er}; en virtud del teorema de Wold, se puede tener una variante del 
-%mismo teorema para series de tiempo a tiempo discreto, raz\'on por la cual en sentido amplio se le 
-%refiere como \textbf{representaci\'on de Wold-Cram\'er}.
+\subsection{Representaci\'on de Wold-Cram\'er}
+
+Como consecuencia de los teoremas \ref{t_wienerkhinchin} y \ref{t_wold}, los procesos d\'ebilmente 
+estacionarios pueden ser caracterizados usando directamente la SDF (sin usar la funci\'on de
+autocorrelaci\'on).
+Esta representaci\'on existe en virtud del teorema \ref{rep_espectral}, cuya demostraci\'on no 
+ser\'a incluida en este trabajo; el lector interesado en tan imponente teorema puede referirse a 
+\cite{Priestley81}.
+
+\newpage
+
+\begin{thrm}
+Sea $\{X(t)\}$ un proceso estoc\'astico a tiempo continuo d\'ebilmente estacionario de media 0 y 
+estoc\'asticamente continuo en el sentido de media cuadr\'atica. Entonces, existe un proceso 
+ortogonal $\{Z(\omega)\}$ tal que, para todo tiempo $\omega$ admisible, se puede 
+escribir\footnote{La integral se encuentra definida en el sentido de media cuadr\'atica.}
+\begin{equation*}
+X(t) = \intR e^{i t \omega} dZ(\omega)
+\end{equation*}
+Donde el proceso $\{Z(t)\}$ tiene las siguientes propiedades para todo $\omega$
+\begin{itemize}
+\item $\E{dZ(\omega)} = 0$
+\item $\E{\abso{dZ(\omega)}^{2}} = dH(\omega)$
+\item $\Cov{dZ(\omega),dZ(\lambda)} = 0 \Leftrightarrow \omega \neq \lambda$
+\end{itemize}
+Donde $dH(\omega)$ la SDF integrada de $\{X(t)\}$
+\label{rep_espectral}
+\end{thrm}
+
+En virtud del teorema de Wold, se puede tener una variante del teorema \ref{rep_espectral}
+para procesos a tiempo discreto, raz\'on por la cual  
+tal representaci\'on es referida como \textbf{representaci\'on de Wold-Cram\'er}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1530,7 +1536,22 @@ Si bien son numerosas las condiciones, no se ha supuesto que
 el proceso sea estacionario; adem\'as, se ha argumentado porqu\'e los que conviene ver a los 
 registros de PSG  como observaciones de procesos, estoc\'asticamente continuos, con valor 
 esperado y varianzas finitas. El tener media cero y espectro puramente continuo ser\'an 'forzadas' 
-num\'ericamente (ver m\'as adelante).
+num\'ericamente, estimando del proceso su media y componente peri\'odica mediante regresi\'on
+lineal adaptativa; en particular, se utiliza el algoritmo \textit{Seasonal-Trend decomposition
+using Loess} (STL), propuesto por Cleveland y colaboradores \cite{Cleveland1990}.
+
+Por brevedad, se mostrar\'a s\'olo someramente una condici\'on extra para los procesos a considerar:
+tener una representaci\'on de la forma
+\begin{equation*}
+X(t) = \intPI A(t,\omega) e^{i t \omega} dZ(\omega)
+\end{equation*}
+donde $\{ dZ(\omega) \}$ es un proceso ortogonal 
+($\Cov{dZ(\omega),dZ(\lambda)} = 0 \Leftrightarrow \omega \neq \lambda$).
+Este objeto, que bien puede entenderse como una representaci\'on de Wold-Cram\'er que puede cambiar
+en el tiempo, fue introducida por Priestley \cite{Priestley65} como el
+\textbf{espectro evolutivo}; es amplia e interesante
+la discusi\'on sobre qu\'e procesos admiten un espectro evolutivo, pero se omite en
+el presente trabajo por motivos de tiempo.
 
 Respecto a la estimaci\'on del espectro local se usa el \textbf{estimador de doble ventana}, 
 t\'ecnica introducida por Priestley \cite{Priestley69} y que requiere dos funciones, $w_\tau$ y 
