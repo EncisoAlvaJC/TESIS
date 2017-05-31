@@ -121,6 +121,7 @@
 \newtheorem{defn}{Definici\'on}
 \newtheorem{thrm}{Teorema}
 \newtheorem{demostracion}{Demostraci\'on}
+\newtheorem{prop}{Proposici\'on}
 
 \newcommand{\R}{\mathbb{R}}
 %\newcommand{\el2}{L^2}
@@ -286,7 +287,7 @@ Alteraci\'on adquirida y prolongada de funciones cognitivas; no s\'indrome focal
 \begin{description}
 \item[MOR ] Sue\~no parad\'ojico
 \begin{itemize}
-\item Movimientos ocualres r\'apidos
+\item Movimientos oculares r\'apidos
 \item Aton\'ia muscular
 \item Actividad cerebral desincronizada
 
@@ -348,7 +349,7 @@ en un tiempo admisible $t_0$ si y s\'olo si
 
 \begin{frame}\frametitle{Conceptos}
 \begin{defn}[Funci\'on de densidad espectral (SDF)]
-Sea $\{X(t)\}$ un proceso estoc\'astico at tiempo continuo, d\'ebilmente estacionario. 
+Sea $\{X(t)\}$ un proceso estoc\'astico a tiempo continuo, d\'ebilmente estacionario. 
 Se define la SDF para $\{X(t)\}$ como
 \begin{equation*}
 h(\omega) = \lim_{T\rightarrow \infty} \E{ \frac{1}{2T} \frac{1}{2 \pi}
@@ -361,26 +362,110 @@ h(\omega) = \lim_{T\rightarrow \infty} \E{ \frac{1}{2T} \frac{1}{2 \pi}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}\frametitle{Series de Fourier}
-%\begin{defn}[Serie de Fourier]
-%Sea $k$ funci\'on peri\'odica (con periodo $2T$) tal que $\simint{T} \abso{k(t)} dt < \infty$. 
-%Se le llamar\'a 'serie de Fourier para la funci\'on $k$' a la sucesi\'on $\left( A_n \right)$, 
-%calculada de la siguiente manera
+\begin{frame}%\frametitle{}
+\begin{thrm}[Wiener-Khinchin]
+Una condici\'on suficiente y necesaria para que
+$\rho$ sea funci\'on de autocorrelaci\'on para alg\'un proceso a tiempo continuo d\'ebilmente 
+estacionario y estoc\'asticamente continuo, $\{X(t)\}$,  es que exista una funci\'on $F$ tal que
+\begin{itemize}
+\item Es mon\'otonamente creciente
+\item $F(-\infty) = 0$
+\item $F(+\infty) = 1$
+\item Para todo $\tau \in \R$ se cumple que
+\begin{equation*}
+\rho(\tau) = \intR e^{i \omega \tau} dF(\omega)
+\end{equation*}
+\end{itemize}
+\end{thrm}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}%\frametitle{}
+\begin{thrm}[Wold]
+Una condici\'on suficiente y necesaria para que $\rho$ sea funci\'on de autocorrelaci\'on para
+alg\'un proceso estoc\'astico a tiempo discreto d\'ebilmente estacionario, $\{X(t)\}$, es que exista 
+una funci\'on $F$ tal que
+\begin{itemize}
+\item Es mon\'otonamente creciente
+\item $F(-\pi) = 0$
+\item $F(+\pi) = 1$
+\item Para todo $\tau \in \R$ se cumple que
+\begin{equation*}
+\rho(\tau) = \intPI e^{i \omega \tau} dF(\omega)
+\end{equation*}
+\end{itemize}
+\end{thrm}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}%\frametitle{}
+\begin{prop}
+Sea $\{ X(t) \}$ un proceso d\'ebilmente estacionario, cuya funci\'on de autocovarianza es $R$.
+%, y
+%sean $x_1, x_2 , \dots, x_N$ observaciones equiespaciadas en el 
+%tiempo con separaci\'on $\Delta t$. 
+Entonces
+\begin{equation*}
+R(\tau) = \E{X(n\Delta t)X(n\Delta t + \tau)} \text{  ,  } n = 0, 1, 2,  3,\dots, N
+\end{equation*}
+\end{prop}
+
+\begin{prop}
+El estimador para $R$ calculado como
 %\begin{equation*}
-%A_n = \frac{1}{2 T} \simint{T} k(t) e^{-\nicefrac{ i n t}{2T}} dt
+$ \displaystyle
+\aste{R}(\tau) = \frac{1}{N} 
+\sum_{t = 1}^{N-\abso{\tau}} x_t x_{t+\abso{\tau}}
+$
 %\end{equation*}
-%\end{defn}
+tiene las siguientes propiedades:
+\begin{itemize}
+\item $\E{\aste{R}(\tau)} = \left(1 - \frac{\abso{\tau}}{N} \right) R(\omega)$
+\item $\Var{\aste{R}(\tau)} \approx \frac{1}{N} 
+\sum_{r=-\infty}^{\infty} \left( R^{2}(r) + R(r-\tau)R(r+\tau) \right)$
+%\item $\Cov{\aste{\rho}(\tau),\aste{\rho}(\tau+\nu)} \approx \frac{1}{N} 
+%\sum_{r=-\infty}^{\infty} \left( \rho(r)\rho(r+\nu) + \rho(r-\tau)\rho(r+\tau+\nu) \right)$
+\end{itemize}
+\end{prop}
+\end{frame}
 
-\begin{defn}[Transformada de Fourier]
-Sea $P_T$ el conjunto de funciones peri\'odicas de periodo $2T$ tales que 
-$\simint{T} \abso{k(t)} dt < \infty$, $\ell^{2}$ el conjunto de sucesiones complejas tales que
-$\sum_{n\in \mathbb{Z}} \abso{S_n}^{2} < \infty$.
-Sea $\mathfrak{F} : P_T \rightarrow \ell^{2}$ definida como.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%Sea $P_T$ el espacio de las funciones peri\'odicas con periodo $2T$ que tienen una serie de Fourier 
-%bien definida. Existe una funci\'on $\mathfrak{F}$ que mapea cada funci\'on a su respectiva serie 
-%de Fourier, y \'esta ser\'a referida como la transformada de Fourier
+\begin{frame}%\frametitle{}
+\begin{defn}[Periodograma]
+Sean $x_1, x_2 , \dots, x_N$ observaciones de un proceso estoc\'astico de media cero y varianza
+finita. Se llama periodograma a la funci\'on $I_N: [-\pi,\pi] \rightarrow \R$ calculada como
+\begin{equation*}
+I_N(\omega) = \frac{2}{N} \abso{ \sum_{t=0}^{N} e^{i \omega t} x_t }^{2}
+\end{equation*}
 \end{defn}
+%\end{frame}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%\begin{frame}%\frametitle{}
+\begin{thrm}
+Sean $x_1, x_2 , \dots, x_N$ observaciones de un proceso estoc\'astico de media cero y varianza
+finita. Se puede calcular el periodograma para estos datos como
+\begin{equation*}
+I_N(\omega) = 2 \sum_{r = -(N-1)}^{N-1} \aste{R}(r) \COS{r \omega}
+\end{equation*}
+%Donde $\aste{R}$ es el estimador para la funci\'on de autocovarianza del proceso, calculado como
+%$\widehvat{R}(\tau) = 1}{N-\abso{\tau}} \sum_{t = 1}^{N-\abso{\tau}} x_t x_{t+\abso{\tau}}$
+\end{thrm}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}%\frametitle{}
+
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -451,7 +536,7 @@ Criterios de inclusi\'on:
               & 2.75 & 2.52 & 3.77    & 1.71 & 5.42 & 0.50 & 2.06\\
 \midrule
 %\hline
-\multicolumn{6}{l}{\textbf{Sujetos exclu\'idos}}\\
+\multicolumn{6}{l}{\textbf{Sujetos excluidos}}\\
 &FGH    & M    & 71   & 9    & 83.5     & 21   & 23   & 0    & 4  \\
 &MGG    & F    & 61   & 9    & 114      & 28   & 29   & 1    & 14 \\
 &EMT    & M    & 50   & 22   & 106      & 30   & 15   & 0    & 4  \\
@@ -500,7 +585,7 @@ m\'usculos submentonianos}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}%\frametitle{}
+\begin{frame}\frametitle{Registro de PSG}
 \begin{table}
 \centering
 \bordes{1.1}
@@ -536,7 +621,7 @@ m\'usculos submentonianos}
 
 \midrule
 
-\multicolumn{6}{l}{\textbf{Sujetos exclu\'idos}}\\
+\multicolumn{6}{l}{\textbf{Sujetos excluidos}}\\
 &FGH &512       &6220800 &   3:22:30 &&337920  &   0:11:00 & 5\% \\
 &MGG &512       &15820800&   8:35:00 &&2549760 &   1:23:00 &16\% \\
 &EMT &512       &21857280&  11:51:30 &&721920  &   0:23:30 & 3\% \\
@@ -625,7 +710,7 @@ CLO & RLO & RRU & JGZ
 \includegraphics[width=0.6\linewidth]
 {./new170424/Comparacion_gpos_NMOR.pdf} 
 \end{tabular}
-\caption{ Promedio $\pm$ 1 desviac\'on est\'andar. Control: azul, PDC: rojo.}
+\caption{ Promedio $\pm$ 1 desviaci\'on est\'andar. Control: azul, PDC: rojo.}
 \end{figure}
 \end{frame}
 
@@ -646,7 +731,7 @@ CLO & RLO & RRU & JGZ
 \includegraphics[width=0.6\linewidth]
 {./new170424/comp_etapas_gpos_PDCMOR_vs_NMOR.pdf} 
 \end{tabular}
-\caption{ Promedio $\pm$ 1 desviac\'on est\'andar. MOR: verde, NMOR: negro.}
+\caption{ Promedio $\pm$ 1 desviaci\'on est\'andar. MOR: verde, NMOR: negro.}
 \end{figure}
 \end{frame}
 
@@ -707,7 +792,7 @@ sue\~no MOR}
 
 \subsection{Discusi\'on}
 
-\begin{frame}\frametitle{Sobre los sujetos exclu\'idos}
+\begin{frame}\frametitle{Sobre los sujetos excluidos}
 \begin{figure}
 \centering
 \includegraphics[width=0.95\linewidth]
@@ -719,7 +804,7 @@ sue\~no MOR}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}\frametitle{Sobre los sujetos exclu\'idos}
+\begin{frame}\frametitle{Sobre los sujetos excluidos}
 \begin{figure}
 \centering
 \includegraphics[width=0.95\linewidth]
