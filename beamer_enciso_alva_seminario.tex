@@ -11,23 +11,13 @@
 \usepackage{amssymb}
 \usepackage{graphicx}
 
-\usepackage{bibentry}
-
-\usepackage{movie15}
-
-\usepackage{verbatim}
-%\usepackage{authblk}
-
+% codigo de R
 \usepackage{listings}
 \usepackage{color}
 
 % para la bibliografia
 \usepackage[style=verbose,backend=bibtex]{biblatex}
-
 \bibstyle{abbrv}
-
-% tachar texto
-\usepackage{cancel}
 
 % para las tablitas
 \usepackage{booktabs}
@@ -56,11 +46,11 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%\renewcommand{\bibfont}{\tiny}
+%\renewcommand{\bibfont}{\scriptsize}
 
-%\renewcommand{\footnotesize}{\scriptsize}
+\renewcommand{\footnotesize}{\tiny}
 
-\AtEveryCitekey{\iffootnote{\color{red}\scriptsize}{\color{blue}}}
+%AtEveryCitekey{\iffootnote{\color{red}\scriptsize}{\color{blue}}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -97,7 +87,7 @@
 %\setbeamercolor{alerted text}{bg=cafe3,fg=white}
 
 \setbeamercolor{palette primary}{bg=rojo2,fg=white}
-%\setbeamercolor{palette secondary}{bg=cafe3,fg=white}
+\setbeamercolor{palette secondary}{bg=cafe3,fg=white}
 \setbeamercolor{palette tertiary}{bg=cafe2,fg=white}
 \setbeamercolor{palette quaternary}{use=structure,bg=naranja,fg=white}
 \setbeamercolor{itemize item}{bg=naranja,fg=naranja}
@@ -108,12 +98,36 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%\DeclareUnicodeCharacter{00A0}{ }
-
 \lstset{ %
-%  language=R,                     % the language of the code
-  basicstyle=\footnotesize,       % the size of the fonts that are used for the code
-}
+  language=R,                     % the language of the code
+  basicstyle=\small,       % the size of the fonts that are used for the code
+% basicstyle=\tiny,               % the size of the fonts that are used for the code
+  numbers=left,                   % where to put the line-numbers
+  numberstyle=\tiny\color{gray},  % the style that is used for the line-numbers
+  stepnumber=1,                   % the step between two line-numbers. If it's 1, each line
+                                  % will be numbered
+  numbersep=5pt,                  % how far the line-numbers are from the code
+  backgroundcolor=\color{white},  % choose the background color. You must add \usepackage{color}
+  showspaces=false,               % show spaces adding particular underscores
+  showstringspaces=false,         % underline spaces within strings
+  showtabs=false,                 % show tabs within strings adding particular underscores
+  frame=single,                   % adds a frame around the code
+  rulecolor=\color{black},        % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. commens (green here))
+  tabsize=2,                      % sets default tabsize to 2 spaces
+  captionpos=b,                   % sets the caption-position to bottom
+  breaklines=true,                % sets automatic line breaking
+  breakatwhitespace=false,        % sets if automatic breaks should only happen at whitespace
+  title=\lstname,                 % show the filename of files included with \lstinputlisting;
+                                  % also try caption instead of title
+  keywordstyle=\color{blue},      % keyword style
+  commentstyle=\color{dkgreen},   % comment style
+  stringstyle=\color{mauve},      % string literal style
+  escapeinside={\%*}{*)},         % if you want to add a comment within your code
+  morekeywords={*,/,.}            % if you want to add more keywords to the set
+  deletekeywords={t,_,max,R}      % to remove keywords
+} 
+
+\newsavebox{\mybox}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -124,7 +138,6 @@
 \newtheorem{prop}{Proposici\'on}
 
 \newcommand{\R}{\mathbb{R}}
-%\newcommand{\el2}{L^2}
 \newcommand{\intR}{\int_{-\infty}^{\infty}}
 \newcommand{\intZ}{\int_{-\infty}^{0}}
 \newcommand{\intPI}{\int_{-\pi}^{\pi}}
@@ -149,8 +162,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \title[Estacionariedad en PSG de adultos mayores]
-{Estacionariedad d\'ebil en registros de polisomnogr\'aficaos de adultos mayores,
-como posible marcador de deterioro cognitivo}
+{Estacionariedad d\'ebil en registros de polisomnogr\'aficos de adultos mayores, como posible 
+marcador de deterioro cognitivo}
 
 \author[Enciso Alva]
 {Julio Cesar Enciso Alva}
@@ -196,16 +209,14 @@ como posible marcador de deterioro cognitivo}
 \begin{frame}\frametitle{Antecedentes}
 \begin{itemize}
 \item Encuesta Intercensal 2015 (INEGI): 12,500,000 adultos mayores, 10.4 \%  de la 
-poblaci\'on %\footcite{Intercensal15}
+poblaci\'on \footcite{Intercensal15}
 
-\item Posible relaci\'on trastornos del sue\~no y DC en la vejez
-%\footcite{Miyata13}
+\item Posible relaci\'on trastornos del sue\~no y DC en la vejez \footcite{Miyata13}
 
-\item Epidemiolog\'ia del DC en Hidalgo: eficiencia del sue\~no%\footcite{VazquezTagle16}
+\item Epidemiolog\'ia del DC en Hidalgo: eficiencia del sue\~no \footcite{VazquezTagle16}
 
-\item DFA en registros de PSG:% \footcite{Valeria}: 
-exponente de Hurst diferente en sujetos 
-con y sin DC 
+\item DFA en registros de PSG \footcite{Valeria}: 
+exponente de Hurst diferente en sujetos con y sin DC 
 
 \item Se buscan marcadores cl\'inicos para el diagn\'ostico de DC
 \end{itemize}
@@ -228,40 +239,11 @@ con y sin DC
 
 \begin{frame}\frametitle{Pregunta de investigaci\'on}
 \textbf{
-¿Es posible que la caracterizaci\'on de registros de actividad cerebral duarante el sue\~no, 
-como series de tiempo d\'ebilmente 
-estacionarias, pueda ser usada como un marcador en el diagn\'ostico cl\'inico para el dterioro 
-cognitivo en adultos mayores?
+¿Es posible que la caracterizaci\'on de registros de actividad cerebral durante el sue\~no, como 
+series de tiempo d\'ebilmente estacionarias, pueda ser usada como un marcador en el diagn\'ostico 
+cl\'inico para el deterioro cognitivo en adultos mayores?
 }
-
 \end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%\begin{frame}\frametitle{Objetivos}
-%{\small
-%\begin{description}
-%%\textbf{General.} 
-%\item[General:]
-%Detectar, a partir de pruebas formales, las presencia de estacionariedad d\'ebil 
-%en registros de PSG para adultos mayores% con y sin PDC
-%
-%%\textbf{Espec\'ificos} 
-%\item[Espec\'ificos:]
-%\begin{itemize}
-%\item Estudiar la definici\'on de estacionariedad y sus implicaciones en un modelo
-%
-%\item Investigar c\'omo detectar si una serie de tiempo dada es estacionaria
-%
-%\item Determinar si los datos considerados son estacionarios
-%\begin{itemize}
-%\item Revisar si hay diferencias entre sujetos con y sin PDC
-%\end{itemize}
-%\end{itemize}
-%\end{description}
-%}
-%\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -272,60 +254,19 @@ cognitivo en adultos mayores?
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%\subsection{Fisiolog\'ia}
-%
-%\begin{frame}
-%
-%\frametitle{Conceptos}
-%\begin{description}
-%%\item[Adulto Mayor.] Individuo de 60 a\~nos o m\'as %\footcite{Hita14}.
-%
-%\item[Deterioro cognitivo leve\footnote{Usado como posible deterioro cognitivo (PDC)}.] 
-%%\item[Deterioro cognitivo leve.] 
-%Alteraci\'on adquirida y prolongada de funciones cognitivas; no s\'indrome focal, no demencia 
-%%\footcite{Robles02}
-%\item[Sue\~no.] Proceso vital c\'iclico complejo y activo%; caracter\'isticas:%\footcite{CarrilloMora}:
-%\begin{description}
-%\item[MOR ] Sue\~no parad\'ojico
-%\begin{itemize}
-%\item Movimientos oculares r\'apidos
-%\item Aton\'ia muscular
-%\item Actividad cerebral desincronizada
-%
-%\end{itemize}
-%\item[NMOR] 
-%\end{description}
-%\end{description}
-%\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \subsection{Matem\'aticas}
 
 \begin{frame}\frametitle{Conceptos}
-%{\small
 \begin{defn}[Estacionariedad d\'ebil]
-%Se dice de un proceso estoc\'astico $\{ X(t) \}$ si (...)
-%\begin{itemize}
-%\item $\E{X(t)} = \E{X(t+\tau)}$
-%\item $\E{X(t)X(s)} = \E{X(t+\tau)X(s+\tau)}$
-%\end{itemize}
-%\end{defn}
-%
-%\begin{thrm}
-Un proceso estoc\'astico es d\'ebilmente estacionario si y s\'olo si %(...)
-para cualesquiera tiempos admisibles $t$, $s$ se tiene que
+Un proceso estoc\'astico es d\'ebilmente estacionario si y s\'olo si para cualesquiera tiempos 
+admisibles $t$, $s$ se tiene que
 \begin{itemize}
 \item $\E{X(t)} = \mu_X$
 \item $\Var{X(t)} = \sigma^{2}_X$
 \item $\Cov{X(t),X(s)} = \rho_X (s-t)$
 \end{itemize}
 Con $\mu_X$, $\sigma^{2}_X$ constantes, $\rho_X(\tau)$ \'unicamente depende de $\tau$
-%\end{thrm}
 \end{defn}
-%\emph{(...) = } para cualesquiera tiempos admisibles $t, s, t+\tau, s+\tau$
-%}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -333,28 +274,14 @@ Con $\mu_X$, $\sigma^{2}_X$ constantes, $\rho_X(\tau)$ \'unicamente depende de $
 
 \begin{frame}\frametitle{Conceptos}
 \begin{defn}[Continuidad estoc\'astica en media cuadr\'atica]
-Un proceso a tiempo continuo $\{ X(t) \}$ es estoc\'asticamente continuo
-en $t_0$ si y s\'olo si
+Un proceso a tiempo continuo $\{ X(t) \}$ es estoc\'asticamente continuo en $t_0$ si y s\'olo si
 \begin{equation*}
 \lim_{t \rightarrow t_0} \E{\left( X\left(t\right) - X\left(t_0\right) \right)^{2}} = 0
 \end{equation*}
 \end{defn}
 
-%\begin{figure}
-%\includegraphics[width=.92\linewidth]{ehemplitos_ruido.png}
-%\end{figure}
-%\end{frame}
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-%\begin{frame}\frametitle{Conceptos}
 \begin{defn}[Funci\'on de densidad espectral (SDF)]
 Sea $\{X(t)\}$ un proceso estoc\'astico a tiempo continuo, d\'ebilmente estacionario
-%\begin{equation*}
-%h(\omega) = \lim_{T\rightarrow \infty} \E{ \frac{1}{2T} \frac{1}{2 \pi}
-%\abso{ \int_{-T}^{T} X(t) e^{-i \omega t} dt}^{2} }
-%\end{equation*}
 \begin{equation*}
 h(\omega) = \lim_{T\rightarrow \infty} \E{ \frac{ \left| G_T(\omega) \right|^{2}}{2 T} }
 \end{equation*}
@@ -367,9 +294,9 @@ Donde $\displaystyle G_T (\omega) = \frac{1}{\sqrt{2 \pi}} \int_{-T}^{T} X(t) e^
 
 \begin{frame}%\frametitle{}
 \begin{thrm}[Wiener-Khinchin]
-Una condici\'on suficiente y necesaria para que
-$\rho$ sea funci\'on de autocorrelaci\'on para alg\'un proceso a tiempo continuo d\'ebilmente 
-estacionario y estoc\'asticamente continuo, $\{X(t)\}$,  es que exista una funci\'on $F$ tal que
+Una condici\'on suficiente y necesaria para que $\rho$ sea funci\'on de autocorrelaci\'on para 
+alg\'un proceso a tiempo continuo d\'ebilmente estacionario y estoc\'asticamente continuo, 
+$\{X(t)\}$,  es que exista una funci\'on $F$ tal que
 \begin{itemize}
 \item Es mon\'otonamente creciente
 \item $F(-\infty) = 0$
@@ -388,8 +315,8 @@ estacionario y estoc\'asticamente continuo, $\{X(t)\}$,  es que exista una funci
 \begin{frame}%\frametitle{}
 \begin{thrm}[Wold]
 Una condici\'on suficiente y necesaria para que $\rho$ sea funci\'on de autocorrelaci\'on para
-alg\'un proceso estoc\'astico a tiempo discreto d\'ebilmente estacionario, $\{X(t)\}$, es que exista 
-una funci\'on $F$ tal que
+alg\'un proceso estoc\'astico a tiempo discreto d\'ebilmente estacionario, $\{X(t)\}$, es que 
+exista una funci\'on $F$ tal que
 \begin{itemize}
 \item Es mon\'otonamente creciente
 \item $F(-\pi) = 0$
@@ -407,10 +334,9 @@ una funci\'on $F$ tal que
 
 \begin{frame}\frametitle{Representaci\'on de Wold-Cram\'er}
 \begin{thrm}
-Sea $\{X(t)\}$ un proceso a tiempo continuo, d\'ebilmente estacionario,
-estoc\'asticamente continuo, de media 0 y 
-varianza finita
-Entonces, existe un proceso ortogonal $\{Z(\omega)\}$ tal que
+Sea $\{X(t)\}$ un proceso a tiempo continuo, d\'ebilmente estacionario, estoc\'asticamente 
+continuo, de media 0 y varianza finita. Entonces, existe un proceso ortogonal $\{Z(\omega)\}$ tal 
+que
 \begin{equation*}
 X(t) = \intR e^{i t \omega} dZ(\omega)
 \end{equation*}
@@ -425,8 +351,8 @@ Con $H$ la SDF integrada de $\{X(t)\}$
 \end{frame}
 
 \begin{frame}\frametitle{Espectro evolutivo}
-Se consideran procesos no-estacionarios, estoc\'asticamente continuos, de media cero y varianza finita,
-y que admitan una representaci\'on de la forma
+Se consideran procesos no-estacionarios, estoc\'asticamente continuos, de media cero y varianza 
+finita, y que admitan una representaci\'on de la forma
 \begin{equation*}
 X(t) = \intPI A(t,\omega) e^{i t \omega} dZ(\omega)
 \end{equation*}
@@ -440,36 +366,23 @@ El \textbf{espectro evolutivo} fue definido por Priestley \footcite{Priestley65}
 \begin{equation*}
 f(t,\omega) = \abso{A(t,\omega)}^{2}
 \end{equation*}
-% como el \textbf{espectro evolutivo}.
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}%\frametitle{Estimador de doble ventana}
-%\begin{equation*}
-%\{X(t)\} \text{  es d\'ebilmente estacionario}  \Rightarrow  f(t,\bullet) \text{  es constante}
-%\end{equation*}
-%Equivalentemente (contrapositiva):
-%\begin{equation*}
-%f(t,\bullet) \text{  \textbf{no} es constante} \Rightarrow  
-%\{X(t)\} \text{  \textbf{no} es d\'ebilmente estacionario}  
-%\end{equation*}
 \begin{defn}[Estimador de doble ventana]
 Se define a $\est{f}$, estimador para la $f$, como
 \begin{equation*}
 \widehat{f}(t,\omega) = \int_{t-T}^{t} w_{T'}(u) \lvert U(t-u,\omega) \lvert^{2} du
 \end{equation*}
-%con $U(t,\omega) = \int_{t-T}^{t} g(u) X({t-u}) e^{i \omega (t-u)} du$
-%Donde $g$ y $w_\tau$, y sus ransformadas de Fourier $\Gamma$ y $W_\tau$, son tales que
 
 \begin{itemize}
 \item $U(t,\omega) = \int_{t-T}^{t} g(u) X({t-u}) e^{i \omega (t-u)} du$
 
-\item $2\pi \int_{-\infty}^{\infty} \lvert g(u) \lvert^{2} du 
-= 
-\int_{-\infty}^{\infty} \lvert \Gamma(\omega) \lvert^{2} d\omega
-= 1$
+\item $2\pi \int_{-\infty}^{\infty} \lvert g(u) \lvert^{2} du = 
+\int_{-\infty}^{\infty} \lvert \Gamma(\omega) \lvert^{2} d\omega = 1$
 \item $w_{\tau}(t) \geq 0$ para cualesquiera $t$, $\tau$
 \item $w_{\tau}(t) \rightarrow 0$ cuando $\lvert t \lvert \rightarrow \infty$, para todo $\tau$
 \item $\int_{-\infty}^{\infty} w_{\tau}(t) dt = 1$ para todo $\tau$
@@ -491,14 +404,12 @@ El estimador de doble ventana $\widehat{f}$ tiene las siguientes propiedades
 \item $\displaystyle \Var{\est{f}(t,\omega)} \approx 
 \frac{C}{\tau} f^{2}(t,\omega) \intR \abso{\Gamma (\theta)}^{4} d\theta$
 \item $\displaystyle \Cov{\est{f}(t_1,\omega_1) , \est{f}(t_2,\omega_2)} \approx \intR \intR
-w_\tau (u) w_\tau(v) \Cov{ \abso{U(t_1-u,\omega_1)}^{2} , \abso{U(t_2-u,\omega_2)}^{2} }
-du dv$
+w_\tau (u) w_\tau(v) \Cov{ \abso{U(t_1-u,\omega_1)}^{2} , \abso{U(t_2-u,\omega_2)}^{2} } du dv$
 \end{itemize}
 \end{prop}
 
 \begin{prop}
-El estimador $ Y(t,\omega) = \log{\left( \est{f}(t,\omega)\right)}$
-tiene las siguientes propiedades:
+El estimador $ Y(t,\omega) = \log{\left( \est{f}(t,\omega)\right)}$ satisface que
 \begin{itemize}
 \item $\displaystyle 
 \E{ Y(t,\omega) } \approx \log \left( f(t,\omega) \right)$
@@ -513,7 +424,6 @@ tiene las siguientes propiedades:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}%\frametitle{}
-
 M\'as a\'un, puede escribirse
 \begin{equation*}
 Y(t,\omega) = \log \left( f(t,\omega) \right) + \varepsilon(t,\omega)
@@ -537,11 +447,8 @@ $\overline{Y}(\bullet,\omega) = \frac{1}{M} \sum_{j=1}^{M} Y(t_j,\omega)$.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}[fragile]
-
-\begin{figure}
-\centering
-\begin{lstlisting}
+\begin{lrbox}{\mybox}%
+\begin{lstlisting}[caption={}]
 Priestley-Subba Rao stationarity Test for datos
 -----------------------------------------------
 Samples used              : 3072 
@@ -558,113 +465,49 @@ p-value for T             : 0.4130131
 p-value for I+R           : 0.1787949 
 p-value for T+I+R         : 0.1801353 
 \end{lstlisting}
-\caption{La prueba de Priesltey-Subba Rao se encuentra implementada en R
-como la sunci\'on \texttt{stationarity()}, del paquete \texttt{fractal}}
+\end{lrbox}%
+
+\begin{frame}[fragile]
+\begin{figure}
+%\centering
+\scalebox{0.8}{\usebox{\mybox}}
+\caption{La prueba de Priestley-Subba Rao se encuentra implementada en R como la funci\'on 
+\texttt{stationarity()}, del paquete \texttt{fractal}}
 \end{figure}
 \end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%\begin{frame}%\frametitle{}
-%
-%\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%\begin{frame}%\frametitle{}
-%\begin{prop}
-%Sea $\{ X(t) \}$ un proceso d\'ebilmente estacionario, cuya funci\'on de autocovarianza es $R$, y
-%sean $x_1, x_2 , \dots, x_N$ tales que $x_n$ es una observaci\'on de $X(n \Delta_{\tau})$) para
-%alg\'un $\Delta_{\tau}$.
-%El estimador para $R$ calculado como
-%\begin{equation*}
-%\aste{R}(\tau) = \frac{1}{N} 
-%\sum_{t = 1}^{N-\abso{\tau}} x_t x_{t+\abso{\tau}}
-%\end{equation*}
-%tiene las siguientes propiedades:
-%\begin{itemize}
-%\item $\E{\aste{R}(\tau)} = \left(1 - \frac{\abso{\tau}}{N} \right) R(\omega)$
-%\item $\Var{\aste{R}(\tau)} \approx \frac{1}{N} 
-%\sum_{r=-\infty}^{\infty} \left( R^{2}(r) + R(r-\tau)R(r+\tau) \right)$
-%\end{itemize}
-%\end{prop}
-%\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%\begin{frame}%\frametitle{}
-%\begin{defn}[Periodograma]
-%Sean $x_1, x_2 , \dots, x_N$ observaciones de un proceso estoc\'astico de media cero y varianza
-%finita. Se llama periodograma a la funci\'on $I_N: [-\pi,\pi] \rightarrow \R$ calculada como
-%\begin{equation*}
-%I_N(\omega) = \frac{2}{N} \abso{ \sum_{t=0}^{N} e^{i \omega t} x_t }^{2}
-%\end{equation*}
-%\end{defn}
-%\begin{prop}
-%Sean $x_1, x_2 , \dots, x_N$ observaciones de un proceso estoc\'astico de media cero y varianza
-%finita. Se puede calcular el periodograma para estos datos como
-%\begin{equation*}
-%I_N(\omega) = 2 \sum_{r = -(N-1)}^{N-1} \aste{R}(r) \COS{r \omega}
-%\end{equation*}
-%\end{prop}
-%\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%\begin{frame}\frametitle{Periodograma: inconsistente}
-%\begin{prop}
-%Sea $\{X(t)\}$ un proceso d\'ebilmente estacionario com media cero, varianza finita y 
-%espectro no puramente discreto; para cada $N$
-%sean $x_1, x_2 , \dots, x_N$ observaciones del mismo y $I_N$ su periodograma. Entonces
-%\begin{equation*}
-%\lim_{N\rightarrow \infty} \Var{I_N(\omega)} = h^{2}(\omega)
-%\end{equation*}
-%\end{prop}
-%
-%\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%\begin{frame}%\frametitle{}
-%
-%\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Metodolog\'ia}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \subsection{Conceptos, fisiolog\'ia}
 
 \begin{frame}
-
 \frametitle{Conceptos}
 \begin{description}
-%\item[Adulto Mayor.] Individuo de 60 a\~nos o m\'as %\footcite{Hita14}.
-
-\item[Deterioro cognitivo leve\footnote{Usado como posible deterioro cognitivo (PDC)}] 
-%\item[Deterioro cognitivo leve.] 
-Alteraci\'on adquirida y prolongada de funciones cognitivas; no s\'indrome focal, no demencia 
-%\footcite{Robles02}
-\item[Sue\~no] Proceso vital c\'iclico complejo y activo%; caracter\'isticas:%\footcite{CarrilloMora}:
-%\begin{description}
-\item[S. MOR] Fase m\'as profunda, alta actividad cerebral, se producen enso\~naciones, \textit{sue\~no parad\'ojico}
+\item[Sue\~no] Proceso vital c\'iclico complejo y activo
+\item[S. MOR] Fase m\'as profunda, alta actividad cerebral, se producen enso\~naciones, 
+\textit{sue\~no parad\'ojico}
 \begin{itemize}
 \item Movimientos oculares r\'apidos
 \item Aton\'ia muscular
 \item Actividad cerebral desincronizada
-
 \end{itemize}
-%\end{description}
 \end{description}
 \end{frame}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \subsection{Sujetos}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}\frametitle{Sujetos}
 Criterios de inclusi\'on:
@@ -727,9 +570,6 @@ Criterios de inclusi\'on:
 \bottomrule
 \end{tabular} 
 \end{tiny}
-%\caption{Resultados de las pruebas neuropsicol\'ogicas aplicadas a los sujetos considerados en este 
-%trabajo, adem\'as de algunos datos generales. 
-%}
 \end{table}
 \end{frame}
 
@@ -739,12 +579,6 @@ Criterios de inclusi\'on:
 \begin{frame}\frametitle{Registro de PSG}
 \begin{figure}
 \centering
-%\begin{tabular}{cc}
-%\includegraphics[height=15em]{foto_registro.jpg} 
-%& 
-%\includegraphics[height=10em]{./p_170427/MJH_190_PDG_lucirse_PSG.pdf}
-%\\
-%\end{tabular}
 \includegraphics[width=0.9\linewidth]{./p_170427/MJH_190_PDG_lucirse_PSG.pdf}
 \caption{PSG: 19 electrodos EEG, 4 electrodos EOG (horizontal y vertical), 2 electrodos EMG en 
 m\'usculos submentonianos}
@@ -755,10 +589,6 @@ m\'usculos submentonianos}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}\frametitle{PSG: EEG}
-%\begin{description}
-%\item[Electroencefalograma.] Registro de las fluctuaciones en potenciales el\'ectricos en el 
-%cerebro
-%\end{description}
 \begin{figure}
 \centering
 \includegraphics[width=0.9\linewidth]{cabeza_hecha.pdf} 
@@ -815,13 +645,6 @@ m\'usculos submentonianos}
 \end{table}
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%\begin{frame}%\frametitle{}
-%
-%\end{frame}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -831,11 +654,11 @@ m\'usculos submentonianos}
 
 \begin{frame}\frametitle{Resultados principales}
 \begin{itemize}
-\item Cada \'epoca fue clasificada 'posiblemente estacionaria' (PE) no se rechaza la 
-hip\'otesis de estacionariedad ($\alpha < 0.05$) en PSR
+\item Cada \'epoca fue clasificada 'posiblemente estacionaria' (PE) no se rechaza la hip\'otesis de 
+estacionariedad ($\alpha < 0.05$) en PSR
 
-\item Debido a la variabilidad entre sujetos, se consider\'o la proporci\'on de \'epocas PE
-en cada etapa
+\item Debido a la variabilidad entre sujetos, se consider\'o la proporci\'on de \'epocas PE en cada 
+etapa
 \begin{equation*}
 \text{\% \'epocas PE} = \frac{\text{\# \'epocas PE en MOR}}{\text{\# \'epocas en MOR}}
 \end{equation*}
@@ -873,7 +696,6 @@ CLO & RLO & RRU & JGZ
 \end{tabular}
 \end{tabular}
 \caption{En azul las zonas donde se encontraron diferencias significativas}
-%\label{cabecitas_munchas}
 \end{figure}
 \end{frame}
 
@@ -942,9 +764,7 @@ para el grupo Control}
 \begin{figure}
 \includegraphics[width=\textwidth]
 {./g170413/MJNNVIGILOS_est.png}
-\caption{Disposici\'on gr\'afica para los resultados de la prueba PSR.
-En verde el sue\~no MOR.
-}
+\caption{Disposici\'on gr\'afica para los resultados de la prueba PSR. En verde el sue\~no MOR.}
 \end{figure}
 \end{frame}
 
@@ -966,8 +786,7 @@ En verde el sue\~no MOR.
 \includegraphics[width=0.3\textwidth]
 {./graphs170427/zoom_MFGR.pdf}
 \end{tabular}
-\caption{Patrones visuales que, se propone, est\'a asociado con la aparici\'on del
-sue\~no MOR}
+\caption{Patrones visuales que, se propone, est\'a asociado con la aparici\'on del sue\~no MOR}
 \end{figure}
 \end{frame}
 
@@ -1062,11 +881,11 @@ NMOR en grupo Control
 
 \item An\'alisis para un AM con par\'alisis facial, detect\'o este padecimiento
 
-\item Consistente con %\cite{Valeria}
+\item Consistente con trabajos anteriores %\cite{Valeria}
 
 \item Patrones visuales, predicen parcialmente sue\~no MOR en el grupo Control
 
-\item Registros de PSG en AM, localmente estacionarias
+\item Registros de PSG en adultos mayores, localmente estacionarias
 \end{itemize}
 \end{frame}
 
@@ -1077,29 +896,21 @@ NMOR en grupo Control
 
 \begin{frame}\frametitle{Trabajo a futuro}
 \begin{itemize}
-\item Diferencias MOR vs NMOR, patrones visuales: \xcancel{marcadores de DC}
+\item Porcentaje estacionariedad, patrones visuales: marcadores de no-DC
 
-\item Marcador conocido %\cite{Becerra12} 
-del DC: 'enlentecimiento' de actividad cerebral
+\item Marcador conocido del DC: 'enlentecimiento' de actividad cerebral \footcite{Becerra12} 
 
 \item Prueba de Priestley-Subba Rao: estimadores locales para SDF
 \begin{itemize}
-\item  Los mismos estimadores ¿pueden detectar enlentecimiento?
+\item  Los estimadores usados ¿pueden detectar enlentecimiento?
 \end{itemize}
 
 \item Patrones visuales, auxiliares para detecci\'on de MOR en de PSG
 \begin{itemize}
-\item Identificabilidad de MOR a trav\'es de patrones ¿marcador cl\'inico?
+\item Identificabilidad de MOR a trav\'es de patrones, ¿marcador cl\'inico?
 \end{itemize}
 \end{itemize}
 \end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%\begin{frame}%\frametitle{}
-%
-%\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1125,8 +936,6 @@ del DC: 'enlentecimiento' de actividad cerebral
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}\frametitle{Gracias por su atenci\'on}
-%\begin{quote}
-%\end{quote}
 \begin{figure}
 \centering
 \includegraphics[width=0.4\linewidth]{cerebot.jpg}\\
