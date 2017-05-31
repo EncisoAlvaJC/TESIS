@@ -178,9 +178,9 @@ como posible marcador de deterioro cognitivo}
 
 \frame{\titlepage}
 
-\begin{frame}
-\tableofcontents
-\end{frame}
+%\begin{frame}
+%\tableofcontents
+%\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -214,12 +214,12 @@ con y sin DC
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}\frametitle{El cuarteto de Anscombe}
-\begin{figure}
-\centering
-\includegraphics[width=0.9\linewidth]{anscombe.pdf} 
-\end{figure}
-\end{frame}
+%\begin{frame}\frametitle{El cuarteto de Anscombe}
+%\begin{figure}
+%\centering
+%\includegraphics[width=0.9\linewidth]{anscombe.pdf} 
+%\end{figure}
+%\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -228,9 +228,10 @@ con y sin DC
 
 \begin{frame}\frametitle{Pregunta de investigaci\'on}
 \textbf{
-¿Es posible que la caracterizaci\'on de registros de PSG como series de tiempo d\'ebilmente 
-estacionarias, pueda ser usada como un marcador en el diagn\'ostico cl\'inico de PDC en adultos 
-mayores?
+¿Es posible que la caracterizaci\'on de registros de actividad cerebral duarante el sue\~no, 
+como series de tiempo d\'ebilmente 
+estacionarias, pueda ser usada como un marcador en el diagn\'ostico cl\'inico para el dterioro 
+cognitivo en adultos mayores?
 }
 
 \end{frame}
@@ -238,29 +239,29 @@ mayores?
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}\frametitle{Objetivos}
-{\small
-\begin{description}
-%\textbf{General.} 
-\item[General:]
-Detectar, a partir de pruebas formales, las presencia de estacionariedad d\'ebil 
-en registros de PSG para adultos mayores% con y sin PDC
-
-%\textbf{Espec\'ificos} 
-\item[Espec\'ificos:]
-\begin{itemize}
-\item Estudiar la definici\'on de estacionariedad y sus implicaciones en un modelo
-
-\item Investigar c\'omo detectar si una serie de tiempo dada es estacionaria
-
-\item Determinar si los datos considerados son estacionarios
-\begin{itemize}
-\item Revisar si hay diferencias entre sujetos con y sin PDC
-\end{itemize}
-\end{itemize}
-\end{description}
-}
-\end{frame}
+%\begin{frame}\frametitle{Objetivos}
+%{\small
+%\begin{description}
+%%\textbf{General.} 
+%\item[General:]
+%Detectar, a partir de pruebas formales, las presencia de estacionariedad d\'ebil 
+%en registros de PSG para adultos mayores% con y sin PDC
+%
+%%\textbf{Espec\'ificos} 
+%\item[Espec\'ificos:]
+%\begin{itemize}
+%\item Estudiar la definici\'on de estacionariedad y sus implicaciones en un modelo
+%
+%\item Investigar c\'omo detectar si una serie de tiempo dada es estacionaria
+%
+%\item Determinar si los datos considerados son estacionarios
+%\begin{itemize}
+%\item Revisar si hay diferencias entre sujetos con y sin PDC
+%\end{itemize}
+%\end{itemize}
+%\end{description}
+%}
+%\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -271,31 +272,31 @@ en registros de PSG para adultos mayores% con y sin PDC
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Fisiolog\'ia}
-
-\begin{frame}
-
-\frametitle{Conceptos}
-\begin{description}
-%\item[Adulto Mayor.] Individuo de 60 a\~nos o m\'as %\footcite{Hita14}.
-
-\item[Deterioro cognitivo leve\footnote{Usado como posible deterioro cognitivo (PDC)}.] 
-%\item[Deterioro cognitivo leve.] 
-Alteraci\'on adquirida y prolongada de funciones cognitivas; no s\'indrome focal, no demencia 
-%\footcite{Robles02}
-\item[Sue\~no.] Proceso vital c\'iclico complejo y activo%; caracter\'isticas:%\footcite{CarrilloMora}:
-\begin{description}
-\item[MOR ] Sue\~no parad\'ojico
-\begin{itemize}
-\item Movimientos oculares r\'apidos
-\item Aton\'ia muscular
-\item Actividad cerebral desincronizada
-
-\end{itemize}
-\item[NMOR] 
-\end{description}
-\end{description}
-\end{frame}
+%\subsection{Fisiolog\'ia}
+%
+%\begin{frame}
+%
+%\frametitle{Conceptos}
+%\begin{description}
+%%\item[Adulto Mayor.] Individuo de 60 a\~nos o m\'as %\footcite{Hita14}.
+%
+%\item[Deterioro cognitivo leve\footnote{Usado como posible deterioro cognitivo (PDC)}.] 
+%%\item[Deterioro cognitivo leve.] 
+%Alteraci\'on adquirida y prolongada de funciones cognitivas; no s\'indrome focal, no demencia 
+%%\footcite{Robles02}
+%\item[Sue\~no.] Proceso vital c\'iclico complejo y activo%; caracter\'isticas:%\footcite{CarrilloMora}:
+%\begin{description}
+%\item[MOR ] Sue\~no parad\'ojico
+%\begin{itemize}
+%\item Movimientos oculares r\'apidos
+%\item Aton\'ia muscular
+%\item Actividad cerebral desincronizada
+%
+%\end{itemize}
+%\item[NMOR] 
+%\end{description}
+%\end{description}
+%\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -303,28 +304,28 @@ Alteraci\'on adquirida y prolongada de funciones cognitivas; no s\'indrome focal
 \subsection{Matem\'aticas}
 
 \begin{frame}\frametitle{Conceptos}
-{\small
+%{\small
 \begin{defn}[Estacionariedad d\'ebil]
-Se dice de un proceso estoc\'astico $\{ X(t) \}$ si (...)
-\begin{itemize}
-\item $\E{X(t)} = \E{X(t+\tau)}$
-\item $\E{X(t)X(s)} = \E{X(t+\tau)X(s+\tau)}$
-\end{itemize}
-\end{defn}
-
-\begin{thrm}
-Un proceso estoc\'astico es d\'ebilmente estacionario si y s\'olo si (...)
-%para cualesquiera tiempos admisibles $t$, $s$ se tiene que
+%Se dice de un proceso estoc\'astico $\{ X(t) \}$ si (...)
+%\begin{itemize}
+%\item $\E{X(t)} = \E{X(t+\tau)}$
+%\item $\E{X(t)X(s)} = \E{X(t+\tau)X(s+\tau)}$
+%\end{itemize}
+%\end{defn}
+%
+%\begin{thrm}
+Un proceso estoc\'astico es d\'ebilmente estacionario si y s\'olo si %(...)
+para cualesquiera tiempos admisibles $t$, $s$ se tiene que
 \begin{itemize}
 \item $\E{X(t)} = \mu_X$
 \item $\Var{X(t)} = \sigma^{2}_X$
 \item $\Cov{X(t),X(s)} = \rho_X (s-t)$
 \end{itemize}
 Con $\mu_X$, $\sigma^{2}_X$ constantes, $\rho_X(\tau)$ \'unicamente depende de $\tau$
-\end{thrm}
-
-\emph{(...) = } para cualesquiera tiempos admisibles $t, s, t+\tau, s+\tau$
-}
+%\end{thrm}
+\end{defn}
+%\emph{(...) = } para cualesquiera tiempos admisibles $t, s, t+\tau, s+\tau$
+%}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -332,30 +333,32 @@ Con $\mu_X$, $\sigma^{2}_X$ constantes, $\rho_X(\tau)$ \'unicamente depende de $
 
 \begin{frame}\frametitle{Conceptos}
 \begin{defn}[Continuidad estoc\'astica en media cuadr\'atica]
-Un proceso estoc\'astico a tiempo continuo $\{ X(t) \}$ es estoc\'asticamente continuo
-en un tiempo admisible $t_0$ si y s\'olo si
+Un proceso a tiempo continuo $\{ X(t) \}$ es estoc\'asticamente continuo
+en $t_0$ si y s\'olo si
 \begin{equation*}
 \lim_{t \rightarrow t_0} \E{\left( X\left(t\right) - X\left(t_0\right) \right)^{2}} = 0
 \end{equation*}
 \end{defn}
 
-\begin{figure}
-\includegraphics[width=.92\linewidth]{ehemplitos_ruido.png}
-\end{figure}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}\frametitle{Conceptos}
+%\begin{figure}
+%\includegraphics[width=.92\linewidth]{ehemplitos_ruido.png}
+%\end{figure}
+%\end{frame}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%\begin{frame}\frametitle{Conceptos}
 \begin{defn}[Funci\'on de densidad espectral (SDF)]
-Sea $\{X(t)\}$ un proceso estoc\'astico a tiempo continuo, d\'ebilmente estacionario. 
-Se define la SDF para $\{X(t)\}$ como
+Sea $\{X(t)\}$ un proceso estoc\'astico a tiempo continuo, d\'ebilmente estacionario
+%\begin{equation*}
+%h(\omega) = \lim_{T\rightarrow \infty} \E{ \frac{1}{2T} \frac{1}{2 \pi}
+%\abso{ \int_{-T}^{T} X(t) e^{-i \omega t} dt}^{2} }
+%\end{equation*}
 \begin{equation*}
-h(\omega) = \lim_{T\rightarrow \infty} \E{ \frac{1}{2T} \frac{1}{2 \pi}
-\abso{ \int_{-T}^{T} X(t) e^{-i \omega t} dt}^{2} }
+h(\omega) = \lim_{T\rightarrow \infty} \E{ \frac{ \left| G_T(\omega) \right|^{2}}{2 T} }
 \end{equation*}
-\label{SDF}
+Donde $\displaystyle G_T (\omega) = \frac{1}{\sqrt{2 \pi}} \int_{-T}^{T} X(t) e^{-i \omega t} dt$
 \end{defn}
 \end{frame}
 
@@ -402,33 +405,106 @@ una funci\'on $F$ tal que
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\begin{frame}\frametitle{Representaci\'on de Wold-Cram\'er}
+\begin{thrm}
+Sea $\{X(t)\}$ un proceso a tiempo continuo, d\'ebilmente estacionario,
+estoc\'asticamente continuo, de media 0 y 
+varianza finita
+Entonces, existe un proceso ortogonal $\{Z(\omega)\}$ tal que
+\begin{equation*}
+X(t) = \intR e^{i t \omega} dZ(\omega)
+\end{equation*}
+El proceso $\{Z(t)\}$ cumple para todo $\omega$
+\begin{itemize}
+\item $\E{dZ(\omega)} = 0$
+\item $\E{\abso{dZ(\omega)}^{2}} = dH(\omega)$
+\item $\Cov{dZ(\omega),dZ(\lambda)} = 0 \Leftrightarrow \omega \neq \lambda$
+\end{itemize}
+Con $H$ la SDF integrada de $\{X(t)\}$
+\end{thrm}
+\end{frame}
+
+\begin{frame}\frametitle{Espectro evolutivo}
+Se consideran procesos no-estacionarios, estoc\'asticamente continuos, de media cero y varianza finita,
+y que admitan una representaci\'on de la forma
+\begin{equation*}
+X(t) = \intPI A(t,\omega) e^{i t \omega} dZ(\omega)
+\end{equation*}
+tal que 
+\begin{itemize}
+\item $\Cov{dZ(\omega),dZ(\lambda)} = 0 \Leftrightarrow \omega \neq \lambda$
+\item $\E{\abso{dZ(\omega)}^{2}} = \mu(\omega)$
+\end{itemize}
+
+El \textbf{espectro evolutivo} fue definido por Priestley \footcite{Priestley65} como
+\begin{equation*}
+f(t,\omega) = \abso{A(t,\omega)}^{2}
+\end{equation*}
+% como el \textbf{espectro evolutivo}.
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}%\frametitle{Estimador de doble ventana}
+%\begin{equation*}
+%\{X(t)\} \text{  es d\'ebilmente estacionario}  \Rightarrow  f(t,\bullet) \text{  es constante}
+%\end{equation*}
+%Equivalentemente (contrapositiva):
+%\begin{equation*}
+%f(t,\bullet) \text{  \textbf{no} es constante} \Rightarrow  
+%\{X(t)\} \text{  \textbf{no} es d\'ebilmente estacionario}  
+%\end{equation*}
+\begin{defn}[Estimador de doble ventana]
+Se define a $\est{f}$, estimador para la $f$, como
+\begin{equation*}
+\widehat{f}(t,\omega) = \int_{t-T}^{t} w_{T'}(u) \lvert U(t-u,\omega) \lvert^{2} du
+\end{equation*}
+%con $U(t,\omega) = \int_{t-T}^{t} g(u) X({t-u}) e^{i \omega (t-u)} du$
+%Donde $g$ y $w_\tau$, y sus ransformadas de Fourier $\Gamma$ y $W_\tau$, son tales que
+
+\begin{itemize}
+\item $U(t,\omega) = \int_{t-T}^{t} g(u) X({t-u}) e^{i \omega (t-u)} du$
+
+\item $2\pi \int_{-\infty}^{\infty} \lvert g(u) \lvert^{2} du 
+= 
+\int_{-\infty}^{\infty} \lvert \Gamma(\omega) \lvert^{2} d\omega
+= 1$
+\item $w_{\tau}(t) \geq 0$ para cualesquiera $t$, $\tau$
+\item $w_{\tau}(t) \rightarrow 0$ cuando $\lvert t \lvert \rightarrow \infty$, para todo $\tau$
+\item $\int_{-\infty}^{\infty} w_{\tau}(t) dt = 1$ para todo $\tau$
+\item $ \int_{-\infty}^{\infty} \left( w_{\tau}(t) \right)^{2} dt < \infty$ para todo $\tau$
+\item $\exists C$ tal que  
+$ \lim_{\tau\rightarrow\infty} \tau \int_{-\infty}^{t} \abso{ W_{\tau}(\lambda) }^{2} d\lambda = C$
+\end{itemize}
+\end{defn}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \begin{frame}%\frametitle{}
 \begin{prop}
-Sea $\{ X(t) \}$ un proceso d\'ebilmente estacionario, cuya funci\'on de autocovarianza es $R$.
-%, y
-%sean $x_1, x_2 , \dots, x_N$ observaciones equiespaciadas en el 
-%tiempo con separaci\'on $\Delta t$. 
-Entonces
-\begin{equation*}
-R(\tau) = \E{X(n\Delta t)X(n\Delta t + \tau)} \text{  ,  } n = 0, 1, 2,  3,\dots, N
-\end{equation*}
+El estimador de doble ventana $\widehat{f}$ tiene las siguientes propiedades
+\begin{itemize}
+\item $\displaystyle \E{\est{f}(t,\omega)} \approx f(t,\omega)$
+\item $\displaystyle \Var{\est{f}(t,\omega)} \approx 
+\frac{C}{\tau} f^{2}(t,\omega) \intR \abso{\Gamma (\theta)}^{4} d\theta$
+\item $\displaystyle \Cov{\est{f}(t_1,\omega_1) , \est{f}(t_2,\omega_2)} \approx \intR \intR
+w_\tau (u) w_\tau(v) \Cov{ \abso{U(t_1-u,\omega_1)}^{2} , \abso{U(t_2-u,\omega_2)}^{2} }
+du dv$
+\end{itemize}
 \end{prop}
 
 \begin{prop}
-El estimador para $R$ calculado como
-%\begin{equation*}
-$ \displaystyle
-\aste{R}(\tau) = \frac{1}{N} 
-\sum_{t = 1}^{N-\abso{\tau}} x_t x_{t+\abso{\tau}}
-$
-%\end{equation*}
+El estimador $ Y(t,\omega) = \log{\left( \est{f}(t,\omega)\right)}$
 tiene las siguientes propiedades:
 \begin{itemize}
-\item $\E{\aste{R}(\tau)} = \left(1 - \frac{\abso{\tau}}{N} \right) R(\omega)$
-\item $\Var{\aste{R}(\tau)} \approx \frac{1}{N} 
-\sum_{r=-\infty}^{\infty} \left( R^{2}(r) + R(r-\tau)R(r+\tau) \right)$
-%\item $\Cov{\aste{\rho}(\tau),\aste{\rho}(\tau+\nu)} \approx \frac{1}{N} 
-%\sum_{r=-\infty}^{\infty} \left( \rho(r)\rho(r+\nu) + \rho(r-\tau)\rho(r+\tau+\nu) \right)$
+\item $\displaystyle 
+\E{ Y(t,\omega) } \approx \log \left( f(t,\omega) \right)$
+\item $\displaystyle 
+\Var{ Y(T,\omega) } 
+\approx \frac{C}{\tau} \intR \abso{\Gamma (\theta)}^{4} d\theta $
 \end{itemize}
 \end{prop}
 \end{frame}
@@ -437,36 +513,119 @@ tiene las siguientes propiedades:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}%\frametitle{}
-\begin{defn}[Periodograma]
-Sean $x_1, x_2 , \dots, x_N$ observaciones de un proceso estoc\'astico de media cero y varianza
-finita. Se llama periodograma a la funci\'on $I_N: [-\pi,\pi] \rightarrow \R$ calculada como
+
+M\'as a\'un, puede escribirse
 \begin{equation*}
-I_N(\omega) = \frac{2}{N} \abso{ \sum_{t=0}^{N} e^{i \omega t} x_t }^{2}
+Y(t,\omega) = \log \left( f(t,\omega) \right) + \varepsilon(t,\omega)
 \end{equation*}
-\end{defn}
-%\end{frame}
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
+donde las variables $\varepsilon(t,\omega)$ satisfacen que
+\begin{itemize}
+\item $\displaystyle \E{\varepsilon(t,\omega)} = 0$
+\item $\displaystyle \Var{\varepsilon(t,\omega)}
+\approx \frac{C}{\tau} \intR \abso{\Gamma (\theta)}^{4} d\theta$
+\end{itemize}
+
+En particular, se puede usar num\'ericamente el que
+\begin{equation*}
+\sum_{i = 1 }^{N} \left( Y(t,\omega_i) - \overline{Y}(\bullet,\omega_i) \right)^{2} 
+\sim \sigma^{2} \chi^{2}(N)
+\end{equation*}
+con $\sigma^{2} = \Var{\varepsilon(t,\omega)}$, y
+$\overline{Y}(\bullet,\omega) = \frac{1}{M} \sum_{j=1}^{M} Y(t_j,\omega)$.
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+
+\begin{figure}
+\centering
+\begin{lstlisting}
+Priestley-Subba Rao stationarity Test for datos
+-----------------------------------------------
+Samples used              : 3072 
+Samples available         : 3069 
+Sampling interval         : 1 
+SDF estimator             : Multitaper 
+  Number of (sine) tapers : 5 
+  Centered                : TRUE 
+  Recentered              : FALSE 
+Number of blocks          : 11 
+Block size                : 279 
+Number of blocks          : 11 
+p-value for T             : 0.4130131 
+p-value for I+R           : 0.1787949 
+p-value for T+I+R         : 0.1801353 
+\end{lstlisting}
+\caption{La prueba de Priesltey-Subba Rao se encuentra implementada en R
+como la sunci\'on \texttt{stationarity()}, del paquete \texttt{fractal}}
+\end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 %\begin{frame}%\frametitle{}
-\begin{thrm}
-Sean $x_1, x_2 , \dots, x_N$ observaciones de un proceso estoc\'astico de media cero y varianza
-finita. Se puede calcular el periodograma para estos datos como
-\begin{equation*}
-I_N(\omega) = 2 \sum_{r = -(N-1)}^{N-1} \aste{R}(r) \COS{r \omega}
-\end{equation*}
-%Donde $\aste{R}$ es el estimador para la funci\'on de autocovarianza del proceso, calculado como
-%$\widehvat{R}(\tau) = 1}{N-\abso{\tau}} \sum_{t = 1}^{N-\abso{\tau}} x_t x_{t+\abso{\tau}}$
-\end{thrm}
-\end{frame}
+%
+%\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}%\frametitle{}
+%\begin{frame}%\frametitle{}
+%\begin{prop}
+%Sea $\{ X(t) \}$ un proceso d\'ebilmente estacionario, cuya funci\'on de autocovarianza es $R$, y
+%sean $x_1, x_2 , \dots, x_N$ tales que $x_n$ es una observaci\'on de $X(n \Delta_{\tau})$) para
+%alg\'un $\Delta_{\tau}$.
+%El estimador para $R$ calculado como
+%\begin{equation*}
+%\aste{R}(\tau) = \frac{1}{N} 
+%\sum_{t = 1}^{N-\abso{\tau}} x_t x_{t+\abso{\tau}}
+%\end{equation*}
+%tiene las siguientes propiedades:
+%\begin{itemize}
+%\item $\E{\aste{R}(\tau)} = \left(1 - \frac{\abso{\tau}}{N} \right) R(\omega)$
+%\item $\Var{\aste{R}(\tau)} \approx \frac{1}{N} 
+%\sum_{r=-\infty}^{\infty} \left( R^{2}(r) + R(r-\tau)R(r+\tau) \right)$
+%\end{itemize}
+%\end{prop}
+%\end{frame}
 
-\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\begin{frame}%\frametitle{}
+%\begin{defn}[Periodograma]
+%Sean $x_1, x_2 , \dots, x_N$ observaciones de un proceso estoc\'astico de media cero y varianza
+%finita. Se llama periodograma a la funci\'on $I_N: [-\pi,\pi] \rightarrow \R$ calculada como
+%\begin{equation*}
+%I_N(\omega) = \frac{2}{N} \abso{ \sum_{t=0}^{N} e^{i \omega t} x_t }^{2}
+%\end{equation*}
+%\end{defn}
+%\begin{prop}
+%Sean $x_1, x_2 , \dots, x_N$ observaciones de un proceso estoc\'astico de media cero y varianza
+%finita. Se puede calcular el periodograma para estos datos como
+%\begin{equation*}
+%I_N(\omega) = 2 \sum_{r = -(N-1)}^{N-1} \aste{R}(r) \COS{r \omega}
+%\end{equation*}
+%\end{prop}
+%\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\begin{frame}\frametitle{Periodograma: inconsistente}
+%\begin{prop}
+%Sea $\{X(t)\}$ un proceso d\'ebilmente estacionario com media cero, varianza finita y 
+%espectro no puramente discreto; para cada $N$
+%sean $x_1, x_2 , \dots, x_N$ observaciones del mismo y $I_N$ su periodograma. Entonces
+%\begin{equation*}
+%\lim_{N\rightarrow \infty} \Var{I_N(\omega)} = h^{2}(\omega)
+%\end{equation*}
+%\end{prop}
+%
+%\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -479,6 +638,31 @@ I_N(\omega) = 2 \sum_{r = -(N-1)}^{N-1} \aste{R}(r) \COS{r \omega}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Metodolog\'ia}
+
+\subsection{Conceptos, fisiolog\'ia}
+
+\begin{frame}
+
+\frametitle{Conceptos}
+\begin{description}
+%\item[Adulto Mayor.] Individuo de 60 a\~nos o m\'as %\footcite{Hita14}.
+
+\item[Deterioro cognitivo leve\footnote{Usado como posible deterioro cognitivo (PDC)}] 
+%\item[Deterioro cognitivo leve.] 
+Alteraci\'on adquirida y prolongada de funciones cognitivas; no s\'indrome focal, no demencia 
+%\footcite{Robles02}
+\item[Sue\~no] Proceso vital c\'iclico complejo y activo%; caracter\'isticas:%\footcite{CarrilloMora}:
+%\begin{description}
+\item[S. MOR] Fase m\'as profunda, alta actividad cerebral, se producen enso\~naciones, \textit{sue\~no parad\'ojico}
+\begin{itemize}
+\item Movimientos oculares r\'apidos
+\item Aton\'ia muscular
+\item Actividad cerebral desincronizada
+
+\end{itemize}
+%\end{description}
+\end{description}
+\end{frame}
 
 \subsection{Sujetos}
 
@@ -945,9 +1129,9 @@ del DC: 'enlentecimiento' de actividad cerebral
 %\end{quote}
 \begin{figure}
 \centering
-\textit{El cerebro es, quiz\'a, el \'unico \'organo capaz de estudiarse a s\'i mismo.}\\
-\vspace*{2em}
-\includegraphics[width=0.4\linewidth]{cerebot.jpg}
+\includegraphics[width=0.4\linewidth]{cerebot.jpg}\\
+\vspace*{1em}
+\textit{El cerebro es, quiz\'a, el \'unico \'organo capaz de estudiarse a s\'i mismo.}
 \end{figure}
 \end{frame}
 
