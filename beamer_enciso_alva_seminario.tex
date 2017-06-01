@@ -57,6 +57,7 @@
 
 %\usetheme{Luebeck}
 \usetheme{CambridgeUS}
+%\usetheme{Malmoe}
 \usecolortheme{beaver}
 {
 %\usetheme{Luebeck}
@@ -312,22 +313,22 @@ $\{X(t)\}$,  es que exista una funci\'on $F$ tal que
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}%\frametitle{}
-\begin{thrm}[Wold]
-Una condici\'on suficiente y necesaria para que $\rho$ sea funci\'on de autocorrelaci\'on para
-alg\'un proceso estoc\'astico a tiempo discreto d\'ebilmente estacionario, $\{X(t)\}$, es que 
-exista una funci\'on $F$ tal que
-\begin{itemize}
-\item Es mon\'otonamente creciente
-\item $F(-\pi) = 0$
-\item $F(+\pi) = 1$
-\item Para todo $\tau \in \R$ se cumple que
-\begin{equation*}
-\rho(\tau) = \intPI e^{i \omega \tau} dF(\omega)
-\end{equation*}
-\end{itemize}
-\end{thrm}
-\end{frame}
+%\begin{frame}%\frametitle{}
+%\begin{thrm}[Wold]
+%Una condici\'on suficiente y necesaria para que $\rho$ sea funci\'on de autocorrelaci\'on para
+%alg\'un proceso estoc\'astico a tiempo discreto d\'ebilmente estacionario, $\{X(t)\}$, es que 
+%exista una funci\'on $F$ tal que
+%\begin{itemize}
+%\item Es mon\'otonamente creciente
+%\item $F(-\pi) = 0$
+%\item $F(+\pi) = 1$
+%\item Para todo $\tau \in \R$ se cumple que
+%\begin{equation*}
+%\rho(\tau) = \intPI e^{i \omega \tau} dF(\omega)
+%\end{equation*}
+%\end{itemize}
+%\end{thrm}
+%\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -853,16 +854,17 @@ para el grupo Control}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}\frametitle{Sobre el tama\~no de la \'epoca}
+{\small Estacionariedad local\footcite{Cohen77}}
 \begin{figure}
 \centering
 \begin{tabular}{c}
-\includegraphics[width=0.5\linewidth]
+\includegraphics[width=0.4\linewidth]
 {./p_170511/VCNNS1_est_30.png} \\
 \begin{tabular}{cc}
-\includegraphics[width=0.45\linewidth]
+\includegraphics[width=0.4\linewidth]
 {./p_170511/VCNNS1_est_60.png} 
 &
-\includegraphics[width=0.45\linewidth]
+\includegraphics[width=0.4\linewidth]
 {./p_170511/VCNNS1_est_10.png} 
 \end{tabular}
 \end{tabular}
