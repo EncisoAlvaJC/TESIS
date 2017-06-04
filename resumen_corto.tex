@@ -7,10 +7,12 @@
 \documentclass[12pt,a4paper]{mitthesis}
 \usepackage[utf8]{inputenc}
 \usepackage[spanish]{babel}
+
+% numeors con punto decimal (el default es coma decimal)
 \decimalpoint
 
 % en algun momento queria cambiar el formato de las referencias
-\usepackage{cite}
+%\usepackage{cite}
 
 % tienen algunos comandos que ocupo, como align o defn
 \usepackage{amsmath}
@@ -20,11 +22,12 @@
 % sin este no se pueden incluir imagenes
 \usepackage{graphicx}
 
+% sobre el formato de las paginas
 \usepackage{cmap}
 \pagestyle{plain}
 
 % para incluir el reporte en pdf, temporalmente
-\usepackage{pdfpages}
+%\usepackage{pdfpages}
 
 % para importar el codigo de R y que se vea bien
 \usepackage{listings}
@@ -36,11 +39,11 @@
 % este paquete pone las fracciones bonitas
 \usepackage{nicefrac}
 
-% este paquete
+% hipervinculos a internet
 \usepackage{url}
 
 % para el simbolo TM de marca registrada
-\usepackage{textcomp}
+%\usepackage{textcomp}
 
 % para poner imagenes verticales en pagina completa
 \usepackage{pdflscape}
@@ -48,16 +51,16 @@
 \usepackage{everypage}
 \usepackage{environ}
 
-% paquete para tablas a hoja completa
+% tablas a hoja completa
 \usepackage{tabularx}
 
-% para que las tablas tengan lineas gruesas
-%\usepackage{booktabs}
+% tablas con lineas gruesas
+\usepackage{booktabs}
 
-% para poner grandes cantidades de codigo como comentario
+% grandes cantidades de codigo como comentario
 \usepackage{verbatim}
 
-% para poner etquetas a un multiplot
+% etiquetas en un multiplot
 \usepackage[caption=false]{subfig}
 \usepackage{float}
 
@@ -71,15 +74,14 @@
 % para que la bibliografia aparezca en el indice
 \usepackage[nottoc]{tocbibind}
 
-% para que las tablas tengan otro estilo
-\usepackage{booktabs}
-
 % para tablas de colores
 \usepackage{xcolor,colortbl}
 \usepackage{multirow}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% comandos para tablas/figuras en hoja completa: SidewaysTable y SidewaysFigure
 
 \newcounter{abspage}% \thepage not reliab
 
@@ -118,6 +120,11 @@
 
 \pagestyle{plain}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% munchas abreviaciones que uso para ahorrar codigo, quiza ponga mas
+
 \newtheorem{defn}{Definici\'on}
 \newtheorem{thrm}{Teorema}
 \newtheorem{demostracion}{Demostraci\'on}
@@ -147,6 +154,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+% colores para tablas
+
 \newcommand{\bordes}[1]{\renewcommand{\arraystretch}{#1}}
 
 \definecolor{gris}{gray}{0.925}
@@ -155,6 +164,8 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% colores para lslistings
 
 \definecolor{dkgreen}{rgb}{0,0.6,0}
 \definecolor{gray}{rgb}{0.5,0.5,0.5}
@@ -207,7 +218,7 @@ como posible marcador de deterioro cognitivo}
 \setstretch{1.0}
 
 \begin{center}
-\includegraphics[width=0.2\linewidth]{./portada/logo_uaeh.png}\\
+\includegraphics[width=0.2\linewidth]{./img_oficiales/logo_uaeh.png}\\
 {\Large \textbf{ \textsc{
 Universidad Aut\'onoma del Estado de Hidalgo\\
 Instituto de Ciencias B\'asicas e Ingenier\'ia\\
@@ -296,6 +307,8 @@ que, en un orden espec\'ifico, son consistentes con la aparici\'on del sue\~no M
 \chapter*{Acr\'onimos}
 
 \begin{tabular}{rl}
+\textbf{AASM} & American Association of Sleep Medicine
+\\
 \textbf{EEG} & Electroencefalograf\'ia
 \\
 \textbf{EMG} & Electromiograf\'ia
@@ -309,6 +322,8 @@ que, en un orden espec\'ifico, son consistentes con la aparici\'on del sue\~no M
 \textbf{PSG} & Polisomnograf\'ia
 \\
 \textbf{PDC} & Posible Deterioro Cognitivo
+\\
+\textbf{PSR} & [Prueba de] Priestley-Subba Rao
 \\
 \textbf{SDF} & Funci\'on de densidad espectral (\textit{Spectral Density Function})
 \end{tabular}
@@ -524,7 +539,7 @@ Societies \cite{Jasper58,AASM07}, mostrado en la figura \ref{img1020}.
 
 \begin{figure}
 \centering
-\includegraphics[width=0.9\linewidth]{cabeza_hecha.pdf} 
+\includegraphics[width=0.9\linewidth]{./img_diagramas/cabeza_hecha.pdf} 
 \caption{Colocaci\'on de electrodos seg\'un el sistema 10--20. En el cr\'aneo, el \textbf{inion} es 
 una protuberancia craneal, mientras que el \textbf{nasi\'on} es la uni\'on del hueso frontal y los 
 huesos nasales; el \textbf{punto preauricular} se ubica arriba del cart\'ilago llamado tragus, que 
@@ -548,7 +563,7 @@ Estos grupos son ilustrados en la figura \ref{ritmos}.
 
 \begin{figure}
 \centering
-\includegraphics[width=0.55\linewidth]{ritmos_hechos.pdf} 
+\includegraphics[width=0.55\linewidth]{./img_diagramas/ritmos_hechos.pdf} 
 \caption{Ejemplos de ondas cerebrales encontradas en el EEG. Reconstruido de \textit{EEG Signal 
 Processing}, por S. Sanei y J. A. Chambers \cite{Sanei07} }
 \label{ritmos}
@@ -1240,7 +1255,7 @@ finita. Se puede calcular el periodograma para estos datos como
 I_N(\omega) = 2 \sum_{r = -(N-1)}^{N-1} \aste{R}(r) \COS{r \omega}
 \end{equation*}
 Donde $\aste{R}$ es el estimador para la funci\'on de autocovarianza del proceso, calculado como
-$\widehvat{R}(\tau) = \frac{1}{N-\abso{\tau}} \sum_{t = 1}^{N-\abso{\tau}} x_t x_{t+\abso{\tau}}$
+$\widehat{R}(\tau) = \frac{1}{N-\abso{\tau}} \sum_{t = 1}^{N-\abso{\tau}} x_t x_{t+\abso{\tau}}$
 \label{periodograma_rho}
 \end{thrm}
 
@@ -1665,8 +1680,6 @@ y colaboradores en 2016 \cite{VazquezTagle16}; por ello, se cita la metodolog\'i
 estudio de la manera m\'as fiel posible.
 As\'i mismo se describe, a nivel de implementaci\'on, el an\'alisis central de este trabajo: la 
 prueba de Priesltey-Subba Rao. 
-%Para este an\'alisis se utiliz\'o el software estad\'istico R\cite{R_citar} y 
-%el paquete \texttt{fractal} \cite{R_fractal}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1691,15 +1704,6 @@ el consentimiento de \'estos y de los responsables del proyecto.
 
 La ansiedad y depresi\'on, as\'i como el PDC, fueron diagnosticados aplicando una bater\'ia de
 pruebas neuropsicol\'ogicas, compuesta por las siguientes pruebas. 
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-%\section{Pruebas sobre deterioro cognitivo}
-%
-%En una primera etapa, los adultos mayores participantes se sometieron a una bater\'ia de pruebas 
-%neuropsicol\'ogicas para diagnosticar posible deterioro cognitivo (PDC) y depresi\'on en diversos
-%aspectos. Estas pruebas son listadas a continuaci\'on:
 
 \begin{itemize}
 \item {Evaluaci\'on Neuropsicol\'ogica (Neuropsi)} \cite{Solis03}
@@ -1711,17 +1715,16 @@ pruebas neuropsicol\'ogicas, compuesta por las siguientes pruebas.
 
 Usando los resultados obtenidos, los sujetos se dividieron en tres grupos:
 \begin{description}
-\item[Grupo PDC] (4 sujetos) Puntuaci\'on en Neuropsi menor a la media menos 3 desviaciones est\'andar, 
-reportadas para poblaciones control \cite{Solis03}
+\item[Grupo PDC] (4 sujetos) Puntuaci\'on en Neuropsi menor a la media menos 3 desviaciones 
+est\'andar, reportadas para poblaciones control \cite{Solis03}
 \item[Grupo Control] (5 sujetos) Sin deterioro cognitivo
 \item[Grupo Excluido] (3 sujetos) No satisfacen los criterios de inclusi\'on, pero que se 
 sometieron voluntariamente al estudio con aprobaci\'on de los responsables
 \end{description}
 
-Con respecto al tercer grupo, se conforma de sujeto que
-fallan en exactamente uno de los criterios de 
-inclusi\'on: FGH padece par\'alisis facial y posiblemente da\~no cerebral, MGG padece depresi\'on, 
-y EMT no califica como adulto mayor por su edad.
+Con respecto al tercer grupo, se conforma de sujeto que fallan en exactamente uno de los criterios 
+de inclusi\'on: FGH padece par\'alisis facial y posiblemente da\~no cerebral, MGG padece 
+depresi\'on, y EMT no califica como adulto mayor por su edad.
 Se efectuaron los mismos an\'alisis sobre este grupo con la finalidad de exhibir las capacidades y
 limitaciones de las t\'ecnicas utilizadas, debido a lo cual este grupo es ignorado en la secci\'on 
 de resultados, pero retomado en la discusi\'on.
@@ -1857,7 +1860,7 @@ Dado que el sue\~no MOR aparece fragmentado, se reporta la suma de esos tiempos.
 \begin{figure}
 \centering
 \includegraphics[width=\linewidth]
-{./p_170427/MJH_190_PDG_lucirse_PSG.pdf}
+{./img_ejemplos/MJH_190_PDG_lucirse_PSG.pdf}
 \caption{Registro de PSG en el sujeto MJH durante sue\~no MOR. N\'otese que el canal EMG permanece 
 silente (indicativo de aton\'ia muscular) mientras que los canales ROG y LOG exhiben actividad de 
 gran amplitud y sincronizaci\'on (movimientos oculares r\'apidos), caracter\'isticas indicativas de
@@ -1865,35 +1868,9 @@ la etapa de sue\~no.}
 \label{ejemplos_mor}
 \end{figure}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%\section{Clasificaci\'on de las etapas de sue\~no}
-
 La clasificaci\'on de las diferentes fases del sue\~no en el registro PSG se realiz\'o manualmente 
 sobre \'epocas de EEG de 30 segundos siguiendo los criterios 
-estandarizados de la AAIC\cite{Hori01}, mismas que fueron descritas anteriormente.
-%, que se exponen a continuaci\'on:
-%\begin{description}
-%\item[Vigilia (W)] Presencia de ritmo alfa contin\'uo con m\'axima amplitud sobre regiones de la 
-%corteza parieto-occipital. Tono muscular relativamente alto y ausencia de movimientos oculares.
-%
-%\item[Fase 1 (N1)] Presencia intermitente de actividad alfa en menos del 50\% de la \'epoca junto 
-%con movimientos oculares lentos y una ligera reducci\'on del tono muscular respecto al de vigilia.
-%
-%\item[Fase 2 (N2)] Presencia de complejos K y husos de sue\~no. Puede aparecer hasta un 20\% de 
-%ondas lentas (ritmo delta) en la \'epoca. Ausencia de actividad ocular y tono muscular bajo.
-%
-%\item[Fase 3 (N3)] Presencia de ondas lentas con amplitudes superiores a 75 $\mu$V en m\'as del 
-%20\% y menos del 50\% de la \'epoca. Pueden tambi\'en aparecer complejos K y husos de sue\~no de 
-%forma espor\'adica. Ausencia de actividad ocular y tono muscular bajo.
-%
-%\item[Fase 4 (N4)] Presencia de ondas lentas en m\'as del 50\% de la \'epoca. Las dem\'as 
-%caracter\'isticas son similares a las de la fase 3.
-%
-%\item[Fase MOR (R)] Presencia de actividad EEG de baja amplitud y frecuencias entremezcladas 
-%(theta-alfa-beta) similar a la observada en el estado de vigilia activa con ojos abiertos.
-%\end{description}
+estandarizados de la AAMS\cite{Hori01}, mismas que fueron descritas anteriormente.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1904,19 +1881,12 @@ Los registros digitalizados de PSG fueron convertidos a formato de texto bajo la
 ASCII, a raz\'on de un archivo por cada canal. 
 Las \'epocas MOR fueron se\~naladas en archivos a parte, uno por cada sujeto.
 
-%Para el an\'alisis de los registros de PSG se us\'o el software estad\'istico R\cite{R_citar}, 
-%as\'i como el paquete \texttt{fractal} \cite{R_fractal}.
-%
-%Los 
-%el ambiente R y segmentados en sub-series de 30 segundos, y tomando en cuenta la frecuencia de
-%muestreo de cada sujeto. 
-
 Como se mencion\'o en secciones anteriores, la prueba PSR est\'a pensada para series de tiempo con 
-media 0, varianza finita y espectro puramente continuo. Se espera que la segunda 
-condici\'on se cumpla para los registros de PSG; las otras dos condiciones fueron 
-'forzadas', sustrayendo la media y la componente peri\'odica (estimadas) del proceso.
-Para lo anterior, se us\'o el algoritmo no-param\'etrico STL (Seasonal-Trend decomposition using Loess) 
-\cite{Cleveland1990} y que est\'a implementado en R bajo la funci\'on \texttt{stl()}.
+media 0, varianza finita y espectro puramente continuo. Se espera que la segunda condici\'on se 
+cumpla para los registros de PSG; las otras dos condiciones fueron 'forzadas', sustrayendo la media 
+y la componente peri\'odica (estimadas) del proceso.
+Para lo anterior, se us\'o el algoritmo no-param\'etrico STL (Seasonal-Trend decomposition using 
+Loess) \cite{Cleveland1990} y que est\'a implementado en R bajo la funci\'on \texttt{stl()}.
 
 La prueba PSR se encuentra implementado en R bajo la funci\'on \texttt{stationarity()} del paquete 
 \texttt{fractal}.
@@ -1987,34 +1957,29 @@ aparici\'on de diferencias significativas entre estas proporciones.
 \centering
 \begin{tabular}{c}
 \begin{tabular}{ccccc}
-\includegraphics[width=0.17\textwidth]{./cabecitas/cabecita_VCR.pdf} &
-\includegraphics[width=0.17\textwidth]{./cabecitas/cabecita_MJH.pdf} &
-\includegraphics[width=0.17\textwidth]{./cabecitas/cabecita_JAE.pdf} &
-\includegraphics[width=0.17\textwidth]{./cabecitas/cabecita_GHA.pdf} &
-\includegraphics[width=0.17\textwidth]{./cabecitas/cabecita_MFGR.pdf} \\
+\includegraphics[width=0.17\textwidth]{./img_diagramas/cabecita_VCR.pdf} &
+\includegraphics[width=0.17\textwidth]{./img_diagramas/cabecita_MJH.pdf} &
+\includegraphics[width=0.17\textwidth]{./img_diagramas/cabecita_JAE.pdf} &
+\includegraphics[width=0.17\textwidth]{./img_diagramas/cabecita_GHA.pdf} &
+\includegraphics[width=0.17\textwidth]{./img_diagramas/cabecita_MFGR.pdf} \\
 VCR & MJH & JAE & GHA & MFGR
 \end{tabular}
 \\
 \begin{tabular}{cccc}
-\includegraphics[width=0.17\textwidth]{./cabecitas/cabecita_CLO.pdf} &
-\includegraphics[width=0.17\textwidth]{./cabecitas/cabecita_RLO.pdf} &
-\includegraphics[width=0.17\textwidth]{./cabecitas/cabecita_RRU.pdf} &
-\includegraphics[width=0.17\textwidth]{./cabecitas/cabecita_JGZ.pdf} \\
+\includegraphics[width=0.17\textwidth]{./img_diagramas/cabecita_CLO.pdf} &
+\includegraphics[width=0.17\textwidth]{./img_diagramas/cabecita_RLO.pdf} &
+\includegraphics[width=0.17\textwidth]{./img_diagramas/cabecita_RRU.pdf} &
+\includegraphics[width=0.17\textwidth]{./img_diagramas/cabecita_JGZ.pdf} \\
 CLO & RLO & RRU & JGZ
 \end{tabular}
 \\
 \begin{tabular}{ccc}
-\includegraphics[width=0.17\textwidth]{./cabecitas/cabecita_FGH.pdf} &
-\includegraphics[width=0.17\textwidth]{./cabecitas/cabecita_MGG.pdf} &
-\includegraphics[width=0.17\textwidth]{./cabecitas/cabecita_EMT.pdf} \\
+\includegraphics[width=0.17\textwidth]{./img_diagramas/cabecita_FGH.pdf} &
+\includegraphics[width=0.17\textwidth]{./img_diagramas/cabecita_MGG.pdf} &
+\includegraphics[width=0.17\textwidth]{./img_diagramas/cabecita_EMT.pdf} \\
 FGH & MGG & EMT
 \end{tabular}
 \end{tabular}
-%\caption{Representaci\'on esquem\'atica de las
-%diferencias significativas para la comparaci\'on entre la proporci\'on de \'epocas PE durante el
-%sue\~no MOR y NMOR.
-%La intensidad del color representa el p-valor con el cual se rechaza la hip\'otesis en que las 
-%proporciones son estad\'sticamente diferentes.}
 \caption{Se muestra esquem\'aticamente en azul las zonas donde se encontraron diferencias 
 significativas al comparar las proporciones de \'epocas PE durante sue\~no MOR y NMOR. Esta misma
 informaci\'on se muestra en la tabla \ref{comparacion_mor_vs_total} }
@@ -2022,23 +1987,21 @@ informaci\'on se muestra en la tabla \ref{comparacion_mor_vs_total} }
 \end{figure}
 
 Posteriormente se busc\'o una diferencia m\'as directa entre los grupos, comparando grupalmente las 
-proporciones de \'epocas PE (en cada canal y durante las diferentes etapas)
-%. Para la comparaci\'on se us\'o 
-mediante la prueba U de Mann-Whitney\footnote{Implementada en R como la funci\'on 
-\texttt{wilcox.test()}};
-no se encontraron diferencias significativas para ninguno de los canales. Los resultados se 
-muestran en las tablas \ref{gpos_mor}, \ref{gpos_nmor}, \ref{gpos_total}, y para una mejor 
-visualizaci\'on \'estos se han graficado en la figura \ref{comparacion_graf}.
+proporciones de \'epocas PE (en cada canal y durante las diferentes etapas) mediante la prueba U de 
+Mann-Whitney\footnote{Implementada en R como la funci\'on \texttt{wilcox.test()}}; no se 
+encontraron diferencias significativas para ninguno de los canales. Los resultados se muestran en 
+las tablas \ref{gpos_mor}, \ref{gpos_nmor}, \ref{gpos_total}, y para una mejor visualizaci\'on 
+\'estos se han graficado en la figura \ref{comparacion_graf}.
 
 \begin{figure}
 \centering
 \subfloat[Comparaci\'on entre \'epocas MOR (fase R)]{
 \includegraphics[width=0.95\linewidth]
-{./new170424/Comparacion_gpos_MOR.pdf} 
+{./img_ejemplos/Comparacion_gpos_MOR.pdf} 
 }\\
 \subfloat[Comparaci\'on entre \'epocas no-MOR (fases W y N)]{
 \includegraphics[width=0.95\linewidth]
-{./new170424/Comparacion_gpos_NMOR.pdf} 
+{./img_ejemplos/Comparacion_gpos_NMOR.pdf} 
 }\\
 \caption{Comparaci\'on sobre las proporciones de \'epocas PE entre los grupos Control (azul) y PDC 
 (rojo), para diferentes etapas de sue\~no (MOR y NMOR). Se grafica el promedio grupal $\pm$ 1 
@@ -2062,11 +2025,11 @@ esquem\'aticamente estas regiones.
 \centering
 \subfloat[Comparaci\'on para el grupo control]{
 \includegraphics[width=0.95\linewidth]
-{./new170424/comp_etapas_gpos_NORMALMOR_vs_NMOR.pdf} 
+{./img_ejemplos/comp_etapas_gpos_NORMALMOR_vs_NMOR.pdf} 
 }\\
 \subfloat[Comparaci\'on para el grupo PDC]{
 \includegraphics[width=0.95\linewidth]
-{./new170424/comp_etapas_gpos_PDCMOR_vs_NMOR.pdf} 
+{./img_ejemplos/comp_etapas_gpos_PDCMOR_vs_NMOR.pdf} 
 }
 \caption{Comparaci\'on sobre las proporciones de \'epocas PE entre las etapas de sue\~no MOR 
 (verde) y NMOR (negro), para ambos grupos por separado. Se han graficado las proporciones de PE en 
@@ -2079,7 +2042,7 @@ visualizaci\'on aproximada de la varianza.}
 \begin{figure}
 \centering
 \includegraphics[width=0.4\linewidth]
-{cabecita.pdf} 
+{./img_diagramas/cabecita.pdf} 
 \caption{Representaci\'on esquem\'atica de los sitios donde se encontraron diferencias 
 significativas en la comparaci\'on entre el porcentaje de \'epocas PE durante sue\~no MOR y NMOR, 
 para el grupo Control (ver texto)}
@@ -2109,39 +2072,27 @@ aparecen asociados al sue\~no MOR en cierto orden (ilustrado en la figura \ref{p
 abundante en \'epocas no-estacionarias en esta zona del tiempo
 \end{itemize}
 
-%@{.}
-
 \begin{figure}
 \includegraphics[width=\textwidth]
-{./g170413/MJNNVIGILOS_est.png}
+{./img_ejemplos/MJNNVIGILOS_est.png}
 \caption{Disposici\'on gr\'afica para los resultados de la prueba PSR en el sujeto MJH. Se han 
-resaltado con color verde las \'epocas clasificadas como de sue\~no MOR.
-}
+resaltado con color verde las \'epocas clasificadas como de sue\~no MOR.}
 \label{ejemplo_graf}
 \end{figure}
-
-%\begin{figure}
-%\includegraphics[width=\textwidth]
-%{./graphs170427/zoom_MJH.pdf}
-%\caption{Se ha resaltado el patr\'on visual que, se propone, est\'a asociado con la aparici\'on del
-%sue\~no MOR: un bloque de \'epocas PE (rojo), un bloque de \'epocas no-estacionarias (azul) y un 
-%bloque que contiene al sue\~no MOR.}
-%\label{patroncito}
-%\end{figure}
 
 \begin{figure}
 \begin{tabular}{c}
 \includegraphics[width=0.3\textwidth]
-{./graphs170427/zoom_VCR.pdf}
+{./img_ejemplos/zoom_VCR.pdf}
 \includegraphics[width=0.3\textwidth]
-{./graphs170427/zoom_MJH.pdf}
+{./img_ejemplos/zoom_MJH.pdf}
 \includegraphics[width=0.3\textwidth]
-{./graphs170427/zoom_JAE.pdf}
+{./img_ejemplos/zoom_JAE.pdf}
 \\
 \includegraphics[width=0.3\textwidth]
-{./graphs170427/zoom_GHA.pdf}
+{./img_ejemplos/zoom_GHA.pdf}
 \includegraphics[width=0.3\textwidth]
-{./graphs170427/zoom_MFGR.pdf}
+{./img_ejemplos/zoom_MFGR.pdf}
 \end{tabular}
 \caption{Ejemplos de los patrones visuales que, se propone, est\'a asociado con la aparici\'on del
 sue\~no MOR: un bloque de \'epocas PE (rojo), un bloque de \'epocas no-estacionarias (azul) y un 
@@ -2157,73 +2108,61 @@ uno de los sujetos del grupo Control.}
 
 \section{Discusi\'on}
 
-Como se mencion\'o anteriormente, este trabajo parte del supuesto en que los
-sujetos con PDC presentan con mayor probabilidad estacionariedad d\'ebil en sus registros de EEG.
-Se ha aportado evidencia para afirmar que,
-al comparar sujetos 
-del grupo Control y con
-PDC,
-no hay cambios significativos en la porci\'on de tiempo 
-durante la cual el registro de PSG se comporta como d\'ebilmente estacionario. 
-Esto puede interpretarse como que, quiz\'a, los mecanismos afectados durante el PDC no 
-provocan que la se\~nal se vuelva m\'as 'simple' (en el sentido de ser estacionaria).
+Como se mencion\'o anteriormente, este trabajo parte del supuesto en que los sujetos con PDC 
+presentan con mayor probabilidad estacionariedad d\'ebil en sus registros de EEG.
+Se ha aportado evidencia para afirmar que, al comparar sujetos del grupo Control y con PDC, no hay 
+cambios significativos en la porci\'on de tiempo durante la cual el registro de PSG se comporta 
+como d\'ebilmente estacionario. 
+Esto puede interpretarse como que, quiz\'a, los mecanismos afectados durante el PDC no provocan que 
+la se\~nal se vuelva m\'as 'simple' (en el sentido de ser estacionaria).
 
 Cabe un comentario sobre c\'omo la evidencia presentada exhibe al PSG como un conjunto de se\~nales 
-no-estacionarias durante la mayor parte del sue\~no, como se suele suponer en se\~nales de
-origen biol\'ogico; entonces, no es adecuado analizar este tipo de se\~nales 
-con m\'etodos que supongan estacionariedad, como la estimaci\'on del espectro de potencias usando
-el periodograma 'cl\'asico'. 
+no-estacionarias durante la mayor parte del sue\~no, como se suele suponer en se\~nales de origen 
+biol\'ogico; entonces, no es adecuado analizar este tipo de se\~nales con m\'etodos que supongan 
+estacionariedad, como la estimaci\'on del espectro de potencias usando el periodograma 'cl\'asico'. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Sobre los sujetos excluidos}
 
-Durante el trabajo se mencionan tres sujetos (FGH, MGG, EMT) cuyos registros de PSG 
-fueron analizados pero que no son considerados estad\'isticamente; cada uno de ellos fue excluido, 
-por diversos motivos, del trabajo por V\'azquez Tagle y colaboradores \cite{VazquezTagle16}, 
-pero dieron su consentimiento 
-informado para el registro de PSG, debido a lo cual analiz\'o el efecto de su 
-inclusi\'on dentro de los an\'alisis.
-Destaca el sujeto FGH, quien padece de par\'alisis facial, cataratas, y problemas 
-no especificados en hipotiroides y columna; 
-seg\'un se reporta, el sujeto no inform\'o de 
-estos \'ultimos padecimientos sino hasta despu\'es del registro de PSG, por lo que su exclusi\'on 
-se efectu\'o a posteriori.
+Durante el trabajo se mencionan tres sujetos (FGH, MGG, EMT) cuyos registros de PSG fueron 
+analizados pero que no son considerados estad\'isticamente; cada uno de ellos fue excluido, por 
+diversos motivos, del trabajo por V\'azquez Tagle y colaboradores \cite{VazquezTagle16}, pero 
+dieron su consentimiento informado para el registro de PSG, debido a lo cual analiz\'o el efecto de 
+su inclusi\'on dentro de los an\'alisis.
+Destaca el sujeto FGH, quien padece de par\'alisis facial, cataratas, y problemas no especificados 
+en hipotiroides y columna; seg\'un se reporta, el sujeto no inform\'o de estos \'ultimos 
+padecimientos sino hasta despu\'es del registro de PSG, por lo que su exclusi\'on se efectu\'o a 
+posteriori.
 
-Un vistazo a los registros 'inusuales' de FGH (figura\ref{FGH_psg}, comparar con \ref{ejemplos_mor}) 
-pudiera haber advertido que en el registro no hay actividad cerebral 
-en los canales correspondientes a la regi\'on izquierda (aquella con par\'alisis)
-sino ruido amplificado del polisomn\'ografo.
-Dentro del marco de este trabajo, destacan las proporciones inusuales de \'epocas PE 
-(cercanas a 1 o 0) para este sujeto en los canales F4, F7, F8, FP1, FP2, FZ, tanto en sue\~no 
-MOR como NMOR; usando la representaci\'on gr\'afica para FGH, es visible una inusual
-ausencia total de estacionariedad en tales canales
-(figura \ref{FGH_especial}, comparar con \ref{ejemplo_graf}). 
-%Como comentario, 
-%ya que no hab\'ia actividad neuronal  con par\'alisis
-%sino solamente amplificaci\'on del ruido basal del polisomn\'ografo.
+Un vistazo a los registros 'inusuales' de FGH (figura\ref{FGH_psg}, comparar con 
+\ref{ejemplos_mor}) pudiera haber advertido que en el registro no hay actividad cerebral en los 
+canales correspondientes a la regi\'on izquierda (aquella con par\'alisis) sino ruido amplificado 
+del polisomn\'ografo.
+Dentro del marco de este trabajo, destacan las proporciones inusuales de \'epocas PE (cercanas a 1 
+o 0) para este sujeto en los canales F4, F7, F8, FP1, FP2, FZ, tanto en sue\~no MOR como NMOR; 
+usando la representaci\'on gr\'afica para FGH, es visible una inusual ausencia total de 
+estacionariedad en tales canales (figura \ref{FGH_especial}, comparar con \ref{ejemplo_graf}). 
 Si bien esta metodolog\'ia no se dise\~n\'o para tal fin, a\'un as\'i se pudo detectar la falta de 
 actividad cerebral.
 
 \begin{figure}
 \centering
 \includegraphics[width=0.95\linewidth]
-{./p_170511/FGH_297_PDG_lucirse_PSG.pdf} 
-\caption{Una \'epoca t\'ipica del registro PSG para el sujeto FGH durante sue\~no MOR. 
-N\'otense los patrones peri\'odicos en los canales correspondientes a la regi\'on frontal,
-que no corresponden a la actividad cerebral usual.}
+{./img_ejemplos/FGH_297_PDG_lucirse_PSG.pdf} 
+\caption{Una \'epoca t\'ipica del registro PSG para el sujeto FGH durante sue\~no MOR. N\'otense 
+los patrones peri\'odicos en los canales correspondientes a la regi\'on frontal, que no 
+corresponden a la actividad cerebral usual.}
 \label{FGH_psg}
 \end{figure}
 
 \begin{figure}
 \centering
 \includegraphics[width=0.95\linewidth]
-{./muypreeliminar170408/FGHSUE_est.png} 
-\caption{Compilado gr\'afico para el sujeto FGH; n\'otese el patr\'on inusual 
-(completamente blanco o negro)
-en los canales
-correspondientes a la regi\'on frontal}
+{./img_ejemplos/FGHSUE_est.png} 
+\caption{Compilado gr\'afico para el sujeto FGH; n\'otese el patr\'on inusual (completamente 
+blanco o negro) en los canales correspondientes a la regi\'on frontal}
 \label{FGH_especial}
 \end{figure}
 
@@ -2247,22 +2186,14 @@ en \'epocas de 10 s, cambia sustancialmente (ver figura \ref{comp_VCR}).
 
 \begin{figure}
 \centering
-%\subfloat[Usando \'epocas de 60 s]{
-\includegraphics[width=0.9\linewidth]
-%{./grafiquitos170404/VCNNS1_est.png} 
-{./p_170511/VCNNS1_est_60.png} 
-%}\\
+\includegraphics[width=0.9\linewidth] 
+{./img_ejemplos/VCNNS1_est_60.png} 
 \\
-%\subfloat[Usando \'epocas de 30 s]{
 \includegraphics[width=0.9\linewidth]
-%{./muypreeliminar170408/VCNNS1_est.png} 
-{./p_170511/VCNNS1_est_30.png} 
-%}\\
+{./img_ejemplos/VCNNS1_est_30.png} 
 \\
-%\subfloat[Usando \'epocas de 10 s]{
 \includegraphics[width=0.9\linewidth]
-{./p_170511/VCNNS1_est_10.png} 
-%}\\
+{./img_ejemplos/VCNNS1_est_10.png} 
 \caption{Compilaci\'on gr\'afica de las \'epocas clasificadas como PE, distribuidas en el tiempo
 para cada uno de los canales. El registro corresponde al sujeto VCR, organizando el registro en
 \'epocas de diferente duraci\'on}
@@ -2273,7 +2204,6 @@ El hecho de que los resultados fueran afectados de manera contundente por la for
 organizan los datos, sugiere que ser\'a provechoso prestar mayor atenci\'on a la naturaleza de las 
 caracter\'isticas estudiadas y su posible interpretaci\'on en la fisiolog\'ia.
 Se propone que los registros de PSG tienen una propiedad referida como 'estacionariedad local',
-%(definici\'on \ref{est_local}), 
 concepto introducido por Dahlhaus \cite{Dahlhaus97}.
 A grosso modo, un proceso localmente estacionario es aqu\'el cuya SDF (que puede depender del 
 tiempo) puede ser aproximada 'a trozos': usando SDF's correspondientes a procesos que poseen una 
@@ -2325,8 +2255,6 @@ como PE.
 Esta hip\'otesis explicar\'ia el cambio observado al cambiar el tama\~no de la \'epoca; de manera
 arriesgada, se podr\'ia concluir que, entre los individuos con PDC, la homogeneidad del PSG es muy
 similar durante MOR y NMOR.
-%Sin embargo, para poder convertir esta hip\'otesis en una conclusi\'on aut\'entica, faltar\'ia
-%m\'as investigaci\'on al respecto --en particular, una prueba para detectar estacionariedad local.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -2368,8 +2296,6 @@ Se presenta evidencia seg\'un la cual los registros de PSG, al menos para adulto
 corresponden a series de tiempo no-estacionarias sino a series localmente estacionarias; esta 
 distinci\'on cobra importancia al momento de elegir el tama\~no de ventana (en el tiempo) usada 
 para organizar los registros.
-
-%\newpage
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -2865,19 +2791,14 @@ Primeramente se presentan los compilados gr\'aficos en los que se ha destacado e
 posteriormente se presentan los mismos gr\'aficos resaltando los patrones visuales
 propuestos, que parecen estar relacionados con la aparici\'on de sue\~no MOR.
 
-%\section{Grupo Control}
-
 \begin{figure}
 \centering
 \begin{tabular}{ll}
 \Large{\textbf{Grupo Control}}
-%\end{figure}
-%
-%\begin{figure}[h]
 \\
 \begin{tabular}{c}
 \includegraphics[width=0.8\linewidth]
-{./g170413/VCNNS1_est.png} 
+{./img_ejemplos/VCNNS1_est.png} 
 \end{tabular}
 \end{tabular}
 \label{grf_VCR}
@@ -2886,35 +2807,33 @@ propuestos, que parecen estar relacionados con la aparici\'on de sue\~no MOR.
 \begin{figure}
 \centering
 \includegraphics[width=0.8\linewidth]
-{./g170413/MJNNVIGILOS_est.png} 
+{./img_ejemplos/MJNNVIGILOS_est.png} 
 \label{grf_MJH}
 \end{figure}
 
 \begin{figure}
 \centering
 \includegraphics[width=0.8\linewidth]
-{./g170413/JANASUE_est.png} 
+{./img_ejemplos/JANASUE_est.png} 
 \label{grf_JAE}
 \end{figure}
 
 \begin{figure}
 \centering
 \includegraphics[width=0.8\linewidth]
-{./g170413/GH24031950SUENNO_est.png} 
+{./img_ejemplos/GH24031950SUENNO_est.png} 
 \label{grf_GHA}
 \end{figure}
 
 \begin{figure}
 \centering
 \includegraphics[width=0.8\linewidth]
-{./g170413/GURM251148SUE_est.png} 
+{./img_ejemplos/GURM251148SUE_est.png} 
 \label{grf_MFGR}
 \end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%\section{Grupo PDC}
 
 \begin{figure}
 \Large{\textbf{Grupo PDC}}
@@ -2923,35 +2842,33 @@ propuestos, que parecen estar relacionados con la aparici\'on de sue\~no MOR.
 \begin{figure}
 \centering
 \includegraphics[width=0.8\linewidth]
-{./g170413/CLMN10SUE_est.png} 
+{./img_ejemplos/CLMN10SUE_est.png} 
 \label{grf_CLO}
 \end{figure}
 
 \begin{figure}
 \centering
 \includegraphics[width=0.8\linewidth]
-{./g170413/RLMN10SUE_est.png} 
+{./img_ejemplos/RLMN10SUE_est.png} 
 \label{grf_RLO}
 \end{figure}
 
 \begin{figure}
 \centering
 \includegraphics[width=0.8\linewidth]
-{./g170413/RRMNS_est.png} 
+{./img_ejemplos/RRMNS_est.png} 
 \label{grf_RRU}
 \end{figure}
 
 \begin{figure}
 \centering
 \includegraphics[width=0.8\linewidth]
-{./g170413/JGMN6SUE_est.png} 
+{./img_ejemplos/JGMN6SUE_est.png} 
 \label{grf_JGZ}
 \end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%\section{Sujetos exclu\'idos}
 
 \begin{figure}
 \Large{\textbf{Sujetos excluidos}}
@@ -2960,21 +2877,21 @@ propuestos, que parecen estar relacionados con la aparici\'on de sue\~no MOR.
 \begin{figure}
 \centering
 \includegraphics[width=0.8\linewidth]
-{./g170413/FGHSUE_est.png} 
+{./img_ejemplos/FGHSUE_est.png} 
 \label{grf_FGH}
 \end{figure}
 
 \begin{figure}
 \centering
 \includegraphics[width=0.8\linewidth]
-{./g170413/MGNA5SUE_est.png} 
+{./img_ejemplos/MGNA5SUE_est.png} 
 \label{grf_MGG}
 \end{figure}
 
 \begin{figure}
 \centering
 \includegraphics[width=0.8\linewidth]
-{./g170413/EMNNS_est.png} 
+{./img_ejemplos/EMNNS_est.png} 
 \label{grf_EMT}
 \end{figure}
 
@@ -2987,17 +2904,17 @@ propuestos, que parecen estar relacionados con la aparici\'on de sue\~no MOR.
 \Large{\textbf{Patrones visuales}}\\
 \begin{tabular}{c}
 \includegraphics[width=0.45\textwidth]
-{./graphs170427/zoom_VCR.pdf}
+{./img_ejemplos/zoom_VCR.pdf}
 \includegraphics[width=0.45\textwidth]
-{./graphs170427/zoom_MJH.pdf}
+{./img_ejemplos/zoom_MJH.pdf}
 \\
 \includegraphics[width=0.45\textwidth]
-{./graphs170427/zoom_JAE.pdf}
+{./img_ejemplos/zoom_JAE.pdf}
 \includegraphics[width=0.45\textwidth]
-{./graphs170427/zoom_GHA.pdf}
+{./img_ejemplos/zoom_GHA.pdf}
 \\
 \includegraphics[width=0.45\textwidth]
-{./graphs170427/zoom_MFGR.pdf}
+{./img_ejemplos/zoom_MFGR.pdf}
 \end{tabular}
 \end{tabular}
 \end{figure}
@@ -3011,7 +2928,6 @@ propuestos, que parecen estar relacionados con la aparici\'on de sue\~no MOR.
 %\bibliographystyle{abbrv_esp}
 \bibliographystyle{abbrv}
 \bibliography{referencias_estacionariedad,referencias_fisiologia,referencias_otros,referencias_mixto}{}
-%\addcontentsline{toc}{chapter*}{Bibliograf\'ia}
 %\bibliographystyle{apalike-es}
 }
 

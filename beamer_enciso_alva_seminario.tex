@@ -46,11 +46,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%\renewcommand{\bibfont}{\scriptsize}
-
 \renewcommand{\footnotesize}{\tiny}
-
-%AtEveryCitekey{\iffootnote{\color{red}\scriptsize}{\color{blue}}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -65,9 +61,6 @@
 %\setbeamercolor{palette tertiary}{use=structure,fg=white,bg=green}
 }
 
-%
-%
-%
 \definecolor{rojo}{rgb}{0.62353,0.10588,0.13725}
 \definecolor{rojo2}{rgb}{0.32353,0.050588,0.06725}
 \definecolor{naranja}{rgb}{0.91765,0.23137,0.16078}
@@ -179,7 +172,7 @@ marcador de deterioro cognitivo}
 
 \titlegraphic{
 \hspace*{8cm}~
-\includegraphics[width=9em]{./material1/SIGLAS_UAEH_02.png}
+\includegraphics[width=9em]{./img_oficiales/SIGLAS_UAEH_02.png}
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -187,53 +180,34 @@ marcador de deterioro cognitivo}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \begin{document}
 
 \frame{\titlepage}
 
-%\begin{frame}
-%\tableofcontents
-%\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Introducci\'on}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Antecedentes}
 
 \begin{frame}\frametitle{Antecedentes}
 \begin{itemize}
-\item Encuesta Intercensal 2015 (INEGI): 12,500,000 adultos mayores, 10.4 \%  de la 
-poblaci\'on \footcite{Intercensal15}
+\item Encuesta Intercensal 2015 (INEGI): 12,500,000 adultos mayores, 10.4 \%  de la poblaci\'on 
+\footcite{Intercensal15}
 
 \item Posible relaci\'on trastornos del sue\~no y DC en la vejez \footcite{Miyata13}
 
 \item Epidemiolog\'ia del DC en Hidalgo: eficiencia del sue\~no \footcite{VazquezTagle16}
 
-\item DFA en registros de PSG \footcite{Valeria}: 
-exponente de Hurst diferente en sujetos con y sin DC 
+\item DFA en registros de PSG \footcite{Valeria}: exponente de Hurst diferente en sujetos con y 
+sin DC 
 
 \item Se buscan marcadores cl\'inicos para el diagn\'ostico de DC
 \end{itemize}
 \end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%\begin{frame}\frametitle{El cuarteto de Anscombe}
-%\begin{figure}
-%\centering
-%\includegraphics[width=0.9\linewidth]{anscombe.pdf} 
-%\end{figure}
-%\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -254,7 +228,6 @@ cl\'inico para el deterioro cognitivo en adultos mayores?
 
 \section{Conceptos}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Matem\'aticas}
@@ -311,26 +284,6 @@ $\{X(t)\}$,  es que exista una funci\'on $F$ tal que
 \end{itemize}
 \end{thrm}
 \end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%\begin{frame}%\frametitle{}
-%\begin{thrm}[Wold]
-%Una condici\'on suficiente y necesaria para que $\rho$ sea funci\'on de autocorrelaci\'on para
-%alg\'un proceso estoc\'astico a tiempo discreto d\'ebilmente estacionario, $\{X(t)\}$, es que 
-%exista una funci\'on $F$ tal que
-%\begin{itemize}
-%\item Es mon\'otonamente creciente
-%\item $F(-\pi) = 0$
-%\item $F(+\pi) = 1$
-%\item Para todo $\tau \in \R$ se cumple que
-%\begin{equation*}
-%\rho(\tau) = \intPI e^{i \omega \tau} dF(\omega)
-%\end{equation*}
-%\end{itemize}
-%\end{thrm}
-%\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -472,7 +425,6 @@ p-value for T+I+R         : 0.1801353
 
 \begin{frame}[fragile]
 \begin{figure}
-%\centering
 \scalebox{0.8}{\usebox{\mybox}}
 \caption{La prueba de Priestley-Subba Rao se encuentra implementada en R como la funci\'on 
 \texttt{stationarity()}, del paquete \texttt{fractal}}
@@ -485,13 +437,6 @@ p-value for T+I+R         : 0.1801353
 \section{Metodolog\'ia}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%\subsection{Conceptos, fisiolog\'ia}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Sujetos}
 
@@ -582,7 +527,7 @@ Criterios de inclusi\'on:
 \begin{frame}\frametitle{Registro de PSG}
 \begin{figure}
 \centering
-\includegraphics[width=0.9\linewidth]{./p_170427/MJH_190_PDG_lucirse_PSG.pdf}
+\includegraphics[width=0.9\linewidth]{./img_ejemplos/MJH_190_PDG_lucirse_PSG.pdf}
 \caption{PSG: 19 electrodos EEG, 4 electrodos EOG (horizontal y vertical), 2 electrodos EMG en 
 m\'usculos submentonianos}
 \end{figure}
@@ -594,7 +539,7 @@ m\'usculos submentonianos}
 \begin{frame}\frametitle{PSG: EEG}
 \begin{figure}
 \centering
-\includegraphics[width=0.9\linewidth]{cabeza_hecha.pdf} 
+\includegraphics[width=0.9\linewidth]{./img_diagramas/cabeza_hecha.pdf} 
 \caption{Sistema de referencia 10--20}
 \end{figure}
 \end{frame}
@@ -653,6 +598,8 @@ m\'usculos submentonianos}
 
 \section{Resultados}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \subsection{Resultados principales}
 
 \begin{frame}\frametitle{Resultados principales}
@@ -682,19 +629,19 @@ etapa
 \centering
 \begin{tabular}{c}
 \begin{tabular}{ccccc}
-\includegraphics[width=0.15\textwidth]{./cabecitas/cabecita_VCR.pdf} &
-\includegraphics[width=0.15\textwidth]{./cabecitas/cabecita_MJH.pdf} &
-\includegraphics[width=0.15\textwidth]{./cabecitas/cabecita_JAE.pdf} &
-\includegraphics[width=0.15\textwidth]{./cabecitas/cabecita_GHA.pdf} &
-\includegraphics[width=0.15\textwidth]{./cabecitas/cabecita_MFGR.pdf} \\
+\includegraphics[width=0.15\textwidth]{./img_diagramas/cabecita_VCR.pdf} &
+\includegraphics[width=0.15\textwidth]{./img_diagramas/cabecita_MJH.pdf} &
+\includegraphics[width=0.15\textwidth]{./img_diagramas/cabecita_JAE.pdf} &
+\includegraphics[width=0.15\textwidth]{./img_diagramas/cabecita_GHA.pdf} &
+\includegraphics[width=0.15\textwidth]{./img_diagramas/cabecita_MFGR.pdf} \\
 VCR & MJH & JAE & GHA & MFGR
 \end{tabular}
 \\
 \begin{tabular}{cccc}
-\includegraphics[width=0.15\textwidth]{./cabecitas/cabecita_CLO.pdf} &
-\includegraphics[width=0.15\textwidth]{./cabecitas/cabecita_RLO.pdf} &
-\includegraphics[width=0.15\textwidth]{./cabecitas/cabecita_RRU.pdf} &
-\includegraphics[width=0.15\textwidth]{./cabecitas/cabecita_JGZ.pdf} \\
+\includegraphics[width=0.15\textwidth]{./img_diagramas/cabecita_CLO.pdf} &
+\includegraphics[width=0.15\textwidth]{./img_diagramas/cabecita_RLO.pdf} &
+\includegraphics[width=0.15\textwidth]{./img_diagramas/cabecita_RRU.pdf} &
+\includegraphics[width=0.15\textwidth]{./img_diagramas/cabecita_JGZ.pdf} \\
 CLO & RLO & RRU & JGZ
 \end{tabular}
 \end{tabular}
@@ -712,12 +659,12 @@ CLO & RLO & RRU & JGZ
 {\Large \textbf{MOR}}
 &
 \includegraphics[width=0.6\linewidth]
-{./new170424/Comparacion_gpos_MOR.pdf} 
+{./img_ejemplos/Comparacion_gpos_MOR.pdf} 
 \\
 {\Large \textbf{NMOR}}
 &
 \includegraphics[width=0.6\linewidth]
-{./new170424/Comparacion_gpos_NMOR.pdf} 
+{./img_ejemplos/Comparacion_gpos_NMOR.pdf} 
 \end{tabular}
 \caption{ Promedio $\pm$ 1 desviaci\'on est\'andar. Control: azul, PDC: rojo.}
 \end{figure}
@@ -733,12 +680,12 @@ CLO & RLO & RRU & JGZ
 {\Large \textbf{Gpo. Control}}
 &
 \includegraphics[width=0.6\linewidth]
-{./new170424/comp_etapas_gpos_NORMALMOR_vs_NMOR.pdf} 
+{./img_ejemplos/comp_etapas_gpos_NORMALMOR_vs_NMOR.pdf} 
 \\
 {\Large \textbf{Gpo. PDC}}
 &
 \includegraphics[width=0.6\linewidth]
-{./new170424/comp_etapas_gpos_PDCMOR_vs_NMOR.pdf} 
+{./img_ejemplos/comp_etapas_gpos_PDCMOR_vs_NMOR.pdf} 
 \end{tabular}
 \caption{ Promedio $\pm$ 1 desviaci\'on est\'andar. MOR: verde, NMOR: negro.}
 \end{figure}
@@ -751,7 +698,7 @@ CLO & RLO & RRU & JGZ
 \begin{figure}
 \centering
 \includegraphics[width=0.4\linewidth]
-{cabecita.pdf} 
+{./img_diagramas/cabecita.pdf} 
 \caption{Sitios con diferencias 
 significativas en la comparaci\'on entre el porcentaje de \'epocas PE durante sue\~no MOR y NMOR, 
 para el grupo Control}
@@ -766,7 +713,7 @@ para el grupo Control}
 \begin{frame}\frametitle{Patrones visuales}
 \begin{figure}
 \includegraphics[width=\textwidth]
-{./g170413/MJNNVIGILOS_est.png}
+{./img_ejemplos/MJNNVIGILOS_est.png}
 \caption{Disposici\'on gr\'afica para los resultados de la prueba PSR. En verde el sue\~no MOR.}
 \end{figure}
 \end{frame}
@@ -778,16 +725,16 @@ para el grupo Control}
 \begin{figure}
 \begin{tabular}{c}
 \includegraphics[width=0.3\textwidth]
-{./graphs170427/zoom_VCR.pdf}
+{./img_ejemplos/zoom_VCR.pdf}
 \includegraphics[width=0.3\textwidth]
-{./graphs170427/zoom_MJH.pdf}
+{./img_ejemplos/zoom_MJH.pdf}
 \includegraphics[width=0.3\textwidth]
-{./graphs170427/zoom_JAE.pdf}
+{./img_ejemplos/zoom_JAE.pdf}
 \\
 \includegraphics[width=0.3\textwidth]
-{./graphs170427/zoom_GHA.pdf}
+{./img_ejemplos/zoom_GHA.pdf}
 \includegraphics[width=0.3\textwidth]
-{./graphs170427/zoom_MFGR.pdf}
+{./img_ejemplos/zoom_MFGR.pdf}
 \end{tabular}
 \caption{Patrones visuales que, se propone, est\'a asociado con la aparici\'on del sue\~no MOR}
 \end{figure}
@@ -802,7 +749,7 @@ para el grupo Control}
 \begin{figure}
 \centering
 \includegraphics[width=0.95\linewidth]
-{./muypreeliminar170408/FGHSUE_est.png} 
+{./img_ejemplos/FGHSUE_est.png} 
 \caption{Compilado gr\'afico para el sujeto FGH.}
 \end{figure}
 \end{frame}
@@ -814,7 +761,7 @@ para el grupo Control}
 \begin{figure}
 \centering
 \includegraphics[width=0.95\linewidth]
-{./p_170511/FGH_297_PDG_lucirse_PSG.pdf} 
+{./img_ejemplos/FGH_297_PDG_lucirse_PSG.pdf} 
 \caption{Una \'epoca t\'ipica del registro PSG para el sujeto FGH durante sue\~no MOR. }
 \end{figure}
 \end{frame}
@@ -826,7 +773,7 @@ para el grupo Control}
 \begin{figure}
 \centering
 \includegraphics[width=0.9\linewidth]
-{./p_170511/VCNNS1_est_60.png} 
+{./img_ejemplos/VCNNS1_est_60.png} 
 \end{figure}
 \end{frame}
 
@@ -837,7 +784,7 @@ para el grupo Control}
 \begin{figure}
 \centering
 \includegraphics[width=0.9\linewidth]
-{./p_170511/VCNNS1_est_30.png} 
+{./img_ejemplos/VCNNS1_est_30.png} 
 \end{figure}
 \end{frame}
 
@@ -848,7 +795,7 @@ para el grupo Control}
 \begin{figure}
 \centering
 \includegraphics[width=0.9\linewidth]
-{./p_170511/VCNNS1_est_10.png} 
+{./img_ejemplos/VCNNS1_est_10.png} 
 \end{figure}
 \end{frame}
 
@@ -861,13 +808,13 @@ para el grupo Control}
 \centering
 \begin{tabular}{c}
 \includegraphics[width=0.4\linewidth]
-{./p_170511/VCNNS1_est_30.png} \\
+{./img_ejemplos/VCNNS1_est_30.png} \\
 \begin{tabular}{cc}
 \includegraphics[width=0.4\linewidth]
-{./p_170511/VCNNS1_est_60.png} 
+{./img_ejemplos/VCNNS1_est_60.png} 
 &
 \includegraphics[width=0.4\linewidth]
-{./p_170511/VCNNS1_est_10.png} 
+{./img_ejemplos/VCNNS1_est_10.png} 
 \end{tabular}
 \end{tabular}
 \end{figure}
@@ -919,30 +866,10 @@ NMOR en grupo Control
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%\setbeamercolor{structure}{fg=rojo,bg=naranja}
-%
-%\begin{frame}[allowframebreaks]
-%\frametitle{Bibliograf\'ia}
-%%\nocite{*}
-%\footnotesize{
-%%\bibliography{referencias}
-%\bibliography{referencias_estacionariedad,referencias_fisiologia,referencias_otros,referencias_mixto}{}
-%%\bibliographystyle{apalike-es}
-%\bibstyle{abbrv}
-%}
-%\end{frame}
-
-%\begin{frame}%\frametitle{}
-%\printbibliography
-%\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \begin{frame}\frametitle{Gracias por su atenci\'on}
 \begin{figure}
 \centering
-\includegraphics[width=0.4\linewidth]{cerebot.jpg}\\
+\includegraphics[width=0.4\linewidth]{./img_adornos/cerebot.jpg}\\
 \vspace*{1em}
 \textit{El cerebro es, quiz\'a, el \'unico \'organo capaz de estudiarse a s\'i mismo.}
 \end{figure}
