@@ -1,0 +1,111 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Antecedentes}
+
+En 2016, V\'azquez-Tagle y colaboradores \cite{VazquezTagle16} estudiaron la epidemiolog\'ia del 
+deterioro cognitivo en adultos mayores dentro del estado de Hidalgo; en aqu\'el estudio se 
+efectuaron registros polisomnogr\'aficos (PSG) y se confirm\'o una relaci\'on entre una menor 
+eficiencia del sue\~no\footnote{Se espera que el sue\~no cumpla sus funciones habituales si se 
+desarrolla con normalidad, luego entonces se puede medir si \'este exhibe una estructura t\'ipica} 
+y la presencia de deterioro cognitivo.
+En un segundo trabajo por Garc\'ia-Mu\~noz y colaboradores \cite{Valeria} se analizaron datos de 
+PSG para detectar posibles cambios en la conectividad funcional del cerebro\footnote{Se suele 
+hablar de \textbf{conectividad funcional} cuando las se\~nales registradas en dos lugares est\'an 
+estad\'isticamente 'muy' interrelacionadas; este t\'ermino se contrapone al de \textbf{conectividad 
+anat\'omica}, que se refiere a conexiones f\'isicas} en adultos mayores con posible deterioro 
+cognitivo (PDC), reportando un mayor exponente de Hurst para registros de PSG en adultos mayores 
+con PDC.
+El exponente de Hurst, calculado a trav\'es del algoritmo \textit{Detrended Fluctuation Analysis}, 
+est\'a relacionado con la 'estructura fractal' de una serie de tiempo (realizaci\'on de un proceso 
+estoc\'astico) de modo que un mayor exponente est\'a asociado con se\~nales cuya funci\'on de 
+autocorrelaci\'on decrece m\'as lentamente \cite{Rodriguez11}.
+En base a que en \cite{Valeria} se ha supuesto que los registros de PSG son no-estacionarios, en 
+este trabajo se pretende verificar si efectivamente estas se\~nales se pueden considerar con tal
+caracter\'istica.
+
+El supuesto de estacionariedad es b\'asico en el estudio de series de tiempo, y usualmente se 
+acepta o rechaza sin un tratamiento formal; es de particular importancia, por ejemplo, para 
+calcular el espectro de potencias.
+La idea de que sujetos con PDC exhiben estacionariedad d\'ebil en sus registros de EEG en mayor 
+proporci\'on, respecto a individuos sanos, fue sugerida por Cohen \cite{Cohen77}, quien a su vez se 
+refiere a trabajos anteriores sobre estacionariedad y normalidad en registros de EEG 
+\cite{McEwen75,Sugimoto78,Kawabata73}.
+Cabe mencionar que en estos primeros estudios se palpa la posibilidad de que los registros de EEG 
+fueran 'ruido' de alg\'un tipo, una idea que se ha probado err\'onea en estudios m\'as recientes 
+\cite{Klonowski09}; sin embargo, se retoma como hip\'otesis a la luz de los estudios mencionados. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Justificaci\'on}
+
+Los avances m\'edicos del \'ultimo siglo se han traducido en un incremento tanto en la esperanza de 
+vida como en la calidad de la misma. 
+De acuerdo a la Encuesta Intercensal 2015 realizada por INEGI \cite{Intercensal15}, se estima que
+en M\'exico habitan cerca de 12,500,000 adultos mayores, lo que representa un 10.4 \%  de la 
+poblaci\'on.
+Lamentablemente, tambi\'en se ve incrementada la presencia de enfermedades no-transmisibles, de 
+entre las cuales destacamos la demencia.
+El cuidado de enfermedades cr\'onicas en la poblaci\'on de edad avanzada representa un gran peso 
+econ\'omico y de recursos humanos, que recae sobre el sistema de salud y los familiares de los 
+afectados; por ello, cobra importancia un diagn\'ostico temprano del deterioro cognitivo que 
+disminuya el riesgo de su avance irreversible a demencia.
+
+Todav\'ia son incipientes las investigaciones para identificar los factores de riesgo modificables 
+asociados a la demencia \cite{PlanAlzheimer04}; recientemente, los trastornos del sue\~no han sido 
+se\~nalados como posiblemente relacionados con el deterioro cognitivo durante la vejez 
+\cite{Amer13,Miyata13,Potvin12}. Concretamente, una duraci\'on menor del sue\~no nocturno y una 
+mala eficiencia del mismo, en personas mayores, se relaciona con una peor ejecuci\'on en tareas de 
+memoria \cite{Reid06}. Las afectaciones relativas al sue\~no en personas mayores podr\'ian ser 
+m\'as problem\'aticas que para otros grupos de edad \cite{Potvin12}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Pregunta de investigaci\'on}
+
+¿Es posible que la caracterizaci\'on de registros de PSG como series de tiempo d\'ebilmente 
+estacionarias, pueda ser usada como un marcador en el diagn\'ostico cl\'inico de PDC en adultos 
+mayores?
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Hip\'otesis}
+
+Existen diferencias en la conectividad funcional del cerebro en adultos mayores con PDC, respecto
+a sujetos sanos, y es posible detectar estas diferencias como una mayor o menor 'presencia' de 
+estacionariedad d\'ebil en registros de PSG durante el sue\~no profundo.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Objetivo general}
+
+Deducir, a partir de pruebas estad\'isticas formales, las presencia de estacionariedad d\'ebil en
+registros de PSG para adultos mayores con PDC, as\'i como individuos control.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Objetivos espec\'ificos}
+
+\begin{itemize}
+\item Estudiar la definici\'on de estacionariedad para procesos estoc\'asticos y sus posibles 
+consecuencias dentro de un modelo para los datos considerados
+
+\item Investigar en la literatura c\'omo detectar si es plausible que una serie de tiempo dada sea 
+una realizaci\'on para un proceso estoc\'astico d\'ebilmente estacionario, y bajo qu\'e supuestos 
+es v\'alida esta caracterizaci\'on
+
+\item Usando los an\'alisis hallados en la literatura, determinar si las series de tiempo 
+obtenidas a partir de los datos considerados provienen de procesos d\'ebilmente estacionarios.
+Revisar si la informaci\'on obtenida en los diferentes sujetos muestra diferencias entre sujetos 
+con y sin PDC
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
