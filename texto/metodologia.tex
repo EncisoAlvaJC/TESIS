@@ -227,6 +227,14 @@ fueron almacenados para su an\'alisis posterior.
 
 \begin{figure}
 \centering
+\includegraphics[width=0.5\linewidth]{./img_diagramas/psr_simple.pdf}
+\caption{Representaci\'on diagram\'atica de la implementaci\'on en R de la prueba PSR. Se omite 
+filtrado previo mediante el algoritmo STL (ver texto).}
+\label{diagrama_psr}
+\end{figure}
+
+\begin{figure}
+\centering
 \begin{lstlisting}[caption={}]
 Priestley-Subba Rao stationarity Test for datos
 -----------------------------------------------
@@ -246,9 +254,10 @@ p-value for T+I+R         : 0.1801353
 \end{lstlisting}
 \caption{Resultado mostrado tras una ejecuci\'on de la funci\'on \texttt{stationarity}.
 El par\'ametro \texttt{n.blocks} define la cantidad grupos disjuntos para los cuales se 
-calcular\'a el estimador de la SDF.
+calcular\'a el estimador de la FDE.
 Cabe resaltar el antepen\'ultimo rengl\'on (\texttt{p-value for T}), seg\'un el cual se puede
-aceptar o rechazar la hip\'otesis de estacionariedad d\'ebil.}
+aceptar o rechazar la hip\'otesis de estacionariedad d\'ebil.
+La FDE es referida como 'Spectral Density Function' (SDF).}
 \label{res_psr}
 \end{figure}
 

@@ -255,12 +255,21 @@ clasificar, de manera estandarizada, las etapas de sue\~no a partir de registros
 No se discutir\'an en este trabajo motivaciones o evidencia para usar esta longitud de \'epoca en 
 particular, ni para el caso contrario, sino que se acepta por fines de comparabilidad. 
 Sin embargo, debido a un problema t\'ecnico, en alg\'un momento de este trabajo se usaron los 
-registros de PSG organizados en \'epocas de 10 segundos de duraci\'on; se realizaron los an\'alisis 
+registros de PSG organizados en \'epocas de 10 segundos de duraci\'on, como se muestra en la figura
+\ref{epocas_diferentes} (comparar con figura \ref{diagrama_psr}). Se realizaron todos los an\'alisis 
 descritos usando esta segmentaci\'on mixta (algunos sujetos con \'epocas de 10 s, otros con 
 \'epocas de 30 s) y se obtuvieron resultados seg\'un los cuales no hay diferencias significativas 
 en ninguno de los an\'alisis. 
 Por otro lado, la representaci\'on gr\'afica construida a partir de los mismos datos, organizados
 en \'epocas de 10 s, cambia sustancialmente (ver figura \ref{comp_VCR}).
+
+\begin{figure}
+\centering
+\includegraphics[width=0.7\linewidth]{./img_diagramas/epocas_diferentes.pdf}
+\caption{Esquema de c\'omo se han tomado diferentes tama\~nos de \'epoca para estudiar los mismos
+datos.}
+\label{epocas_diferentes}
+\end{figure}
 
 \begin{figure}
 \centering
@@ -283,8 +292,8 @@ organizan los datos, sugiere que ser\'a provechoso prestar mayor atenci\'on a la
 caracter\'isticas estudiadas y su posible interpretaci\'on en la fisiolog\'ia.
 Se propone que los registros de PSG tienen una propiedad referida como 'estacionariedad local',
 concepto introducido por Dahlhaus \cite{Dahlhaus97}.
-A grosso modo, un proceso localmente estacionario es aqu\'el cuya SDF (que puede depender del 
-tiempo) puede ser aproximada 'a trozos': usando SDF's correspondientes a procesos que poseen una 
+A grosso modo, un proceso localmente estacionario es aqu\'el cuya FDE (que puede depender del 
+tiempo) puede ser aproximada 'a trozos': usando FDE's correspondientes a procesos que poseen una 
 representaci\'on espectral de Cram\'er y que est\'an 'correctamente ensamblados'.
 
 %\begin{defn}[Estacionariedad local]
@@ -389,8 +398,8 @@ Por ejemplo, un marcador conocido \cite{Becerra12} del deterioro cognitivo es el
 de la actividad cerebral, entendido como un cambio en la concentraci\'on de energ\'ia desde ondas 
 r\'apidas a ondas lentas.
 Para detectar la estacionariedad d\'ebil se ha usado prueba de Priestley-Subba Rao, basada en 
-estimadores locales para la funci\'on de densidad espectral (SDF); estos mismos estimadores 
-podr\'ian ser usados para corroborar si efectivamente existen diferencias en la SDF para registros 
+estimadores locales para la funci\'on de densidad espectral (FDE); estos mismos estimadores 
+podr\'ian ser usados para corroborar si efectivamente existen diferencias en la FDE para registros 
 de adultos mayores con y sin deterioro cognitivo. 
 
 Finalmente, y como se mencion\'o anteriormente, los patrones visuales en la representaci\'on 

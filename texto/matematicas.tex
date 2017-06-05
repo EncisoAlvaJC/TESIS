@@ -269,7 +269,7 @@ tiempo $[a,b]$ est\'a dada por
 Sea $k$ una funci\'on peri\'odica (de periodo $2T$) que admite una serie de Fourier bien definida,
 $(A_n)$. Se cumple que
 \begin{equation*}
-\int_T^{T} X^{2}(t) dt = \sum_{n=-\infty}^{\infty} \abso{A_n}^{2}
+\int_T^{T} k^{2}(t) dt = \sum_{n=-\infty}^{\infty} \abso{A_n}^{2}
 \end{equation*}
 \label{parseval_serie}
 \end{thrm}
@@ -397,11 +397,11 @@ es constante) puede disipar una cantidad infinita de energ\'ia durante un tiempo
 Conviene, entonces, usar el tama\~no de los intervalos sobre los cuales se define $G_T$, de modo 
 que se converja a una 'densidad' de energ\'ia disipada:
 $\lim_{T\rightarrow{\infty}} \frac{ \left| G_T(\omega) \right|^{2}}{2 T}$.
-Tal expresi\'on se puede adaptar al proceso per se como en la definici\'on \ref{SDF}.
+Tal expresi\'on se puede adaptar al proceso per se como en la definici\'on \ref{FDE}.
 
-\begin{defn}[Funci\'on de densidad espectral (SDF)]
+\begin{defn}[Funci\'on de densidad espectral (FDE)]
 Sea $\{X(t)\}$ un proceso estoc\'astico en tiempo continuo, d\'ebilmente estacionario. Se define la 
-funci\'on de densidad espectral (SDF) para $\{X(t)\}$ como
+funci\'on de densidad espectral (FDE) para $\{X(t)\}$ como
 %\begin{equation*}
 %h(\omega) = \lim_{T\rightarrow \infty} \E{ \frac{ \left| G_T(\omega) \right|^{2}}{2 T} }
 %\end{equation*}
@@ -410,16 +410,16 @@ h(\omega) = \lim_{T\rightarrow \infty} \E{ \frac{1}{2T} \frac{1}{2 \pi}
 \abso{ \int_{-T}^{T} X(t) e^{-i \omega t} dt}^{2} }
 \end{equation*}
 %Donde $G_T (\omega) = \frac{1}{\sqrt{2 \pi}} \int_{-T}^{T} X(t) e^{-i \omega t} dt$
-\label{SDF}
+\label{FDE}
 \end{defn}
 
-Conviene mencionar que la convergencia de la SDF est\'a garantizada casi en todas partes, pero la
+Conviene mencionar que la convergencia de la FDE est\'a garantizada casi en todas partes, pero la
 funci\'on resultante puede no ser suficiente para explicar adecuadamente al proceso; por ejemplo, 
-un proceso peri\'odico, con periodo $T$, tendr\'a una SDF que es cero en todos sus puntos salvo en 
+un proceso peri\'odico, con periodo $T$, tendr\'a una FDE que es cero en todos sus puntos salvo en 
 los m\'ultiplos enteros de $T$.
 Este fen\'omeno es similar al caso de variables aleatorias discretas, que no poseen una funci\'on 
 de densidad de probabilidad bien definida en todos sus puntos.
-Conviene definir una versi\'on 'integral' de la SDF (definici\'on\ref{SDF_integrado}).
+Conviene definir una versi\'on 'integral' de la FDE (definici\'on\ref{FDE_integrado}).
 
 \begin{defn}[Funci\'on de espectro integrado]
 Sea $\{X(t)\}$ un proceso estoc\'astico a tiempo continuo, d\'ebilmente estacionario. Se define la 
@@ -428,10 +428,10 @@ funci\'on de espectro integrado para $\{X(t)\}$ como
 H(\omega) = \int_{-\infty}^{\omega} h(\lambda) d\lambda
 \end{equation*}
 Donde $h$ es la funci\'on de densidad espectral para $\{X(t)\}$
-\label{SDF_integrado}
+\label{FDE_integrado}
 \end{defn}
 
-Si la SDF, $h$, est\'a bien definida en todos sus puntos, entonces la funci\'on de espectro 
+Si la FDE, $h$, est\'a bien definida en todos sus puntos, entonces la funci\'on de espectro 
 integrado ($H$) satisface que $H\prima= h$ y se dir\'a que el proceso tiene un \textbf{espectro 
 puramente continuo}; si $H$ tiene una forma escalonada, con escalones rectos, se dir\'a que es un 
 \textbf{espectro puramente discreto}.
@@ -439,7 +439,7 @@ Como es de esperarse, cada tipo de proceso tiene caracter\'istica diferentes y s
 mejor con herramientas diferentes; para el caso de procesos con un espectro mixto (ninguno de los 
 anteriores), se exhiben herramientas que los reducen a estos casos 'puros'.
 
-Cabe destacar que, por como se defini\'o la SDF integrada, \'esta es una funci\'on positiva, 
+Cabe destacar que, por como se defini\'o la FDE integrada, \'esta es una funci\'on positiva, 
 no-decreciente, y que en $-\infty$ vale 0; esta observaci\'on ser\'a importante.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -448,9 +448,9 @@ no-decreciente, y que en $-\infty$ vale 0; esta observaci\'on ser\'a importante.
 \subsection{Estimaci\'on de la funci\'on de densidad espectral}
 
 Anteriormente se defini\'o espectro de potencias para procesos d\'ebilmente estacionarios con 
-segundos momentos finitos (definici\'on \ref{SDF}); sin embargo, aquella definici\'on es sumamente 
+segundos momentos finitos (definici\'on \ref{FDE}); sin embargo, aquella definici\'on es sumamente 
 ineficiente dentro de la estimaci\'on pues requiere valores esperados sobre todo del proceso.
-A continuaci\'on se muestran dos teoremas respecto a la SDF facilitar\'an su estimaci\'on.
+A continuaci\'on se muestran dos teoremas respecto a la FDE facilitar\'an su estimaci\'on.
 
 \begin{thrm}[Wiener-Khinchin]
 Una condici\'on suficiente y necesaria para que $\rho$ sea una funci\'on de autocorrelaci\'on de 
@@ -494,16 +494,16 @@ autocovarianza del proceso, entonces la ecuaci\'on anterior se traduce en que
 R(0) = \sigma^{2} \left( F(A) - F(-A) \right) = \sigma^{2} F(A)
 \end{equation*}
 donde $\sigma^{2}$ es la varianza del proceso. 
-Esta observaci\'on adquiere importancia porque la SDF integrada ($H$), por definici\'on, satisface 
+Esta observaci\'on adquiere importancia porque la FDE integrada ($H$), por definici\'on, satisface 
 el papel de $F$ salvo por la condici\'on $F(\infty)=1$; si se puede garantizar que 
 $H(\infty)<\infty$ entonces puede ser normalizada para satisfacer tal condici\'on y, m\'as a\'un,
 si tal fuera el caso entonces $H(\infty)=\sigma^{2}$. Una consecuencia muy fuerte de este 
 comentario es que, como se ha establecido previamente que s\'olo se considerar\'an procesos con
-segundos momentos finitos, entonces la SDF de los procesos considerados siempre es acotada.
+segundos momentos finitos, entonces la FDE de los procesos considerados siempre es acotada.
 
-Como corolario, se puede afirmar que la SDF de un proceso (d\'ebilmente estacionario y de varianza
+Como corolario, se puede afirmar que la FDE de un proceso (d\'ebilmente estacionario y de varianza
 finita) es la transformada de Fourier-Stieltjes de la funci\'on de autocovarianza.
-Esto implica que el estimador m\'as 'natural' para la SDF es la transformada de Fourier (discreta) 
+Esto implica que el estimador m\'as 'natural' para la FDE es la transformada de Fourier (discreta) 
 de la funci\'on de autocorrelaci\'on (estimada); esta funci\'on se conoce como 
 \textit{periodograma}. 
 
@@ -571,9 +571,9 @@ $\widehat{R}(\tau) = \frac{1}{N-\abso{\tau}} \sum_{t = 1}^{N-\abso{\tau}} x_t x_
 \label{periodograma_rho}
 \end{thrm}
 
-Se puede demostrar que el periodograma es un estimador insesgado de la SDF para los proceso 
+Se puede demostrar que el periodograma es un estimador insesgado de la FDE para los proceso 
 considerados; sin embargo, si el proceso tuviera un espectro puramente continuo, ocurre que 
-$\lim_{N\rightarrow \infty} \Var{I_N(\omega)} = h^{2}(\omega)$, con $h$ la SDF del proceso: el 
+$\lim_{N\rightarrow \infty} \Var{I_N(\omega)} = h^{2}(\omega)$, con $h$ la FDE del proceso: el 
 periodograma, en general, no es consistente.
 En parte esto ocurre porque el periodograma depende de los estimadores para la funci\'on de 
 autocovarianza, $\est{R}$, evaluada en todos los puntos posibles: para calcular $\est{R}$ en 
@@ -692,7 +692,7 @@ W(\theta) = \begin{cases}
 \bottomrule
 \end{tabular}
 \caption{Ejemplos de algunas ventanas que suavizan el periodograma, formando estimadores 
-consistente de la SDF para el caso de espectro puramente continuo.
+consistente de la FDE para el caso de espectro puramente continuo.
 Las funciones $F_M$ y $D_M$ toman, respectivamente, los nombres de \textit{n\'ucleo de Fejer} y
 \textit{N\'ucleo de Dirichlet} de orden $M$}
 \label{ventanas}
@@ -703,12 +703,12 @@ Las funciones $F_M$ y $D_M$ toman, respectivamente, los nombres de \textit{n\'uc
 
 \subsection{Filtros lineales}
 
-Como herramienta auxiliar en la estimaci\'on de la SDF, conviene considerar procesos del tipo 
+Como herramienta auxiliar en la estimaci\'on de la FDE, conviene considerar procesos del tipo 
 $Y(t) = \intR g(u) X(t-u) du$, referidos como 'filtrados'.
 Hist\'oricamente los filtros se originan como circuitos f\'isicos que, por dise\~no, son de ayuda 
 en la 'cancelaci\'on' anal\'ogica de componentes de frecuencia (ver m\'as adelante).
 %
-Los filtros, aplicados a proceso d\'ebilmente estacionarios, afectan su SDF de manera 'simple' 
+Los filtros, aplicados a proceso d\'ebilmente estacionarios, afectan su FDE de manera 'simple' 
 (teorema \ref{filtro}); por otro lado, permiten interpretar a procesos autorregresivos (AR) y de 
 medias m\'oviles (MA) como versiones filtradas de procesos ruido blanco; m\'as a\'un, si los 
 procesos filtrados pueden tener la forma\footnote{La integral est\'a definida en el sentido de 
@@ -727,7 +727,7 @@ Entonces, se cumple la siguiente relaci\'on
 \begin{equation*}
 h_X(\omega) = h_Y(\omega) \abso{\Gamma(\omega)}^{2}
 \end{equation*}
-donde $h_X$ y $h_Y$ son las respectivas SDF de $\{X(t)\}$ y $\{Y(t)\}$, y 
+donde $h_X$ y $h_Y$ son las respectivas FDE de $\{X(t)\}$ y $\{Y(t)\}$, y 
 $\Gamma(\omega) = \intR g(u) e^{i \omega u} du$.
 \label{filtro}
 \end{thrm}
@@ -751,7 +751,7 @@ referido como \textbf{filtro de banda}.
 \subsection{Representaci\'on de Wold-Cram\'er}
 
 Como consecuencia de los teoremas \ref{t_wienerkhinchin} y \ref{t_wold}, los procesos d\'ebilmente 
-estacionarios pueden ser caracterizados usando directamente la SDF (sin usar la funci\'on de
+estacionarios pueden ser caracterizados usando directamente la FDE (sin usar la funci\'on de
 autocorrelaci\'on).
 Esta representaci\'on existe en virtud del teorema \ref{rep_espectral}, cuya demostraci\'on no 
 ser\'a incluida en este trabajo; el lector interesado en tan imponente teorema puede referirse a 
@@ -773,7 +773,7 @@ Donde el proceso $\{Z(t)\}$ tiene las siguientes propiedades para todo $\omega$
 \item $\E{\abso{dZ(\omega)}^{2}} = dH(\omega)$
 \item $\Cov{dZ(\omega),dZ(\lambda)} = 0 \Leftrightarrow \omega \neq \lambda$
 \end{itemize}
-Donde $dH(\omega)$ la SDF integrada de $\{X(t)\}$
+Donde $dH(\omega)$ la FDE integrada de $\{X(t)\}$
 \label{rep_espectral}
 \end{thrm}
 
@@ -833,7 +833,7 @@ En cuando a $g$, se define a $\Gamma(u) = \intR g(u) e^{i u \omega} du$ y se les
 Cabe mencionar que las ventanas espectrales mostradas en la tabla \ref{ventanas} bien 
 pueden cumplir las propiedades requeridas para ser filtros.
 Posteriormente se define el estimador $U$ con el objetivo de asignar pesos en el tiempo para estimar
-a la SDF
+a la FDE
 % en el tiempo dado; m\'as a\'un, $U$ sirve 
 %como una aproximaci\'on de la representaci\'on de Wold-Cram\'er para 
 %el proceso.
@@ -865,7 +865,7 @@ $\displaystyle \lim_{\tau\rightarrow\infty} \tau \int_{-\infty}^{t} \abso{ W_{\t
 %m\'as a\'un, 
 Cabe mencionar que todas las ventanas mostradas en \ref{ventanas} satisfacen las propiedades 
 anteriores.
-Finalmente, se define el estimador $\est{f}$ para las SDF normalizada, $f_t$, como
+Finalmente, se define el estimador $\est{f}$ para las FDE normalizada, $f_t$, como
 \begin{equation*}
 \widehat{f}(t,\omega) = \int_{t-T}^{t} w_{T'}(u) \lvert U(t-u,\omega) \lvert^{2} du
 \label{estimador_doble_ventana}
@@ -883,7 +883,7 @@ asint\'oticamente insesgados y consistentes, y propone las siguientes aproximaci
 \intR \abso{\Gamma(\theta)}^{4} d\theta $
 \end{itemize}
 
-donde las funciones $\widetilde{f}$ y $\overline{f}$ son versiones 'suavizadas' de la SDF 
+donde las funciones $\widetilde{f}$ y $\overline{f}$ son versiones 'suavizadas' de la FDE 
 normalizada, $f$, y est\'an definidas de la siguiente manera
 \begin{equation*}
 \widetilde{f}(t,\omega+\theta) = 
@@ -930,8 +930,8 @@ El mismo efecto se logra si $\abso{U(t_1-u,\omega_1)}^{2}$ y $\abso{U(t_2-u,\ome
 no-correlacionados, pero por brevedad s\'olo se citar\'a de \cite{Priestley65} que basta que 
 $\Gamma$ sea una funci\'on \dirac, cuyo ancho sea menor a $\abso{t_1-t_2}$.
 
-Un dato sumamente importante para la estimaci\'on de la SDF es c\'omo la varianza del estimador 
-$\widehat{f}$ depende 'multiplicativamente' de la verdadera SDF.
+Un dato sumamente importante para la estimaci\'on de la FDE es c\'omo la varianza del estimador 
+$\widehat{f}$ depende 'multiplicativamente' de la verdadera FDE.
 Una interpretaci\'on sobre este hecho, difundida dentro de las ingenier\'ias, es sobre la 
 'modulaci\'on' de ondas, que puede verse como una 'multiplicaci\'on de ondas', y que motiva el uso 
 de la 'transformaci\'on logar\'itmica'.
