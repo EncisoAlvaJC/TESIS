@@ -4,7 +4,7 @@ setwd("~/TESIS/TESIS/img_diagramas")
 
 set.seed(2017)
 
-N = 50000
+N = 25000
 
 S = 10
 
