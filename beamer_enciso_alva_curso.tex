@@ -8,6 +8,9 @@
 \usepackage{amssymb}
 \usepackage{graphicx}
 
+% numeros con punto decimal, no coma
+\decimalpoint
+
 % para la bibliografia
 \usepackage[style=verbose,backend=bibtex]{biblatex}
 \bibstyle{abbrv}
@@ -15,6 +18,23 @@
 % codigo de R
 \usepackage{listings}
 \usepackage{color}
+
+% para las tablitas
+\usepackage{booktabs}
+
+% para tablas de colores
+\usepackage{xcolor,colortbl}
+\usepackage{multirow}
+
+%\usefonttheme[onlymath]{mathserif}
+%\usepackage{mathpazo} 
+\usepackage{eulervm}                 %
+\usepackage[scaled ]{helvet}  
+
+\newcommand{\bordes}[1]{\renewcommand{\arraystretch}{#1}}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{gris}{gray}{0.925}
+\definecolor{gris2}{gray}{0.8}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -61,7 +81,8 @@
 %\logo{} 
 \institute{Instituto de Ciencias B\'asicas e Ingenier\'ia\\ 
 Universidad Aut\'onoma del Estado de Hidalgo} 
-\date{6 de julio de 2017} 
+\date{\emph{Neuroscience Short Course}\\
+6 de julio de 2017} 
 %\subject{} 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -100,9 +121,10 @@ Universidad Aut\'onoma del Estado de Hidalgo}
 
 \begin{frame}\frametitle{Motivaci\'on}
 El estudio y diagnóstico de una gran cantidad de enfermedades depende de nuestra habilidad para
-registrar y analizar se\~nales electrofisiol\'ogicas. 
+registrar y analizar se\~nales electrofisiol\'ogicas. \\
 
-\vspace{3em}
+%\vspace{3em}
+\vspace{2em}
 
 Se suele asumir que estas se\~nales son complejas: no lineales, no estacionarias y sin equilibrio 
 por naturaleza. Pero usualmente no se comprueban formalmente estas propiedades.
@@ -190,33 +212,33 @@ $ \lim_{\tau\rightarrow\infty} \tau \int_{-\infty}^{t} \abso{ W_{\tau}(\lambda) 
 \end{defn}
 \end{frame}
 
-\begin{lrbox}{\mybox}%
-\begin{lstlisting}[caption={}]
-Priestley-Subba Rao stationarity Test for datos
------------------------------------------------
-Samples used              : 3072 
-Samples available         : 3069 
-Sampling interval         : 1 
-SDF estimator             : Multitaper 
-  Number of (sine) tapers : 5 
-  Centered                : TRUE 
-  Recentered              : FALSE 
-Number of blocks          : 11 
-Block size                : 279 
-Number of blocks          : 11 
-p-value for T             : 0.4130131 
-p-value for I+R           : 0.1787949 
-p-value for T+I+R         : 0.1801353 
-\end{lstlisting}
-\end{lrbox}%
-
-\begin{frame}[fragile]
-\begin{figure}
-\scalebox{0.8}{\usebox{\mybox}}
-\caption{La prueba de Priestley-Subba Rao se encuentra implementada en R como la funci\'on 
-\texttt{stationarity()}, del paquete \texttt{fractal}}
-\end{figure}
-\end{frame}
+%\begin{lrbox}{\mybox}%
+%\begin{lstlisting}[caption={}]
+%Priestley-Subba Rao stationarity Test for datos
+%-----------------------------------------------
+%Samples used              : 3072 
+%Samples available         : 3069 
+%Sampling interval         : 1 
+%SDF estimator             : Multitaper 
+%  Number of (sine) tapers : 5 
+%  Centered                : TRUE 
+%  Recentered              : FALSE 
+%Number of blocks          : 11 
+%Block size                : 279 
+%Number of blocks          : 11 
+%p-value for T             : 0.4130131 
+%p-value for I+R           : 0.1787949 
+%p-value for T+I+R         : 0.1801353 
+%\end{lstlisting}
+%\end{lrbox}%
+%
+%\begin{frame}[fragile]
+%\begin{figure}
+%\scalebox{0.8}{\usebox{\mybox}}
+%\caption{La prueba de Priestley-Subba Rao se encuentra implementada en R como la funci\'on 
+%\texttt{stationarity()}, del paquete \texttt{fractal}}
+%\end{figure}
+%\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -227,6 +249,88 @@ p-value for T+I+R         : 0.1801353
 %\begin{frame}{•}
 %
 %\end{frame}
+
+\section{Metodolog\'ia}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Sujetos}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}\frametitle{Sujetos}
+Criterios de inclusi\'on:
+\begin{itemize}
+\item Firma del consentimiento informado
+\item Edad entre 60 y 85 a\~nos
+\item Diestros (mano derecha dominante)
+\item Sin ansiedad, depresi\'on o s\'indromes focales
+\item No usar medicamentos o sustancias para dormir
+\item Voluntario para el registro de PSG
+\end{itemize}
+
+\textbf{9 participantes: 4 control, 5 PDC}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}\frametitle{Sujetos}
+\begin{table}
+\centering
+\bordes{1.1}
+\begin{tiny}
+\begin{tabular}{llcrrrrrrr}
+\toprule
+ \phantom{mm}&
+ & \textbf{Sexo} & \textbf{Edad} & \textbf{Esc.} & \textbf{Neuropsi} & \textbf{MMSE} & \textbf{SATS} & \textbf{KATZ} & \textbf{Gds} \\
+\midrule
+\multicolumn{6}{l}{\textbf{Gpo. Control}}\\
+&VCR    & F    & 59   & 12   & 107      & 29   & 21   & 0    & 3 \\
+&MJH    & F    & 72   & 9    & 113      & 30   & 18   & 0    & 0 \\
+&JAE    & F    & 78   & 5    & 102      & 28   & 19   & 0    & 5 \\
+&GHA    & M    & 65   & 9    & 107.5    & 30   & 23   & 0    & 7 \\
+&MFGR   & F    & 67   & 11   & 110      & 30   & 18   & 0    &   \\
+\rowcolor{gris}
+&\multicolumn{1}{c}{$\widehat{\mu}$} & 
+              & 68.20& 9.20 & 107.90   & 29.40& 19.80& 0.00 & 3.00\\
+\rowcolor{gris}
+&\multicolumn{1}{c}{$\widehat{\sigma}$} & 
+              & 7.19 & 2.68 & 4.07     & 0.89 & 2.17 & 0.00 & 3.08\\
+\midrule
+%\hline
+\multicolumn{6}{l}{\textbf{Gpo. PDC}}\\
+&CLO    & F    & 68   & 5    & 81       & 28   & 22   & 1    & 6 \\
+&RLO    & F    & 63   & 9    & 90       & 29   & 20   & 0    & 3 \\
+&RRU    & M    & 69   & 9    & 85       & 27   & 10   & 0    & 3 \\
+&JGZ    & M    & 65   & 11   & 87       & 25   & 20   & 0    & 1 \\
+\rowcolor{gris}
+&\multicolumn{1}{c}{$\widehat{\mu}$} & 
+              & 66.25& 8.50 & 85.75   & 27.25& 18.00& 0.25 & 3.25\\
+\rowcolor{gris}
+&\multicolumn{1}{c}{$\widehat{\sigma}$} & 
+              & 2.75 & 2.52 & 3.77    & 1.71 & 5.42 & 0.50 & 2.06\\
+\midrule
+%\hline
+\multicolumn{6}{l}{\textbf{Sujetos excluidos}}\\
+&FGH    & M    & 71   & 9    & 83.5     & 21   & 23   & 0    & 4  \\
+&MGG    & F    & 61   & 9    & 114      & 28   & 29   & 1    & 14 \\
+&EMT    & M    & 50   & 22   & 106      & 30   & 15   & 0    & 4  \\
+\bottomrule
+\end{tabular} 
+\end{tiny}
+\end{table}
+\end{frame}
+
+\begin{frame}\frametitle{Gracias por su atenci\'on}
+\begin{figure}
+\centering
+\includegraphics[width=0.4\linewidth]{./img_adornos/cerebot.jpg}\\
+\vspace*{1em}
+\textit{El cerebro es, quiz\'a, el \'unico \'organo capaz de estudiarse a s\'i mismo.}
+\end{figure}
+\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
