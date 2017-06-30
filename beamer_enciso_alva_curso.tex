@@ -1,0 +1,235 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[11pt]{beamer}
+\usetheme{metropolis}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+
+% para la bibliografia
+\usepackage[style=verbose,backend=bibtex]{biblatex}
+\bibstyle{abbrv}
+
+% codigo de R
+\usepackage{listings}
+\usepackage{color}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\addbibresource{referencias_estacionariedad.bib}
+\addbibresource{referencias_fisiologia.bib}
+\addbibresource{referencias_otros.bib}
+\addbibresource{referencias_mixto.bib}
+
+\renewcommand{\footnotesize}{\tiny}
+
+\newtheorem{defn}{Definici\'on}
+\newtheorem{thrm}{Teorema}
+\newtheorem{demostracion}{Demostraci\'on}
+\newtheorem{prop}{Proposici\'on}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\intR}{\int_{-\infty}^{\infty}}
+\newcommand{\intZ}{\int_{-\infty}^{0}}
+\newcommand{\intPI}{\int_{-\pi}^{\pi}}
+\newcommand{\simint}[1]{\int_{- #1 }^{ #1 }}
+\newcommand{\prima}{^{\prime}}
+
+\newcommand{\ddd}{$\delta$}
+\newcommand{\dirac}{$\delta$  de Dirac}
+
+\newcommand{\aste}[1]{\widehat{ #1 }^{\star}}
+\newcommand{\est}[1]{\widehat{ #1 }}
+
+\newcommand{\COS}[1]{\mathrm{cos}\left( #1 \right)}
+\newcommand{\SEN}[1]{\mathrm{sen}\left( #1 \right)}
+
+\newcommand{\E}[1]{\mathrm{E}\left[ #1 \right]}
+\newcommand{\Var}[1]{\mathrm{Var}\left( #1 \right)}
+\newcommand{\Cov}[1]{\mathrm{Cov}\left( #1 \right)}
+\newcommand{\abso}[1]{\left| #1 \right|}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\author{Julio Cesar Enciso Alva}
+\title{Estacionariedad d\'ebil}
+\subtitle{Detecci\'on en series electrofisiol\'ogicas}
+%\setbeamercovered{transparent} 
+\setbeamertemplate{navigation symbols}{} 
+%\logo{} 
+\institute{Instituto de Ciencias B\'asicas e Ingenier\'ia\\ 
+Universidad Aut\'onoma del Estado de Hidalgo} 
+\date{6 de julio de 2017} 
+%\subject{} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+%\begin{frame}
+%\tableofcontents
+%\end{frame}
+
+\section{Introducci\'on}
+
+%\subsection{Antecedentes}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\begin{frame}\frametitle{Antecedentes}
+%\begin{itemize}
+%\item Encuesta Intercensal 2015 (INEGI): 12,500,000 adultos mayores, 10.4 \%  de la poblaci\'on 
+%\footcite{Intercensal15}
+%
+%\item Posible relaci\'on trastornos del sue\~no y DC en la vejez \footcite{Miyata13}
+%
+%\item Epidemiolog\'ia del DC en Hidalgo: eficiencia del sue\~no \footcite{VazquezTagle16}
+%
+%\item DFA en registros de PSG \footcite{Valeria}: exponente de Hurst diferente en sujetos con y 
+%sin DC 
+%
+%\item Se buscan marcadores cl\'inicos para el diagn\'ostico de DC
+%\end{itemize}
+%\end{frame}
+
+\begin{frame}\frametitle{Motivaci\'on}
+El estudio y diagnóstico de una gran cantidad de enfermedades depende de nuestra habilidad para
+registrar y analizar se\~nales electrofisiol\'ogicas. 
+
+\vspace{3em}
+
+Se suele asumir que estas se\~nales son complejas: no lineales, no estacionarias y sin equilibrio 
+por naturaleza. Pero usualmente no se comprueban formalmente estas propiedades.
+\end{frame}
+
+\subsection{Matem\'aticas}
+
+\begin{frame}\frametitle{Conceptos}
+\begin{defn}[Estacionariedad d\'ebil]
+Un proceso estoc\'astico es d\'ebilmente estacionario si y s\'olo si para cualesquiera tiempos 
+admisibles $t$, $s$ se tiene que
+\begin{itemize}
+\item $\E{X(t)} = \mu_X$
+\item $\Var{X(t)} = \sigma^{2}_X$
+\item $\Cov{X(t),X(s)} = \rho_X (s-t)$
+\end{itemize}
+Con $\mu_X$, $\sigma^{2}_X$ constantes, $\rho_X(\tau)$ \'unicamente depende de $\tau$
+\end{defn}
+\end{frame}
+
+\begin{frame}\frametitle{Conceptos}
+\begin{defn}[Funci\'on de densidad espectral (SDF)]
+Sea $\{X(t)\}$ un proceso estoc\'astico a tiempo continuo, d\'ebilmente estacionario
+\begin{equation*}
+h(\omega) = \lim_{T\rightarrow \infty} \E{ \frac{ \left| G_T(\omega) \right|^{2}}{2 T} }
+\end{equation*}
+Donde $\displaystyle G_T (\omega) = \frac{1}{\sqrt{2 \pi}} \int_{-T}^{T} X(t) e^{-i \omega t} dt$
+\end{defn}
+\end{frame}
+
+\begin{frame}%\frametitle{}
+\begin{thrm}[Wiener-Khinchin]
+Una condici\'on suficiente y necesaria para que $\rho$ sea funci\'on de autocorrelaci\'on para 
+alg\'un proceso a tiempo continuo d\'ebilmente estacionario y estoc\'asticamente continuo, 
+$\{X(t)\}$,  es que exista una funci\'on $F$ tal que
+\begin{itemize}
+\item Es mon\'otonamente creciente
+\item $F(-\infty) = 0$
+\item $F(+\infty) = 1$
+\item Para todo $\tau \in \R$ se cumple que
+\begin{equation*}
+\rho(\tau) = \intR e^{i \omega \tau} dF(\omega)
+\end{equation*}
+\end{itemize}
+\end{thrm}
+\end{frame}
+
+\begin{frame}\frametitle{Espectro evolutivo}
+Se consideran procesos no-estacionarios, estoc\'asticamente continuos, de media cero y varianza 
+finita, y que admitan una representaci\'on de la forma
+\begin{equation*}
+X(t) = \intPI A(t,\omega) e^{i t \omega} dZ(\omega)
+\end{equation*}
+tal que 
+\begin{itemize}
+\item $\Cov{dZ(\omega),dZ(\lambda)} = 0 \Leftrightarrow \omega \neq \lambda$
+\item $\E{\abso{dZ(\omega)}^{2}} = \mu(\omega)$
+\end{itemize}
+
+El \textbf{espectro evolutivo} fue definido por Priestley \footcite{Priestley65} como
+\begin{equation*}
+f(t,\omega) = \abso{A(t,\omega)}^{2}
+\end{equation*}
+\end{frame}
+
+\begin{frame}%\frametitle{Estimador de doble ventana}
+\begin{defn}[Estimador de doble ventana]
+Se define a $\est{f}$, estimador para la $f$, como
+\begin{equation*}
+\widehat{f}(t,\omega) = \int_{t-T}^{t} w_{T'}(u) \lvert U(t-u,\omega) \lvert^{2} du
+\end{equation*}
+
+\begin{itemize}
+\item $U(t,\omega) = \int_{t-T}^{t} g(u) X({t-u}) e^{i \omega (t-u)} du$
+
+\item $2\pi \int_{-\infty}^{\infty} \lvert g(u) \lvert^{2} du = 
+\int_{-\infty}^{\infty} \lvert \Gamma(\omega) \lvert^{2} d\omega = 1$
+\item $w_{\tau}(t) \geq 0$ para cualesquiera $t$, $\tau$
+\item $w_{\tau}(t) \rightarrow 0$ cuando $\lvert t \lvert \rightarrow \infty$, para todo $\tau$
+\item $\int_{-\infty}^{\infty} w_{\tau}(t) dt = 1$ para todo $\tau$
+\item $ \int_{-\infty}^{\infty} \left( w_{\tau}(t) \right)^{2} dt < \infty$ para todo $\tau$
+\item $\exists C$ tal que  
+$ \lim_{\tau\rightarrow\infty} \tau \int_{-\infty}^{t} \abso{ W_{\tau}(\lambda) }^{2} d\lambda = C$
+\end{itemize}
+\end{defn}
+\end{frame}
+
+\begin{lrbox}{\mybox}%
+\begin{lstlisting}[caption={}]
+Priestley-Subba Rao stationarity Test for datos
+-----------------------------------------------
+Samples used              : 3072 
+Samples available         : 3069 
+Sampling interval         : 1 
+SDF estimator             : Multitaper 
+  Number of (sine) tapers : 5 
+  Centered                : TRUE 
+  Recentered              : FALSE 
+Number of blocks          : 11 
+Block size                : 279 
+Number of blocks          : 11 
+p-value for T             : 0.4130131 
+p-value for I+R           : 0.1787949 
+p-value for T+I+R         : 0.1801353 
+\end{lstlisting}
+\end{lrbox}%
+
+\begin{frame}[fragile]
+\begin{figure}
+\scalebox{0.8}{\usebox{\mybox}}
+\caption{La prueba de Priestley-Subba Rao se encuentra implementada en R como la funci\'on 
+\texttt{stationarity()}, del paquete \texttt{fractal}}
+\end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\begin{frame}{Algo}
+%Texto de ejemplo
+%\end{frame}
+
+%\begin{frame}{•}
+%
+%\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
