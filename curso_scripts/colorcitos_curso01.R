@@ -3,20 +3,33 @@
 # por Enciso Alva, 2017
 # Para citar y revisar instrucciones de uso, revisar documantacion anexa
 #
+# Alejandra Rosales-Lagarde, Erika Rodríguez-Torres,  Julio Enciso-Alva, 
+# Claudia Martínez-Alcalá, Génesis Vázquez-Tagle, 
+# Margarita Tetlalmatzi-Montiel, Jorge Viveros, and 
+# José Sócrates López-Noguerola (2017), STATIONARITY DURING REM SLEEP IN 
+# OLD ADULTS, Alzheimer's & Dementia, Volume #, Issue #, 2017, Pages P#, 
+# ISSN 1552-5260.
+# https://alz.confex.com/alz/2017/aaic/papers/index.cgi?username=16326&password=181472
+#
+
+#################################################
+# volver a la carpeta central
+setwd('C:/Users/Erika/Desktop/Julio161213/scripts170620')
 
 ###############################################################################
 # parametros del script, ver documantacion para mas informacion
 #nombre       = 'CLMN10SUE'
 #etiqueta     = 'CLMN'
-nombre      = 'MJNNVIGILOScCanal'
-etiqueta    = 'MJNN'
+#nombre      = 'MJNNVIGILOS'
+#etiqueta    = 'MJNN'
 dir_res_mid  = paste0(getwd(),'/res_parciales')
 dir_graf     = paste0(getwd(),'/graficos')
 fr_muestreo  = 512
 dur_epoca    = 30
 
-reemplazar = TRUE
-grabar     = FALSE
+reemplazar  = TRUE
+grabar      = FALSE
+anotaciones = ''
 
 canales      = 'PSG'
 #canales     = c('C3','C4','CZ','F3','F4','F7','F8','FP1','FP2','FZ','O1','O2',
@@ -25,47 +38,19 @@ canales      = 'PSG'
 binario = T
 p.vales = c(.05,.01,.005)
 escala  = F
+
+zoom           = FALSE
+unidad_par_t   = 'tiempo'
+ajuste_ini_hms = c(1,0,0)
+min_hms        = c(1,15,0)
+max_hms        = c(1,20,0)
+#unidad_par_t   = 'puntos'
+#ajuste_ini_epo = 0
+#min_epo        = 0
+#max_epo        = 0
+
+# parametros de dibujo
 paso    = 5
-
-str_hms = c(1,0,0)
-
-#################################################
-# parametros opcionales (zoom)
-zoom        = FALSE
-unidad_zoom = 'tiempo'
-#unidad_zoom = 'epoca'
-
-min_hms = c(-1 ,0,0)
-max_hms = c(100,0,0)
-
-min_epo = -1
-max_epo = 10^12
-
-# procesamiento parametros opcionales (zoom)
-if(zoom){
-  confirma_zoom = FALSE
-  if(unidad_zoom[1]=='t' || unidad_zoom[1]=='T'){
-    min_t = min_hms[1]*60*60 + min_hms[2]*60 + min_hms[3]
-    max_t = max_hms[1]*60*60 + max_hms[2]*60 + max_hms[3]
-
-    min_e = floor(min_t/dur_epoca)
-    max_e = ceiling(max_t/dur_epoca)
-    
-    confirma_zoom = TRUE
-  }
-  if(unidad_zoom[1]=='e' || unidad_zoom[1]=='E'){
-    min_t = min_epo*dur_epoca
-    max_t = max_epo*dur_epoca
-
-    min_e = min_epo
-    max_e = max_epo
-    
-    confirma_zoom = TRUE
-  }
-  if(!confirma_zoom){
-    warning('WARNING: Indique la unidad de tiempo para el zoom (epocas o segundos)')
-  }
-}
 
 #################################################
 # libreria especifica para el grafico tipo matriz
@@ -90,32 +75,100 @@ if(length(canales)<1){
 #################################################
 # parametros dependientes de los datos
 n_canales = length(canales)
+ventana   = dur_epoca*fr_muestreo
+
+#################################################
+# procesamiento parametros opcionales (ajuste)
+if(unidad_par_t =='tiempo'){
+  ini_t   = ajuste_ini_hms[1]*60*60
+  +ajuste_ini_hms[2]*60
+  +ajuste_ini_hms[3]
+  ini_epo = ini_t/dur_epoca
+  ini_pt  = floor(ini_t*fr_muestreo)
+}
+if(unidad_par_t =='epoca'){
+  ini_epo = ajuste_ini_epo
+  ini_t   = ini_epo*dur_epoca
+  ini_pt  = ini_epo*ventana
+}
+str_t   = 0
+str_epo = 1
+str_pt  = 1
+
+# ini : cuando inicia el archivo, util si es un fragmento
+# str : cuando inicia el zoom, evita la confusion provocada por ini
+
+# procesamiento parametros opcionales (zoom)
+if(zoom){
+  confirma_zoom = FALSE
+  if(unidad_par_t == 'tiempo'){
+    min_t  = min_hms[1]*60*60 + min_hms[2]*60 + min_hms[3] -ini_t
+    max_t  = max_hms[1]*60*60 + max_hms[2]*60 + max_hms[3] -ini_t
+    
+    min_e  = floor((min_t+ini_t)/dur_epoca -ini_epo)
+    max_e  = ceiling((max_t+ini_t)/dur_epoca -ini_epo)
+    
+    confirma_zoom = TRUE
+  }
+  if(unidad_par_t == 'puntos'){
+    min_t = min_epo*dur_epoca -ini_t
+    max_t = max_epo*dur_epoca -ini_t
+    
+    min_e = floor((min_epo+ini_t) -ini_epo)
+    max_e = ceiling((max_epo+ini_t) -ini_epo)
+    
+    confirma_zoom = TRUE
+  }
+  if(!confirma_zoom){
+    warning('WARNING: Indique unidad de tiempo para zoom (epocas o segundos)')
+  }
+  min_pt = floor(min_e*ventana)
+  max_pt = ceiling(max_e*ventana)
+  
+  str_t   = max(min_t, 0)
+  str_epo = max(min_e, 1)
+  str_pt  = max(min_pt,1)
+}
+
+#################################################
+# modo seguro: revisa si estan los archivos
+correctos = rep(FALSE,n_canales)
+n_datos   = Inf
+
+setwd(dir_res_mid)
+for(ch in 1:n_canales){
+  ch_actual = canales[ch]
+  if(file.exists(paste0('EST_',nombre,'_',ch_actual,'_T.txt'))){
+    correctos[ch] =TRUE
+  }else{
+    warning('ERROR: En canal ',ch_actual,', no se encontro el archivo ',
+            paste0(nombre,'_',ch_actual,'.txt'))
+  }
+}
+canales   = canales[correctos]
+n_canales = length(canales)
 
 #################################################
 # optimizacion: lee el tamano de los datos el contenedor
 setwd(dir_res_mid)
 ch        = 1
 ch_actual = canales[ch]
-nom_arch  = paste0('EST_',nombre,'_',ch_actual,'_T.csv'  )
-pv_t_pre  = read.csv(nom_arch,row.names=1 )
-pv_t      = as.numeric(unlist(pv_t_pre))
+nom_arch  = paste0('EST_',nombre,'_',ch_actual,'_T.txt')
+pv_t      = scan(nom_arch)
 n_epocas  = length(pv_t)
 
-
-
-ind_menor = min_t:max_t
-len_m = length(ind_menor)
-
-RES_T_Q = matrix(nrow=22,ncol=len_m)
-RES_2_Q = matrix(nrow=22,ncol=len_m)
-
-for(ch in 1:22){
-  RES_T_Q[ch,] = RES_T[ch,min_t:max_t]
-  RES_2_Q[ch,] = RES2[ch,min_t:max_t]
-}
-
-RES_T = RES_T_Q
-RES2  = RES_2_Q
+# ajustes en el tiempo
+if(zoom){
+  end_t    = min(max_t, n_epocas*dur_epoca)
+  end_epo  = min(max_e, n_epocas)
+  end_pt   = min(max_pt,n_epocas)
+  
+  ini_t    = ini_t   + str_t
+  ini_epo  = ini_epo + str_epo
+  ini_pt   = ini_pt  + str_pt
+  n_epocas = length(str_epo:end_epo)
+} 
+# end : cuando termina el zoom, evita la confusion provocada por ini
 
 #################################################
 # contenedores de los datos
@@ -126,9 +179,11 @@ RES_T   = matrix(nrow=n_canales,ncol=n_epocas)
 for(ch in 1:n_canales){
   # cargar los datos
   ch_actual = canales[ch]
-  nom_arch  = paste0('EST_',nombre,'_',ch_actual,'_T.csv'  )
-  pv_t_pre  = read.csv(nom_arch,row.names=1 )
-  pv_t      = as.numeric(unlist(pv_t_pre))
+  nom_arch  = paste0('EST_',nombre,'_',ch_actual,'_T.txt')
+  pv_t      = scan(nom_arch)
+  if(zoom){
+    pv_t    = pv_t[min_e:max_e]
+  }
   
   # si en algun canal se analizaron mas o menos epocas
   if(length(pv_t)!=n_epocas){
@@ -150,16 +205,21 @@ for(ch in 1:n_canales){
 
 #################################################
 # creacion etiquetas de tiempo
-ind_t  = (0:n_epocas)*(dur_epoca) + (str_hms[1]*60*60+str_hms[2]*60+str_hms[3])
+ind_t  = (0:n_epocas)*(dur_epoca) + ini_t
 ind_hh = floor(ind_t/(60*60))
 ind_mm = floor( (ind_t - ind_hh*60*60)/60 )
+ind_ss = floor(  ind_t - ind_hh*60*60 - ind_mm*60 )
 txt_t  = character(n_epocas+1)
 for(i in 1:(n_epocas+1)){
   txt_mm = toString(ind_mm[i])
   if(ind_mm[i]<10){
     txt_mm = paste0('0',ind_mm[i])
   }
-  txt_t[i] = paste0(toString(ind_hh[i]),':',txt_mm)
+  txt_ss = toString(ind_ss[i])
+  if(ind_ss[i]<10){
+    txt_ss = paste0('0',ind_ss[i])
+  }
+  txt_t[i] = paste0(toString(ind_hh[i]),':',txt_mm,':',txt_ss)
 }
 
 pass  = paso/dur_epoca
@@ -204,7 +264,7 @@ axis(2,at=1:22-0.5,labels=rev(canales),las=2,tick=F)
 axis(2,at=0:22,    labels=F,           las=2,tick=T)
 axis(3,labels=F,tick=T,at=c(0,n_epocas))
 skip = seq(1,n_epocas+1,by=paso)
-axis(1,at=skip-1,labels=txt_t[skip],las=2,tick=T)
+axis(1,at=skip-1,labels=txt_t[skip],las=1,tick=T)
   
 # significado de los colores
 if(escala){
@@ -224,29 +284,3 @@ if(grabar){
 }
 # fin guardado automatico del grafico
 #################################################
-
-
-  # # nombre del archivo que contiene las epocas MOR
-  # setwd(e_dir)
-  # ar_indice = paste0('epocas_mor_',nombre,'.txt')
-  # indice    = scan(ar_indice)
-  # 
-  # # numero total de epocas y numero de epocas MOR
-  # print(paste0('Total : ', toString(n_total)))
-  # print(paste0('  MOR : ', toString(length(indice) )))
-  # 
-  # 
-  # cs1=c(.6745,.1922),
-  # cs2=c(1    ,.5725),
-  # cs3=c(.5059,0    ),
-  # 
-  # #par(fig=c(0,.75,0,1),new=F) #para juntar los graficos
-
-# # CODIGO PREVIAMENTE RETIRADO
-# # cuando solo se grafican epocas MOR, separa bloques
-# # de epocas MOR seguidas, defectuoso
-# for(i in (1:(length(RES_T[1,])-1))){
-#   if( abs(IND_T[i]-(IND_T[i+1]-1)) > 2){
-#     abline(v=i,col='red',lty=2)
-#   }
-# }

@@ -11,10 +11,10 @@ etiqueta    = 'CLMN'
 dir_datos   = paste0(getwd(),'/CLMN10SUE')
 dir_res     = paste0(getwd(),'/res_parciales')
 
-# nombre      = 'MJNNVIGILOScCanal'
-# etiqueta    = 'MJNN'
-# dir_datos   = paste0(getwd(),'/MJNNVIGILOS')
-# dir_res     = paste0(getwd(),'/res_parciales')
+#nombre      = 'MJNNVIGILOS'
+#etiqueta    = 'MJNN'
+#dir_datos   = paste0(getwd(),'/MJNNVIGILOScCanal')
+#dir_res     = paste0(getwd(),'/res_parciales')
 
 extension   = '.txt'
 reemplazar  = TRUE
@@ -57,26 +57,6 @@ if(reemplazar){
 if(length(canales)<1){
   stop('ERROR: Lista de canales tiene longitud cero')
 }
-
-# if(missing(dir_datos)){
-#   dir_datos = getwd()
-# }else{
-#   if(!dir.exists(dir_datos)){
-#     stop('ERROR: El directorio con datos no existe, o no puede ser leido.')
-#   }
-# }
-# if(missing(dir_res)){
-#   if(haz_carpeta){
-#     dir_res = paste0(getwd(),'/est_',nombre)
-#     dir.create(dir_res)
-#   }else{
-#     dir_res = getwd()
-#   }
-# }else{
-#   if(!dir.exists(dir_res)){
-#     stop('ERROR: El directorio para resultados no existe')
-#   }
-# }
 if(missing(etiqueta)){
   etiqueta = nombre
 }
@@ -168,9 +148,12 @@ for(ch in 1:n_canales){
   
   # los resultados se guardan en un archivo .csv
   setwd(dir_res)
-  write.csv(pv.t  , paste0('EST_',nombre,'_',ch_actual,'_T.csv'  ))
-  #write.csv(pv.ir , paste0('EST_',nombre,'_',ch_actual,'_IR.csv' ))
-  #write.csv(pv.tir, paste0('EST_',nombre,'_',ch_actual,'_TIR.csv'))
+  write.table(pv.t  , paste0('EST_',nombre,'_',ch_actual,'_T.txt'  ),
+              row.names=FALSE,col.names=FALSE)
+  #write.table(pv.ir , paste0('EST_',nombre,'_',ch_actual,'_IR.txt' ),
+  #            row.names=FALSE,col.names=FALSE)
+  #write.table(pv.tir, paste0('EST_',nombre,'_',ch_actual,'_TIR.txt'),
+  #            row.names=FALSE,col.names=FALSE)
 }
 # fin del ciclo que recorre canales
 #################################################
