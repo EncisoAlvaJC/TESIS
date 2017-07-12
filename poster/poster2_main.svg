@@ -19,6 +19,94 @@
   <defs
      id="defs4">
     <linearGradient
+       id="linearGradient4855">
+      <stop
+         style="stop-color:#cecac7;stop-opacity:1;"
+         offset="0"
+         id="stop4857" />
+      <stop
+         style="stop-color:#e3dedb;stop-opacity:0;"
+         offset="1"
+         id="stop4859" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient4841">
+      <stop
+         style="stop-color:#e8e0c2;stop-opacity:1;"
+         offset="0"
+         id="stop4843" />
+      <stop
+         style="stop-color:#fff6d5;stop-opacity:0;"
+         offset="1"
+         id="stop4845" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient4807">
+      <stop
+         style="stop-color:#e8e8e8;stop-opacity:1;"
+         offset="0"
+         id="stop4809" />
+      <stop
+         style="stop-color:#ffffff;stop-opacity:0;"
+         offset="1"
+         id="stop4811" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient4797">
+      <stop
+         style="stop-color:#d8dec3;stop-opacity:1;"
+         offset="0"
+         id="stop4799" />
+      <stop
+         style="stop-color:#eef4d7;stop-opacity:0;"
+         offset="1"
+         id="stop4801" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient4787">
+      <stop
+         style="stop-color:#cfd7d9;stop-opacity:1;"
+         offset="0"
+         id="stop4789" />
+      <stop
+         style="stop-color:#e4edef;stop-opacity:0;"
+         offset="1"
+         id="stop4791" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient4777">
+      <stop
+         style="stop-color:#e8e0c2;stop-opacity:1;"
+         offset="0"
+         id="stop4779" />
+      <stop
+         style="stop-color:#fff6d5;stop-opacity:0;"
+         offset="1"
+         id="stop4781" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient4761">
+      <stop
+         style="stop-color:#decec3;stop-opacity:1;"
+         offset="0"
+         id="stop4763" />
+      <stop
+         style="stop-color:#f4e3d7;stop-opacity:0;"
+         offset="1"
+         id="stop4765" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient4749">
+      <stop
+         style="stop-color:#e5d4c9;stop-opacity:1;"
+         offset="0"
+         id="stop4751" />
+      <stop
+         style="stop-color:#f4e3d7;stop-opacity:0;"
+         offset="1"
+         id="stop4753" />
+    </linearGradient>
+    <linearGradient
        id="linearGradient5264">
       <stop
          style="stop-color:#d9cabf;stop-opacity:1;"
@@ -204,13 +292,13 @@
        y1="504.92102"
        x2="1417.3229"
        y2="504.92102"
-       gradientTransform="translate(0,830.59704)" />
+       gradientTransform="translate(0,832.67722)" />
     <linearGradient
        inkscape:collect="always"
        xlink:href="#linearGradient5230"
        id="linearGradient5244"
        gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(1.2580971,0,0,1,1411.5846,-4.303611)"
+       gradientTransform="matrix(1.2499999,0,0,1,1417.3228,6.7016962e-5)"
        x1="0"
        y1="504.92102"
        x2="1417.3229"
@@ -220,7 +308,7 @@
        xlink:href="#linearGradient5230"
        id="linearGradient5248"
        gradientUnits="userSpaceOnUse"
-       gradientTransform="translate(0,1536.3893)"
+       gradientTransform="translate(0,1541.3385)"
        x1="0"
        y1="504.92102"
        x2="1417.3229"
@@ -230,7 +318,7 @@
        xlink:href="#linearGradient5230"
        id="linearGradient5252"
        gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(1.2580971,0,0,1,1411.5846,2780.1331)"
+       gradientTransform="matrix(1.2499999,0,0,1,1417.3228,2746.0632)"
        x1="0"
        y1="504.92102"
        x2="1417.3229"
@@ -240,7 +328,7 @@
        xlink:href="#linearGradient5230"
        id="linearGradient5256"
        gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(1.501012,0,0,1,1067.2957,3206.1906)"
+       gradientTransform="matrix(1.4999999,0,0,1,1062.9922,3206.6929)"
        x1="0"
        y1="504.92102"
        x2="1417.3229"
@@ -250,7 +338,7 @@
        xlink:href="#linearGradient5230"
        id="linearGradient5260"
        gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(0.75101208,0,0,1,3.3297777e-5,3203.887)"
+       gradientTransform="matrix(0.74999995,0,0,1,3.2692785e-5,3206.693)"
        x1="0"
        y1="504.92102"
        x2="1417.3229"
@@ -274,6 +362,16 @@
        x2="1417.3229"
        y2="921.25961"
        gradientTransform="matrix(0.99392713,0,0,2.1781376,4.3036109,872.77277)" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4749"
+       id="linearGradient4755"
+       x1="0"
+       y1="921.25961"
+       x2="1417.3229"
+       y2="921.25961"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(-619.72006,176.44807)" />
   </defs>
   <sodipodi:namedview
      id="base"
@@ -283,10 +381,10 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.11618149"
-     inkscape:cx="1397.0378"
-     inkscape:cy="2417.5758"
+     inkscape:cx="1594.4882"
+     inkscape:cy="2125.9841"
      inkscape:document-units="cm"
-     inkscape:current-layer="layer2"
+     inkscape:current-layer="layer3"
      showgrid="false"
      units="cm"
      inkscape:window-width="1366"
@@ -323,7 +421,9 @@
   <g
      inkscape:groupmode="layer"
      id="layer2"
-     inkscape:label="colores">
+     inkscape:label="colores"
+     style="display:inline"
+     sodipodi:insensitive="true">
     <rect
        style="fill:#e3dedb;fill-opacity:1;fill-rule:nonzero;stroke:none;display:inline"
        id="rect6148"
@@ -348,9 +448,9 @@
        style="fill:#eef4d7;fill-opacity:1;fill-rule:nonzero;stroke:none;display:inline"
        id="rect5028"
        width="1771.6536"
-       height="301.18109"
+       height="336.61417"
        x="1417.3229"
-       y="3348.425" />
+       y="3312.9929" />
     <rect
        style="fill:#7c241a;fill-opacity:1;fill-rule:nonzero;stroke:none;display:inline"
        id="rect5012"
@@ -371,7 +471,7 @@
        width="1771.6536"
        height="124.01575"
        x="1417.3229"
-       y="3224.4092" />
+       y="3188.9761" />
     <rect
        style="fill:#fff6d5;fill-opacity:1;fill-rule:nonzero;stroke:none;display:inline"
        id="rect5022"
@@ -438,7 +538,7 @@
     <rect
        y="566.92889"
        x="1417.3229"
-       height="1311.0237"
+       height="1257.874"
        width="1771.6536"
        id="rect4731"
        style="fill:#e4edef;fill-opacity:1;stroke:none;display:inline" />
@@ -455,16 +555,16 @@
        width="1417.3229"
        height="124.01575"
        x="0"
-       y="1273.5101" />
+       y="1275.5903" />
     <rect
-       y="438.60947"
-       x="1411.5846"
+       y="442.91315"
+       x="1417.3229"
        height="124.01575"
-       width="1783.1299"
+       width="1771.6536"
        id="rect5242"
        style="fill:url(#linearGradient5244);fill-opacity:1;fill-rule:nonzero;stroke:none;display:inline" />
     <rect
-       y="1979.3025"
+       y="1984.2517"
        x="0"
        height="124.01575"
        width="1417.3229"
@@ -473,24 +573,24 @@
     <rect
        style="fill:url(#linearGradient5252);fill-opacity:1;fill-rule:nonzero;stroke:none;display:inline"
        id="rect5250"
-       width="1783.1299"
+       width="1771.6536"
        height="124.01575"
-       x="1411.5846"
-       y="3223.0461" />
+       x="1417.3229"
+       y="3188.9761" />
     <rect
-       y="3649.1038"
-       x="1067.2957"
+       y="3649.606"
+       x="1062.9921"
        height="124.01575"
-       width="2127.4187"
+       width="2125.9841"
        id="rect5254"
        style="fill:url(#linearGradient5256);fill-opacity:1;fill-rule:nonzero;stroke:none;display:inline" />
     <rect
        style="fill:url(#linearGradient5260);fill-opacity:1;fill-rule:nonzero;stroke:none;display:inline"
        id="rect5258"
-       width="1064.4266"
+       width="1062.9921"
        height="124.01575"
-       x="5.6087316e-07"
-       y="3646.8" />
+       x="0"
+       y="3649.606" />
   </g>
   <g
      inkscape:groupmode="layer"
@@ -602,9 +702,9 @@
        width="1771.6536"
        height="35.433071"
        x="1417.3229"
-       y="3348.425" />
+       y="3312.9919" />
     <rect
-       y="3188.9761"
+       y="3153.543"
        x="1417.3229"
        height="35.433071"
        width="1771.6536"
@@ -662,7 +762,7 @@
     <rect
        y="3224.4092"
        x="1452.7559"
-       height="124.01575"
+       height="88.58268"
        width="53.149605"
        id="rect4726"
        style="fill:#008000;fill-opacity:0.44313725;stroke:none" />
@@ -964,7 +1064,7 @@
            y="687.4798"
            style="font-family:sans-serif" /></flowRegion><flowPara
          id="flowPara4404"
-         style="font-size:44px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:justify;line-height:1.25000000000000000;text-anchor:start;font-family:Bookman Old Style;-inkscape-font-specification:Bookman Old Style">Rapid Eye Movement (REM) sleep exhibits a low voltage mixed frequency electroencephalogram (EEG), muscular atonia and REMs [2]. Usually, EEG signals are assumed to be non-linear and non-stationary and no testing is performed, particularly in Old Adults (OA) sleep registers. The aim of this research was to compare the proportion of stationarity of REM sleep vs non-REM (NREM) sleep and wakefulness (W). Stationarity was analyzed using the Priestley-Subba Rao (PSR) test. We also explored if this tool can be used to detect the traditional indicators of sleep stages along the sleep recording, focusing especially in REM sleep.</flowPara></flowRoot>    <flowRoot
+         style="font-size:44px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:justify;line-height:1.25;text-anchor:start;font-family:Bookman Old Style;-inkscape-font-specification:Bookman Old Style">Rapid Eye Movement (REM) sleep exhibits a low voltage mixed frequency electroencephalogram (EEG), muscular atonia and REMs [2]. Usually, EEG signals are assumed to be non-linear and non-stationary and no testing is performed, particularly in Old Adults (OA) sleep registers. The aim of this research was to compare the proportion of stationarity of REM sleep vs non-REM (NREM) sleep and wakefulness (W). Stationarity was analyzed using the Priestley-Subba Rao (PSR) test. We also explored if this tool can be used to detect the traditional indicators of sleep stages along the sleep recording, focusing especially in REM sleep.</flowPara></flowRoot>    <flowRoot
        xml:space="preserve"
        id="flowRoot4457"
        style="font-size:9.81818199px;font-style:normal;font-weight:normal;line-height:0.01%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;display:inline;font-family:sans-serif"
@@ -978,17 +1078,17 @@
            y="678.15692"
            style="font-size:20.45454597px;font-family:sans-serif" /></flowRegion><flowPara
          id="flowPara4475"
-         style="font-size:44px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:justify;line-height:1.25000000000000000;text-anchor:start;font-family:Bookman Old Style;-inkscape-font-specification:Bookman Old Style">Five OA [age: 68.2 ± 7.2; education: 9.2 ± 2.7] without depression neither anxiety and with intact daily living activities were selected. They were evaluated with the Mini-Mental State Examination (MMSE, 29.4 ± 0.9). Also, a one night polysomnography (PSG) was performed. From those recordings, epochs of 30 seconds were classified according to the American Association of Sleep Medicine (AASM). Finally every epoch of W, NREM and REM sleep was filtered and subjected to the PSR test.</flowPara></flowRoot>    <text
+         style="font-size:44px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:justify;line-height:1.25;text-anchor:start;font-family:Bookman Old Style;-inkscape-font-specification:Bookman Old Style">Five OA [age: 68.2 ± 7.2; education: 9.2 ± 2.7] without depression neither anxiety and with intact daily living activities were selected. They were evaluated with the Mini-Mental State Examination (MMSE, 29.4 ± 0.9). Also, a one night polysomnography (PSG) was performed. From those recordings, epochs of 30 seconds were classified according to the American Association of Sleep Medicine (AASM). Finally every epoch of W, NREM and REM sleep was filtered and subjected to the PSR test.</flowPara></flowRoot>    <text
        sodipodi:linespacing="0%"
        xml:space="preserve"
        style="font-size:9.81818199px;font-style:normal;font-weight:normal;line-height:0%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;display:inline;font-family:sans-serif"
        x="85.325912"
-       y="2061.304"
+       y="2063.304"
        id="text4266"><tspan
          id="tspan4268"
          sodipodi:role="line"
          x="85.325912"
-         y="2061.304"
+         y="2063.304"
          style="font-size:65px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:1.25;fill:#ffffff;font-family:Bookman Old Style;-inkscape-font-specification:Bookman Old Style Bold">Prueba de Priestley-Subba Rao (PSR)</tspan></text>
     <flowRoot
        transform="translate(132.72954,280.6561)"
@@ -1004,8 +1104,8 @@
            width="1346.7815"
            id="rect4713" /></flowRegion><flowPara
          id="flowPara4715"
-         style="font-size:44px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:justify;line-height:1.25000000000000000;text-anchor:start;font-family:Bookman Old Style;-inkscape-font-specification:Bookman Old Style">The test introduced by Priestley and Subba Rao [3,4], estimates the spectrum of the signal and then tests it with the hypothesis ''spectrum does vary over time'' –which is equivalent to test non-stationarity. Prior to that, deterministic trends are removed from the signals by applying the algorithm 'Seasonal-Trend decomposition using Loess' [1].</flowPara><flowPara
-         style="font-size:44px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:justify;line-height:1.25000000000000000;text-anchor:start;font-family:Bookman Old Style;-inkscape-font-specification:Bookman Old Style"
+         style="font-size:43px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:justify;line-height:1.25000000000000000;text-anchor:start;font-family:Bookman Old Style;-inkscape-font-specification:Bookman Old Style">The test introduced by Priestley and Subba Rao [3,4], estimates the spectrum of the signal and then tests it with the hypothesis ''spectrum does vary over time'' –which is equivalent to test non-stationarity. Prior to that, deterministic trends are removed from the signals by applying the algorithm 'Seasonal-Trend decomposition using Loess' [1].</flowPara><flowPara
+         style="font-size:43px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:justify;line-height:1.25000000000000000;text-anchor:start;font-family:Bookman Old Style;-inkscape-font-specification:Bookman Old Style"
          id="flowPara4717">Percentages of stationary epochs were calculated for each subject and stage, and Wilcoxon t-tests were used to compare them.</flowPara></flowRoot>    <flowRoot
        style="font-size:9.81818199px;font-style:normal;font-weight:normal;line-height:0.01%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;display:inline;font-family:sans-serif"
        id="flowRoot4719"
@@ -1020,7 +1120,7 @@
            width="1346.4768"
            id="rect4723" /></flowRegion><flowPara
          id="flowPara4725"
-         style="font-size:35px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:justify;line-height:1.25000000000000000;text-anchor:start;font-family:Bookman Old Style;-inkscape-font-specification:Bookman Old Style Bold">Figure 1: <flowSpan
+         style="font-size:35px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:justify;line-height:1.25;text-anchor:start;font-family:Bookman Old Style;-inkscape-font-specification:Bookman Old Style Bold">Figure 1: <flowSpan
    id="flowSpan4727"
    style="font-size:35px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Bookman Old Style;-inkscape-font-specification:Bookman Old Style">Diagram of the method. PSG of one 30 s epoch for an OA (left). REM sleep is classified by AASM standards, signals are filtered and weak stationarity is detected using PSR test (center). Comparision of percentage of stationary epochs at REM (green) and NREM (black) of an OA (right).</flowSpan></flowPara></flowRoot>    <text
        sodipodi:linespacing="0%"
@@ -1057,37 +1157,37 @@
            height="653.85736"
            width="2779.1296"
            id="rect5802" /></flowRegion><flowPara
-         style="font-size:72.78222383px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:end;text-anchor:end;font-family:Bookman Old Style;-inkscape-font-specification:Bookman Old Style"
+         style="font-size:72.78222656px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:end;text-anchor:end;font-family:Bookman Old Style;-inkscape-font-specification:Bookman Old Style"
          id="flowPara5804"><flowSpan
-   style="text-align:justify;text-anchor:start;font-size:72.78222383px"
+   style="font-size:72.78222656px;text-align:justify;text-anchor:start"
    id="flowSpan7603">The PSR test effectively showed different proportions of stationary epochs, according to the classification of REM sleep stages in each subject. In Figure 2, for one OA, stationary epochs are shown in black and the classification of REM sleep is shown in green. Clearly, a lower </flowSpan>proportion of stationarity was found in REM sleep vs the other stages. These differences reached significance in C3, C4, CZ, F7, Fp1,  LOG, ROG (p&lt;0.05, Figure 3)</flowPara></flowRoot>    <text
        sodipodi:linespacing="0%"
-       transform="scale(0.98256276,1.0177467)"
+       transform="scale(0.98620302,1.01399)"
        xml:space="preserve"
-       style="font-size:9.29906368px;font-style:normal;font-weight:normal;line-height:0%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;display:inline;font-family:sans-serif"
-       x="756.67993"
-       y="2691.3711"
+       style="font-size:9.33351517px;font-style:normal;font-weight:normal;line-height:0%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;display:inline;font-family:sans-serif"
+       x="1264.321"
+       y="3002.2078"
        id="text4270"><tspan
-         style="font-size:26.37966728px;text-align:center;line-height:1.25;text-anchor:middle;font-family:sans-serif"
+         style="font-size:26.47740173px;text-align:center;line-height:1.25;text-anchor:middle;font-family:sans-serif"
          sodipodi:role="line"
          id="tspan4272"
-         x="756.67993"
-         y="2691.3711">Sleep stage</tspan><tspan
-         style="font-size:26.37966728px;text-align:center;line-height:1.25;text-anchor:middle;font-family:sans-serif"
+         x="1264.321"
+         y="3002.2078">Sleep stage</tspan><tspan
+         style="font-size:26.47740173px;text-align:center;line-height:1.25;text-anchor:middle;font-family:sans-serif"
          sodipodi:role="line"
-         x="756.67993"
-         y="2724.3457"
+         x="1264.321"
+         y="3035.3044"
          id="tspan4274">classification</tspan></text>
     <rect
-       style="fill:none;stroke:#000000;stroke-width:2.74578643;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:0.99497483;stroke-dasharray:none;stroke-dashoffset:0;display:inline"
+       style="fill:none;stroke:#000000;stroke-width:2.75595927;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:0.99497483;stroke-dasharray:none;stroke-dashoffset:0;display:inline"
        id="rect4276"
-       width="178.80128"
+       width="180.12862"
        height="84.812988"
-       x="653.18561"
-       y="2704.5264" />
+       x="1153.7554"
+       y="3011.7527" />
     <g
        id="g4278"
-       transform="matrix(0.38832918,0,0,0.43289621,-575.24521,3254.2957)"
+       transform="matrix(0.39121194,0,0,0.43289621,-1130.6614,3383.9847)"
        style="display:inline">
       <text
          sodipodi:linespacing="0%"
@@ -1125,89 +1225,84 @@
     <text
        sodipodi:linespacing="0%"
        xml:space="preserve"
-       style="font-size:9.29906368px;font-style:normal;font-weight:normal;line-height:0%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;display:inline;font-family:sans-serif"
-       x="1207.7561"
-       y="2912.8066"
+       style="font-size:9.33351517px;font-style:normal;font-weight:normal;line-height:0%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;display:inline;font-family:sans-serif"
+       x="1229.4629"
+       y="3217.4658"
        id="text4293"
-       transform="scale(0.97887759,1.0215782)"><tspan
+       transform="scale(0.98250425,1.0178073)"><tspan
          sodipodi:role="line"
          id="tspan4295"
-         x="1207.7561"
-         y="2912.8066"
-         style="font-size:23.5073185px;text-align:center;line-height:0.89999998;text-anchor:middle;font-family:sans-serif">% stationary epochs at REM</tspan><tspan
+         x="1229.4629"
+         y="3217.4658"
+         style="font-size:23.59440994px;text-align:center;line-height:0.89999998;text-anchor:middle;font-family:sans-serif">% stationary epochs at REM</tspan><tspan
          sodipodi:role="line"
-         x="1207.7561"
-         y="2933.9631"
-         style="font-size:23.5073185px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:0.89999998;text-anchor:middle;font-family:sans-serif;-inkscape-font-specification:sans-serif"
+         x="1229.4629"
+         y="3238.7007"
+         style="font-size:23.59440994px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:0.89999998;text-anchor:middle;font-family:sans-serif;-inkscape-font-specification:sans-serif"
          id="tspan4297">vs</tspan><tspan
          sodipodi:role="line"
-         x="1207.7561"
-         y="2955.1199"
-         style="font-size:23.5073185px;text-align:center;line-height:0.89999998;text-anchor:middle;font-family:sans-serif"
+         x="1229.4629"
+         y="3259.9358"
+         style="font-size:23.59440994px;text-align:center;line-height:0.89999998;text-anchor:middle;font-family:sans-serif"
          id="tspan4299">% stationary epochs at NREM</tspan></text>
     <g
-       transform="matrix(0.26440529,0,0,0.24567774,-15.416891,2902.8948)"
+       transform="matrix(0.2663681,0,0,0.24567774,29.37297,2877.0731)"
        id="g4301"
        style="display:inline">
       <text
          sodipodi:linespacing="0%"
          xml:space="preserve"
          style="font-style:normal;font-weight:normal;line-height:0%;letter-spacing:0px;word-spacing:0px;fill:#4d4d4d;fill-opacity:1;stroke:none;font-family:sans-serif"
-         x="310.37027"
-         y="447.68695"
+         x="1158.5935"
+         y="377.61774"
          id="text4303"><tspan
-           id="tspan4305"
-           sodipodi:role="line"
-           x="310.37027"
-           y="447.68695"
-           style="font-size:104.33143616px;line-height:1.25;fill:#4d4d4d;font-family:sans-serif">PSG records: EEG + electrooculogram </tspan><tspan
            id="tspan4307"
            sodipodi:role="line"
-           x="310.37027"
-           y="578.10126"
-           style="font-size:104.33143616px;line-height:1.25;fill:#4d4d4d;font-family:sans-serif">                           + electromiogram</tspan></text>
+           x="1158.5935"
+           y="377.61774"
+           style="font-size:104.33143616px;line-height:1.25;fill:#4d4d4d;font-family:sans-serif">PSG records: EEG + electrooculogram + electromiogram</tspan></text>
     </g>
     <text
        sodipodi:linespacing="0%"
        xml:space="preserve"
-       style="font-size:9.29906368px;font-style:normal;font-weight:normal;line-height:0%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;display:inline;font-family:sans-serif"
-       x="643.96362"
-       y="2698.0945"
+       style="font-size:9.33351517px;font-style:normal;font-weight:normal;line-height:0%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;display:inline;font-family:sans-serif"
+       x="620.93585"
+       y="2945.5491"
        id="text4309"
-       transform="scale(0.94712683,1.0558248)"><tspan
+       transform="scale(0.95063585,1.0519275)"><tspan
          sodipodi:role="line"
          id="tspan4311"
-         x="643.96362"
-         y="2698.0945"
-         style="font-size:25.28046989px;line-height:1.25">(For every 30 s epoch)</tspan></text>
+         x="620.93585"
+         y="2945.5491"
+         style="font-size:25.37413025px;line-height:1.25">For every 30 s epoch</tspan></text>
     <path
        sodipodi:nodetypes="cc"
-       style="fill:none;stroke:#000000;stroke-width:2.74578643;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-end:url(#marker2257);display:inline"
-       d="m 542.39776,2822.8295 107.80889,-80.2869"
+       style="fill:none;stroke:#000000;stroke-width:2.75595927;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-end:url(#marker2257);display:inline"
+       d="M 343.87089,2926.1162 232.9959,3017.9737"
        id="path4313"
        inkscape:connector-curvature="0" />
     <path
        sodipodi:nodetypes="cc"
-       style="fill:none;stroke:#000000;stroke-width:2.74578643;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-end:url(#marker2339);display:inline"
-       d="m 542.64794,2860.0932 76.93785,71.4592"
+       style="fill:none;stroke:#000000;stroke-width:2.75595927;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-end:url(#marker2339);display:inline"
+       d="m 1140.291,2931.1027 71.0536,80.0665"
        id="path4315"
        inkscape:connector-curvature="0" />
     <path
        sodipodi:nodetypes="cc"
-       style="fill:none;stroke:#000000;stroke-width:2.74578643;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-end:url(#marker2157);display:inline"
-       d="m 834.32671,2742.5224 143.48301,21.7215"
+       style="fill:none;stroke:#000000;stroke-width:2.75595927;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-end:url(#marker2157);display:inline"
+       d="m 358.23221,3058.8379 219.86134,30.3286"
        id="path4317"
        inkscape:connector-curvature="0" />
     <path
        sodipodi:nodetypes="cc"
-       style="fill:none;stroke:#000000;stroke-width:2.74578643;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-end:url(#marker2931);display:inline"
-       d="m 869.59563,2939.8425 102.72756,-45.3997"
+       style="fill:none;stroke:#000000;stroke-width:2.75595927;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-end:url(#marker2931);display:inline"
+       d="m 1116.7697,3064.6473 -247.25419,19.1544"
        id="path4319"
        inkscape:connector-curvature="0" />
     <g
        id="g4321"
        inkscape:label="MJH_1275_difporcentaje"
-       transform="matrix(0.94096644,0,0,-1.0717731,941.36171,2954.2606)"
+       transform="matrix(1.8938036,0,0,-1.1980651,91.669134,3425.8268)"
        style="display:inline">
       <g
          id="g4323" />
@@ -2215,12 +2310,12 @@
     <image
        sodipodi:absref="/home/julio/Tesis/TESIS/poster/MJH_190_PDG_lucirse_PSG.png"
        xlink:href="MJH_190_PDG_lucirse_PSG.png"
-       width="520.12152"
-       height="318.89764"
+       width="1268.5074"
+       height="321.04944"
        preserveAspectRatio="none"
        id="image4707"
-       x="38.204777"
-       y="2674.7603"
+       x="70.481865"
+       y="2616.6084"
        style="display:inline" />
     <image
        width="779.72113"
@@ -5449,28 +5544,28 @@
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;line-height:0%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;display:inline;font-family:sans-serif"
        x="1503.3325"
-       y="3311.5037"
+       y="3275.5037"
        id="text5986"
        sodipodi:linespacing="0%"><tspan
          sodipodi:role="line"
          id="tspan5984"
          x="1503.3325"
-         y="3311.5037"
-         style="font-size:75px;font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;line-height:1.25;fill:#ffffff;font-family:Bookman Old Style;-inkscape-font-specification:Bookman Old Style Semi-Bold">Conclusiones</tspan></text>
+         y="3275.5037"
+         style="font-size:70px;font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;line-height:1.25;fill:#ffffff;font-family:Bookman Old Style;-inkscape-font-specification:Bookman Old Style Semi-Bold">Conclusiones</tspan></text>
     <flowRoot
        xml:space="preserve"
        id="flowRoot4587"
        style="font-style:normal;font-weight:normal;line-height:0.01%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;display:inline;font-family:sans-serif"
-       transform="translate(-512.6812,766.42744)"><flowRegion
+       transform="translate(-512.6812,722.42744)"><flowRegion
          id="flowRegion4589"
          style="font-family:sans-serif"><rect
            id="rect4591"
            width="1701.7188"
-           height="266.66281"
+           height="302.67657"
            x="1963.7427"
            y="2616.106"
            style="font-family:sans-serif" /></flowRegion><flowPara
-         style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:justify;line-height:1.25000000000000000;text-anchor:start;font-family:Bookman Old Style;-inkscape-font-specification:Bookman Old Style"
+         style="font-size:45px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:justify;line-height:1.25;text-anchor:start;font-family:Bookman Old Style;-inkscape-font-specification:Bookman Old Style"
          id="flowPara4603">In OA, REM sleep showed lower proportions of epochs with weak stationarity, compared to W and NREM sleep, at frontal left and central areas and in both electrooculograms, a result that could be explained by the REM sleep characterization. The graphic method described seems to be a suitable way to detect REM sleep in OA.</flowPara></flowRoot>    <image
        width="779.77942"
        height="189.26079"
@@ -5485,11 +5580,11 @@
        xml:space="preserve"
        style="font-size:7.826087px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;line-height:0%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;display:inline;font-family:Bookman Old Style;-inkscape-font-specification:Bookman Old Style Light"
        x="1454.9197"
-       y="3085.0364"
+       y="3071.0364"
        id="text5011"><tspan
          sodipodi:role="line"
          x="1454.9197"
-         y="3085.0364"
+         y="3071.0364"
          style="font-size:30px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;line-height:1.25;fill:#000000;stroke:none;font-family:Bookman Old Style;-inkscape-font-specification:Bookman Old Style Light"
          id="tspan7605"><tspan
    id="tspan5015"
@@ -5497,11 +5592,11 @@
          id="tspan5017"
          sodipodi:role="line"
          x="1454.9197"
-         y="3122.8845"
+         y="3108.8845"
          style="font-size:30px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;line-height:1.25;fill:#000000;stroke:none;font-family:Bookman Old Style;-inkscape-font-specification:Bookman Old Style Light">with REM sleep. Epochs corresponding to the full register (Up). Zoom over the patterns, highlighting details of them: </tspan><tspan
          sodipodi:role="line"
          x="1454.9197"
-         y="3160.3845"
+         y="3146.3845"
          style="font-size:30px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;line-height:1.25;fill:#000000;stroke:none;font-family:Bookman Old Style;-inkscape-font-specification:Bookman Old Style Light"
          id="tspan7611">a 'block of stationarity' (red) a 'block of non-stationarity' (blue) and a block containing REM sleep (green) (down).</tspan></text>
     <path
@@ -5564,9 +5659,9 @@
            x="3580.6362"
            y="2596.5791"
            style="font-family:sans-serif" /></flowRegion><flowPara
-         style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:justify;line-height:1.25000000000000000;text-anchor:start;font-family:Bookman Old Style;-inkscape-font-specification:Bookman Old Style"
+         style="font-size:41px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:justify;line-height:1.25;text-anchor:start;font-family:Bookman Old Style;-inkscape-font-specification:Bookman Old Style"
          id="flowPara4632"><flowSpan
-   style="font-size:40px;line-height:1.50000000000000000"
+   style="font-size:41px;line-height:1.5"
    id="flowSpan1206">This study was partially supported by the following: SNI-CONACYT (96080) to ERT; PROMEP Convenio UAEHGO-103.5-14-10567, the Mexican Mathema-</flowSpan>tical Society Sofia Kovalévskaya (2014) to ERT and the support of Academicians Applied Mathematics to Biology and Computer Science to ERT.</flowPara></flowRoot>    <text
        xml:space="preserve"
        style="font-size:9.81818199px;font-style:normal;font-weight:normal;line-height:0%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;display:inline;font-family:sans-serif"
@@ -5604,23 +5699,23 @@
            x="1157.7451"
            y="3806.0137"
            style="font-family:sans-serif" /></flowRegion><flowPara
-         style="font-size:44px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:justify;line-height:129.99999522999999613%;text-anchor:start;font-family:Bookman Old Style;-inkscape-font-specification:Bookman Old Style"
+         style="font-size:44px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:justify;line-height:129.99999523%;text-anchor:start;font-family:Bookman Old Style;-inkscape-font-specification:Bookman Old Style"
          id="flowPara4334">Cleveland R. B., Cleveland W. S., McRae J. E., Terpenning I. (1990). STL: A seasonal-trend decomposition procedure based on loess. <flowSpan
-   style="font-size:44px;font-style:italic;font-variant:normal;font-weight:300;font-stretch:normal;line-height:129.99999522999999613%;font-family:Bookman Old Style;-inkscape-font-specification:Bookman Old Style Light Italic"
+   style="font-size:44px;font-style:italic;font-variant:normal;font-weight:300;font-stretch:normal;line-height:129.99999523%;font-family:Bookman Old Style;-inkscape-font-specification:Bookman Old Style Light Italic"
    id="flowSpan5576">Journal of Official Statistics,</flowSpan> 6: 3-73.</flowPara><flowPara
-         style="font-size:44px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:justify;line-height:129.99999522999999613%;text-anchor:start;font-family:Bookman Old Style;-inkscape-font-specification:Bookman Old Style"
+         style="font-size:44px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:justify;line-height:129.99999523%;text-anchor:start;font-family:Bookman Old Style;-inkscape-font-specification:Bookman Old Style"
          id="flowPara4400">Niedermeyer, E., da Silva, F. L. (Eds.). (2005). <flowSpan
-   style="font-size:44px;font-style:italic;font-variant:normal;font-weight:300;font-stretch:normal;line-height:129.99999522999999613%;font-family:Bookman Old Style;-inkscape-font-specification:Bookman Old Style Light Italic"
+   style="font-size:44px;font-style:italic;font-variant:normal;font-weight:300;font-stretch:normal;line-height:129.99999523%;font-family:Bookman Old Style;-inkscape-font-specification:Bookman Old Style Light Italic"
    id="flowSpan5578">Electroencephalography: Basic principles, clinical applications, and related fields</flowSpan>. Lippincott Williams &amp; Wilkins, Philadelphia.</flowPara><flowPara
-         style="font-size:44px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:justify;line-height:129.99999522999999613%;text-anchor:start;font-family:Bookman Old Style;-inkscape-font-specification:Bookman Old Style"
+         style="font-size:44px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:justify;line-height:129.99999523%;text-anchor:start;font-family:Bookman Old Style;-inkscape-font-specification:Bookman Old Style"
          id="flowPara5662">Priestley M. B. (1981). <flowSpan
-   style="font-size:44px;font-style:italic;font-variant:normal;font-weight:300;font-stretch:normal;line-height:129.99999522999999613%;font-family:Bookman Old Style;-inkscape-font-specification:Bookman Old Style Light Italic"
+   style="font-size:44px;font-style:italic;font-variant:normal;font-weight:300;font-stretch:normal;line-height:129.99999523%;font-family:Bookman Old Style;-inkscape-font-specification:Bookman Old Style Light Italic"
    id="flowSpan5580">Spectral Analysis and Time Series</flowSpan>. Academic Press, London.</flowPara><flowPara
-         style="font-size:44px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:justify;line-height:129.99999522999999613%;text-anchor:start;font-family:Bookman Old Style;-inkscape-font-specification:Bookman Old Style"
+         style="font-size:44px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:justify;line-height:129.99999523%;text-anchor:start;font-family:Bookman Old Style;-inkscape-font-specification:Bookman Old Style"
          id="flowPara4523">Priestley M. B., Rao T. S. (1969). A test for non-stationarity of time-series. <flowSpan
-   style="font-size:44px;font-style:italic;font-variant:normal;font-weight:300;font-stretch:normal;line-height:129.99999522999999613%;font-family:Bookman Old Style;-inkscape-font-specification:Bookman Old Style Light Italic"
+   style="font-size:44px;font-style:italic;font-variant:normal;font-weight:300;font-stretch:normal;line-height:129.99999523%;font-family:Bookman Old Style;-inkscape-font-specification:Bookman Old Style Light Italic"
    id="flowSpan5582">Journal of the Royal Statistical Society: Series B  (Methodological)</flowSpan>, 1: 140-149.</flowPara><flowPara
-         style="font-size:44px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:justify;line-height:129.99999522999999613%;text-anchor:start;font-family:Bookman Old Style;-inkscape-font-specification:Bookman Old Style"
+         style="font-size:44px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:justify;line-height:129.99999523%;text-anchor:start;font-family:Bookman Old Style;-inkscape-font-specification:Bookman Old Style"
          id="flowPara4525"> </flowPara></flowRoot>    <flowRoot
        xml:space="preserve"
        id="flowRoot4356"
@@ -5634,15 +5729,28 @@
            y="2566.2285"
            style="font-size:40.625px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Bookman Old Style;-inkscape-font-specification:Bookman Old Style" /></flowRegion><flowPara
          id="flowPara4364"
-         style="font-size:53.77777634px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:end;line-height:129.99999522999999613%;text-anchor:end;font-family:Bookman Old Style;-inkscape-font-specification:Bookman Old Style Bold">[1]</flowPara><flowPara
-         style="font-size:53.77777634px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:end;line-height:129.99999522999999613%;text-anchor:end;font-family:Bookman Old Style;-inkscape-font-specification:Bookman Old Style Bold"
+         style="font-size:53.77777481px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:end;line-height:129.99999523%;text-anchor:end;font-family:Bookman Old Style;-inkscape-font-specification:Bookman Old Style Bold">[1]</flowPara><flowPara
+         style="font-size:53.77777481px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:end;line-height:129.99999523%;text-anchor:end;font-family:Bookman Old Style;-inkscape-font-specification:Bookman Old Style Bold"
          id="flowPara5664"> </flowPara><flowPara
          id="flowPara4366"
-         style="font-size:53.77777634px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:end;line-height:129.99999522999999613%;text-anchor:end;font-family:Bookman Old Style;-inkscape-font-specification:Bookman Old Style Bold">[2]</flowPara><flowPara
-         style="font-size:53.77777634px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:end;line-height:129.99999522999999613%;text-anchor:end;font-family:Bookman Old Style;-inkscape-font-specification:Bookman Old Style Bold"
+         style="font-size:53.77777481px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:end;line-height:129.99999523%;text-anchor:end;font-family:Bookman Old Style;-inkscape-font-specification:Bookman Old Style Bold">[2]</flowPara><flowPara
+         style="font-size:53.77777481px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:end;line-height:129.99999523%;text-anchor:end;font-family:Bookman Old Style;-inkscape-font-specification:Bookman Old Style Bold"
          id="flowPara4431"> </flowPara><flowPara
          id="flowPara4368"
-         style="font-size:53.77777634px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:end;line-height:129.99999522999999613%;text-anchor:end;font-family:Bookman Old Style;-inkscape-font-specification:Bookman Old Style Bold">[3]</flowPara><flowPara
+         style="font-size:53.77777481px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:end;line-height:129.99999523%;text-anchor:end;font-family:Bookman Old Style;-inkscape-font-specification:Bookman Old Style Bold">[3]</flowPara><flowPara
          id="flowPara4531"
-         style="font-size:53.77777634px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:end;line-height:129.99999522999999613%;text-anchor:end;font-family:Bookman Old Style;-inkscape-font-specification:Bookman Old Style Bold">[4]</flowPara></flowRoot>  </g>
+         style="font-size:53.77777481px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:end;line-height:129.99999523%;text-anchor:end;font-family:Bookman Old Style;-inkscape-font-specification:Bookman Old Style Bold">[4]</flowPara></flowRoot>    <path
+       inkscape:connector-curvature="0"
+       id="path4869"
+       d="m 738.06028,3095.0369 0.19413,92.5764"
+       style="fill:none;stroke:#000000;stroke-width:3.28471851;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-end:url(#marker2931);display:inline"
+       sodipodi:nodetypes="cc" />
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:2.78941083;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       id="rect4814"
+       width="281.88016"
+       height="58.092339"
+       x="576.68713"
+       y="3057.7192" />
+  </g>
 </svg>
