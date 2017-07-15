@@ -15,7 +15,7 @@
    viewBox="0 0 6838.5827 2976.3779"
    id="svg2"
    version="1.1"
-   inkscape:version="0.91 r13725"
+   inkscape:version="0.48.4 r9939"
    sodipodi:docname="poster_main.svg">
   <defs
      id="defs4">
@@ -495,16 +495,16 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.35517767"
-     inkscape:cx="4115.2347"
-     inkscape:cy="2301.2241"
+     inkscape:cx="5544.434"
+     inkscape:cy="386.68933"
      inkscape:document-units="cm"
      inkscape:current-layer="layer1"
      showgrid="false"
      units="cm"
-     inkscape:window-width="1280"
-     inkscape:window-height="724"
+     inkscape:window-width="1366"
+     inkscape:window-height="690"
      inkscape:window-x="0"
-     inkscape:window-y="24"
+     inkscape:window-y="25"
      inkscape:window-maximized="1"
      showguides="true"
      inkscape:snap-global="false"
@@ -519,7 +519,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -722,7 +722,10 @@
        style="image-rendering:optimizeQuality"
        preserveAspectRatio="none"
        height="301.18109"
-       width="850.39368" />
+       width="850.39368"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/JAE_zoom.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <image
        y="7.0866175"
        x="4925.1968"
@@ -731,7 +734,10 @@
        style="image-rendering:optimizeQuality"
        preserveAspectRatio="none"
        height="301.18109"
-       width="850.39368" />
+       width="850.39368"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/GHA_zoom.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <image
        y="7.0866175"
        x="5881.8896"
@@ -740,7 +746,10 @@
        style="image-rendering:optimizeQuality"
        preserveAspectRatio="none"
        height="301.18109"
-       width="850.39368" />
+       width="850.39368"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/MFGR_zoom.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <image
        y="7.0866175"
        x="3011.811"
@@ -749,7 +758,10 @@
        style="image-rendering:optimizeQuality"
        preserveAspectRatio="none"
        height="301.18109"
-       width="850.39368" />
+       width="850.39368"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/MJH_zoom.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <image
        y="7.6677027"
        x="2055.1182"
@@ -758,10 +770,16 @@
        style="image-rendering:optimizeQuality"
        preserveAspectRatio="none"
        height="300.60001"
-       width="850.20001" />
+       width="850.20001"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/VCR_zoom.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <g
        id="g4512"
-       transform="matrix(1.4135595,0,0,1.3205864,4729.8688,-985.17092)">
+       transform="matrix(1.4135595,0,0,1.3205864,4729.8688,-985.17092)"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <g
          id="g4258">
         <circle
@@ -1665,7 +1683,10 @@
        x="963.85333"
        style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.36777917px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        xml:space="preserve"
-       transform="scale(1.0374142,0.96393514)"><tspan
+       transform="scale(1.0374142,0.96393514)"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/diagrama.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
          y="437.30115"
          x="963.85333"
          id="tspan2479"
@@ -1682,10 +1703,16 @@
        height="103.66032"
        width="243.6153"
        id="rect2485"
-       style="opacity:1;fill:none;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:3.54330707;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.99497483" />
+       style="opacity:1;fill:none;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:3.54330707;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.99497483"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/diagrama.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <g
        transform="matrix(0.52909537,0,0,0.52909537,-796.84446,1051.1716)"
-       id="g2499">
+       id="g2499"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/diagrama.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <text
          xml:space="preserve"
          style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.74019372px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -1724,7 +1751,10 @@
        y="734.43805"
        x="1545.8983"
        style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.51741165px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       xml:space="preserve"><tspan
+       xml:space="preserve"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/diagrama.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
          style="font-size:30.33507919px;line-height:0.89999998;font-family:sans-serif;text-align:center;text-anchor:middle;stroke-width:0.51741165px"
          y="734.43805"
          x="1545.8983"
@@ -1742,7 +1772,10 @@
          sodipodi:role="line">% stationary epochs at NREM</tspan></text>
     <g
        id="g2915"
-       transform="matrix(0.32316202,0,0,0.3002728,-26.56131,621.68163)">
+       transform="matrix(0.32316202,0,0,0.3002728,-26.56131,621.68163)"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/diagrama.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <text
          id="text2913"
          y="447.68695"
@@ -1765,7 +1798,10 @@
        y="555.46173"
        x="817.92706"
        style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.61168581"
-       xml:space="preserve"><tspan
+       xml:space="preserve"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/diagrama.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
          style="font-size:32.62324524px;line-height:1.25;stroke-width:0.61168581"
          y="555.46173"
          x="817.92706"
@@ -1776,94 +1812,130 @@
        id="path2921"
        d="M 725.93498,523.82406 872.82373,425.69554"
        style="fill:none;stroke:#000000;stroke-width:3.54330707;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker2257)"
-       sodipodi:nodetypes="cc" />
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/diagrama.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        inkscape:connector-curvature="0"
        id="path2923"
        d="m 726.27588,569.36862 104.82714,87.33897"
        style="fill:none;stroke:#000000;stroke-width:3.54330707;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker2339)"
-       sodipodi:nodetypes="cc" />
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/diagrama.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        inkscape:connector-curvature="0"
        id="path2925"
        d="m 1123.6859,425.67087 195.4944,26.54849"
        style="fill:none;stroke:#000000;stroke-width:3.54330707;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker2157)"
-       sodipodi:nodetypes="cc" />
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/diagrama.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        inkscape:connector-curvature="0"
        id="path2927"
        d="m 1171.7396,666.83992 139.9654,-55.4885"
        style="fill:none;stroke:#000000;stroke-width:3.54330707;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker2931)"
-       sodipodi:nodetypes="cc" />
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/diagrama.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <image
-       sodipodi:absref="/home/laptop_casa/TESIS/TESIS/poster/small_full/VCNNS1_est.png"
+       sodipodi:absref="/home/julio/Tesis/TESIS/poster/small_full/VCNNS1_est.png"
        xlink:href="small_full/VCNNS1_est.png"
-       y="-311.811"
-       x="2055.1182"
-       id="image5277"
-       style="image-rendering:optimizeQuality"
-       preserveAspectRatio="none"
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/VCR_zoom.png"
+       width="850.39368"
        height="301.18109"
-       width="850.39368" />
+       preserveAspectRatio="none"
+       style="image-rendering:optimizeQuality"
+       id="image5277"
+       x="2055.1182"
+       y="-311.811" />
     <rect
        style="fill:none;fill-opacity:0.51758794;stroke:#355d8a;stroke-width:6.6468935;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        y="-263.08774"
        x="3218.7107"
        height="202.25211"
        width="130.65813"
-       id="rect4596" />
+       id="rect4596"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/MJH_zoom.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <image
-       sodipodi:absref="/home/laptop_casa/TESIS/TESIS/poster/small_full/MJNNVIGILOS_est.png"
+       sodipodi:absref="/home/julio/Tesis/TESIS/poster/small_full/MJNNVIGILOS_est.png"
        xlink:href="small_full/MJNNVIGILOS_est.png"
-       y="-311.811"
-       x="3011.811"
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/MJH_zoom.png"
+       width="850.39368"
+       height="301.18109"
+       preserveAspectRatio="none"
+       style="image-rendering:optimizeQuality"
        id="image5288"
-       style="image-rendering:optimizeQuality"
-       preserveAspectRatio="none"
-       height="301.18109"
-       width="850.39368" />
+       x="3011.811"
+       y="-311.811" />
     <image
-       sodipodi:absref="/home/laptop_casa/TESIS/TESIS/poster/small_full/JANASUE_est.png"
+       sodipodi:absref="/home/julio/Tesis/TESIS/poster/small_full/JANASUE_est.png"
        xlink:href="small_full/JANASUE_est.png"
-       y="-311.811"
-       x="3968.5039"
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/JAE_zoom.png"
+       width="850.39368"
+       height="301.18109"
+       preserveAspectRatio="none"
+       style="image-rendering:optimizeQuality"
        id="image5299"
-       style="image-rendering:optimizeQuality"
-       preserveAspectRatio="none"
-       height="301.18109"
-       width="850.39368" />
+       x="3968.5039"
+       y="-311.811" />
     <image
-       sodipodi:absref="/home/laptop_casa/TESIS/TESIS/poster/small_full/GH24031950SUEÑO_est.png"
+       sodipodi:absref="/home/julio/Tesis/TESIS/poster/small_full/GH24031950SUEÑO_est.png"
        xlink:href="small_full/GH24031950SUEÑO_est.png"
-       y="-311.811"
-       x="4925.1968"
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/GHA_zoom.png"
+       width="850.39368"
+       height="301.18109"
+       preserveAspectRatio="none"
+       style="image-rendering:optimizeQuality"
        id="image5334"
-       style="image-rendering:optimizeQuality"
-       preserveAspectRatio="none"
-       height="301.18109"
-       width="850.39368" />
+       x="4925.1968"
+       y="-311.811" />
     <image
-       sodipodi:absref="/home/laptop_casa/TESIS/TESIS/poster/small_full/GURM251148SUE_est.png"
+       sodipodi:absref="/home/julio/Tesis/TESIS/poster/small_full/GURM251148SUE_est.png"
        xlink:href="small_full/GURM251148SUE_est.png"
-       y="-311.811"
-       x="5881.8896"
-       id="image5345"
-       style="image-rendering:optimizeQuality"
-       preserveAspectRatio="none"
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/MFGR_zoom.png"
+       width="850.39368"
        height="301.18109"
-       width="850.39368" />
+       preserveAspectRatio="none"
+       style="image-rendering:optimizeQuality"
+       id="image5345"
+       x="5881.8896"
+       y="-311.811" />
     <path
        style="fill:none;stroke:#000000;stroke-width:8.77218246;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:52.63309877, 8.77218313;stroke-dashoffset:0;stroke-opacity:1"
        d="m 2110.1072,43.518592 468.93,-127.005086"
        id="path5251"
        inkscape:connector-curvature="0"
-       sodipodi:nodetypes="cc" />
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/VCR_zoom.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        style="fill:none;stroke:#000000;stroke-width:8.77218246;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:35.08873251, 8.77218313;stroke-dashoffset:0;stroke-opacity:1"
        d="M 2887.005,43.04499 2715.7947,-83.059899"
        id="path5253"
        inkscape:connector-curvature="0"
-       sodipodi:nodetypes="cc" />
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/VCR_zoom.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <text
        id="text5317"
        y="356.61539"
@@ -1925,7 +1997,10 @@
        transform="matrix(1.2937709,0,0,-1.199437,3234.5355,-528.4771)" />
     <g
        id="g10194"
-       transform="matrix(1.2214676,0,0,-1.1000372,3331.9061,-531.72493)">
+       transform="matrix(1.2214676,0,0,-1.1000372,3331.9061,-531.72493)"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <g
          id="g10196"
          clip-path="url(#clipPath10200)">
@@ -1938,7 +2013,10 @@
     </g>
     <g
        id="g10204"
-       transform="matrix(1.2214676,0,0,-1.1000372,3331.9061,-531.72493)">
+       transform="matrix(1.2214676,0,0,-1.1000372,3331.9061,-531.72493)"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <path
          d="M 59.04,133.03 V 384.34"
          style="fill:none;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
@@ -2032,7 +2110,10 @@
     </g>
     <g
        id="g10240"
-       transform="matrix(1.2214676,0,0,-1.1000372,3331.9061,-531.72493)">
+       transform="matrix(1.2214676,0,0,-1.1000372,3331.9061,-531.72493)"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <text
          transform="matrix(0,1,1,0,12.96,205)"
          style="font-variant:normal;font-weight:normal;line-height:0%;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
@@ -2047,7 +2128,10 @@
     </g>
     <g
        id="g10246"
-       transform="matrix(1.2214676,0,0,-1.1000372,3331.9061,-531.72493)">
+       transform="matrix(1.2214676,0,0,-1.1000372,3331.9061,-531.72493)"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <path
          d="M 93.07,73.44 H 943.73"
          style="fill:none;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
@@ -2410,18 +2494,27 @@
        d="m 3445.5881,-842.55144 49.4694,27.20392 49.4816,16.96257 49.4817,-9.31731 49.4817,26.6099 49.4816,-43.86949 49.4694,53.65982 49.4817,14.8065 49.4817,12.36442 49.4816,-55.62888 49.4817,-97.4743 49.4694,24.40983 49.4817,18.41462 49.4816,-20.15269 49.4817,36.95025 49.4816,-23.40879 49.4695,41.3174 49.4816,-62.58111 49.4817,12.74942 49.4815,-112.09379 49.4818,-1.78202 49.4694,256.56164"
        style="fill:none;stroke:#000000;stroke-width:1.73874509;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10390"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 3445.5881,-842.55144 49.4694,27.20392 49.4816,16.96257 49.4817,-9.31731 49.4817,26.6099 49.4816,-43.86949 49.4694,53.65982 49.4817,14.8065 49.4817,12.36442 49.4816,-55.62888 49.4817,-97.4743 49.4694,24.40983 49.4817,18.41462 49.4816,-20.15269 49.4817,36.95025 49.4816,-23.40879 49.4695,41.3174 49.4816,-62.58111 49.4817,12.74942 49.4815,-112.09379 49.4818,-1.78202 49.4694,256.56164"
        style="fill:none;stroke:#000000;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10392"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <text
        transform="scale(1.0537493,0.94899234)"
        style="font-variant:normal;font-weight:normal;font-size:8.67054272px;line-height:0%;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="text10396"
        x="3266.394"
-       y="-884.82422">
+       y="-884.82422"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <tspan
          x="3266.394"
          y="-884.82422"
@@ -2433,7 +2526,10 @@
        style="font-variant:normal;font-weight:normal;font-size:8.67054272px;line-height:0%;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="text10400"
        x="3313.3518"
-       y="-856.16968">
+       y="-856.16968"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <tspan
          x="3313.3518"
          y="-856.16968"
@@ -2445,7 +2541,10 @@
        style="font-variant:normal;font-weight:normal;font-size:8.67054272px;line-height:0%;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="text10404"
        x="3360.3093"
-       y="-838.28375">
+       y="-838.28375"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <tspan
          x="3360.3093"
          y="-838.28375"
@@ -2457,7 +2556,10 @@
        style="font-variant:normal;font-weight:normal;font-size:8.67054272px;line-height:0%;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="text10408"
        x="3407.2671"
-       y="-848.11346">
+       y="-848.11346"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <tspan
          x="3407.2671"
          y="-848.11346"
@@ -2469,7 +2571,10 @@
        style="font-variant:normal;font-weight:normal;font-size:8.67054272px;line-height:0%;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="text10412"
        x="3454.2249"
-       y="-820.06171">
+       y="-820.06171"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <tspan
          x="3454.2249"
          y="-820.06171"
@@ -2481,7 +2586,10 @@
        style="font-variant:normal;font-weight:normal;font-size:8.67054272px;line-height:0%;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="text10416"
        x="3501.1709"
-       y="-866.28912">
+       y="-866.28912"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <tspan
          x="3501.1709"
          y="-866.28912"
@@ -2493,7 +2601,10 @@
        style="font-variant:normal;font-weight:normal;font-size:8.67054272px;line-height:0%;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="text10420"
        x="3548.1287"
-       y="-809.75671">
+       y="-809.75671"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <tspan
          x="3548.1287"
          y="-809.75671"
@@ -2505,7 +2616,10 @@
        style="font-variant:normal;font-weight:normal;font-size:8.67054272px;line-height:0%;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="text10424"
        x="3595.0864"
-       y="-794.14276">
+       y="-794.14276"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <tspan
          x="3595.0864"
          y="-794.14276"
@@ -2517,7 +2631,10 @@
        style="font-variant:normal;font-weight:normal;font-size:8.67054272px;line-height:0%;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="text10428"
        x="3642.0442"
-       y="-781.12543">
+       y="-781.12543"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <tspan
          x="3642.0442"
          y="-781.12543"
@@ -2529,7 +2646,10 @@
        style="font-variant:normal;font-weight:normal;font-size:8.67054272px;line-height:0%;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="text10432"
        x="3689.0017"
-       y="-839.74426">
+       y="-839.74426"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <tspan
          x="3689.0017"
          y="-839.74426"
@@ -2541,7 +2661,10 @@
        style="font-variant:normal;font-weight:normal;font-size:8.67054272px;line-height:0%;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="text10436"
        x="3735.948"
-       y="-942.45776">
+       y="-942.45776"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <tspan
          x="3735.948"
          y="-942.45776"
@@ -2553,7 +2676,10 @@
        style="font-variant:normal;font-weight:normal;font-size:8.67054272px;line-height:0%;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="text10440"
        x="3782.9055"
-       y="-916.72437">
+       y="-916.72437"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <tspan
          x="3782.9055"
          y="-916.72437"
@@ -2565,7 +2691,10 @@
        style="font-variant:normal;font-weight:normal;font-size:8.67054272px;line-height:0%;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="text10444"
        x="3829.8633"
-       y="-897.33154">
+       y="-897.33154"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <tspan
          x="3829.8633"
          y="-897.33154"
@@ -2577,7 +2706,10 @@
        style="font-variant:normal;font-weight:normal;font-size:8.67054272px;line-height:0%;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="text10448"
        x="3876.821"
-       y="-918.55579">
+       y="-918.55579"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <tspan
          x="3876.821"
          y="-918.55579"
@@ -2589,7 +2721,10 @@
        style="font-variant:normal;font-weight:normal;font-size:8.67054272px;line-height:0%;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="text10452"
        x="3923.7786"
-       y="-879.6311">
+       y="-879.6311"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <tspan
          x="3923.7786"
          y="-879.6311"
@@ -2601,7 +2736,10 @@
        style="font-variant:normal;font-weight:normal;font-size:8.67054272px;line-height:0%;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="text10456"
        x="3970.7249"
-       y="-904.2981">
+       y="-904.2981"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <tspan
          x="3970.7249"
          y="-904.2981"
@@ -2613,7 +2751,10 @@
        style="font-variant:normal;font-weight:normal;font-size:8.67054272px;line-height:0%;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="text10460"
        x="4017.6824"
-       y="-860.74835">
+       y="-860.74835"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <tspan
          x="4017.6824"
          y="-860.74835"
@@ -2625,7 +2766,10 @@
        style="font-variant:normal;font-weight:normal;font-size:8.67054272px;line-height:0%;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="text10464"
        x="4064.6404"
-       y="-926.69318">
+       y="-926.69318"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <tspan
          x="4064.6404"
          y="-926.69318"
@@ -2637,7 +2781,10 @@
        style="font-variant:normal;font-weight:normal;font-size:8.67054272px;line-height:0%;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="text10468"
        x="4111.5981"
-       y="-913.27002">
+       y="-913.27002"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <tspan
          x="4111.5981"
          y="-913.27002"
@@ -2649,7 +2796,10 @@
        style="font-variant:normal;font-weight:normal;font-size:8.67054272px;line-height:0%;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="text10472"
        x="4158.5562"
-       y="-1031.3772">
+       y="-1031.3772"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <tspan
          x="4158.5562"
          y="-1031.3772"
@@ -2661,7 +2811,10 @@
        style="font-variant:normal;font-weight:normal;font-size:8.67054272px;line-height:0%;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="text10476"
        x="4205.502"
-       y="-1033.255">
+       y="-1033.255"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <tspan
          x="4205.502"
          y="-1033.255"
@@ -2673,7 +2826,10 @@
        style="font-variant:normal;font-weight:normal;font-size:8.67054272px;line-height:0%;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="text10480"
        x="4252.4595"
-       y="-762.90332">
+       y="-762.90332"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <tspan
          x="4252.4595"
          y="-762.90332"
@@ -2684,18 +2840,27 @@
        d="m 3445.5881,-726.97053 49.4694,11.06637 49.4816,10.19734 49.4817,2.8601 49.4817,-13.84947 49.4816,41.2844 49.4694,3.91613 49.4817,35.20119 49.4817,-0.176 49.4816,-101.50044 49.4817,-42.47244 49.4694,-8.84429 49.4817,31.65907 49.4816,8.19527 49.4817,5.50019 49.4816,-83.50382 49.4695,50.08469 49.4816,-19.71266 49.4817,-46.31157 49.4815,129.04536 49.4818,-32.5941 49.4694,11.53939"
        style="fill:none;stroke:#008b00;stroke-width:1.73874509;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10482"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 3445.5881,-726.97053 49.4694,11.06637 49.4816,10.19734 49.4817,2.8601 49.4817,-13.84947 49.4816,41.2844 49.4694,3.91613 49.4817,35.20119 49.4817,-0.176 49.4816,-101.50044 49.4817,-42.47244 49.4694,-8.84429 49.4817,31.65907 49.4816,8.19527 49.4817,5.50019 49.4816,-83.50382 49.4695,50.08469 49.4816,-19.71266 49.4817,-46.31157 49.4815,129.04536 49.4818,-32.5941 49.4694,11.53939"
        style="fill:none;stroke:#008b00;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10484"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <text
        transform="scale(1.0537493,0.94899234)"
        style="font-variant:normal;font-weight:normal;font-size:8.67054272px;line-height:0%;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#008b00;fill-opacity:1;fill-rule:nonzero;stroke:#008b00;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="text10488"
        x="3266.394"
-       y="-763.03082">
+       y="-763.03082"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <tspan
          x="3266.394"
          y="-763.03082"
@@ -2707,7 +2872,10 @@
        style="font-variant:normal;font-weight:normal;font-size:8.67054272px;line-height:0%;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#008b00;fill-opacity:1;fill-rule:nonzero;stroke:#008b00;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="text10492"
        x="3313.3518"
-       y="-751.38123">
+       y="-751.38123"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <tspan
          x="3313.3518"
          y="-751.38123"
@@ -2719,7 +2887,10 @@
        style="font-variant:normal;font-weight:normal;font-size:8.67054272px;line-height:0%;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#008b00;fill-opacity:1;fill-rule:nonzero;stroke:#008b00;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="text10496"
        x="3360.3093"
-       y="-740.62421">
+       y="-740.62421"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <tspan
          x="3360.3093"
          y="-740.62421"
@@ -2731,7 +2902,10 @@
        style="font-variant:normal;font-weight:normal;font-size:8.67054272px;line-height:0%;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#008b00;fill-opacity:1;fill-rule:nonzero;stroke:#008b00;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="text10500"
        x="3407.2671"
-       y="-737.62201">
+       y="-737.62201"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <tspan
          x="3407.2671"
          y="-737.62201"
@@ -2743,7 +2917,10 @@
        style="font-variant:normal;font-weight:normal;font-size:8.67054272px;line-height:0%;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#008b00;fill-opacity:1;fill-rule:nonzero;stroke:#008b00;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="text10504"
        x="3454.2249"
-       y="-752.20422">
+       y="-752.20422"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <tspan
          x="3454.2249"
          y="-752.20422"
@@ -2755,7 +2932,10 @@
        style="font-variant:normal;font-weight:normal;font-size:8.67054272px;line-height:0%;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#008b00;fill-opacity:1;fill-rule:nonzero;stroke:#008b00;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="text10508"
        x="3501.1709"
-       y="-708.70087">
+       y="-708.70087"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <tspan
          x="3501.1709"
          y="-708.70087"
@@ -2767,7 +2947,10 @@
        style="font-variant:normal;font-weight:normal;font-size:8.67054272px;line-height:0%;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#008b00;fill-opacity:1;fill-rule:nonzero;stroke:#008b00;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="text10512"
        x="3548.1287"
-       y="-704.58582">
+       y="-704.58582"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <tspan
          x="3548.1287"
          y="-704.58582"
@@ -2779,7 +2962,10 @@
        style="font-variant:normal;font-weight:normal;font-size:8.67054272px;line-height:0%;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#008b00;fill-opacity:1;fill-rule:nonzero;stroke:#008b00;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="text10516"
        x="3595.0864"
-       y="-667.48108">
+       y="-667.48108"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <tspan
          x="3595.0864"
          y="-667.48108"
@@ -2791,7 +2977,10 @@
        style="font-variant:normal;font-weight:normal;font-size:8.67054272px;line-height:0%;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#008b00;fill-opacity:1;fill-rule:nonzero;stroke:#008b00;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="text10520"
        x="3642.0442"
-       y="-667.66644">
+       y="-667.66644"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <tspan
          x="3642.0442"
          y="-667.66644"
@@ -2803,7 +2992,10 @@
        style="font-variant:normal;font-weight:normal;font-size:8.67054272px;line-height:0%;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#008b00;fill-opacity:1;fill-rule:nonzero;stroke:#008b00;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="text10524"
        x="3689.0017"
-       y="-774.62244">
+       y="-774.62244"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <tspan
          x="3689.0017"
          y="-774.62244"
@@ -2815,7 +3007,10 @@
        style="font-variant:normal;font-weight:normal;font-size:8.67054272px;line-height:0%;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#008b00;fill-opacity:1;fill-rule:nonzero;stroke:#008b00;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="text10528"
        x="3735.948"
-       y="-819.38934">
+       y="-819.38934"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <tspan
          x="3735.948"
          y="-819.38934"
@@ -2827,7 +3022,10 @@
        style="font-variant:normal;font-weight:normal;font-size:8.67054272px;line-height:0%;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#008b00;fill-opacity:1;fill-rule:nonzero;stroke:#008b00;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="text10532"
        x="3782.9055"
-       y="-828.69745">
+       y="-828.69745"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <tspan
          x="3782.9055"
          y="-828.69745"
@@ -2839,7 +3037,10 @@
        style="font-variant:normal;font-weight:normal;font-size:8.67054272px;line-height:0%;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#008b00;fill-opacity:1;fill-rule:nonzero;stroke:#008b00;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="text10536"
        x="3829.8633"
-       y="-795.33673">
+       y="-795.33673"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <tspan
          x="3829.8633"
          y="-795.33673"
@@ -2851,7 +3052,10 @@
        style="font-variant:normal;font-weight:normal;font-size:8.67054272px;line-height:0%;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#008b00;fill-opacity:1;fill-rule:nonzero;stroke:#008b00;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="text10540"
        x="3876.821"
-       y="-786.71252">
+       y="-786.71252"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <tspan
          x="3876.821"
          y="-786.71252"
@@ -2863,7 +3067,10 @@
        style="font-variant:normal;font-weight:normal;font-size:8.67054272px;line-height:0%;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#008b00;fill-opacity:1;fill-rule:nonzero;stroke:#008b00;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="text10544"
        x="3923.7786"
-       y="-780.90515">
+       y="-780.90515"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <tspan
          x="3923.7786"
          y="-780.90515"
@@ -2875,7 +3082,10 @@
        style="font-variant:normal;font-weight:normal;font-size:8.67054272px;line-height:0%;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#008b00;fill-opacity:1;fill-rule:nonzero;stroke:#008b00;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="text10548"
        x="3970.7249"
-       y="-868.89722">
+       y="-868.89722"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <tspan
          x="3970.7249"
          y="-868.89722"
@@ -2887,7 +3097,10 @@
        style="font-variant:normal;font-weight:normal;font-size:8.67054272px;line-height:0%;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#008b00;fill-opacity:1;fill-rule:nonzero;stroke:#008b00;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="text10552"
        x="4017.6824"
-       y="-816.12054">
+       y="-816.12054"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <tspan
          x="4017.6824"
          y="-816.12054"
@@ -2899,7 +3112,10 @@
        style="font-variant:normal;font-weight:normal;font-size:8.67054272px;line-height:0%;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#008b00;fill-opacity:1;fill-rule:nonzero;stroke:#008b00;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="text10556"
        x="4064.6404"
-       y="-836.8927">
+       y="-836.8927"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <tspan
          x="4064.6404"
          y="-836.8927"
@@ -2911,7 +3127,10 @@
        style="font-variant:normal;font-weight:normal;font-size:8.67054272px;line-height:0%;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#008b00;fill-opacity:1;fill-rule:nonzero;stroke:#008b00;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="text10560"
        x="4111.5981"
-       y="-885.70514">
+       y="-885.70514"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <tspan
          x="4111.5981"
          y="-885.70514"
@@ -2923,7 +3142,10 @@
        style="font-variant:normal;font-weight:normal;font-size:8.67054272px;line-height:0%;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#008b00;fill-opacity:1;fill-rule:nonzero;stroke:#008b00;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="text10564"
        x="4158.5562"
-       y="-749.72363">
+       y="-749.72363"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <tspan
          x="4158.5562"
          y="-749.72363"
@@ -2935,7 +3157,10 @@
        style="font-variant:normal;font-weight:normal;font-size:8.67054272px;line-height:0%;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#008b00;fill-opacity:1;fill-rule:nonzero;stroke:#008b00;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="text10568"
        x="4205.502"
-       y="-784.0697">
+       y="-784.0697"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <tspan
          x="4205.502"
          y="-784.0697"
@@ -2947,7 +3172,10 @@
        style="font-variant:normal;font-weight:normal;font-size:8.67054272px;line-height:0%;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#008b00;fill-opacity:1;fill-rule:nonzero;stroke:#008b00;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="text10572"
        x="4252.4595"
-       y="-771.8985">
+       y="-771.8985"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <tspan
          x="4252.4595"
          y="-771.8985"
@@ -2958,683 +3186,1091 @@
        d="m 3445.5881,-823.6748 v -37.74228"
        style="fill:none;stroke:#000000;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10574"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 3436.7935,-823.6748 h 8.7946 8.7946"
        style="fill:none;stroke:#000000;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10576"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 3454.3827,-861.41708 h -8.7946 -8.7946"
        style="fill:none;stroke:#000000;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10578"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 3495.0575,-797.61493 v -35.47619"
        style="fill:none;stroke:#000000;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10580"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 3486.2629,-797.61493 h 8.7946 8.7946"
        style="fill:none;stroke:#000000;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10582"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 3503.8521,-833.09112 h -8.7946 -8.7946"
        style="fill:none;stroke:#000000;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10584"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 3544.5391,-776.2742 v -44.2215"
        style="fill:none;stroke:#000000;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10586"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 3535.7446,-776.2742 h 8.7945 8.7946"
        style="fill:none;stroke:#000000;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10588"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 3553.3337,-820.4957 h -8.7946 -8.7945"
        style="fill:none;stroke:#000000;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10590"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 3594.0208,-786.35054 v -42.70345"
        style="fill:none;stroke:#000000;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10592"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 3585.2262,-786.35054 h 8.7946 8.7945"
        style="fill:none;stroke:#000000;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10594"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 3602.8153,-829.05399 h -8.7945 -8.7946"
        style="fill:none;stroke:#000000;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10596"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 3643.5025,-737.54189 v -87.08995"
        style="fill:none;stroke:#000000;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10598"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 3634.7079,-737.54189 h 8.7946 8.7945"
        style="fill:none;stroke:#000000;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10600"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 3652.297,-824.63184 h -8.7945 -8.7946"
        style="fill:none;stroke:#000000;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10602"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="M 3692.9841,-802.32309 V -847.6006"
        style="fill:none;stroke:#000000;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10604"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 3684.1896,-802.32309 h 8.7945 8.7946"
        style="fill:none;stroke:#000000;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10606"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 3701.7787,-847.6006 h -8.7946 -8.7945"
        style="fill:none;stroke:#000000;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10608"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 3742.4535,-731.56869 v -79.46669"
        style="fill:none;stroke:#000000;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10610"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 3733.659,-731.56869 h 8.7945 8.7946"
        style="fill:none;stroke:#000000;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10612"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 3751.2481,-811.03538 h -8.7946 -8.7945"
        style="fill:none;stroke:#000000;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10614"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 3791.9352,-720.41432 v -72.15143"
        style="fill:none;stroke:#000000;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10616"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 3783.1406,-720.41432 h 8.7946 8.7945"
        style="fill:none;stroke:#000000;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10618"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 3800.7297,-792.56575 h -8.7945 -8.7946"
        style="fill:none;stroke:#000000;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10620"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 3841.4169,-708.62191 v -71.02941"
        style="fill:none;stroke:#000000;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10622"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 3832.6223,-708.62191 h 8.7946 8.7945"
        style="fill:none;stroke:#000000;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10624"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 3850.2114,-779.65132 h -8.7945 -8.7946"
        style="fill:none;stroke:#000000;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10626"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 3890.8985,-771.12602 v -57.26794"
        style="fill:none;stroke:#000000;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10628"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 3882.104,-771.12602 h 8.7945 8.7946"
        style="fill:none;stroke:#000000;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10630"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 3899.6931,-828.39396 h -8.7946 -8.7945"
        style="fill:none;stroke:#000000;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10632"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="M 3940.3802,-845.81856 V -948.65003"
        style="fill:none;stroke:#000000;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10634"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 3931.5856,-845.81856 h 8.7946 8.7945"
        style="fill:none;stroke:#000000;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10636"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 3949.1747,-948.65003 h -8.7945 -8.7946"
        style="fill:none;stroke:#000000;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10638"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 3989.8496,-838.01929 v -69.59936"
        style="fill:none;stroke:#000000;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10640"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 3981.055,-838.01929 h 8.7946 8.7945"
        style="fill:none;stroke:#000000;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10642"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 3998.6441,-907.61865 h -8.7945 -8.7946"
        style="fill:none;stroke:#000000;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10644"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 4039.3313,-807.58126 v -93.66817"
        style="fill:none;stroke:#000000;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10646"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 4030.5366,-807.58126 h 8.7947 8.7945"
        style="fill:none;stroke:#000000;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10648"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 4048.1258,-901.24943 h -8.7945 -8.7947"
        style="fill:none;stroke:#000000;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10650"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 4088.8129,-853.1778 v -42.75845"
        style="fill:none;stroke:#000000;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10652"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 4080.0184,-853.1778 h 8.7945 8.7946"
        style="fill:none;stroke:#000000;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10654"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 4097.6075,-895.93625 h -8.7946 -8.7945"
        style="fill:none;stroke:#000000;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10656"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 4138.2946,-820.94671 v -33.34212"
        style="fill:none;stroke:#000000;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10658"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 4129.5,-820.94671 h 8.7946 8.7945"
        style="fill:none;stroke:#000000;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10660"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 4147.0891,-854.28883 h -8.7945 -8.7946"
        style="fill:none;stroke:#000000;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10662"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 4187.7762,-820.85871 v -80.33572"
        style="fill:none;stroke:#000000;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10664"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 4178.9817,-820.85871 h 8.7945 8.7946"
        style="fill:none;stroke:#000000;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10666"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 4196.5708,-901.19443 h -8.7946 -8.7945"
        style="fill:none;stroke:#000000;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10668"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 4237.2457,-781.46638 v -76.47458"
        style="fill:none;stroke:#000000;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10670"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 4228.4511,-781.46638 h 8.7946 8.7945"
        style="fill:none;stroke:#000000;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10672"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 4246.0402,-857.94096 h -8.7945 -8.7946"
        style="fill:none;stroke:#000000;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10674"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="M 4286.7273,-810.22136 V -954.34822"
        style="fill:none;stroke:#000000;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10676"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 4277.9327,-810.22136 h 8.7946 8.7946"
        style="fill:none;stroke:#000000;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10678"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 4295.5219,-954.34822 h -8.7946 -8.7946"
        style="fill:none;stroke:#000000;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10680"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 4336.209,-820.26469 v -98.54133"
        style="fill:none;stroke:#000000;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10682"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 4327.4144,-820.26469 h 8.7946 8.7945"
        style="fill:none;stroke:#000000;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10684"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 4345.0035,-918.80602 h -8.7945 -8.7946"
        style="fill:none;stroke:#000000;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10686"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 4385.6905,-969.8258 v -23.60678"
        style="fill:none;stroke:#000000;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10688"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 4376.8961,-969.8258 h 8.7944 8.7947"
        style="fill:none;stroke:#000000;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10690"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 4394.4852,-993.43258 h -8.7947 -8.7944"
        style="fill:none;stroke:#000000;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10692"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 4435.1723,-960.75043 v -45.31047"
        style="fill:none;stroke:#000000;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10694"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 4426.3777,-960.75043 h 8.7946 8.7945"
        style="fill:none;stroke:#000000;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10696"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 4443.9668,-1006.0609 h -8.7945 -8.7946"
        style="fill:none;stroke:#000000;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10698"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="M 4484.6417,-674.28976 V -779.4093"
        style="fill:none;stroke:#000000;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10700"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 4475.8471,-674.28976 h 8.7946 8.7946"
        style="fill:none;stroke:#000000;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10702"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 4493.4363,-779.4093 h -8.7946 -8.7946"
        style="fill:none;stroke:#000000;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10704"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 3445.5881,-701.33967 v -51.26174"
        style="fill:none;stroke:#008b00;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10706"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 3436.7935,-701.33967 h 8.7946 8.7946"
        style="fill:none;stroke:#008b00;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10708"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 3454.3827,-752.60141 h -8.7946 -8.7946"
        style="fill:none;stroke:#008b00;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10710"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 3495.0575,-693.82642 v -44.16649"
        style="fill:none;stroke:#008b00;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10712"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 3486.2629,-693.82642 h 8.7946 8.7946"
        style="fill:none;stroke:#008b00;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10714"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 3503.8521,-737.99291 h -8.7946 -8.7946"
        style="fill:none;stroke:#008b00;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10716"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 3544.5391,-686.95119 v -37.50026"
        style="fill:none;stroke:#008b00;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10718"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 3535.7446,-686.95119 h 8.7945 8.7946"
        style="fill:none;stroke:#008b00;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10720"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 3553.3337,-724.45145 h -8.7946 -8.7945"
        style="fill:none;stroke:#008b00;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10722"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 3594.0208,-664.0154 v -77.66263"
        style="fill:none;stroke:#008b00;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10724"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 3585.2262,-664.0154 h 8.7946 8.7945"
        style="fill:none;stroke:#008b00;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10726"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 3602.8153,-741.67803 h -8.7945 -8.7946"
        style="fill:none;stroke:#008b00;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10728"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 3643.5025,-668.03054 v -97.32029"
        style="fill:none;stroke:#008b00;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10730"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 3634.7079,-668.03054 h 8.7946 8.7945"
        style="fill:none;stroke:#008b00;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10732"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 3652.297,-765.35083 h -8.7945 -8.7946"
        style="fill:none;stroke:#008b00;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10734"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 3692.9841,-651.69499 v -47.4336"
        style="fill:none;stroke:#008b00;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10736"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 3684.1896,-651.69499 h 8.7945 8.7946"
        style="fill:none;stroke:#008b00;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10738"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 3701.7787,-699.12859 h -8.7946 -8.7945"
        style="fill:none;stroke:#008b00;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10740"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 3742.4535,-660.53929 v -21.92374"
        style="fill:none;stroke:#008b00;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10742"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 3733.659,-660.53929 h 8.7945 8.7946"
        style="fill:none;stroke:#008b00;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10744"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 3751.2481,-682.46303 h -8.7946 -8.7945"
        style="fill:none;stroke:#008b00;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10746"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 3791.9352,-627.64818 v -17.28158"
        style="fill:none;stroke:#008b00;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10748"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 3783.1406,-627.64818 h 8.7946 8.7945"
        style="fill:none;stroke:#008b00;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10750"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 3800.7297,-644.92976 h -8.7945 -8.7946"
        style="fill:none;stroke:#008b00;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10752"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 3841.4169,-630.31026 v -12.32043"
        style="fill:none;stroke:#008b00;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10754"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 3832.6223,-630.31026 h 8.7946 8.7945"
        style="fill:none;stroke:#008b00;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10756"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 3850.2114,-642.63069 h -8.7945 -8.7946"
        style="fill:none;stroke:#008b00;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10758"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 3890.8985,-703.75975 v -68.41132"
        style="fill:none;stroke:#008b00;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10760"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 3882.104,-703.75975 h 8.7945 8.7946"
        style="fill:none;stroke:#008b00;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10762"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 3899.6931,-772.17107 h -8.7946 -8.7945"
        style="fill:none;stroke:#008b00;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10764"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="M 3940.3802,-728.6206 V -832.27709"
        style="fill:none;stroke:#008b00;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10766"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 3931.5856,-728.6206 h 8.7946 8.7945"
        style="fill:none;stroke:#008b00;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10768"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 3949.1747,-832.27709 h -8.7945 -8.7946"
        style="fill:none;stroke:#008b00;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10770"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 3989.8496,-734.51679 v -109.5417"
        style="fill:none;stroke:#008b00;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10772"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 3981.055,-734.51679 h 8.7946 8.7945"
        style="fill:none;stroke:#008b00;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10774"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 3998.6441,-844.05849 h -8.7945 -8.7946"
        style="fill:none;stroke:#008b00;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10776"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="M 4039.3313,-690.09729 V -825.14886"
        style="fill:none;stroke:#008b00;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10778"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 4030.5366,-690.09729 h 8.7947 8.7945"
        style="fill:none;stroke:#008b00;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10780"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 4048.1258,-825.14886 h -8.7945 -8.7947"
        style="fill:none;stroke:#008b00;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10782"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 4088.8129,-711.14099 v -76.5956"
        style="fill:none;stroke:#008b00;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10784"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 4080.0184,-711.14099 h 8.7945 8.7946"
        style="fill:none;stroke:#008b00;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10786"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 4097.6075,-787.73659 h -8.7946 -8.7945"
        style="fill:none;stroke:#008b00;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10788"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 4138.2946,-694.89345 v -98.07932"
        style="fill:none;stroke:#008b00;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10790"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 4129.5,-694.89345 h 8.7946 8.7945"
        style="fill:none;stroke:#008b00;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10792"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 4147.0891,-792.97277 h -8.7945 -8.7946"
        style="fill:none;stroke:#008b00;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10794"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="M 4187.7762,-761.07169 V -893.79117"
        style="fill:none;stroke:#008b00;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10796"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 4178.9817,-761.07169 h 8.7945 8.7946"
        style="fill:none;stroke:#008b00;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10798"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 4196.5708,-893.79117 h -8.7946 -8.7945"
        style="fill:none;stroke:#008b00;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10800"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="M 4237.2457,-724.88046 V -829.82401"
        style="fill:none;stroke:#008b00;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10802"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 4228.4511,-724.88046 h 8.7946 8.7945"
        style="fill:none;stroke:#008b00;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10804"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 4246.0402,-829.82401 h -8.7945 -8.7946"
        style="fill:none;stroke:#008b00;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10806"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="M 4286.7273,-720.82133 V -873.30849"
        style="fill:none;stroke:#008b00;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10808"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 4277.9327,-720.82133 h 8.7946 8.7946"
        style="fill:none;stroke:#008b00;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10810"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 4295.5219,-873.30849 h -8.7946 -8.7946"
        style="fill:none;stroke:#008b00;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10812"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="M 4336.209,-781.9284 V -904.83555"
        style="fill:none;stroke:#008b00;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10814"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 4327.4144,-781.9284 h 8.7946 8.7945"
        style="fill:none;stroke:#008b00;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10816"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 4345.0035,-904.83555 h -8.7945 -8.7946"
        style="fill:none;stroke:#008b00;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10818"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 4385.6905,-682.99105 v -62.68011"
        style="fill:none;stroke:#008b00;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10820"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 4376.8961,-682.99105 h 8.7944 8.7947"
        style="fill:none;stroke:#008b00;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10822"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 4394.4852,-745.67116 h -8.7947 -8.7944"
        style="fill:none;stroke:#008b00;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10824"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="M 4435.1723,-723.39541 V -770.466"
        style="fill:none;stroke:#008b00;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10826"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 4426.3777,-723.39541 h 8.7946 8.7945"
        style="fill:none;stroke:#008b00;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10828"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 4443.9668,-770.466 h -8.7945 -8.7946"
        style="fill:none;stroke:#008b00;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10830"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="M 4484.6417,-677.28185 V -793.47878"
        style="fill:none;stroke:#008b00;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10832"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 4475.8471,-677.28185 h 8.7946 8.7946"
        style="fill:none;stroke:#008b00;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10834"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 4493.4363,-793.47878 h -8.7946 -8.7946"
        style="fill:none;stroke:#008b00;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10836"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 3404.0214,-1021.1975 h 153.7707 v 71.28243 h -153.7707 z"
        style="fill:none;stroke:#000000;stroke-width:0.86937255;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10838"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 3423.8093,-997.43667 h 39.5756"
        style="fill:none;stroke:#000000;stroke-width:2.60811782;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10840"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 3423.8093,-973.6759 h 39.5756"
        style="fill:none;stroke:#008b00;stroke-width:2.60811782;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        id="path10842"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <text
        transform="scale(1.0537493,0.94899234)"
        style="font-variant:normal;font-weight:normal;font-size:11.00579262px;line-height:0%;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.14250338"
        id="text10846"
        x="3305.5042"
-       y="-1043.5601">
+       y="-1043.5601"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <tspan
          x="3305.5042 3320.5686 3335.6333 3349.55"
          y="-1043.5601"
@@ -3647,7 +4283,10 @@
        style="font-variant:normal;font-weight:normal;font-size:11.00579262px;line-height:0%;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.14250338"
        id="text10850"
        x="3305.5042"
-       y="-1018.522">
+       y="-1018.522"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <tspan
          x="3305.5042 3320.5686 3334.4854"
          y="-1018.522"
@@ -3660,7 +4299,10 @@
        style="font-variant:normal;font-weight:normal;font-size:61.06891632px;line-height:0%;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#ff0000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.14250338"
        id="text10858"
        x="3304.8296"
-       y="-853.59912">
+       y="-853.59912"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <tspan
          x="3304.8296"
          y="-853.59912"
@@ -3673,7 +4315,10 @@
        x="4606.7407"
        y="-1000.8765"
        id="text1538"
-       transform="scale(1.0268828,0.97382096)"><tspan
+       transform="scale(1.0268828,0.97382096)"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
          sodipodi:role="line"
          id="tspan1536"
          x="4606.7407"
@@ -3685,7 +4330,10 @@
        x="4939.0991"
        style="font-style:normal;font-weight:normal;font-size:11.02211666px;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.78376895"
        xml:space="preserve"
-       transform="scale(1.0268828,0.97382096)"><tspan
+       transform="scale(1.0268828,0.97382096)"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
          style="font-size:31.35075951px;line-height:1.25;stroke-width:0.78376895"
          y="-1003.9972"
          x="4939.0991"
@@ -3697,132 +4345,192 @@
        id="ellipse1548"
        style="opacity:1;fill:#00ff00;fill-opacity:0.39215686;fill-rule:nonzero;stroke:none;stroke-width:6.83685875;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        rx="38.806938"
-       ry="36.801674" />
+       ry="36.801674"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <ellipse
        style="opacity:1;fill:#00ff00;fill-opacity:0.39215686;fill-rule:nonzero;stroke:none;stroke-width:6.83685875;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="circle12467"
        cx="5109.9834"
        cy="-986.68079"
        rx="38.806938"
-       ry="36.801674" />
+       ry="36.801674"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <ellipse
        style="opacity:1;fill:#00ff00;fill-opacity:0.39215686;fill-rule:nonzero;stroke:none;stroke-width:6.83685875;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="circle12469"
        cx="4939.3696"
        cy="-788.24988"
        rx="38.806938"
-       ry="36.801674" />
+       ry="36.801674"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <ellipse
        cy="-789.77637"
        cx="4857.2822"
        id="circle12471"
        style="opacity:1;fill:#00ff00;fill-opacity:0.39215686;fill-rule:nonzero;stroke:none;stroke-width:6.83685875;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        rx="38.806938"
-       ry="36.801674" />
+       ry="36.801674"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <ellipse
        style="opacity:1;fill:#00ff00;fill-opacity:0.39215686;fill-rule:nonzero;stroke:none;stroke-width:6.83685875;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="circle12473"
        cx="5021.457"
        cy="-789.77637"
        rx="38.806938"
-       ry="36.801674" />
+       ry="36.801674"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <ellipse
        style="opacity:1;fill:#00ff00;fill-opacity:0.39215686;fill-rule:nonzero;stroke:none;stroke-width:6.83685875;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="circle12477"
        cx="4804.1665"
        cy="-879.83337"
        rx="38.806938"
-       ry="36.801674" />
+       ry="36.801674"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <ellipse
        style="opacity:1;fill:#00ff00;fill-opacity:0.39215686;fill-rule:nonzero;stroke:none;stroke-width:6.83685875;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="circle12481"
        cx="4884.6445"
        cy="-936.30981"
        rx="38.806938"
-       ry="36.801674" />
+       ry="36.801674"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        sodipodi:nodetypes="cc"
        inkscape:connector-curvature="0"
        id="path12568"
        d="M 3066.8,43.518592 3571.355,-83.486494"
-       style="fill:none;stroke:#000000;stroke-width:8.77218246;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:52.63309877, 8.77218313;stroke-dashoffset:0;stroke-opacity:1" />
+       style="fill:none;stroke:#000000;stroke-width:8.77218246;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:52.63309877, 8.77218313;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/MJH_zoom.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        sodipodi:nodetypes="cc"
        inkscape:connector-curvature="0"
        id="path12570"
        d="M 3843.6978,43.04499 3661.2375,-83.059899"
-       style="fill:none;stroke:#000000;stroke-width:8.7874012;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:35.1496063, 8.78740157;stroke-dashoffset:0;stroke-opacity:1" />
+       style="fill:none;stroke:#000000;stroke-width:8.7874012;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:35.1496063, 8.78740157;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/MJH_zoom.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        style="fill:none;stroke:#000000;stroke-width:8.77218246;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:52.63309877, 8.77218313;stroke-dashoffset:0;stroke-opacity:1"
        d="m 4023.4928,43.518592 240.18,-127.005086"
        id="path12574"
        inkscape:connector-curvature="0"
-       sodipodi:nodetypes="cc" />
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/JAE_zoom.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        style="fill:none;stroke:#000000;stroke-width:8.77218246;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:35.08873251, 8.77218313;stroke-dashoffset:0;stroke-opacity:1"
        d="M 4800.3906,43.04499 4441.6803,-83.059899"
        id="path12576"
        inkscape:connector-curvature="0"
-       sodipodi:nodetypes="cc" />
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/JAE_zoom.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        sodipodi:nodetypes="cc"
        inkscape:connector-curvature="0"
        id="path12580"
        d="m 4980.1856,43.518592 412.68,-127.005086"
-       style="fill:none;stroke:#000000;stroke-width:8.77218246;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:52.63309877, 8.77218313;stroke-dashoffset:0;stroke-opacity:1" />
+       style="fill:none;stroke:#000000;stroke-width:8.77218246;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:52.63309877, 8.77218313;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/GHA_zoom.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        sodipodi:nodetypes="cc"
        inkscape:connector-curvature="0"
        id="path12582"
        d="M 5757.0834,43.04499 5462.1231,-83.059899"
-       style="fill:none;stroke:#000000;stroke-width:8.77218246;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:35.08873251, 8.77218313;stroke-dashoffset:0;stroke-opacity:1" />
+       style="fill:none;stroke:#000000;stroke-width:8.77218246;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:35.08873251, 8.77218313;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/GHA_zoom.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        style="fill:none;stroke:#000000;stroke-width:8.77218246;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:52.63309877, 8.77218313;stroke-dashoffset:0;stroke-opacity:1"
        d="m 5936.8784,43.518592 491.43,-127.005086"
        id="path12586"
        inkscape:connector-curvature="0"
-       sodipodi:nodetypes="cc" />
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/MFGR_zoom.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        style="fill:none;stroke:#000000;stroke-width:8.77218246;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:35.08873251, 8.77218313;stroke-dashoffset:0;stroke-opacity:1"
        d="M 6713.7762,43.04499 6561.3159,-83.059899"
        id="path12588"
        inkscape:connector-curvature="0"
-       sodipodi:nodetypes="cc" />
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/MFGR_zoom.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <rect
        style="fill:#355d8a;fill-opacity:0;stroke:#355d80;stroke-width:10.629921;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        y="-275.81287"
        x="3570.499"
        height="192.44182"
        width="91.475769"
-       id="rect12590" />
+       id="rect12590"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/MJH_zoom.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <rect
        id="rect12592"
        width="180.64462"
        height="192.44182"
        x="4262.2188"
        y="-275.81287"
-       style="fill:#355d8a;fill-opacity:0;stroke:#355d80;stroke-width:10.629921;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+       style="fill:#355d8a;fill-opacity:0;stroke:#355d80;stroke-width:10.629921;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/JAE_zoom.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <rect
        id="rect4581"
        width="136.36034"
        height="192.44182"
        x="2579.1643"
        y="-275.32779"
-       style="fill:#355d8a;fill-opacity:0.01005025;stroke:#355d8a;stroke-width:10.629921;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+       style="fill:#355d8a;fill-opacity:0.01005025;stroke:#355d8a;stroke-width:10.629921;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/VCR_zoom.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <rect
        style="fill:#355d8a;fill-opacity:0;stroke:#355d80;stroke-width:10.629921;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        y="-275.81583"
        x="5392.2197"
        height="192.44182"
        width="70.018593"
-       id="rect12594" />
+       id="rect12594"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/GHA_zoom.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <rect
        id="rect12596"
        width="132.57553"
        height="192.44182"
        x="6428.2881"
        y="-275.81583"
-       style="fill:#355d8a;fill-opacity:0;stroke:#355d80;stroke-width:10.629921;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+       style="fill:#355d8a;fill-opacity:0;stroke:#355d80;stroke-width:10.629921;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/MFGR_zoom.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <rect
        id="rect12600"
        width="459.09534"
@@ -3830,14 +4538,20 @@
        x="-2691.2876"
        y="44.29134"
        style="fill:#355d8a;fill-opacity:0.39215686;stroke:#355d8a;stroke-width:3.543307;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       transform="scale(-1,1)" />
+       transform="scale(-1,1)"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/VCR_zoom.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <rect
        style="fill:none;fill-opacity:0.52380958;stroke:#008000;stroke-width:3.543307;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        y="44.29134"
        x="2691.7786"
        height="191.33858"
        width="169.37041"
-       id="rect12602" />
+       id="rect12602"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/VCR_zoom.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <rect
        style="fill:#355d8a;fill-opacity:0.39215686;stroke:#355d8a;stroke-width:3.543307;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        y="44.29134"
@@ -3845,21 +4559,30 @@
        height="191.33858"
        width="153.68512"
        id="rect12618"
-       transform="scale(-1,1)" />
+       transform="scale(-1,1)"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/MJH_zoom.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <rect
        id="rect12620"
        width="481.60629"
        height="191.33858"
        x="3322.9021"
        y="44.29134"
-       style="fill:#00ff00;fill-opacity:0;stroke:#008000;stroke-width:3.53307414;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+       style="fill:#00ff00;fill-opacity:0;stroke:#008000;stroke-width:3.53307414;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/MJH_zoom.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <rect
        style="fill:#00ff00;fill-opacity:0;stroke:#008000;stroke-width:3.543307;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        y="44.29134"
        x="4528.0576"
        height="191.33858"
        width="253.98886"
-       id="rect12633" />
+       id="rect12633"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/JAE_zoom.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <rect
        id="rect12635"
        width="439.53848"
@@ -3867,14 +4590,20 @@
        x="-4527.8882"
        y="44.29134"
        style="fill:#355d8a;fill-opacity:0.39215686;stroke:#355d80;stroke-width:3.543307;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       transform="scale(-1,1)" />
+       transform="scale(-1,1)"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/JAE_zoom.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <rect
        style="fill:#ff0000;fill-opacity:0.39215686;stroke:#ff0000;stroke-width:3.543307;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        y="44.29134"
        x="4033.1702"
        height="191.33858"
        width="55.2309"
-       id="rect12637" />
+       id="rect12637"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/JAE_zoom.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <rect
        style="fill:#355d8a;fill-opacity:0.39215686;stroke:#355d80;stroke-width:3.543307;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        y="44.29134"
@@ -3882,14 +4611,20 @@
        height="191.33858"
        width="264.52414"
        id="rect12658"
-       transform="scale(-1,1)" />
+       transform="scale(-1,1)"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/MFGR_zoom.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <rect
        id="rect12660"
        width="387.49606"
        height="191.33858"
        x="6305.0356"
        y="44.29134"
-       style="fill:none;fill-opacity:0.31658295;stroke:#008000;stroke-width:3.543307;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+       style="fill:none;fill-opacity:0.31658295;stroke:#008000;stroke-width:3.543307;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/MFGR_zoom.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <rect
        transform="scale(-1,1)"
        id="rect12666"
@@ -3897,24 +4632,30 @@
        height="191.33858"
        x="-5464.606"
        y="44.29134"
-       style="fill:#355d8a;fill-opacity:0.39215686;stroke:#355d80;stroke-width:3.543307;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+       style="fill:#355d8a;fill-opacity:0.39215686;stroke:#355d80;stroke-width:3.543307;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/GHA_zoom.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <rect
        style="fill:#008000;fill-opacity:0;stroke:#008000;stroke-width:3.543307;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        y="44.29134"
        x="5464.9492"
        height="191.33858"
        width="253.92424"
-       id="rect12668" />
+       id="rect12668"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/GHA_zoom.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <image
-       sodipodi:absref="/home/laptop_casa/TESIS/TESIS/poster/MJNNVIGILOS_est.png"
+       sodipodi:absref="/home/julio/Tesis/TESIS/poster/MJNNVIGILOS_est.png"
        xlink:href="MJNNVIGILOS_est.png"
-       y="-1053.8035"
-       x="2010.7394"
-       id="image12706"
-       style="image-rendering:optimizeQuality"
-       preserveAspectRatio="none"
+       width="1079.1676"
        height="556.98975"
-       width="1079.1676" />
+       preserveAspectRatio="none"
+       style="image-rendering:optimizeQuality"
+       id="image12706"
+       x="2010.7394"
+       y="-1053.8035" />
     <text
        id="text10495"
        y="-468.11536"
@@ -3936,7 +4677,10 @@
     <g
        transform="matrix(1.2820591,0,0,-1.3099449,1269.5202,684.46213)"
        inkscape:label="MJH_1275_difporcentaje"
-       id="g12726">
+       id="g12726"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/diagrama.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <g
          id="g12728" />
       <g
@@ -4868,21 +5612,27 @@
       </g>
     </g>
     <image
-       sodipodi:absref="/home/laptop_casa/TESIS/TESIS/poster/MJH_190_PDG_lucirse_PSG.png"
+       sodipodi:absref="/home/julio/Tesis/TESIS/poster/MJH_190_PDG_lucirse_PSG.png"
        xlink:href="MJH_190_PDG_lucirse_PSG.png"
-       y="342.8504"
-       x="38.976376"
-       id="image13472"
-       style="image-rendering:optimizeQuality"
-       preserveAspectRatio="none"
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/diagrama.png"
+       width="708.66138"
        height="389.76376"
-       width="708.66138" />
+       preserveAspectRatio="none"
+       style="image-rendering:optimizeQuality"
+       id="image13472"
+       x="38.976376"
+       y="342.8504" />
     <text
        y="-883.37659"
        x="3258.0044"
        id="text4674"
        style="font-variant:normal;font-weight:normal;font-size:61.06891632px;line-height:0%;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#ff0000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.14250338"
-       transform="scale(1.0537493,0.94899233)">
+       transform="scale(1.0537493,0.94899233)"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <tspan
          style="stroke-width:1.14250338"
          id="tspan4676"
@@ -4894,7 +5644,10 @@
        x="3351.1958"
        id="text4678"
        style="font-variant:normal;font-weight:normal;font-size:61.06891632px;line-height:0%;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#ff0000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.14250338"
-       transform="scale(1.0537493,0.94899233)">
+       transform="scale(1.0537493,0.94899233)"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <tspan
          style="stroke-width:1.14250338"
          id="tspan4680"
@@ -4906,7 +5659,10 @@
        style="font-variant:normal;font-weight:normal;font-size:61.06891632px;line-height:0%;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#ff0000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.14250338"
        id="text4682"
        x="3491.6714"
-       y="-871.44025">
+       y="-871.44025"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <tspan
          x="3491.6714"
          y="-871.44025"
@@ -4918,7 +5674,10 @@
        x="3586.2397"
        id="text4686"
        style="font-variant:normal;font-weight:normal;font-size:61.06891632px;line-height:0%;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#ff0000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.14250338"
-       transform="scale(1.0537493,0.94899233)">
+       transform="scale(1.0537493,0.94899233)"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <tspan
          style="stroke-width:1.14250338"
          id="tspan4688"
@@ -4930,7 +5689,10 @@
        style="font-variant:normal;font-weight:normal;font-size:61.06891632px;line-height:0%;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#ff0000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.14250338"
        id="text4690"
        x="4148.1416"
-       y="-1023.5568">
+       y="-1023.5568"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <tspan
          x="4148.1416"
          y="-1023.5568"
@@ -4942,7 +5704,10 @@
        x="4196.7075"
        id="text4694"
        style="font-variant:normal;font-weight:normal;font-size:61.06891632px;line-height:0%;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#ff0000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.14250338"
-       transform="scale(1.0537493,0.94899233)">
+       transform="scale(1.0537493,0.94899233)"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/Dif_significativas.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <tspan
          style="stroke-width:1.14250338"
          id="tspan4696"
@@ -5205,22 +5970,22 @@
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cssssscccccsccssscccccccccccsccccccsccscc" />
     <g
-       transform="translate(-733.93144,2139.4329)"
+       transform="translate(-421.41178,1514.3936)"
        id="g5557"
        style="display:inline">
       <path
-         style="opacity:1;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:6.18744373;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:6.18744373;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
          d="m 3662.0148,-2138.1362 c -1.7144,1.7129 -3.9127,2.6186 -6.0807,2.6962 l -36.0873,-36.0862 c 0.074,-2.169 0.983,-4.3676 2.6977,-6.0818 1.7145,-1.7146 3.9128,-2.6189 6.0805,-2.6962 l 36.0876,36.086 c -0.075,2.169 -0.9832,4.3674 -2.6978,6.082 z"
          id="path5548"
          inkscape:connector-curvature="0"
          sodipodi:nodetypes="sccsccs" />
       <path
-         style="opacity:1;fill:#d5fff6;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:6.20078897;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         style="fill:#d5fff6;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:6.20078897;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
          d="m 3642.3329,-2157.8922 a 31.022528,31.003068 0 0 1 -43.8725,0 31.022528,31.003068 0 0 1 0,-43.8449 31.022528,31.003068 0 0 1 43.8725,0 31.022528,31.003068 0 0 1 0,43.8449 z"
          id="path5551"
          inkscape:connector-curvature="0" />
       <path
-         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:6.23648882;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         style="fill:none;stroke:#000000;stroke-width:6.23648882;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
          d="m 3604.9367,-2179.8162 h 30.8798"
          id="path5553"
          inkscape:connector-curvature="0"
@@ -5230,7 +5995,7 @@
          inkscape:connector-curvature="0"
          id="path5555"
          d="m 3620.3758,-2195.2554 v 30.8798"
-         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:6.23648882;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+         style="fill:none;stroke:#000000;stroke-width:6.23648882;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
     </g>
     <flowRoot
        xml:space="preserve"
@@ -5294,28 +6059,40 @@
        height="191.33858"
        x="3123.0159"
        y="44.29134"
-       style="fill:#ff0000;fill-opacity:0.39215686;stroke:#ff0000;stroke-width:3.543307;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+       style="fill:#ff0000;fill-opacity:0.39215686;stroke:#ff0000;stroke-width:3.543307;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/MJH_zoom.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <rect
        style="fill:#ff0000;fill-opacity:0.39215686;stroke:#ff0000;stroke-width:3.543307;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        y="44.29134"
        x="2129.0613"
        height="191.33858"
        width="103.1811"
-       id="rect12598" />
+       id="rect12598"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/VCR_zoom.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <rect
        style="fill:#ff0000;fill-opacity:0.39215686;stroke:#ff0000;stroke-width:3.543307;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        y="44.29134"
        x="5001.5278"
        height="191.33858"
        width="208.44745"
-       id="rect12664" />
+       id="rect12664"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/GHA_zoom.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <rect
        id="rect12656"
        width="56.227108"
        height="191.33858"
        x="5984.3237"
        y="44.29134"
-       style="fill:#ff0000;fill-opacity:0.39215686;stroke:#ff0000;stroke-width:3.543307;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+       style="fill:#ff0000;fill-opacity:0.39215686;stroke:#ff0000;stroke-width:3.543307;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       inkscape:export-filename="/home/julio/Tesis/TESIS/poster/MFGR_zoom.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
   </g>
   <g
      inkscape:groupmode="layer"
@@ -5580,38 +6357,38 @@
          sodipodi:role="line"
          id="tspan7247">are most likely stationary.</tspan></text>
     <image
-       sodipodi:absref="/home/laptop_casa/TESIS/TESIS/poster/MJNNVIGILOS_est.png"
+       sodipodi:absref="/home/julio/Tesis/TESIS/poster/MJNNVIGILOS_est.png"
        xlink:href="MJNNVIGILOS_est.png"
-       width="669.38641"
-       height="334.69321"
-       preserveAspectRatio="none"
-       style="display:inline;image-rendering:optimizeQuality"
-       id="image7259"
-       x="8258.3291"
+       transform="translate(0,1924.0157)"
        y="-937.18268"
-       transform="translate(0,1924.0157)" />
-    <image
-       sodipodi:absref="/home/laptop_casa/TESIS/TESIS/poster/MJNNVIGILOS_est.png"
-       xlink:href="MJNNVIGILOS_est.png"
-       width="646.98932"
-       height="323.49466"
-       preserveAspectRatio="none"
+       x="8258.3291"
+       id="image7259"
        style="display:inline;image-rendering:optimizeQuality"
-       id="image7270"
+       preserveAspectRatio="none"
+       height="334.69321"
+       width="669.38641" />
+    <image
+       sodipodi:absref="/home/julio/Tesis/TESIS/poster/MJNNVIGILOS_est.png"
+       xlink:href="MJNNVIGILOS_est.png"
+       transform="translate(0,1924.0157)"
+       y="-929.71698"
        x="7620.0117"
-       y="-929.71698"
-       transform="translate(0,1924.0157)" />
-    <image
-       sodipodi:absref="/home/laptop_casa/TESIS/TESIS/poster/MJNNVIGILOS_est.png"
-       xlink:href="MJNNVIGILOS_est.png"
-       width="654.45502"
-       height="327.22751"
-       preserveAspectRatio="none"
+       id="image7270"
        style="display:inline;image-rendering:optimizeQuality"
-       id="image7281"
-       x="8911.5781"
+       preserveAspectRatio="none"
+       height="323.49466"
+       width="646.98932" />
+    <image
+       sodipodi:absref="/home/julio/Tesis/TESIS/poster/MJNNVIGILOS_est.png"
+       xlink:href="MJNNVIGILOS_est.png"
+       transform="translate(0,1924.0157)"
        y="-929.71698"
-       transform="translate(0,1924.0157)" />
+       x="8911.5781"
+       id="image7281"
+       style="display:inline;image-rendering:optimizeQuality"
+       preserveAspectRatio="none"
+       height="327.22751"
+       width="654.45502" />
     <text
        transform="translate(0,1924.0157)"
        id="text7296"
