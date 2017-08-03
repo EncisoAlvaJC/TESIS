@@ -3,55 +3,76 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Conceptos, matem\'aticas}
+\subsection{Matem\'aticas}
 
-Se describen algunos conceptos sobre estimaci\'on espectral para procesos estoc\'asticos 
-d\'ebilmente estacionarios (incluyendo las definiciones de \'estos), y la generalizaci\'on 
-propuesta por Priestley para procesos no-estacionarios; esta descripci\'on se basa principalmente 
-en libro \textit{Spectral Analysis and Time Series} de M. B. Priestley \cite{Priestley81}.
+%Se describen algunos conceptos sobre estimaci\'on espectral para procesos estoc\'asticos 
+%d\'ebilmente estacionarios, as\'i como la generalizaci\'on 
+%propuesta por Priestley para procesos no-estacionarios. Esta descripci\'on se basa principalmente 
+%en libro \textit{Spectral Analysis and Time Series} de M. B. Priestley \cite{Priestley81}.
 
-Como se mencion\'o, el objeto de estudio en este trabajo son registros de se\~nales
-electrofisiol\'ogicas (en particular, de PSG) que son modeladas como procesos estoc\'asticos; (por 
-simplicidad, se escribir\'a simplemente 'procesos'); antes de continuar, conviene presentar la 
-definici\'on de este concepto. 
+%Como se mencion\'o, el objeto de estudio en este trabajo son registros de se\~nales
+%electrofisiol\'ogicas (en particular, de PSG) que son modeladas como procesos estoc\'asticos; (por 
+%simplicidad, se escribir\'a simplemente 'procesos'); antes de continuar, conviene presentar la 
+%definici\'on de este concepto. 
+
+Si bien el concepto de variable aleatoria es b\'asico para la probabilidad y la estad\'istica,
+en el presente trabajo s\'olo se expone de forma m\'as bien pragm\'atica en un ap\'endice 
+(definici\'on \ref{variable_aleatoria}). 
+En cambio se empieza definiendo un proceso estoc\'astico.
 
 \begin{defn}[Proceso estoc\'astico]
-Un proceso estoc\'astico $\{ X(t) \}$ es una familia de variables aleatorias en los reales, 
+Un proceso estoc\'astico \xt es una familia de variables aleatorias real, 
 indexadas por $t \in T$.
 \label{proc_estocastico}
 \end{defn}
 
-Se denotar\'a a una realizaci\'on de $X(t)$ como $x(t)$, mientras que la funci\'on de probabilidad 
-acumulada para $X(t)$ ser\'a $F_{X(t)}$. Cabe enfatizar que para cada valor de $t$, $X(t)$ es una 
-variable  aleatoria.
+Respecto al conjunto $T$ que indexa a un proceso estoc\'astico, y que ser\'a referido como 
+\textit{tiempo}, conviene introducir dos grandes grupos para los mismos
+\begin{itemize}
+\item \textit{A tiempo continuo} si $T$ es un intervalo cerrado
+\item \textit{A tiempo discreto} si $T$ es de la forma 
+$\{ t_0 + n \delta \lvert n \in U \subseteq \mathbb{Z} \}$
+\end{itemize}
 
-La definici\'on \ref{proc_estocastico} es aplicable tanto para procesos en tiempo continuo como 
-para tiempo discreto\footnote{Un proceso se dice \textbf{a tiempo discreto} cuando el \'indice $t$ 
-(tradicionalmente asociado al tiempo) pertenece a un conjunto a lo m\'as numerable, mientras que se 
-dice \textbf{a tiempo continuo} si este conjunto es un intervalo; en este trabajo s\'olo se 
-consideran estos dos tipos de 'tiempos'}.
-Como modelo, se entiende que las se\~nales del PSG son fen\'omenos a tiempo continuo, pero que no
-es registrable sino en un conjunto finito de puntos en el tiempo; en otras palabras, se espera que 
-tenga caracter\'isticas propias de un proceso a tiempo continuo aunque en la pr\'actica se trate 
-con un proceso a tiempo discreto.
+Los procesos a tiempo discreto contemplan conjuntos finitos e infinitos de puntos en el tiempo.
+%, as\'i como 'tiempos ausentes' si la cantidad de estos es negligible.
+No se manejan discutir\'a sobre otros tipos de tiempo en este trabajo.
 
-\subsection{Estacionariedad d\'ebil}
+Como notaci\'on, se usar\'a \xt  para el proceso estoc\'astico y $X(t)$ para una de las variables
+aleatorias que lo componen; de la misma manera $x(t)$ es una realizaci\'on de $X(t)$ y $F_{X(t)}$ 
+es la funci\'on de probabilidad acumulada para $X(t)$.
+%Cabe enfatizar que para cada valor de $t$, $X(t)$ es una 
+%variable aleatoria y que una realizaci\'on del proceso {X(t)}.
 
-Una vez definidos los procesos estoc\'asticos, es posible definir una caracter\'istica de los 
-mismos y que se investiga en el presente trabajo: la estacionariedad.
-Informalmente, esta propiedad se refiere a que la 'estructura' del proceso sea invariante en el
-tiempo; para un proceso estacionario, calcular el promedio sobre cualquier subconjunto de datos 
-deber\'ia arrojar resultados estad\'isticamente id\'enticos, mientras que no hay tal garant\'ia
-para proceso no-estacionarios.
-La definici\'on \ref{est_fuerte}, referida como estacionariedad fuerte o estricta, induce fielmente 
-estas propiedades.
+%La definici\'on \ref{proc_estocastico} es aplicable tanto para procesos en tiempo continuo como 
+%para tiempo discreto\footnote{Un proceso se dice \textbf{a tiempo discreto} cuando el \'indice $t$ 
+%(tradicionalmente asociado al tiempo) pertenece a un conjunto a lo m\'as numerable, mientras que se 
+%dice \textbf{a tiempo continuo} si este conjunto es un intervalo; en este trabajo s\'olo se 
+%consideran estos dos tipos de 'tiempos'}.
+Como modelo se asume que las se\~nales que componen el PSG constituyen un fen\'omeno a tiempo 
+continuo, que no es registrable sino en un conjunto finito de puntos en el tiempo; 
+esta forma de entender a los datos 
+permitir\'a asumir algunas propiedades que ser\'an descritas m\'as adelante.
+%en otras palabras, se espera que 
+%tenga caracter\'isticas propias de un proceso a tiempo continuo aunque en la pr\'actica se trate 
+%con un proceso a tiempo discreto.
+
+%\subsection{Estacionariedad d\'ebil}
+
+%Una vez definidos los procesos estoc\'asticos, es posible definir una caracter\'istica de los 
+%mismos y que se investiga en el presente trabajo: la estacionariedad.
+%Informalmente, esta propiedad se refiere a que la 'estructura' del proceso sea invariante en el
+%tiempo; para un proceso estacionario, calcular el promedio sobre cualquier subconjunto de datos 
+%deber\'ia arrojar resultados estad\'isticamente id\'enticos, mientras que no hay tal garant\'ia
+%para proceso no-estacionarios.
+%La definici\'on \ref{est_fuerte}, referida como estacionariedad fuerte o estricta, induce fielmente 
+%estas propiedades.
 
 \begin{defn}[Estacionariedad fuerte]
-Un proceso estoc\'astico $\{ X(t) \}$ es fuertemente estacionario si, para cualquier conjunto de 
-tiempos admisibles\footnote{El t\'ermino \textbf{tiempos admisibles} indica que la definici\'on es 
-la misma para procesos a tiempo discreto o continuo bajo las restricciones adecuadas} 
-$t_1,t_2,\dots,t_n$ y cualquier $\tau$ tal que $t_i+\tau$ son tiempos admisibles para 
-$i = 1, 2, \dots n$; se cumple que
+Un proceso estoc\'astico \xt es fuertemente estacionario si, para cualquier conjunto de 
+tiempos admisibles\footnote{El t\'ermino \textit{tiempos admisibles} indica que para tiempo 
+discreto o continuo la afirmaci\'on es la misma, bajo las restricciones pertinentes} 
+$t_1,t_2,\dots,t_n$ y cualquier $\tau$ tal que los tiempos $t_i+\tau$ son admisibles; se cumple que
 \begin{equation*}
 F_{\left(X(t_1),X(t_2),\dots,X(t_n)\right) }
 \equiv
@@ -195,7 +216,7 @@ $t$ y $s$ (con $s>t$) las siguientes propiedades:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Espectro de potencias para procesos estoc\'asticos}
+\subsubsection{Espectro de potencias para procesos estoc\'asticos}
 
 Existe una larga tradici\'on en ciencias biom\'edicas para entender/modelar las se\~nales
 electrofisiol\'ogicos en t\'erminos de ondas y frecuencias, ya que fundamentalmente son fen\'omenos 
@@ -301,7 +322,7 @@ que los registros de PSG contienen energ\'ia finita para cualquier intervalo fin
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsubsection{Espectro de potencias para funciones no-peri\'odicas}
+%\subsubsection{Espectro de potencias para funciones no-peri\'odicas}
 
 A continuaci\'on se presentan dos generalizaciones de las series de Fourier previas, a aquella que
 ser\'a usada para procesos estoc\'asticos. La primera de ellas es las integrales de Fourier
@@ -364,7 +385,7 @@ Estas funciones son \'unicas excepto por constantes, y en conjunto son llamados 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsubsection{Espectro de potencias para un proceso d\'ebilmente estacionario}
+%\subsubsection{Espectro de potencias para un proceso d\'ebilmente estacionario}
 
 Por simplicidad, el enfoque la definici\'on que se aborda considera un proceso d\'ebilmente 
 estacionario, $\{X(t)\}$, y posteriormente una realizaci\'on particular, $x(t)$; como no hay 
@@ -445,7 +466,7 @@ no-decreciente, y que en $-\infty$ vale 0; esta observaci\'on ser\'a importante.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Estimaci\'on de la funci\'on de densidad espectral}
+\subsubsection{Estimaci\'on de la funci\'on de densidad espectral}
 
 Anteriormente se defini\'o espectro de potencias para procesos d\'ebilmente estacionarios con 
 segundos momentos finitos (definici\'on \ref{FDE}); sin embargo, aquella definici\'on es sumamente 
@@ -701,7 +722,7 @@ Las funciones $F_M$ y $D_M$ toman, respectivamente, los nombres de \textit{n\'uc
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Filtros lineales}
+\subsubsection{Filtros lineales}
 
 Como herramienta auxiliar en la estimaci\'on de la FDE, conviene considerar procesos del tipo 
 $Y(t) = \intR g(u) X(t-u) du$, referidos como 'filtrados'.
@@ -748,7 +769,7 @@ referido como \textbf{filtro de banda}.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Representaci\'on de Wold-Cram\'er}
+\subsubsection{Representaci\'on de Wold-Cram\'er}
 
 Como consecuencia de los teoremas \ref{t_wienerkhinchin} y \ref{t_wold}, los procesos d\'ebilmente 
 estacionarios pueden ser caracterizados usando directamente la FDE (sin usar la funci\'on de
@@ -784,7 +805,7 @@ tal representaci\'on es referida como \textbf{representaci\'on de Wold-Cram\'er}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Prueba de Priestley-Subba Rao}
+\subsubsection{Prueba de Priestley-Subba Rao}
 
 Esta t\'ecnica fue presentada por Priestley y Subba Rao en 1969 \cite{Priestley69}, y consiste en 
 estimar el espectro local del proceso len varios puntos en el tiempo y las frecuencias, para luego 

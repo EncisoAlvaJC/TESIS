@@ -137,6 +137,8 @@
 \newcommand{\Cov}[1]{\mathrm{Cov}\left( #1 \right)}
 \newcommand{\abso}[1]{\left| #1 \right|}
 
+\newcommand{\xt}{$\{X(t)\}_{t\in T}$ }
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -255,40 +257,40 @@ como posible marcador de deterioro cognitivo}
 \pagenumbering{roman}
 \setcounter{page}{1}
 
-\chapter*{Resumen}
-
-{\small
-%Si bien en el \'ultimo siglo han incrementado la esperanza y la calidad de vida, observada 
-%\cite{PlanAlzheimer04} un aumento en la presencia de enfermedades no-transmisibles asociadas con 
-%la edad, entre ellas la demencia.
-%En particular, algunos estudios estad\'isticos \cite{Amer13,Miyata13,Potvin12} sugieren una 
-%relaci\'on entre trastornos del sue\~no y el deterioro cognitivo (DC) durante la vejez.
-
-El presente trabajo, enmarcado en tal hip\'otesis, busca marcadores cl\'inicos para el DC
-relacionados con el sue\~no.
-Para ello se analizan registros de actividad cerebral durante el sue\~no (polisomnograf\'ia, PSG), 
-modelados como procesos estoc\'asticos a tiempo continuo. 
-Cuando se trabaja con este tipo de se\~nales se suelen presuponer propiedades como la 
-no-estacionariedad, que es de particular relevancia en la obtenci\'on del espectro de potencias de 
-estas se\~nales, por ejemplo; esta propiedad rara vez se verifica, y de hecho se ha sugerido
-\cite{McEwen75,Cohen77,Sugimoto78} que en casos at\'ipicos, como el del DC, podr\'ia no cumplirse. 
-En este trabajo se investiga si los registros de PSG en adultos mayores (AM) pueden modelarse 
-efectivamente como procesos d\'ebilmente estacionarios, para lo cual se utiliza la prueba propuesta 
-por Priestley y Subba Rao.
-
-Fueron analizados registros de PSG para AM diagnosticados, a trav\'es de pruebas 
-neuropsicol\'ogicas, como controles o con DC (5 y 4 sujetos, respectivamente). 
-Se prest\'o especial atenci\'on a la etapa de sue\~no denominada MOR, cuyo acr\'onimo refiere a la
-presencia de movimientos oculares r\'apidos (entre otras caracter\'isticas).
-Se encontraron, solamente en el grupo control y en las regiones frontal y posterior, diferencias 
-significativas sobre el porcentaje de tiempo que las se\~nales son estacionarias durante sue\~no 
-MOR y no-MOR.
-Estos resultados sugieren que, en presencia de DC, cambia la organizaci\'on funcional del cerebro 
-al transitar entre etapas de sue\~no.
-Por \'ultimo destacamos que en AM sin DC son reconocibles patrones de 'etapas de estacionariedad' 
-que, en un orden espec\'ifico, son consistentes con la aparici\'on del sue\~no MOR.
-
-}
+%\chapter*{Resumen}
+%
+%{\small
+%%Si bien en el \'ultimo siglo han incrementado la esperanza y la calidad de vida, observada 
+%%\cite{PlanAlzheimer04} un aumento en la presencia de enfermedades no-transmisibles asociadas con 
+%%la edad, entre ellas la demencia.
+%%En particular, algunos estudios estad\'isticos \cite{Amer13,Miyata13,Potvin12} sugieren una 
+%%relaci\'on entre trastornos del sue\~no y el deterioro cognitivo (DC) durante la vejez.
+%
+%El presente trabajo, enmarcado en tal hip\'otesis, busca marcadores cl\'inicos para el DC
+%relacionados con el sue\~no.
+%Para ello se analizan registros de actividad cerebral durante el sue\~no (polisomnograf\'ia, PSG), 
+%modelados como procesos estoc\'asticos a tiempo continuo. 
+%Cuando se trabaja con este tipo de se\~nales se suelen presuponer propiedades como la 
+%no-estacionariedad, que es de particular relevancia en la obtenci\'on del espectro de potencias de 
+%estas se\~nales, por ejemplo; esta propiedad rara vez se verifica, y de hecho se ha sugerido
+%\cite{McEwen75,Cohen77,Sugimoto78} que en casos at\'ipicos, como el del DC, podr\'ia no cumplirse. 
+%En este trabajo se investiga si los registros de PSG en adultos mayores (AM) pueden modelarse 
+%efectivamente como procesos d\'ebilmente estacionarios, para lo cual se utiliza la prueba propuesta 
+%por Priestley y Subba Rao.
+%
+%Fueron analizados registros de PSG para AM diagnosticados, a trav\'es de pruebas 
+%neuropsicol\'ogicas, como controles o con DC (5 y 4 sujetos, respectivamente). 
+%Se prest\'o especial atenci\'on a la etapa de sue\~no denominada MOR, cuyo acr\'onimo refiere a la
+%presencia de movimientos oculares r\'apidos (entre otras caracter\'isticas).
+%Se encontraron, solamente en el grupo control y en las regiones frontal y posterior, diferencias 
+%significativas sobre el porcentaje de tiempo que las se\~nales son estacionarias durante sue\~no 
+%MOR y no-MOR.
+%Estos resultados sugieren que, en presencia de DC, cambia la organizaci\'on funcional del cerebro 
+%al transitar entre etapas de sue\~no.
+%Por \'ultimo destacamos que en AM sin DC son reconocibles patrones de 'etapas de estacionariedad' 
+%que, en un orden espec\'ifico, son consistentes con la aparici\'on del sue\~no MOR.
+%
+%}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -350,13 +352,25 @@ que, en un orden espec\'ifico, son consistentes con la aparici\'on del sue\~no M
 
 \input{./texto/matematicas.tex}
 
-\input{./texto/metodologia.tex}
+%\input{./texto/metodologia.tex}
 
-\input{./texto/resultados.tex}
+%\input{./texto/resultados.tex}
 
 \appendix
 
-\input{./texto/tablas_graficos.tex}
+\input{./texto/stl_fft.tex}
+
+%\input{./texto/tablas_graficos.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+{\small
+%\bibliographystyle{abbrv_esp}
+\bibliographystyle{abbrv}
+\bibliography{referencias_estacionariedad,referencias_fisiologia,referencias_otros,referencias_mixto}{}
+%\bibliographystyle{apalike-es}
+}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
