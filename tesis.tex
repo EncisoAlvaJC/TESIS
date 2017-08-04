@@ -3,7 +3,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\documentclass[12pt,a4paper]{mitthesis}
+\documentclass[12pt,letterpaper]{mitthesis}
 \usepackage[utf8]{inputenc}
 \usepackage[spanish]{babel}
 
@@ -52,7 +52,14 @@
 \usepackage{float}
 
 % para que el indice tenga hipervinculos
-\usepackage{hyperref}
+%\usepackage{hyperref}
+\usepackage[pdftex,
+            pdfauthor={JC Enciso Alva},
+            pdftitle={TITULO DE LA TESIS},
+            pdfsubject={Matem\'aticas Aplicadas},
+            pdfkeywords={PALABRAS CLAVE},
+            %pdfproducer={Latex con hyperref},
+            pdfcreator={pdflatex}]{hyperref}
 
 % para que la bibliografia aparezca en el indice
 \usepackage[nottoc]{tocbibind}
@@ -202,6 +209,41 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
+
+%\begin{titlepage}
+%\begin{center}
+%
+%\textsc{\Large Instituto Tecnológico Autónomo de México}\\[4em]
+%
+%%Figura
+%\begin{figure}[h]
+%\begin{center}
+%\includegraphics{logo-ITAM_ch.jpg}
+%\end{center}
+%\end{figure}
+%
+%\vspace{4em}
+%
+%\textsc{\huge \textbf{TÍTULO DE LA TESIS}}\\[4em]
+%
+%\textsc{\large Tesis}\\[1em]
+%
+%\textsc{que para obtener el título de}\\[1em]
+%
+%\textsc{TÍTULO  VAS A OBTENER}\\[1em]
+%
+%\textsc{presenta}\\[1em]
+%
+%\textsc{\Large AUTOR}\\[1em]
+%
+%\textsc{\large Asesor: NOMBRE}
+%
+%\end{center}
+%
+%\vspace*{\fill}
+%\textsc{México, D.F. \hspace*{\fill} 2014}
+%
+%\end{titlepage}
 
 \setcounter{page}{0}
 \thispagestyle{empty}
