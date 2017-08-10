@@ -15,10 +15,15 @@
 %simplicidad, se escribir\'a simplemente 'procesos'); antes de continuar, conviene presentar la 
 %definici\'on de este concepto. 
 
-Si bien el concepto de variable aleatoria es b\'asico para la probabilidad y la estad\'istica,
-en el presente trabajo s\'olo se expone de forma m\'as bien pragm\'atica en un ap\'endice 
-(definici\'on \ref{variable_aleatoria}). 
-En cambio se empieza definiendo un proceso estoc\'astico.
+%Si bien el de variable aleatoria es b\'asico para la probabilidad y la estad\'istica,
+%en el presente trabajo s\'olo se expone de forma m\'as bien pragm\'atica en un ap\'endice 
+%(definici\'on \ref{variable_aleatoria}). 
+%En cambio se empieza definiendo un proceso estoc\'astico.
+
+Debido a las condiciones particulares del presente trabajo, se expondrá de forma pragmática los
+objetos abstractos usados y se darán los detalles formales pertinentes como apéndice. En particular,
+se definirá lo que es un proceso estocástico dando por sentado que es conocido
+el concepto de variable aleatoria (definición \ref{variable_aleatoria}).
 
 \begin{defn}[Proceso estoc\'astico]
 Un proceso estoc\'astico \xt es una familia de variables aleatorias real, 
@@ -50,7 +55,7 @@ es la funci\'on de probabilidad acumulada para $X(t)$.
 %dice \textbf{a tiempo continuo} si este conjunto es un intervalo; en este trabajo s\'olo se 
 %consideran estos dos tipos de 'tiempos'}.
 Como modelo se asume que las se\~nales que componen el PSG constituyen un fen\'omeno a tiempo 
-continuo, que no es registrable sino en un conjunto finito de puntos en el tiempo; 
+continuo que no es registrable sino en un conjunto finito de puntos en el tiempo; 
 esta forma de entender a los datos 
 permitir\'a asumir algunas propiedades que ser\'an descritas m\'as adelante.
 %en otras palabras, se espera que 
@@ -84,53 +89,54 @@ probabilidad conjunta para el vector $\left(X(t_1),X(t_2),\dots,X(t_n)\right)$
 \label{est_fuerte}
 \end{defn}
 
-Sin embargo, la definici\'on \ref{est_fuerte} resulta in\'util si se pretende verificar que un 
-registro dado pudiera ser modelado como la realizaci\'on de un proceso es fuertemente estacionario 
-(un objetivo descartado para este trabajo). En ese escenario, para cada tiempo registrado $t$ se 
-tiene s\'olo una observaci\'on para cada variable aleatoria $X(t)$, lo cual es muy poca 
-informaci\'on como para estimar las funciones de probabilidad acumulada mencionadas en la 
-definici\'on.
-Estas limitaciones motivan una definici\'on m\'as d\'ebil de estacionariedad, pero que pueda ser 
-detectada en realizaciones dadas de procesos; se exhibe la definici\'on \ref{est_orden_m} como 
-alternativa.
+%Sin embargo, la definici\'on \ref{est_fuerte} resulta in\'util si se pretende verificar que un 
+%registro dado pudiera ser modelado como la realizaci\'on de un proceso es fuertemente estacionario 
+%(un objetivo descartado para este trabajo). 
+%En ese escenario, para cada tiempo registrado $t$ se 
+%tiene s\'olo una observaci\'on para cada variable aleatoria $X(t)$, lo cual es muy poca 
+%informaci\'on como para estimar las funciones de probabilidad acumulada mencionadas en la 
+%definici\'on.
+%Estas limitaciones motivan una definici\'on m\'as d\'ebil de estacionariedad, pero que pueda ser 
+%detectada en realizaciones dadas de procesos; se exhibe la definici\'on \ref{est_orden_m} como 
+%alternativa.
 
-\begin{defn}[Estacionariedad de orden $\boldsymbol{m}$]
-Un proceso estoc\'astico $\{ X(t) \}$ se dice estacionario de orden $m$ si, para cualquier conjunto 
-de tiempos admisibles $t_1,t_2,\dots,t_n$ y cualquier $\tau \in \R$ se cumple que
-\begin{equation*}
-\E{ X^{m_1}(t_1)X^{m_2}(t_2)\cdots X^{m_n}(t_n) }
-=
-\E{ X^{m_1}(t_1+\tau)X^{m_2}(t_2+\tau)\cdots X^{m_n}(t_n+\tau) }
-\end{equation*}
-Para cualesquiera enteros $m_1,m_2,\dots,m_n$ tales que $m_1+m_2+\dots+m_n \leq m$
-\label{est_orden_m}
-\end{defn}
+%\begin{defn}[Estacionariedad de orden $\boldsymbol{m}$]
+%Un proceso estoc\'astico $\{ X(t) \}$ se dice estacionario de orden $m$ si, para cualquier conjunto 
+%de tiempos admisibles $t_1,t_2,\dots,t_n$ y cualquier $\tau \in \R$ se cumple que
+%\begin{equation*}
+%\E{ X^{m_1}(t_1)X^{m_2}(t_2)\cdots X^{m_n}(t_n) }
+%=
+%\E{ X^{m_1}(t_1+\tau)X^{m_2}(t_2+\tau)\cdots X^{m_n}(t_n+\tau) }
+%\end{equation*}
+%Para cualesquiera enteros $m_1,m_2,\dots,m_n$ tales que $m_1+m_2+\dots+m_n \leq m$
+%\label{est_orden_m}
+%\end{defn}
 
-Para entender mejor la definici\'on \ref{est_orden_m} y sus limitaciones frente a la 
-estacionariedad fuerte, consid\'erense tres procesos: $\{X(t)\}$ fuertemente estacionario, 
-$\{Y_1(t)\}$ estacionario de orden 1, y $\{Y_2(t)\}$ estacionario de orden 2. Luego
-\begin{itemize}
-\item Las medias\footnote{La media de una variable aleatoria $V$ se define como $ \mu_V := \E{V}$} 
-$ \mu_{X(t)}$, $ \mu_{Y_1(t)}$ y $ \mu_{Y_2(t)}$ no dependen de $t$
-
-\item Las varianzas\footnote{La varianza de una variable aleatoria $V$ se define como 
-$ \Var{V} := \E{\left(V - \mu_V \right)^{2}}$} $ \Var{Y_1(t)}$ y $ \Var{Y_2(t)}$ no dependen de 
-$t$, pero no se puede garantizar lo mismo para $\Var{X(t)}$
-
-\item El coeficiente de asimetr\'ia\footnote{El coeficiente de asimetr\'ia para una variable 
-aleatoria $V$ se define como 
-$\gamma_V = \frac{\E{\left(V-\mu_V\right)^{3}}}{\Var{V}^{\nicefrac{3}{2}}}$}
-$ \gamma_{X(t)}$ no depende de $t$, pero no se puede garantizar lo mismo para $ \gamma_{Y_1(t)}$ ni 
-para $ \gamma_{Y_2(t)}$
-\end{itemize}
-
-Cabe mencionar que hay una relaci\'on de contenci\'on clara en familia de los conjuntos de procesos 
-estacionarios de orden finito (si un proceso es estacionario de orden $m$, entonces es estacionario 
-de orden $n$ para todo $n \leq m$); es posible definir procesos estacionarios de orden 'infinito' 
-seg\'un \ref{est_orden_m}, que intuitivamente ser\'ian fuertemente estacionarios. 
-De manera pragm\'atica, en este trabajo no se discuten tales interrogantes, sino que se usar\'a 
-\'unicamente la definici\'on correspondiente al caso $m=2$, referida como estacionariedad d\'ebil o 
-de orden 2, y repetida en la definici\'on \ref{est_orden_2}.
+%Para entender mejor la definici\'on \ref{est_orden_m} y sus limitaciones frente a la 
+%estacionariedad fuerte, consid\'erense tres procesos: $\{X(t)\}$ fuertemente estacionario, 
+%$\{Y_1(t)\}$ estacionario de orden 1, y $\{Y_2(t)\}$ estacionario de orden 2. Luego
+%\begin{itemize}
+%\item Las medias\footnote{La media de una variable aleatoria $V$ se define como $ \mu_V := \E{V}$} 
+%$ \mu_{X(t)}$, $ \mu_{Y_1(t)}$ y $ \mu_{Y_2(t)}$ no dependen de $t$
+%
+%\item Las varianzas\footnote{La varianza de una variable aleatoria $V$ se define como 
+%$ \Var{V} := \E{\left(V - \mu_V \right)^{2}}$} $ \Var{Y_1(t)}$ y $ \Var{Y_2(t)}$ no dependen de 
+%$t$, pero no se puede garantizar lo mismo para $\Var{X(t)}$
+%
+%\item El coeficiente de asimetr\'ia\footnote{El coeficiente de asimetr\'ia para una variable 
+%aleatoria $V$ se define como 
+%$\gamma_V = \frac{\E{\left(V-\mu_V\right)^{3}}}{\Var{V}^{\nicefrac{3}{2}}}$}
+%$ \gamma_{X(t)}$ no depende de $t$, pero no se puede garantizar lo mismo para $ \gamma_{Y_1(t)}$ ni 
+%para $ \gamma_{Y_2(t)}$
+%\end{itemize}
+%
+%Cabe mencionar que hay una relaci\'on de contenci\'on clara en familia de los conjuntos de procesos 
+%estacionarios de orden finito (si un proceso es estacionario de orden $m$, entonces es estacionario 
+%de orden $n$ para todo $n \leq m$); es posible definir procesos estacionarios de orden 'infinito' 
+%seg\'un \ref{est_orden_m}, que intuitivamente ser\'ian fuertemente estacionarios. 
+%De manera pragm\'atica, en este trabajo no se discuten tales interrogantes, sino que se usar\'a 
+%\'unicamente la definici\'on correspondiente al caso $m=2$, referida como estacionariedad d\'ebil o 
+%de orden 2, y repetida en la definici\'on \ref{est_orden_2}.
 
 \begin{defn}[Estacionariedad d\'ebil]
 Un proceso estoc\'astico $\{ X(t) \}$ es d\'ebilmente estacionario si, para cualesquiera tiempos 
@@ -160,16 +166,16 @@ depende de $\tau$
 \label{est_usual}
 \end{thrm}
 
-Cabe comentar  sobre la existencia de procesos que son fuertemente estacionarios pero que no son 
-estacionarios de ning\'un orden: por ejemplo, un proceso de variables aleatorias independientes con 
-distribuci\'on de Cauchy\footnote{Una variable aleatoria tiene distribuci\'on de Cauchy si su 
-funci\'on de probabilidad acumulada es de la forma 
-$\displaystyle F(x) = \frac{1}{\pi} \int_{-\infty}^{x} \frac{1}{1+y^{2}} dy$}.
-Una condici\'on suficiente para que un proceso fuertemente estacionario sea estacionario de orden 
-$m$ es que tenga sus primeros $m$ momentos bien definidos.
-Con respecto a las se\~nales registradas en el EEG, entendidas como procesos estoc\'asticos, se 
-espera que tengan (cuando menos) segundos momentos bien definidos; m\'as adelante se presentan 
-argumentos, desde una interpretaci\'on f\'isica, sobre por qu\'e se espera que ocurra lo anterior.
+%Cabe comentar  sobre la existencia de procesos que son fuertemente estacionarios pero que no son 
+%estacionarios de ning\'un orden: por ejemplo, un proceso de variables aleatorias independientes con 
+%distribuci\'on de Cauchy\footnote{Una variable aleatoria tiene distribuci\'on de Cauchy si su 
+%funci\'on de probabilidad acumulada es de la forma 
+%$\displaystyle F(x) = \frac{1}{\pi} \int_{-\infty}^{x} \frac{1}{1+y^{2}} dy$}.
+%Una condici\'on suficiente para que un proceso fuertemente estacionario sea estacionario de orden 
+%$m$ es que tenga sus primeros $m$ momentos bien definidos.
+%Con respecto a las se\~nales registradas en el EEG, entendidas como procesos estoc\'asticos, se 
+%espera que tengan (cuando menos) segundos momentos bien definidos; m\'as adelante se presentan 
+%argumentos, desde una interpretaci\'on f\'isica, sobre por qu\'e se espera que ocurra lo anterior.
 
 A continuaci\'on (definici\'on \ref{cont_est}) se presenta una tipo de regularidad que se supone
 para las se\~nales registradas en el EEG: continuidad de alg\'un tipo.
@@ -189,40 +195,40 @@ Es destacable que si un proceso es estoc\'asticamente continuo en un intervalo, 
 solamente se pueden garantizar continuas casi en todas partes \footnote{Una propiedad se cumple 
 \textbf{casi en todas partes} si se cumple en un conjunto cuyo complemento tiene medida cero} en 
 ese intervalo.
-Como ejemplos, un proceso ruido blanco (definici\'on \ref{r_blanco}) no es estoc\'asticamente 
-continuo, mientras que un proceso de Wiener (definici\'on \ref{r_wiener}) s\'i lo es.
-
-\begin{defn}[Proceso ruido blanco]
-Se dice de un proceso estoc\'astico $\{ R(t) \}$ que cumple, para cualesquiera tiempos admisibles
-$t$ y $s$, las siguientes propiedades:
-\begin{itemize}
-\item $\E{R(t)}=0$
-\item $\Cov{R(t),R(s)}=0 \Leftrightarrow t=s$ 
-\end{itemize}
-\label{r_blanco}
-\end{defn}
-
-\begin{defn}[Proceso de Wiener]
-Se dice de un proceso estoc\'astico $\{ W(t) \}$ que cumple, para cualesquiera tiempos admisibles
-$t$ y $s$ (con $s>t$) las siguientes propiedades:
-\begin{itemize}
-\item $W(0) = 0$ ($W(0)$ es constante)
-\item $W(s)-W(t)$ es independiente de $W(u)$, para todo $u<t$ admisible
-\item $W(s)-W(t) \sim N(0,\abso{t-s})$  (los incrementos tienen distribuci\'on normal)
-\end{itemize}
-\label{r_wiener}
-\end{defn}
+%Como ejemplos, un proceso ruido blanco (definici\'on \ref{r_blanco}) no es estoc\'asticamente 
+%continuo, mientras que un proceso de Wiener (definici\'on \ref{r_wiener}) s\'i lo es.
+%
+%\begin{defn}[Proceso ruido blanco]
+%Se dice de un proceso estoc\'astico $\{ R(t) \}$ que cumple, para cualesquiera tiempos admisibles
+%$t$ y $s$, las siguientes propiedades:
+%\begin{itemize}
+%\item $\E{R(t)}=0$
+%\item $\Cov{R(t),R(s)}=0 \Leftrightarrow t=s$ 
+%\end{itemize}
+%\label{r_blanco}
+%\end{defn}
+%
+%\begin{defn}[Proceso de Wiener]
+%Se dice de un proceso estoc\'astico $\{ W(t) \}$ que cumple, para cualesquiera tiempos admisibles
+%$t$ y $s$ (con $s>t$) las siguientes propiedades:
+%\begin{itemize}
+%\item $W(0) = 0$ ($W(0)$ es constante)
+%\item $W(s)-W(t)$ es independiente de $W(u)$, para todo $u<t$ admisible
+%\item $W(s)-W(t) \sim N(0,\abso{t-s})$  (los incrementos tienen distribuci\'on normal)
+%\end{itemize}
+%\label{r_wiener}
+%\end{defn}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsubsection{Espectro de potencias para procesos estoc\'asticos}
 
-Existe una larga tradici\'on en ciencias biom\'edicas para entender/modelar las se\~nales
-electrofisiol\'ogicos en t\'erminos de ondas y frecuencias, ya que fundamentalmente son fen\'omenos 
-el\'ectricos \cite{Kaiser00}.  
-Estos modelos est\'an t\'ipicamente asociados con las series de Fourier y la transformada de 
-Fourier (definiciones \ref{FourierClasico} y \ref{trFourier}, respectivamente).
+%Existe una larga tradici\'on en ciencias biom\'edicas para entender/modelar las se\~nales
+%electrofisiol\'ogicos en t\'erminos de ondas y frecuencias, ya que fundamentalmente son fen\'omenos 
+%el\'ectricos \cite{Kaiser00}.  
+%Estos modelos est\'an t\'ipicamente asociados con las series de Fourier y la transformada de 
+%Fourier (definiciones \ref{FourierClasico} y \ref{trFourier}, respectivamente).
 
 \begin{defn}[Serie de Fourier]
 Sea $k$ una funci\'on real peri\'odica (con periodo $2T$) tal que 
@@ -295,7 +301,7 @@ $(A_n)$. Se cumple que
 \label{parseval_serie}
 \end{thrm}
 
-\newpage
+%\newpage
 
 \begin{defn}[Espectro de potencias]
 Sea $P_T$ el espacio de las funciones peri\'odicas con periodo $2T$ que tienen una serie de Fourier 
@@ -316,19 +322,19 @@ Es importante mencionar que la energ\'ia, entendida como la integral de una form
 un concepto com\'un a varias ramas de la f\'isica y las ingenier\'ias; en cambio, en econom\'ia o 
 en epidemiolog\'ia, por ejemplo, no hay una motivaci\'on clara para usar el concepto de energ\'ia 
 seg\'un \ref{energia}.
-En el presente trabajo no s\'olo se manejar\'a este concepto de energ\'ia, sino que se supondr\'a
-que los registros de PSG contienen energ\'ia finita para cualquier intervalo finito de tiempo.
+%En el presente trabajo no s\'olo se manejar\'a este concepto de energ\'ia, sino que se supondr\'a
+%que los registros de PSG contienen energ\'ia finita para cualquier intervalo finito de tiempo.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %\subsubsection{Espectro de potencias para funciones no-peri\'odicas}
 
-A continuaci\'on se presentan dos generalizaciones de las series de Fourier previas, a aquella que
-ser\'a usada para procesos estoc\'asticos. La primera de ellas es las integrales de Fourier
-(definici\'on \ref{fourier_int}), que operan de la misma forma que las series de Fourier pero
-sobre funciones absolutamente sumables; se pueden extender sencillamente la transformada de Fourier 
-y el espectro de potencias para esta funci\'on.
+%A continuaci\'on se presentan dos generalizaciones de las series de Fourier previas, a aquella que
+%ser\'a usada para procesos estoc\'asticos. La primera de ellas es las integrales de Fourier
+%(definici\'on \ref{fourier_int}), que operan de la misma forma que las series de Fourier pero
+%sobre funciones absolutamente sumables; se pueden extender sencillamente la transformada de Fourier 
+%y el espectro de potencias para esta funci\'on.
 
 \begin{defn}[Integral de Fourier]
 Sea $k$ una funci\'on tal que $\intR \abso{k(t)} dt < \infty$. Se le llamar\'a 'integral de 
@@ -340,10 +346,10 @@ A(\omega) = \frac{1}{2 \pi} \intR k(t) e^{- i \omega t} dt
 \label{fourier_int}
 \end{defn}
 
-La integral de Fourier  se encuentra bien definida para cualquier $\omega \in \mathbb{R}$, e 
-incluso se puede probar que es una funci\'on continua y que converge a 0 en $\pm \infty$.
-Sin embargo, por brevedad s\'olo se usar\'a como motivaci\'on para la transformada de 
-Fourier-Stieltjes.
+%La integral de Fourier  se encuentra bien definida para cualquier $\omega \in \mathbb{R}$, e 
+%incluso se puede probar que es una funci\'on continua y que converge a 0 en $\pm \infty$.
+%Sin embargo, por brevedad s\'olo se usar\'a como motivaci\'on para la transformada de 
+%Fourier-Stieltjes.
 
 \begin{defn}[Transformada de Fourier-Stieltjes]
 Se dice que una funci\'on real $A$ es la transformada de Fourier-Stieltjes de una funci\'on $k$ si 
@@ -355,32 +361,32 @@ siendo que la integral est\'a definida en el sentido de Stieltjes
 \label{fourier_stieltjes}
 \end{defn}
 
-En la definici\'on \ref{fourier_stieltjes}, si $F$ es derivable en todas partes entonces $F\prima$ 
-cumple el mismo papel que la integral de Fourier; en cambio, si $k$ es una funci\'on peri\'odica 
-entonces $F$ toma una forma escalonada cuyos aumentos coinciden con la serie de Fourier para $k$. 
-M\'as a\'un, existen funciones que no son ni peri\'odicas ni absolutamente sumables pero poseen 
-una transformada de Fourier-Stieltjes, como $k(x)=\SEN{x}+\SEN{\sqrt{2}x}$, 
-$k(x)=\COS{x} + (1+x^{2})^{-1}$.
-
-\begin{comment}
-\begin{thrm}[Descomposici\'on de Lebesgue]
-Sea $f:I\rightarrow \R$ una funci\'on de variaci\'on acotada, con $I$ un intervalo. Entonces pueden 
-hallarse funciones $f_j, f_c, f_a :I\rightarrow \R$ tales que
-\begin{itemize}
-\item $f = f_j+ f_c+ f_a$
-\item $f_j = \sum_{y \leq x} f(x-0) + f(x+0)$
-\item $f_a$ es absolutamente continua\footnote{Para que una funci\'on sea absolutamente continua,
-basta que sea de variaci\'on acotada y que mapee conjuntos de medida cero en conjuntos de medida
-cero} en $I$
-\item $f_c$ es una funci\'on singular\footnote{Una funci\'on es singular si es continua, de 
-variaci\'on acotada y no-constante, y se cumple que tiene derivada cero casi en todas partes} en 
-$I$
-\end{itemize}
-Estas funciones son \'unicas excepto por constantes, y en conjunto son llamados la 
-\textit{descomposici\'on de Lebesgue} de $f$
-\label{Lebesgue_decomp}
-\end{thrm}
-\end{comment}
+%En la definici\'on \ref{fourier_stieltjes}, si $F$ es derivable en todas partes entonces $F\prima$ 
+%cumple el mismo papel que la integral de Fourier; en cambio, si $k$ es una funci\'on peri\'odica 
+%entonces $F$ toma una forma escalonada cuyos aumentos coinciden con la serie de Fourier para $k$. 
+%M\'as a\'un, existen funciones que no son ni peri\'odicas ni absolutamente sumables pero poseen 
+%una transformada de Fourier-Stieltjes, como $k(x)=\SEN{x}+\SEN{\sqrt{2}x}$, 
+%$k(x)=\COS{x} + (1+x^{2})^{-1}$.
+%
+%\begin{comment}
+%\begin{thrm}[Descomposici\'on de Lebesgue]
+%Sea $f:I\rightarrow \R$ una funci\'on de variaci\'on acotada, con $I$ un intervalo. Entonces pueden 
+%hallarse funciones $f_j, f_c, f_a :I\rightarrow \R$ tales que
+%\begin{itemize}
+%\item $f = f_j+ f_c+ f_a$
+%\item $f_j = \sum_{y \leq x} f(x-0) + f(x+0)$
+%\item $f_a$ es absolutamente continua\footnote{Para que una funci\'on sea absolutamente continua,
+%basta que sea de variaci\'on acotada y que mapee conjuntos de medida cero en conjuntos de medida
+%cero} en $I$
+%\item $f_c$ es una funci\'on singular\footnote{Una funci\'on es singular si es continua, de 
+%variaci\'on acotada y no-constante, y se cumple que tiene derivada cero casi en todas partes} en 
+%$I$
+%\end{itemize}
+%Estas funciones son \'unicas excepto por constantes, y en conjunto son llamados la 
+%\textit{descomposici\'on de Lebesgue} de $f$
+%\label{Lebesgue_decomp}
+%\end{thrm}
+%\end{comment}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
