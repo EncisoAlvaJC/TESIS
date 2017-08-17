@@ -84,7 +84,42 @@ F_X (x) = P\left( (-\infty,x] \right)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Algunas consecuencias de la estacionariedad}
+\section{Notas sobre la estacionariedad}
+
+En el texto se presentó la estacionariedad débil (definición \ref{est_usual}) como la característica
+a verificar en los registros de estudio, aunque cabe ahondar un poco sobre por qué
+la versión \textit{débil}. La estacionariedad formaliza el que
+las características de un proceso estocástico no cambien en el tiempo, lo cual permite 
+caracterizarlo a partir de sus realizaciones; la definición \ref{est_fuerte} presenta
+una condición suficiente para ello.
+
+\begin{defn}[Estacionariedad fuerte]
+Un proceso estoc\'astico \xt es fuertemente estacionario si, para cualquier conjunto de 
+tiempos admisibles
+$t_1,t_2,\dots,t_n$ y cualquier $\tau$ tal que los tiempos $t_i+\tau$ son admisibles; se cumple que
+\begin{equation*}
+F_{\left(X(t_1),X(t_2),\dots,X(t_n)\right) }
+\equiv
+F_{\left(X(t_1+\tau),X(t_2+\tau),\dots,X(t_n+\tau)\right)}
+\end{equation*}
+
+Donde $F_{\left(X(t_1),X(t_2),\dots,X(t_n)\right) }$ es la funci\'on de probabilidad acumulada 
+conjunta para el vector $\left(X(t_1),X(t_2),\dots,X(t_n)\right)$
+\label{est_fuerte}
+\end{defn}
+
+Tal definición es problemática en el problema tratado, ya que requiere estimar para cada tiempo
+
+%Sin embargo, la definici\'on \ref{est_fuerte} resulta in\'util si se pretende verificar que un 
+%registro dado pudiera ser modelado como la realizaci\'on de un proceso es fuertemente estacionario 
+%(un objetivo descartado para este trabajo). 
+%En ese escenario, para cada tiempo registrado $t$ se 
+%tiene s\'olo una observaci\'on para cada variable aleatoria $X(t)$, lo cual es muy poca 
+%informaci\'on como para estimar las funciones de probabilidad acumulada mencionadas en la 
+%definici\'on.
+%Estas limitaciones motivan una definici\'on m\'as d\'ebil de estacionariedad, pero que pueda ser 
+%detectada en realizaciones dadas de procesos; se exhibe la definici\'on \ref{est_orden_m} como 
+%alternativa.
 
 \begin{defn}[Estacionariedad de orden $\boldsymbol{m}$]
 Un proceso estoc\'astico $\{ X(t) \}$ se dice estacionario de orden $m$ si, para cualquier conjunto 
@@ -123,6 +158,38 @@ seg\'un \ref{est_orden_m}, que intuitivamente ser\'ian fuertemente estacionarios
 De manera pragm\'atica, en este trabajo no se discuten tales interrogantes, sino que se usar\'a 
 \'unicamente la definici\'on correspondiente al caso $m=2$, referida como estacionariedad d\'ebil o 
 de orden 2, y repetida en la definici\'on \ref{est_orden_2}.
+
+
+
+\begin{defn}[Estacionariedad d\'ebil]
+Un proceso estoc\'astico \xt es d\'ebilmente estacionario si, para cualesquiera tiempos 
+admisibles\footnote{El t\'ermino \textit{tiempos admisibles} indica que para tiempo 
+discreto o continuo la afirmaci\'on es la misma, bajo las restricciones pertinentes} 
+$t, s, t+\tau, s+\tau$, se cumple que
+\begin{center}
+\begin{tabular}{ccc}
+$\E{X(t)} = \E{X(t+\tau)}$
+& y &
+$\E{X(t)X(s)} = \E{X(t+\tau)X(s+\tau)}$
+\end{tabular}
+\end{center}
+\label{est_orden_2}
+\end{defn}
+
+M\'as a\'un, parece conveniente exhibir una caracterizaci\'on equivalente para los procesos 
+d\'ebilmente estacionarios, pero que tiene una interpretaci\'on m\'as sencilla.
+\begin{thrm}
+Un proceso estoc\'astico es d\'ebilmente estacionario si y s\'olo si para cualesquiera tiempos 
+admisibles $t$, $s$ se tiene que
+\begin{itemize}
+\item $\E{X(t)} = \mu_X$
+\item $\Var{X(t)} = \sigma^{2}_X$
+\item $\Cov{X(t),X(s)} = \rho_X (s-t)$
+\end{itemize}
+Donde $\mu_X$, $\sigma^{2}_X$ son constantes, $\rho_X(\tau)$ es una funci\'on que \'unicamente 
+depende de $\tau$
+\label{est_usual}
+\end{thrm}
 
 -----------------
 
@@ -164,6 +231,13 @@ $t$ y $s$ (con $s>t$) las siguientes propiedades:
 \end{itemize}
 \label{r_wiener}
 \end{defn}
+
+Una forma natural de pensar en la definici\'on \ref{cont_est} es que, si $\abso{t-t_0}$ es muy 
+peque\~no, entonces $X(t)$ y $X(t_0)$ difieren muy poco entre s\'i (como variables aleatorias).
+Es destacable que si un proceso es estoc\'asticamente continuo en un intervalo, sus realizaciones 
+solamente se pueden garantizar continuas casi en todas partes \footnote{Una propiedad se cumple 
+\textbf{casi en todas partes} si se cumple en un conjunto cuyo complemento tiene medida cero} en 
+ese intervalo.
 
 --------------------------
 
@@ -222,7 +296,19 @@ que $f$ tiene orden $g$, si existe una constante $k\in \R$ tal que
 \label{orden}
 \end{defn}
 
-El algoritmo presentado por  transformada Rápida de Fourier (TRF) 
+El algoritmo presentado por Cooley y Tukey en 1965, la Transformada Rápida de Fourier 
+(TRF), usa menos operaciones si el número de observaciones es \textit{altamente 
+compuesto}\footnote{Se dice que un número entero es \textit{compuesto} si no tiene dos o más
+divisores propios mayores a 1; se dice que es más compuesto si tiene más de estos factores}.
+
+Considerando la serie de tiempo $\{s_n\}_{n=0,\dots,N}$ con $N$ de la forma $N= p q$ para 
+$p, q$ enteros mayores a 1, entonces su TRF se puede reescribir como
+
+\begin{align*}
+\mathfrak{F}_s(\omega) &= \sum_{m = 0}^{p} \sum_{k=0}^{q} s_n e^{i \omega (mp + q)} 
+\\
+&= 
+\end{align*}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

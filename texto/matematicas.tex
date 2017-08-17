@@ -20,13 +20,15 @@
 %(definici\'on \ref{variable_aleatoria}). 
 %En cambio se empieza definiendo un proceso estoc\'astico.
 
-Debido a las condiciones particulares del presente trabajo, se expondrá de forma pragmática los
-objetos abstractos usados y se darán los detalles formales pertinentes como apéndice. En particular,
+A continuación
+%Debido a las condiciones particulares del presente trabajo, 
+se expondrán de forma concreta los
+objetos abstractos usados, dejando los detalles formales pertinentes como apéndice. En particular,
 se definirá lo que es un proceso estocástico dando por sentado que es conocido
 el concepto de variable aleatoria (definición \ref{variable_aleatoria}).
 
 \begin{defn}[Proceso estoc\'astico]
-Un proceso estoc\'astico \xt es una familia de variables aleatorias real, 
+Un proceso estoc\'astico \xt es una familia de variables aleatorias reales, 
 indexadas por $t \in T$.
 \label{proc_estocastico}
 \end{defn}
@@ -54,16 +56,18 @@ es la funci\'on de probabilidad acumulada para $X(t)$.
 %(tradicionalmente asociado al tiempo) pertenece a un conjunto a lo m\'as numerable, mientras que se 
 %dice \textbf{a tiempo continuo} si este conjunto es un intervalo; en este trabajo s\'olo se 
 %consideran estos dos tipos de 'tiempos'}.
-Como modelo se asume que las se\~nales que componen el PSG constituyen un fen\'omeno a tiempo 
-continuo que no es registrable sino en un conjunto finito de puntos en el tiempo; 
+Para modelar las se\~nales que componen el polisomnograma (PSG) se asume que éstas
+constituyen un fen\'omeno predominantemente estocástico\footnote{Cabe aclarar que tal enfoque no
+implica suponer una completa aleatoriedad, sino que} a tiempo 
+continuo, pero que no es registrable sino en un conjunto finito de puntos en el tiempo; 
 esta forma de entender a los datos 
 permitir\'a asumir algunas propiedades que ser\'an descritas m\'as adelante.
 %en otras palabras, se espera que 
 %tenga caracter\'isticas propias de un proceso a tiempo continuo aunque en la pr\'actica se trate 
 %con un proceso a tiempo discreto.
-
+%
 %\subsection{Estacionariedad d\'ebil}
-
+%
 %Una vez definidos los procesos estoc\'asticos, es posible definir una caracter\'istica de los 
 %mismos y que se investiga en el presente trabajo: la estacionariedad.
 %Informalmente, esta propiedad se refiere a que la 'estructura' del proceso sea invariante en el
@@ -72,22 +76,30 @@ permitir\'a asumir algunas propiedades que ser\'an descritas m\'as adelante.
 %para proceso no-estacionarios.
 %La definici\'on \ref{est_fuerte}, referida como estacionariedad fuerte o estricta, induce fielmente 
 %estas propiedades.
+%
 
-\begin{defn}[Estacionariedad fuerte]
-Un proceso estoc\'astico \xt es fuertemente estacionario si, para cualquier conjunto de 
-tiempos admisibles\footnote{El t\'ermino \textit{tiempos admisibles} indica que para tiempo 
-discreto o continuo la afirmaci\'on es la misma, bajo las restricciones pertinentes} 
-$t_1,t_2,\dots,t_n$ y cualquier $\tau$ tal que los tiempos $t_i+\tau$ son admisibles; se cumple que
-\begin{equation*}
-F_{\left(X(t_1),X(t_2),\dots,X(t_n)\right) }
-\equiv
-F_{\left(X(t_1+\tau),X(t_2+\tau),\dots,X(t_n+\tau)\right)}
-\end{equation*}
+El cuerpo central de este trabajo es averiguar sin este modelo de tipo estocástico para los datos
+permite la hipótesis de que los procesos estocásticos involucrados son estacionarios, cuando menos en
+un sentido débil. Anteriormente se mencionó por qué parece conveniente verificar este supuesto y cuáles
+sería sus implicaciones, a continuación se define formalmente y se discute el cómo se
+pudiera confirmar.
 
-Donde $F_{\left(X(t_1),X(t_2),\dots,X(t_n)\right) }$ es la funci\'on de distribuci\'on de 
-probabilidad conjunta para el vector $\left(X(t_1),X(t_2),\dots,X(t_n)\right)$
-\label{est_fuerte}
-\end{defn}
+
+%\begin{defn}[Estacionariedad fuerte]
+%Un proceso estoc\'astico \xt es fuertemente estacionario si, para cualquier conjunto de 
+%tiempos admisibles\footnote{El t\'ermino \textit{tiempos admisibles} indica que para tiempo 
+%discreto o continuo la afirmaci\'on es la misma, bajo las restricciones pertinentes} 
+%$t_1,t_2,\dots,t_n$ y cualquier $\tau$ tal que los tiempos $t_i+\tau$ son admisibles; se cumple que
+%\begin{equation*}
+%F_{\left(X(t_1),X(t_2),\dots,X(t_n)\right) }
+%\equiv
+%F_{\left(X(t_1+\tau),X(t_2+\tau),\dots,X(t_n+\tau)\right)}
+%\end{equation*}
+%
+%Donde $F_{\left(X(t_1),X(t_2),\dots,X(t_n)\right) }$ es la funci\'on de distribuci\'on de 
+%probabilidad conjunta para el vector $\left(X(t_1),X(t_2),\dots,X(t_n)\right)$
+%\label{est_fuerte}
+%\end{defn}
 
 %Sin embargo, la definici\'on \ref{est_fuerte} resulta in\'util si se pretende verificar que un 
 %registro dado pudiera ser modelado como la realizaci\'on de un proceso es fuertemente estacionario 
@@ -139,23 +151,9 @@ probabilidad conjunta para el vector $\left(X(t_1),X(t_2),\dots,X(t_n)\right)$
 %de orden 2, y repetida en la definici\'on \ref{est_orden_2}.
 
 \begin{defn}[Estacionariedad d\'ebil]
-Un proceso estoc\'astico $\{ X(t) \}$ es d\'ebilmente estacionario si, para cualesquiera tiempos 
-admisibles $t, s, t+\tau, s+\tau$, se cumple que
-\begin{center}
-\begin{tabular}{ccc}
-$\E{X(t)} = \E{X(t+\tau)}$
-& y &
-$\E{X(t)X(s)} = \E{X(t+\tau)X(s+\tau)}$
-\end{tabular}
-\end{center}
-\label{est_orden_2}
-\end{defn}
-
-M\'as a\'un, parece conveniente exhibir una caracterizaci\'on equivalente para los procesos 
-d\'ebilmente estacionarios, pero que tiene una interpretaci\'on m\'as sencilla.
-\begin{thrm}
-Un proceso estoc\'astico es d\'ebilmente estacionario si y s\'olo si para cualesquiera tiempos 
-admisibles $t$, $s$ se tiene que
+Un proceso estoc\'astico \xt es d\'ebilmente estacionario si y s\'olo si para cualesquiera tiempos 
+admisibles\footnote{El t\'ermino \textit{tiempos admisibles} significa que la definición es la misma
+para diferentes tipos de tiempo, bajo las restricciones pertinente} $t$, $s$ se tiene que
 \begin{itemize}
 \item $\E{X(t)} = \mu_X$
 \item $\Var{X(t)} = \sigma^{2}_X$
@@ -163,8 +161,8 @@ admisibles $t$, $s$ se tiene que
 \end{itemize}
 Donde $\mu_X$, $\sigma^{2}_X$ son constantes, $\rho_X(\tau)$ es una funci\'on que \'unicamente 
 depende de $\tau$
-\label{est_usual}
-\end{thrm}
+\label{est_orden_primera}
+\end{defn}
 
 %Cabe comentar  sobre la existencia de procesos que son fuertemente estacionarios pero que no son 
 %estacionarios de ning\'un orden: por ejemplo, un proceso de variables aleatorias independientes con 
@@ -180,6 +178,9 @@ depende de $\tau$
 A continuaci\'on (definici\'on \ref{cont_est}) se presenta una tipo de regularidad que se supone
 para las se\~nales registradas en el EEG: continuidad de alg\'un tipo.
 
+Adicionalmente se supondrá que las señales en el electroencefalograma (EEG) son continuas, cuando menos
+el sentido de media cuadrática
+
 \begin{defn}[Continuidad estoc\'astica en media cuadr\'atica]
 Un proceso estoc\'astico a tiempo continuo $\{ X(t) \}$ es estoc\'asticamente continuo, en el 
 sentido de media cuadr\'atica, en un tiempo admisible $t_0$ si y s\'olo si
@@ -189,12 +190,12 @@ sentido de media cuadr\'atica, en un tiempo admisible $t_0$ si y s\'olo si
 \label{cont_est}
 \end{defn}
 
-Una forma natural de pensar en la definici\'on \ref{cont_est} es que, si $\abso{t-t_0}$ es muy 
-peque\~no, entonces $X(t)$ y $X(t_0)$ difieren muy poco entre s\'i (como variables aleatorias).
-Es destacable que si un proceso es estoc\'asticamente continuo en un intervalo, sus realizaciones 
-solamente se pueden garantizar continuas casi en todas partes \footnote{Una propiedad se cumple 
-\textbf{casi en todas partes} si se cumple en un conjunto cuyo complemento tiene medida cero} en 
-ese intervalo.
+%Una forma natural de pensar en la definici\'on \ref{cont_est} es que, si $\abso{t-t_0}$ es muy 
+%peque\~no, entonces $X(t)$ y $X(t_0)$ difieren muy poco entre s\'i (como variables aleatorias).
+%Es destacable que si un proceso es estoc\'asticamente continuo en un intervalo, sus realizaciones 
+%solamente se pueden garantizar continuas casi en todas partes \footnote{Una propiedad se cumple 
+%\textbf{casi en todas partes} si se cumple en un conjunto cuyo complemento tiene medida cero} en 
+%ese intervalo.
 %Como ejemplos, un proceso ruido blanco (definici\'on \ref{r_blanco}) no es estoc\'asticamente 
 %continuo, mientras que un proceso de Wiener (definici\'on \ref{r_wiener}) s\'i lo es.
 %
