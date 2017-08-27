@@ -61,6 +61,29 @@ rect(0,max(MM-3*SSD,min(X)),.37,
 abline(h=MM,col='red',lwd=2)
 
 
+dev.off()
+
+set.seed(2017)
+N = 500000
+#e =rchisq(N,1)-1
+e = rnorm(N)
+xx = rep(0,N)
+for(i in 2:N){
+  xx[i] = xx[i-1]+2*e[i]
+}
+
+MM  = mean(xx)
+SSD = sd(xx)
+
+plot(xx,xlab='',ylab='',type='l',bty='n')
+rect(0,MM-1*SSD,N,MM+1*SSD,col=rgb(0,0,1,alpha=.1),border=NA)
+rect(0,MM-2*SSD,N,MM+2*SSD,col=rgb(0,0,1,alpha=.1),border=NA)
+rect(0,max(MM-3*SSD,min(xx)),N,
+     min(MM+3*SSD,max(xx)),col=rgb(0,0,1,alpha=.1),border=NA)
+abline(h=MM,col='red',lwd=2)
+
+
+
 
 dev.off()
 N = 100
@@ -88,3 +111,4 @@ rect(0,MM-2*SSD,.37,MM+2*SSD,col=rgb(0,0,1,alpha=.1),border=NA)
 rect(0,max(MM-3*SSD,min(X)),.37,
      min(MM+3*SSD,max(X)),col=rgb(0,0,1,alpha=.1),border=NA)
 abline(h=MM,col='red',lwd=2)
+
