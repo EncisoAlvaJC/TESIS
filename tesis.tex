@@ -3,9 +3,17 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\documentclass[12pt,letterpaper]{mitthesis}
+%\documentclass[12pt,letterpaper]{mitthesis}
+%\documentclass[12pt,letterpaper,draft]{book}
+\documentclass[12pt,letterpaper]{book}
 \usepackage[utf8]{inputenc}
 \usepackage[spanish]{babel}
+
+% para poner el tamano de los margenes
+\usepackage[left=4cm,top=4cm,right=2.5cm,bottom=2.5cm]{geometry}
+
+% util para revisar detalles finos, descativar despues
+\usepackage{layouts}
 
 % numeors con punto decimal (el default es coma decimal)
 \decimalpoint
@@ -254,36 +262,36 @@
 como posible marcador de deterioro cognitivo}
 \author{Julio Cesar Enciso Alva}
 
-{\setstretch{1.0}
+{%\setstretch{1.0}
 \begin{center}
     \includegraphics[width=0.2\linewidth]{./img_oficiales/logo_uaeh.png}\\
     {\Large \textbf{ \textsc{
         Universidad Aut\'onoma del Estado de Hidalgo\\
         Instituto de Ciencias B\'asicas e Ingenier\'ia\\
         }}
-    \vspace*{3.5em}
+    \vspace*{3em}
     }
     {\huge
         Estacionariedad d\'ebil en registros polisomnogr\'aficos de adultos mayores,
         como posible marcador de deterioro cognitivo\\
-    \vspace*{2.5em}
+    \vspace*{2em}
     }
     {\large
         \textbf{Presenta}\\
         \vspace*{.25em}}
         {\Large
         Julio Cesar Enciso Alva\\
-        \vspace*{4em}
+        \vspace*{3.5em}
         }
         {\large
         \textbf{Direcci\'on}\\
         \vspace*{.25em}}
         {\Large
         Dra. Erika Elizabeth Rodr\'iguez Torres\\
-    \vspace*{4em}
+    \vspace*{3.5em}
     }
     {\large
-    Pachuca, Hidalgo, junio de 2017\\
+    Pachuca, Hidalgo, Octubre de 2017\\
     M\'exico
     }
 \end{center}
@@ -390,9 +398,11 @@ como posible marcador de deterioro cognitivo}
 
 \input{./texto/previo.tex}
 
-\input{./texto/fisiologia.tex}
+%\input{./texto/fisiologia.tex}
+\input{./texto/fisiologia2.tex}
 
-\input{./texto/matematicas.tex}
+%\input{./texto/matematicas.tex}
+\input{./texto/matematicas2.tex}
 
 %\input{./texto/metodologia.tex}
 
@@ -400,7 +410,10 @@ como posible marcador de deterioro cognitivo}
 
 \appendix
 
-\input{./texto/stl_fft.tex}
+%\input{./texto/stl_fft.tex}
+\input{./texto/anexo_mate.tex}
+
+\input{./texto/anexo_fisio.tex}
 
 %\input{./texto/eeg.tex}
 

@@ -16,14 +16,16 @@ razón por la cual fueron omitidos anteriormente.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Variables aleatorias}
+\section{Variable aleatoria}
 
-Un primer motivo para esta sección es enfatizar que formalmente una variable aleatoria se concibe 
-no como un recuento de eventos sino como una función de medida. Esta segunda 
-caracterización es relevante para varios resultados utilizados, por lo que
-conviene no omitirla.
-
-Antes de poder definir formalmente las variable aleatoria, debe definirse las medidas.
+Un primer motivo para esta sección es enfatizar que, formalmente, una variable aleatoria se concibe 
+como un espacio de medida y no como un recuento de eventos. 
+Paralelamente, introducir la terminología adecuada permitirá entender los teoremas que dan base
+a los análisis realizados.
+%relevante para varios resultados utilizados, por lo que
+%conviene no omitirla.
+%
+%Antes de poder definir formalmente las variable aleatoria, debe definirse las medidas.
 
 \begin{defn}[$\boldsymbol{\sigma}$-álgebra]
 Sea $U$ un conjunto y $\mathcal{U}$ una colección de subconjuntos de $U$. Se dice que $\mathcal{U}$
@@ -44,7 +46,7 @@ intervalos abiertos, entonces debe contener a todos los elementos de la $\sigma$
 
 \begin{defn}[Medida]
 Sea $U$ un conjunto y $\mathcal{U}$ una $\sigma$-álgebra definida en $U$. Se dice que una función
-$\mu : \mathcal{U} \rightarrow \R^{*}$ es una medida si cumple que
+$\mu : \mathcal{U} \rightarrow \R \cup {\infty}$ es una medida si cumple que
 \begin{itemize}
 \item $\mu(\emptyset) = 0$
 \item $\mu(A) \geq 0$ para cualquier $A \in \mathcal{U}$
@@ -52,7 +54,7 @@ $\mu : \mathcal{U} \rightarrow \R^{*}$ es una medida si cumple que
 $A_i \in \mathcal{U}$, entonces 
 $\displaystyle \mu\left( \cup_{n\in \mathbb{N}} A_n \right) = \sum_{n\in \mathbb{N}} \mu(A_n)$
 \end{itemize}
-Donde $\R^{*}$ designa a los 'reales extendidos' $\R \cup \{-\infty,\infty \}$
+Donde $\emptyset$ es el conjunto vacío %y $\R^{*} = \R \cup \{-\infty,\infty \}$
 \end{defn}
 
 \begin{defn}[Medida de probabilidad en $\boldsymbol{\R}$]
@@ -70,9 +72,8 @@ $P : \mathcal{B} \rightarrow [0.1]$ es una \textbf{medida de probabilidad} si cu
 %Cabe mencionar que cuando se usa una variable aleatoria para modelar un fenómeno, existe un paso
 %intermedio en que los eventos relevantes se asocian con números reales
 
-Una forma de entender mejor una variables aleatoria es a partir de su función de probabilidad
-acumulada (FPA), que a su vez caracteriza a la variable: es equivalente referirse
-a una variable aleatoria o a su FPA.
+Otra forma de entender una variables aleatoria es a partir de su función de probabilidad
+acumulada (FPA), ya que hay una correspondencia unívoca entre cada variable aleatoria y su FPA.
 
 \begin{defn}[Función de Probabilidad Acumulada]
 Sea 
@@ -80,6 +81,10 @@ Sea
 F_X (x) = P\left( (-\infty,x] \right)
 \end{equation*}
 \end{defn}
+
+Habitualmente, como se hace el presente texto, se usa el símbolo $X$ para denotar a una variable 
+aleatoria cuya FDA es $F_X$; bajo esta idea, para cualquier conjunto $I \subseteq \R$ se denota
+$P(X \in I) = P(I)$
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -313,16 +318,16 @@ $p, q$ enteros mayores a 1, entonces su TRF se puede reescribir como
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Efecto del filtro STL}
-
-En el texto se menciona al filtro STL como un algoritmo para eliminar los efectos de tendencias
-deterministas sobre los registros, con lo cual se puede argumentar que los registros tienen
-valor esperado cero y que admiten una representaci\'on de Wold-Cram\'er. Sin embargo, se omiti\'o
-una descripci\'on m\'as adecuada por motivos narrativos.
-
-El algoritmo, introducido por Cleveland y colaboradores en 1990 \cite{Cleveland1990} toma sus siglas
-del ingl\'es \textit{Seasonal-Trend decomposition based on Loess} (descomposici\'on en tendencia y
-periodicidad basada en loess)
+%\section{Efecto del filtro STL}
+%
+%En el texto se menciona al filtro STL como un algoritmo para eliminar los efectos de tendencias
+%deterministas sobre los registros, con lo cual se puede argumentar que los registros tienen
+%valor esperado cero y que admiten una representaci\'on de Wold-Cram\'er. Sin embargo, se omiti\'o
+%una descripci\'on m\'as adecuada por motivos narrativos.
+%
+%El algoritmo, introducido por Cleveland y colaboradores en 1990 \cite{Cleveland1990} toma sus siglas
+%del ingl\'es \textit{Seasonal-Trend decomposition based on Loess} (descomposici\'on en tendencia y
+%periodicidad basada en loess)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

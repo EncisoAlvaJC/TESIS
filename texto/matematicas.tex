@@ -20,12 +20,14 @@
 %(definici\'on \ref{variable_aleatoria}). 
 %En cambio se empieza definiendo un proceso estoc\'astico.
 
-A continuación
+%A continuación
 %Debido a las condiciones particulares del presente trabajo, 
-se expondrán de forma concreta los
-objetos abstractos usados, dejando los detalles formales pertinentes como apéndice. En particular,
-se definirá lo que es un proceso estocástico dando por sentado que es conocido
-el concepto de variable aleatoria (definición \ref{variable_aleatoria}).
+%se expondrán de forma concreta los
+%objetos abstractos usados, dejando los detalles formales pertinentes como apéndice. En particular,
+%se definirá lo que es un proceso estocástico dando por sentado que es conocido
+%el concepto de variable aleatoria (definición \ref{variable_aleatoria}).
+
+
 
 \begin{defn}[Proceso estoc\'astico]
 Un proceso estoc\'astico \xt es una familia de variables aleatorias reales, 
@@ -62,93 +64,12 @@ implica suponer una completa aleatoriedad, sino que} a tiempo
 continuo, pero que no es registrable sino en un conjunto finito de puntos en el tiempo; 
 esta forma de entender a los datos 
 permitir\'a asumir algunas propiedades que ser\'an descritas m\'as adelante.
-%en otras palabras, se espera que 
-%tenga caracter\'isticas propias de un proceso a tiempo continuo aunque en la pr\'actica se trate 
-%con un proceso a tiempo discreto.
-%
-%\subsection{Estacionariedad d\'ebil}
-%
-%Una vez definidos los procesos estoc\'asticos, es posible definir una caracter\'istica de los 
-%mismos y que se investiga en el presente trabajo: la estacionariedad.
-%Informalmente, esta propiedad se refiere a que la 'estructura' del proceso sea invariante en el
-%tiempo; para un proceso estacionario, calcular el promedio sobre cualquier subconjunto de datos 
-%deber\'ia arrojar resultados estad\'isticamente id\'enticos, mientras que no hay tal garant\'ia
-%para proceso no-estacionarios.
-%La definici\'on \ref{est_fuerte}, referida como estacionariedad fuerte o estricta, induce fielmente 
-%estas propiedades.
-%
 
 El cuerpo central de este trabajo es averiguar sin este modelo de tipo estocástico para los datos
 permite la hipótesis de que los procesos estocásticos involucrados son estacionarios, cuando menos en
 un sentido débil. Anteriormente se mencionó por qué parece conveniente verificar este supuesto y cuáles
 sería sus implicaciones, a continuación se define formalmente y se discute el cómo se
 pudiera confirmar.
-
-
-%\begin{defn}[Estacionariedad fuerte]
-%Un proceso estoc\'astico \xt es fuertemente estacionario si, para cualquier conjunto de 
-%tiempos admisibles\footnote{El t\'ermino \textit{tiempos admisibles} indica que para tiempo 
-%discreto o continuo la afirmaci\'on es la misma, bajo las restricciones pertinentes} 
-%$t_1,t_2,\dots,t_n$ y cualquier $\tau$ tal que los tiempos $t_i+\tau$ son admisibles; se cumple que
-%\begin{equation*}
-%F_{\left(X(t_1),X(t_2),\dots,X(t_n)\right) }
-%\equiv
-%F_{\left(X(t_1+\tau),X(t_2+\tau),\dots,X(t_n+\tau)\right)}
-%\end{equation*}
-%
-%Donde $F_{\left(X(t_1),X(t_2),\dots,X(t_n)\right) }$ es la funci\'on de distribuci\'on de 
-%probabilidad conjunta para el vector $\left(X(t_1),X(t_2),\dots,X(t_n)\right)$
-%\label{est_fuerte}
-%\end{defn}
-
-%Sin embargo, la definici\'on \ref{est_fuerte} resulta in\'util si se pretende verificar que un 
-%registro dado pudiera ser modelado como la realizaci\'on de un proceso es fuertemente estacionario 
-%(un objetivo descartado para este trabajo). 
-%En ese escenario, para cada tiempo registrado $t$ se 
-%tiene s\'olo una observaci\'on para cada variable aleatoria $X(t)$, lo cual es muy poca 
-%informaci\'on como para estimar las funciones de probabilidad acumulada mencionadas en la 
-%definici\'on.
-%Estas limitaciones motivan una definici\'on m\'as d\'ebil de estacionariedad, pero que pueda ser 
-%detectada en realizaciones dadas de procesos; se exhibe la definici\'on \ref{est_orden_m} como 
-%alternativa.
-
-%\begin{defn}[Estacionariedad de orden $\boldsymbol{m}$]
-%Un proceso estoc\'astico $\{ X(t) \}$ se dice estacionario de orden $m$ si, para cualquier conjunto 
-%de tiempos admisibles $t_1,t_2,\dots,t_n$ y cualquier $\tau \in \R$ se cumple que
-%\begin{equation*}
-%\E{ X^{m_1}(t_1)X^{m_2}(t_2)\cdots X^{m_n}(t_n) }
-%=
-%\E{ X^{m_1}(t_1+\tau)X^{m_2}(t_2+\tau)\cdots X^{m_n}(t_n+\tau) }
-%\end{equation*}
-%Para cualesquiera enteros $m_1,m_2,\dots,m_n$ tales que $m_1+m_2+\dots+m_n \leq m$
-%\label{est_orden_m}
-%\end{defn}
-
-%Para entender mejor la definici\'on \ref{est_orden_m} y sus limitaciones frente a la 
-%estacionariedad fuerte, consid\'erense tres procesos: $\{X(t)\}$ fuertemente estacionario, 
-%$\{Y_1(t)\}$ estacionario de orden 1, y $\{Y_2(t)\}$ estacionario de orden 2. Luego
-%\begin{itemize}
-%\item Las medias\footnote{La media de una variable aleatoria $V$ se define como $ \mu_V := \E{V}$} 
-%$ \mu_{X(t)}$, $ \mu_{Y_1(t)}$ y $ \mu_{Y_2(t)}$ no dependen de $t$
-%
-%\item Las varianzas\footnote{La varianza de una variable aleatoria $V$ se define como 
-%$ \Var{V} := \E{\left(V - \mu_V \right)^{2}}$} $ \Var{Y_1(t)}$ y $ \Var{Y_2(t)}$ no dependen de 
-%$t$, pero no se puede garantizar lo mismo para $\Var{X(t)}$
-%
-%\item El coeficiente de asimetr\'ia\footnote{El coeficiente de asimetr\'ia para una variable 
-%aleatoria $V$ se define como 
-%$\gamma_V = \frac{\E{\left(V-\mu_V\right)^{3}}}{\Var{V}^{\nicefrac{3}{2}}}$}
-%$ \gamma_{X(t)}$ no depende de $t$, pero no se puede garantizar lo mismo para $ \gamma_{Y_1(t)}$ ni 
-%para $ \gamma_{Y_2(t)}$
-%\end{itemize}
-%
-%Cabe mencionar que hay una relaci\'on de contenci\'on clara en familia de los conjuntos de procesos 
-%estacionarios de orden finito (si un proceso es estacionario de orden $m$, entonces es estacionario 
-%de orden $n$ para todo $n \leq m$); es posible definir procesos estacionarios de orden 'infinito' 
-%seg\'un \ref{est_orden_m}, que intuitivamente ser\'ian fuertemente estacionarios. 
-%De manera pragm\'atica, en este trabajo no se discuten tales interrogantes, sino que se usar\'a 
-%\'unicamente la definici\'on correspondiente al caso $m=2$, referida como estacionariedad d\'ebil o 
-%de orden 2, y repetida en la definici\'on \ref{est_orden_2}.
 
 \begin{defn}[Estacionariedad d\'ebil]
 Un proceso estoc\'astico \xt es d\'ebilmente estacionario si y s\'olo si para cualesquiera tiempos 
@@ -163,17 +84,6 @@ Donde $\mu_X$, $\sigma^{2}_X$ son constantes, $\rho_X(\tau)$ es una funci\'on qu
 depende de $\tau$
 \label{est_orden_primera}
 \end{defn}
-
-%Cabe comentar  sobre la existencia de procesos que son fuertemente estacionarios pero que no son 
-%estacionarios de ning\'un orden: por ejemplo, un proceso de variables aleatorias independientes con 
-%distribuci\'on de Cauchy\footnote{Una variable aleatoria tiene distribuci\'on de Cauchy si su 
-%funci\'on de probabilidad acumulada es de la forma 
-%$\displaystyle F(x) = \frac{1}{\pi} \int_{-\infty}^{x} \frac{1}{1+y^{2}} dy$}.
-%Una condici\'on suficiente para que un proceso fuertemente estacionario sea estacionario de orden 
-%$m$ es que tenga sus primeros $m$ momentos bien definidos.
-%Con respecto a las se\~nales registradas en el EEG, entendidas como procesos estoc\'asticos, se 
-%espera que tengan (cuando menos) segundos momentos bien definidos; m\'as adelante se presentan 
-%argumentos, desde una interpretaci\'on f\'isica, sobre por qu\'e se espera que ocurra lo anterior.
 
 A continuaci\'on (definici\'on \ref{cont_est}) se presenta una tipo de regularidad que se supone
 para las se\~nales registradas en el EEG: continuidad de alg\'un tipo.
@@ -190,46 +100,10 @@ sentido de media cuadr\'atica, en un tiempo admisible $t_0$ si y s\'olo si
 \label{cont_est}
 \end{defn}
 
-%Una forma natural de pensar en la definici\'on \ref{cont_est} es que, si $\abso{t-t_0}$ es muy 
-%peque\~no, entonces $X(t)$ y $X(t_0)$ difieren muy poco entre s\'i (como variables aleatorias).
-%Es destacable que si un proceso es estoc\'asticamente continuo en un intervalo, sus realizaciones 
-%solamente se pueden garantizar continuas casi en todas partes \footnote{Una propiedad se cumple 
-%\textbf{casi en todas partes} si se cumple en un conjunto cuyo complemento tiene medida cero} en 
-%ese intervalo.
-%Como ejemplos, un proceso ruido blanco (definici\'on \ref{r_blanco}) no es estoc\'asticamente 
-%continuo, mientras que un proceso de Wiener (definici\'on \ref{r_wiener}) s\'i lo es.
-%
-%\begin{defn}[Proceso ruido blanco]
-%Se dice de un proceso estoc\'astico $\{ R(t) \}$ que cumple, para cualesquiera tiempos admisibles
-%$t$ y $s$, las siguientes propiedades:
-%\begin{itemize}
-%\item $\E{R(t)}=0$
-%\item $\Cov{R(t),R(s)}=0 \Leftrightarrow t=s$ 
-%\end{itemize}
-%\label{r_blanco}
-%\end{defn}
-%
-%\begin{defn}[Proceso de Wiener]
-%Se dice de un proceso estoc\'astico $\{ W(t) \}$ que cumple, para cualesquiera tiempos admisibles
-%$t$ y $s$ (con $s>t$) las siguientes propiedades:
-%\begin{itemize}
-%\item $W(0) = 0$ ($W(0)$ es constante)
-%\item $W(s)-W(t)$ es independiente de $W(u)$, para todo $u<t$ admisible
-%\item $W(s)-W(t) \sim N(0,\abso{t-s})$  (los incrementos tienen distribuci\'on normal)
-%\end{itemize}
-%\label{r_wiener}
-%\end{defn}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsubsection{Espectro de potencias para procesos estoc\'asticos}
-
-%Existe una larga tradici\'on en ciencias biom\'edicas para entender/modelar las se\~nales
-%electrofisiol\'ogicos en t\'erminos de ondas y frecuencias, ya que fundamentalmente son fen\'omenos 
-%el\'ectricos \cite{Kaiser00}.  
-%Estos modelos est\'an t\'ipicamente asociados con las series de Fourier y la transformada de 
-%Fourier (definiciones \ref{FourierClasico} y \ref{trFourier}, respectivamente).
 
 \begin{defn}[Serie de Fourier]
 Sea $k$ una funci\'on real peri\'odica (con periodo $2T$) tal que 
@@ -323,19 +197,6 @@ Es importante mencionar que la energ\'ia, entendida como la integral de una form
 un concepto com\'un a varias ramas de la f\'isica y las ingenier\'ias; en cambio, en econom\'ia o 
 en epidemiolog\'ia, por ejemplo, no hay una motivaci\'on clara para usar el concepto de energ\'ia 
 seg\'un \ref{energia}.
-%En el presente trabajo no s\'olo se manejar\'a este concepto de energ\'ia, sino que se supondr\'a
-%que los registros de PSG contienen energ\'ia finita para cualquier intervalo finito de tiempo.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%\subsubsection{Espectro de potencias para funciones no-peri\'odicas}
-
-%A continuaci\'on se presentan dos generalizaciones de las series de Fourier previas, a aquella que
-%ser\'a usada para procesos estoc\'asticos. La primera de ellas es las integrales de Fourier
-%(definici\'on \ref{fourier_int}), que operan de la misma forma que las series de Fourier pero
-%sobre funciones absolutamente sumables; se pueden extender sencillamente la transformada de Fourier 
-%y el espectro de potencias para esta funci\'on.
 
 \begin{defn}[Integral de Fourier]
 Sea $k$ una funci\'on tal que $\intR \abso{k(t)} dt < \infty$. Se le llamar\'a 'integral de 
