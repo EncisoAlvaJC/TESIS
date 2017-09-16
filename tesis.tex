@@ -12,10 +12,17 @@
 % para poner el tamano de los margenes
 \usepackage[left=4cm,top=4cm,right=2.5cm,bottom=2.5cm]{geometry}
 
+% para poner doble espacio
+\usepackage{setspace}
+\onehalfspacing
+
 % util para revisar detalles finos, descativar despues
 \usepackage{layouts}
 
-% numeors con punto decimal (el default es coma decimal)
+% para que escriba 'Figura...' en negritas
+\usepackage[labelfont=bf]{caption}
+
+% numeros con punto decimal (el default es coma decimal)
 \decimalpoint
 
 % tienen algunos comandos que ocupo, como align o defn
@@ -64,8 +71,8 @@
 \usepackage[pdftex,
             pdfauthor={JC Enciso Alva},
             pdftitle={TITULO DE LA TESIS},
-            pdfsubject={Matem\'aticas Aplicadas},
-            pdfkeywords={PALABRAS CLAVE},
+            pdfsubject={Matemáticas Aplicadas},
+            %pdfkeywords={PALABRAS CLAVE},
             %pdfproducer={Latex con hyperref},
             pdfcreator={pdflatex}]{hyperref}
 
@@ -127,9 +134,9 @@
 
 % munchas abreviaciones que uso para ahorrar codigo, quiza ponga mas
 
-\newtheorem{defn}{Definici\'on}
+\newtheorem{defn}{Definición}
 \newtheorem{thrm}{Teorema}
-\newtheorem{demostracion}{Demostraci\'on}
+\newtheorem{demostracion}{Demostración}
 
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\intR}{\int_{-\infty}^{\infty}}
@@ -220,45 +227,10 @@
 
 \begin{document}
 
-%\begin{titlepage}
-%\begin{center}
-%
-%\textsc{\Large Instituto Tecnológico Autónomo de México}\\[4em]
-%
-%%Figura
-%\begin{figure}[h]
-%\begin{center}
-%\includegraphics{logo-ITAM_ch.jpg}
-%\end{center}
-%\end{figure}
-%
-%\vspace{4em}
-%
-%\textsc{\huge \textbf{TÍTULO DE LA TESIS}}\\[4em]
-%
-%\textsc{\large Tesis}\\[1em]
-%
-%\textsc{que para obtener el título de}\\[1em]
-%
-%\textsc{TÍTULO  VAS A OBTENER}\\[1em]
-%
-%\textsc{presenta}\\[1em]
-%
-%\textsc{\Large AUTOR}\\[1em]
-%
-%\textsc{\large Asesor: NOMBRE}
-%
-%\end{center}
-%
-%\vspace*{\fill}
-%\textsc{México, D.F. \hspace*{\fill} 2014}
-%
-%\end{titlepage}
-
 \setcounter{page}{0}
 \thispagestyle{empty}
 
-\title{Estacionariedad d\'ebil en registros polisomnogr\'aficos de adultos mayores,
+\title{Estacionariedad débil en registros polisomnográficos de adultos mayores,
 como posible marcador de deterioro cognitivo}
 \author{Julio Cesar Enciso Alva}
 
@@ -266,13 +238,13 @@ como posible marcador de deterioro cognitivo}
 \begin{center}
     \includegraphics[width=0.2\linewidth]{./img_oficiales/logo_uaeh.png}\\
     {\Large \textbf{ \textsc{
-        Universidad Aut\'onoma del Estado de Hidalgo\\
-        Instituto de Ciencias B\'asicas e Ingenier\'ia\\
+        Universidad Autónoma del Estado de Hidalgo\\
+        Instituto de Ciencias Básicas e Ingeniería\\
         }}
     \vspace*{3em}
     }
     {\huge
-        Estacionariedad d\'ebil en registros polisomnogr\'aficos de adultos mayores,
+        Estacionariedad débil en registros polisomnográficos de adultos mayores,
         como posible marcador de deterioro cognitivo\\
     \vspace*{2em}
     }
@@ -284,10 +256,10 @@ como posible marcador de deterioro cognitivo}
         \vspace*{3.5em}
         }
         {\large
-        \textbf{Direcci\'on}\\
+        \textbf{Dirección}\\
         \vspace*{.25em}}
         {\Large
-        Dra. Erika Elizabeth Rodr\'iguez Torres\\
+        Dra. Erika Elizabeth Rodríguez Torres\\
     \vspace*{3.5em}
     }
     {\large
@@ -347,24 +319,24 @@ como posible marcador de deterioro cognitivo}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\chapter*{Acr\'onimos}
+\chapter*{Acrónimos}
 
 \begin{tabular}{rl}
 \textbf{AASM} & American Association of Sleep Medicine
 \\
-\textbf{EEG} & Electroencefalograf\'ia
+\textbf{EEG} & Electroencefalografía
 \\
-\textbf{EMG} & Electromiograf\'ia
+\textbf{EMG} & Electromiografía
 \\
-\textbf{EOG} & Electrooculograf\'ia
+\textbf{EOG} & Electrooculografía
 \\
-\textbf{FDE} & Funci\'on de Densidad Espectral
+\textbf{FDE} & Función de Densidad Espectral
 \\
-\textbf{MOR} & [Etapa de sue\~no con] Movimientos Oculares R\'apidos
+\textbf{MOR} & Movimientos Oculares Rápidos
 \\
-\textbf{NMOR}& [Etapa de sue\~no] No-MOR
+\textbf{NMOR}& No-MOR
 \\
-\textbf{PSG} & Polisomnograf\'ia
+\textbf{PSG} & Polisomnografía
 \\
 \textbf{PDC} & Posible Deterioro Cognitivo
 \\
@@ -404,7 +376,7 @@ como posible marcador de deterioro cognitivo}
 %\input{./texto/matematicas.tex}
 \input{./texto/matematicas2.tex}
 
-%\input{./texto/metodologia.tex}
+\input{./texto/metodologia.tex}
 
 %\input{./texto/resultados.tex}
 
