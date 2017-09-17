@@ -214,42 +214,6 @@ La prueba PSR se encuentra implementado en R bajo la funci\'on \texttt{stationar
 Los resultados de la prueba PSR, aplicado a todas las \'epocas contenidas en los registros de PSG,
 fueron almacenados para su an\'alisis posterior.
 
-\begin{figure}
-\centering
-\includegraphics[width=0.7\linewidth]{./img_diagramas/psr_simple.pdf}
-\caption{Representaci\'on diagram\'atica de la implementaci\'on en R de la prueba PSR. Se omite 
-filtrado previo mediante el algoritmo STL (ver texto).}
-\label{diagrama_psr}
-\end{figure}
-
-\begin{figure}
-\centering
-\begin{lstlisting}[caption={}]
-Priestley-Subba Rao stationarity Test for datos
------------------------------------------------
-Samples used              : 3072 
-Samples available         : 3069 
-Sampling interval         : 1 
-SDF estimator             : Multitaper 
-  Number of (sine) tapers : 5 
-  Centered                : TRUE 
-  Recentered              : FALSE 
-Number of blocks          : 11 
-Block size                : 279 
-Number of blocks          : 11 
-p-value for T             : 0.4130131 
-p-value for I+R           : 0.1787949 
-p-value for T+I+R         : 0.1801353 
-\end{lstlisting}
-\caption{Resultado mostrado tras una ejecuci\'on de la funci\'on \texttt{stationarity}.
-El par\'ametro \texttt{n.blocks} define la cantidad grupos disjuntos para los cuales se 
-calcular\'a el estimador de la FDE.
-Cabe resaltar el antepen\'ultimo rengl\'on (\texttt{p-value for T}), seg\'un el cual se puede
-aceptar o rechazar la hip\'otesis de estacionariedad d\'ebil.
-La FDE es referida como 'Spectral Density Function' (SDF).}
-\label{res_psr}
-\end{figure}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

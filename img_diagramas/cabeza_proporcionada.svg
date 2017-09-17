@@ -453,7 +453,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.8694052"
-     inkscape:cx="267.34252"
+     inkscape:cx="267.34253"
      inkscape:cy="138.01181"
      inkscape:document-units="cm"
      inkscape:current-layer="layer1"
@@ -1003,7 +1003,7 @@
        cy="889.96594"
        r="10.346457" />
     <circle
-       cy="860.42133"
+       cy="863.96466"
        cx="340.51181"
        id="circle4464"
        style="display:inline;opacity:1;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:2.51053286;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
@@ -1402,7 +1402,8 @@
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:11.25px;font-family:'TeX Gyre Bonum';-inkscape-font-specification:'TeX Gyre Bonum';text-align:start;text-anchor:start;fill:#ffffff">A2</flowPara></flowRoot>    <flowRoot
        style="font-style:normal;font-weight:normal;font-size:79.81304932px;line-height:125%;font-family:Sans;text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;display:inline;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        id="flowRoot4739"
-       xml:space="preserve"><flowRegion
+       xml:space="preserve"
+       transform="translate(0,3.5433174)"><flowRegion
          id="flowRegion4741"><rect
            style="text-align:start;text-anchor:start;fill:#ffffff"
            ry="0"

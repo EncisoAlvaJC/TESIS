@@ -61,7 +61,7 @@ B_{\mathbf{F}}(\omega) = \intR \abso{\theta} \abso{dH_\omega(\theta)}
 
 Se dice que el proceso es semi-estacionario con respecto a $\mathbf{F}$ si 
 $\sup_\omega B_{\mathbf{F}} < \infty$. El proceso se dice simplemente \textbf{semi-estacionario} 
-si esta cantidad es acotada para cualquier familia de funciones admitibles 
+si esta cantidad es acotada para cualquier familia de funciones admisibles 
 $\mathbf{F} \in \mathbf{C}$; entonces se puede definir la constante $B_X$,
 el \textit{ancho de banda característico de} \xt, como
 
@@ -112,7 +112,8 @@ propiedades estadísticas adecuadas para detectar la posible estacionariedad.
 %Esta prueba fue presentada en 1969 por Priestley y Subba Rao \cite{Priestley69}, y se basa
 
 Sea \xt que se tiene un proceso semi-estacionario y sea \xtd un conjunto de observaciones
-del proceso, espaciadas en el tiempo de manera uniforme con $t_{i+1}-t_i = \Delta_t$.
+del proceso, espaciadas uniformemente en el tiempo.
+% de manera uniforme con $t_{i+1}-t_i = \Delta_t$.
 Se construye a $\widehat{f}$, el estimador de doble ventana definido como en la sección anterior,
 usando las funciones ventana $g_h$ y $w_\tau$, y sus respectivas transformadas de Fourier
 $\Gamma_h$ y $W_\tau$. Como se mencionó previamente, bajo las condiciones descritas se cumple
@@ -185,13 +186,113 @@ a la matriz $Y$ como $Y_{i,j} = Y(t_i,\omega_j)$, que satisface
 \end{itemize}
 
 Ha sido sugerido por Jenkins [??] que si el número de puntos es suficientemente grande, entonces
-los $\varepsilon_{i,j}$ siguen distribuciones aproximadamente normales.
+las componentes de $Y$ siguen distribuciones aproximadamente normales, de modo que
+$\varepsilon_{i,j} \sim N(0,\sigma^{2})$.
 
-Hbiendo definido al estimador $Y$ en su versión discretizada, 
+Habiendo definido al estimador $Y$ en su versión discretizada, 
 %es relativamente fácil
 %explicar el funcionamiento de la prueba: si el proceso en cuestión es débilmente estacionario,
 %entonces 
+es posible definir criterios para idetificar la estacionariedad débil; primero se define 
+como hipótesis nula
+un modelo
+general (puede o no ser estacionario)
+%
+\begin{equation*}
+H_0 : \hspace{1em} Y_{i,j} = \mu + \alpha_i + \beta_j + \gamma_{i,j} + \varepsilon_{i,j}
+\end{equation*}
+%
+donde $\varepsilon$ son como se definieron anteriormente,
+$\mu$ el promedio de $Y$ sobre todos tiempos y frecuencias, $\alpha$ y $\beta$ son las 
+\textit{variaciones} en el tiempo y las frecuencias, respectivamente, y $\gamma$ representa las
+variaciones no-lineales en el tiempo y las frecuencias.
+%
+%Naturalmente, el primer paso para identificar la estacionariedad es contrastar $H_0$ contra un 
+%modelo donde $\gamma$ es negligible, es decir
+%%
+%\begin{equation*}
+%H_1 : \hspace{1em} Y_{i,j} = \mu + \alpha_i + \beta_j + \varepsilon_{i,j}
+%\end{equation*}
+%%
+Si se le otorga a $\varepsilon$ el papel de \textit{absorber los errores} del modelo, el suponer
+que alguna u otra componente del modelo general desemboca en uno de varios modelos.
 
+\begin{center}
+\begin{tabular}{lcc}
+Modelo & Unif. modulado & Estacionario \\
+$H_1 : \hspace{1em} Y_{i,j} = \mu + \alpha_i + \beta_j + \varepsilon_{i,j}$ & no & si \\
+$H_2 : \hspace{1em} Y_{i,j} = \mu + \alpha_i + \varepsilon_{i,j}$ & si & si \\
+$H_3 : \hspace{1em} Y_{i,j} = \mu + \beta_j + \varepsilon_{i,j}$ & no & si \\
+\end{tabular}
+\end{center}
+
+En procesos uniformemente modulados $Y$ depende linealmente tanto del tiempo como de las
+frecuencias, de modo que $f$ depende \textit{multiplicativamente} de estos mismos parámetros;
+si bien estos procesos son no-estacionarios, varias procedimientos y estimadores diseñados para 
+procesos débilmente estacionarios pueden funcionar sobre ellos, como son los análisis de 
+coherencia.
+
+Con respecto a la contrastación de estos modelos, se basa en comparar los valores de $Y$ contra
+los diferentes promedios, según el modelo a contrastar.
+
+\begin{center}
+\begin{tabular}{lll}
+$S_T$ & $= J \sum_{i=1}^{I} \left( Y_{i,\bullet} - Y_{\bullet,\bullet} \right)^{2}$ 
+& $\sim \sigma^{2} \chi^{2}(I-1)$ \\
+$S_F$ & $= I \sum_{j=1}^{J} \left( Y_{\bullet,j} - Y_{\bullet,\bullet} \right)^{2}$ 
+& $\sim \sigma^{2} \chi^{2}(J-1)$ \\
+$S_{I+R}$ & $= \sum_{i=1}^{I} \sum_{j=1}^{J} 
+\left( Y_{i,j} - Y_{i,\bullet} - Y_{\bullet,j} + Y_{\bullet,\bullet} \right)^{2}$ 
+& $\sim \sigma^{2} \chi^{2}\left((I-1)(J-1)\right)$ \\
+\end{tabular}
+\end{center}
+
+La forma óptima de contrastar estos modelos es usando el árbol de decisión en la figura (...);
+respecto la estacionariedad estacionariedad débil, basta con revisar el modelo $H_3$.
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.7\linewidth]{./img_diagramas/estacionariedad_decidir.pdf}
+%\caption{Representaci\'on diagram\'atica de la implementaci\'on en R de la prueba PSR. Se omite 
+%filtrado previo mediante el algoritmo STL (ver texto).}
+\label{diagrama_psr}
+\end{figure}
+
+\begin{figure}
+\centering
+\begin{lstlisting}[caption={}]
+Priestley-Subba Rao stationarity Test for datos
+-----------------------------------------------
+Samples used              : 3072 
+Samples available         : 3069 
+Sampling interval         : 1 
+SDF estimator             : Multitaper 
+  Number of (sine) tapers : 5 
+  Centered                : TRUE 
+  Recentered              : FALSE 
+Number of blocks          : 11 
+Block size                : 279 
+Number of blocks          : 11 
+p-value for T             : 0.4130131 
+p-value for I+R           : 0.1787949 
+p-value for T+I+R         : 0.1801353 
+\end{lstlisting}
+\caption{Resultado mostrado tras una ejecuci\'on de la funci\'on \texttt{stationarity}.
+El par\'ametro \texttt{n.blocks} define la cantidad grupos disjuntos para los cuales se 
+calcular\'a el estimador de la FDE.
+Cabe resaltar el antepen\'ultimo rengl\'on (\texttt{p-value for T}), seg\'un el cual se puede
+aceptar o rechazar la hip\'otesis de estacionariedad d\'ebil.
+La FDE es referida como 'Spectral Density Function' (SDF).}
+\label{res_psr}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.7\linewidth]{./img_diagramas/psr_simple.pdf}
+\caption{Representaci\'on diagram\'atica de la implementaci\'on en R de la prueba PSR. Se omite 
+filtrado previo mediante el algoritmo STL (ver texto).}
+\label{diagrama_psr}
+\end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
