@@ -3,8 +3,194 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Matem\'aticas}
+\subsection{Matemáticas}
 
+\begin{proposicion}
+Sean $u$ y $v$ dos funciones tipo \textit{pseudo $\delta$ de Dirac}, es decir, unimodales con un
+máximo  y (...). Si $u$ tiene una concentración muy alta, con relación a $v$, entonces
+\begin{equation*}
+\intR u(x) v(x+k) dx \approx v(k) \intR u(x) dx
+\end{equation*}
+\label{pseudo_d}
+\end{proposicion}
+
+\subsubsection{Espectro evolutivo}
+
+
+\subsubsection{Estimación del espectro evolutivo}
+
+Una vez definido el espectro evolutivo para procesos no-estacionarios con varianza finita,
+cabe preguntarse sobre le estimación de esta cantidad a partir de una realización del proceso
+usando, por ejemplo, periodogramas modificados;
+tal pregunta no tiene, en general, una respuesta satisfactoria.
+Es por ello que se
+define una colección, más restringida, de procesos no-estacionarios cuyo espectro evolutivo pueda
+ser estimado efectivamente usando la técnica de ventanas.
+
+Considerando un proceso no-estacionario \xt que admite una representación de la forma
+$X(t) = \intR A(t,\omega) e^{i \omega t} dZ(\omega)$, entonces el espectro evolutivo queda
+definido como
+\begin{equation}
+dF_t(\omega) = \abso{A(t,\omega)}^{2} d\mu(\omega)
+\label{esp_evolutivo}
+\end{equation}
+
+Antes de poder usar la proposición \ref{pseudo_d} para estimar $F_t$ (con respecto a $t$) usando 
+una ventana espectral, hay que medir la dispersión de $F_t$ en el tiempo; más aún, hay que
+pedir que esa dispersión sea finita.
+Con vista a la ecuación \ref{esp_evolutivo}, se puede usar la conexión entre $F$ y $A$ para
+establecer condiciones respecto a la segunda; se define entonces a $H_\omega$, la transformada de
+Fourier de $A$ en el tiempo
+\begin{equation}
+A(t,\omega) = \intR e^{i t \theta} dH_\omega(\theta)
+\end{equation}
+
+Un motivo muy fuerte para definir un objeto tan rebuscado es que (...)
+%es una función de distribución
+%de energía \textit{en las frecuencias}
+%
+%Vagamente, $H_\omega$ es la transformada de Fourier, en el tiempo, para la transformada de Fourier
+%del espectro, en las frecuencias.
+
+Posteriormente se define a $B_{\mathbf{F}}$, el ancho de banda para $H_\omega$ con respecto a la 
+familia de funciones $\mathbf{F}$, como
+
+\begin{equation}
+B_{\mathbf{F}}(\omega) = \intR \abso{\theta} \abso{dH_\omega(\theta)}
+\end{equation}
+
+Se dice que el proceso es semi-estacionario con respecto a $\mathbf{F}$ si 
+$\sup_\omega B_{\mathbf{F}} < \infty$. El proceso se dice simplemente \textbf{semi-estacionario} 
+si esta cantidad es acotada para cualquier familia de funciones admitibles 
+$\mathbf{F} \in \mathbf{C}$; entonces se puede definir la constante $B_X$,
+el \textit{ancho de banda característico de} \xt, como
+
+\begin{equation}
+B_X = \sup_{\mathbf{F}\in \mathbf{C}} \left[ \sup_\omega B_{\mathbf{F}}(\omega) \right]^{-1}
+\end{equation}
+
+Muy vagamente, $B_X$ indica el tiempo máximo en el cual el proceso, representado en la forma
+\ref{esp_evolutivo}, (...)
+
+Una vez definida la cantidad $B_X$, y habiendo supuesto que no es 0, es demostrado en
+\cite{Priestley65} que el estimador $U$ definido como en ...
+satisface que
+\begin{equation}
+\E{\abso{U(t,\omega)}^{2}} = \intR \abso{\Gamma(\omega)}^{2} f(t,\omega+\omega_0) d\omega
++ \orden\left( \nicefrac{B_g}{B_X} \right)
+\end{equation}
+
+De esta última expresión es evidente que el estimador es mejor conforme 
+\begin{itemize}
+\item  $B_X$, el tiempo
+máximo para el cual el proceso es \textit{básicamente estacionario}, es mayor
+\item $B_g$, la dispersión en el tiempo para la ventana $g$, es menor
+\end{itemize}
+
+---
+
+Entonces se ha probado en \cite{Priestley66,Priestley69} que bajo ciertas
+condiciones p
+
+\subsubsection{Prueba de Priestley-Subba Rao}
+
+Una propiedad interesante de poder estimar el espectro evolutivo de un proceso, a partir de
+una realización del mismo, es la 
+capacidad para identificar si éste pudiera reducirse al
+espectro usual, definido para procesos débilmente estacionarios --bastaría
+con revisar si el espectro estimado es constante en el tiempo.
+%En otras palabras,
+%el espectro evolutivo puede usarse como 
+%herramienta para decidir si un proceso es estacionario.
+
+La prueba de estacionariedad propuesta por Priestley y Subba Rao en 1969 \cite{Priestley69}
+tiene como \textit{ingrediente principal} un estimador muy particular para una cantidad que depende 
+del espectro, con
+%cambia de forma predecible cuando el proceso es débilmente estacionario y tiene 
+propiedades estadísticas adecuadas para detectar la posible estacionariedad.
+
+%Esta prueba fue presentada en 1969 por Priestley y Subba Rao \cite{Priestley69}, y se basa
+
+Sea \xt que se tiene un proceso semi-estacionario y sea \xtd un conjunto de observaciones
+del proceso, espaciadas en el tiempo de manera uniforme con $t_{i+1}-t_i = \Delta_t$.
+Se construye a $\widehat{f}$, el estimador de doble ventana definido como en la sección anterior,
+usando las funciones ventana $g_h$ y $w_\tau$, y sus respectivas transformadas de Fourier
+$\Gamma_h$ y $W_\tau$. Como se mencionó previamente, bajo las condiciones descritas se cumple
+que $\widehat{f}$ es un estimador consistente y aproximadamente insesgado para $f$, el espectro
+evolutivo de \xt. Ahora bien, considerando las siguientes aproximaciones
+%
+\begin{itemize}
+\item $\E{\widehat{f}(t,\omega)} \approx f(t,\omega)$
+\item $\Var{\widehat{f}(t,\omega)} \approx 
+\frac{C}{T} f^{2}(t,\omega) \intR \abso{\Gamma^{4}(\theta)} d\theta$
+\end{itemize}
+%
+donde $C = \lim_{T\rightarrow \infty} T \intR \abso{W_T(\lambda)} d\lambda$.
+Usando a $\widehat{f}$,
+se define el estimador $Y$ como el logaritmo de éste, 
+$Y(t,\omega) = \log\left(\widehat{f}(t,\omega)\right)$,
+y que tiene las siguientes propiedades
+%
+\begin{itemize}
+\item $\E{Y(t,\omega)} \approx \log\left(f(t,\omega)\right)$
+\item $\Var{Y(t,\omega)} \approx 
+\frac{C}{T} \intR \abso{\Gamma_h(\theta)}^{4} d\theta =: \sigma^{2}$
+\end{itemize}
+%
+
+Cabe destacar que la varianza $Y$ no es formalmente independiente de $f$, sino que es
+\textit{aproximadamente independiente}; en otras palabras, la varianza de $Y$ depende 
+\textit{más} del propio estimador que del verdadero valor de $\log\circ f$.
+Esto no es tan sorprendente tomando en cuenta el diseño del estimador de doble ventana, que
+otorga mayor importancia a la información local usando repetidamente la proposición
+\ref{pseudo_d}. Esta independencia asintótica sugiere que $Y$ puede verse como
+%
+%\begin{equation}
+$Y(t,\omega) = \log\left(f(t,\omega) \right) + \varepsilon(t,\omega)$,
+%\end{equation}
+%
+con $\E{\varepsilon(t,\omega)} \approx 0$ y $\Var{\varepsilon(t,\omega)} \approx
+\sigma^{2}$.
+
+%Continuando con el estimador $Y$, 
+Más aún,
+es demostrado en \cite{Priestley66} que si
+$\abso{\omega-\omega_0}$ es suficientemente grande como para que
+$\intR \abso{\Gamma_h(\theta+\omega)}^{2}\abso{\Gamma_h(\theta+\omega_0)}^{2} d\theta \approx 0$,
+entonces 
+%
+%\begin{itemize}
+%\item 
+$\Cov{Y(t,\omega),Y(t,\omega_0)} \approx 0$.
+%\end{itemize}
+%
+Similarmente, si $\abso{t-t_0} >> \intR \abso{t} \abso{w_\tau (t)} dt $, entonces
+%
+%\begin{itemize}
+%\item 
+$\Cov{Y(t,\omega),Y(t_0,\omega)} \approx 0$.
+%\end{itemize}
+
+Bajo estas nuevas condiciones, es posible construir una versión discretizada de $Y$ tal 
+que los componentes $\varepsilon$ sean estadísticamente independientes. Para ello se define
+una malla de puntos $(t_i,\omega_j)$, con $i = 1,\dots,I$ y  $j=1,\dots,J$, y posteriormente
+a la matriz $Y$ como $Y_{i,j} = Y(t_i,\omega_j)$, que satisface
+%
+\begin{itemize}
+\item $Y_{i,j} = \log\left(f(t_i,\omega_j)\right) + \varepsilon_{i,j}$
+\item $\E{\varepsilon_{i,j}} \approx 0$
+\item $\Var{\varepsilon_{i,j}} \approx \sigma^{2} = 
+\frac{C}{T} \intR \abso{\Gamma_h(\theta)}^{4} d\theta$
+\item $\Cov{\varepsilon_{i,j},\varepsilon_{i_0,j_0}} \approx 0$ siempre que $(i,j)\neq (i_0,j_0)$
+\end{itemize}
+
+Ha sido sugerido por Jenkins [??] que si el número de puntos es suficientemente grande, entonces
+los $\varepsilon_{i,j}$ siguen distribuciones aproximadamente normales.
+
+Hbiendo definido al estimador $Y$ en su versión discretizada, 
+%es relativamente fácil
+%explicar el funcionamiento de la prueba: si el proceso en cuestión es débilmente estacionario,
+%entonces 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
