@@ -1,0 +1,92 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Espectro evolutivo}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Espectro evolutivo}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Estimación del espectro evolutivo}
+
+Una vez definido el espectro evolutivo para procesos no-estacionarios con varianza finita, cabe 
+preguntarse sobre le estimación de esta cantidad a partir de una realización del proceso usando, 
+por ejemplo, periodogramas modificados; tal pregunta no tiene, en general, una respuesta 
+satisfactoria.
+Es por ello que se define una colección, más restringida, de procesos no-estacionarios cuyo 
+espectro evolutivo pueda ser estimado efectivamente usando la técnica de ventanas.
+
+Considerando un proceso no-estacionario \xt que admite una representación de la forma 
+$X(t) = \intR A(t,\omega) e^{i \omega t} dZ(\omega)$, entonces el espectro evolutivo queda definido 
+como
+\begin{equation}
+dF_t(\omega) = \abso{A(t,\omega)}^{2} d\mu(\omega)
+\label{esp_evolutivo}
+\end{equation}
+
+Antes de poder usar la proposición \ref{pseudo_d} para estimar $F_t$ (con respecto a $t$) usando 
+una ventana espectral, hay que medir la dispersión de $F_t$ en el tiempo; más aún, hay que pedir 
+que esa dispersión sea finita.
+Con vista a la ecuación \ref{esp_evolutivo}, se puede usar la conexión entre $F$ y $A$ para 
+establecer condiciones respecto a la segunda; se define entonces a $H_\omega$, la transformada de
+Fourier de $A$ en el tiempo
+\begin{equation}
+A(t,\omega) = \intR e^{i t \theta} dH_\omega(\theta)
+\end{equation}
+
+Un motivo muy fuerte para definir un objeto tan rebuscado es que (...)
+
+Posteriormente se define a $B_{\mathbf{F}}$, el ancho de banda para $H_\omega$ con respecto a la 
+familia de funciones $\mathbf{F}$, como
+%
+\begin{equation}
+B_{\mathbf{F}}(\omega) = \intR \abso{\theta} \abso{dH_\omega(\theta)}
+\end{equation}
+
+Se dice que el proceso es semi-estacionario con respecto a $\mathbf{F}$ si 
+$\sup_\omega B_{\mathbf{F}} < \infty$. El proceso se dice simplemente \textbf{semi-estacionario} 
+si esta cantidad es acotada para cualquier familia de funciones admisibles 
+$\mathbf{F} \in \mathbf{C}$; entonces se puede definir la constante $B_X$, el \textit{ancho de 
+banda característico de} \xt, como
+
+\begin{equation}
+B_X = \sup_{\mathbf{F}\in \mathbf{C}} \left[ \sup_\omega B_{\mathbf{F}}(\omega) \right]^{-1}
+\end{equation}
+
+Muy vagamente, $B_X$ indica el tiempo máximo en el cual el proceso, representado en la forma
+\ref{esp_evolutivo}, (...)
+
+Una vez definida la cantidad $B_X$, y habiendo supuesto que no es 0, es demostrado en 
+\cite{Priestley65} que el estimador $U$ definido como en ... satisface que
+%
+\begin{equation}
+\E{\abso{U(t,\omega)}^{2}} = \intR \abso{\Gamma(\omega)}^{2} f(t,\omega+\omega_0) d\omega
++ \orden\left( \nicefrac{B_g}{B_X} \right)
+\end{equation}
+
+De esta última expresión es evidente que el estimador es mejor conforme 
+\begin{itemize}
+\item  $B_X$, el tiempo máximo para el cual el proceso es \textit{básicamente estacionario}, es 
+mayor
+\item $B_g$, la dispersión en el tiempo para la ventana $g$, es menor
+\end{itemize}
+
+---
+
+Entonces se ha probado en \cite{Priestley66,Priestley69} que bajo ciertas
+condiciones p
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\section{Efecto del filtro STL}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
