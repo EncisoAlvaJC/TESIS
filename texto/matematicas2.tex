@@ -5,101 +5,178 @@
 
 \section{Matemáticas}
 
-Para modelar las se\~nales que componen el polisomnograma (PSG) se asume que éstas
-constituyen un fen\'omeno predominantemente estocástico\footnote{Cabe aclarar que tal enfoque no
-implica suponer una completa aleatoriedad, sino que} a tiempo 
-continuo, pero que no es registrable sino en un conjunto finito de puntos en el tiempo; 
-esta forma de entender a los datos 
-permitir\'a asumir algunas propiedades que ser\'an descritas m\'as adelante.
 %
-El cuerpo central de este trabajo es averiguar sin este modelo de tipo estocástico para los datos
-permite la hipótesis de que los procesos estocásticos involucrados son estacionarios, cuando menos en
-un sentido débil.
+%El cuerpo central de este trabajo es averiguar sin este modelo de tipo estocástico para los datos
+%permite la hipótesis de que los procesos estocásticos involucrados son estacionarios, cuando menos en
+%un sentido débil.
+
+Existe una larga tradición en las ciencias biomédicas para entender (y modelar) las señales
+electrofisiológicas en términos de ondas y frecuencias, en parte debido a que fundamentalmente son
+fenómenos eléctricos \cite{Kaiser00}.
+El enfoque que se aborda, a \textit{grosso modo}, es asociar la \textit{energía} de una señal con 
+la norma inducida por un producto interno, luego usar una base de un espacio (\textit{componentes 
+de frecuencia}) para estudiar cómo se reparte esta energía entre tales elementos;
+en concreto,
+esto se logrará usando una generalización de la base Fourier para la familia de 
+procesos estocásticos \textit{semi-estacionarios}.
+
+Cabe mencionar que se propone como hipótesis que las señales constituyen un fenómeno 
+predominantemente estocástico; esto no significa que las señales sean completamente aleatorias, sino 
+que el posible no-determinismo está considerado en el modelo.
+Por otro lado, aunque las señales sólo son registrables en un conjunto finito de puntos en el 
+tiempo, se supone que el fenómeno ocurre efectivamente \textit{a tiempo continuo}, lo cual 
+permitirá asumir algunas propiedades para el modelo.
+
+Una vez formulado el modelo descrito, el objetivo principal es estudiar si éste es adecuado (en un 
+sentido estadístico) para las señales que conforman el polisomnograma, o si pueden se explicadas
+mejor como procesos estocásticos déblimente estacionarios (un modelo más particular). Dado el 
+enfoque descrito, la comparación entre modelos se hará \textit{en términos ondas y frecuencias}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Transformada de Fourier}
 
-La transformada de Fourier goza de una interpretaci\'on f\'isica muy extendida, seg\'un la cual 
-toda se\~nal peri\'odica puede verse como la superposici\'on (suma) de se\~nales senoidales 
-ortogonales de diferentes frecuencias\footnote{De manera pragm\'atica, en el presente trabajo la 
-palabra  'frecuencia' se usar\'a para referirse a la cantidad $q$ en expresiones del tipo 
-$e^{i q t}$}; suponiendo previamente que las se\~nales se suman y multiplican por escalares de la 
-manera usual. 
-Esta afirmaci\'on es equivalente a que el conjunto de funciones con una serie de Fourier bien 
-definida, tiene estructura de espacio vectorial y admite una base ortonormal de funciones 
-senoidales (referida como la base de Fourier). 
-La interpretaci\'on f\'isica adquiere mayor relevancia cuando se exhibe el concepto de energ\'ia
-disipada (definici\'on 
-%\ref{energia}
-) en conjunto con el el teorema %\ref{parseval_serie}, 
-ya que 
-permite formular la siguiente interpretaci\'on: la energ\'ia disipada por una se\~nal peri\'odica 
-puede verse como la suma de la energ\'ia disipada por sus componentes en la base de Fourier 
-(usualmente referidos como \textbf{componentes de frecuencias}).
-La funci\'on que 'desglosa' estos componentes se conoce como espectro de potencias (definici\'on 
-\ref{espec}).
+%Un concepto base para estudiar la distribución de energía en componentes de frecuencia, en el
+%sentido clásico, es el de la
 
-Es importante mencionar que la energ\'ia, entendida como la integral de una forma cuadr\'atica, es 
-un concepto com\'un a varias ramas de la f\'isica y las ingenier\'ias; en cambio, en econom\'ia o 
-en epidemiolog\'ia, por ejemplo, no hay una motivaci\'on clara para usar el concepto de energ\'ia 
-seg\'un %\ref{energia}.
+La exposición inicia con los espacios de las \textbf{series $\boldsymbol{p}$-sumables}
+($\lp$), y las  \textbf{funciones $\boldsymbol{p}$-integrables} sobre un intervalo 
+$I \subseteq \R$ ($\llp$).
+%; en el presente trabajo sólo se usarán los casos $p=1,2$.
+%
+%\begin{align}
+%\ell^{p} &:= \left\{ s: \Z\rightarrow\C \talque \sum_{n=-\infty}^{\infty} \abso{s(n)}^{p} < \infty \right\}
+%\label{lpdef} \\
+%L^{p}[I] &:= \left\{ S: I\rightarrow\C \talque \int_I \abso{S(t)}^{p} dt < \infty \right\}
+%\label{llpdef}
+%\end{align}
+\begin{align*}
+\ell^{p} &:= \left\{ s: \Z\rightarrow\C \talque \sum_{n=-\infty}^{\infty} \abso{s(n)}^{p} < \infty \right\}
+\\
+L^{p}[I] &:= \left\{ S: I\rightarrow\C \talque \int_I \abso{S(t)}^{p} dt < \infty \right\}
+\end{align*}
+
+Estos espacios admiten las operaciones $+$, $\cdot$ y multiplicación por escalares complejos de la 
+manera usual.%, es decir
+
+%\begin{align*}
+%s, z \in \lp, c \in \C \Rightarrow 
+%[s+z](n) &= s(n) + z(n) \\
+%[s\cdot z](n) &= s(n) z(n) \\
+%[c \cdot s](n) &= s(n)c \\
+%S, Z \in \llp, c \in \C \Rightarrow 
+%[S+Z](t) &= S(t) + Z(t) \\
+%[S\cdot Z](t) &= S(t)  Z(t) \\
+%[c \cdot S](t) &= S(t)c
+%\end{align*}
+%
+%En las próximas líneas se seguirán usando $s, z, S, Z, c$.
+
+Para el caso particular $p=2$, los conjuntos $\ldos$ y $\lldos$ admiten los siguientes productos 
+internos:
+%
+\begin{align*}
+\left\langle s,z \right\rangle &= \sum_{n=-\infty}^{\infty} s(n) \overline{z(n)}\\
+\left\langle S,Z \right\rangle &= \int_I S(t) \overline{Z(t)} dt
+\end{align*}
+
+Usando dichos productos internos, junto con las normas y métricas que inducen, los conjuntos 
+$\ldos$ y $\lldos$ tienen estructura de \textbf{espacio de Hilbert}.
+
+Con las definiciones anteriores, que muestran que $\ldos$ y $\lldos$ son \textit{muy}
+parecidos, se puede formular unaa definición para la transformada de Fourier como una equivalencia
+entre estos espacios.
+
+%{De manera pragm\'atica, en el presente trabajo la 
+%palabra  'frecuencia' se usar\'a para referirse a la cantidad $q$ en expresiones del tipo 
+%$e^{i q t}$}
 
 \begin{definicion}[Serie de Fourier]
-Sea $k$ una funci\'on real peri\'odica (con periodo $2T$) tal que 
-$\simint{T} \abso{k(t)} dt < \infty$. 
-Se le llamar\'a 'serie de Fourier para la funci\'on $k$' a la sucesi\'on $\left( A_n \right)$, 
-calculada de la siguiente manera
+Sea $S: \R \rightarrow \C$ una función periódica con periodo $2T$ y tal que 
+$S \in L^{2}\left[[-T,T]\right]$. Se dice que $A$ es la serie de Fourier para $S$ si cumple que
 \begin{equation*}
-A_n = \frac{1}{2 T} \simint{T} k(t) e^{-\nicefrac{ i n t}{2T}} dt
+A(n) = \frac{1}{2 T} \simint{T} S(t) e^{-\nicefrac{ i \abso{n} t}{2T}} dt
 \end{equation*}
+%Adicionalmente, la función $\mathcal{F} : \lldos \rightarrow \ldos : S \mapsto A$  recibe el nombre
+%de \textbf{Transformada de Fourier}
 \label{FourierClasico}
 \end{definicion}
 
 \begin{definicion}[Transformada de Fourier]
-Sea $P_T$ el espacio de las funciones peri\'odicas con periodo $2T$ que tienen una serie de Fourier 
-bien definida. Existe una funci\'on $\mathfrak{F}$ que mapea cada funci\'on a su respectiva serie 
-de Fourier, y \'esta ser\'a referida como la transformada de Fourier
-\label{trFourier}
+Sean $S$ y $A$ como en la definción \ref{FourierClasico}. Se le llama transformada de Fourier a la
+función $\mathcal{F}_T : L^{2}\left[[-T,T]\right] \rightarrow \ldos : S \mapsto A$
 \end{definicion}
 
-Como se mencion\'o, en este trabajo se suponen conocidas las propiedades de las series de Fourier 
-(seg\'un la definici\'on \ref{FourierClasico}), de entre las cuales se destacan las siguientes:
+Puede interpretarse a $A$ como las coordenadas de $S$ en $L^{2}\left[[-T,T]\right]$, usando la base 
+ortonormal $\left\{ e^{\nicefrac{i \abso{n} t}{2 T}} \right\}_{n\in \Z}$ que es conocida
+como la \textbf{base de Fourier}.
+Se demuestra en el anexo () que $\mathcal{F}$ está bien definida en el sentido de 
+tener efectivamente el dominio y codominio indcados. Así mismo, son demostradas las siguientes
+propiedades:
 \begin{itemize}
-\item Las series de Fourier  son cuadrado-sumables\footnote{Una sucesi\'on $\left( S_n \right)$ se 
-dice cuadrado-integrable si cumple que $\sum_{n\in \mathbb{Z}} \abso{S_n}^{2} < \infty$. El 
-conjunto de estas series es denotado por $\ell^{2}$}
+\item $\mathcal{F}$ es lineal, es decir, $\mathcal{F}[cS + Z] = c\mathcal{F}[S] + \mathcal{F}[Z]$
 
-\item La transformada de Fourier, $\mathfrak{F}$, no es invertible en general. Es com\'un definir
-una pseudoinversa como 
-$\mathfrak{F}_{\text{inv}} 
-: \left( A_n \right) \mapsto \sum_{n \in \mathbb{Z}} A_n e^{\nicefrac{i n t}{2 T}} $
-
-\item Los conjuntos $P_T$ y $\ell^{2}$, con la suma y producto usuales, tienen la estructura de 
-espacio vectorial. M\'as a\'un, usando las respectivas normas $\Vert k \Vert = \intR k(t) dt$ y 
-$\left\Vert \left( A_n \right) \right\Vert_2 = \sum_{n\in \mathbb{Z}} \abso{S_n}^{2} < \infty$,
-ambos son espacios de Hilbert.
+\item $\mathcal{F}$ \textbf{no} es invertible, aunque se suele definir una pseudoinversa
+\begin{equation*}
+\mathcal{F}_{T}^{\text{inv}} : \ldos \rightarrow L^{2}\left[[-T,T]\right] :
+A \mapsto \sum_{n -\infty}^{\infty} A(n) e^{\nicefrac{i \abso{n} t}{2 T}}
+\end{equation*}
 \end{itemize}
 
-\begin{definicion}[Espectro de potencias]
-Sea $P_T$ el espacio de las funciones peri\'odicas con periodo $2T$ que tienen una serie de Fourier 
-bien definida. Se le llama espectro de potencias a la funci\'on 
-$h: P_T \times \mathbb{R} \mapsto \mathbb{R}$ definida como
+Con esta terminología se define, de manera pragmática, la \textbf{energía disipada} y la 
+\textbf{potencia} de una función $S$ en un intervalo $[a,b]$ como 
+\begin{align*}
+\text{energía}[S]_{[a,b]} &= \int_a^{b} \abso{S(t)}^{2} dt \\
+\text{potencia}[S]_{[a,b]} &= \frac{1}{b-a} \int_a^{b} \abso{S(t)}^{2} dt
+\end{align*}
+%
+%Estas últimas definiciones cobran importancia a la luz del teorema \ref{parseval}: la energía de 
+%una función equivale a su norma.
+
+Una conseceuncia interesante de este concepto de energía frente al teorema \ref{parseval} es que la 
+energía disipada por una función equivale a la suma de la energía disipada por sus 
+\textit{componentes} en la base de Fourier.
+Conviene, entonces, definir una función que \textit{desglose} estos \textit{aportes}.
+
+\begin{teorema}[Parseval]
+Sea $S \in L^{2}\left[[-T,T]\right]$, y sea $A = \mathcal{F}[S]$. Se cumple que
 \begin{equation*}
-h_k(\omega) = 
+\int_{-T}^{T} \abso{S(t)}^{2} dt = \sum_{n=-\infty}^{\infty} \abso{A(n)}^{2}
+\end{equation*}
+\label{parseval}
+\end{teorema}
+
+\begin{definicion}[Espectro de potencias]
+Sea $S \in L^{2}\left[[-T,T]\right]$, y sea $A = \mathcal{F}[S]$. Se llama espectro de potencias 
+para $S$ a la función $h_S : \R \rightarrow \R $, definida como
+\begin{equation*}
+h_S(\omega) = 
 \begin{cases}
-\abso{A_i}^{2} & \text{ , si } \omega = \frac{n}{2T} \text{   con } n\in \mathbb{Z} \\
+\abso{A(n)}^{2} & \text{ , si } \omega = \nicefrac{n}{2T}, \text{   con } n\in \mathbb{Z} \\
 0 & \text{ ,  otro caso}
 \end{cases}
 \end{equation*}
-donde $\left( A_n \right)$ es la serie de Fourier de $k$
 \label{espec}
 \end{definicion}
 
-Es importante mencionar que la energ\'ia, entendida como la integral de una forma cuadr\'atica, es 
-un concepto com\'un a varias ramas de la f\'isica y las ingenier\'ias; en cambio, en econom\'ia o 
-en epidemiolog\'ia, por ejemplo, no hay una motivaci\'on clara para usar el concepto de energ\'ia 
-seg\'un %\ref{energia}.
+Antes de pasar de tema, conviene introducir en estos espacios una tercera operación binaria llamada 
+\textbf{convolución}, $\ast$, definida como
+%
+\begin{align*}
+[s \ast z] (\tau) &= \sum_{n=-\infty}^{\infty} s(n) \overline{z(\tau-n)} \\
+[S \ast Z] (\tau) &= \int_I S(t) \overline{Z(\tau-t)}
+\end{align*}
+%
+donde $\overline{c}$ es el conjugado complejo de $c$. La convolución es conmutativa y asociativa
+con la suma. Una motivación para ello es el siguiente teorema
+%
+\begin{teorema}%[de la convolución]
+Sean $S,Z \in L^{2}\left[[-T,T]\right]$, entonces se satisface que
+\begin{align*}
+\mathcal{F}_T[S\ast Z]  &= \mathcal{F}_T[S] \cdot \mathcal{F}_T[Z] \\
+\mathcal{F}_T[S\cdot Z] &= \mathcal{F}_T[S] \ast  \mathcal{F}_T[Z] \\
+\end{align*}
+\end{teorema}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
