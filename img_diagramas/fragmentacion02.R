@@ -1,4 +1,4 @@
-grabar = T
+grabar = F
 
 setwd("~/TESIS/TESIS/img_diagramas")
 
@@ -55,10 +55,10 @@ for(y in 1:length(places)){
 par(mar=c(3,3,2,1))
 par(las=2)
 plot((1:N)-1,X,type='l',col='black',
-     xlab='Tiempo (mm:ss)',
+     xlab='Tiempo [mm:ss]',
      ylab='mV',main='Sujeto: ---  |  Canal: ---',
      xlim = c(0,N-1),xaxt='n',
-     mgp = c(2, 1, 0))
+     mgp = c(2, 1, 0),bty='n')
 
 places[1]=0
 axis(1,at=places,labels=plaquitas,las=1)
