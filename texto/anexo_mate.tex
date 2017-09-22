@@ -161,6 +161,8 @@ Se puede demostrar que $\aste{R}$ tiene las siguientes propiedades:
 Las aproximaciones para la varianza y covarianza se vuelven exactas si el proceso sigue una 
 distribuci\'on normal en todos los tiempos.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \subsection{Representación espectral}
 
 \begin{teorema}
@@ -184,6 +186,294 @@ Donde $dH(\omega)$ la FDE integrada de $\{X(t)\}$
 En virtud del teorema de Wold, se puede tener una variante del teorema \ref{rep_espectral}
 para procesos a tiempo discreto, raz\'on por la cual  
 tal representaci\'on es referida como \textbf{representaci\'on de Wold-Cram\'er}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\begin{table}
+\begin{SidewaysTable}
+\centering
+\bordes{1.5}
+\begin{tabular}{c}
+\textbf{Ventanas de retrasos tipo escalamiento (1)}
+\vspace{1em}
+\end{tabular}
+
+{
+\begin{tabular}{ll}
+\toprule
+& $k(u)$ para $\abso{u} \leq 1$ \\
+\midrule
+\textbf{Bartlett} &
+$\displaystyle 
+1 
+$
+\\
+\rowcolor{gris}
+\textbf{Fejer} &
+$\displaystyle 
+1-\abso{u}
+$
+\\
+\textbf{Daniell} &
+$\displaystyle 
+\frac{\SEN{\pi u}}{\pi u}
+$
+\\
+\rowcolor{gris}
+\textbf{Parzen (1)} &
+$\displaystyle 
+1-u^{2}
+$
+\\
+\textbf{Parzen (2)} &
+$\displaystyle 
+\frac{1}{1+\abso{u}}
+$
+\\
+\rowcolor{gris}
+\textbf{Parzen (3)} &
+$\displaystyle 
+\frac{1}{1+u^{2}}
+$
+\\
+\textbf{Parzen (4)} &
+$\displaystyle 
+\begin{cases}
+1-6 u^{2} + 6 \abso{u}^{3} &, \text{ si} \abso{u}\leq \nicefrac{1}{2}\\
+2\left( 1+\abso{u} \right)^{3} &, \text{ otro caso}
+\end{cases}
+$
+\\
+\rowcolor{gris}
+\textbf{Tukey} &
+$\displaystyle 
+1 -2a +2a \COS{\pi u}
+$
+\\
+\bottomrulec
+\end{tabular}
+}
+\caption{Ejemplos de algunas ventanas que suavizan el periodograma
+%, formando estimadores 
+%consistente de la FDE para el caso de espectro puramente continuo.
+%Las funciones $F_M$ y $D_M$ toman, respectivamente, los nombres de \textit{núcleo de Fejer} y
+%\textit{Núcleo de Dirichlet} de orden $M$
+}
+%\end{table}
+\end{SidewaysTable}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{SidewaysTable}
+\centering
+\bordes{1.5}
+\begin{tabular}{c}
+\textbf{Ventanas de retraso tipo escalamiento (2)}
+\vspace{1em}
+\end{tabular}
+
+{
+\begin{tabular}{ll}
+\toprule
+{
+\textbf{Neave} &
+$\displaystyle 
+\begin{cases}
+1 &, \abso{u}\leq a \\
+\frac{1}{1-a}\left[ 1-u +\frac{b-a}{\pi}\SEN{\frac{b-u}{b-a}\pi} \right] &, a \leq \abso{u}\leq a \\
+\frac{1}{1-a}\left[ 1-u +\frac{1-b}{\pi}\SEN{\frac{u-b}{1-b}\pi} \right] &, b \leq \abso{u} \\
+\end{cases}
+$
+\\
+\rowcolor{gris}
+\textbf{Cuadrática} &
+$\displaystyle 
+\frac{25}{12(\pi u)^{2}} 
+\left[ \frac{\SEN{\nicefrac{6 \pi u}{5}}}{\nicefrac{6\pi u}{5}} - \COS{\nicefrac{\pi u}{5}} \right]
+$
+\\
+\textbf{Bartlett-Priestley}} &
+$\displaystyle 
+\frac{3}{(\pi u)^{2}} \left[ \frac{\SEN{\pi u}}{\pi u} - \COS{\pi u} \right]
+$
+\\
+\rowcolor{gris}
+\textbf{Papoulis} &
+$\displaystyle 
+(1-u)\COS{\pi u} + \frac{\SEN{\pi u }}{\pi u }
+$
+\\
+\textbf{Taper} &
+$\displaystyle 
+\COS{\pi u}
+$
+\\
+\rowcolor{gris}
+\textbf{Trapezoidal} &
+$\displaystyle 
+1 -2a +2a \COS{\pi u}
+$
+\\
+\textbf{Normal} &
+$\displaystyle 
+1 -2a +2a \COS{\pi u}
+$
+\\
+\bottomrule
+\end{tabular}
+}
+\caption{Ejemplos de algunas ventanas que suavizan el periodograma
+%, formando estimadores 
+%consistente de la FDE para el caso de espectro puramente continuo.
+%Las funciones $F_M$ y $D_M$ toman, respectivamente, los nombres de \textit{núcleo de Fejer} y
+%\textit{Núcleo de Dirichlet} de orden $M$
+}
+\label{ventanas}
+%\end{table}
+\end{SidewaysTable}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\begin{table}
+\begin{SidewaysTable}
+\centering
+\bordes{1.5}
+\begin{tabular}{c}
+\textbf{Ventanas espectrales tipo escalamiento (1)}
+\vspace{1em}
+\end{tabular}
+
+{
+\begin{tabular}{ll}
+\toprule
+& $K(\theta)$ para $\abso{\theta} \leq 1$ \\
+\midrule
+\textbf{Bartlett} &
+$\displaystyle 
+\frac{1}{\pi} \frac{\SEN{\theta}}{\theta}
+$
+\\
+\rowcolor{gris}
+\textbf{Fejer} &
+$\displaystyle 
+\frac{1}{2\pi} \left[ \frac{\SEN{\nicefrac{\theta}{2}}}{\nicefrac{\theta}{2}} \right]^{2}
+$
+\\
+\textbf{Daniell} &
+$\displaystyle 
+\nicefrac{1}{2\pi} \text{, si } \abso{\theta}\leq \pi
+$
+\\
+\rowcolor{gris}
+\textbf{Parzen (1)} &
+$\displaystyle 
+d
+$
+\\
+\textbf{Parzen (2)} &
+$\displaystyle 
+d
+$
+\\
+\rowcolor{gris}
+\textbf{Parzen (3)} &
+$\displaystyle 
+d
+$
+\\
+\textbf{Parzen (4)} &
+$\displaystyle 
+\frac{3}{8 \pi} \left[ \frac{\SEN{\nicefrac{\theta}{4}}}{\nicefrac{\theta}{4}}
+$
+\\
+\rowcolor{gris}
+\textbf{Tukey} &
+$\displaystyle 
+d
+$
+\\
+\bottomrulec
+\end{tabular}
+}
+\caption{Ejemplos de algunas ventanas que suavizan el periodograma
+%, formando estimadores 
+%consistente de la FDE para el caso de espectro puramente continuo.
+%Las funciones $F_M$ y $D_M$ toman, respectivamente, los nombres de \textit{núcleo de Fejer} y
+%\textit{Núcleo de Dirichlet} de orden $M$
+}
+%\end{table}
+\end{SidewaysTable}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\begin{SidewaysTable}
+%\centering
+%\bordes{1.5}
+%\begin{tabular}{c}
+%\textbf{Ventanas de retraso tipo escalamiento (2)}
+%\vspace{1em}
+%\end{tabular}
+%
+%{
+%\begin{tabular}{ll}
+%\toprule
+%{
+%\textbf{Neave} &
+%$\displaystyle 
+%\begin{cases}
+%d
+%$
+%\\
+%\rowcolor{gris}
+%\textbf{Cuadrática} &
+%$\displaystyle 
+%d
+%$
+%\\
+%\textbf{Bartlett-Priestley}} &
+%$\displaystyle 
+%\frac{3}{4 \pi} \left[ 1 - \left( \nicefrac{\theta}{\pi} \right) \right]
+%\text{, si } \abso{\theta}\leq \pi
+%$
+%\\
+%\rowcolor{gris}
+%\textbf{Papoulis} &
+%$\displaystyle 
+%d
+%$
+%\\
+%\textbf{Taper} &
+%$\displaystyle 
+%d
+%$
+%\\
+%\rowcolor{gris}
+%\textbf{Trapezoidal} &
+%$\displaystyle 
+%d
+%$
+%\\
+%\textbf{Normal} &
+%$\displaystyle 
+%d
+%$
+%\\
+%\bottomrule
+%\end{tabular}
+%}
+%\caption{Ejemplos de algunas ventanas que suavizan el periodograma
+%%, formando estimadores 
+%%consistente de la FDE para el caso de espectro puramente continuo.
+%%Las funciones $F_M$ y $D_M$ toman, respectivamente, los nombres de \textit{núcleo de Fejer} y
+%%\textit{Núcleo de Dirichlet} de orden $M$
+%}
+%\label{ventanas}
+%%\end{table}
+%\end{SidewaysTable}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

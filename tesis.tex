@@ -87,6 +87,14 @@
 \usepackage{xr}
 \usepackage{zref}
 
+% para poner palomita y tache
+\usepackage{pifont}
+
+% para escribir pseudocodigo
+%\usepackage[spanish,onelanguage,linesnumbered,vlined]{algorithm2e}
+\usepackage[spanish,onelanguage,linesnumbered,ruled,vlined]{algorithm2e}
+% boxed
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -141,10 +149,10 @@
 
 % munchas abreviaciones que uso para ahorrar codigo, quiza ponga mas
 
-\newtheorem{definicion}{Definición}
-\newtheorem{teorema}{Teorema}
-\newtheorem{proposicion}{Proposición}
-\newtheorem{demostracion}{Demostración}
+\newtheorem{definicion}{Definición}[chapter]
+\newtheorem{teorema}{Teorema}[chapter]
+\newtheorem{proposicion}{Proposición}[chapter]
+\newtheorem{demostracion}{Demostración}[chapter]
 
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\C}{\mathbb{C}}
@@ -191,6 +199,16 @@
 \definecolor{gris}{gray}{0.925}
 \definecolor{gris2}{gray}{0.8}
 
+\newcommand{\toprulec}{%
+  \arrayrulecolor{black}\specialrule{\heavyrulewidth}{\aboverulesep}{0pt}
+  \arrayrulecolor{gris}\specialrule{\belowrulesep}{0pt}{0pt}
+  \arrayrulecolor{black}
+}
+\newcommand{\midrulec}{%
+  \arrayrulecolor{gris}\specialrule{\aboverulesep}{0pt}{0pt}
+  \arrayrulecolor{black}\specialrule{\lightrulewidth}{0pt}{\belowrulesep}
+}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -221,10 +239,10 @@
   breakatwhitespace=false,        % sets if automatic breaks should only happen at whitespace
   title=\lstname,                 % show the filename of files included with \lstinputlisting;
                                   % also try caption instead of title
-  keywordstyle=\color{blue},      % keyword style
-  commentstyle=\color{dkgreen},   % comment style
-  stringstyle=\color{mauve},      % string literal style
-  escapeinside={\%*}{*)},         % if you want to add a comment within your code
+  %keywordstyle=\color{blue},      % keyword style
+  %commentstyle=\color{dkgreen},   % comment style
+  %stringstyle=\color{mauve},      % string literal style
+  %escapeinside={\%*}{*)},         % if you want to add a comment within your code
   morekeywords={*,/,.}            % if you want to add more keywords to the set
   deletekeywords={t,_,max,R}      % to remove keywords
 } 
