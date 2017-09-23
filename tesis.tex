@@ -4,8 +4,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %\documentclass[12pt,letterpaper]{mitthesis}
-%\documentclass[12pt,letterpaper,draft]{book}
-\documentclass[12pt,letterpaper]{book}
+\documentclass[12pt,letterpaper,draft]{book}
+%\documentclass[12pt,letterpaper]{book}
 \usepackage[utf8]{inputenc}
 \usepackage[spanish]{babel}
 
@@ -206,6 +206,11 @@
 }
 \newcommand{\midrulec}{%
   \arrayrulecolor{gris}\specialrule{\aboverulesep}{0pt}{0pt}
+  \arrayrulecolor{black}\specialrule{\lightrulewidth}{0pt}{\belowrulesep}
+}
+\newcommand{\bottomrulec}{%
+  \arrayrulecolor{black}
+  \arrayrulecolor{gris}\specialrule{\belowrulesep}{0pt}{0pt}
   \arrayrulecolor{black}\specialrule{\lightrulewidth}{0pt}{\belowrulesep}
 }
 
@@ -422,7 +427,7 @@ como posible marcador de deterioro cognitivo}
 \appendix
 
 %\input{./texto/stl_fft.tex}
-\input{./texto/anexo_mate.tex}
+%\input{./texto/anexo_mate.tex}
 
 \input{./texto/anexo_espectro_evo.tex}
 
