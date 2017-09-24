@@ -703,7 +703,7 @@ libertad indicados indicados en el cuadro.
 \bordes{1.1}
 \begin{tabular}{llc}
 \toprule
-\multicolumn{2}{l}{\textbf{Estadístico}} & \textbf{Gr. de libertad} \\
+\multicolumn{2}{l}{{Estadístico}} & {Gr. de libertad} \\
 \midrule
 $S_T$ & $=J \sum_{i=1}^{I} \left( Y_{i,\bullet} - Y_{\bullet,\bullet} \right)^{2}$ 
 & $I-1$ \\
@@ -727,7 +727,6 @@ $Y_{\bullet,\bullet}$ & $= \frac{1}{I J} \sum_{i=1}^{I} \sum_{j=1}^{J} Y_{i,j}$ 
 \label{cantidades_psr}
 \end{table}
 
-
 Cabe mencionar que en la formulación original de la prueba de PSR se exploran algunas otros modelos 
 que pueden ser verificadas usando el estimador $Y$ (cuadro \ref{modelos}); por ejemplo, los 
 procesos \textbf{uniformemente modulados} (UM), que necesariamente pueden expresarse como 
@@ -739,22 +738,19 @@ contienen a los débilmente estacionarios; en cambio, si se hace a $f_0$ constan
 sólo es físicamente relevante si el proceso es a tiempo discreto} ($\alpha = 0$) entonces el 
 proceso puede interpretarse como un PRB multiplicado en el tiempo por una función arbitraria.
 
-% X      \ding{55}
-% v|     \ding{51}
-
 \begin{table}
 \centering
 \begin{tabular}{lcc}
 \toprule
-\textbf{Modelo} & \textbf{Estacionario} & \textbf{UM} \\
+{Modelo} & {Estacionario} & {UM} \\
 \midrule
-$H_0 : \hspace{1em} Y_{i,j} = \mu + \alpha_i + \beta_j + \gamma_{i,j} + \varepsilon_{i,j}$
+$H_0 : \hspace{.5em} Y_{i,j} = \mu + \alpha_i + \beta_j + \gamma_{i,j} + \varepsilon_{i,j}$
 & \ding{55} & \ding{55} \\
-$H_1 : \hspace{1em} Y_{i,j} = \mu + \alpha_i + \beta_j + \varepsilon_{i,j}$ 
+$H_1 : \hspace{.5em} Y_{i,j} = \mu + \alpha_i + \beta_j + \varepsilon_{i,j}$ 
 & \ding{55} & \ding{51} \\
-$H_2 : \hspace{1em} Y_{i,j} = \mu + \alpha_i + \varepsilon_{i,j}$ 
+$H_2 : \hspace{.5em} Y_{i,j} = \mu + \alpha_i + \varepsilon_{i,j}$ 
 & \ding{51} & \ding{51} \\
-$H_3 : \hspace{1em} Y_{i,j} = \mu + \beta_j + \varepsilon_{i,j}$ 
+$H_3 : \hspace{.5em} Y_{i,j} = \mu + \beta_j + \varepsilon_{i,j}$ 
 & \ding{55} & \ding{51} \\
 \bottomrule
 \end{tabular}
@@ -786,7 +782,7 @@ en este trabajo, de modo que conviene estudiar su estructura.
 %  \end{algorithmic}
 %\end{algorithm}
 
-\begin{algorithm}[H]
+\begin{algorithm}
 %\SetAlgoLined
 \DontPrintSemicolon
 \KwData{$X = \left(x_1, x_2, \cdots, x_N \right)$}

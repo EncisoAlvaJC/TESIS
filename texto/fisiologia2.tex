@@ -177,7 +177,7 @@ Este gráfico será redibujado.
 
 El registro de la actividad eléctrica en el cerebro se conoce como \textbf{electroencefalograma} 
 (EEG); usualmente estos registros muestra una actividad oscilatoria continua y cambiante con 
-frecuencia\footnote{En el anexo B se presenta una discusión sobre la definción de este concepto, 
+frecuencia\footnote{En el anexo B se presenta una discusión sobre la definición de este concepto, 
 que resulta ser paradójicamente complicado} de entre 0.5 y 100 Hz; su composición está fuertemente 
 relacionada con el grado de actividad cerebral mostrando, por ejemplo, diferencias claras durante 
 vigilia y sueño o durante quietud y concentración \cite{Clark98}.
@@ -202,20 +202,24 @@ Processing}, por S. Sanei y J. A. Chambers \cite{Sanei07} }
 \centering
 \begin{tabular}{lclll}
 \toprule
-&\textbf{Frecuencia} && \\
-&\textbf{[Hz]} & \textbf{Ubicación usual} & \textbf{Condiciones usuales} \\
+&{Frecuencia} && \\
+&{[Hz]} & {Ubicación usual} & {Condiciones usuales} \\
 \midrule
-\textbf{Delta} & 0.5 -- 3.5 && Sueño profundo en infantes\\
+{Delta} & 0.5 -- 3.5 && Sueño profundo en infantes\\
 &&& Enfermedades orgánicas del cerebro\\
-\textbf{Theta} & 3.5 -- 7   & Parietal, Temporal & En infantes\\
+{Theta} & 3.5 -- 7   & Parietal, Temporal & En infantes\\
 &&& Durante estrés emocional \\
-\textbf{Alfa}  & 7 -- 12    & Occipita, Frontal& Vigilia, en un estado de \\
+{Alfa}  & 7 -- 12    & Occipital, Frontal& Vigilia, en un estado de \\
 && Parietal & quietud del pensamiento\\
-\textbf{Beta}  & 12 -- 30   &Parietal, Frontal&\\
-\textbf{Gamma} & 30 -- 100  &&\\
+{Beta}  & 12 -- 30   &Parietal, Frontal&\\
+&&& \\
+{Gamma} & 30 -- 100  &&\\
+&&& \\
 \midrule
-\textbf{Husos de sueño} &&&\\
-\textbf{Complejos K} &&&\\
+{Husos de sueño} &&&\\
+&&& \\
+{Complejos K} &&&\\
+&&& \\
 \bottomrule
 \end{tabular}
 \caption{Ondas cerebrales, generalidades}
@@ -223,7 +227,7 @@ Processing}, por S. Sanei y J. A. Chambers \cite{Sanei07} }
 \end{table}
 
 Para realizar el registro \textit{per se} en una forma estandarizada y comparable, se definen
-arreglos llamados \textbf{montajes}, entoendidos como el conjunto de 
+arreglos llamados \textbf{montajes}, entendidos como el conjunto de 
 \begin{itemize}
 \item Los sitios donde se colocan los electrodos de registro
 \item La manera en que los electrodos de registro están conectados entre sí
@@ -231,7 +235,7 @@ arreglos llamados \textbf{montajes}, entoendidos como el conjunto de
 
 En el trabajo de Vázquez Tagle \cite{VazquezTagle16} se usa un montaje \textit{referencial}, en el 
 que los electrodos se conectan en paralelo con un electrodo de referencia cuya actividad eléctrica 
-es constante y negligible (los lóbulos de las orejas, electrodos A1, A2);
+es constante y negligible (lóbulos de las orejas, electrodos A1, A2);
 el resto de los electrodos fueron colocados en los sitios descritos por el \textit{International 
 Federation 10--20 system} (\textbf{Sistema 10--20}), propuesto por la \textit{International 
 Federation of EEG Societies} \cite{Jasper58,AASM07}, y que se muestran el la figura \ref{img1020}.
@@ -262,7 +266,7 @@ que representan
 \end{figure}
 
 Debido a que las neuronas en la corteza cerebral tienen orientaciones muy diversas y a que disparan 
-de manera asíncrona, además de que el cerebro se encuentra cuvierto por las muchas capas descritas
+de manera asíncrona, además de que el cerebro se encuentra cubierto por las muchas capas descritas
 anteriormente, las señales captadas por los electrodos deben ser amplificadas analógicamente antes 
 de ser registradas digitalmente.
 %
@@ -274,7 +278,7 @@ de ser registradas digitalmente.
 Un efecto colateral de amplificar la señal es la inclusión de \textbf{ruido}, entendido como 
 señales que son registradas de manera no deseada.
 Como ejemplo, los músculos faciales, medianamente contraídos, generan campos eléctricos con
-frecuencias cercanas a 100 Hz y que son registradas en los canales frontales (FP1, FP2);
+frecuencias cercanas a 100 Hz y que son registradas en los canales frontales;
 este tipo de ruido puede ser evitando usando un filtro\footnote{Los detalles sobre el uso y
 construcción de estos filtros se discute en el anexo B} que elimine señales con componentes de
 frecuencia más o menos específicos.
@@ -289,14 +293,13 @@ considerarse a la detección de éstos como un paso previo inevitable.
 
 \subsection{Polisomnografía}
 
-Se entiende al \textbf{sueño} como un proceso vital cíclico complejo y activo, compuesto por 
+Se define al \textbf{sueño} como \textit{un proceso vital cíclico complejo y activo, compuesto por 
 varias fases y que posee una estructura interna característica, con diversas interrelaciones en los 
-sistemas hormonales y nerviosos \cite{FernandezConde07}.
-Para el ser humano se puede caracterizar por las siguientes propiedades \cite{CarrilloMora}:
+sistemas hormonales y nerviosos} \cite{FernandezConde07};
+en el ser humano presenta las siguientes propiedades \cite{CarrilloMora}:
 \begin{enumerate}
 \item Disminución de conciencia y reactividad a estímulos externos
-\item Fácilmente reversible, lo cual lo diferencia de otros estados patológicos como el estupor y 
-el coma
+\item Fácilmente reversible, a diferencia de estados patológicos como estupor y coma
 \item Inmovilidad y relajación muscular
 \item Periodicidad típica circadiana (diaria)
 \item Los individuos adquieren una postura estereotipada
@@ -304,22 +307,19 @@ el coma
 fisiológicas, además de que genera una \textit{deuda} acumulativa
 \end{enumerate}
 
-%Un adulto joven pasa aproximadamente entre 70--100 minutos en el sueño NMOR para después entrar 
-%al sueño MOR, el cual puede durar entre 5--30 min; este ciclo se repite cada hora y media.
-%En los ancianos se va fragmentando el sueño nocturno con frecuentes episodios de despertar, se 
-%reduce mucho el porcentaje de sueño en fase 4, pero se mantiene constante el porcentaje de 
-%sueño MOR. Adicionalmente, muchos adultos mayores dormitan durante el día varias siestas cortas 
-%\cite{CarrilloMora}.
+La duración del sueño es determinada en gran parte por la edad; el recién nacido duerme entre 14 y 
+18 horas, el lactante entre 12 y 14 horas, el niño en etapa escolar entre 11 y 12 horas y en la 
+edad adulta, la mayoría duerme entre 7 y 8 horas por noche \cite{Contreras13}.
+Sin embargo, y como se mencionó, el sueño no es un proceso homogéneo sino que tiene una estructura 
+por etapas con rasgos electroencefalográficos y fisiológicos distintivos.
 
-La edad es un factor decisivo para la cantidad de horas de sueño. El recién nacido duerme entre 14 y 18 horas, el lactante entre 12 y 14 horas, el niño en etapa escolar entre 11 y 12 horas y en la edad adulta, la mayoría duerme entre 7 y 8 horas por noche. En otras palabras, es fisiológico que el número de horas dormidas vaya disminuyendo progresivamente a lo largo de la vida, pudiendo existir una diferencia de hasta 16 horas como promedio entre la niñez y la edad adulta. En los ancianos, el número de horas de diferencia entre las horas de sueño propias v/s las horas de sueño de la niñez, es aún mayor \cite{Contreras13}
-
-El sueño normal se divide en dos etapas principales: MOR (fase R) y NMOR (fase N), que se 
-diferencian por sus rasgos electroencefalográficos y una serie de características fisiológicas, y 
-de los cuales obtienen sus nombres.
-%Cabe mencionar que la nomenclatura acerca de las fases del sueño ha sido recientemente modificada 
-%por la American Association of Sleep Medicine (AASM) en 2007 \cite{AASM07}, de modo que en este 
-%trabajo se  usarán ambas nomenclaturas siempre que sea posible, por fines de compatibilidad.
-
+%Según la tradición iniciada por Aserinsky y Kleitman en 1953, la clasificación del sueño
+Para su estudio, la clasificación del sueño 
+contempla dos etapas fundamentalmente diferentes: N y R.
+La primera de ellas, la \textbf{fase N}, se caracteriza por movimientos oculares lentos, tono 
+muscular que decrece constantemente, actividad cerebral que recuerda al reposo, y la presencia de
+husos de sueño y complejos K; en base a estos indicadores, se definen las sub-fases N1, N2, N3, N4.
+%
 %El sueño fuera de la etapa MOR es referido como no-MOR (NMOR, fase N), y es dividido en etapas 
 %según la 'profundidad' del sueño, entendida en términos de la actividad cerebral registrada.
 %En el sueño profundo se observan ondas delta muy irregulares, y junto con ellas ocurren trenes 
@@ -328,68 +328,60 @@ de los cuales obtienen sus nombres.
 %contraste con la actividad irregular, desincronizada y de bajo voltaje registrada en estado de 
 %alerta.
 
-Durante el sueño MOR (fase R), ocurre que las ondas lentas y amplitud alta son reemplazadas por 
-ondas rápidas de bajo voltaje, irregulares, y que recuerdan la actividad en el EEG durante el 
-estado de alerta.
-La presencia de estos patrones irregulares no interrumpen el sueño, sino que incrementan el 
-umbral para los estímulos externos; este comportamiento es referido como 'sueño paradójico'.
-Durante esta etapa de sueño, el sujeto exhibe movimientos oculares rápidos (MOR), razón por 
-la cual recibe su nombre característico.
-Durante el sueño MOR se producen la mayoría de las ensoñaciones (referidos coloquialmente 
-como sueños), y la mayoría de los pacientes que despiertan durante esta fase suelen recordar 
-vívidamente el contenido de sus ensoñaciones \cite{Chokroverty09}.
-Físicamente el tono de todos los músculos disminuye (con excepción de los músculos 
-respiratorios y los esfínteres vesical y anal), así mismo la frecuencia cardiaca y respiratoria 
-se vuelve irregular.
+Durante la \textbf{fase R} el tono muscular disminuye (con excepción de los músculos respiratorios 
+y los esfínteres), la frecuencia cardiaca y respiratoria se vuelve irregular, y el sujeto exhibe 
+movimientos oculares rápidos (MOR); en base a esta característica, la fase R es mejor conocida 
+como \textbf{sueño MOR}.
+En el EEG, aparecen ondas rápidas de bajo voltaje, irregulares, y que recuerdan la actividad 
+durante el estado de alerta; la presencia de estos patrones no interrumpen el sueño, sino que 
+incrementan el umbral para estímulos externos, motivo por el cual esta fase también es referida como 
+\textbf{sueño paradójico}.
+%
+Cabe mencionar que durante el sueño MOR se producen la mayoría de las ensoñaciones (referidas 
+coloquialmente como \textit{sueños}), y que la mayoría de los pacientes que despiertan durante esta 
+fase suelen recordar vívidamente el contenido de sus ensoñaciones \cite{Chokroverty09}.
 
-
-
-A grosso modo, la clasificación de etapas del sueño según la AASM se basa en las siguientes
-características \cite{Hori01}:
-
-\begin{description}
-\item[Vigilia (W)] Presencia de ritmo alfa continúo con máxima amplitud sobre regiones de la 
-corteza parieto-occipital. Tono muscular relativamente alto y ausencia de movimientos oculares.
-
-\item[Fase 1 (N1)] 
-%Corresponde con la somnolencia o el inicio del sueño ligero, en ella es muy 
-%fácil despertarse. 
-Presencia intermitente de ondas alfa en menos del 50\% de la época, actividad de frecuencias 
-mezcladas y bajo voltaje, movimientos oculares lentos y algunas ondas agudas. 
-La actividad muscular disminuye paulatinamente, pueden observarse sacudidas musculares súbitas.
-%que a veces coinciden con una sensación de caída. 
-
-\item[Fase 2 (N2)] Presencia de 
-%patrones específicos de actividad cerebral conocidos como 
-husos de sueño y complejos K. 
-Puede aparecer hasta un 20\% de ondas lentas (ritmo delta). Ausencia de actividad ocular y tono 
-muscular bajo.
-%La temperatura, la frecuencia cardíaca y respiratoria disminuyen paulatinamente. 
-
-\item[Fases 3 (N3)] Predominan ondas de frecuencias muy bajas ($<2$ Hz) con amplitudes superiores a 
-75 $\mu$V entre el 20\% el 50\% de la época. Pueden también aparecer complejos K y 
-husos de sueño de forma esporádica. Ausencia de actividad ocular y tono muscular bajo.
-
-%\item[Fase 4 (N4)] La fase más profunda del sueño NMOR y referido como 'sueño de ondas 
-%lentas', pues hay presencia de éstas ondas en más del 50\% de la época. Las demás 
-%características son similares a las de la fase 3.
-
-\item[Fase MOR (R)] Presencia de actividad EEG de baja amplitud y frecuencias entremezcladas 
-(theta-alfa-beta) similar a la observada en el estado de vigilia activa con ojos abiertos.
-\end{description}
+\begin{table}
+\centering
+\begin{tabular}{lllll}
+\toprule
+\multicolumn{2}{l}{Etapa}& Características  & Movimientos & Tono \\
+&&del EEG & oculares & muscular \\
+\midrule
+Vigilia & W & Ritmo alfa en $> 50$\% de la época & \nop & \sip, alto \\
+&& en la región occipital && \\
+NMOR 1 & N1 &  &  &  \\
+&&  && \\
+NMOR 2 & N2 &  &  &  \\
+&&  && \\
+NMOR 3 & N3 &  &  &  \\
+&&  && \\
+MOR & R &  &  &  \\
+&&  && \\
+\bottomrule
+\end{tabular}
+\caption{Criterios para la clasificación de etapas de sueño según la AASM \cite{Vaughn08} }
+\end{table}
 
 \begin{figure}
 \centering
 \includegraphics[width=\linewidth]
 {./img_ejemplos/MJH_190_PDG_lucirse_PSG.pdf}
-\caption{Registro de PSG en el sujeto MJH durante sueño MOR. 
-%Nótese que el canal EMG permanece 
-%silente (indicativo de atonía muscular) mientras que los canales ROG y LOG exhiben actividad de 
-%gran amplitud y sincronización (movimientos oculares rápidos), características indicativas de
-%la etapa de sueño.
-}
+\caption{Registro de PSG en el sujeto MJH durante sueño MOR}
 \label{ejemplos_mor}
 \end{figure}
+
+%En otras palabras, es fisiológico que el número de horas dormidas vaya disminuyendo progresivamente 
+%a lo largo de la vida, pudiendo existir una diferencia de hasta 16 horas como promedio entre la 
+%niñez y la edad adulta. En los ancianos, el número de horas de diferencia entre las horas de sueño 
+%propias v/s las horas de sueño de la niñez, es aún mayor
+
+%Un adulto joven pasa aproximadamente entre 70--100 minutos en el sueño NMOR para después entrar 
+%al sueño MOR, el cual puede durar entre 5--30 min; este ciclo se repite cada hora y media.
+%En los ancianos se va fragmentando el sueño nocturno con frecuentes episodios de despertar, se 
+%reduce mucho el porcentaje de sueño en fase 4, pero se mantiene constante el porcentaje de 
+%sueño MOR. Adicionalmente, muchos adultos mayores dormitan durante el día varias siestas cortas 
+%\cite{CarrilloMora}.
 
 %textwidth: \printinunitsof{cm}\prntlen{\textwidth}
 %
