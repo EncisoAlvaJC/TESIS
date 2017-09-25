@@ -79,6 +79,9 @@
 % para que la bibliografia aparezca en el indice
 \usepackage[nottoc]{tocbibind}
 
+% opciones de la bibliografia en espanol
+\usepackage{babelbib}
+
 % para tablas de colores
 \usepackage{xcolor,colortbl}
 \usepackage{multirow}
@@ -432,6 +435,8 @@ como posible marcador de deterioro cognitivo}
 %\input{./texto/stl_fft.tex}
 %\input{./texto/anexo_mate.tex}
 
+\input{./texto/anexo_frecuencias.tex}
+
 \input{./texto/anexo_espectro_evo.tex}
 
 %\input{./texto/anexo_fisio.tex}
@@ -445,7 +450,8 @@ como posible marcador de deterioro cognitivo}
 
 {%\small
 %\bibliographystyle{abbrv_esp}
-\bibliographystyle{abbrv}
+%\bibliographystyle{abbrv}
+\bibliographystyle{bababbrv}
 \bibliography{referencias_estacionariedad,referencias_fisiologia,referencias_otros,referencias_mixto}{}
 %\bibliographystyle{apalike-es}
 }
