@@ -191,7 +191,6 @@ tal representaci\'on es referida como \textbf{representaci\'on de Wold-Cram\'er}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%\begin{table}
 \begin{SidewaysTable}
 \centering
 \bordes{1.5}
@@ -201,67 +200,212 @@ tal representaci\'on es referida como \textbf{representaci\'on de Wold-Cram\'er}
 \end{tabular}
 
 {
-\begin{tabular}{ll}
+\begin{tabular}{lll}
 \toprule
-& $k(u)$ para $\abso{u} \leq 1$ \\
+& $k(u)$ para $\abso{u} \leq 1$ & \\
 \midrule
-\textbf{Bartlett} &
+Bartlett &
 $\displaystyle 
 1 
 $
+& \includegraphics[scale=.66]{./img_ventanas/ventana_bartlett.pdf}
 \\
 \rowcolor{gris}
-\textbf{Fejer} &
+Fejer &
 $\displaystyle 
 1-\abso{u}
 $
+& \includegraphics[scale=.66]{./img_ventanas/ventana_fejer.pdf}
 \\
-\textbf{Daniell} &
+Daniell &
 $\displaystyle 
 \frac{\SEN{\pi u}}{\pi u}
 $
+& \includegraphics[scale=.66]{./img_ventanas/ventana_daniell.pdf}
 \\
 \rowcolor{gris}
-\textbf{Parzen (1)} &
+Parzen (1) &
 $\displaystyle 
 1-u^{2}
 $
+& \includegraphics[scale=.66]{./img_ventanas/ventana_parzen1.pdf}
 \\
-\textbf{Parzen (2)} &
+Parzen (2) &
 $\displaystyle 
 \frac{1}{1+\abso{u}}
 $
+& \includegraphics[scale=.66]{./img_ventanas/ventana_parzen2.pdf}
 \\
 \rowcolor{gris}
-\textbf{Parzen (3)} &
+Parzen (3) &
 $\displaystyle 
 \frac{1}{1+u^{2}}
 $
+& \includegraphics[scale=.66]{./img_ventanas/ventana_parzen3.pdf}
 \\
-\textbf{Parzen (4)} &
+Parzen (4) &
 $\displaystyle 
 \begin{cases}
 1-6 u^{2} + 6 \abso{u}^{3} &, \text{ si} \abso{u}\leq \nicefrac{1}{2}\\
-2\left( 1+\abso{u} \right)^{3} &, \text{ otro caso}
+2\left( 1-\abso{u} \right)^{3} &, \text{ otro caso}
 \end{cases}
+$
+& \includegraphics[scale=.66]{./img_ventanas/ventana_parzen4.pdf}
+\\
+\rowcolor{gris}
+Tukey &
+$\displaystyle 
+1 -2a +2a \COS{\pi u}
+$
+& \includegraphics[scale=.66]{./img_ventanas/ventana_tukey.pdf}
+\\
+\bottomrulec
+\end{tabular}
+}
+\caption{Ejemplos de algunas ventanas que suavizan el periodograma}
+\label{ventanas}
+\end{SidewaysTable}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{SidewaysTable}
+\centering
+\bordes{1.5}
+\begin{tabular}{c}
+\textbf{Ventanas de retraso tipo escalamiento (2)}
+\vspace{1em}
+\end{tabular}
+
+{
+\begin{tabular}{lll}
+\toprule
+& $k(u)$ para $\abso{u} \leq 1$  & \\
+\midrule
+Neave &
+$\displaystyle 
+\begin{cases}
+1 &, \abso{u}\leq a \\
+\frac{1}{1-a}\left[ 1-u +\frac{b-a}{\pi}\SEN{\frac{b-u}{b-a}\pi} \right] &, a \leq \abso{u}\leq a \\
+\frac{1}{1-a}\left[ 1-u -\frac{1-b}{\pi}\SEN{\frac{u-b}{1-b}\pi} \right] &, b \leq \abso{u} \\
+\end{cases}
+$
+& \includegraphics[scale=.66]{./img_ventanas/ventana_neave.pdf}
+\\
+\rowcolor{gris}
+Cuadrática &
+$\displaystyle 
+\frac{25}{12(\pi u)^{2}} 
+\left[ \frac{\SEN{\nicefrac{6 \pi u}{5}}}{\nicefrac{6\pi u}{5}} - \COS{\nicefrac{6 \pi u}{5}} \right]
+$
+& \includegraphics[scale=.66]{./img_ventanas/ventana_cuadratica.pdf}
+\\
+Bartlett-Priestley &
+$\displaystyle 
+\frac{3}{(\pi u)^{2}} \left[ \frac{\SEN{\pi u}}{\pi u} - \COS{\pi u} \right]
+$
+& \includegraphics[scale=.66]{./img_ventanas/ventana_cosenoidal.pdf}
+\\
+\rowcolor{gris}
+Papoulis &
+$\displaystyle 
+(1-u)\COS{\pi u} + \frac{\SEN{\pi u }}{\pi u }
+$
+& \includegraphics[scale=.66]{./img_ventanas/ventana_papoulis.pdf}
+\\
+Cosenoidal &
+$\displaystyle 
+\COS{\pi u}
 $
 \\
 \rowcolor{gris}
-\textbf{Tukey} &
+Trapezoidal &
 $\displaystyle 
-1 -2a +2a \COS{\pi u}
+\begin{cases}
+1 &, \abso{u}\leq a \\
+\frac{u-1}{a-1} &, a \leq \abso{u}\leq a 
+\end{cases}
+$
+& \includegraphics[scale=.66]{./img_ventanas/ventana_trapezoidal.pdf}
+\\
+Normal &
+$\displaystyle 
+\exp \left( - \nicefrac{u^{2}}{2 \sigma^{2}}  \right)
+$
+%& \includegraphics[scale=.66]{./img_ventanas/ventana_normal.pdf}
+& \includegraphics[scale=.66]{./img_ventanas/ventana_.pdf}
+\\
+\bottomrule
+\end{tabular}
+}
+\caption{Ejemplos de algunas ventanas que suavizan el periodograma}
+\end{SidewaysTable}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{SidewaysTable}
+\centering
+\bordes{1.5}
+\begin{tabular}{c}
+\textbf{Ventanas espectrales tipo escalamiento (1)}
+\vspace{1em}
+\end{tabular}
+
+{
+\begin{tabular}{ll}
+\toprule
+& $K(\theta)$ para $\abso{\theta} \leq 1$ \\
+\midrule
+Bartlett &
+$\displaystyle 
+\frac{1}{\pi} \frac{\SEN{\theta}}{\theta}
+$
+\\
+\rowcolor{gris}
+Fejer &
+$\displaystyle 
+\frac{1}{2\pi} \left[ \frac{\SEN{\nicefrac{\theta}{2}}}{\nicefrac{\theta}{2}} \right]^{2}
+$
+\\
+Daniell &
+$
+\displaystyle 
+\nicefrac{1}{2\pi} \text{, si } \abso{\theta}\leq \pi
+$
+\\
+\rowcolor{gris}
+Parzen (1) &
+$\displaystyle 
+d
+$
+\\
+Parzen (2) &
+$\displaystyle 
+d
+$
+\\
+\rowcolor{gris}
+Parzen (3) &
+$\displaystyle 
+d
+$
+\\
+Parzen (4) &
+$\displaystyle 
+\frac{3}{8 \pi} \left[ \frac{\SEN{\nicefrac{\theta}{4}}}{\nicefrac{\theta}{4}} \right]
+$
+\\
+\rowcolor{gris}
+Tukey &
+$\displaystyle 
+d
 $
 \\
 \bottomrulec
 \end{tabular}
 }
-\caption{Ejemplos de algunas ventanas que suavizan el periodograma
-%, formando estimadores 
-%consistente de la FDE para el caso de espectro puramente continuo.
-%Las funciones $F_M$ y $D_M$ toman, respectivamente, los nombres de \textit{núcleo de Fejer} y
-%\textit{Núcleo de Dirichlet} de orden $M$
-}
-%\end{table}
+\caption{Ejemplos de algunas ventanas que suavizan el periodograma}
 \end{SidewaysTable}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -277,193 +421,53 @@ $
 {
 \begin{tabular}{ll}
 \toprule
-{
-\textbf{Neave} &
-$\displaystyle 
-\begin{cases}
-1 &, \abso{u}\leq a \\
-\frac{1}{1-a}\left[ 1-u +\frac{b-a}{\pi}\SEN{\frac{b-u}{b-a}\pi} \right] &, a \leq \abso{u}\leq a \\
-\frac{1}{1-a}\left[ 1-u +\frac{1-b}{\pi}\SEN{\frac{u-b}{1-b}\pi} \right] &, b \leq \abso{u} \\
-\end{cases}
+& $K(\theta)$ para $\abso{\theta} \leq 1$ \\
+\midrule
+Neave &
+$
+d
 $
 \\
 \rowcolor{gris}
-\textbf{Cuadrática} &
+Cuadrática &
 $\displaystyle 
-\frac{25}{12(\pi u)^{2}} 
-\left[ \frac{\SEN{\nicefrac{6 \pi u}{5}}}{\nicefrac{6\pi u}{5}} - \COS{\nicefrac{\pi u}{5}} \right]
+d
 $
 \\
-\textbf{Bartlett-Priestley}} &
+Bartlett-Priestley &
 $\displaystyle 
-\frac{3}{(\pi u)^{2}} \left[ \frac{\SEN{\pi u}}{\pi u} - \COS{\pi u} \right]
-$
-\\
-\rowcolor{gris}
-\textbf{Papoulis} &
-$\displaystyle 
-(1-u)\COS{\pi u} + \frac{\SEN{\pi u }}{\pi u }
-$
-\\
-\textbf{Taper} &
-$\displaystyle 
-\COS{\pi u}
+\frac{3}{4 \pi} \left[ 1 - \left( \nicefrac{\theta}{\pi} \right) \right]
+\text{, si } \abso{\theta}\leq \pi
 $
 \\
 \rowcolor{gris}
-\textbf{Trapezoidal} &
+Papoulis &
 $\displaystyle 
-1 -2a +2a \COS{\pi u}
+d
 $
 \\
-\textbf{Normal} &
+Coseno &
 $\displaystyle 
-1 -2a +2a \COS{\pi u}
+d
+$
+\\
+\rowcolor{gris}
+Trapezoidal &
+$\displaystyle 
+d
+$
+\\
+Normal &
+$\displaystyle 
+d
 $
 \\
 \bottomrule
 \end{tabular}
 }
 \caption{Ejemplos de algunas ventanas que suavizan el periodograma}
-\label{ventanas}
-%\end{table}
-\end{SidewaysTable}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%\begin{table}
-\begin{SidewaysTable}
-\centering
-\bordes{1.5}
-\begin{tabular}{c}
-\textbf{Ventanas espectrales tipo escalamiento (1)}
-\vspace{1em}
-\end{tabular}
-
-{
-\begin{tabular}{ll}
-\toprule
-& $K(\theta)$ para $\abso{\theta} \leq 1$ \\
-\midrule
-\textbf{Bartlett} &
-$\displaystyle 
-\frac{1}{\pi} \frac{\SEN{\theta}}{\theta}
-$
-\\
-\rowcolor{gris}
-\textbf{Fejer} &
-$\displaystyle 
-\frac{1}{2\pi} \left[ \frac{\SEN{\nicefrac{\theta}{2}}}{\nicefrac{\theta}{2}} \right]^{2}
-$
-\\
-\textbf{Daniell} &
-$\displaystyle 
-\nicefrac{1}{2\pi} \text{, si } \abso{\theta}\leq \pi
-$
-\\
-\rowcolor{gris}
-\textbf{Parzen (1)} &
-$\displaystyle 
-d
-$
-\\
-\textbf{Parzen (2)} &
-$\displaystyle 
-d
-$
-\\
-\rowcolor{gris}
-\textbf{Parzen (3)} &
-$\displaystyle 
-d
-$
-\\
-\textbf{Parzen (4)} &
-$\displaystyle 
-\frac{3}{8 \pi} \left[ \frac{\SEN{\nicefrac{\theta}{4}}}{\nicefrac{\theta}{4}}
-$
-\\
-\rowcolor{gris}
-\textbf{Tukey} &
-$\displaystyle 
-d
-$
-\\
-\bottomrulec
-\end{tabular}
-}
-\caption{Ejemplos de algunas ventanas que suavizan el periodograma}
-%\end{table}
-\end{SidewaysTable}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%\begin{SidewaysTable}
-%\centering
-%\bordes{1.5}
-%\begin{tabular}{c}
-%\textbf{Ventanas de retraso tipo escalamiento (2)}
-%\vspace{1em}
-%\end{tabular}
-%
-%{
-%\begin{tabular}{ll}
-%\toprule
-%{
-%\textbf{Neave} &
-%$\displaystyle 
-%\begin{cases}
-%d
-%$
-%\\
-%\rowcolor{gris}
-%\textbf{Cuadrática} &
-%$\displaystyle 
-%d
-%$
-%\\
-%\textbf{Bartlett-Priestley}} &
-%$\displaystyle 
-%\frac{3}{4 \pi} \left[ 1 - \left( \nicefrac{\theta}{\pi} \right) \right]
-%\text{, si } \abso{\theta}\leq \pi
-%$
-%\\
-%\rowcolor{gris}
-%\textbf{Papoulis} &
-%$\displaystyle 
-%d
-%$
-%\\
-%\textbf{Taper} &
-%$\displaystyle 
-%d
-%$
-%\\
-%\rowcolor{gris}
-%\textbf{Trapezoidal} &
-%$\displaystyle 
-%d
-%$
-%\\
-%\textbf{Normal} &
-%$\displaystyle 
-%d
-%$
-%\\
-%\bottomrule
-%\end{tabular}
-%}
-%\caption{Ejemplos de algunas ventanas que suavizan el periodograma
-%%, formando estimadores 
-%%consistente de la FDE para el caso de espectro puramente continuo.
-%%Las funciones $F_M$ y $D_M$ toman, respectivamente, los nombres de \textit{núcleo de Fejer} y
-%%\textit{Núcleo de Dirichlet} de orden $M$
-%}
 %\label{ventanas}
-%%\end{table}
-%\end{SidewaysTable}
+\end{SidewaysTable}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

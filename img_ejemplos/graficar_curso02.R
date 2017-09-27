@@ -41,7 +41,7 @@ canales     = 'PSG'
 #                 'ROG', 'T3', 'T4', 'T5', 'T6')
 
 reemplazar  = TRUE
-grabar      = F
+grabar      = T
 anotaciones = ''
 
 zoom           = TRUE
@@ -302,6 +302,13 @@ for(ch in 1:n_canales){
 }
 # fin ciclo que recorre canales
 #################################################
+
+lines(sep_lineas*fr_muestreo*c(.5,1.5),
+      escala_mv*c(1,1),
+      type='l',lwd=1.5)
+lines(sep_lineas*fr_muestreo*.5*c(1,1),
+      escala_mv+c(0,10),
+      type='l',lwd=1.5)
 
 if(grabar){
   dev.off()

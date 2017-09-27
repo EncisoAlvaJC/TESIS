@@ -32,7 +32,7 @@ k.t = function(u){
 }
 
 # grafica de k
-u = seq(-3,3,by=1/500)
+u = seq(0,3,by=1/500)
 plot(u,k(u),type='l',bty='n',xlab='u',ylab='k(u)',
      main='Ventana de Bartlett-Priestley',sub='Dominio tiempo')
 lines(u,k.t(u),type='l',col='red')

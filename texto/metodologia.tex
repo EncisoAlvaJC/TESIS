@@ -204,6 +204,17 @@ La prueba PSR se encuentra implementado en R bajo la función \texttt{stationari
 Los resultados de la prueba PSR, aplicado a todas las épocas contenidas en los registros de PSG,
 fueron almacenados para su análisis posterior.
 
+En cada canal que conforma el PSG (EEG, EOG y EMG), cada época registrada fue clasificada como 
+\textit{posiblemente estacionaria} (PE) si, usando la prueba PSR, no pudo rechazarse la hipótesis de 
+estacionariedad ($\alpha < 0.05$), o como 'no-estacionaria' en caso contrario.
+La cantidad de épocas PE en cada individuo, durante el sueño MOR y NMOR, se muestra en las 
+tablas \ref{total_gpos_mor}, \ref{total_gpos_nmor} y \ref{total_gpos_total}. Debido a la gran 
+variabilidad entre los sujetos para la duración del sueño MOR, no se consideró el total de 
+épocas PE, sino la proporción de éstas en cada etapa de sueño; tales cantidades se muestran 
+en las tablas \ref{gpos_mor}, \ref{gpos_nmor} y \ref{gpos_total}. 
+Adicionalmente se han calculado promedios y desviaciones estándar para ambos grupos (Control y 
+PDC).
+
 \begin{figure}
 \centering
 \includegraphics[width=\linewidth]{./img_diagramas/epocas_diferentes_v2.pdf}
@@ -211,6 +222,8 @@ fueron almacenados para su análisis posterior.
 PSG}
 \label{epocas_diferentes}
 \end{figure}
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

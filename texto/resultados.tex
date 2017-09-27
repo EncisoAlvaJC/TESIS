@@ -5,31 +5,21 @@
 
 \chapter{Resultados}
 
-En cada canal que conforma el PSG (EEG, EOG y EMG), cada \'epoca registrada fue clasificada como 
-'posiblemente estacionaria' (PE) si, usando la prueba PSR, no pudo rechazarse la hip\'otesis de 
-estacionariedad ($\alpha < 0.05$), o como 'no-estacionaria' en caso contrario.
-La cantidad de \'epocas PE en cada individuo, durante el sue\~no MOR y NMOR, se muestra en las 
-tablas \ref{total_gpos_mor}, \ref{total_gpos_nmor} y \ref{total_gpos_total}. Debido a la gran 
-variabilidad entre los sujetos para la duraci\'on del sue\~no MOR, no se consider\'o el total de 
-\'epocas PE, sino la proporci\'on de \'estas en cada etapa de sue\~no; tales cantidades se muestran 
-en las tablas \ref{gpos_mor}, \ref{gpos_nmor} y \ref{gpos_total}. 
-Adicionalmente se han calculado promedios y desviaciones est\'andar para ambos grupos (Control y 
-PDC).
 
-\section{Resultados principales}
+\section{Análisis exploratorios}
 
-Como un primer an\'alisis se verific\'o si el sue\~no MOR, entendido como muestra del registro
-completo, tiene o no propiedades estad\'isticas parecidas a este \'ultimo, y si \'esta similaridad 
+Como un primer análisis se verificó si el sueño MOR, entendido como muestra del registro
+completo, tiene o no propiedades estadísticas parecidas a este último, y si ésta similaridad 
 pudiera estar relacionada con el PDC. 
-Se compar\'o la proporci\'on de \'epocas PE en cada canal durante sue\~no MOR y NMOR usando la 
-prueba $\chi^{2}$ para proporciones\footnote{Implementada en R como la funci\'on 
+Se comparó la proporción de épocas PE en cada canal durante sueño MOR y NMOR usando la 
+prueba $\chi^{2}$ para proporciones\footnote{Implementada en R como la función 
 \texttt{prop.test()}}; estos resultados se muestran en la tabla \ref{comparacion_mor_vs_total},
-y son resumidos esquem\'aticamente en la figura \ref{cabecitas_munchas}.
+y son resumidos esquemáticamente en la figura \ref{cabecitas_munchas}.
 
-Se encontr\'o que no hay diferencias significativas, consistentes en todos los sujetos, en los 
-canales LOG y ROG, lo cual puede ser explicado por la tipificaci\'on del sue\~no MOR. 
-Por otro lado, no se encontr\'o una relaci\'on clara entre el estado de salud del sujeto y la 
-aparici\'on de diferencias significativas entre estas proporciones.
+Se encontró que no hay diferencias significativas, consistentes en todos los sujetos, en los 
+canales LOG y ROG, lo cual puede ser explicado por la tipificación del sueño MOR. 
+Por otro lado, no se encontró una relación clara entre el estado de salud del sujeto y la 
+aparición de diferencias significativas entre estas proporciones.
 
 \begin{figure}
 \centering
@@ -58,62 +48,62 @@ CLO & RLO & RRU & JGZ
 FGH & MGG & EMT
 \end{tabular}
 \end{tabular}
-\caption{Se muestra esquem\'aticamente en azul las zonas donde se encontraron diferencias 
-significativas al comparar las proporciones de \'epocas PE durante sue\~no MOR y NMOR. Esta misma
-informaci\'on se muestra en la tabla \ref{comparacion_mor_vs_total} }
+\caption{Se muestra esquemáticamente en azul las zonas donde se encontraron diferencias 
+significativas al comparar las proporciones de épocas PE durante sueño MOR y NMOR. Esta misma
+información se muestra en la tabla \ref{comparacion_mor_vs_total} }
 \label{cabecitas_munchas}
 \end{figure}
 
-Posteriormente se busc\'o una diferencia m\'as directa entre los grupos, comparando grupalmente las 
-proporciones de \'epocas PE (en cada canal y durante las diferentes etapas) mediante la prueba U de 
-Mann-Whitney\footnote{Implementada en R como la funci\'on \texttt{wilcox.test()}}; no se 
+Posteriormente se buscó una diferencia más directa entre los grupos, comparando grupalmente las 
+proporciones de épocas PE (en cada canal y durante las diferentes etapas) mediante la prueba U de 
+Mann-Whitney\footnote{Implementada en R como la función \texttt{wilcox.test()}}; no se 
 encontraron diferencias significativas para ninguno de los canales. Los resultados se muestran en 
-las tablas \ref{gpos_mor}, \ref{gpos_nmor}, \ref{gpos_total}, y para una mejor visualizaci\'on 
-\'estos se han graficado en la figura \ref{comparacion_graf}.
+las tablas \ref{gpos_mor}, \ref{gpos_nmor}, \ref{gpos_total}, y para una mejor visualización 
+éstos se han graficado en la figura \ref{comparacion_graf}.
 
 \begin{figure}
 \centering
-\subfloat[Comparaci\'on entre \'epocas MOR (fase R)]{
+\subfloat[Comparación entre épocas MOR (fase R)]{
 \includegraphics[width=0.95\linewidth]
 {./img_ejemplos/Comparacion_gpos_MOR.pdf} 
 }\\
-\subfloat[Comparaci\'on entre \'epocas no-MOR (fases W y N)]{
+\subfloat[Comparación entre épocas no-MOR (fases W y N)]{
 \includegraphics[width=0.95\linewidth]
 {./img_ejemplos/Comparacion_gpos_NMOR.pdf} 
 }\\
-\caption{Comparaci\'on sobre las proporciones de \'epocas PE entre los grupos Control (azul) y PDC 
-(rojo), para diferentes etapas de sue\~no (MOR y NMOR). Se grafica el promedio grupal $\pm$ 1 
-desviaci\'on est\'andar$^{\nicefrac{3}{2}}$, como visualizaci\'on aproximada de la varianza.}
+\caption{Comparación sobre las proporciones de épocas PE entre los grupos Control (azul) y PDC 
+(rojo), para diferentes etapas de sueño (MOR y NMOR). Se grafica el promedio grupal $\pm$ 1 
+desviación estándar$^{\nicefrac{3}{2}}$, como visualización aproximada de la varianza.}
 \label{comparacion_graf}
 \end{figure}
 
-Una segunda variaci\'on del primer an\'alisis es considerar grupalmente a los sujetos como 
-'unidades' que transitan entre etapas de sue\~no; se comparan grupalmente las proporciones de 
-\'epocas PE en cada canal durante sue\~no MOR y NMOR, usando la prueba U de Mann-Whithney; en 
-la figura \ref{comparacion_verde} se han representado gr\'aficamente estas diferencias.
-Se encontr\'o que hay diferencias significativas ($\alpha<0.1$) para el grupo Control en los 
-canales C3, C4, F7, F8, FP1, FP2, O2, P4, LOG y ROG, mientras que en el grupo PDC s\'olo se
+Una segunda variación del primer análisis es considerar grupalmente a los sujetos como 
+'unidades' que transitan entre etapas de sueño; se comparan grupalmente las proporciones de 
+épocas PE en cada canal durante sueño MOR y NMOR, usando la prueba U de Mann-Whithney; en 
+la figura \ref{comparacion_verde} se han representado gráficamente estas diferencias.
+Se encontró que hay diferencias significativas ($\alpha<0.1$) para el grupo Control en los 
+canales C3, C4, F7, F8, FP1, FP2, O2, P4, LOG y ROG, mientras que en el grupo PDC sólo se
 observaron diferencias en LOG y ROG.
 Descartando los canales LOG y ROG, ya que no son parte del EEG, las diferencias encontradas pueden 
-ser relevantes fisiol\'ogicamente, ya que abarcan gran parte de los l\'obulos frontal y parietal, 
-y parte de la regi\'on occipital-parietal derecha; en la figura \ref{cabecita} se indican 
-esquem\'aticamente estas regiones.
+ser relevantes fisiológicamente, ya que abarcan gran parte de los lóbulos frontal y parietal, 
+y parte de la región occipital-parietal derecha; en la figura \ref{cabecita} se indican 
+esquemáticamente estas regiones.
 
 \begin{figure}
 \centering
-\subfloat[Comparaci\'on para el grupo control]{
+\subfloat[Comparación para el grupo control]{
 \includegraphics[width=0.95\linewidth]
 {./img_ejemplos/comp_etapas_gpos_NORMALMOR_vs_NMOR.pdf} 
 }\\
-\subfloat[Comparaci\'on para el grupo PDC]{
+\subfloat[Comparación para el grupo PDC]{
 \includegraphics[width=0.95\linewidth]
 {./img_ejemplos/comp_etapas_gpos_PDCMOR_vs_NMOR.pdf} 
 }
-\caption{Comparaci\'on sobre las proporciones de \'epocas PE entre las etapas de sue\~no MOR 
+\caption{Comparación sobre las proporciones de épocas PE entre las etapas de sueño MOR 
 (verde) y NMOR (negro), para ambos grupos por separado. Se han graficado las proporciones de PE en 
-todos los sujetos de cada grupo, para todo el sue\~no y la etapa MOR.
-Se grafica el promedio grupal $\pm$ 1 desviaci\'on est\'andar$^{\nicefrac{3}{2}}$, como 
-visualizaci\'on aproximada de la varianza.}
+todos los sujetos de cada grupo, para todo el sueño y la etapa MOR.
+Se grafica el promedio grupal $\pm$ 1 desviación estándar$^{\nicefrac{3}{2}}$, como 
+visualización aproximada de la varianza.}
 \label{comparacion_verde}
 \end{figure}
 
@@ -121,8 +111,8 @@ visualizaci\'on aproximada de la varianza.}
 \centering
 \includegraphics[width=0.4\linewidth]
 {./img_diagramas/cabecita.pdf} 
-\caption{Representaci\'on esquem\'atica de los sitios donde se encontraron diferencias 
-significativas en la comparaci\'on entre el porcentaje de \'epocas PE durante sue\~no MOR y NMOR, 
+\caption{Representación esquemática de los sitios donde se encontraron diferencias 
+significativas en la comparación entre el porcentaje de épocas PE durante sueño MOR y NMOR, 
 para el grupo Control (ver texto)}
 \label{cabecita}
 \end{figure}
@@ -132,29 +122,29 @@ para el grupo Control (ver texto)}
 
 \section{Patrones visuales}
 
-Como un an\'alisis exploratorio, buscando explicar la variabilidad entre los resultados, se 
+Como un análisis exploratorio, buscando explicar la variabilidad entre los resultados, se 
 graficaron los resultados obtenidos con la prueba PSR de la siguiente manera: se colocan en 
-l\'inea horizontal una serie de cuadros, uno por cada \'epoca analizada seg\'un fue clasificada 
-(blanco: PE, negro: no-estacionario), y posteriormente se juntaron verticalmente las l\'ineas
+línea horizontal una serie de cuadros, uno por cada época analizada según fue clasificada 
+(blanco: PE, negro: no-estacionario), y posteriormente se juntaron verticalmente las líneas
 correspondientes a los diferentes canales; en la figura \ref{ejemplo_graf} se muestra un ejemplo de
-ello, mientras que en el anexo se muestran los gr\'aficos construidos para cada uno de los sujetos. 
+ello, mientras que en el anexo se muestran los gráficos construidos para cada uno de los sujetos. 
 
-Al construir estos gr\'aficos, se hacen presentes 'bloques' de \'epocas que en su mayor\'ia son
-PE --similarmente con \'epocas no-estacionarias. Ha parecido conveniente reportar este hallazgo
+Al construir estos gráficos, se hacen presentes 'bloques' de épocas que en su mayoría son
+PE --similarmente con épocas no-estacionarias. Ha parecido conveniente reportar este hallazgo
 ya que los patrones son consistentes en todos los sujetos, y porque parece que estos 'bloques'
-aparecen asociados al sue\~no MOR en cierto orden (ilustrado en la figura \ref{patroncito}):
+aparecen asociados al sueño MOR en cierto orden (ilustrado en la figura \ref{patroncito}):
 \begin{itemize}
-\item Bloque abundante en \'epocas PE, visualmente oscuro
-\item Bloque abundante en \'epocas no-estacionarias, visualmente claro
-\item Secci\'on que contiene el sue\~no MOR, los canales LOG y ROG muestran son visualmente m\'as
-abundante en \'epocas no-estacionarias en esta zona del tiempo
+\item Bloque abundante en épocas PE, visualmente oscuro
+\item Bloque abundante en épocas no-estacionarias, visualmente claro
+\item Sección que contiene el sueño MOR, los canales LOG y ROG muestran son visualmente más
+abundante en épocas no-estacionarias en esta zona del tiempo
 \end{itemize}
 
 \begin{figure}
 \includegraphics[width=\textwidth]
 {./img_ejemplos/MJNNVIGILOS_est.png}
-\caption{Disposici\'on gr\'afica para los resultados de la prueba PSR en el sujeto MJH. Se han 
-resaltado con color verde las \'epocas clasificadas como de sue\~no MOR.}
+\caption{Disposición gráfica para los resultados de la prueba PSR en el sujeto MJH. Se han 
+resaltado con color verde las épocas clasificadas como de sueño MOR.}
 \label{ejemplo_graf}
 \end{figure}
 
@@ -172,9 +162,9 @@ resaltado con color verde las \'epocas clasificadas como de sue\~no MOR.}
 \includegraphics[width=0.3\textwidth]
 {./img_ejemplos/zoom_MFGR.pdf}
 \end{tabular}
-\caption{Ejemplos de los patrones visuales que, se propone, est\'a asociado con la aparici\'on del
-sue\~no MOR: un bloque de \'epocas PE (rojo), un bloque de \'epocas no-estacionarias (azul) y un 
-bloque que contiene al sue\~no MOR. En este ejemplo se ilustra uno de estos patrones por cada
+\caption{Ejemplos de los patrones visuales que, se propone, está asociado con la aparición del
+sueño MOR: un bloque de épocas PE (rojo), un bloque de épocas no-estacionarias (azul) y un 
+bloque que contiene al sueño MOR. En este ejemplo se ilustra uno de estos patrones por cada
 uno de los sujetos del grupo Control.}
 \label{patroncito}
 \end{figure}
@@ -184,20 +174,20 @@ uno de los sujetos del grupo Control.}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Discusi\'on}
+\section{Discusión}
 
-Como se mencion\'o anteriormente, este trabajo parte del supuesto en que los sujetos con PDC 
-presentan con mayor probabilidad estacionariedad d\'ebil en sus registros de EEG.
+Como se mencionó anteriormente, este trabajo parte del supuesto en que los sujetos con PDC 
+presentan con mayor probabilidad estacionariedad débil en sus registros de EEG.
 Se ha aportado evidencia para afirmar que, al comparar sujetos del grupo Control y con PDC, no hay 
-cambios significativos en la porci\'on de tiempo durante la cual el registro de PSG se comporta 
-como d\'ebilmente estacionario. 
-Esto puede interpretarse como que, quiz\'a, los mecanismos afectados durante el PDC no provocan que 
-la se\~nal se vuelva m\'as 'simple' (en el sentido de ser estacionaria).
+cambios significativos en la porción de tiempo durante la cual el registro de PSG se comporta 
+como débilmente estacionario. 
+Esto puede interpretarse como que, quizá, los mecanismos afectados durante el PDC no provocan que 
+la señal se vuelva más 'simple' (en el sentido de ser estacionaria).
 
-Cabe un comentario sobre c\'omo la evidencia presentada exhibe al PSG como un conjunto de se\~nales 
-no-estacionarias durante la mayor parte del sue\~no, como se suele suponer en se\~nales de origen 
-biol\'ogico; entonces, no es adecuado analizar este tipo de se\~nales con m\'etodos que supongan 
-estacionariedad, como la estimaci\'on del espectro de potencias usando el periodograma 'cl\'asico'. 
+Cabe un comentario sobre cómo la evidencia presentada exhibe al PSG como un conjunto de señales 
+no-estacionarias durante la mayor parte del sueño, como se suele suponer en señales de origen 
+biológico; entonces, no es adecuado analizar este tipo de señales con métodos que supongan 
+estacionariedad, como la estimación del espectro de potencias usando el periodograma 'clásico'. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -205,32 +195,32 @@ estacionariedad, como la estimaci\'on del espectro de potencias usando el period
 \subsection{Sobre los sujetos excluidos}
 
 Durante el trabajo se mencionan tres sujetos (FGH, MGG, EMT) cuyos registros de PSG fueron 
-analizados pero que no son considerados estad\'isticamente; cada uno de ellos fue excluido, por 
-diversos motivos, del trabajo por V\'azquez Tagle y colaboradores \cite{VazquezTagle16}, pero 
-dieron su consentimiento informado para el registro de PSG, debido a lo cual analiz\'o el efecto de 
-su inclusi\'on dentro de los an\'alisis.
-Destaca el sujeto FGH, quien padece de par\'alisis facial, cataratas, y problemas no especificados 
-en hipotiroides y columna; seg\'un se reporta, el sujeto no inform\'o de estos \'ultimos 
-padecimientos sino hasta despu\'es del registro de PSG, por lo que su exclusi\'on se efectu\'o a 
+analizados pero que no son considerados estadísticamente; cada uno de ellos fue excluido, por 
+diversos motivos, del trabajo por Vázquez Tagle y colaboradores \cite{VazquezTagle16}, pero 
+dieron su consentimiento informado para el registro de PSG, debido a lo cual analizó el efecto de 
+su inclusión dentro de los análisis.
+Destaca el sujeto FGH, quien padece de parálisis facial, cataratas, y problemas no especificados 
+en hipotiroides y columna; según se reporta, el sujeto no informó de estos últimos 
+padecimientos sino hasta después del registro de PSG, por lo que su exclusión se efectuó a 
 posteriori.
 
 Un vistazo a los registros 'inusuales' de FGH (figura\ref{FGH_psg}, comparar con 
 \ref{ejemplos_mor}) pudiera haber advertido que en el registro no hay actividad cerebral en los 
-canales correspondientes a la regi\'on izquierda (aquella con par\'alisis) sino ruido amplificado 
-del polisomn\'ografo.
-Dentro del marco de este trabajo, destacan las proporciones inusuales de \'epocas PE (cercanas a 1 
-o 0) para este sujeto en los canales F4, F7, F8, FP1, FP2, FZ, tanto en sue\~no MOR como NMOR; 
-usando la representaci\'on gr\'afica para FGH, es visible una inusual ausencia total de 
+canales correspondientes a la región izquierda (aquella con parálisis) sino ruido amplificado 
+del polisomnógrafo.
+Dentro del marco de este trabajo, destacan las proporciones inusuales de épocas PE (cercanas a 1 
+o 0) para este sujeto en los canales F4, F7, F8, FP1, FP2, FZ, tanto en sueño MOR como NMOR; 
+usando la representación gráfica para FGH, es visible una inusual ausencia total de 
 estacionariedad en tales canales (figura \ref{FGH_especial}, comparar con \ref{ejemplo_graf}). 
-Si bien esta metodolog\'ia no se dise\~n\'o para tal fin, a\'un as\'i se pudo detectar la falta de 
+Si bien esta metodología no se diseñó para tal fin, aún así se pudo detectar la falta de 
 actividad cerebral.
 
 \begin{figure}
 \centering
 \includegraphics[width=0.95\linewidth]
 {./img_ejemplos/FGH_297_PDG_lucirse_PSG.pdf} 
-\caption{Una \'epoca t\'ipica del registro PSG para el sujeto FGH durante sue\~no MOR. N\'otense 
-los patrones peri\'odicos en los canales correspondientes a la regi\'on frontal, que no 
+\caption{Una época típica del registro PSG para el sujeto FGH durante sueño MOR. Nótense 
+los patrones periódicos en los canales correspondientes a la región frontal, que no 
 corresponden a la actividad cerebral usual.}
 \label{FGH_psg}
 \end{figure}
@@ -239,28 +229,28 @@ corresponden a la actividad cerebral usual.}
 \centering
 \includegraphics[width=0.95\linewidth]
 {./img_ejemplos/FGHSUE_est.png} 
-\caption{Compilado gr\'afico para el sujeto FGH; n\'otese el patr\'on inusual (completamente 
-blanco o negro) en los canales correspondientes a la regi\'on frontal}
+\caption{Compilado gráfico para el sujeto FGH; nótese el patrón inusual (completamente 
+blanco o negro) en los canales correspondientes a la región frontal}
 \label{FGH_especial}
 \end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Efecto del tama\~no de las \'epoca}
+\subsection{Efecto del tamaño de las época}
 
-El uso de \'epocas de 30 segundos est\'a motivado por las recomendaciones de la AASM para 
-clasificar, de manera estandarizada, las etapas de sue\~no a partir de registros de PSG 
+El uso de épocas de 30 segundos está motivado por las recomendaciones de la AASM para 
+clasificar, de manera estandarizada, las etapas de sueño a partir de registros de PSG 
 \cite{AASM07}. 
-No se discutir\'an en este trabajo motivaciones o evidencia para usar esta longitud de \'epoca en 
+No se discutirán en este trabajo motivaciones o evidencia para usar esta longitud de época en 
 particular, ni para el caso contrario, sino que se acepta por fines de comparabilidad. 
-Sin embargo, en alg\'un momento de este trabajo se usaron los registros de PSG organizados en 
-\'epocas de 10 segundos de duraci\'on, como se muestra en la figura \ref{epocas_diferentes}. 
-Se realizaron todos los an\'alisis descritos usando esta segmentaci\'on mixta (algunos sujetos con 
-\'epocas de 10 s, otros con \'epocas de 30 s) y se obtuvieron resultados seg\'un los cuales no hay 
-diferencias significativas en ninguno de los an\'alisis. 
-Por otro lado, la representaci\'on gr\'afica construida a partir de los mismos datos, organizados
-en \'epocas de 10 s, cambia sustancialmente (ver figura \ref{comp_VCR}).
+Sin embargo, en algún momento de este trabajo se usaron los registros de PSG organizados en 
+épocas de 10 segundos de duración, como se muestra en la figura \ref{epocas_diferentes}. 
+Se realizaron todos los análisis descritos usando esta segmentación mixta (algunos sujetos con 
+épocas de 10 s, otros con épocas de 30 s) y se obtuvieron resultados según los cuales no hay 
+diferencias significativas en ninguno de los análisis. 
+Por otro lado, la representación gráfica construida a partir de los mismos datos, organizados
+en épocas de 10 s, cambia sustancialmente (ver figura \ref{comp_VCR}).
 
 \begin{figure}
 \centering
@@ -272,24 +262,24 @@ en \'epocas de 10 s, cambia sustancialmente (ver figura \ref{comp_VCR}).
 \\
 \includegraphics[width=0.9\linewidth]
 {./img_ejemplos/VCNNS1_est_10.png} 
-\caption{Compilaci\'on gr\'afica de las \'epocas clasificadas como PE, distribuidas en el tiempo
+\caption{Compilación gráfica de las épocas clasificadas como PE, distribuidas en el tiempo
 para cada uno de los canales. El registro corresponde al sujeto VCR, organizando el registro en
-\'epocas de diferente duraci\'on}
+épocas de diferente duración}
 \label{comp_VCR}
 \end{figure}
 
 El hecho de que los resultados fueran afectados de manera contundente por la forma en que se 
-organizan los datos, sugiere que ser\'a provechoso prestar mayor atenci\'on a la naturaleza de las 
-caracter\'isticas estudiadas y su posible interpretaci\'on en la fisiolog\'ia.
+organizan los datos, sugiere que será provechoso prestar mayor atención a la naturaleza de las 
+características estudiadas y su posible interpretación en la fisiología.
 Se propone que los registros de PSG tienen una propiedad referida como 'estacionariedad local',
 concepto introducido por Dahlhaus \cite{Dahlhaus97}.
-A grosso modo, un proceso localmente estacionario es aqu\'el cuya FDE (que puede depender del 
+A grosso modo, un proceso localmente estacionario es aquél cuya FDE (que puede depender del 
 tiempo) puede ser aproximada 'a trozos': usando FDE's correspondientes a procesos que poseen una 
-representaci\'on espectral de Cram\'er y que est\'an 'correctamente ensamblados'.
+representación espectral de Cramér y que están 'correctamente ensamblados'.
 
 %\begin{defn}[Estacionariedad local]
-%Una secuencia de procesos estoc\'asticos de media cero, $\{ X_{t,N} \}$ con $t = 1, 2, \dots, N$, 
-%se dicen localmente estacionarios en el tiempo $t_0 \in [0,1]$ si existe una representaci\'on del 
+%Una secuencia de procesos estocásticos de media cero, $\{ X_{t,N} \}$ con $t = 1, 2, \dots, N$, 
+%se dicen localmente estacionarios en el tiempo $t_0 \in [0,1]$ si existe una representación del 
 %tipo
 %\begin{equation*}
 %X_{t,N} = \intPI \widetilde{A_{t,N}}(\omega) e^{i \omega t} dZ(\omega)
@@ -304,7 +294,7 @@ representaci\'on espectral de Cram\'er y que est\'an 'correctamente ensamblados'
 %0 &\text{, otro caso}
 %\end{cases}
 %\end{equation*}
-%\item Existe una constante $K$ y una funci\'on suave 
+%\item Existe una constante $K$ y una función suave 
 %$A: [0,1]\times [-\pi,\pi] \rightarrow \mathbb{C}$, 
 %con $A(t_0,\omega) = \overline{A(t_0,-\omega)}$, tal que para toda $N$
 %\begin{equation*}
@@ -314,24 +304,24 @@ representaci\'on espectral de Cram\'er y que est\'an 'correctamente ensamblados'
 %\end{equation*}
 %con $\varepsilon_N(t_0)$ es una vecindad de $t_0$ 
 %tal que $\abso{\abso{\nicefrac{t}{N}-t_0}} = O(N^{-\alpha})$,
-%%cuyo tama\~no es del orden $O(N^{-\alpha})$,
+%%cuyo tamaño es del orden $O(N^{-\alpha})$,
 %con $0\leq \alpha < 1$
 %\item $A(t_0,\omega)$ es continuo en $\{ t_0 \} \times [-\pi,\pi]$
 %\end{itemize}
 %\label{est_local}
 %\end{defn}
 
-Se propone que los registros de PSG se comportan como procesos localmente estacionarios; m\'as 
-a\'un, esta caracter\'istica podr\'ia cambiar en adultos mayores con y sin PDC. 
-Una motivaci\'on fisiol\'ogica para la hip\'otesis anterior es el contenido de los registros de
-PSG: un conjunto descoordinado y homog\'eneo de ondas cerebrales, complejos K y husos de sue\~no.
-Si bien esta composici\'on sugiere que la no-estacionariedad es la opci\'on m\'as obvia, el
-an\'alisis llevado a cabo revela que el contenido de estos eventos no es homog\'eneo durante el
-sue\~no; m\'as a\'un, mientras m\'as peque\~no sea el intervalo de tiempo observado, es m\'as
-posible encontrar zonas de composici\'on m\'as o menos homog\'enea que puedan ser clasificadas
+Se propone que los registros de PSG se comportan como procesos localmente estacionarios; más 
+aún, esta característica podría cambiar en adultos mayores con y sin PDC. 
+Una motivación fisiológica para la hipótesis anterior es el contenido de los registros de
+PSG: un conjunto descoordinado y homogéneo de ondas cerebrales, complejos K y husos de sueño.
+Si bien esta composición sugiere que la no-estacionariedad es la opción más obvia, el
+análisis llevado a cabo revela que el contenido de estos eventos no es homogéneo durante el
+sueño; más aún, mientras más pequeño sea el intervalo de tiempo observado, es más
+posible encontrar zonas de composición más o menos homogénea que puedan ser clasificadas
 como PE.
-Esta hip\'otesis explicar\'ia el cambio observado al cambiar el tama\~no de la \'epoca; de manera
-arriesgada, se podr\'ia concluir que, entre los individuos con PDC, la homogeneidad del PSG es muy
+Esta hipótesis explicaría el cambio observado al cambiar el tamaño de la época; de manera
+arriesgada, se podría concluir que, entre los individuos con PDC, la homogeneidad del PSG es muy
 similar durante MOR y NMOR.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -339,40 +329,40 @@ similar durante MOR y NMOR.
 
 \section{Conclusiones}
 
-En registros de PSG para adultos mayores, segmentado en \'epocas de 30 segundos, la presencia 
-proporcional de estacionariedad d\'ebil es significativamente diferente durante el sue\~no MOR y 
+En registros de PSG para adultos mayores, segmentado en épocas de 30 segundos, la presencia 
+proporcional de estacionariedad débil es significativamente diferente durante el sueño MOR y 
 NMOR.
 Estas diferencia se pudieron observar en el grupo Control para los canales C3, C4, F7, F8, FP1, 
-FP2, O2, P4, LOG, ROG; en el grupo con PDC s\'olo se detectaron estas diferencias para los canales 
+FP2, O2, P4, LOG, ROG; en el grupo con PDC sólo se detectaron estas diferencias para los canales 
 LOG y ROG.
 Estos cambios entre MOR y NMOR pueden explicarse 
 \begin{enumerate}
-\item en LOG y ROG por las caracter\'isticas propias  del sue\~no MOR
+\item en LOG y ROG por las características propias  del sueño MOR
 \item en el resto de los canales (para el grupo Control), porque se tratan de la 
-regi\'on frontal, asociada a la toma de decisiones, as\'i como la regi\'on posterior, 
-asociada con la integraci\'on
-de informaci\'on
+región frontal, asociada a la toma de decisiones, así como la región posterior, 
+asociada con la integración
+de información
 \end{enumerate}
 
-El an\'alisis de estacionariedad sobre registros de PSG para un adulto mayor con par\'alisis facial 
-fue capaz de se\~nalar este padecimiento, visto como una ausencia total de \'epocas estacionarias
-en una regi\'on concreta.
+El análisis de estacionariedad sobre registros de PSG para un adulto mayor con parálisis facial 
+fue capaz de señalar este padecimiento, visto como una ausencia total de épocas estacionarias
+en una región concreta.
 
-Los resultados encontrados sugieren que es posible interpretar los cambios neurofisiol\'ogicos 
+Los resultados encontrados sugieren que es posible interpretar los cambios neurofisiológicos 
 durante el deterioro cognitivo como un cambio en la estructura funcional del cerebro al transitar 
-entre sue\~no MOR y NMOR: el cambio es menos acentuado durante el PDC, pues tienen proporciones 
-estad\'isticamente similares de \'epocas clasificadas como PE.
-Esta interpretaci\'on propuesta es consistente con \cite{Valeria}.
+entre sueño MOR y NMOR: el cambio es menos acentuado durante el PDC, pues tienen proporciones 
+estadísticamente similares de épocas clasificadas como PE.
+Esta interpretación propuesta es consistente con \cite{Valeria}.
 
-En otro \'ambito, los patrones visuales descritos, visibles al mostrar gr\'aficamente la 
-distribuci\'on de \'epocas PE, predicen parcialmente con las \'epocas de sue\~no MOR clasificadas 
+En otro ámbito, los patrones visuales descritos, visibles al mostrar gráficamente la 
+distribución de épocas PE, predicen parcialmente con las épocas de sueño MOR clasificadas 
 por un experto (cuando menos en el grupo Control).
-Se propone que la representaci\'on gr\'afica pudiera ser usado como auxiliar en la clasificaci\'on 
-de segmentos de registro seg\'un la etapa de sue\~no.
+Se propone que la representación gráfica pudiera ser usado como auxiliar en la clasificación 
+de segmentos de registro según la etapa de sueño.
 
-Se presenta evidencia seg\'un la cual los registros de PSG, al menos para adultos mayores, no 
+Se presenta evidencia según la cual los registros de PSG, al menos para adultos mayores, no 
 corresponden a series de tiempo no-estacionarias sino a series localmente estacionarias; esta 
-distinci\'on cobra importancia al momento de elegir el tama\~no de ventana (en el tiempo) usada 
+distinción cobra importancia al momento de elegir el tamaño de ventana (en el tiempo) usada 
 para organizar los registros.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -381,24 +371,24 @@ para organizar los registros.
 \section{Trabajo a futuro}
 
 Los resultados principales de este trabajo, con vista al trabajo futuro, consiste en las 
-diferencias encontradas entre el sue\~no MOR y NMOR, as\'i como los patrones visuales asociados con 
-la aparici\'on de sue\~no MOR; tales caracter\'isticas s\'olo fueron presentes para el grupo 
-Control. Si bien no constituyen propiamente marcadores de deterioro cognitivo, esta metodolog\'ia
-podr\'ia extenderse para identificar tales marcadores.
+diferencias encontradas entre el sueño MOR y NMOR, así como los patrones visuales asociados con 
+la aparición de sueño MOR; tales características sólo fueron presentes para el grupo 
+Control. Si bien no constituyen propiamente marcadores de deterioro cognitivo, esta metodología
+podría extenderse para identificar tales marcadores.
 Por ejemplo, un marcador conocido \cite{Becerra12} del deterioro cognitivo es el 'enlentecimiento' 
-de la actividad cerebral, entendido como un cambio en la concentraci\'on de energ\'ia desde ondas 
-r\'apidas a ondas lentas.
-Para detectar la estacionariedad d\'ebil se ha usado prueba de Priestley-Subba Rao, basada en 
-estimadores locales para la funci\'on de densidad espectral (FDE); estos mismos estimadores 
-podr\'ian ser usados para corroborar si efectivamente existen diferencias en la FDE para registros 
+de la actividad cerebral, entendido como un cambio en la concentración de energía desde ondas 
+rápidas a ondas lentas.
+Para detectar la estacionariedad débil se ha usado prueba de Priestley-Subba Rao, basada en 
+estimadores locales para la función de densidad espectral (FDE); estos mismos estimadores 
+podrían ser usados para corroborar si efectivamente existen diferencias en la FDE para registros 
 de adultos mayores con y sin deterioro cognitivo. 
 
-Finalmente, y como se mencion\'o anteriormente, los patrones visuales en la representaci\'on 
-gr\'afica pueden tener un uso como caracter\'isticas auxiliares para la detecci\'on 
-semi-autom\'atica de \'epocas MOR en registros de PSG; en ese sentido, cabe mencionar el caso de 
+Finalmente, y como se mencionó anteriormente, los patrones visuales en la representación 
+gráfica pueden tener un uso como características auxiliares para la detección 
+semi-automática de épocas MOR en registros de PSG; en ese sentido, cabe mencionar el caso de 
 los sujetos excluidos del estudio, para los cuales estos patrones parecen no cumplirse. 
-Es en principio posible que la identificabilidad del sue\~no MOR, a trav\'es de estos patrones, 
-pudiera fungir como marcador cl\'inico.
+Es en principio posible que la identificabilidad del sueño MOR, a través de estos patrones, 
+pudiera fungir como marcador clínico.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
