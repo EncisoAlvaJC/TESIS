@@ -3,6 +3,7 @@
 dir_actual = '~/TESIS/TESIS/img_ejemplos'
 dir_graf   = '~/TESIS/TESIS/img_ejemplos'
 dir_datos  = '~/TESIS/graf_datos/estacionariedad_sinfiltro/'
+dir_epocas = '~/TESIS/graf_datos/epocas3/'
 
 ###############################################################################
 # parametros

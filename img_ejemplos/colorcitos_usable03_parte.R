@@ -21,42 +21,7 @@ str_t   = 0
 str_epo = 1
 str_pt  = 1
 
-# ini : cuando inicia el archivo, util si es un fragmento
-# str : cuando inicia el zoom, evita la confusion provocada por ini
-
 min_e = 1
-
-# procesamiento parametros opcionales (zoom)
-#if(zoom){
-#  confirma_zoom = FALSE
-#  if(unidad_par_t == 'tiempo'){
-#    min_t  = min_hms[1]*60*60 + min_hms[2]*60 + min_hms[3] -ini_t
-#    max_t  = max_hms[1]*60*60 + max_hms[2]*60 + max_hms[3] -ini_t
-#    
-#    min_e  = floor((min_t+ini_t)/dur_epoca -ini_epo)
-#    max_e  = ceiling((max_t+ini_t)/dur_epoca -ini_epo)
-#    
-#    confirma_zoom = TRUE
-#  }
-#  if(unidad_par_t == 'puntos'){
-#    min_t = min_epo*dur_epoca -ini_t
-#    max_t = max_epo*dur_epoca -ini_t
-#    
-#    min_e = floor((min_epo+ini_t) -ini_epo)
-#    max_e = ceiling((max_epo+ini_t) -ini_epo)
-#
-#    confirma_zoom = TRUE
-#  }
-#  if(!confirma_zoom){
-#    warning('WARNING: Indique unidad de tiempo para zoom (epocas o segundos)')
-#  }
-#  min_pt = floor(min_e*ventana)
-#  max_pt = ceiling(max_e*ventana)
-#  
-#  str_t   = max(min_t, 0)
-#  str_epo = max(min_e, 1)
-#  str_pt  = max(min_pt,1)
-#}
 
 #################################################
 # optimizacion: lee el tamano de los datos el contenedor
@@ -72,23 +37,10 @@ factor_escala = dur_epoca/30
 n_epocas      = length(pv_t)
 max_e         = n_epocas
 
-# ajustes en el tiempo
-#if(zoom){
-#  end_t    = min(max_t  , n_epocas*dur_epoca)
-#  end_epo  = min(max_epo, n_epocas)
-#  end_pt   = min(max_pt ,n_epocas)
-#  
-#  ini_t    = ini_t   + str_t
-#  ini_epo  = ini_epo + str_epo
-#  ini_pt   = ini_pt  + str_pt
-#  n_epocas = length(str_epo:end_epo)
-#} 
-# end : cuando termina el zoom, evita la confusion provocada por ini
-
 #################################################
 # contenedores de los datos
-RES_T   = matrix(nrow=n_canales,ncol=n_epocas)
-RES_TIR = matrix(nrow=n_canales,ncol=n_epocas)
+RES_T   = matrix(0,nrow=n_canales,ncol=n_epocas)
+RES_TIR = matrix(0,nrow=n_canales,ncol=n_epocas)
 
 #################################################
 # inicio ciclo que recorre todos los canales
@@ -105,49 +57,17 @@ for(ch in 1:n_canales){
   pv_tir    = scan(nom_arch)
   pv_tir    = as.numeric(t(pv_tir))
   
-  #if(zoom){
-  #  pv_t    =   pv_t[min_epo:max_epo]
-  #  pv_tir  = pv_tir[min_epo:max_epo]
-  #}
+  mmm1 = min(n_epocas,length(pv_t))
+  mmm2 = min(n_epocas,length(pv_tir))
   
   # organizacion de los datos en una matriz
-  RES_T[ch,]   = pv_t
-  RES_TIR[ch,] = pv_tir
+  RES_T[ch,1:mmm1]   = pv_t[1:mmm1]
+  RES_TIR[ch,1:mmm2] = pv_tir[1:mmm2]
 }
 # fin ciclo que recorre canales
 #################################################
 
-#################################################
-# creacion etiquetas de tiempo
-#ind_t  = (0:(n_epocas))*(dur_epoca) + ini_t
-#ind_hh = floor(ind_t/(60*60))
-#ind_mm = floor( (ind_t - ind_hh*60*60)/60 )
-#ind_ss = floor(  ind_t - ind_hh*60*60 - ind_mm*60 )
-#txt_t  = character(n_epocas+1)
-#for(i in 1:(n_epocas+1)){
-#  txt_mm = toString(ind_mm[i])
-#  if(ind_mm[i]<10){
-#    txt_mm = paste0('0',ind_mm[i])
-#  }
-#txt_ss = toString(ind_ss[i])
-#  if(ind_ss[i]<10){
-#    txt_ss = paste0('0',ind_ss[i])
-#  }
-#  #txt_t[i] = paste0(toString(ind_hh[i]),':',txt_mm,':',txt_ss)
-#  txt_t[i] = paste0(toString(ind_hh[i]),':',txt_mm)
-#}
-
-#etiqueta_epocas = character(max_epo-min_epo)
-#s = seq(min_epo,max_epo)
-#for(i in 1:length(s)){
-#  etiqueta_epocas[i] = toString(s[i])
-#}
-
-pass  = paso/dur_epoca
-#IND_T = ind_t-1
-
-#################################################
-# tratamiento para contraste de color
+# pedazo final de la prueba de PSR
 if(binario){
   if(FALSE){
     n_pvals = length(p.vales)
@@ -166,18 +86,7 @@ if(binario){
 }
 
 #################################################
-# inicio guardado automatico del grafico
-#k = 1.6
-#k = 1.5
-#if(grabar){
-#  setwd(dir_graf)
-#  #pdf(
-#  png(
-#    paste0(nombre,'_est_',toString(dur_epoca),
-#           #'.pdf'),width=5.941*k,height=1*k)
-#           '.png'),units='in',res=300,width=5.941*k,height=1*k)
-#}
-
+# inicia grafico
 colorgram(z=t(RES_T[rev(1:n_canales),]),outlier='black',bty='n',axes=F,
           #xlab='Tiempo (hh:mm)',ylab='',
           #xlab='Num. de epoca',
@@ -193,7 +102,29 @@ colorgram(z=t(RES_T[rev(1:n_canales),]),outlier='black',bty='n',axes=F,
           key=0
 )
 
-# los ejes
+#################################################
+# graficacion de epocas
+setwd(dir_epocas)
+arch_indice_e = paste0('epocas_mor_',nombre,'.txt')
+indice_e      = scan(arch_indice_e)
+factor.extra = 1
+if(fr_muestreo==200){
+  #parche_indice = ceiling(parche_indice/3)
+  #parche_indice = sort(unique(parche_indice))
+  factor.extra = 3
+}
+for(i in indice_e){
+  rect(i/(factor.extra*factor_escala),0.5,
+       (i+1)/(factor.extra*factor_escala),22.5,
+       col=rgb(128,255,128,
+               alpha=100,
+               maxColorValue=255),
+       border=NA)
+}
+
+
+#################################################
+# graficacion de ejes
 canales_par = rep('',n_canales)
 canales_non = rep('',n_canales)
 for(i in 1:n_canales){
@@ -204,6 +135,7 @@ for(i in 1:n_canales){
   }
 }
 
+# ejes
 #axis(2,at=1:n_canales,labels=rev(canales),las=2,tick=F)
 axis(2,at=1:n_canales,labels=rev(canales_par),las=2,tick=F,cex.axis=.8)
 axis(2,at=0:n_canales+.5,    labels=F,           las=2,tick=T)
@@ -213,12 +145,6 @@ axis(4,at=0:n_canales+.5,    labels=F,           las=2,tick=T)
 axis(3,labels=F,tick=T,at=c(0,n_epocas)+.5)
 axis(4,at=c(0,n_canales)+.5,    labels=F,           las=2,tick=T)
 
-# PARCHE
-#tik = seq(0,length(etiqueta_epocas))
-#axis(1,at=tik+.5,labels=F,las=2,tick=T)
-#tik = (seq(1,length(etiqueta_epocas))-0.5)
-#axis(1,at=tik+.5,labels=etiqueta_epocas,las=1,tick=F)
-
 axis(1,labels=F,tick=T,at=c(0,n_epocas)+.5)
 skip = seq(1,n_epocas+1,by=paso/factor_escala)+.5
 #axis(1,at=skip-1,labels=txt_t[skip],las=2,tick=T)
@@ -226,11 +152,5 @@ skip = seq(1,n_epocas+1,by=paso/factor_escala)+.5
 axis(1,at=skip-1,labels=F,las=2,tick=T)
 axis(3,at=skip-1,labels=F,las=2,tick=T)
 
-#if(grabar){
-#  setwd(dir_graf)
-#  dev.off()
-#}
-# fin guardado automatico del grafico
+# fin grafico
 #################################################
-
-setwd(dir_actual)
