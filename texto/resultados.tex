@@ -63,25 +63,39 @@ las tablas \ref{gpos_mor}, \ref{gpos_nmor}, \ref{gpos_total}, y para una mejor v
 
 \begin{figure}
 \centering
-\subfloat[Comparación entre épocas MOR (fase R)]{
-\includegraphics[width=0.95\linewidth]
-{./img_ejemplos/Comparacion_gpos_MOR.pdf} 
-}\\
-\subfloat[Comparación entre épocas no-MOR (fases W y N)]{
-\includegraphics[width=0.95\linewidth]
-{./img_ejemplos/Comparacion_gpos_NMOR.pdf} 
-}\\
-\caption{Comparación sobre las proporciones de épocas PE entre los grupos Control (azul) y PDC 
-(rojo), para diferentes etapas de sueño (MOR y NMOR). Se grafica el promedio grupal $\pm$ 1 
-desviación estándar$^{\nicefrac{3}{2}}$, como visualización aproximada de la varianza.}
+%\subfloat[Comparación entre épocas MOR (fase R)]{
+\includegraphics[width=\linewidth]
+{./img_ejemplos/Comparacion_gpos_MOR_v2.pdf} \\
+%}\\
+%\subfloat[Comparación entre épocas no-MOR (fases W y N)]{
+\includegraphics[width=\linewidth]
+{./img_ejemplos/Comparacion_gpos_NMOR_v2.pdf}
+%}\\
+\caption{Comparación sobre las proporciones de épocas estacionarias entre los grupos Nn y Mn, 
+durante sueño MOR y NMOR}
 \label{comparacion_graf}
+\end{figure}
+
+\begin{figure}
+\centering
+%\subfloat[Comparación para el grupo control]{
+\includegraphics[width=\linewidth]
+{./img_ejemplos/Comparacion_etapas_normal_MOR_vs_NMOR_v2.pdf} \\
+%}\\
+%\subfloat[Comparación para el grupo PDC]{
+\includegraphics[width=0.95\linewidth]
+{./img_ejemplos/Comparacion_etapas_pdc_MOR_vs_NMOR_v2.pdf} \\
+%}
+\caption{Comparación sobre las proporciones de épocas estacionarias durante sueño MOR y NMOR, para 
+ambos grupos}
+\label{comparacion_verde}
 \end{figure}
 
 Una segunda variación del primer análisis es considerar grupalmente a los sujetos como 
 'unidades' que transitan entre etapas de sueño; se comparan grupalmente las proporciones de 
 épocas PE en cada canal durante sueño MOR y NMOR, usando la prueba U de Mann-Whithney; en 
 la figura \ref{comparacion_verde} se han representado gráficamente estas diferencias.
-Se encontró que hay diferencias significativas ($\alpha<0.1$) para el grupo Control en los 
+Se encontró que hay diferencias significativas ($\alpha<0.05$) para el grupo Control en los 
 canales C3, C4, F7, F8, FP1, FP2, O2, P4, LOG y ROG, mientras que en el grupo PDC sólo se
 observaron diferencias en LOG y ROG.
 Descartando los canales LOG y ROG, ya que no son parte del EEG, las diferencias encontradas pueden 
@@ -89,33 +103,15 @@ ser relevantes fisiológicamente, ya que abarcan gran parte de los lóbulos fron
 y parte de la región occipital-parietal derecha; en la figura \ref{cabecita} se indican 
 esquemáticamente estas regiones.
 
-\begin{figure}
-\centering
-\subfloat[Comparación para el grupo control]{
-\includegraphics[width=0.95\linewidth]
-{./img_ejemplos/comp_etapas_gpos_NORMALMOR_vs_NMOR.pdf} 
-}\\
-\subfloat[Comparación para el grupo PDC]{
-\includegraphics[width=0.95\linewidth]
-{./img_ejemplos/comp_etapas_gpos_PDCMOR_vs_NMOR.pdf} 
-}
-\caption{Comparación sobre las proporciones de épocas PE entre las etapas de sueño MOR 
-(verde) y NMOR (negro), para ambos grupos por separado. Se han graficado las proporciones de PE en 
-todos los sujetos de cada grupo, para todo el sueño y la etapa MOR.
-Se grafica el promedio grupal $\pm$ 1 desviación estándar$^{\nicefrac{3}{2}}$, como 
-visualización aproximada de la varianza.}
-\label{comparacion_verde}
-\end{figure}
-
-\begin{figure}
-\centering
-\includegraphics[width=0.4\linewidth]
-{./img_diagramas/cabecita.pdf} 
-\caption{Representación esquemática de los sitios donde se encontraron diferencias 
-significativas en la comparación entre el porcentaje de épocas PE durante sueño MOR y NMOR, 
-para el grupo Control (ver texto)}
-\label{cabecita}
-\end{figure}
+%\begin{figure}
+%\centering
+%\includegraphics[width=0.4\linewidth]
+%{./img_diagramas/cabecita.pdf} 
+%\caption{Representación esquemática de los sitios donde se encontraron diferencias 
+%significativas en la comparación entre el porcentaje de épocas PE durante sueño MOR y NMOR, 
+%para el grupo Control (ver texto)}
+%\label{cabecita}
+%\end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

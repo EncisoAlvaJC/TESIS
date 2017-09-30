@@ -110,19 +110,20 @@ resultados, pero retomado en la discusión.
 Los adultos mayores participantes fueron invitados a acudir a las instalaciones de la Clínica 
 Gerontológica de Sueño (ubicadas dentro del Instituto de Ciencias de la Salud) para llevar a cabo 
 el registro. Los participantes recibieron instrucciones de realizar una rutina normal de 
-actividades durante la semana que precedió al estudio, y se les recomendó que no ingirieran 
-bebidas alcohólicas o energizantes (como café o refresco) durante las 24 horas previas al 
-experimento, ni durmieran siesta ese día.
+actividades durante la semana que precedió al estudio, y se les recomendó que no ingirieran bebidas 
+alcohólicas o energizantes (como café o refresco) durante las 24 horas previas al experimento, ni 
+durmieran siesta ese día.
 
 El protocolo de PSG incluye 19 electrodos de EEG, 4 electrodos de EOG para registrar movimientos 
-oculares horizontales y verticales, y 2 electrodos de EMG colocados en los músculos 
-submentonianos para registrar la actividad muscular. 
+oculares horizontales y verticales, y 2 electrodos de EMG colocados en los músculos submentonianos 
+para registrar la actividad muscular. 
 La colocación de los electrodos para registrar la actividad EEG se realizó siguiendo las 
-coordenadas del Sistema Internacional 10-20.
+coordenadas del Sistema Internacional 10--20.
 
-Debido a problemas técnicos con el electroencefalógrafo, el registro se llevó a cabo a 512 Hz 
-para algunos sujetos y a 200 Hz para otros; la recomendación de la AASM, de un mínimo de 128 
-Hz, se satisface. 
+Debido a problemas técnicos el registro se efectúo a 512 puntos por segundo (Hz) para algunos
+participantes, y a 200 Hz para otros; la recomendación de la AASM de un mínimo de 128 Hz se 
+satisface en ambos casos. 
+
 Las señales fueron amplificadas (amplificador de alta ganancia en cadena), filtradas (filtro paso 
 de banda de 0.5--30 Hz) y digitalizadas para su posterior análisis.
 En la tabla \ref{frecuencias} se reportan la duración de estos registros para cada sujeto.
@@ -174,7 +175,7 @@ En la tabla \ref{frecuencias} se reportan la duración de estos registros para c
 &EMT &512       &21857280&  11:51:30 &&721920  &   0:23:30 & 3\% \\
 \bottomrule
 \end{tabular}
-\caption{Cantidad de datos registrados para cada sujeto. Dado que el sueño MOR aparece fragmentado,
+\caption{Cantidad de datos registrados para cada sujeto. *Dado que el sueño MOR aparece fragmentado,
 se reporta la suma de tales tiempos.}
 \label{frecuencias}
 \end{table}
@@ -190,30 +191,28 @@ mismas que fueron descritas anteriormente.
 
 Los registros digitalizados de PSG fueron convertidos a formato de texto bajo la codificación 
 ASCII, a razón de un archivo por cada canal. 
-Las épocas MOR fueron señaladas en archivos a parte, uno por cada sujeto.
+Las épocas MOR, clasificadas manualmente, fueron indicadas en archivos a parte.
 
 Como se mencionó en secciones anteriores, la prueba PSR está pensada para series de tiempo con 
 media 0, varianza finita y espectro puramente continuo. Se espera que la segunda condición se 
-cumpla para los registros de PSG; las otras dos condiciones fueron 'forzadas', sustrayendo la media 
-y la componente periódica (estimadas) del proceso.
+cumpla para los registros de PSG; las otras dos condiciones fueron \textit{forzadas}, sustrayendo 
+la media y la componente periódica (estimadas) del proceso.
 Para lo anterior, se usó el algoritmo no-paramétrico STL (Seasonal-Trend decomposition using 
 Loess) \cite{Cleveland1990} y que está implementado en R bajo la función \texttt{stl()}.
 
-La prueba PSR se encuentra implementado en R bajo la función \texttt{stationarity()} del paquete 
-\texttt{fractal}.
-Los resultados de la prueba PSR, aplicado a todas las épocas contenidas en los registros de PSG,
-fueron almacenados para su análisis posterior.
+%La prueba PSR se encuentra implementado en R bajo la función \texttt{stationarity()} del paquete 
+%\texttt{fractal}.
+%Los resultados de la prueba PSR, aplicado a todas las épocas contenidas en los registros de PSG,
+%fueron almacenados para su análisis posterior.
 
-En cada canal que conforma el PSG (EEG, EOG y EMG), cada época registrada fue clasificada como 
-\textit{posiblemente estacionaria} (PE) si, usando la prueba PSR, no pudo rechazarse la hipótesis de 
-estacionariedad ($\alpha < 0.05$), o como 'no-estacionaria' en caso contrario.
-La cantidad de épocas PE en cada individuo, durante el sueño MOR y NMOR, se muestra en las 
-tablas \ref{total_gpos_mor}, \ref{total_gpos_nmor} y \ref{total_gpos_total}. Debido a la gran 
-variabilidad entre los sujetos para la duración del sueño MOR, no se consideró el total de 
-épocas PE, sino la proporción de éstas en cada etapa de sueño; tales cantidades se muestran 
-en las tablas \ref{gpos_mor}, \ref{gpos_nmor} y \ref{gpos_total}. 
-Adicionalmente se han calculado promedios y desviaciones estándar para ambos grupos (Control y 
-PDC).
+El registro de PSG por cada canal fueron analizados por separado, y éstos a su vez fueron divididos
+en épocas de 30 segundos de duración (variando el número de puntos según la frecuencia de muestreo);
+cada época fue clasificada como \textit{estacionaria} si, no pudo rechazarse la hipótesis de 
+estacionariedad usando la prueba PSR ($p < 0.05$).
+La cantidad de épocas estacionarias para cada individuo, durante sueño MOR y NMOR, se muestra en 
+las tablas \ref{total_gpos_total} y \ref{total_gpos_mor}; debido a la gran variabilidad entre los 
+sujetos para la duración del sueño MOR, para el análisis no se consideró el total de épocas sino la 
+proporción de éstas en cada etapa de sueño. 
 
 \begin{figure}
 \centering

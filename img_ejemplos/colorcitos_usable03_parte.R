@@ -97,7 +97,7 @@ colorgram(z=t(RES_T[rev(1:n_canales),]),outlier='black',bty='n',axes=F,
           #zlab=paste0('Sujeto : ',etiqueta,
           #            '  | Estacionariedad'),
           zlab='',
-          breaks=seq(0,1,by=.05),
+          #breaks=seq(0,1,by=.05),
           #key=vkey,key.args=c(skip=10,stretch=.4*k)
           key=0
 )
@@ -117,7 +117,7 @@ for(i in indice_e){
   rect(i/(factor.extra*factor_escala),0.5,
        (i+1)/(factor.extra*factor_escala),22.5,
        col=rgb(128,255,128,
-               alpha=100,
+               alpha=128,
                maxColorValue=255),
        border=NA)
 }

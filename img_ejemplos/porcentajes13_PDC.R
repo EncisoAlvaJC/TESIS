@@ -144,7 +144,7 @@ if(graf.indv){
   plot(100*ress[2,],xaxt='n',
        ylim=100*c(MINI,MAXI),
        xlab='',ylab='% épocas estacionarias',
-       main=paste0('Subject : ',nombre_abreviado),
+       main=paste0('Sujeto : ',nombre_abreviado),
        type='l',col='black',lwd=1,las=2,bty='n',lty=2)
   lines(100*ress[2,],xaxt='n',
         ylim=c(MINI,MAXI),

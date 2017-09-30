@@ -9,9 +9,9 @@ r_dir       = central_dir
 # parametros del script
 p.val  = 0.05
 
-grabar.gral = F
+grabar.gral = T
 
-graf.indv   = T
+graf.indv   = F
 grabar.indv = F
 
 grabar.ast  = T
@@ -129,7 +129,7 @@ codigo_MN = nomb_facil[(grupo_de==1)]
 n_NN = sum((grupo_de==0)*1)
 n_MN = sum((grupo_de==1)*1)
 
-#################################################
+################################################################
 # inicio 
 # Grupos MOR
 if(grabar.gral){
@@ -139,56 +139,35 @@ if(grabar.gral){
     paste0('Comparacion_gpos_',
            'MOR',
            '_v2.pdf'),width=6,height=3.5)
-           #'.png'),units='in',res=150,width=14,height=6)
+  #'.png'),units='in',res=150,width=14,height=6)
 }
 
-promedios = matrix(nrow=2,ncol=22)
-varianzas = matrix(nrow=2,ncol=22)
-for(ch in 1:22){
-  promedios[1,ch] = mean(m_mor_NN[,ch])
-  promedios[2,ch] = mean(m_mor_MN[,ch])
-  varianzas[1,ch] = sd(m_mor_NN[,ch])**(3/2)
-  varianzas[2,ch] = sd(m_mor_MN[,ch])**(3/2)
-}
+MAXI = 60
 
-MAXI = max(promedios+varianzas)
-MINI = min(promedios-varianzas)
-
-par(mar=c(3,4,2,0))
-boxplot(100*m_mor_NN,type='l',col='white',#ylim=100*c(MINI,MAXI),
-        xaxt='n',ylab='Épocas PE [%]',xlab='',
-        main='Estacionariedad (MOR)',
-        bty='n',las=2,frame=F)
+par(mar=c(2.5,3,2,0),
+    mgp=c(1.7,.6,0))
 #par(new=T)
-boxplot(100*m_mor_MN,type='l',col='white',#ylim=100*c(MINI,MAXI),
-        xaxt='n',ylab='Épocas PE [%]',xlab='',
-        main='Estacionariedad (MOR)',
-        bty='n',las=2,frame=F)
+boxplot(100*m_mor_MN,type='l',col='red',
+        ylim=c(0,MAXI),
+        xaxt='n',ylab='Épocas estacionarias [%]',xlab='',
+        main='Estacionariedad | Sueño MOR',
+        bty='n',las=2,frame=F,
+        at=(1:22)-.15,boxwex=.3)
+boxplot(100*m_mor_NN,type='l',col='blue',
+        ylim=c(0,MAXI),
+        bty='n',las=2,frame=F,add=T,
+        at=(1:22)+.15,boxwex=.3,
+        xaxt='n',yaxt='n')
 
 axis(1,at=1:22,labels=(channel),las=2,tick=T)
-
-lines(100*promedios[1,],type='l',col='blue',lwd=1,lty=2)
-lines(100*promedios[1,],type='o',col='blue',pch=16)
-
-lines(100*promedios[2,],type='l',col='red',lwd=1)
-lines(100*promedios[2,],type='o',col='red',pch=18)
-
-arrows(1:22,(promedios[1,]-varianzas[1,])*100,
-       1:22,(promedios[1,]+varianzas[1,])*100,
-       code=3,length=0.1,angle=90,col='blue')
-arrows(1:22,(promedios[2,]-varianzas[2,])*100,
-       1:22,(promedios[2,]+varianzas[2,])*100,
-       code=3,length=0.1,angle=90,col='red')
-
 legend('topright',
        legend=c('Grupo Nn','Grupo Mn'),
        col=c('blue','red'),
-       lty=1,lwd=2,cex=1,bty='n')
+       lty=1,lwd=4,cex=1,bty='n')
 
-########
-########
-
+# asteriscos de diferencias significativas
 signi = rep(0,22)
+strst=5
 
 for(ch in 1:22){
   #tt = t.test(m_mor_NN[,ch],m_mor_MN[,ch],equal.variances=F)
@@ -196,9 +175,146 @@ for(ch in 1:22){
                    paired=F,exact=F)
   signi[ch] = as.numeric(tt['p.value'])
 }
+for(i in 1:22){
+  if(is.nan(signi[i])){
+    signi[i] = 1
+  }
+}
 
-strst=(MAXI-MINI)/40
+ch_lin = 1:22
+equis = (signi<.05)
+lines(ch_lin[equis],rep(MAXI        ,sum(equis*1)),
+      type='p',pch='*',lwd=0,cex=2,col='black')
+equis = (signi<.01)
+lines(ch_lin[equis],rep(MAXI-  strst,sum(equis*1)),
+      type='p',pch='*',lwd=0,cex=2,col='red')
+equis = (signi<.005)
+lines(ch_lin[equis],rep(MAXI-2*strst,sum(equis*1)),
+      type='p',pch='*',lwd=0,cex=2,col='red')
 
+if(grabar.gral){
+  dev.off()
+}
+# fin
+# Grupos MOR
+################################################################
+
+################################################################
+# inicio 
+# Grupos NMOR
+if(grabar.gral){
+  setwd(r_dir)
+  #png(
+  pdf(
+    paste0('Comparacion_gpos_',
+           'NMOR',
+           '_v2.pdf'),width=6,height=3.5)
+  #'.png'),units='in',res=150,width=14,height=6)
+}
+
+MAXI = 50
+
+par(mar=c(2.5,3,2,0),
+    mgp=c(1.7,.6,0))
+#par(new=T)
+boxplot(100*m_nmor_MN,type='l',col='red',
+        ylim=c(0,MAXI),
+        xaxt='n',ylab='Épocas estacionarias [%]',xlab='',
+        main='Estacionariedad | Sueño NMOR',
+        bty='n',las=2,frame=F,
+        at=(1:22)-.15,boxwex=.3)
+boxplot(100*m_nmor_NN,type='l',col='blue',
+        ylim=c(0,MAXI),
+        bty='n',las=2,frame=F,add=T,
+        at=(1:22)+.15,boxwex=.3,
+        xaxt='n',yaxt='n')
+
+axis(1,at=1:22,labels=(channel),las=2,tick=T)
+legend('topleft',
+       legend=c('Grupo Nn','Grupo Mn'),
+       col=c('blue','red'),
+       lty=1,lwd=4,cex=1,bty='n')
+
+# asteriscos de diferencias significativas
+signi = rep(0,22)
+strst=5
+
+for(ch in 1:22){
+  #tt = t.test(m_mor_NN[,ch],m_mor_MN[,ch],equal.variances=F)
+  tt = wilcox.test(m_nmor_NN[,ch],m_nmor_MN[,ch],
+                   paired=F,exact=F)
+  signi[ch] = as.numeric(tt['p.value'])
+}
+for(i in 1:22){
+  if(is.nan(signi[i])){
+    signi[i] = 1
+  }
+}
+
+ch_lin = 1:22
+equis = (signi<.05)
+lines(ch_lin[equis],rep(MAXI        ,sum(equis*1)),
+      type='p',pch='*',lwd=0,cex=2,col='black')
+equis = (signi<.01)
+lines(ch_lin[equis],rep(MAXI-  strst,sum(equis*1)),
+      type='p',pch='*',lwd=0,cex=2,col='red')
+equis = (signi<.005)
+lines(ch_lin[equis],rep(MAXI-2*strst,sum(equis*1)),
+      type='p',pch='*',lwd=0,cex=2,col='red')
+
+if(grabar.gral){
+  dev.off()
+}
+# fin
+# Grupos NMOR
+################################################################
+
+################################################################
+# inicio 
+# Grupos NMOR
+if(grabar.gral){
+  setwd(r_dir)
+  #png(
+  pdf(
+    paste0('Comparacion_etapas_',
+           'normal_MOR_vs_NMOR',
+           '_v2.pdf'),width=6,height=3.5)
+  #'.png'),units='in',res=150,width=14,height=6)
+}
+
+MAXI = 50
+
+par(mar=c(2.5,3,2,0),
+    mgp=c(1.7,.6,0))
+#par(new=T)
+boxplot(100*m_nmor_NN,type='l',col=gray(.25),
+        ylim=c(0,MAXI),
+        xaxt='n',ylab='Épocas estacionarias [%]',xlab='',
+        main='Estacionariedad | Grupo Nn',
+        bty='n',las=2,frame=F,
+        at=(1:22)-.15,boxwex=.3)
+boxplot(100*m_mor_NN,type='l',col='green4',
+        ylim=c(0,MAXI),
+        bty='n',las=2,frame=F,add=T,
+        at=(1:22)+.15,boxwex=.3,
+        xaxt='n',yaxt='n')
+
+axis(1,at=1:22,labels=(channel),las=2,tick=T)
+legend('topleft',
+       legend=c('NMOR','MOR'),
+       col=c(gray(.25),'green4'),
+       lty=1,lwd=4,cex=1,bty='n')
+
+# asteriscos de diferencias significativas
+signi = rep(0,22)
+strst=5
+
+for(ch in 1:22){
+  #tt = t.test(m_mor_NN[,ch],m_mor_MN[,ch],equal.variances=F)
+  tt = wilcox.test(m_mor_NN[,ch],m_nmor_NN[,ch],
+                   paired=F,exact=F)
+  signi[ch] = as.numeric(tt['p.value'])
+}
 for(i in 1:22){
   if(is.nan(signi[i])){
     signi[i] = 1
@@ -214,377 +330,61 @@ lines(ch_lin[equis],rep(MAXI-  strst,sum(equis*1)),
       type='p',pch='*',lwd=0,cex=2,col='red')
 equis = (signi<.005)
 lines(ch_lin[equis],rep(MAXI-2*strst,sum(equis*1)),
-      type='p',pch='*',lwd=0,cex=2,col='red')
+      type='p',pch='*',lwd=0,cex=2,col='black')
+
+if(grabar.gral){
+  dev.off()
+}
 # fin
-# Grupos MOR
+# Grupos NMOR
 ################################################################
 
-if(grabar){
-  dev.off()
-  
-  setwd(save_dir)
-  #png(paste0('Comparacion_gpos_',
-  pdf(paste0('Comparacion_gpos_',
-             'NMOR',
-             '.pdf'),width=14,height=6)
+################################################################
+# inicio 
+# Grupos NMOR
+if(grabar.gral){
+  setwd(r_dir)
+  #png(
+  pdf(
+    paste0('Comparacion_etapas_',
+           'pdc_MOR_vs_NMOR',
+           '_v2.pdf'),width=6,height=3.5)
   #'.png'),units='in',res=150,width=14,height=6)
 }
 
-################################################################
-################################################################
+MAXI = 60
 
-promedios = matrix(nrow=2,ncol=22)
-varianzas = matrix(nrow=2,ncol=22)
+par(mar=c(2.5,3,2,0),
+    mgp=c(1.7,.6,0))
+#par(new=T)
+boxplot(100*m_nmor_MN,type='l',col=gray(.25),
+        ylim=c(0,MAXI),
+        xaxt='n',ylab='Épocas estacionarias [%]',xlab='',
+        main='Estacionariedad | Grupo Mn',
+        bty='n',las=2,frame=F,
+        at=(1:22)-.15,boxwex=.3)
+boxplot(100*m_mor_MN,type='l',col='green4',
+        ylim=c(0,MAXI),
+        bty='n',las=2,frame=F,add=T,
+        at=(1:22)+.15,boxwex=.3,
+        xaxt='n',yaxt='n')
 
-for(ch in 1:22){
-  promedios[1,ch] = mean(m_nmor_NN[,ch])
-  promedios[2,ch] = mean(m_nmor_MN[,ch])
-  varianzas[1,ch] = sd(m_nmor_NN[,ch])**(3/2)
-  varianzas[2,ch] = sd(m_nmor_MN[,ch])**(3/2)
-}
-
-MAXI = max(promedios+varianzas)
-MINI = min(promedios-varianzas)
-
-plot(promedios[1,],type='l',col='white',ylim=c(MINI,MAXI),
-     xaxt='n',ylab='% epocas PE',xlab='',
-     main=paste0('Estacionariedad (NMOR) , *=',p.val))
-
-axis(1,at=1:22,labels=(channel),las=2,
-     tick=T)
-
-lines(promedios[1,],type='l',col='blue',lwd=2)
-lines(promedios[1,],type='o',col='blue',pch=19)
-
-lines(promedios[2,],type='l',col='red',lwd=2)
-lines(promedios[2,],type='o',col='red',pch=19)
-
-arrows(1:22,promedios[1,]-varianzas[1,],
-       1:22,promedios[1,]+varianzas[1,],
-       code=3,length=0.1,angle=90,col='blue')
-arrows(1:22,promedios[2,]-varianzas[2,],
-       1:22,promedios[2,]+varianzas[2,],
-       code=3,length=0.1,angle=90,col='red')
-
-legend('topleft',
-       legend=c('Control','PDC'),
-       col=c('blue','red'),
-       lty=1,lwd=2,cex=0.5)
-
-########
-########
-
-signi = rep(0,22)
-
-for(ch in 1:22){
-  #tt = t.test(m_nmor_NN[,ch],m_nmor_MN[,ch],equal.variances=F)
-  tt = wilcox.test(m_nmor_NN[,ch],m_nmor_MN[,ch],
-                   paired=F,exact=F)
-  signi[ch] = as.numeric(tt['p.value'])
-}
-
-strst=(MAXI-MINI)/40
-
-for(i in 1:22){
-  if(is.nan(signi[i])){
-    signi[i] = 1
-  }
-}
-
-ch_lin = 1:22
-equis = (signi<.1)
-lines(ch_lin[equis],rep(MAXI        ,sum(equis*1)),
-      type='p',pch='*',lwd=0,cex=2,col='red')
-equis = (signi<.05)
-lines(ch_lin[equis],rep(MAXI-  strst,sum(equis*1)),
-      type='p',pch='*',lwd=0,cex=2,col='red')
-equis = (signi<.01)
-lines(ch_lin[equis],rep(MAXI-2*strst,sum(equis*1)),
-      type='p',pch='*',lwd=0,cex=2,col='red')
-
-################################################################
-
-if(grabar){
-  dev.off()
-  
-  setwd(save_dir)
-  #png(paste0('Comparacion_gpos_',
-  pdf(paste0('Comparacion_gpos_',
-             'TOT',
-             '.pdf'),width=14,height=6)
-  #'.png'),units='in',res=150,width=14,height=6)
-}
-
-################################################################
-
-promedios = matrix(nrow=2,ncol=22)
-varianzas = matrix(nrow=2,ncol=22)
-
-for(ch in 1:22){
-  promedios[1,ch] = mean(m_tot_NN[,ch])
-  promedios[2,ch] = mean(m_tot_MN[,ch])
-  varianzas[1,ch] = sd(m_tot_NN[,ch])**(3/2)
-  varianzas[2,ch] = sd(m_tot_MN[,ch])**(3/2)
-}
-
-MAXI = max(promedios+varianzas)
-MINI = min(promedios-varianzas)
-
-plot(promedios[1,],type='l',col='white',ylim=c(MINI,MAXI),
-     xaxt='n',ylab='% epocas PE',xlab='',
-     main=paste0('Estacionariedad (TOTAL) , *=',p.val))
-
-axis(1,at=1:22,labels=(channel),las=2,
-     tick=T)
-
-lines(promedios[1,],type='l',col='blue',lwd=2)
-lines(promedios[1,],type='o',col='blue',pch=19)
-
-lines(promedios[2,],type='l',col='red',lwd=2)
-lines(promedios[2,],type='o',col='red',pch=19)
-
-arrows(1:22,promedios[1,]-varianzas[1,],
-       1:22,promedios[1,]+varianzas[1,],
-       code=3,length=0.1,angle=90,col='blue')
-arrows(1:22,promedios[2,]-varianzas[2,],
-       1:22,promedios[2,]+varianzas[2,],
-       code=3,length=0.1,angle=90,col='red')
-
-legend('topleft',
-       legend=c('Control','PDC'),
-       col=c('blue','red'),
-       lty=1,lwd=2,cex=0.5)
-
-########
-########
-
-signi = rep(0,22)
-
-for(ch in 1:22){
-  #tt = t.test(m_tot_NN[,ch],m_tot_MN[,ch],equal.variances=F)
-  tt = wilcox.test(m_tot_NN[,ch],m_tot_MN[,ch],
-                   paired=F,exact=F)
-  signi[ch] = as.numeric(tt['p.value'])
-}
-
-strst=(MAXI-MINI)/40
-
-for(i in 1:22){
-  if(is.nan(signi[i])){
-    signi[i] = 1
-  }
-}
-
-ch_lin = 1:22
-equis = (signi<.1)
-lines(ch_lin[equis],rep(MAXI        ,sum(equis*1)),
-      type='p',pch='*',lwd=0,cex=2,col='red')
-equis = (signi<.05)
-lines(ch_lin[equis],rep(MAXI-  strst,sum(equis*1)),
-      type='p',pch='*',lwd=0,cex=2,col='red')
-equis = (signi<.01)
-lines(ch_lin[equis],rep(MAXI-2*strst,sum(equis*1)),
-      type='p',pch='*',lwd=0,cex=2,col='red')
-
-################################################################
-
-if(grabar){
-  dev.off()
-  
-  setwd(save_dir)
-  #png(paste0('Comparacion_pvals_gpos_',
-  pdf(paste0('Comparacion_pvals_gpos_',
-             'MOR_vs_TOTAL',
-             '.pdf'),width=14,height=6)
-  #'.png'),units='in',res=150,width=14,height=6)
-}
-
-dif_par_NN = rep(0,22)
-dif_par_MN = rep(0,22)
-
-for(ch in 1:22){
-  #tt = t.test(m_mor_NN[,ch],m_tot_NN[,ch],equal.variances=F,paired=T)
-  tt = wilcox.test(m_mor_NN[,ch],m_tot_NN[,ch],paired=T)
-  dif_par_NN[ch] = as.numeric(tt['p.value'])
-  
-  #tt = t.test(m_mor_MN[,ch],m_tot_MN[,ch],equal.variances=F,paired=T)
-  tt = wilcox.test(m_mor_MN[,ch],m_tot_MN[,ch],paired=T)
-  dif_par_MN[ch] = as.numeric(tt['p.value'])
-}
-
-plot(dif_par_NN,type='l',col='blue',lwd=2,
-     ylim=c(0,1),
-     main='p-val para diferencias % est MOR vs TOTAL',
-     xlab = '',xaxt='n',
-     ylab='')
-axis(1,at=1:22,label=channel)
-lines(dif_par_MN,type='l',col='red',lwd=2)
-abline(h=0.1)
-abline(h=0.05)
-abline(h=0.01)
+axis(1,at=1:22,labels=(channel),las=2,tick=T)
 legend('topright',
-       legend=c('Normal','PDC'),
-       col=c('blue','red'),
-       lty=1,lwd=2,cex=0.5)
-
-
-
-#########################################33
-#########################################33
-
-if(grabar){
-  dev.off()
-  
-  setwd(save_dir)
-  #png(paste0('Comparacion_pvals_gpos_',
-  pdf(paste0('Comparacion_pvals_gpos_',
-             'MOR_vs_NMOR',
-             '.pdf'),width=14,height=6)
-             #'.png'),units='in',res=150,width=14,height=6)
-}
-
-dif_par_NN = rep(0,22)
-dif_par_MN = rep(0,22)
-
-for(ch in 1:22){
-  #tt = t.test(m_mor_NN[,ch],m_nmor_NN[,ch],equal.variances=F,paired=T)
-  tt = wilcox.test(m_mor_NN[,ch],m_nmor_NN[,ch],paired=T)
-  dif_par_NN[ch] = as.numeric(tt['p.value'])
-  
-  #tt = t.test(m_mor_MN[,ch],m_nmor_MN[,ch],equal.variances=F,paired=T)
-  tt = wilcox.test(m_mor_MN[,ch],m_nmor_MN[,ch],paired=T)
-  dif_par_MN[ch] = as.numeric(tt['p.value'])
-}
-
-plot(dif_par_NN,type='l',col='blue',lwd=2,
-     ylim=c(0,1),
-     main='p-val para diferencias % est MOR vs NMOR',
-     xlab = '',xaxt='n',
-     ylab='')
-axis(1,at=1:22,label=channel)
-lines(dif_par_MN,type='l',col='red',lwd=2)
-abline(h=0.1)
-abline(h=0.05)
-abline(h=0.01)
-legend('topright',
-       legend=c('Normal','PDC'),
-       col=c('blue','red'),
-       lty=1,lwd=2,cex=0.5)
-
-#########################################33
-#########################################33
-
-if(grabar){
-  dev.off()
-  
-  setwd(save_dir)
-  #png(paste0('Comparacion_pvals_gpos_',
-  pdf(paste0('Comparacion_pvals_gpos_',
-             'NMOR_vs_TOTAL',
-             '.pdf'),width=14,height=6)
-             #'.png'),units='in',res=150,width=14,height=6)
-}
-
-dif_par_NN = rep(0,22)
-dif_par_MN = rep(0,22)
-
-for(ch in 1:22){
-  #tt = t.test(m_tot_NN[,ch],m_nmor_NN[,ch],equal.variances=F,paired=T)
-  tt = wilcox.test(m_tot_NN[,ch],m_nmor_NN[,ch],paired=T)
-  dif_par_NN[ch] = as.numeric(tt['p.value'])
-  
-  #tt = t.test(m_tot_MN[,ch],m_nmor_MN[,ch],equal.variances=F,paired=T)
-  tt = wilcox.test(m_tot_MN[,ch],m_nmor_MN[,ch],paired=T)
-  dif_par_MN[ch] = as.numeric(tt['p.value'])
-}
-
-plot(dif_par_NN,type='l',col='blue',lwd=2,
-     ylim=c(0,1),
-     main='p-val para diferencias % est TOTAL vs NMOR',
-     xlab = '',xaxt='n',
-     ylab='')
-axis(1,at=1:22,label=channel)
-lines(dif_par_MN,type='l',col='red',lwd=2)
-abline(h=0.1)
-abline(h=0.05)
-abline(h=0.01)
-legend('topright',
-       legend=c('Normal','PDC'),
-       col=c('blue','red'),
-       lty=1,lwd=2,cex=0.5)
-
-##################################################
-##################################################
-##################################################
-##################################################
-
-if(grabar){
-  dev.off()
-  
-  setwd(save_dir)
-  #png(paste0('comp_etapas_gpos_NORMAL',
-  pdf(paste0('comp_etapas_gpos_NORMAL',
-             'MOR_vs_TOTAL',
-             '.pdf'),width=25/2,height=8.5/2)
-             #'.png'),units='in',res=150,width=14,height=6)
-}
-
-################################################################
-
-promedios = matrix(nrow=2,ncol=22)
-varianzas = matrix(nrow=2,ncol=22)
-
-for(ch in 1:22){
-  promedios[1,ch] = mean(m_nmor_NN[,ch])
-  promedios[2,ch] = mean(m_mor_NN[,ch])
-  varianzas[1,ch] = sd(m_nmor_NN[,ch])**(3/2)
-  varianzas[2,ch] = sd(m_mor_NN[,ch])**(3/2)
-}
-
-MAXI = max(promedios+varianzas)
-MINI = min(promedios-varianzas)
-
-plot(100*promedios[1,],type='l',col='white',ylim=100*c(MINI,MAXI),
-     xaxt='n',ylab='% épocas estacionarias',xlab='',
-     #main=paste0('Gpo. normal , ','MOR vs TOTAL')
-     las=2
-)
-
-lines(100*promedios[1,],type='l',col='black',lwd=2)
-lines(100*promedios[1,],type='o',col='black',pch=19)
-
-lines(100*promedios[2,],type='l',col='green4',lwd=2)
-lines(100*promedios[2,],type='o',col='green4',pch=19)
-
-arrows(1:22,100*promedios[1,]-100*varianzas[1,],
-       1:22,100*promedios[1,]+100*varianzas[1,],
-       code=3,length=0.1,angle=90,col='black')
-arrows(1:22,100*promedios[2,]-100*varianzas[2,],
-       1:22,100*promedios[2,]+100*varianzas[2,],
-       code=3,length=0.1,angle=90,col='green4')
-
-axis(1,at=1:22,labels=(channel),las=2,
-     tick=T)
-
-legend('topleft',
        legend=c('NMOR','MOR'),
-       col=c('black','green4'),
-       lty=1,lwd=2,cex=0.7)
+       col=c(gray(.25),'green4'),
+       lty=1,lwd=4,cex=1,bty='n')
 
-########
-########
-
-strst=(MAXI-MINI)/40
-
+# asteriscos de diferencias significativas
 signi = rep(0,22)
+strst=5
 
 for(ch in 1:22){
-  #tt = t.test(m_mor_NN[,ch],m_nmor_NN[,ch],equal.variances=F,paired=T)
-  tt = wilcox.test(m_mor_NN[,ch],m_tot_NN[,ch],paired=T,
-                   correct=T)
+  #tt = t.test(m_mor_NN[,ch],m_mor_MN[,ch],equal.variances=F)
+  tt = wilcox.test(m_mor_MN[,ch],m_nmor_MN[,ch],
+                   paired=F,exact=F)
   signi[ch] = as.numeric(tt['p.value'])
 }
-
 for(i in 1:22){
   if(is.nan(signi[i])){
     signi[i] = 1
@@ -592,450 +392,19 @@ for(i in 1:22){
 }
 
 ch_lin = 1:22
-equis = (signi<.1)
+equis = (signi<.05)
 lines(ch_lin[equis],rep(MAXI        ,sum(equis*1)),
       type='p',pch='*',lwd=0,cex=2,col='red')
-equis = (signi<.05)
+equis = (signi<.01)
 lines(ch_lin[equis],rep(MAXI-  strst,sum(equis*1)),
       type='p',pch='*',lwd=0,cex=2,col='red')
-equis = (signi<.01)
-lines(ch_lin[equis],100*rep(MAXI-2*strst,sum(equis*1)),
-      type='p',pch='*',lwd=0,cex=2,col='red')
-
-################################################################
-
-if(grabar){
-  dev.off()
-  
-  setwd(save_dir)
-  #png(paste0('comp_etapas_gpos_PDC',
-  pdf(paste0('comp_etapas_gpos_PDC',
-             'MOR_vs_TOTAL',
-             '.pdf'),width=14,height=6)
-             #'.png'),units='in',res=150,width=14,height=6)
-}
-
-################################################################
-
-promedios = matrix(nrow=2,ncol=22)
-varianzas = matrix(nrow=2,ncol=22)
-
-for(ch in 1:22){
-  promedios[1,ch] = mean(m_tot_MN[,ch])
-  promedios[2,ch] = mean(m_mor_MN[,ch])
-  varianzas[1,ch] = sd(m_tot_MN[,ch])**(3/2)
-  varianzas[2,ch] = sd(m_mor_MN[,ch])**(3/2)
-}
-
-MAXI = max(promedios+varianzas)
-MINI = min(promedios-varianzas)
-
-plot(promedios[1,],type='l',col='white',ylim=c(MINI,MAXI),
-     xaxt='n',ylab='% epocas PE',xlab='',
-     main=paste0('Gpo. PDC , ','MOR vs TOTAL')
-)
-
-lines(promedios[1,],type='l',col='black',lwd=2)
-lines(promedios[1,],type='o',col='black',pch=19)
-
-lines(promedios[2,],type='l',col='green4',lwd=2)
-lines(promedios[2,],type='o',col='green4',pch=19)
-
-arrows(1:22,promedios[1,]-varianzas[1,],
-       1:22,promedios[1,]+varianzas[1,],
-       code=3,length=0.1,angle=90,col='black')
-arrows(1:22,promedios[2,]-varianzas[2,],
-       1:22,promedios[2,]+varianzas[2,],
-       code=3,length=0.1,angle=90,col='green4')
-
-axis(1,at=1:22,labels=(channel),las=2,
-     tick=T)
-
-legend('topleft',
-       legend=c('Total',
-                'MOR'),
-       col=c('black','green4'),
-       lty=1,lwd=2,cex=0.7)
-
-########
-########
-
-strst=(MAXI-MINI)/40
-
-signi = rep(0,22)
-
-for(ch in 1:22){
-  #tt = t.test(m_mor_NN[,ch],m_nmor_NN[,ch],equal.variances=F,paired=T)
-  tt = wilcox.test(m_mor_MN[,ch],m_tot_MN[,ch],paired=T,
-                   correct=T)
-  signi[ch] = as.numeric(tt['p.value'])
-}
-
-for(i in 1:22){
-  if(is.nan(signi[i])){
-    signi[i] = 1
-  }
-}
-
-ch_lin = 1:22
-equis = (signi<.1)
-lines(ch_lin[equis],rep(MAXI        ,sum(equis*1)),
-      type='p',pch='*',lwd=0,cex=2,col='red')
-equis = (signi<.05)
-lines(ch_lin[equis],rep(MAXI-  strst,sum(equis*1)),
-      type='p',pch='*',lwd=0,cex=2,col='red')
-equis = (signi<.01)
+equis = (signi<.005)
 lines(ch_lin[equis],rep(MAXI-2*strst,sum(equis*1)),
-      type='p',pch='*',lwd=0,cex=2,col='red')
+      type='p',pch='*',lwd=0,cex=2,col='black')
 
-################################################################
-
-if(grabar){
-  dev.off()
-  
-  setwd(save_dir)
-  #png(paste0('comp_etapas_gpos_NORMAL',
-  pdf(paste0('comp_etapas_gpos_NORMAL',
-             'MOR_vs_NMOR',
-             '.pdf'),width=14,height=6)
-             #'.png'),units='in',res=150,width=14,height=6)
-}
-
-################################################################
-
-promedios = matrix(nrow=2,ncol=22)
-varianzas = matrix(nrow=2,ncol=22)
-
-for(ch in 1:22){
-  promedios[1,ch] = mean(m_nmor_NN[,ch])
-  promedios[2,ch] = mean(m_mor_NN[,ch])
-  varianzas[1,ch] = sd(m_nmor_NN[,ch])**(3/2)
-  varianzas[2,ch] = sd(m_mor_NN[,ch])**(3/2)
-}
-
-MAXI = max(promedios+varianzas)
-MINI = min(promedios-varianzas)
-
-plot(promedios[1,],type='l',col='white',ylim=c(MINI,MAXI),
-     xaxt='n',ylab='% epocas PE',xlab='',
-     main=paste0('Gpo. normal , ','MOR vs NMOR')
-)
-
-lines(promedios[1,],type='l',col='black',lwd=2)
-lines(promedios[1,],type='o',col='black',pch=19)
-
-lines(promedios[2,],type='l',col='green4',lwd=2)
-lines(promedios[2,],type='o',col='green4',pch=19)
-
-arrows(1:22,promedios[1,]-varianzas[1,],
-       1:22,promedios[1,]+varianzas[1,],
-       code=3,length=0.1,angle=90,col='black')
-arrows(1:22,promedios[2,]-varianzas[2,],
-       1:22,promedios[2,]+varianzas[2,],
-       code=3,length=0.1,angle=90,col='green4')
-
-axis(1,at=1:22,labels=(channel),las=2,
-     tick=T)
-
-legend('topleft',
-       legend=c('NMOR',
-                'MOR'),
-       col=c('black','green4'),
-       lty=1,lwd=2,cex=0.7)
-
-########
-########
-
-strst=(MAXI-MINI)/40
-
-signi = rep(0,22)
-
-for(ch in 1:22){
-  #tt = t.test(m_mor_NN[,ch],m_nmor_NN[,ch],equal.variances=F,paired=T)
-  tt = wilcox.test(m_mor_NN[,ch],m_nmor_NN[,ch],paired=T,
-                   correct=T)
-  signi[ch] = as.numeric(tt['p.value'])
-}
-
-for(i in 1:22){
-  if(is.nan(signi[i])){
-    signi[i] = 1
-  }
-}
-
-ch_lin = 1:22
-equis = (signi<.1)
-lines(ch_lin[equis],rep(MAXI        ,sum(equis*1)),
-      type='p',pch='*',lwd=0,cex=2,col='red')
-equis = (signi<.05)
-lines(ch_lin[equis],rep(MAXI-  strst,sum(equis*1)),
-      type='p',pch='*',lwd=0,cex=2,col='red')
-equis = (signi<.01)
-lines(ch_lin[equis],rep(MAXI-2*strst,sum(equis*1)),
-      type='p',pch='*',lwd=0,cex=2,col='red')
-
-################################################################
-
-if(grabar){
-  dev.off()
-  
-  setwd(save_dir)
-  #png(paste0('comp_etapas_gpos_PDC',
-  pdf(paste0('comp_etapas_gpos_PDC',
-             'MOR_vs_NMOR',
-             '.pdf'),width=14,height=6)
-             #'.png'),units='in',res=150,width=14,height=6)
-}
-
-################################################################
-
-promedios = matrix(nrow=2,ncol=22)
-varianzas = matrix(nrow=2,ncol=22)
-
-for(ch in 1:22){
-  promedios[1,ch] = mean(m_nmor_MN[,ch])
-  promedios[2,ch] = mean(m_mor_MN[,ch])
-  varianzas[1,ch] = sd(m_nmor_MN[,ch])**(3/2)
-  varianzas[2,ch] = sd(m_mor_MN[,ch])**(3/2)
-}
-
-MAXI = max(promedios+varianzas)
-MINI = min(promedios-varianzas)
-
-plot(promedios[1,],type='l',col='white',ylim=c(MINI,MAXI),
-     xaxt='n',ylab='% epocas PE',xlab='',
-     main=paste0('Gpo. PDC , ','MOR vs NMOR')
-)
-
-lines(promedios[1,],type='l',col='black',lwd=2)
-lines(promedios[1,],type='o',col='black',pch=19)
-
-lines(promedios[2,],type='l',col='green4',lwd=2)
-lines(promedios[2,],type='o',col='green4',pch=19)
-
-arrows(1:22,promedios[1,]-varianzas[1,],
-       1:22,promedios[1,]+varianzas[1,],
-       code=3,length=0.1,angle=90,col='black')
-arrows(1:22,promedios[2,]-varianzas[2,],
-       1:22,promedios[2,]+varianzas[2,],
-       code=3,length=0.1,angle=90,col='green4')
-
-axis(1,at=1:22,labels=(channel),las=2,
-     tick=T)
-
-legend('topleft',
-       legend=c('NMOR',
-                'MOR'),
-       col=c('black','green4'),
-       lty=1,lwd=2,cex=0.7)
-
-########
-########
-
-strst=(MAXI-MINI)/40
-
-signi = rep(0,22)
-
-for(ch in 1:22){
-  #tt = t.test(m_mor_NN[,ch],m_nmor_NN[,ch],equal.variances=F,paired=T)
-  tt = wilcox.test(m_mor_MN[,ch],m_nmor_MN[,ch],paired=T,
-                   correct=T)
-  signi[ch] = as.numeric(tt['p.value'])
-}
-
-for(i in 1:22){
-  if(is.nan(signi[i])){
-    signi[i] = 1
-  }
-}
-
-ch_lin = 1:22
-equis = (signi<.1)
-lines(ch_lin[equis],rep(MAXI        ,sum(equis*1)),
-      type='p',pch='*',lwd=0,cex=2,col='red')
-equis = (signi<.05)
-lines(ch_lin[equis],rep(MAXI-  strst,sum(equis*1)),
-      type='p',pch='*',lwd=0,cex=2,col='red')
-equis = (signi<.01)
-lines(ch_lin[equis],rep(MAXI-2*strst,sum(equis*1)),
-      type='p',pch='*',lwd=0,cex=2,col='red')
-
-################################################################
-
-if(grabar){
-  dev.off()
-  
-  setwd(save_dir)
-  #png(paste0('comp_etapas_gpos_NORMAL',
-  pdf(paste0('comp_etapas_gpos_NORMAL',
-             'TOTAL_vs_NMOR',
-             '.pdf'),width=14,height=6)
-             #'.png'),units='in',res=150,width=14,height=6)
-}
-
-################################################################
-
-promedios = matrix(nrow=2,ncol=22)
-varianzas = matrix(nrow=2,ncol=22)
-
-for(ch in 1:22){
-  promedios[1,ch] = mean(m_tot_NN[,ch])
-  promedios[2,ch] = mean(m_nmor_NN[,ch])
-  varianzas[1,ch] = sd(m_tot_NN[,ch])**(3/2)
-  varianzas[2,ch] = sd(m_nmor_NN[,ch])**(3/2)
-}
-
-MAXI = max(promedios+varianzas)
-MINI = min(promedios-varianzas)
-
-plot(promedios[1,],type='l',col='white',ylim=c(MINI,MAXI),
-     xaxt='n',ylab='% epocas PE',xlab='',
-     main=paste0('Gpo. normal , ','NMOR vs TOTAL')
-)
-
-lines(promedios[1,],type='l',col='black',lwd=2)
-lines(promedios[1,],type='o',col='black',pch=19)
-
-lines(promedios[2,],type='l',col='purple',lwd=2)
-lines(promedios[2,],type='o',col='purple',pch=19)
-
-arrows(1:22,promedios[1,]-varianzas[1,],
-       1:22,promedios[1,]+varianzas[1,],
-       code=3,length=0.1,angle=90,col='black')
-arrows(1:22,promedios[2,]-varianzas[2,],
-       1:22,promedios[2,]+varianzas[2,],
-       code=3,length=0.1,angle=90,col='purple')
-
-axis(1,at=1:22,labels=(channel),las=2,
-     tick=T)
-
-legend('topleft',
-       legend=c('Total',
-                'NMOR'),
-       col=c('black','purple'),
-       lty=1,lwd=2,cex=0.7)
-
-########
-########
-
-strst=(MAXI-MINI)/40
-
-signi = rep(0,22)
-
-for(ch in 1:22){
-  #tt = t.test(m_mor_NN[,ch],m_nmor_NN[,ch],equal.variances=F,paired=T)
-  tt = wilcox.test(m_tot_NN[,ch],m_nmor_NN[,ch],paired=T,
-                   correct=T)
-  signi[ch] = as.numeric(tt['p.value'])
-}
-
-for(i in 1:22){
-  if(is.nan(signi[i])){
-    signi[i] = 1
-  }
-}
-
-ch_lin = 1:22
-equis = (signi<.1)
-lines(ch_lin[equis],rep(MAXI        ,sum(equis*1)),
-      type='p',pch='*',lwd=0,cex=2,col='red')
-equis = (signi<.05)
-lines(ch_lin[equis],rep(MAXI-  strst,sum(equis*1)),
-      type='p',pch='*',lwd=0,cex=2,col='red')
-equis = (signi<.01)
-lines(ch_lin[equis],rep(MAXI-2*strst,sum(equis*1)),
-      type='p',pch='*',lwd=0,cex=2,col='red')
-
-################################################################
-
-if(grabar){
-  dev.off()
-  
-  setwd(save_dir)
-  #png(paste0('comp_etapas_gpos_PDC',
-  pdf(paste0('comp_etapas_gpos_PDC',
-             'TOTAL_vs_NMOR',
-             '.pdf'),width=14,height=6)
-             #'.png'),units='in',res=150,width=14,height=6)
-}
-
-################################################################
-
-promedios = matrix(nrow=2,ncol=22)
-varianzas = matrix(nrow=2,ncol=22)
-
-for(ch in 1:22){
-  promedios[1,ch] = mean(m_tot_MN[,ch])
-  promedios[2,ch] = mean(m_nmor_MN[,ch])
-  varianzas[1,ch] = sd(m_tot_MN[,ch])**(3/2)
-  varianzas[2,ch] = sd(m_nmor_MN[,ch])**(3/2)
-}
-
-MAXI = max(promedios+varianzas)
-MINI = min(promedios-varianzas)
-
-plot(promedios[1,],type='l',col='white',ylim=c(MINI,MAXI),
-     xaxt='n',ylab='% epocas PE',xlab='',
-     main=paste0('Gpo. PDC , ','NMOR vs TOTAL')
-)
-
-lines(promedios[1,],type='l',col='black',lwd=2)
-lines(promedios[1,],type='o',col='black',pch=19)
-
-lines(promedios[2,],type='l',col='purple',lwd=2)
-lines(promedios[2,],type='o',col='purple',pch=19)
-
-arrows(1:22,promedios[1,]-varianzas[1,],
-       1:22,promedios[1,]+varianzas[1,],
-       code=3,length=0.1,angle=90,col='black')
-arrows(1:22,promedios[2,]-varianzas[2,],
-       1:22,promedios[2,]+varianzas[2,],
-       code=3,length=0.1,angle=90,col='purple')
-
-axis(1,at=1:22,labels=(channel),las=2,
-     tick=T)
-
-legend('topleft',
-       legend=c('Total',
-                'NMOR'),
-       col=c('black','purple'),
-       lty=1,lwd=2,cex=0.7)
-
-########
-########
-
-strst=(MAXI-MINI)/40
-
-signi = rep(0,22)
-
-for(ch in 1:22){
-  #tt = t.test(m_mor_NN[,ch],m_nmor_NN[,ch],equal.variances=F,paired=T)
-  tt = wilcox.test(m_tot_MN[,ch],m_nmor_MN[,ch],paired=T,
-                   correct=T)
-  signi[ch] = as.numeric(tt['p.value'])
-}
-
-for(i in 1:22){
-  if(is.nan(signi[i])){
-    signi[i] = 1
-  }
-}
-
-ch_lin = 1:22
-equis = (signi<.1)
-lines(ch_lin[equis],rep(MAXI        ,sum(equis*1)),
-      type='p',pch='*',lwd=0,cex=2,col='red')
-equis = (signi<.05)
-lines(ch_lin[equis],rep(MAXI-  strst,sum(equis*1)),
-      type='p',pch='*',lwd=0,cex=2,col='red')
-equis = (signi<.01)
-lines(ch_lin[equis],rep(MAXI-2*strst,sum(equis*1)),
-      type='p',pch='*',lwd=0,cex=2,col='red')
-
-################################################################
-
-if(grabar){
+if(grabar.gral){
   dev.off()
 }
-
+# fin
+# Grupos NMOR
 ################################################################
