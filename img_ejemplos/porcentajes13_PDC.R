@@ -36,17 +36,20 @@ if(frecuencia==200){
 #################################################
 # cargar los datos
 RES_T   = c()
+RES_TIR = c()
 max_epo = rep(0,n.canales)
 
 setwd(d_dir)
 for(ch in 1:22){
   canal  = channel[ch]
-  ar_t   = paste0('EST_',nombre,'_',canal,'_T.txt')
+  ar_t   = paste0('EST_',nombre,'_',canal,'_T.txt'  )
   pv_t   = scan(ar_t)
-  #pv_t     = as.numeric(unlist(pv_t_pre))
+  ar_tir = paste0('EST_',nombre,'_',canal,'_TIR.txt')
+  pv_tir = scan(ar_tir)
   
   # datos en una matriz
-  RES_T   = do.call(rbind,list(RES_T,pv_t ))
+  RES_T   = do.call(rbind,list(RES_T  ,pv_t  ))
+  RES_TIR = do.call(rbind,list(RES_TIR,pv_tir))
   max_epo[ch] = length(pv_t)
 }
 
@@ -56,6 +59,11 @@ for(ii in 1:22){
   for(jj in 1:length(RES_T[1,])){
     if(is.na(RES_T[ii,jj])){
       RES_T[ii,jj] = 0
+    }
+  }
+  for(jj in 1:length(RES_TIR[1,])){
+    if(is.na(RES_TIR[ii,jj])){
+      RES_TIR[ii,jj] = 0
     }
   }
 }
@@ -84,9 +92,12 @@ significados = rep(0,22)
 
 # conteo y comparacion
 for(ch in 1:22){
-  res_tot[ch]  = sum((RES_T[ch,]>p.val)*1)
-  res_nmor[ch] = sum((RES_T[ch,n.mor]>p.val)*1)
-  res_mor[ch]  = sum((RES_T[ch,mor]>p.val)*1)
+  res_tot[ch]  = sum(pmax((RES_T[ch,]  >p.val)*1,
+                          (RES_TIR[ch,]>p.val)*1))
+  res_nmor[ch] = sum(pmax((RES_T[ch,n.mor]  >p.val)*1,
+                          (RES_TIR[ch,n.mor]>p.val)*1))
+  res_mor[ch]  = sum(pmax((RES_T[ch,mor]  >p.val)*1,
+                          (RES_TIR[ch,mor]>p.val)*1))
   
   tu = prop.test(x=c(res_tot[ch],res_mor[ch]),
                  n=c(length(RES_T[ch,]),length(mor)),
@@ -196,3 +207,4 @@ for(ch in 1:22){
   matriz_tot[sujeto,ch]  = ress[1,ch]
   dif_significativas[ch,sujeto] = ast[suma[ch]+1]
 }
+

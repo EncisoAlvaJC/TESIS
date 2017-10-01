@@ -2,64 +2,73 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{figure}
+%\centering
+%\begin{tabular}{c}
+%\begin{tabular}{ccccc}
+%\includegraphics[width=0.17\textwidth]{./img_diagramas/cabecita_VCR.pdf} &
+%\includegraphics[width=0.17\textwidth]{./img_diagramas/cabecita_MJH.pdf} &
+%\includegraphics[width=0.17\textwidth]{./img_diagramas/cabecita_JAE.pdf} &
+%\includegraphics[width=0.17\textwidth]{./img_diagramas/cabecita_GHA.pdf} &
+%\includegraphics[width=0.17\textwidth]{./img_diagramas/cabecita_MFGR.pdf} \\
+%VCR & MJH & JAE & GHA & MFGR
+%\end{tabular}
+%\\
+%\begin{tabular}{cccc}
+%\includegraphics[width=0.17\textwidth]{./img_diagramas/cabecita_CLO.pdf} &
+%\includegraphics[width=0.17\textwidth]{./img_diagramas/cabecita_RLO.pdf} &
+%\includegraphics[width=0.17\textwidth]{./img_diagramas/cabecita_RRU.pdf} &
+%\includegraphics[width=0.17\textwidth]{./img_diagramas/cabecita_JGZ.pdf} \\
+%CLO & RLO & RRU & JGZ
+%\end{tabular}
+%\\
+%\begin{tabular}{ccc}
+%\includegraphics[width=0.17\textwidth]{./img_diagramas/cabecita_FGH.pdf} &
+%\includegraphics[width=0.17\textwidth]{./img_diagramas/cabecita_MGG.pdf} &
+%\includegraphics[width=0.17\textwidth]{./img_diagramas/cabecita_EMT.pdf} \\
+%FGH & MGG & EMT
+%\end{tabular}
+%\end{tabular}
+%\caption{Se muestra esquemáticamente en azul las zonas donde se encontraron diferencias 
+%significativas al comparar las proporciones de épocas PE durante sueño MOR y NMOR. Esta misma
+%información se muestra en la tabla \ref{comparacion_mor_vs_total} }
+%\label{cabecitas_munchas}
+%\end{figure}
 
 \chapter{Resultados}
 
+\section{Corroboración de hipótesis}
 
-\section{Análisis exploratorios}
-
-Como un primer análisis se verificó si el sueño MOR, entendido como muestra del registro
-completo, tiene o no propiedades estadísticas parecidas a este último, y si ésta similaridad 
-pudiera estar relacionada con el PDC. 
-Se comparó la proporción de épocas PE en cada canal durante sueño MOR y NMOR usando la 
-prueba $\chi^{2}$ para proporciones\footnote{Implementada en R como la función 
-\texttt{prop.test()}}; estos resultados se muestran en la tabla \ref{comparacion_mor_vs_total},
-y son resumidos esquemáticamente en la figura \ref{cabecitas_munchas}.
-
-Se encontró que no hay diferencias significativas, consistentes en todos los sujetos, en los 
-canales LOG y ROG, lo cual puede ser explicado por la tipificación del sueño MOR. 
-Por otro lado, no se encontró una relación clara entre el estado de salud del sujeto y la 
-aparición de diferencias significativas entre estas proporciones.
+Una práctica común en el estudio de señales electrofisiológicas es el suponer que una serie de 
+tiempo \textit{suficientemente} corta pueda considerarse estacionaria; se ha señalado anteriormente
+\cite{Melard89} que se trata de un mero efecto de muestras pequeñas.
+Un análisis necesario en este trabajo es confirmar dicha hipótesis, para lo cual se ha adaptado la
+metodología de Cohen \cite{Cohen77} a los datos y técnicas presentados previamente: usando la prueba
+de PSR se fragmentaron los registros en épocas de tamaños diversos
 
 \begin{figure}
 \centering
-\begin{tabular}{c}
-\begin{tabular}{ccccc}
-\includegraphics[width=0.17\textwidth]{./img_diagramas/cabecita_VCR.pdf} &
-\includegraphics[width=0.17\textwidth]{./img_diagramas/cabecita_MJH.pdf} &
-\includegraphics[width=0.17\textwidth]{./img_diagramas/cabecita_JAE.pdf} &
-\includegraphics[width=0.17\textwidth]{./img_diagramas/cabecita_GHA.pdf} &
-\includegraphics[width=0.17\textwidth]{./img_diagramas/cabecita_MFGR.pdf} \\
-VCR & MJH & JAE & GHA & MFGR
-\end{tabular}
-\\
-\begin{tabular}{cccc}
-\includegraphics[width=0.17\textwidth]{./img_diagramas/cabecita_CLO.pdf} &
-\includegraphics[width=0.17\textwidth]{./img_diagramas/cabecita_RLO.pdf} &
-\includegraphics[width=0.17\textwidth]{./img_diagramas/cabecita_RRU.pdf} &
-\includegraphics[width=0.17\textwidth]{./img_diagramas/cabecita_JGZ.pdf} \\
-CLO & RLO & RRU & JGZ
-\end{tabular}
-\\
-\begin{tabular}{ccc}
-\includegraphics[width=0.17\textwidth]{./img_diagramas/cabecita_FGH.pdf} &
-\includegraphics[width=0.17\textwidth]{./img_diagramas/cabecita_MGG.pdf} &
-\includegraphics[width=0.17\textwidth]{./img_diagramas/cabecita_EMT.pdf} \\
-FGH & MGG & EMT
-\end{tabular}
-\end{tabular}
-\caption{Se muestra esquemáticamente en azul las zonas donde se encontraron diferencias 
-significativas al comparar las proporciones de épocas PE durante sueño MOR y NMOR. Esta misma
-información se muestra en la tabla \ref{comparacion_mor_vs_total} }
-\label{cabecitas_munchas}
+\includegraphics[width=\linewidth]{./img_resultados/VCNNS1_cabeza_epocas_.pdf}
+\caption{Porcentajes de épocas estacionarias}
 \end{figure}
 
-Posteriormente se buscó una diferencia más directa entre los grupos, comparando grupalmente las 
-proporciones de épocas PE (en cada canal y durante las diferentes etapas) mediante la prueba U de 
-Mann-Whitney\footnote{Implementada en R como la función \texttt{wilcox.test()}}; no se 
-encontraron diferencias significativas para ninguno de los canales. Los resultados se muestran en 
-las tablas \ref{gpos_mor}, \ref{gpos_nmor}, \ref{gpos_total}, y para una mejor visualización 
-éstos se han graficado en la figura \ref{comparacion_graf}.
+\section{Análisis exploratorios}
+
+En un primer análisis se comparó si en sueño MOR era más frecuente la estacionariedad que en otras
+etapas de sueño, para lo cual se usó la prueba $\chi^{2}$ para proporciones\footnote{Implementada 
+en R como \texttt{prop.test}};
+% para cada sujetos en todos los canales del registro;
+los resultados se muestran en la tabla \ref{comparacion_mor_vs_total}.
+La diferencias (significativas) encontradas no mostraron patrones consistentes entre los sujetos
+salvo por los canales LOG y ROG, que presentan proporciones mayores de épocas estacionarias
+durante sueño MOR; esto se puede explicar por la caracterización de tal etapa de sueño, los
+movimientos oculares rápidos.
+
+Para descartar los patrones grupales,
+la comparación anterior se repitió a nivel grupal usando la prueba $U$ de 
+Mann-Whitney\footnote{Implementada en R como \texttt{wilcox.test}}, y no se encontraron diferencias 
+significativas ($p<0.05$); la comparación se hizo tanto en sueño MOR como NMOR (ver figura 
+\ref{comparacion_graf}).
 
 \begin{figure}
 \centering
@@ -83,7 +92,7 @@ durante sueño MOR y NMOR}
 {./img_ejemplos/Comparacion_etapas_normal_MOR_vs_NMOR_v2.pdf} \\
 %}\\
 %\subfloat[Comparación para el grupo PDC]{
-\includegraphics[width=0.95\linewidth]
+\includegraphics[width=\linewidth]
 {./img_ejemplos/Comparacion_etapas_pdc_MOR_vs_NMOR_v2.pdf} \\
 %}
 \caption{Comparación sobre las proporciones de épocas estacionarias durante sueño MOR y NMOR, para 
@@ -91,17 +100,16 @@ ambos grupos}
 \label{comparacion_verde}
 \end{figure}
 
-Una segunda variación del primer análisis es considerar grupalmente a los sujetos como 
-'unidades' que transitan entre etapas de sueño; se comparan grupalmente las proporciones de 
-épocas PE en cada canal durante sueño MOR y NMOR, usando la prueba U de Mann-Whithney; en 
-la figura \ref{comparacion_verde} se han representado gráficamente estas diferencias.
-Se encontró que hay diferencias significativas ($\alpha<0.05$) para el grupo Control en los 
-canales C3, C4, F7, F8, FP1, FP2, O2, P4, LOG y ROG, mientras que en el grupo PDC sólo se
-observaron diferencias en LOG y ROG.
-Descartando los canales LOG y ROG, ya que no son parte del EEG, las diferencias encontradas pueden 
-ser relevantes fisiológicamente, ya que abarcan gran parte de los lóbulos frontal y parietal, 
-y parte de la región occipital-parietal derecha; en la figura \ref{cabecita} se indican 
-esquemáticamente estas regiones.
+Considerando las diferencias significativas halladas de manera consistente en LOG y ROG, se
+repitió la comparación a nivel grupal, ahora entre los grupos dentro de MOR y NMOR; tal análisis
+se sustenta en que cada etapa de sueño tiene características distintas, y que los sujetos transitan 
+entre éstas con sus respectivas diferencias individuales.
+Usando la prueba U de Mann-Whithney se encontraron hay diferencias significativas ($p<0.05$) para 
+el grupo Nn en los canales C4, F7, FP1, FP2, LOG y ROG, mientras que en el grupo Mn 
+sólo se observaron tales diferencias en LOG y ROG (ver figura \ref{comparacion_verde}).
+Las diferencias en LOG y ROG son explicables por la caracterización del sueño MOR; 
+respecto a las otras diferencias halladas, dado que se encuentran en la región frontal, asociada a 
+la toma de decisiones, pueden ser fisiológicamente relevantes.
 
 %\begin{figure}
 %\centering

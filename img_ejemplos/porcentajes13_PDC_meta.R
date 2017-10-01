@@ -8,10 +8,11 @@ r_dir       = central_dir
 #################################################
 # parametros del script
 p.val  = 0.05
+p.ast  = c(.1,.05,.01)
 
 grabar.gral = T
 
-graf.indv   = F
+graf.indv   = T
 grabar.indv = F
 
 grabar.ast  = T
@@ -120,14 +121,21 @@ m_mor_NN  =  matriz_mor[(grupo_de==0),]
 m_mor_MN  =  matriz_mor[(grupo_de==1),]
 m_nmor_NN = matriz_nmor[(grupo_de==0),]
 m_nmor_MN = matriz_nmor[(grupo_de==1),]
-m_tot_NN  = matriz_tot[(grupo_de==0),]
-m_tot_MN  = matriz_tot[(grupo_de==1),]
+m_tot_NN  =  matriz_tot[(grupo_de==0),]
+m_tot_MN  =  matriz_tot[(grupo_de==1),]
 
 codigo_NN = nomb_facil[(grupo_de==0)]
 codigo_MN = nomb_facil[(grupo_de==1)]
 
 n_NN = sum((grupo_de==0)*1)
 n_MN = sum((grupo_de==1)*1)
+
+#################################################
+# parametros graficos
+rojito    = rgb(255, 64, 64,maxColorValue=255)
+verdecito = rgb( 64,255, 64,maxColorValue=255)
+azulito   = rgb( 64, 64,255,maxColorValue=255)
+gricesito = rgb(128,128,128,maxColorValue=255)
 
 ################################################################
 # inicio 
@@ -147,13 +155,15 @@ MAXI = 60
 par(mar=c(2.5,3,2,0),
     mgp=c(1.7,.6,0))
 #par(new=T)
-boxplot(100*m_mor_MN,type='l',col='red',
+boxplot(100*m_mor_MN,type='l',#col='red',
+        col=rojito,
         ylim=c(0,MAXI),
         xaxt='n',ylab='Épocas estacionarias [%]',xlab='',
         main='Estacionariedad | Sueño MOR',
         bty='n',las=2,frame=F,
         at=(1:22)-.15,boxwex=.3)
-boxplot(100*m_mor_NN,type='l',col='blue',
+boxplot(100*m_mor_NN,type='l',#col='blue',
+        col=azulito,
         ylim=c(0,MAXI),
         bty='n',las=2,frame=F,add=T,
         at=(1:22)+.15,boxwex=.3,
@@ -182,15 +192,15 @@ for(i in 1:22){
 }
 
 ch_lin = 1:22
-equis = (signi<.05)
+equis = (signi<p.ast[1])
 lines(ch_lin[equis],rep(MAXI        ,sum(equis*1)),
       type='p',pch='*',lwd=0,cex=2,col='black')
-equis = (signi<.01)
+equis = (signi<p.ast[2])
 lines(ch_lin[equis],rep(MAXI-  strst,sum(equis*1)),
-      type='p',pch='*',lwd=0,cex=2,col='red')
-equis = (signi<.005)
+      type='p',pch='*',lwd=0,cex=2,col='black')
+equis = (signi<p.ast[3])
 lines(ch_lin[equis],rep(MAXI-2*strst,sum(equis*1)),
-      type='p',pch='*',lwd=0,cex=2,col='red')
+      type='p',pch='*',lwd=0,cex=2,col='black')
 
 if(grabar.gral){
   dev.off()
@@ -217,13 +227,13 @@ MAXI = 50
 par(mar=c(2.5,3,2,0),
     mgp=c(1.7,.6,0))
 #par(new=T)
-boxplot(100*m_nmor_MN,type='l',col='red',
+boxplot(100*m_nmor_MN,type='l',col=rojito,
         ylim=c(0,MAXI),
         xaxt='n',ylab='Épocas estacionarias [%]',xlab='',
         main='Estacionariedad | Sueño NMOR',
         bty='n',las=2,frame=F,
         at=(1:22)-.15,boxwex=.3)
-boxplot(100*m_nmor_NN,type='l',col='blue',
+boxplot(100*m_nmor_NN,type='l',col=azulito,
         ylim=c(0,MAXI),
         bty='n',las=2,frame=F,add=T,
         at=(1:22)+.15,boxwex=.3,
@@ -252,15 +262,15 @@ for(i in 1:22){
 }
 
 ch_lin = 1:22
-equis = (signi<.05)
+equis = (signi<p.ast[1])
 lines(ch_lin[equis],rep(MAXI        ,sum(equis*1)),
       type='p',pch='*',lwd=0,cex=2,col='black')
-equis = (signi<.01)
+equis = (signi<p.ast[2])
 lines(ch_lin[equis],rep(MAXI-  strst,sum(equis*1)),
-      type='p',pch='*',lwd=0,cex=2,col='red')
-equis = (signi<.005)
+      type='p',pch='*',lwd=0,cex=2,col='black')
+equis = (signi<p.ast[3])
 lines(ch_lin[equis],rep(MAXI-2*strst,sum(equis*1)),
-      type='p',pch='*',lwd=0,cex=2,col='red')
+      type='p',pch='*',lwd=0,cex=2,col='black')
 
 if(grabar.gral){
   dev.off()
@@ -287,13 +297,13 @@ MAXI = 50
 par(mar=c(2.5,3,2,0),
     mgp=c(1.7,.6,0))
 #par(new=T)
-boxplot(100*m_nmor_NN,type='l',col=gray(.25),
+boxplot(100*m_nmor_NN,type='l',col=gricesito,
         ylim=c(0,MAXI),
         xaxt='n',ylab='Épocas estacionarias [%]',xlab='',
         main='Estacionariedad | Grupo Nn',
         bty='n',las=2,frame=F,
         at=(1:22)-.15,boxwex=.3)
-boxplot(100*m_mor_NN,type='l',col='green4',
+boxplot(100*m_mor_NN,type='l',col=verdecito,
         ylim=c(0,MAXI),
         bty='n',las=2,frame=F,add=T,
         at=(1:22)+.15,boxwex=.3,
@@ -322,15 +332,15 @@ for(i in 1:22){
 }
 
 ch_lin = 1:22
-equis = (signi<.05)
+equis = (signi<p.ast[1])
 lines(ch_lin[equis],rep(MAXI        ,sum(equis*1)),
       type='p',pch='*',lwd=0,cex=2,col='red')
-equis = (signi<.01)
+equis = (signi<p.ast[2])
 lines(ch_lin[equis],rep(MAXI-  strst,sum(equis*1)),
       type='p',pch='*',lwd=0,cex=2,col='red')
-equis = (signi<.005)
+equis = (signi<p.ast[3])
 lines(ch_lin[equis],rep(MAXI-2*strst,sum(equis*1)),
-      type='p',pch='*',lwd=0,cex=2,col='black')
+      type='p',pch='*',lwd=0,cex=2,col='red')
 
 if(grabar.gral){
   dev.off()
@@ -357,13 +367,13 @@ MAXI = 60
 par(mar=c(2.5,3,2,0),
     mgp=c(1.7,.6,0))
 #par(new=T)
-boxplot(100*m_nmor_MN,type='l',col=gray(.25),
+boxplot(100*m_nmor_MN,type='l',col=gricesito,
         ylim=c(0,MAXI),
         xaxt='n',ylab='Épocas estacionarias [%]',xlab='',
         main='Estacionariedad | Grupo Mn',
         bty='n',las=2,frame=F,
         at=(1:22)-.15,boxwex=.3)
-boxplot(100*m_mor_MN,type='l',col='green4',
+boxplot(100*m_mor_MN,type='l',col=verdecito,
         ylim=c(0,MAXI),
         bty='n',las=2,frame=F,add=T,
         at=(1:22)+.15,boxwex=.3,
@@ -392,15 +402,15 @@ for(i in 1:22){
 }
 
 ch_lin = 1:22
-equis = (signi<.05)
+equis = (signi<p.ast[1])
 lines(ch_lin[equis],rep(MAXI        ,sum(equis*1)),
       type='p',pch='*',lwd=0,cex=2,col='red')
-equis = (signi<.01)
+equis = (signi<p.ast[2])
 lines(ch_lin[equis],rep(MAXI-  strst,sum(equis*1)),
       type='p',pch='*',lwd=0,cex=2,col='red')
-equis = (signi<.005)
+equis = (signi<p.ast[3])
 lines(ch_lin[equis],rep(MAXI-2*strst,sum(equis*1)),
-      type='p',pch='*',lwd=0,cex=2,col='black')
+      type='p',pch='*',lwd=0,cex=2,col='red')
 
 if(grabar.gral){
   dev.off()
