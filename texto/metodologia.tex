@@ -6,49 +6,60 @@
 \chapter{Metodología}
 
 El presente trabajo resulta de una colaboración con el departamento de Gerontología, dependiente 
-del Instituto de Ciencias de la Salud (ICSA).
-Parte de esta colaboración incluye el acceso a los registros de PSG obtenidos por Vázquez Tagle 
-y colaboradores en 2016 \cite{VazquezTagle16}; por ello, se cita la metodología de aquél estudio 
-de la manera más fiel posible.
-Así mismo se describe, a nivel de implementación, el análisis central de este trabajo: la prueba 
-de Priesltey-Subba Rao. 
+del Instituto de Ciencias de la Salud (ICSA); parte de esta colaboración incluye el acceso a los 
+registros de PSG obtenidos por Vázquez Tagle y colaboradores \cite{VazquezTagle16}. 
+A continuación se cita la metodología de aquél estudio de la manera más fiel posible.
+%Así mismo se describe, a nivel de implementación, el análisis central de este trabajo: la prueba 
+%de Priesltey-Subba Rao. 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Participantes}
 
-\section{Participantes y su diagnóstico}
-
-Los sujetos fueron elegidos usando un muestreo no probabilístico de sujetos tipo \cite{Garcia09},
-firmando un consentimiento informado previamente a su inclusión en el estudio. 
-De manera extensiva, los criterios de exclusión para el estudio fueron los siguientes:
+Los sujetos fueron elegidos usando un muestreo \textit{no probabilístico por 
+conveniencia}\footnote{Esto implica que los resultados pueden  no ser interpolables a poblaciones 
+más grandes} bajo los siguientes criterios de inclusión:
 \begin{itemize}
-\item Firma del consentimiento informado
 \item Edad entre 60 y 85 años
 \item Diestros (mano derecha dominante)
 \item Sin ansiedad, depresión ni síndromes focales
 \item No usar medicamentos o sustancias para dormir
+\item Firma de consentimiento informado
 \item Voluntario para el registro de PSG
 \end{itemize}
 
-Un total de 9 participantes cumplieron todos los criterios de exclusión y procedieron al registro 
-de PSG; adicionalmente se tomó registro de otros tres adultos mayores, bajo el consentimiento de 
-éstos y de los responsables del proyecto.
-
+Un total de 9 participantes cumplieron todos los criterios de inclusión y procedieron al registro 
+de PSG; adicionalmente se tomaron registros de otros tres adultos mayores, bajo el consentimiento 
+de éstos y de los responsables del proyecto (ver más adelante).
+%
+Todos los participantes fueron sometidos a una batería de pruebas neuropsicológicas para determinar
+su estado cognoscitivo general (Neuropsi, MMSE), así como descartar cuadros depresivos (GDS, SATS) 
+y cambios en la vida cotidiana (KATZ).
 Usando los resultados obtenidos, los sujetos se dividieron en tres grupos:
-\begin{description}
-\item[Grupo PDC] (4 sujetos) Puntuación en Neuropsi menor a la media menos 3 desviaciones 
-estándar, reportadas para poblaciones control \cite{Solis03}
-\item[Grupo Control] (5 sujetos) Sin deterioro cognitivo
-\item[Grupo Excluido] (3 sujetos) No satisfacen los criterios de inclusión, pero que se 
-sometieron voluntariamente al estudio con aprobación de los responsables
-\end{description}
 
-Con respecto al tercer grupo, se conforma de sujeto que fallan en exactamente uno de los criterios 
-de inclusión: FGH padece parálisis facial y posiblemente daño cerebral, MGG padece depresión, y EMT 
-no califica como adulto mayor por su edad.
-Se efectuaron los mismos análisis sobre este grupo con la finalidad de exhibir las capacidades y
-limitaciones de las técnicas utilizadas, debido a lo cual este grupo es ignorado en la sección de 
-resultados, pero retomado en la discusión.
+\begin{table}[h]
+\centering
+\begin{tabular}{lcl}
+\toprule
+Grupo & Sujetos & Características \\
+\midrule
+Mn & 4 & Posible Deterioro Cognitivo \\
+Nn & 5 & Sin PDC \\
+ex & 3 & No satisfacen los criterios de inclusión \\
+\bottomrule
+\end{tabular}
+\end{table}
+%
+%\begin{description}
+%\item[Mn] (4 sujetos) Posible Deterioro Cognitivo
+%\item[Nn] (5 sujetos) Sin PDC
+%\item[ex] (3 sujetos) No satisfacen los criterios de inclusión
+%\end{description}
+
+El grupo ex se conforma de sujeto que incumplen al menos uno de los criterios de inclusión: {FGH} 
+padece parálisis facial y posiblemente daño cerebral (síndromes focales), MGG padece depresión, 
+EMT no califica como adulto mayor por su edad.
+Se efectuaron todos los análisis sobre este grupo, con la finalidad de exhibir las capacidades y
+limitaciones de las técnicas utilizadas; por ello este grupo es ignorado en la sección de 
+resultados pero no en la discusión.
 
 \begin{table}
 \centering
@@ -57,46 +68,46 @@ resultados, pero retomado en la discusión.
 \textbf{Datos generales de los participantes}
 \vspace{1em}
 \end{tabular}
-\begin{small}
+{\small
 \begin{tabular}{llcrrrrrrr}
 \toprule
- \phantom{m}&
- & {Sexo} & {Edad} & {Esc.} & {Neuropsi} & {MMSE} & {SATS} & {KATZ} & {Gds} \\
+ \phantom{.}&
+ & {Sexo} & {Edad} & {Escol.} & {Neuropsi} & {MMSE} & {SATS} & {KATZ} & {Gds} \\
 \midrule
-\multicolumn{6}{l}{{Grupo Control}}\\
-&VCR    & F    & 59   & 12   & 107      & 29   & 21   & 0    & 3 \\
-&MJH    & F    & 72   & 9    & 113      & 30   & 18   & 0    & 0 \\
-&JAE    & F    & 78   & 5    & 102      & 28   & 19   & 0    & 5 \\
-&GHA    & M    & 65   & 9    & 107.5    & 30   & 23   & 0    & 7 \\
-&MFGR   & F    & 67   & 11   & 110      & 30   & 18   & 0    &   \\
+\multicolumn{6}{l}{{Grupo Nn}}\\
+&VCR    & F    & 59\pz & 12\pz & 107\pz & 29\pz & 21\pz & 0\pz & 3\pz \\
+&MJH    & F    & 72\pz & 9\pz  & 113\pz & 30\pz & 18\pz & 0\pz & 0\pz \\
+&JAE    & F    & 78\pz & 5\pz  & 102\pz & 28\pz & 19\pz & 0\pz & 5\pz \\
+&GHA    & M    & 65\pz & 9\pz  & 107.5  & 30\pz & 23\pz & 0\pz & 7\pz \\
+&MFGR   & F    & 67\pz & 11\pz & 110\pz & 30\pz & 18\pz & 0\pz &      \\
 \rowcolor{gris}
 &\multicolumn{1}{c}{$\widehat{\mu}$} & 
-              & 68.20& 9.20 & 107.90   & 29.40& 19.80& 0.00 & 3.00\\
+               & 68.2  & 9.2   & 107.9  & 29.4  & 19.8  & 0.0  & 3.0  \\
 \rowcolor{gris}
 &\multicolumn{1}{c}{$\widehat{\sigma}$} & 
-              & 7.19 & 2.68 & 4.07     & 0.89 & 2.17 & 0.00 & 3.08\\
+               & 7.2   & 2.7   & 4.1    & 0.9   & 2.2   & 0.0  & 3.0  \\
 \midrulec
 %\hline
-\multicolumn{6}{l}{{Grupo PDC}}\\
-&CLO    & F    & 68   & 5    & 81       & 28   & 22   & 1    & 6 \\
-&RLO    & F    & 63   & 9    & 90       & 29   & 20   & 0    & 3 \\
-&RRU    & M    & 69   & 9    & 85       & 27   & 10   & 0    & 3 \\
-&JGZ    & M    & 65   & 11   & 87       & 25   & 20   & 0    & 1 \\
+\multicolumn{6}{l}{{Grupo Mn}}\\
+&CLO    & F    & 68\pz & 5\pz  & 81\pz & 28\pz & 22\pz & 1\pz & 6\pz \\
+&RLO    & F    & 63\pz & 9\pz  & 90\pz & 29\pz & 20\pz & 0\pz & 3\pz \\
+&RRU    & M    & 69\pz & 9\pz  & 85\pz & 27\pz & 10\pz & 0\pz & 3\pz \\
+&JGZ    & M    & 65\pz & 11\pz & 87\pz & 25\pz & 20\pz & 0\pz & 1\pz \\
 \rowcolor{gris}
 &\multicolumn{1}{c}{$\widehat{\mu}$} & 
-              & 66.25& 8.50 & 85.75   & 27.25& 18.00& 0.25 & 3.25\\
+              & 66.3   & 8.5   & 85.8  & 27.3  & 18.0  & 0.3  & 3.3  \\
 \rowcolor{gris}
 &\multicolumn{1}{c}{$\widehat{\sigma}$} & 
-              & 2.75 & 2.52 & 3.77    & 1.71 & 5.42 & 0.50 & 2.06\\
+              & 2.8    & 2.5   & 3.8   & 1.7   & 5.4   & 0.5  & 2.1  \\
 \midrulec
 %\hline
-\multicolumn{6}{l}{{Sujetos excluidos}}\\
-&FGH    & M    & 71   & 9    & 83.5     & 21   & 23   & 0    & 4  \\
-&MGG    & F    & 61   & 9    & 114      & 28   & 29   & 1    & 14 \\
-&EMT    & M    & 50   & 22   & 106      & 30   & 15   & 0    & 4  \\
+\multicolumn{6}{l}{{Grupo ex}}\\
+&FGH    & M    & 71\pz   & 9\pz    & 83.5     & 21\pz   & 23\pz   & 0\pz    & 4\pz  \\
+&MGG    & F    & 61\pz   & 9\pz    & 114\pz      & 28\pz   & 29\pz   & 1\pz    & 14\pz \\
+&EMT    & M    & 50\pz   & 22\pz   & 106\pz      & 30\pz   & 15\pz   & 0\pz    & 4\pz  \\
 \bottomrule
 \end{tabular} 
-\end{small}
+}
 \label{tab_sujetos}
 \caption{Resultados de las pruebas neuropsicológicas 
 }
@@ -120,13 +131,16 @@ para registrar la actividad muscular.
 La colocación de los electrodos para registrar la actividad EEG se realizó siguiendo las 
 coordenadas del Sistema Internacional 10--20.
 
-Debido a problemas técnicos el registro se efectúo a 512 puntos por segundo (Hz) para algunos
-participantes, y a 200 Hz para otros; la recomendación de la AASM de un mínimo de 128 Hz se 
-satisface en ambos casos. 
-
 Las señales fueron amplificadas (amplificador de alta ganancia en cadena), filtradas (filtro paso 
 de banda de 0.5--30 Hz) y digitalizadas para su posterior análisis.
 En la tabla \ref{frecuencias} se reportan la duración de estos registros para cada sujeto.
+
+Debido a problemas técnicos el registro se efectúo a 512 puntos por segundo (Hz) para algunos
+participantes, y a 200 Hz para otros; en ambos casos se satisface la recomendación de la AASM de un 
+mínimo de 128 Hz. 
+
+La clasificación del PSG en fases de sueño se realizó \textit{manualmente} sobre épocas de 30 
+segundos siguiendo los criterios estandarizados de la AAMS \cite{Hori01}.
 
 %Debido a un cambio en el polisomnógrafo 
 %usado, la frecuencia de muestreo (en Hz) cambia entre sujetos.
@@ -138,51 +152,56 @@ En la tabla \ref{frecuencias} se reportan la duración de estos registros para c
 \textbf{Datos generales sobre los registros de PSG}
 \vspace{1em}
 \end{tabular}
+{\small
 \begin{tabular}{llcrrcrrr}
 \toprule
-    \phantom{m}&
+    \phantom{.}&
     &\multirow{2}{*}{\bordes{1}\begin{tabular}{l}Frecuencia\\ muestreo\end{tabular}}
     \bordes{1.2}
     & \multicolumn{2}{c}{Total} & \phantom{l}   & \multicolumn{3}{c}{MOR*}\\
     \cmidrule{4-5}  \cmidrule{7-9}
     &&          &Puntos  &  Tiempo   &&Puntos  &  Tiempo   &  \% MOR \\
 \midrule
-\multicolumn{6}{l}{{Grupo Control}}\\
-&VCR &200       & 5166000&   7:10:30 &&438000  &   0:36:30 & 8\% \\
-&MJH &512       &15851520&   8:36:00 &&1950720 &   1:03:30 &12\% \\
-&JAE &512       &13931520&   7:33:30 &&2626560 &   1:25:30 &19\% \\
-&GHA &200       &6558000 &   9:06:00 &&330000  &   0:27:30 & 5\% \\
-&MFGR&200       &4932000 &   6:51:00 &&570000  &   0:47:30 &12\% \\
-
-\midrule
+\multicolumn{6}{l}{{Grupo Nn}}\\
+&VCR &200       & 5166000&   7:10:30 &&438000  &   0:36:30 & 8.5\% \\
+&MJH &512       &15851520&   8:36:00 &&1950720 &   1:03:30 &12.3\% \\
+&JAE &512       &13931520&   7:33:30 &&2626560 &   1:25:30 &18.9\% \\
+&GHA &200       &6558000 &   9:06:00 &&330000  &   0:27:30 & 5.0\% \\
+&MFGR&200       &4932000 &   6:51:00 &&570000  &   0:47:30 &11.6\% \\
 
 \rowcolor{gris}
-\multicolumn{6}{l}{{Grupo PDC}}\\
+&\multicolumn{1}{c}{$\widehat{\mu}$}  
+              & &        & 7:51:30   &&        &   0:52:06 &11.2\% \\
 \rowcolor{gris}
-&CLO &512       &14499840&   7:52:00 &&2027520 &   1:06:00 &14\% \\
-\rowcolor{gris}
-&RLO &512       &12994560&   7:03:00 &&1520640 &   0:49:30 &12\% \\
-\rowcolor{gris}
-&RRU &200       &2484000 &   3:27:00 &&228000  &   0:19:00 & 9\% \\
-\rowcolor{gris}
-&JGZ &512       &18539520&  10:03:30 &&506880  &   0:16:30 & 3\% \\
-
+&\multicolumn{1}{c}{$\widehat{\sigma}$} 
+              & &        & 0:57:36   &&        &   0:23:00 & 5.1\% \\
 \midrulec
 
-\multicolumn{6}{l}{{Sujetos excluidos}}\\
-&FGH &512       &6220800 &   3:22:30 &&337920  &   0:11:00 & 5\% \\
-&MGG &512       &15820800&   8:35:00 &&2549760 &   1:23:00 &16\% \\
-&EMT &512       &21857280&  11:51:30 &&721920  &   0:23:30 & 3\% \\
+\multicolumn{6}{l}{{Grupo Mn}}\\
+&CLO &512       &14499840&   7:52:00 &&2027520 &   1:06:00 &14.0\% \\
+&RLO &512       &12994560&   7:03:00 &&1520640 &   0:49:30 &11.7\% \\
+&RRU &200       &2484000 &   3:27:00 &&228000  &   0:19:00 & 9.2\% \\
+&JGZ &512       &18539520&  10:03:30 &&506880  &   0:16:30 & 2.7\% \\
+
+\rowcolor{gris}
+&\multicolumn{1}{c}{$\widehat{\mu}$}  
+              & &        & 7:06:23   &&        &   0:37:45 &9.4\% \\
+\rowcolor{gris}
+&\multicolumn{1}{c}{$\widehat{\sigma}$} 
+              & &        & 2:44:55   &&        &   0:24:05 &4.9\% \\
+\midrulec
+
+\multicolumn{6}{l}{{Grupo ex}}\\
+&FGH &512       &6220800 &   3:22:30 &&337920  &   0:11:00 & 5.4\% \\
+&MGG &512       &15820800&   8:35:00 &&2549760 &   1:23:00 &16.1\% \\
+&EMT &512       &21857280&  11:51:30 &&721920  &   0:23:30 & 3.3\% \\
 \bottomrule
 \end{tabular}
+}
 \caption{Cantidad de datos registrados para cada sujeto. *Dado que el sueño MOR aparece fragmentado,
 se reporta la suma de tales tiempos.}
 \label{frecuencias}
 \end{table}
-
-La clasificación de las diferentes fases del sueño en el registro PSG se realizó manualmente sobre 
-épocas de EEG de 30 segundos siguiendo los criterios estandarizados de la AAMS \cite{Hori01}, 
-mismas que fueron descritas anteriormente.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
