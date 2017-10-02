@@ -212,15 +212,15 @@ Los registros digitalizados de PSG fueron convertidos a formato de texto bajo la
 ASCII, a razón de un archivo por cada canal. 
 Las épocas MOR, clasificadas manualmente, fueron indicadas en archivos a parte.
 
-Como se mencionó en secciones anteriores, la prueba PSR está pensada para series de tiempo con 
-media 0, varianza finita y espectro puramente continuo. Se espera que la segunda condición se 
-cumpla para los registros de PSG; las otras dos condiciones fueron \textit{forzadas}, sustrayendo 
-la media y la componente periódica (estimadas) del proceso.
-Para lo anterior, se usó el algoritmo no-paramétrico STL (Seasonal-Trend decomposition using 
-Loess) \cite{Cleveland1990} y que está implementado en R bajo la función \texttt{stl()}.
+%Como se mencionó en secciones anteriores, la prueba PSR está pensada para series de tiempo con 
+%media 0, varianza finita y espectro puramente continuo. Se espera que la segunda condición se 
+%cumpla para los registros de PSG; las otras dos condiciones fueron \textit{forzadas}, sustrayendo 
+%la media y la componente periódica (estimadas) del proceso.
+%Para lo anterior, se usó el algoritmo no-paramétrico STL (Seasonal-Trend decomposition using 
+%Loess) \cite{Cleveland1990} y que está implementado en R bajo la función \texttt{stl()}.
 
 %La prueba PSR se encuentra implementado en R bajo la función \texttt{stationarity()} del paquete 
-%\texttt{fractal}.
+%\texttt{fractal}.    
 %Los resultados de la prueba PSR, aplicado a todas las épocas contenidas en los registros de PSG,
 %fueron almacenados para su análisis posterior.
 
@@ -235,13 +235,32 @@ proporción de éstas en cada etapa de sueño.
 
 \begin{figure}
 \centering
-\includegraphics[width=\linewidth]{./img_diagramas/epocas_diferentes_v2.pdf}
-\caption{Esquema de cómo se tomaron diferentes tamaños de época para estudiar los registros de 
-PSG}
-\label{epocas_diferentes}
+\begin{lstlisting}[caption={}]
+Priestley-Subba Rao stationarity Test for datos
+-----------------------------------------------
+Samples used              : 3072 
+Samples available         : 3069 
+Sampling interval         : 1 
+SDF estimator             : Multitaper 
+  Number of (sine) tapers : 5 
+  Centered                : TRUE 
+  Recentered              : FALSE 
+Number of blocks          : 11 
+Block size                : 279 
+Number of blocks          : 11 
+p-value for T             : 0.4130131 
+p-value for I+R           : 0.1787949 
+p-value for T+I+R         : 0.1801353 
+\end{lstlisting}
+\caption{Resultado típico para la función \texttt{stationarity}
+%El parámetro \texttt{n.blocks} define la cantidad grupos disjuntos para los cuales se calculará 
+%el estimador de la FDE.
+%Cabe resaltar el antepenúltimo renglón (\texttt{p-value for T}), según el cual se puede
+%aceptar o rechazar la hipótesis de estacionariedad débil. 
+%La FDE es referida como 'Spectral Density Function' (SDF).
+}
+\label{res_psr}
 \end{figure}
-
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

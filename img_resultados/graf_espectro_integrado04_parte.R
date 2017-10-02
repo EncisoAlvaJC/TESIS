@@ -158,18 +158,6 @@ for(i in 1:length(s)){
 }
 
 pass  = paso/dur_epoca
-#IND_T = ind_t-1
-
-#################################################
-# tratamiento para contraste de color
-#if(binario){
-#  n_pvals = length(p.vales)
-#  M_RES   = matrix(0,nrow=n_canales,ncol=n_epocas)
-#  for(i in 1:n_pvals){
-#    M_RES = M_RES + 1*( RES_T>p.vales[i])
-#  }
-#  RES_T   = M_RES**(3/2)
-#}
 
 #################################################
 # inicio guardado automatico del grafico
@@ -214,8 +202,6 @@ arch_indice_e = paste0('epocas_mor_',nombre,'.txt')
 indice_e      = scan(arch_indice_e)
 factor.extra = 1
 if(fr_muestreo==200){
-  #parche_indice = ceiling(parche_indice/3)
-  #parche_indice = sort(unique(parche_indice))
   factor.extra = 3
 }
 for(i in indice_e){
@@ -251,29 +237,8 @@ axis(4,at=c(0,n_canales)+.5,    labels=F,las=2,tick=T)
 
 axis(1,labels=F,tick=T,at=c(0,n_epocas)+.5)
 skip = seq(1,n_epocas+1,by=paso)+.5
-#axis(1,at=skip-1,labels=txt_t[skip],las=2,tick=T)
-#axis(3,at=skip-1,labels=txt_t[skip],las=2,tick=T)
 axis(1,at=skip-1,labels=F,las=2,tick=T)
 axis(3,at=skip-1,labels=F,las=2,tick=T)
-
-#if(etiquetas_tiempo){
-#  skip = seq(1,n_epocas+1,by=paso)
-#  axis(1,at=skip,labels=txt_t[skip],las=2,tick=T)
-#  axis(1,at=(1:n_epocas-.5)[skip],labels=letras[skip],las=2,tick=F)
-#  axis(1,at=tik+.5,labels=F,las=2,tick=T)
-#  axis(1,at=,labels=F,tick=T)
-#}else{
-#  que.epocas = min_e:max_e
-#  letras     = rep('',length(que.epocas))
-#  for(i in 1:length(que.epocas)){
-#    letras[i] = toString(que.epocas[i]) 
-#  }
-#  
-#  tik = seq(0,length(etiqueta_epocas))*dur_epo_reg/dur_epoca
-#  axis(1,at=tik+.5,labels=F,las=2,tick=T)
-#  tik = (seq(1,length(etiqueta_epocas))-0.5)*dur_epo_reg/dur_epoca
-#  axis(1,at=tik+.5,labels=etiqueta_epocas,las=2,tick=F)
-#}
 
 if(grabar){
   setwd(dir_graf)

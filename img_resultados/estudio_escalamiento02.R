@@ -2,6 +2,7 @@
 # directorios
 dir_datos = '~/TESIS/graf_datos/estacionariedad_sinfiltro/'
 dir_graf  = '~/TESIS/TESIS/img_resultados'
+dir_epocas  = '~/TESIS/graf_datos/epocas3/'
 
 #################################################
 # parametros
@@ -116,6 +117,15 @@ P           = length(p.val)
 setwd(dir_res_mid)
 
 #################################################
+# cargar epocas
+setwd(dir_epocas)
+arch_indice_e = paste0('epocas_mor_',nombre,'.txt')
+indice_e      = scan(arch_indice_e)
+if(fr_muestreo==200){
+  indice_e = sort(unique(ceiling(indice_e/3)))
+}
+
+#################################################
 # inicia grafico
 k = 1.5
 setwd(dir_graf)
@@ -154,13 +164,30 @@ yc = c(3,3,3,4,4,4,4,  5,  5,4,  1,  1,2,2,2,3,3,2,2,6.3,6.3,6.4)
 # inicia ciclo recorre canales
 for(ch in 1:22){
   # contenedor de datos
-  porcentajes = matrix(0,nrow=n.dur,ncol=P)
+  porcentajes     = matrix(0,nrow=n.dur,ncol=P)
+  porcentajes_mor = matrix(0,nrow=n.dur,ncol=P)
   
   #################################################
   # inicia ciclo que recorre tamanos de epoca
   setwd(dir_res_mid)
   for(d in 1:n.dur){
     dur_epoca = duraciones[d]
+    f.escala  = 30/dur_epoca
+    
+    # seleccion de epoca MOR
+    indice_k = indice_e
+    if(f.escala<1){
+      indice_k = sort(unique(ceiling(indice_e*f.escala)))
+    }
+    if(f.escala>1){
+      k = matrix(nrow=f.escala,ncol=length(indice_e))
+      for(i in 1:f.escala){
+        for(j in 1:length(indice_e)){
+          k[i,j] = indice_e[j]*f.escala - i + 1
+        }
+      }
+    }
+    indice_k = sort(unique(as.numeric(k)))
     
     canal  = canales[ch]
     ar_t   = paste0('EST_',nombre,'_',canal,
@@ -170,20 +197,53 @@ for(ch in 1:22){
                     '_TIR_',toString(dur_epoca),'.txt')
     pv_tir = scan(ar_tir)
     
+    # se retiran las epocas no-clasificadas
+    ok_t   = length(pv_t  )
+    ok_tir = length(pv_tir)
     for(i in 1:length(pv_t)){
       if(is.na(pv_t[i])){
-        pv_t[i] = 1
+        pv_t[i] = 0
+        ok_t    = ok_t-1
       }
     }
     for(i in 1:length(pv_tir)){
       if(is.na(pv_tir[i])){
-        pv_tir[i] = 1
+        pv_tir[i] = 0
+        ok_tir    = ok_tir-1
       }
     }
+    ok = min(ok_t,ok_tir)
+    ok = max(ok,1)
     
     for(pp in 1:P){
       porcentajes[d,pp] = sum(pmax((pv_t  >p.val[pp])*1,
-                                   (pv_tir>p.val[pp])*1))/length(pv_t)
+                                   (pv_tir>p.val[pp])*1))/ok
+    }
+    
+    # el proceso se repite para epocas mor
+    pv_t   =   pv_t[indice_k]
+    pv_tir = pv_tir[indice_k]
+    # se retiran las epocas no-clasificadas
+    ok_t   = length(pv_t  )
+    ok_tir = length(pv_tir)
+    for(i in 1:length(pv_t)){
+      if(is.na(pv_t[i])){
+        pv_t[i] = 0
+        ok_t    = ok_t-1
+      }
+    }
+    for(i in 1:length(pv_tir)){
+      if(is.na(pv_tir[i])){
+        pv_tir[i] = 0
+        ok_tir    = ok_tir-1
+      }
+    }
+    ok = min(ok_t,ok_tir)
+    ok = max(ok,1)
+    
+    for(pp in 1:P){
+      porcentajes_mor[d,pp] = sum(pmax((pv_t  >p.val[pp])*1,
+                                       (pv_tir>p.val[pp])*1))/ok
     }
   }
   # fin ciclo recorre tamnos de epoca
@@ -205,7 +265,10 @@ for(ch in 1:22){
   for(pp in 1:P){
     lines(log(duraciones),100*porcentajes[,pp],type='o',
           pch=15,lty=2,col=vec_colores[ch])
+    lines(log(duraciones),100*porcentajes_mor[,pp],type='o',
+          lty=3,col=vec_colores[ch])
   }
+  
   
   numeritos = rep('no',n.dur)
   #for(i in 1:n.dur){

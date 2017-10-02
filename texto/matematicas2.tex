@@ -274,101 +274,6 @@ máximo  y (...). Si $u$ tiene una concentración muy alta, con relación a $v$,
 
 \subsection{Estimadores}
 
-Respecto a la estimación del espectro local se usa el \textbf{estimador de doble ventana}, 
-técnica introducida por Priestley \cite{Priestley69} y que requiere dos funciones, $w_\tau$ y 
-$g$, que funcionan como ventana de retrasos y como filtro lineal, respectivamente.
-%
-En cuando a $g$, se define a $\Gamma(u) = \intR g(u) e^{i u \omega} du$ y se les pide que
-\begin{equation*}
-2\pi \int_{-\infty}^{\infty} \lvert g(u) \lvert^{2} du 
-= 
-\int_{-\infty}^{\infty} \lvert \Gamma(\omega) \lvert^{2} d\omega
-= 1
-\end{equation*}
-
-Cabe mencionar que las ventanas espectrales mostradas en la tabla \ref{ventanas} bien 
-pueden cumplir las propiedades requeridas para ser filtros.
-Posteriormente se define el estimador $U$ con el objetivo de asignar pesos en el tiempo para estimar
-a la FDE
-% en el tiempo dado; más aún, $U$ sirve 
-%como una aproximación de la representación de Wold-Cramér para 
-%el proceso.
-\begin{equation*}
-U(t,\omega) = \int_{t-T}^{t} g(u) X({t-u}) e^{i \omega (t-u)} du
-\end{equation*}
-
-Bajo el entendido que la función $\Gamma$ converge a una función tipo \dirac, puede 
-considerarse que 
-$\E{\abso{U(t,\omega)}^{2}} \approx f_t(\omega)$; sin embargo, se demuestra en \cite{Priestley66} 
-que $\Var{\abso{U(t,\omega)}^{2}} \nrightarrow 0$.
-%
-Debido a ello se usa una segunda función tipo ventana,
-%, para 'suavizar' el estimador y hacerlo consistente (
-de forma similar al periodograma.
-Se considera la función $W_\tau$, ventana de retrasos, y su respectiva ventana espectral 
-$w_\tau$; deben satisfacer las siguientes propiedades:
-\begin{itemize}
-\item $w_{\tau}(t) \geq 0$ para cualesquiera $t$, $\tau$
-\item $w_{\tau}(t) \rightarrow 0$ cuando $\lvert t \lvert \rightarrow \infty$, para todo $\tau$
-\item $\displaystyle \int_{-\infty}^{\infty} w_{\tau}(t) dt = 1$ para todo $\tau$
-\item $\displaystyle \int_{-\infty}^{\infty} \left( w_{\tau}(t) \right)^{2} dt < \infty$ para todo $\tau$
-\item $\exists C$ tal que  
-$\displaystyle \lim_{\tau\rightarrow\infty} \tau \int_{-\infty}^{t} \abso{ W_{\tau}(\lambda) }^{2} d\lambda = C$
-\end{itemize}
-
-%Por ejemplo, la ventana de Daniell satisface estas propiedades; para ello, conviene calcular que
-%$\lim_{\tau\rightarrow\infty} \tau \int_{t-T}^{t} \lvert W_{\tau}(\lambda) \lvert^{2} d\lambda = 2\pi$;
-%más aún, 
-Cabe mencionar que todas las ventanas mostradas en \ref{ventanas} satisfacen las propiedades 
-anteriores.
-Finalmente, se define el estimador $\est{f}$ para las FDE normalizada, $f_t$, como
-\begin{equation*}
-\widehat{f}(t,\omega) = \int_{t-T}^{t} w_{T'}(u) \lvert U(t-u,\omega) \lvert^{2} du
-\label{estimador_doble_ventana}
-\end{equation*}
-
-Fue demostrado por Priestley \cite{Priestley65} que los estimadores de doble ventana son 
-asintóticamente insesgados y consistentes, y propone las siguientes aproximaciones:
-%conviene exhibir las siguientes expresiones aproximadas propuestas en aquél trabajo
-\begin{itemize}
-\item $\displaystyle
-\E{\est{f}(t,\omega)} \approx 
-\intR \widetilde{f}(t,\omega+\theta) \abso{\Gamma(\theta)}^{2} d\theta$
-\item $\displaystyle
-\Var{\est{f}(t,\omega)} \approx \frac{C}{\tau} \left( \overline{f}^{2}(\omega) \right)
-\intR \abso{\Gamma(\theta)}^{4} d\theta $
-\end{itemize}
-
-donde las funciones $\widetilde{f}$ y $\overline{f}$ son versiones 'suavizadas' de la FDE 
-normalizada, $f$, y están definidas de la siguiente manera
-\begin{equation*}
-\widetilde{f}(t,\omega+\theta) = 
-\intR W_{\tau}(u) f(t-u,\omega+\theta) du
-\end{equation*}
-\begin{equation*}
-\overline{f}^{2} (t,\omega) =
-\frac{\intR f^{2}\left(t-u,W_{\tau}^{2}(u)\right) du}
-{\intR \left( W_{\tau}(u) \right)^{2} du}
-\end{equation*}
-
-Como $W_{\tau}$ funciona como ventana espectral, converge a una 
-función tipo \dirac; luego $\widetilde{f}$ es aproximadamente la convolución 
-$\widetilde{f}(t,\omega+\theta) \approx \delta_t \ast f(\bullet,\omega+\theta)$. 
-Una aproximación muy similar 
-puede hacerse respecto al segundo término, de modo que $\widetilde{f}\approx f$ y 
-$\overline{f}^{2}\approx f^{2}$.
-Tales aproximaciones serán mejores en tanto las ventanas $w_{\tau}$ y $W_{\tau}$ sean más 
-cercanas a funciones tipo \dirac.
-%; más aún, una condición adecuada es que estas funciones 
-%tengan una forma 'más delgada' que el espacio entre los tiempos y frecuencias donde se estimará 
-%$f$.
-Dicho esto, se pueden hacer las siguientes aproximaciones, un poco más arriesgadas:
-\begin{itemize}
-\item $\displaystyle \E{\est{f}(t,\omega)} \approx f(t,\omega)$
-\item $\displaystyle \Var{\est{f}(t,\omega)} \approx 
-\frac{C}{\tau} f^{2}(t,\omega) \intR \abso{\Gamma (\theta)}^{4} d\theta$
-\end{itemize}
-
 \subsection{Prueba de Priestley-Subba Rao}
 
 Una propiedad interesante de poder estimar el espectro evolutivo de un proceso, a partir de una 
@@ -585,35 +490,6 @@ Conviene destacar que la prueba de PSR se encuentra implementada para el softwar
 particular fue usada para los analizar las series de tiempo.
 
 La prueba se encuentra normalizada para 
-
-\begin{figure}
-\centering
-\begin{lstlisting}[caption={}]
-Priestley-Subba Rao stationarity Test for datos
------------------------------------------------
-Samples used              : 3072 
-Samples available         : 3069 
-Sampling interval         : 1 
-SDF estimator             : Multitaper 
-  Number of (sine) tapers : 5 
-  Centered                : TRUE 
-  Recentered              : FALSE 
-Number of blocks          : 11 
-Block size                : 279 
-Number of blocks          : 11 
-p-value for T             : 0.4130131 
-p-value for I+R           : 0.1787949 
-p-value for T+I+R         : 0.1801353 
-\end{lstlisting}
-\caption{Resultado típico para la función \texttt{stationarity}
-%El parámetro \texttt{n.blocks} define la cantidad grupos disjuntos para los cuales se calculará 
-%el estimador de la FDE.
-%Cabe resaltar el antepenúltimo renglón (\texttt{p-value for T}), según el cual se puede
-%aceptar o rechazar la hipótesis de estacionariedad débil. 
-%La FDE es referida como 'Spectral Density Function' (SDF).
-}
-\label{res_psr}
-\end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

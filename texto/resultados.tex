@@ -2,37 +2,15 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 %\begin{figure}
 %\centering
-%\begin{tabular}{c}
-%\begin{tabular}{ccccc}
-%\includegraphics[width=0.17\textwidth]{./img_diagramas/cabecita_VCR.pdf} &
-%\includegraphics[width=0.17\textwidth]{./img_diagramas/cabecita_MJH.pdf} &
-%\includegraphics[width=0.17\textwidth]{./img_diagramas/cabecita_JAE.pdf} &
-%\includegraphics[width=0.17\textwidth]{./img_diagramas/cabecita_GHA.pdf} &
-%\includegraphics[width=0.17\textwidth]{./img_diagramas/cabecita_MFGR.pdf} \\
-%VCR & MJH & JAE & GHA & MFGR
-%\end{tabular}
-%\\
-%\begin{tabular}{cccc}
-%\includegraphics[width=0.17\textwidth]{./img_diagramas/cabecita_CLO.pdf} &
-%\includegraphics[width=0.17\textwidth]{./img_diagramas/cabecita_RLO.pdf} &
-%\includegraphics[width=0.17\textwidth]{./img_diagramas/cabecita_RRU.pdf} &
-%\includegraphics[width=0.17\textwidth]{./img_diagramas/cabecita_JGZ.pdf} \\
-%CLO & RLO & RRU & JGZ
-%\end{tabular}
-%\\
-%\begin{tabular}{ccc}
-%\includegraphics[width=0.17\textwidth]{./img_diagramas/cabecita_FGH.pdf} &
-%\includegraphics[width=0.17\textwidth]{./img_diagramas/cabecita_MGG.pdf} &
-%\includegraphics[width=0.17\textwidth]{./img_diagramas/cabecita_EMT.pdf} \\
-%FGH & MGG & EMT
-%\end{tabular}
-%\end{tabular}
-%\caption{Se muestra esquemáticamente en azul las zonas donde se encontraron diferencias 
-%significativas al comparar las proporciones de épocas PE durante sueño MOR y NMOR. Esta misma
-%información se muestra en la tabla \ref{comparacion_mor_vs_total} }
-%\label{cabecitas_munchas}
+%\includegraphics[width=0.4\linewidth]
+%{./img_diagramas/cabecita.pdf} 
+%\caption{Representación esquemática de los sitios donde se encontraron diferencias 
+%significativas en la comparación entre el porcentaje de épocas PE durante sueño MOR y NMOR, 
+%para el grupo Control (ver texto)}
+%\label{cabecita}
 %\end{figure}
 
 \chapter{Resultados}
@@ -67,7 +45,7 @@ se incluyen gráficos para todos los sujetos.
 \label{cabeza_repoio}
 \end{figure}
 
-\section{Estacionariedad en MOR}
+\section{Estacionariedad en sueño MOR}
 
 En busca de una interpretación significativa de la estacionariedad débil, desde la fisiología del
 sueño, se comparó si en sueño MOR era más frecuente la estacionariedad que en otras etapas de 
@@ -76,10 +54,41 @@ sueño, para lo cual se usó la prueba $\chi^{2}$ para proporciones\footnote{Imp
 %
 La diferencias encontradas no mostraron patrones consistentes claros entre los sujetos salvo por 
 los canales LOG y ROG ($p<0.05$), que presentan proporciones mayores de épocas estacionarias 
-durante sueño MOR; ésto puede ser explicado por los movimientos oculares rápidos, característicos 
-de dicha etapa de sueño.
+durante sueño MOR (ver figura \ref{cabecitas_munchas}). Esto puede ser explicado por los 
+movimientos oculares rápidos, característicos de dicha etapa de sueño.
 %
-En la tabla \ref{comparacion_mor_vs_total} se muestran los resultados de las pruebas.
+
+\begin{figure}
+\centering
+\begin{tabular}{c}
+\begin{tabular}{ccccc}
+\includegraphics[width=0.15\textwidth]{./img_diagramas/cabecita_VCR.pdf} &
+\includegraphics[width=0.15\textwidth]{./img_diagramas/cabecita_MJH.pdf} &
+\includegraphics[width=0.15\textwidth]{./img_diagramas/cabecita_JAE.pdf} &
+\includegraphics[width=0.15\textwidth]{./img_diagramas/cabecita_GHA.pdf} &
+\includegraphics[width=0.15\textwidth]{./img_diagramas/cabecita_MFGR.pdf} \\
+VCR & MJH & JAE & GHA & MFGR
+\end{tabular}
+\\
+\begin{tabular}{cccc}
+\includegraphics[width=0.15\textwidth]{./img_diagramas/cabecita_CLO.pdf} &
+\includegraphics[width=0.15\textwidth]{./img_diagramas/cabecita_RLO.pdf} &
+\includegraphics[width=0.15\textwidth]{./img_diagramas/cabecita_RRU.pdf} &
+\includegraphics[width=0.15\textwidth]{./img_diagramas/cabecita_JGZ.pdf} \\
+CLO & RLO & RRU & JGZ
+\end{tabular}
+\\
+\begin{tabular}{ccc}
+\includegraphics[width=0.15\textwidth]{./img_diagramas/cabecita_FGH.pdf} &
+\includegraphics[width=0.15\textwidth]{./img_diagramas/cabecita_MGG.pdf} &
+\includegraphics[width=0.15\textwidth]{./img_diagramas/cabecita_EMT.pdf} \\
+FGH & MGG & EMT
+\end{tabular}
+\end{tabular}
+\caption{Regiones donde se encontraron diferencias significativas al comparar las proporciones de 
+épocas estacionarias durante sueño MOR y NMOR}
+\label{cabecitas_munchas}
+\end{figure}
 
 Para corroborar la consistencia de las diferencias en LOG y ROG, se repitió la comparación a nivel 
 grupal usando la prueba $U$ de  Mann-Whitney\footnote{Implementada en R como \texttt{wilcox.test}}
@@ -117,58 +126,52 @@ durante sueño MOR y NMOR}
 \label{comparacion_graf}
 \end{figure}
 
-%\begin{figure}
-%\centering
-%\includegraphics[width=0.4\linewidth]
-%{./img_diagramas/cabecita.pdf} 
-%\caption{Representación esquemática de los sitios donde se encontraron diferencias 
-%significativas en la comparación entre el porcentaje de épocas PE durante sueño MOR y NMOR, 
-%para el grupo Control (ver texto)}
-%\label{cabecita}
-%\end{figure}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Patrones visuales}
 
 Los resultados anteriores, aparentemente contradictorios, indican que la comparación directa no es 
-una herramienta efectiva para entender los cambios estudiados.
+una herramienta efectiva para entender los cambios que se esperan en la estacionariedad durante
+sueño MOR.
+Como auxiliar visual, se \textit{graficaron} en el tiempo las épocas
+estacionarias indicando por cada canal la porción del registro que se comporta como débilmente 
+estacionario, como en la figura \ref{patroncito}.
 
+%\begin{figure}
+%\includegraphics[width=\textwidth]
+%{./img_ejemplos/MJNNVIGILOS_est.png}
+%\caption{Disposición gráfica para los resultados de la prueba PSR en el sujeto MJH. Se han 
+%resaltado con color verde las épocas clasificadas como de sueño MOR.}
+%\label{ejemplo_graf}
+%\end{figure}
 
-Como un análisis exploratorio, buscando explicar la variabilidad entre los resultados, se 
-graficaron los resultados obtenidos con la prueba PSR de la siguiente manera: se colocan en 
-línea horizontal una serie de cuadros, uno por cada época analizada según fue clasificada 
-(blanco: PE, negro: no-estacionario), y posteriormente se juntaron verticalmente las líneas
-correspondientes a los diferentes canales; en la figura \ref{ejemplo_graf} se muestra un ejemplo de
-ello, mientras que en el anexo se muestran los gráficos construidos para cada uno de los sujetos. 
-
-Al construir estos gráficos, se hacen presentes 'bloques' de épocas que en su mayoría son
-PE --similarmente con épocas no-estacionarias. Ha parecido conveniente reportar este hallazgo
-ya que los patrones son consistentes en todos los sujetos, y porque parece que estos 'bloques'
-aparecen asociados al sueño MOR en cierto orden (ilustrado en la figura \ref{patroncito}):
+Al construir estos gráficos, se hacen visibles \textit{bloques} de épocas con propiedades 
+similares; ha parecido conveniente investigar este fenómeno porque su estructura es independiente 
+de los métodos planteados. En principio, la aparición de estos bloques es consistente con la
+caracterización del sueño por etapas; por ejemplo,
+estos bloques aparecen relacionados con la aparición de sueño MOR en todos los 
+sujetos del grupo Mn bajo el siguiente patrón:
 \begin{itemize}
-\item Bloque abundante en épocas PE, visualmente oscuro
+\item Bloque abundante en épocas estacionarias, visualmente oscuro
 \item Bloque abundante en épocas no-estacionarias, visualmente claro
-\item Sección que contiene el sueño MOR, los canales LOG y ROG muestran son visualmente más
-abundante en épocas no-estacionarias en esta zona del tiempo
+\item Sección que contiene el sueño MOR
 \end{itemize}
 
 \begin{figure}
 \includegraphics[width=\textwidth]
-{./img_ejemplos/MJNNVIGILOS_est.png}
-\caption{Disposición gráfica para los resultados de la prueba PSR en el sujeto MJH. Se han 
-resaltado con color verde las épocas clasificadas como de sueño MOR.}
-\label{ejemplo_graf}
-\end{figure}
-
-\begin{figure}
-\includegraphics[width=\textwidth]
 {./img_ejemplos/zoom_VCR.pdf}
-\caption{Patrónes visuales propuesto como asociado con el sueño MOR: bloque de épocas estacionarias 
-(rojo), bloque de épocas no-estacionarias (azul), bloque que contiene al sueño MOR}
+\caption{Patrón propuesto como asociado con el sueño MOR: épocas estacionarias 
+(rojo), épocas no-estacionarias (azul), bloque que contiene al sueño MOR}
 \label{patroncito}
 \end{figure}
+
+Debido a que estos \textit{patrones de estacionariedad} se basan primeramente en propiedades del
+espectro de potencias, se graficó el mismo para poder compararlos. Se encontró que, visualmente,
+los patrones en la estacionariedad están relacionados con las ondas Beta.
+
+El hehco que estos patrones se encuentren definidos vagamente ha dificultado su análisis, motivo
+por el cual su estudio es limitado y se pretende como trabajo futuro.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -185,6 +188,12 @@ Esto puede interpretarse como que los cambios en la corteza cerebral durante el 
 cognitivo, no provocan que  la señal se vuelva más \textit{simple} en el sentido de 
 \textit{volverse} estacionaria.
 
+Comparando grupalmente la cantidad de épocas estacionarias durante MOR y NMOR, se encontró que en 
+el grupo Nn había diferencias significativas en sitios de la región frontal y que no eran presentes
+en el grupo Mn; para poder establecer una relación con el PDC haría falta un mayor grupo muestral, 
+o bien nuevos registros de PSG para los mismos sujetos, o incluso analizar registros de EEG durante 
+otro tipo de actividades y confirmar las diferencias encontradas.
+
 Cabe destacar que la evidencia aportada indica que el PSG es un conjunto de señales que se comportan
 como no-estacionarias durante la mayor parte del sueño, lo cual confirma el supuesto usual de que 
 las señales de origen biológico son por naturaleza no-estacionarias. 
@@ -192,29 +201,47 @@ las señales de origen biológico son por naturaleza no-estacionarias.
 \subsection{Efecto del tamaño de las época}
 
 Como se mencionó anteriormente, el uso de épocas de 30 segundos está motivado por las 
-recomendaciones de la AASM para clasificar, de manera estandarizada, las etapas de sueño a partir de 
+recomendaciones de la AASM para clasificar, de manera estandarizada, las etapas de sueño en
 registros de PSG \cite{AASM07}. 
 %No se discutirán en este trabajo motivaciones o evidencia para usar esta longitud de época en 
 %particular, ni para el caso contrario, sino que se acepta por fines de comparabilidad. 
-Sin embargo, en algún momento de este trabajo se usaron los registros de PSG organizados en 
-épocas de 10 segundos de duración, como se muestra en la figura \ref{epocas_diferentes}. 
-Se realizaron todos los análisis descritos usando esta segmentación mixta (algunos sujetos con 
-épocas de 10 s, otros con épocas de 30 s) y se obtuvieron resultados según los cuales no hay 
-diferencias significativas en ninguno de los análisis. 
-Por otro lado, la representación gráfica construida a partir de los mismos datos, organizados
-en épocas de 10 s, cambia sustancialmente (ver figura \ref{comp_VCR}).
+Debido a un error técnico, en una etapa temprana de este trabajo se usaron épocas de 10 segundos 
+para algunos análisis, una inconsistencia que eventualmente fue corregida.
+Al efectuar los análisis descritos con otro tamaño de época, se produjeron resultados que distan
+bastante de los finales, razón por la cual pareció conveniente investigar más este fenómeno.
+
+En el apéndice X se explica que si disminuye el tamaño de época el test de PSR disminuye su 
+potencia, de modo que es más propensa a dar falsos negativos (rechazar la hipótesis de 
+estacionariedad cuando debía aceptarse); entonces, en épocas más pequeñas debería haber más épocas 
+clasificadas como no-estacionarias.
+Sin embargo, al \textit{graficar} la estacionariedad para diferentes tamaños de época (figura
+\ref{comp_VCR}) ocurre que es más frecuente el efecto contrario.
 
 \begin{figure}
 \centering
-%\includegraphics[width=0.9\linewidth] 
-%{./img_ejemplos/VCNNS1_est_60.png} 
-%\\
-%\includegraphics[width=0.9\linewidth]
-%{./img_ejemplos/VCNNS1_est_30.png} 
-%\\
-%\includegraphics[width=0.9\linewidth]
-%{./img_ejemplos/VCNNS1_est_10.png} 
-\includegraphics[width=0.9\linewidth]
+\includegraphics[width=\linewidth]{./img_diagramas/epocas_diferentes_v2.pdf}
+\caption{Esquema de cómo se tomaron diferentes tamaños de época para estudiar los registros de 
+PSG}
+\label{epocas_diferentes}
+\end{figure}
+
+Se propone que este efecto pued ser explicado si los registros de PSG son \textbf{localmente
+estacionarios}, una propiedad introducida por Dahlhaus \cite{Dahlhaus97} y que consiste en que un
+proceso no-estacionario pueda ser aproximado a trozos \textit{ensamblando} procesos estacionarios
+definidos para intervalos pequeños de tiempo.
+Esta caracterización del EEG ha sido usada anteriormente de manera fructífera pero problemática
+[??].
+
+En el contexto particular del presente trabajo, la presencia de estacionariedad local puede ser
+explicada fisiológicamente por el contenido heterogéneo de ritmos cerebrales de las etapas de 
+sueño; como ejemplo, en la etapa N3 aparecen husos de sueño mezcladas con ritmos Alfa, de modo
+que es posible hallar un fragmento de época en sueño N3 con únicamente un tren de ondas Alfa
+o un tren de husos de sueño.
+Este fenómeno es ilustrado de manera esquemática en la figura \ref{epocas_diferentes}.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.7\linewidth]
 {./img_ejemplos/VCNNS1_comp_est_.png}
 \caption{Compilación gráfica de las épocas clasificadas como PE, distribuidas en el tiempo
 para cada uno de los canales. El registro corresponde al sujeto VCR, organizando el registro en
@@ -222,106 +249,54 @@ para cada uno de los canales. El registro corresponde al sujeto VCR, organizando
 \label{comp_VCR}
 \end{figure}
 
-El hecho de que los resultados fueran afectados de manera contundente por la forma en que se 
-organizan los datos, sugiere que será provechoso prestar mayor atención a la naturaleza de las 
-características estudiadas y su posible interpretación en la fisiología.
-Se propone que los registros de PSG tienen una propiedad referida como 'estacionariedad local',
-concepto introducido por Dahlhaus \cite{Dahlhaus97}.
-A grosso modo, un proceso localmente estacionario es aquél cuya FDE (que puede depender del 
-tiempo) puede ser aproximada 'a trozos': usando FDE's correspondientes a procesos que poseen una 
-representación espectral de Cramér y que están 'correctamente ensamblados'.
-
-%\begin{defn}[Estacionariedad local]
-%Una secuencia de procesos estocásticos de media cero, $\{ X_{t,N} \}$ con $t = 1, 2, \dots, N$, 
-%se dicen localmente estacionarios en el tiempo $t_0 \in [0,1]$ si existe una representación del 
-%tipo
-%\begin{equation*}
-%X_{t,N} = \intPI \widetilde{A_{t,N}}(\omega) e^{i \omega t} dZ(\omega)
-%\end{equation*}
-%donde se satisface que:
-%\begin{itemize}
-%\item $\{ Z(\omega) \}$ es un proceso de media cero con incrementos ortogonales, es decir
-%\begin{equation*}
-%\Cov{dZ(\omega_1),dZ(\omega_2)} =
-%\begin{cases}
-%d\omega &\text{, } \omega_1 = \omega_1 \\
-%0 &\text{, otro caso}
-%\end{cases}
-%\end{equation*}
-%\item Existe una constante $K$ y una función suave 
-%$A: [0,1]\times [-\pi,\pi] \rightarrow \mathbb{C}$, 
-%con $A(t_0,\omega) = \overline{A(t_0,-\omega)}$, tal que para toda $N$
-%\begin{equation*}
-%\sup_{\nicefrac{t}{N}\in \varepsilon_N(t_0)} 
-%\sup_{\omega} \abso{ \widetilde{A_{t,N}}(\omega) - A(t_0,\omega) }
-%\leq \frac{K}{N}
-%\end{equation*}
-%con $\varepsilon_N(t_0)$ es una vecindad de $t_0$ 
-%tal que $\abso{\abso{\nicefrac{t}{N}-t_0}} = O(N^{-\alpha})$,
-%%cuyo tamaño es del orden $O(N^{-\alpha})$,
-%con $0\leq \alpha < 1$
-%\item $A(t_0,\omega)$ es continuo en $\{ t_0 \} \times [-\pi,\pi]$
-%\end{itemize}
-%\label{est_local}
-%\end{defn}
-
-Se propone que los registros de PSG se comportan como procesos localmente estacionarios; más 
-aún, esta característica podría cambiar en adultos mayores con y sin PDC. 
-Una motivación fisiológica para la hipótesis anterior es el contenido de los registros de
-PSG: un conjunto descoordinado y homogéneo de ondas cerebrales, complejos K y husos de sueño.
-Si bien esta composición sugiere que la no-estacionariedad es la opción más obvia, el
-análisis llevado a cabo revela que el contenido de estos eventos no es homogéneo durante el
-sueño; más aún, mientras más pequeño sea el intervalo de tiempo observado, es más
-posible encontrar zonas de composición más o menos homogénea que puedan ser clasificadas
-como PE.
-Esta hipótesis explicaría el cambio observado al cambiar el tamaño de la época; de manera
-arriesgada, se podría concluir que, entre los individuos con PDC, la homogeneidad del PSG es muy
-similar durante MOR y NMOR.
+Entonces, se propone que los registros de PSG se comportan como procesos localmente estacionarios; 
+más aún, se propone que esta característica cambia cualitativamente en adultos mayores con PDC,
+para los cuales el \textit{nivel de homogeneidad} del PSG es muy similar durante MOR y NMOR.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Sobre los sujetos excluidos}
-
-Durante el trabajo se mencionan tres sujetos (FGH, MGG, EMT) cuyos registros de PSG fueron 
-analizados pero que no son considerados estadísticamente; cada uno de ellos fue excluido, por 
-diversos motivos, del trabajo por Vázquez Tagle y colaboradores \cite{VazquezTagle16}, pero 
-dieron su consentimiento informado para el registro de PSG, debido a lo cual analizó el efecto de 
-su inclusión dentro de los análisis.
-Destaca el sujeto FGH, quien padece de parálisis facial, cataratas, y problemas no especificados 
-en hipotiroides y columna; según se reporta, el sujeto no informó de estos últimos 
-padecimientos sino hasta después del registro de PSG, por lo que su exclusión se efectuó a 
-posteriori.
-
-Un vistazo a los registros 'inusuales' de FGH (figura\ref{FGH_psg}, comparar con 
-\ref{ejemplos_mor}) pudiera haber advertido que en el registro no hay actividad cerebral en los 
-canales correspondientes a la región izquierda (aquella con parálisis) sino ruido amplificado 
-del polisomnógrafo.
-Dentro del marco de este trabajo, destacan las proporciones inusuales de épocas PE (cercanas a 1 
-o 0) para este sujeto en los canales F4, F7, F8, FP1, FP2, FZ, tanto en sueño MOR como NMOR; 
-usando la representación gráfica para FGH, es visible una inusual ausencia total de 
-estacionariedad en tales canales (figura \ref{FGH_especial}, comparar con \ref{ejemplo_graf}). 
-Si bien esta metodología no se diseñó para tal fin, aún así se pudo detectar la falta de 
-actividad cerebral.
-
-\begin{figure}
-\centering
-\includegraphics[width=0.95\linewidth]
-{./img_ejemplos/FGH_297_PDG_lucirse_PSG.pdf} 
-\caption{Una época típica del registro PSG para el sujeto FGH durante sueño MOR. Nótense 
-los patrones periódicos en los canales correspondientes a la región frontal, que no 
-corresponden a la actividad cerebral usual.}
-\label{FGH_psg}
-\end{figure}
-
-\begin{figure}
-\centering
-\includegraphics[width=0.95\linewidth]
-{./img_ejemplos/FGHSUE_est.png} 
-\caption{Compilado gráfico para el sujeto FGH; nótese el patrón inusual (completamente 
-blanco o negro) en los canales correspondientes a la región frontal}
-\label{FGH_especial}
-\end{figure}
+%\subsection{Sobre los sujetos excluidos}
+%
+%Durante el trabajo se mencionan tres sujetos (FGH, MGG, EMT) cuyos registros de PSG fueron 
+%analizados pero que no son considerados estadísticamente; cada uno de ellos fue excluido, por 
+%diversos motivos, del trabajo por Vázquez Tagle y colaboradores \cite{VazquezTagle16}, pero 
+%dieron su consentimiento informado para el registro de PSG, debido a lo cual analizó el efecto de 
+%su inclusión dentro de los análisis.
+%Destaca el sujeto FGH, quien padece de parálisis facial, cataratas, y problemas no especificados 
+%en hipotiroides y columna; según se reporta, el sujeto no informó de estos últimos 
+%padecimientos sino hasta después del registro de PSG, por lo que su exclusión se efectuó a 
+%posteriori.
+%
+%Un vistazo a los registros 'inusuales' de FGH (figura\ref{FGH_psg}, comparar con 
+%\ref{ejemplos_mor}) pudiera haber advertido que en el registro no hay actividad cerebral en los 
+%canales correspondientes a la región izquierda (aquella con parálisis) sino ruido amplificado 
+%del polisomnógrafo.
+%Dentro del marco de este trabajo, destacan las proporciones inusuales de épocas PE (cercanas a 1 
+%o 0) para este sujeto en los canales F4, F7, F8, FP1, FP2, FZ, tanto en sueño MOR como NMOR; 
+%usando la representación gráfica para FGH, es visible una inusual ausencia total de 
+%estacionariedad en tales canales (figura \ref{FGH_especial}, comparar con \ref{ejemplo_graf}). 
+%Si bien esta metodología no se diseñó para tal fin, aún así se pudo detectar la falta de 
+%actividad cerebral.
+%
+%\begin{figure}
+%\centering
+%\includegraphics[width=0.95\linewidth]
+%{./img_ejemplos/FGH_297_PDG_lucirse_PSG.pdf} 
+%\caption{Una época típica del registro PSG para el sujeto FGH durante sueño MOR. Nótense 
+%los patrones periódicos en los canales correspondientes a la región frontal, que no 
+%corresponden a la actividad cerebral usual.}
+%\label{FGH_psg}
+%\end{figure}
+%
+%\begin{figure}
+%\centering
+%\includegraphics[width=0.95\linewidth]
+%{./img_ejemplos/FGHSUE_est.png} 
+%\caption{Compilado gráfico para el sujeto FGH; nótese el patrón inusual (completamente 
+%blanco o negro) en los canales correspondientes a la región frontal}
+%\label{FGH_especial}
+%\end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

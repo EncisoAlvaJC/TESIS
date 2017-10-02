@@ -35,9 +35,9 @@ if(frecuencia==200){
 
 #################################################
 # cargar los datos
-RES_T   = c()
-RES_TIR = c()
-max_epo = rep(0,n.canales)
+RES_T    = c()
+RES_TIR  = c()
+max_epo  = rep(0,n.canales)
 
 setwd(d_dir)
 for(ch in 1:22){
@@ -54,21 +54,6 @@ for(ch in 1:22){
 }
 
 #################################################
-# proteccion contra NA
-for(ii in 1:22){
-  for(jj in 1:length(RES_T[1,])){
-    if(is.na(RES_T[ii,jj])){
-      RES_T[ii,jj] = 0
-    }
-  }
-  for(jj in 1:length(RES_TIR[1,])){
-    if(is.na(RES_TIR[ii,jj])){
-      RES_TIR[ii,jj] = 0
-    }
-  }
-}
-
-#################################################
 # variables auxiliares
 IND_T = 1:min(max_epo)
 n.epo = length(IND_T)
@@ -78,12 +63,56 @@ if(porcent){
 if(!porcent){
   tag = 'total'
 }
-
-#################################################
-# seleccion epocas MOR
 mor   = indice
 n.mor = setdiff(1:n.epo,mor)
 
+#################################################
+# proteccion contra NA
+buen_t   = matrix(0,nrow=n.canales,ncol=3)
+buen_tir = matrix(0,nrow=n.canales,ncol=3)
+buen_ok  = matrix(0,nrow=n.canales,ncol=3)
+
+for(ch in 1:n.canales){
+  buen_t[ch,1]   = length(RES_T[ch,]  )
+  buen_tir[ch,1] = length(RES_TIR[ch,])
+  buen_t[ch,2]   = length(n.mor)
+  buen_tir[ch,2] = length(n.mor)
+  buen_t[ch,3]   = length(  mor)
+  buen_tir[ch,3] = length(  mor)
+  for(jj in mor){
+    if(is.na(RES_T[ch,jj])){
+      buen_t[ch,2] = buen_t[ch,2] - 1
+    }
+    if(is.na(RES_TIR[ch,jj])){
+      buen_tir[ch,2]   = buen_tir[ch,2] - 1
+    }
+  }
+  for(jj in n.mor){
+    if(is.na(RES_T[ch,jj])){
+      buen_t[ch,3] = buen_t[ch,3] - 1
+    }
+    if(is.na(RES_TIR[ch,jj])){
+      buen_tir[ch,3]   = buen_tir[ch,3] - 1
+    }
+  }
+  for(jj in 1:length(RES_T[1,])){
+    if(is.na(RES_T[ch,jj])){
+      RES_T[ch,jj] = 0
+      buen_t[ch,1] = buen_t[ch,1] - 1
+    }
+  }
+  for(jj in 1:length(RES_TIR[1,])){
+    if(is.na(RES_TIR[ch,jj])){
+      RES_TIR[ch,jj] = 0
+      buen_tir[ch,1]   = buen_tir[ch,1] - 1
+    }
+  }
+}
+buen_ok = pmin(buen_t,buen_tir)
+buen_ok = pmax(buen_ok,rep(1,n.canales))
+
+#################################################
+# seleccion epocas MOR
 # contenedores de resultado
 res_tot  = rep(0,22)
 res_mor  = rep(0,22)
@@ -109,9 +138,9 @@ for(ch in 1:22){
 }
 
 if(porcent){
-  res_tot  =  res_tot/length(RES_T[1,])
-  res_nmor = res_nmor/length(n.mor)
-  res_mor  =  res_mor/length(mor)
+  res_tot  =   res_tot/buen_ok[,1]
+  res_nmor =  res_nmor/buen_ok[,2]
+  res_mor  =   res_mor/buen_ok[,3]
 }
 
 # matriz con todos los datos

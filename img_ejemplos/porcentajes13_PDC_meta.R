@@ -8,7 +8,7 @@ r_dir       = central_dir
 #################################################
 # parametros del script
 p.val  = 0.05
-p.ast  = c(.1,.05,.01)
+p.ast  = c(.05,.01,.005)
 
 grabar.gral = T
 
@@ -100,11 +100,6 @@ row.names(matriz_mor) = nomb_facil
 # cargar los datos
 for(sujeto in 1:12){
   setwd(central_dir)
-  #if(grupo_de[sujeto]!=-1){
-  #  inclusion = T
-  #}else{
-  #  inclusion = F
-  #}
   source('~/TESIS/TESIS/img_ejemplos/porcentajes13_PDC.R')
 }
 

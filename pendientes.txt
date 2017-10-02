@@ -1,0 +1,56 @@
+> mejorar antecedentes, hablar sobre el pdc en relacion al suenno
+  ¿ quitar justificacion ?
+  
+> hacer enfasis en que fisiologia solo se trata de la corteza ceregral
+
+> hablar de las neuronas en la cortez cerebral, mencionar la generacion del eeg
+
+> mencionar del eog y el emg (dibujo y embarrada)
+
+> completar cuadro ondas cerebrales
+
+> buscar dibujos de ondas cerebrales
+
+> quitar cabecita del diabrama, citar las regiones cerebrales reales del sistema 10-20
+
+> completar cuadro fases de sueño
+
+> ¿ en metodologia, hablar del espectro usando psd ? 
+
+> todo lo de matematicas:
+
+ ---Ondas y frecuencias
+
+  > tr discreta de fourier
+
+  > mejorar transformada rapida de fourier
+  
+  > ancho de banda
+  
+  > efecto de alias
+  
+ ---Medidas
+
+  > tr de fourier-stieltjes
+  
+  > citar/demostrar (N)**2 = Xi**2
+
+ ---Espectro evolutivo
+
+  > el espectro evolutivo, descripcion con muchas citas
+  
+  > generalizacion de caso finito
+
+  > efecto de cambiar tamaño de epoca
+  
+> ponerle nombres a las cabecitas
+
+> mejorar las cabecitas de diferencias individuales, puede esperar
+
+> recrear lo de patrones visuales, puede esperar
+
+> hacer mas ejemplo lo de diferentes tamaños de epoca, puede esperar
+
+> robarme a mi mismo las conclusiones, puede esperar
+
+> los espectros faltan, pero es necesario esperar
