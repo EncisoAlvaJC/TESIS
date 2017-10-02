@@ -165,9 +165,8 @@ resaltado con color verde las épocas clasificadas como de sueño MOR.}
 \begin{figure}
 \includegraphics[width=\textwidth]
 {./img_ejemplos/zoom_VCR.pdf}
-\caption{Ejemplos de los patrones visuales que, se propone, está asociado con la aparición del
-sueño MOR: un bloque de épocas PE (rojo), un bloque de épocas no-estacionarias (azul) y un 
-bloque que contiene al sueño MOR}
+\caption{Patrónes visuales propuesto como asociado con el sueño MOR: bloque de épocas estacionarias 
+(rojo), bloque de épocas no-estacionarias (azul), bloque que contiene al sueño MOR}
 \label{patroncito}
 \end{figure}
 
@@ -178,74 +177,25 @@ bloque que contiene al sueño MOR}
 
 \section{Discusión}
 
-Como se mencionó anteriormente, este trabajo parte del supuesto en que los sujetos con PDC 
-presentan con mayor probabilidad estacionariedad débil en sus registros de EEG.
-Se ha aportado evidencia para afirmar que, al comparar sujetos del grupo Control y con PDC, no hay 
-cambios significativos en la porción de tiempo durante la cual el registro de PSG se comporta 
-como débilmente estacionario. 
-Esto puede interpretarse como que, quizá, los mecanismos afectados durante el PDC no provocan que 
-la señal se vuelva más 'simple' (en el sentido de ser estacionaria).
+Este trabajo parte de la hipótesis de que adultos mayores con PDC presentan en mayor medida 
+estacionariedad débil en sus registros de PSG; al comparar sujetos de los grupo Nn (control) y Mn 
+(PDC), no se observaron cambios significativos en la porción de tiempo durante la cual el registro 
+de PSG se comporta como débilmente estacionario. 
+Esto puede interpretarse como que los cambios en la corteza cerebral durante el deterioro 
+cognitivo, no provocan que  la señal se vuelva más \textit{simple} en el sentido de 
+\textit{volverse} estacionaria.
 
-Cabe un comentario sobre cómo la evidencia presentada exhibe al PSG como un conjunto de señales 
-no-estacionarias durante la mayor parte del sueño, como se suele suponer en señales de origen 
-biológico; entonces, no es adecuado analizar este tipo de señales con métodos que supongan 
-estacionariedad, como la estimación del espectro de potencias usando el periodograma 'clásico'. 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\subsection{Sobre los sujetos excluidos}
-
-Durante el trabajo se mencionan tres sujetos (FGH, MGG, EMT) cuyos registros de PSG fueron 
-analizados pero que no son considerados estadísticamente; cada uno de ellos fue excluido, por 
-diversos motivos, del trabajo por Vázquez Tagle y colaboradores \cite{VazquezTagle16}, pero 
-dieron su consentimiento informado para el registro de PSG, debido a lo cual analizó el efecto de 
-su inclusión dentro de los análisis.
-Destaca el sujeto FGH, quien padece de parálisis facial, cataratas, y problemas no especificados 
-en hipotiroides y columna; según se reporta, el sujeto no informó de estos últimos 
-padecimientos sino hasta después del registro de PSG, por lo que su exclusión se efectuó a 
-posteriori.
-
-Un vistazo a los registros 'inusuales' de FGH (figura\ref{FGH_psg}, comparar con 
-\ref{ejemplos_mor}) pudiera haber advertido que en el registro no hay actividad cerebral en los 
-canales correspondientes a la región izquierda (aquella con parálisis) sino ruido amplificado 
-del polisomnógrafo.
-Dentro del marco de este trabajo, destacan las proporciones inusuales de épocas PE (cercanas a 1 
-o 0) para este sujeto en los canales F4, F7, F8, FP1, FP2, FZ, tanto en sueño MOR como NMOR; 
-usando la representación gráfica para FGH, es visible una inusual ausencia total de 
-estacionariedad en tales canales (figura \ref{FGH_especial}, comparar con \ref{ejemplo_graf}). 
-Si bien esta metodología no se diseñó para tal fin, aún así se pudo detectar la falta de 
-actividad cerebral.
-
-\begin{figure}
-\centering
-\includegraphics[width=0.95\linewidth]
-{./img_ejemplos/FGH_297_PDG_lucirse_PSG.pdf} 
-\caption{Una época típica del registro PSG para el sujeto FGH durante sueño MOR. Nótense 
-los patrones periódicos en los canales correspondientes a la región frontal, que no 
-corresponden a la actividad cerebral usual.}
-\label{FGH_psg}
-\end{figure}
-
-\begin{figure}
-\centering
-\includegraphics[width=0.95\linewidth]
-{./img_ejemplos/FGHSUE_est.png} 
-\caption{Compilado gráfico para el sujeto FGH; nótese el patrón inusual (completamente 
-blanco o negro) en los canales correspondientes a la región frontal}
-\label{FGH_especial}
-\end{figure}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Cabe destacar que la evidencia aportada indica que el PSG es un conjunto de señales que se comportan
+como no-estacionarias durante la mayor parte del sueño, lo cual confirma el supuesto usual de que 
+las señales de origen biológico son por naturaleza no-estacionarias. 
 
 \subsection{Efecto del tamaño de las época}
 
-El uso de épocas de 30 segundos está motivado por las recomendaciones de la AASM para 
-clasificar, de manera estandarizada, las etapas de sueño a partir de registros de PSG 
-\cite{AASM07}. 
-No se discutirán en este trabajo motivaciones o evidencia para usar esta longitud de época en 
-particular, ni para el caso contrario, sino que se acepta por fines de comparabilidad. 
+Como se mencionó anteriormente, el uso de épocas de 30 segundos está motivado por las 
+recomendaciones de la AASM para clasificar, de manera estandarizada, las etapas de sueño a partir de 
+registros de PSG \cite{AASM07}. 
+%No se discutirán en este trabajo motivaciones o evidencia para usar esta longitud de época en 
+%particular, ni para el caso contrario, sino que se acepta por fines de comparabilidad. 
 Sin embargo, en algún momento de este trabajo se usaron los registros de PSG organizados en 
 épocas de 10 segundos de duración, como se muestra en la figura \ref{epocas_diferentes}. 
 Se realizaron todos los análisis descritos usando esta segmentación mixta (algunos sujetos con 
@@ -256,14 +206,16 @@ en épocas de 10 s, cambia sustancialmente (ver figura \ref{comp_VCR}).
 
 \begin{figure}
 \centering
-\includegraphics[width=0.9\linewidth] 
-{./img_ejemplos/VCNNS1_est_60.png} 
-\\
+%\includegraphics[width=0.9\linewidth] 
+%{./img_ejemplos/VCNNS1_est_60.png} 
+%\\
+%\includegraphics[width=0.9\linewidth]
+%{./img_ejemplos/VCNNS1_est_30.png} 
+%\\
+%\includegraphics[width=0.9\linewidth]
+%{./img_ejemplos/VCNNS1_est_10.png} 
 \includegraphics[width=0.9\linewidth]
-{./img_ejemplos/VCNNS1_est_30.png} 
-\\
-\includegraphics[width=0.9\linewidth]
-{./img_ejemplos/VCNNS1_est_10.png} 
+{./img_ejemplos/VCNNS1_comp_est_.png}
 \caption{Compilación gráfica de las épocas clasificadas como PE, distribuidas en el tiempo
 para cada uno de los canales. El registro corresponde al sujeto VCR, organizando el registro en
 épocas de diferente duración}
@@ -325,6 +277,54 @@ como PE.
 Esta hipótesis explicaría el cambio observado al cambiar el tamaño de la época; de manera
 arriesgada, se podría concluir que, entre los individuos con PDC, la homogeneidad del PSG es muy
 similar durante MOR y NMOR.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Sobre los sujetos excluidos}
+
+Durante el trabajo se mencionan tres sujetos (FGH, MGG, EMT) cuyos registros de PSG fueron 
+analizados pero que no son considerados estadísticamente; cada uno de ellos fue excluido, por 
+diversos motivos, del trabajo por Vázquez Tagle y colaboradores \cite{VazquezTagle16}, pero 
+dieron su consentimiento informado para el registro de PSG, debido a lo cual analizó el efecto de 
+su inclusión dentro de los análisis.
+Destaca el sujeto FGH, quien padece de parálisis facial, cataratas, y problemas no especificados 
+en hipotiroides y columna; según se reporta, el sujeto no informó de estos últimos 
+padecimientos sino hasta después del registro de PSG, por lo que su exclusión se efectuó a 
+posteriori.
+
+Un vistazo a los registros 'inusuales' de FGH (figura\ref{FGH_psg}, comparar con 
+\ref{ejemplos_mor}) pudiera haber advertido que en el registro no hay actividad cerebral en los 
+canales correspondientes a la región izquierda (aquella con parálisis) sino ruido amplificado 
+del polisomnógrafo.
+Dentro del marco de este trabajo, destacan las proporciones inusuales de épocas PE (cercanas a 1 
+o 0) para este sujeto en los canales F4, F7, F8, FP1, FP2, FZ, tanto en sueño MOR como NMOR; 
+usando la representación gráfica para FGH, es visible una inusual ausencia total de 
+estacionariedad en tales canales (figura \ref{FGH_especial}, comparar con \ref{ejemplo_graf}). 
+Si bien esta metodología no se diseñó para tal fin, aún así se pudo detectar la falta de 
+actividad cerebral.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.95\linewidth]
+{./img_ejemplos/FGH_297_PDG_lucirse_PSG.pdf} 
+\caption{Una época típica del registro PSG para el sujeto FGH durante sueño MOR. Nótense 
+los patrones periódicos en los canales correspondientes a la región frontal, que no 
+corresponden a la actividad cerebral usual.}
+\label{FGH_psg}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.95\linewidth]
+{./img_ejemplos/FGHSUE_est.png} 
+\caption{Compilado gráfico para el sujeto FGH; nótese el patrón inusual (completamente 
+blanco o negro) en los canales correspondientes a la región frontal}
+\label{FGH_especial}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
