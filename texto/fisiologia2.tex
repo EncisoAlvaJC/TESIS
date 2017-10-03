@@ -124,30 +124,40 @@ nivel de escolaridad de cada participante.
 
 \section{Fisiología}
 
-El registro de la actividad eléctrica en el 
-%sistema nervioso central, y en particular del cerebro, 
-cerebro
-está tradicionalmente relacionado con la exploración de procesos mentales (dominios) y de sus 
-trastornos; como ejemplo se puede citar que Hans Berger, reconocido como el creador de dicha
-técnica, estudió los posibles cambios en el EEG de pacientes con Alzheimer en 1932189
---sus primeros hallazgos usando el EEG fueron publicados en 19999.
+El registro de la actividad eléctrica en el cerebro, referido como \textbf{electroencefalograma} 
+(EEG), está tradicionalmente relacionado con la exploración de procesos mentales y sus trastornos; 
+como ejemplo se puede citar que Hans Berger, reconocido como el inventor del EEG, reportó usar 
+dicha técnica en 1932 para estudiar posibles cambios en un paciente con Alzheimer 
+\cite{historia_eeg}.
+%
+En esta sección y la siguiente se expone el \textit{sustrato} fisiológico del EEG, es decir el
+mecanismo biológico que da lugar a lo que se conoce como EEG; la explicación es más bien
+pragmática y se enfoca exclusivamente a la corteza cerebral (ver más adelante), pues dicha 
+estructura contribuye mayoritariamente al EEG [??].
 
-El sistema nervioso central (SNS) consiste en la médula espinal y el cerebro; 
-%siendo el segundo una
-%porción altamente especializada del primero; 
-este último aparece protegido por las meninges (tres capas protectoras) y está inmerso en el 
-líquido cefalorraquídeo.
-El cerebro se divide en tres partes: tallo cerebral, cerebelo y hemisferios cerebrales; éstos 
-últimos son asociados con las llamadas \textit{funciones superiores},
-%como son uso de lenguaje,
-%reconocimiento de rostros, aprendizaje, conciencia, etc., 
-entre las cuales se encuentran los dominios psicológicos,
-por lo que se les prestará atención de manera exclusiva.
+De manera general el sistema nervioso central consiste en la médula espinal y el cerebro, este 
+último se encuentra inmerso en el líquido cefalorraquídeo y protegido por las meninges.
+El cerebro se divide en tallo cerebral, cerebelo y hemisferios cerebrales (ver figura 
+\ref{lobulos}); éstos últimos son asociados con las \textit{funciones superiores}: atención y 
+memoria, reconocimiento de patrones, uso del lenguaje, etc.
 
-Los hemisferios cerebrales se componen de capas, de las cuales la más externa se conoce como
-\textbf{corteza cerebral}; tiene cerca de 1 cm de espesor y un color grisáceo debido a que las 
-células nerviosas en esa capa están muy densamente empaquetadas, y debido a lo cual se le conoce
-como \textit{materia gris}.
+\begin{figure}
+\centering
+\includegraphics[width=\linewidth]{./img_diagramas/cerebro_zonas.pdf} 
+\caption{División de la corteza cerebral en lóbulos.
+Este gráfico será redibujado.
+}
+\label{lobulos}
+\end{figure}
+
+Los hemisferios cerebrales se componen de capas de las cuales la más externa, conocida como
+\textbf{corteza cerebral}, tiene cerca de 1 cm de grosor y está integrada por neuronas piramidales 
+(ver más adelante) densamente empaquetadas y altamente interconectadas entre sí; evolutivamente es 
+la estructura más \textit{reciente} del cerebro humano, y se ha mostrado su papel protagónico en 
+las funiones superiores \cite{Clark98_2}.
+% tiene cerca de 1 cm de espesor y un color grisáceo debido a que las 
+%células nerviosas en esa capa están muy densamente empaquetadas, y debido a lo cual se le conoce
+%como \textit{materia gris}.
 
 La corteza cerebral presenta numerosos pliegues organizados en \textit{giros} (crestas) y
 \textit{surcos} (valles), los surcos más profundos se llaman \textit{fisuras} y son usados como 
@@ -156,24 +166,30 @@ referencia; la fisura lateral define al \textbf{lóbulo temporal} como la porci�
 éste (ver figura \ref{lobulos}). Los \textbf{lóbulos parietal y occipital} se encuentran, 
 respectivamente, detrás de los lóbulos frontal y temporal.
 
-Varias de las funciones superiores han sido asociadas con regiones específicas del cerebro, por
-ejemplo, la región superior del lóbulo frontal está asociada con el procesamiento auditivo, y la
-región superior del lóbulo occipital está asociada con el procesamiento primario de imágenes;
-algunas otras funciones, como la memoria, actúan sobre múltiples estructuras \cite{Clark98_2}.
+%Varias de las funciones superiores han sido asociadas con regiones específicas del cerebro, por
+%ejemplo, la región superior del lóbulo frontal está asociada con el procesamiento auditivo, y la
+%región superior del lóbulo occipital está asociada con el procesamiento primario de imágenes;
+%algunas otras funciones, como la memoria, actúan sobre múltiples estructuras 
+%\cite{Clark98_2}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\subsection{Electrofisiología}
+
+La parte central de la generación son las neuronas, cuyo mecanismo de transmisión a partir de
+descargas iónicas en la membrana ha sido extendsamente estudiado, la descripcion puede verla en
+Ermentroutt
 
 \begin{figure}
 \centering
-\includegraphics[width=\linewidth]{./img_diagramas/cerebro_zonas.pdf} 
-\caption{Referentes fisiológicos usadas para definir a los lóbulos cerebrales. 
-Este gráfico será redibujado.
+\includegraphics[width=\linewidth]{./img_diagramas/electrofisiologia.pdf} 
+\caption{Generación del EEG (A) Estructuras principales involucradas. (B) Neurona. 
+(C) Generación del EEG a partir de la transmisión neuronal.
 }
-\label{lobulos}
+\label{electro_fisio}
 \end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\subsection{Electrofisiología}
 
 \subsection{Polisomnografía}
 
@@ -194,37 +210,42 @@ En la figura \ref{ritmos} se representa un arquetipo visual de cada tipo de onda
 
 \begin{figure}
 \centering
-\includegraphics[width=0.55\linewidth]{./img_diagramas/ritmos_hechos.pdf} 
-\caption{Ejemplos de ondas cerebrales encontradas en el EEG. Reconstruido de \textit{EEG Signal 
-Processing}, por S. Sanei y J. A. Chambers \cite{Sanei07} }
+%\includegraphics[width=0.55\linewidth]{./img_diagramas/ritmos_hechos.pdf} 
+\includegraphics[width=0.9\linewidth]{./img_ejemplos/144177-004-7621DE7D.jpg} 
+\caption{Ejemplos de ondas cerebrales encontradas en el EEG. 
+%Reconstruido de \textit{EEG Signal Processing}, por S. Sanei y J. A. Chambers \cite{Sanei07} 
+}
 \label{ritmos}
 \end{figure}
 
 \begin{table}
 \centering
+{\small
 \begin{tabular}{lclll}
 \toprule
-&{Frecuencia} && \\
-&{[Hz]} & {Ubicación usual} & {Condiciones usuales} \\
+%&{Frecuencia} && \\
+&{Frecuencia [Hz]} & {Ubicación usual} & {Condiciones usuales} \\
 \midrule
-{Delta} & 0.5 -- 3.5 && Sueño profundo en infantes\\
-&&& Enfermedades orgánicas del cerebro\\
-{Theta} & 3.5 -- 7   & Parietal, Temporal & En infantes\\
-&&& Durante estrés emocional \\
-{Alfa}  & 7 -- 12    & Occipital, Frontal& Vigilia, en un estado de \\
-&& Parietal & quietud del pensamiento\\
-{Beta}  & 12 -- 30   &Parietal, Frontal&\\
-&&& \\
+{Delta} & 0.5 -- 3.5 && Síndromes focales. Sueño \\
+&&& profundo en infantes \\
+{Theta} & 3.5 -- 7   & P, T & Durante estrés emocional. \\
+&&& En infantes \\
+{Alfa}  & 7 -- 12    & F, P, O & Vigilia en reposo con \\
+&& & ojos cerrados \\
+{Beta}  & 12 -- 30   &P, F&      Actividad mental en\\
+&&& adultos \\
 {Gamma} & 30 -- 100  &&\\
 &&& \\
 \midrule
-{Husos de sueño} &&&\\
-&&& \\
-{Complejos K} &&&\\
+{Husos de} &&&\\
+sueño &&& \\
+{Complejo K} &&&\\
 &&& \\
 \bottomrule
 \end{tabular}
-\caption{Ondas cerebrales, generalidades}
+}
+\caption{Generalidades sobre ondas cerebrales. Se abrevian los lóbulos cerebrales como
+F (frontal), P (parietal), T (temporal), O (occipital)}
 \label{tabla_ondas}
 \end{table}
 
@@ -238,17 +259,19 @@ arreglos llamados \textbf{montajes}, entendidos como el conjunto de
 En el trabajo de Vázquez Tagle \cite{VazquezTagle16} se usa un montaje \textit{referencial}, en el 
 que los electrodos se conectan en paralelo con un electrodo de referencia cuya actividad eléctrica 
 es constante y negligible (lóbulos de las orejas, electrodos A1, A2);
-el resto de los electrodos fueron colocados en los sitios descritos por el \textit{International 
-Federation 10--20 system} (\textbf{Sistema 10--20}), propuesto por la \textit{International 
-Federation of EEG Societies} \cite{Jasper58,Klem99,AASM07}, y que se muestran el la figura \ref{img1020}.
-
+el resto de los electrodos fueron colocados en los sitios descritos por el \textbf{Sistema 10--20}, 
+propuesto por la \textit{International Federation of EEG Societies} \cite{Jasper58,Klem99}, 
+y que se muestran el la figura \ref{img1020}.
+%
 El sistema 10--20 usa como referentes al \textbf{inion}, protuberancia la región posterior del 
 cráneo, el \textbf{nasión}, la unión del hueso frontal y los huesos nasales, y el \textbf{punto 
 preauricular}, ubicado arriba del cartílago llamado tragus, que protege el canal auditivo ; los 
 sitios son ubicados según una cuadrícula construida respecto a las distancias 
 relativas entre los puntos de referencia.
-En la figura \ref{corresponde_1020} se muestra, de forma igualmente esquemática, las regiones de la 
-corteza cerebral que se corresponden a tales sitios (y de los cuales toman nombre).
+
+%En la figura \ref{corresponde_1020} se muestran esquemáticamente las regiones de la corteza 
+%cerebral que se corresponden a tales sitios (y de los cuales toman nombre); para une revisión más
+%concreta de estos datos, ver .
 
 \begin{figure}
 \centering
@@ -258,14 +281,14 @@ corteza cerebral que se corresponden a tales sitios (y de los cuales toman nombr
 \label{img1020}
 \end{figure}
 
-\begin{figure}
-\centering
-\includegraphics[width=\linewidth]{./img_diagramas/cerebro_1020_v2.pdf} 
-\caption{Correspondencia entre el montaje del Sistema 10-20 y las regiones en la corteza cerebral 
-que representan
-}
-\label{corresponde_1020}
-\end{figure}
+%\begin{figure}
+%\centering
+%\includegraphics[width=\linewidth]{./img_diagramas/cerebro_1020_v2.pdf} 
+%\caption{Correspondencia entre el montaje del Sistema 10-20 y las regiones en la corteza cerebral 
+%que representan
+%}
+%\label{corresponde_1020}
+%\end{figure}
 
 Debido a que las neuronas en la corteza cerebral tienen orientaciones muy diversas y a que disparan 
 de manera asíncrona, además de que el cerebro se encuentra cubierto por las muchas capas descritas
@@ -276,7 +299,6 @@ de ser registradas digitalmente.
 %externo, lo cual provoca una respuesta simultánea; estas respuestas suelen tener una amplitud 
 %relativamente alta y son referidas como \textbf{potenciales evocados}.
 %
-
 Un efecto colateral de amplificar la señal es la inclusión de \textbf{ruido}, entendido como 
 señales que son registradas de manera no deseada.
 Como ejemplo, los músculos faciales, medianamente contraídos, generan campos eléctricos con
@@ -290,15 +312,45 @@ alfa por cerca de dos segundos.
 La variedad de artefactos conocidos es muy basta, al grado de
 considerarse a la detección de éstos como un paso previo inevitable.
 
+Adicionalmente al regstro de EEG, el PSG contiene registro de otras \textit{variables fisiológicas}:
+respiración, ritmo cardiaco, tono muscular, etc. En el estudio por Vázquez-Tagle se complementó el
+PSG con registro de actividad ocular y tono muscular, según las recomendaciones de la AASM.
+
+El registro de actividad ocular, referido como \textbf{electrooculograma} (EOG), fue obtenido
+con dos electrodos por cada ojo colocados como en la figura \ref{emg_eog} 
+(canales LOG, ROG).
+Para interpretar el EOG
+se supone que el ojo se comporta como una batería con polos en la retina y la pupila, de modo que
+el registro representa la proyección de los movimientos sobre el eje que forman los electrodos. 
+A su vez, el registro de
+tono muscular (\textbf{electromiograma}, EMG) es obtenido de los músculos sub-mentonianos a partir 
+de tres electrodos colocados como en la figura \ref{emg_eog} (canal EMG).
+El registro en este canal debe interpretarse como la actividad eléctrica de la placa motora tal.
+Debido a que las actividades en EOG y EMG no presentan la atenuación por el cráneo, estas señales
+no son amplificadas.
+
+\begin{figure}
+\centering
+\includegraphics[width=\linewidth]
+{./img_diagramas/emg_eog.pdf}
+\caption{Colocación de los electrodos para registrar la actividad ocular (canales LOG, ROG) y el
+tono muscular (canal EMG)}
+\label{emg_eog}
+\end{figure}
+
+En la figura \ref{ejemplos_mor} puede verse un ejemplo de PSG para los 22 canales en un lapso de
+10 segundos.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Estructura del sueño}
 
-Se define al \textbf{sueño} como \textit{un proceso vital cíclico complejo y activo, compuesto por 
-varias fases y que posee una estructura interna característica, con diversas interrelaciones en los 
-sistemas hormonales y nerviosos};
-en el ser humano presenta las siguientes propiedades \cite{CarrilloMora}:
+%Se define al \textbf{sueño} como \textit{un proceso vital cíclico complejo y activo, compuesto por 
+%varias fases y que posee una estructura interna característica, con diversas interrelaciones en los 
+%sistemas hormonales y nerviosos};
+Se entiende al sueño como un proceso vital, con una estructura característica, y que en el ser 
+humano presenta las siguientes propiedades \cite{CarrilloMora}:
 \begin{enumerate}
 \item Disminución de conciencia y reactividad a estímulos externos
 \item Fácilmente reversible, a diferencia de estados patológicos como estupor y coma
@@ -312,7 +364,7 @@ fisiológicas, además de que genera una \textit{deuda} acumulativa
 La duración del sueño es determinada en gran parte por la edad; el recién nacido duerme entre 14 y 
 18 horas, el lactante entre 12 y 14 horas, el niño en etapa escolar entre 11 y 12 horas y en la 
 edad adulta, la mayoría duerme entre 7 y 8 horas por noche \cite{Contreras13}.
-Sin embargo, y como se mencionó, el sueño no es un proceso homogéneo sino que tiene una estructura 
+Sin embargo, el sueño no es un proceso homogéneo sino que tiene una estructura 
 por etapas con rasgos electroencefalográficos y fisiológicos distintivos.
 
 %Según la tradición iniciada por Aserinsky y Kleitman en 1953, la clasificación del sueño
@@ -346,24 +398,27 @@ fase suelen recordar vívidamente el contenido de sus ensoñaciones
 
 \begin{table}
 \centering
+{\small
 \begin{tabular}{lllll}
 \toprule
 \multicolumn{2}{l}{Etapa}& Características  & Movimientos & Tono \\
 &&del EEG & oculares & muscular \\
 \midrule
-Vigilia & W & Ritmo alfa en $> 50$\% de la época & \nop & \sip, alto \\
-&& en la región occipital && \\
-NMOR 1 & N1 &  &  &  \\
-&&  && \\
-NMOR 2 & N2 &  &  &  \\
-&&  && \\
-NMOR 3 & N3 &  &  &  \\
-&&  && \\
-MOR & R &  &  &  \\
-&&  && \\
+Vigilia & W  & \textbf{Ritmo alfa} en $>50$\% de la época    & No & Alto \\
+        &    & en la región occipital                &    &      \\
+NMOR 1  & N1 & Cambio de alfa por AABFM, atenuación & Lentos & Variable,     \\
+        &    & del ritmo dominante. Ondas agudas   &    & $<$W     \\
+NMOR 2  & N2 & Husos de sueño y complejos K en la    & No & Variable     \\
+        &    & primera mitad de la época. AABFM &    & $<$W, $>$R    \\
+NMOR 3  & N3 & \textbf{Ondas lentas} (0.5--2 Hz, $> 75 \mu$V)& No & Variable, \\
+        &    & para $>20$\% de la época. Husos de sueño       && $<$N2, $\approx$R     \\
+MOR     & R  & Actividad baja amplitud y frecuencias & MOR's & Bajo  \\
+        &    & mixtas. Ondas 'saw-tooth'             &       &       \\
 \bottomrule
 \end{tabular}
-\caption{Criterios para la clasificación de etapas de sueño según la AASM \cite{Vaughn08} }
+}
+\caption{Criterios para la clasificación de etapas de sueño según la AASM \cite{Vaughn08}.
+Por espacio se abvrevia AABFM = actividad de amplitud baja y frecuencias mixtas }
 \end{table}
 
 \begin{figure}
