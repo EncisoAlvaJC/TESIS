@@ -140,16 +140,17 @@ if(grabar){
 
 #################################################
 # ajustes graficos
-require(png)
-cab.ar = readPNG('~/TESIS/TESIS/img_resultados/cabeza_fondo.png')
-cab    = as.raster((cab.ar))
-par(oma=c(0,0,0,0),
-    mar=c(0,0,0,0))
-plot(0,type='n',xlim=c(0,1),ylab=c(0,1),xaxt='n',yaxt='n',bty='n')
-rasterImage(cab.ar,0,-1,1,1)
+#require(png)
+#cab.ar = readPNG('~/TESIS/TESIS/img_resultados/cabeza_fondo.png')
+#cab    = as.raster((cab.ar))
+#par(oma=c(0,0,0,0),
+#    mar=c(0,0,0,0))
+#plot(0,type='n',xlim=c(0,1),ylab=c(0,1),xaxt='n',yaxt='n',bty='n')
+#rasterImage(cab.ar,0,-1,1,1)
 
 par(oma=c(0,0,0,0),
-    mar=c(0,0,0,0))
+    mar=c(0,0,0,0),
+    bg = 'white')
 
 dx = .9/5
 dy = .9/6
@@ -251,12 +252,14 @@ for(ch in 1:22){
   
   par(fig=c(x0+dx*(xc[ch]-.8),x0+dx*(xc[ch]-.1),
             y0+dy*(yc[ch]-.8),y0+dy*(yc[ch]-.1)), new=TRUE)
+  par(cex.axis=0.5,
+      mgp=c(0,.5,0))
   
   plot(0,type='n',
        ylim=c(0,100),xlim=log(c(min(duraciones),max(duraciones))),
        xlab='',ylab='',xaxt='n',yaxt='n',main='',bty='n')
   
-  #axis(2,at=20*(0:5),las=2)
+  axis(2,at=20*(0:5),las=2)
   axis(2,at=20*(0:5),las=2,labels=F)
   for(i in 20*(0:5)){
     abline(h=i,col='gray')
@@ -271,10 +274,11 @@ for(ch in 1:22){
   
   
   numeritos = rep('no',n.dur)
-  #for(i in 1:n.dur){
-  #  numeritos[i] = toString(duraciones[i])
-  #}
-  #axis(1,at=log(duraciones),label=numeritos)
+  for(i in 1:n.dur){
+    d_txt = round(10*duraciones[i])/10
+    numeritos[i] = toString(d_txt)
+  }
+  axis(1,at=log(duraciones),label=numeritos,las = 2)
   axis(1,at=log(duraciones),label=F)
   
   legend(x='topright',bty = 'n',legend = canal,col='white')
@@ -283,6 +287,22 @@ for(ch in 1:22){
 }
 # fin ciclo recorre canales
 #################################################
+
+par(fig=c(x0+dx*(1.5-.8),x0+dx*(1.5-.1),
+          y0+dy*(1-.8),y0+dy*(1-.1)), new=TRUE,
+    oma=c(0,0,0,0))
+par(cex.axis=0.5,#cex.lab=0.5,
+    mgp=c(0,.5,0))
+plot(0,type='n',
+     ylim=c(0,100),xlim=log(c(min(duraciones),max(duraciones))),
+     #xlab='Duración época [s]',
+     #ylab='Épocas\n estacionarias [%]',xaxt='n',yaxt='n',main=''
+     xlab='',ylab='',xaxt='n',yaxt='n',bty='n'
+     )
+#axis(2,lab='Épocas\n est. [%]',las=3,labels=F)
+legend('topright',legend=c('NMOR','MOR'),lty=c(2,3),
+       bty='n',lwd=2,pch=c(15,1),col='blue')
+
 
 setwd(dir_graf)
 if(grabar){

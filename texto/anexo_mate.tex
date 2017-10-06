@@ -98,6 +98,38 @@ Estas funciones son \'unicas excepto por constantes, y en conjunto son llamados 
 
 \section{Procesos estocásticos}
 
+\begin{definicion}[Proceso estoc\'astico]
+Un proceso estocástico \xt es una familia de variables aleatorias reales, 
+indexadas por $t \in T$.
+\label{proc_estocastico}
+\end{definicion}
+
+Respecto al conjunto $T$ que indexa a un proceso estocástico, y que será referido como 
+\textit{tiempo}, conviene introducir dos grandes grupos para los mismos
+\begin{itemize}
+\item \textit{Continuo} si $T$ es un intervalo cerrado
+\item \textit{Discreto} si $T$ es de la forma 
+$\{ t_0 + n \delta \lvert n \in U \subseteq \mathbb{Z} \}$
+\end{itemize}
+
+Los procesos a tiempo discreto contemplan conjuntos finitos e infinitos de puntos en el tiempo.
+No se manejan discutirá sobre otros tipos de tiempo en este trabajo.
+
+Como notación, se usará \xt  para el proceso estocástico y $X(t)$ para una de las variables
+aleatorias que lo componen; de la misma manera $x(t)$ es una realización de $X(t)$ y $F_{X(t)}$ 
+es la función de probabilidad acumulada para $X(t)$.
+
+
+
+\begin{definicion}[Continuidad estocástica en media cuadrática]
+Un proceso estocástico a tiempo continuo $\{ X(t) \}$ es estocásticamente continuo, en el 
+sentido de media cuadrática, en un tiempo admisible $t_0$ si y sólo si
+\begin{equation*}
+\lim_{t \rightarrow t_0} \E{\left( X(t) - X(t_0) \right)^{2}} = 0
+\end{equation*}
+\label{cont_est}
+\end{definicion}
+
 Una forma natural de pensar en la definici\'on \ref{cont_est} es que, si $\abso{t-t_0}$ es muy 
 peque\~no, entonces $X(t)$ y $X(t_0)$ difieren muy poco entre s\'i (como variables aleatorias).
 Es destacable que si un proceso es estoc\'asticamente continuo en un intervalo, sus realizaciones 
@@ -129,6 +161,33 @@ $t$ y $s$ (con $s>t$) las siguientes propiedades:
 \label{r_wiener}
 \end{definicion}
 
+\begin{definicion}[Estacionariedad débil]
+Un proceso estocástico \xt es débilmente estacionario si y sólo si para cualesquiera tiempos 
+admisibles\footnote{El término \textit{tiempos admisibles} significa que la definición es la misma
+para diferentes tipos de tiempo, bajo las restricciones pertinente} $t$, $s$ se tiene que
+\begin{itemize}
+\item $\E{X(t)} = \mu_X$
+\item $\Var{X(t)} = \sigma^{2}_X$
+\item $\Cov{X(t),X(s)} = \rho_X (s-t)$
+\end{itemize}
+Donde $\mu_X$, $\sigma^{2}_X$ son constantes, $\rho_X(\tau)$ es una función que únicamente 
+depende de $\tau$
+\label{est_orden_primera}
+\end{definicion}
+
+\begin{definicion}[Función de espectro integrado]
+Sea \xt un proceso a tiempo continuo, débilmente estacionario. Se define su
+función de espectro integrado como
+%\begin{align*}
+%H(\omega_2) - H(\omega_1) &= \frac{1}{2 \pi} \int_{\omega_1}^{\omega_2} h(\lambda) d\lambda \\
+%&= \frac{1}{2 \pi} \intR \frac{e^{- i \omega_2 t}-e^{- i \omega_1 t}}{- t \tau} R(\tau) d\tau
+%\end{align*}
+\begin{equation*}
+H(\omega_2) - H(\omega_1) = 
+\frac{1}{2 \pi} \intR \frac{e^{- i \omega_2 t}-e^{- i \omega_1 t}}{- i \tau} R(\tau) d\tau
+\end{equation*}
+Donde $h$ es la FDE para \xt
+\end{definicion}
 
 \section{Periodograma}
 
@@ -183,9 +242,126 @@ Donde $dH(\omega)$ la FDE integrada de $\{X(t)\}$
 %\label{rep_espectral}
 \end{teorema}
 
+\begin{teorema}[Wiener-Khinchin]
+Una condición suficiente y necesaria para que $\rho$ sea una función de autocorrelación de 
+algún proceso estocástico a tiempo continuo $\{X(t)\}$ débilmente estacionario y 
+estocásticamente continuo, es que exista una función $F$ que tenga las siguientes propiedades
+\begin{itemize}
+\item Monótonamente creciente
+\item $F(-\infty) = 0$
+\item $F(+\infty) = 1$
+\end{itemize}
+y tal que para todo $\tau \in \R$ se cumple que
+\begin{equation*}
+\rho(\tau) = \intR e^{i \omega \tau} dF(\omega)
+\end{equation*}
+\label{t_wienerkhinchin}
+\end{teorema}
+
+\begin{teorema}[Wold]
+Una condición suficiente y necesaria para que $\rho$ sea una función de autocorrelación de 
+algún proceso estocástico a tiempo discreto $\{X(t)\}$ débilmente estacionario es que exista 
+una función $F$ con las siguientes propiedades
+\begin{itemize}
+\item Monótonamente creciente
+\item $F(-\pi) = 0$
+\item $F(+\pi) = 1$
+\end{itemize}
+y tal que para todo $\tau \in \R$ se cumple que
+\begin{equation*}
+\rho(\tau) = \intPI e^{i \omega \tau} dF(\omega)
+\end{equation*}
+\label{t_wold}
+\end{teorema}
+
 En virtud del teorema de Wold, se puede tener una variante del teorema \ref{rep_espectral}
 para procesos a tiempo discreto, raz\'on por la cual  
 tal representaci\'on es referida como \textbf{representaci\'on de Wold-Cram\'er}.
+
+
+Conviene introducir estimadores para la función de autocovarianza de un proceso débilmente 
+estacionario, $\{ X(t) \}$, a partir de un conjunto de $N$ observaciones equiespaciadas en el 
+tiempo con separación $\Delta t$; se denotará a estas observaciones como 
+$x_1, x_2 , \dots, x_N$. Como se cumple la siguiente propiedad para la función de autocovarianza, 
+$R$, por definición
+\begin{equation*}
+R(\tau) = \E{X(n\Delta t)X(n\Delta t + \tau)} \text{  ,  } n = 0, 1, 2,  3,\dots, N
+\end{equation*}
+el estimados estándar para $R$ está dado por la siguiente expresión
+\begin{equation*}
+\widehat{R}(\tau) = \frac{1}{N-\abso{\tau}} 
+\sum_{t = 1}^{N-\abso{\tau}} x_t x_{t+\abso{\tau}}
+\label{estimador_R}
+\end{equation*}
+
+Se puede demostrar que $\widehat{R}$ es un estimador insesgado\footnote{Un estimador para el 
+parámetro $\theta$, $\widehat{\theta}$, se dice \textbf{insesgado} si 
+$\E{\widehat{\theta}}=\theta$} y consistente\footnote{Un estimador para el parámetro $\theta$ que 
+depende de $N$ observaciones, 
+$\widehat{\theta}_N$, se dice \textbf{consistente} si 
+$\lim_{N\rightarrow \infty} \Var{\widehat{\theta}_N} = 0$} 
+para $R$; sin embargo conviene introducir un estimador diferente para $R$
+\begin{equation*}
+\aste{R}(\tau) = \frac{1}{N} 
+\sum_{t = 1}^{N-\abso{\tau}} x_t x_{t+\abso{\tau}}
+\label{estimador_R_ast}
+\end{equation*}
+
+\begin{teorema}
+Sean $x_1, x_2 , \dots, x_N$ observaciones de un proceso estocástico de media cero y varianza
+finita. Se puede calcular el periodograma para estos datos como
+\begin{equation*}
+I_N(\omega) = 2 \sum_{r = -(N-1)}^{N-1} \aste{R}(r) \COS{r \omega}
+\end{equation*}
+Donde $\aste{R}$ es el estimador para la función de autocovarianza del proceso, calculado como
+$\widehat{R}(\tau) = \frac{1}{N-\abso{\tau}} \sum_{t = 1}^{N-\abso{\tau}} x_t x_{t+\abso{\tau}}$
+\label{periodograma_rho}
+\end{teorema}
+
+Se puede demostrar que el periodograma es un estimador insesgado de la FDE para los proceso 
+considerados; sin embargo, si el proceso tuviera un espectro puramente continuo, ocurre que 
+$\lim_{N\rightarrow \infty} \Var{I_N(\omega)} = h^{2}(\omega)$, con $h$ la FDE del proceso: el 
+periodograma, en general, no es consistente.
+En parte esto ocurre porque el periodograma depende de los estimadores para la función de 
+autocovarianza, $\est{R}$, evaluada en todos los puntos posibles: para calcular $\est{R}$ en 
+valores muy altos se requieren puntos muy alejados, los cuales son menos abundantes e implican 
+una mayor varianza.
+
+Si efectivamente el periodograma aumenta su varianza cuando incluye las 'colas' de la función de 
+autocovarianza, entonces una solución es evitarlas, multiplicando por una función de pesos. 
+Tales consideraciones dan origen a estimadores de la forma
+\begin{equation*}
+\est{h}(\omega) = \frac{1}{2\pi} \sum_{s = -(N-1)}^{N-1} 
+\lambda(s) \aste{R}(s) e^{i \omega t}
+\label{ventaneando}
+\end{equation*}
+donde la función de pesos, $\lambda$, es referida como \textbf{ventana de retrasos}. Para 
+estudiar las propiedades estos estimadores, conviene reescribirlos en función del periodograma
+
+\begin{equation*}
+\est{h}(\omega) = \intPI I_N(\theta) W(\omega-\theta) d\theta
+\end{equation*}
+donde $W$ es la transformada de Fourier finita de $\lambda$
+\begin{equation*}
+W(\theta) = \frac{1}{2\pi} \sum_{s = -(N-1)}^{N-1} \lambda(s) e^{-is\theta}
+\end{equation*}
+
+Cabe destacar la forma que adopta $\est{h}$ como la convolución $I_N \ast W$, que bien puede 
+entenderse como que $W$ es una función de pesos en el 'dominio de las frecuencias'; por ello, $W$ 
+es referida como \textbf{ventana de retrasos}.
+En la tabla \ref{ventanas} hay una lista corta de algunas funciones tipo ventana. Estos estimadores 
+son consistentes y sesgados, aunque son asintóticamente insesgados.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{proposicion}
+Sean $u$ y $v$ dos funciones tipo \textit{pseudo $\delta$ de Dirac}, es decir, unimodales con un
+máximo  y (...). Si $u$ tiene una concentración muy alta, con relación a $v$, entonces
+\begin{equation*}
+\intR u(x) v(x+k) dx \approx v(k) \intR u(x) dx
+\end{equation*}
+\label{pseudo_d}
+\end{proposicion}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
