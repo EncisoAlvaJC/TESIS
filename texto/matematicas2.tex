@@ -35,29 +35,33 @@ La \textbf{transformada de Fourier \textit{clásica}} ($\mathscr{F} $) se entien
 un operador\footnote{Un operador es efectivamente una función, cuyo dominio es un conjunto de 
 funciones; toma un nombre distinto para evitar confusiones} que asocia una función $S=S(t)$,
 periódica con periodo $2T$, con una serie $A = A(n),  {n\in \Z}$ tal que
-\begin{equation*}
+\begin{equation}
 A(n) = \frac{1}{2T} \int_{-T}^{T} S(t) e^{ -i t \frac{n}{2T}} dt
-\end{equation*}
+\label{txt_s_fourier}
+\end{equation}
 %
 donde el factor $\frac{n}{2T}$ es referido como \textit{frecuencia}; y se dice que 
 $\mathscr{F}[S] = A$. Los detalles formales sobre $\mathscr{F}$ se exponen en el anexo A.
 %
 Con respecto a la \textbf{energía}, de manera operativa ésta se define 
 como\footnote{Potencia = Energía / Tiempo, ver anexo A}
-\begin{align*}
+\begin{equation}
 \text{potencia}[S]_{[a,b]} = \frac{1}{b-a} \int_a^{b} \abso{S(t)}^{2} dt
-\end{align*}
+\label{txt_potencia}
+\end{equation}
 
-La relación de Parseval permite caracterizar la energía de una señal si ésta admite una tr. de
+La relación de Parseval permite caracterizar la potencia de una señal si ésta admite una tr. de
 Fourier bien definida
 %
-\begin{equation*}
+\begin{equation}
 \int_{-T}^{T} \abso{S(t)}^{2} dt = \sum_{n=-\infty}^{\infty} \abso{A(n)}^{2}
-\end{equation*}
+\label{txt_parseval}
+\end{equation}
 
-De ahí que se le otorgue la interpretación de \textit{distribución} de energía al módulo de la 
-tr. de Fourier, referido como \textbf{espectro de potencia}; esta interpretación se conserva
-para diversas generalizaciones de la tr. de Fourier.
+Reemplazando la expresión \ref{txt_parseval} sobre la definición de potencia, el módulo de la tr. 
+de Fourier puede verse como indicador de como se \textit{distribuye} la energía de la señal $S$,
+motivo por el cual es referido como \textbf{espectro de potencia}.
+En las diferentes genralizaciones que se presentan, se busca conservar tal interpretación.
 %
 %Por ejemplo, si $S$ no es periódica pero cumple que $\intR \abso{S(t)} dt < \infty$, entonces
 %puede definirse
@@ -90,7 +94,7 @@ Las diferentes partes de un proceso estocástico serán denotadas como:\\
 $X(t)$ & Una VA que compone al proceso, en el tiempo $t$ \\
 $x(t)$ & Una realización de $X(t)$ \\
 $F_{X(t)}$ & Función de propbabilidad acumulada para $X(t)$ \\
-$ {\Delta_t}$ & Frecuencia de muestreo (tiempo discreto)
+$ {\Delta_t}$ & Frecuencia de muestreo (sólo en tiempo discreto)
 \end{tabular}\\
 
 La estacionariedad es un indicativo de la \textit{homogeneidad} de un proceso, un proceso 
@@ -98,8 +102,8 @@ fuertemente estacionario se compone de VA que tienen la misma distribución y di
 conjuntas que no dependen del tiempo (definición ??); tal característica usualmente se considera
 \textit{innecesariamente} fuerte y se reemplaza por la siguiente
 
-\begin{definicion}[Estacionariedad débil]
-Un proceso \xt es débilmente estacionario si y sólo si para cualesquiera tiempos 
+\begin{definicion}%[Estacionariedad débil]
+Un proceso \xt es \textbf{débilmente estacionario} si y sólo si para cualesquiera tiempos 
 admisibles\footnote{\textbf{Tiempos admisibles} significa que la definición es la misma para tiempo
 y discreto, bajo las restricciones pertinente} $t$, $s$ se tiene que
 \begin{itemize}
@@ -112,73 +116,115 @@ depende de $\tau$
 %\label{est_orden_primera}
 \end{definicion}
 
+Por simplicidad de notación, a lo largo del texto los procesos débilmente estacionarios serán 
+referidos simplemente como \textit{estacionarios}. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \subsection{Función de densidad espectral}
 
-La forma más natural de definir un espectro de potencias para un proceso débilmente estacionario 
+La forma más natural de definir un espectro de potencias para un proceso estacionario 
 es a través de la tr. de Fourier de sus realizaciones; sin embargo, en general no se puede 
 garantizar que quede bien definida: puede no ser periódica, cuadrado-integrable, uniformemente 
 continua, etc.
-
+%
 Este problema se aborda restringiendo el tiempo a un conjunto \textit{sin problemas}, para luego
 considerar el límite cuando tal conjunto tiende a su \textit{forma original}.
-%Partiendo de una realización de \xt, $\left\{ x(t) \right\}_{t \in T}$, se define
-%\begin{equation*}
-%
-%\end{equation*}
 
-\begin{definicion}[Función de densidad espectral]
-Sea \xt un proceso a tiempo continuo, débilmente estacionario. Se define su
-función de densidad espectral como
-\begin{equation*}
+\begin{definicion}%[Función de densidad espectral]
+Sea \xt un proceso estacionario a tiempo continuo. Se define su \textbf{función de densidad 
+espectral} como
+\begin{equation}
 h(\omega) = \frac{1}{2 \pi} \lim_{T\rightarrow \infty} \E{ \frac{1}{2T} 
 \abso{ \int_{-T}^{T} X(t) e^{-i \omega t} dt}^{2} }
-\end{equation*}
+\label{txt_FDE_cont}
+\end{equation}
 \end{definicion}
 
-%Para procesos en los reales $R$ y $h$ son siempre es simétricos.
-
-%\begin{definicion}[Función de espectro integrado]
-%Sea \xt un proceso a tiempo continuo, débilmente estacionario. Se define su
-%función de espectro integrado como
-%\begin{equation*}
-%H(\omega_2) - H(\omega_1) = 
-%\frac{1}{2 \pi} \intR \frac{e^{- i \omega_2 t}-e^{- i \omega_1 t}}{- i \tau} R(\tau) d\tau
-%\end{equation*}
-%Donde $h$ es la FDE para \xt
-%\end{definicion}
-%
-%Como $h$ es simétrica y $\intR h(\omega) d\omega = \sigma^{2}$, entonces 
-%$H(0) = \nicefrac{\sigma^{2}}{2}$ y puede re-definirse
+\begin{definicion}%[Función de densidad espectral]
+Sea $\{X(t)\}_{\nicefrac{t}{\Delta_t}\in \Z}$ un proceso estacionario a tiempo discreto. Se 
+define su \textbf{función de densidad espectral} como
+\begin{equation}
+h(\omega) = \frac{1}{2 \pi} \lim_{N\rightarrow \infty} \E{ \frac{1}{2N} 
+\abso{ \sum_{n=-N}^{N} X(n \Delta_t) e^{-i \omega n \Delta_t}}^{2} }
+\label{txt_FDE_disc}
+\end{equation}
+\end{definicion}
 
 Los detalles formales sobre la definición de la función de densidad espectral (FDE) se discuten en 
 el anexo B; algunas de sus propiedades que conviene resaltar son 
 \begin{itemize}
+\item La FDE de un proceso en tiempo continuo está definida para $\omega \in \R$, y en tiempo
+discreto para $\omega \in [-\pi,\pi]$
 \item Es una función par ($h(-\omega) = h(\omega)$) y no-negativa
 \item $h(0) = \mu_X$, el promedio del proceso
-\item $\intR h(\omega) d\omega = \sigma^{2}_X$, la varianza del proceso
+\item $\int h(\omega) d\omega = \sigma^{2}_X$, la varianza del proceso %_{\boldsymbol{T}}
+\item Como consecuencia de los teorema de Wiener-Khinchin (\ref{t_wienerkhinchin}) y de Wold
+(\ref{t_wold}), y suponiendo que el espectro es continuo, se puede escribir
+\begin{equation}
+R(\tau) = \int_{\boldsymbol{T}} h(\omega) e^{i \omega \tau} d\omega
+\label{txt_r_ft_h}
+\end{equation}
+con $R$ la función de autocovarianza del proceso
 \end{itemize}
-
-Como consecuencia del teorema de Wiener-Khinchin (\ref{t_wienerkhinchin}) 
-se puede escribir
-\begin{equation*}
-R(\tau) = \intR e^{i \omega \tau} dH(\omega)
-\end{equation*}
-donde $R$ es la función de autocovarianza del proceso, y la integral está definida en el sentido
-de Lebesgue-Stieltjes para $dH(\omega) = h(\omega) d\omega$ (ver anexo B).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Estimadores}
 
-Cuando se supone la existencia de la FDE (o la FDE integrada) es inmediato el querer calcularla.
-Sin embargo, manejar procesos implica la imposibilidad de \textit{acceder} a las VA's a partir de 
-observaciones, de modo que el cálculo se basa en realizaciones y nunca es \textit{exacto} en el
-sentido tradicional --como con la tr. de Fourier.
+Cuando se supone la existencia de la FDE es inmediato el querer calcularla; sin embargo, manejar 
+procesos estocásticos implica la imposibilidad de \textit{acceder} a las VA's a partir de 
+observaciones, de modo que el cálculo se basa en realizaciones y no da lugar a un resultado 
+\textit{exacto} (como con la tr. de Foruier) sino una VA.
 
-Primeramente se exhibe el \textbf{periodograma}, considerado el estimador más natural para la FDE
-\begin{equation*}
+Sea \xt un proceso estacionario y \xtd una muestra de tamaño $N$ para una realización del proceso.
+%
+Un estimador \textit{natural}\footnote{Comparar las expresiones en \ref{txt_periodograma} y en 
+\ref{txt_FDE_disc}} para la FDE es el \textbf{periodograma}, definido como
+\begin{equation}
 I_N(\omega) = \frac{2}{N} \abso{\sum_{t = 0}^{N} e^{i \omega t} x(t)}^{2}
-\end{equation*}
+\label{txt_periodograma}
+\end{equation}
+
+Como se demuestra en el anexo B, el periodograma es un estimador 
+insesgado\footnote{$\E{I_N(\omega)}=h(\omega)$} pero 
+inconsistente\footnote{$\lim_{N\rightarrow\infty} \Var{I_N(\omega)} = h^{2}(\omega) \neq 0$} para
+la FDE, lo cual lo descalifica para usarse en la práctica.
+
+Para entender --y evitar-- la inconsistencia del periodograma conviene escribirlo de una forma
+equivalente (teorema ??)
+\begin{equation}
+I_N(\omega) = 2 \sum_{\tau = -(N-1)}^{N-1} \widehat{R}^{\star}(\tau) \COS{\omega \tau}
+\label{txt_periodograma2}
+\end{equation}
+%
+donde $\widehat{R}^{\star}$ es un estimador para $R$, la función de autocovarianza, 
+definido como
+\begin{equation}
+\widehat{R}^{\star} (\tau) = \frac{1}{N} \sum_{t = 1}^{N-\abso{\tau}} x_t x_{t+\abso{\tau}}
+\end{equation}
+
+Como se demuestra en el anexo B, el estimador $\widehat{R}^{\star}$ es consistente y sesgado, aunque
+es \textit{asintóticamente insesgado}\footnote{$\lim_{N\rightarrow \infty} 
+\widehat{R}^{\star}(\tau) = R(\tau)$}.
+%
+La expresión \ref{txt_periodograma2} bien puede verse como una versión discreta e invertida de la 
+expresión en \ref{txt_r_ft_h}, tomando en cuenta que la FDE y la función de autocovarianza son 
+simétricas. 
+
+Una ventaja de la segunda forma del periodograma es que puede verse como una suma ponderada de 
+$\widehat{R}^{\star}$ para diferentes valores de $\tau$. 
+Mientras más grande es $\tau$, es menor la cantidad de parejas de puntos cuya distancia en el 
+tiempo es $\tau$, de modo que el estimador $\widehat{R}^{\star}$ tiene más varianza. 
+
+Así entonces, la inconsistencia del periodograma se debe en gran parte a que está construido,
+indirectamente, usando estimadores con varianza muy elevada.
+La solución más natural sería evitar los componentes con mucha varianza, considerando estimadores de 
+la forma
+
+sdfsdfafdgdfgsdfgdsdfgdsfg
+
+
 
 \subsection{Prueba de Priestley-Subba Rao}
 
