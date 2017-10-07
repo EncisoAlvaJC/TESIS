@@ -40,7 +40,7 @@ se incluyen gráficos para todos los sujetos.
 
 \begin{figure}
 \centering
-\includegraphics[width=.9\linewidth]{./img_resultados/VCNNS1_cabeza_epocas_.pdf}
+\includegraphics[width=.9\linewidth]{./img_resultados/cabeza_VCR.pdf}
 \caption{Porcentajes de épocas estacionarias}
 \label{cabeza_repoio}
 \end{figure}
@@ -306,66 +306,62 @@ para los cuales el \textit{nivel de homogeneidad} del PSG es muy similar durante
 
 \section{Conclusiones}
 
-En registros de PSG para adultos mayores, segmentado en épocas de 30 segundos, la presencia 
-proporcional de estacionariedad débil es significativamente diferente durante el sueño MOR y 
-NMOR.
-Estas diferencia se pudieron observar en el grupo Control para los canales C3, C4, F7, F8, FP1, 
-FP2, O2, P4, LOG, ROG; en el grupo con PDC sólo se detectaron estas diferencias para los canales 
-LOG y ROG.
-Estos cambios entre MOR y NMOR pueden explicarse 
-\begin{enumerate}
-\item en LOG y ROG por las características propias  del sueño MOR
-\item en el resto de los canales (para el grupo Control), porque se tratan de la 
-región frontal, asociada a la toma de decisiones, así como la región posterior, 
-asociada con la integración
-de información
-\end{enumerate}
+En registros de PSG para adultos mayores, segmentados en épocas de 30 segundos, la presencia 
+proporcional de estacionariedad débil es significativamente diferente ($p<0.05$) durante el sueño 
+MOR y NMOR;
+Estas diferencia fueron presentes para el grupo Mn en los canales C4, F7, FP1, FP2, LOG, ROG, y 
+para el grupo Mn en los canales LOG y ROG.
+Estas diferencias pueden explicarse 
+(1) en LOG y ROG por las características del sueño MOR y
+(2) en los canales C4, F7, FP1, FP2, por tratarse del lóbulo frontal, típicamente asociadao con la 
+toma de decisiones.
 
-El análisis de estacionariedad sobre registros de PSG para un adulto mayor con parálisis facial 
-fue capaz de señalar este padecimiento, visto como una ausencia total de épocas estacionarias
-en una región concreta.
+%El análisis de estacionariedad sobre registros de PSG para un adulto mayor con parálisis facial 
+%fue capaz de señalar este padecimiento, visto como una ausencia total de épocas estacionarias
+%en una región concreta.
 
-Los resultados encontrados sugieren que es posible interpretar los cambios neurofisiológicos 
-durante el deterioro cognitivo como un cambio en la estructura funcional del cerebro al transitar 
-entre sueño MOR y NMOR: el cambio es menos acentuado durante el PDC, pues tienen proporciones 
-estadísticamente similares de épocas clasificadas como PE.
-Esta interpretación propuesta es consistente con \cite{Valeria}.
+Estos resultados sugieren que el método de comparación es sensible a los cambios funcionales del 
+cerebro al transitar entre etapas de sueño; tales cambios son menos \textit{visibles} en presencia
+de PDC. Esta interpretación propuesta es consistente con \cite{Valeria}.
 
-En otro ámbito, los patrones visuales descritos, visibles al mostrar gráficamente la 
-distribución de épocas PE, predicen parcialmente con las épocas de sueño MOR clasificadas 
-por un experto (cuando menos en el grupo Control).
-Se propone que la representación gráfica pudiera ser usado como auxiliar en la clasificación 
-de segmentos de registro según la etapa de sueño.
+%En otro ámbito, los patrones visuales descritos, visibles al mostrar gráficamente la 
+%distribución de épocas PE, predicen parcialmente con las épocas de sueño MOR clasificadas 
+%por un experto (cuando menos en el grupo Control).
+%Se propone que la representación gráfica pudiera ser usado como auxiliar en la clasificación 
+%de segmentos de registro según la etapa de sueño.
 
-Se presenta evidencia según la cual los registros de PSG, al menos para adultos mayores, no 
-corresponden a series de tiempo no-estacionarias sino a series localmente estacionarias; esta 
-distinción cobra importancia al momento de elegir el tamaño de ventana (en el tiempo) usada 
-para organizar los registros.
+Los datos recabados son evidencia que los registros de PSG en adultos mayores no pueden 
+considerarse en general como series de tiempo estacionarias o no-estacionarias, sino que sus 
+propiedades estadísticas cambian en el tiempo conforme se transita entre diferentes estados 
+fisiológicos; 
+%esta característica no puede ser ignoradaal modelar este tipo de señales.
+esta característica ha sido considerada anteriormente \cite{Kaiser00}, pero usualmente es ignorada
+en base al diseño experimental.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Trabajo a futuro}
 
-Los resultados principales de este trabajo, con vista al trabajo futuro, consiste en las 
-diferencias encontradas entre el sueño MOR y NMOR, así como los patrones visuales asociados con 
-la aparición de sueño MOR; tales características sólo fueron presentes para el grupo 
-Control. Si bien no constituyen propiamente marcadores de deterioro cognitivo, esta metodología
-podría extenderse para identificar tales marcadores.
-Por ejemplo, un marcador conocido \cite{Becerra12} del deterioro cognitivo es el 'enlentecimiento' 
-de la actividad cerebral, entendido como un cambio en la concentración de energía desde ondas 
-rápidas a ondas lentas.
-Para detectar la estacionariedad débil se ha usado prueba de Priestley-Subba Rao, basada en 
-estimadores locales para la función de densidad espectral (FDE); estos mismos estimadores 
-podrían ser usados para corroborar si efectivamente existen diferencias en la FDE para registros 
-de adultos mayores con y sin deterioro cognitivo. 
-
-Finalmente, y como se mencionó anteriormente, los patrones visuales en la representación 
-gráfica pueden tener un uso como características auxiliares para la detección 
-semi-automática de épocas MOR en registros de PSG; en ese sentido, cabe mencionar el caso de 
-los sujetos excluidos del estudio, para los cuales estos patrones parecen no cumplirse. 
-Es en principio posible que la identificabilidad del sueño MOR, a través de estos patrones, 
-pudiera fungir como marcador clínico.
+%Los resultados principales de este trabajo, con vista al trabajo futuro, consiste en las 
+%diferencias encontradas entre el sueño MOR y NMOR, así como los patrones visuales asociados con 
+%la aparición de sueño MOR; tales características sólo fueron presentes para el grupo 
+%Control. Si bien no constituyen propiamente marcadores de deterioro cognitivo, esta metodología
+%podría extenderse para identificar tales marcadores.
+%Por ejemplo, un marcador conocido \cite{Becerra12} del deterioro cognitivo es el 'enlentecimiento' 
+%de la actividad cerebral, entendido como un cambio en la concentración de energía desde ondas 
+%rápidas a ondas lentas.
+%Para detectar la estacionariedad débil se ha usado prueba de Priestley-Subba Rao, basada en 
+%estimadores locales para la función de densidad espectral (FDE); estos mismos estimadores 
+%podrían ser usados para corroborar si efectivamente existen diferencias en la FDE para registros 
+%de adultos mayores con y sin deterioro cognitivo. 
+%
+%Finalmente, y como se mencionó anteriormente, los patrones visuales en la representación 
+%gráfica pueden tener un uso como características auxiliares para la detección 
+%semi-automática de épocas MOR en registros de PSG; en ese sentido, cabe mencionar el caso de 
+%los sujetos excluidos del estudio, para los cuales estos patrones parecen no cumplirse. 
+%Es en principio posible que la identificabilidad del sueño MOR, a través de estos patrones, 
+%pudiera fungir como marcador clínico.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

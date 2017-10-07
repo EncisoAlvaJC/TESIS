@@ -2,7 +2,7 @@
 # directorio de trabajo
 dir_actual  = '~/TESIS/TESIS/img_resultados'
 dir_graf    = '~/TESIS/TESIS/img_resultados'
-dir_res_mid = '~/TESIS/graf_datos/espectro_integrado'
+dir_res_mid = '~/TESIS/graf_datos/espectro_integrado_15s'
 dir_epocas  = '~/TESIS/graf_datos/epocas3/'
 
 ###############################################################################
@@ -71,7 +71,7 @@ nombre      = v.nombres[sujeto]
 etiqueta    = v.etiqueta[sujeto]
 fr_muestreo = frecuenciasss[sujeto]
 
-dur_epoca   = 2
+dur_epoca   = 15
 if(fr_muestreo==512){
   dur_epo_reg = 30
 }

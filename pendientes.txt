@@ -1,3 +1,5 @@
+> tomar de angie cosas de los tests
+
 > mejorar antecedentes, hablar sobre el pdc en relacion al suenno
   ¿ quitar justificacion ?
 
@@ -26,8 +28,6 @@
   > generalizacion de caso finito
 
   > efecto de cambiar tamaño de epoca
-  
-> ponerle nombres a las cabecitas
 
 > mejorar las cabecitas de diferencias individuales, puede esperar
 
