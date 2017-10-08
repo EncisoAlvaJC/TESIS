@@ -221,10 +221,42 @@ Así entonces, la inconsistencia del periodograma se debe en gran parte a que es
 indirectamente, usando estimadores con varianza muy elevada.
 La solución más natural sería evitar los componentes con mucha varianza, considerando estimadores de 
 la forma
+%
+\begin{equation}
+\widehat{h}(\omega) = \frac{1}{2 \pi} \sum_{\tau = -(N-1)}^{N-1} g(\tau) \widehat{R}^{\star}(\tau) 
+e^{i \omega \tau} 
+\label{txt_estimador}
+\end{equation}
+%
+donde $g$, referida como \textbf{ventana de retrasos}, es una función de que decae 
+\textit{rápidamente} lejos de cero, con el propósito que $\widehat{h}$ sea un estimador
+consistente y aunque se vuelva asintóticamente insesgado.
+%
+En el anexo B se exponen más detalladamente las propiedades de este tipo de estimadores.
 
-sdfsdfafdgdfgsdfgdsdfgdsfg
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Espectro evolutivo, generalidades}
+
+La definición de espectro presentada en la sección anterior, para tiempo continuo y discreto, se
+limita expresamente a procesos estacionarios.
+
+La tarea de definir un espectro de potencias para procesos no-estacionarios\footnote{En el 
+presente trabajo se limita al caso de procesos no-estacionarios \xt tales que $\E{X(t)}<\infty$, 
+$\Cov{X(t),X(s)}$ para cualesquiera tiempos admisibles $s$, $t$} 
 
 
+----------------------------------------------
+
+
+
+En el presente trabajo se ha elegido usar el espectro evolutivo, propuesto por Priesltley en
+1965 \cite{Priestley65} debido a que fue diseñado específicamente para (1) conservar linealidad 
+(2) ser siempre positivo, (3) conservar la interpretación física como distribución de energía
+\cite{Loynes68}.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Prueba de Priestley-Subba Rao}
 
@@ -241,9 +273,7 @@ Sea \xt que se tiene un proceso semi-estacionario y sea \xtd un conjunto de obse
 proceso, espaciadas uniformemente en el tiempo.
 Se construye a $\widehat{f}$, el estimador de doble ventana definido como en la sección anterior,
 usando las funciones ventana $g_h$ y $w_\tau$, y sus respectivas transformadas de Fourier 
-$\Gamma_h$ y $W_\tau$. Como se mencionó previamente, bajo las condiciones descritas se cumple que 
-$\widehat{f}$ es un estimador consistente y aproximadamente insesgado para $f$, el espectro
-evolutivo de \xt. Ahora bien, considerando las siguientes aproximaciones
+$\Gamma_h$ y $W_\tau$. Bajo las condiciones descritas, se cumple que aproximadamente
 %
 \begin{itemize}
 \item $\E{\widehat{f}(t,\omega)} \approx f(t,\omega)$
@@ -252,8 +282,8 @@ evolutivo de \xt. Ahora bien, considerando las siguientes aproximaciones
 \end{itemize}
 %
 donde $C = \lim_{T\rightarrow \infty} T \intR \abso{W_T(\lambda)} d\lambda$.
-Usando a $\widehat{f}$, se define el estimador $Y$ como el logaritmo de éste, 
-$Y(t,\omega) = \log\left(\widehat{f}(t,\omega)\right)$, y que tiene las siguientes propiedades
+Se define el estimador $Y(t,\omega) = \log\left(\widehat{f}(t,\omega)\right)$, que tiene 
+las siguientes propiedades
 %
 \begin{itemize}
 \item $\E{Y(t,\omega)} \approx \log\left(f(t,\omega)\right)$
