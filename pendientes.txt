@@ -5,6 +5,8 @@
 
 > todo lo de matematicas:
 
+   > explicacion rapida del espectro evolutivo y el estimador de doble ventana
+
  ---Ondas y frecuencias
 
   > tr discreta de fourier

@@ -196,7 +196,7 @@ Ermentroutt
 El registro de la actividad eléctrica en el cerebro se conoce como \textbf{electroencefalograma} 
 (EEG); usualmente estos registros muestra una actividad oscilatoria continua y cambiante con 
 frecuencia\footnote{En el anexo B se presenta una discusión sobre la definición de este concepto, 
-que resulta ser paradójicamente complicado} de entre 0.5 y 100 Hz; su composición está fuertemente 
+que resulta ser paradójicamente complicado} de entre 0.5 y 100 \hz; su composición está fuertemente 
 relacionada con el grado de actividad cerebral mostrando, por ejemplo, diferencias claras durante 
 vigilia y sueño o durante quietud y concentración \cite{Clark98_2}.
 %En general la frecuencia del EEG incrementa cuando hay un altos grados de actividad cerebral, lo 
@@ -224,7 +224,7 @@ En la figura \ref{ritmos} se representa un arquetipo visual de cada tipo de onda
 \begin{tabular}{lclll}
 \toprule
 %&{Frecuencia} && \\
-&{Frecuencia [Hz]} & {Ubicación usual} & {Condiciones usuales} \\
+&{Frecuencia [\hz]} & {Ubicación usual} & {Condiciones usuales} \\
 \midrule
 {Delta} & 0.5 -- 3.5 && Síndromes focales. Sueño \\
 &&& profundo en infantes \\
@@ -250,24 +250,21 @@ F (frontal), P (parietal), T (temporal), O (occipital)}
 \end{table}
 
 Para realizar el registro \textit{per se} en una forma estandarizada y comparable, se definen
-arreglos llamados \textbf{montajes}, entendidos como el conjunto de 
-\begin{itemize}
-\item Los sitios donde se colocan los electrodos de registro
-\item La manera en que los electrodos de registro están conectados entre sí
-\end{itemize}
+arreglos llamados \textbf{montajes}, entendidos como el conjunto de (1)
+los sitios donde se colocan los electrodos de registro y (2)
+la manera en que los electrodos de registro están conectados entre sí.
 
 En el trabajo de Vázquez Tagle \cite{VazquezTagle16} se usa un montaje \textit{referencial}, en el 
-que los electrodos se conectan en paralelo con un electrodo de referencia cuya actividad eléctrica 
+cual los electrodos se conectan en paralelo con un electrodo de referencia cuya actividad eléctrica 
 es constante y negligible (lóbulos de las orejas, electrodos A1, A2);
-el resto de los electrodos fueron colocados en los sitios descritos por el \textbf{Sistema 10--20}, 
-propuesto por la \textit{International Federation of EEG Societies} \cite{Jasper58,Klem99}, 
-y que se muestran el la figura \ref{img1020}.
+los electrodos fueron colocados según el \textbf{Sistema 10--20} \cite{Jasper58,Klem99}.
 %
-El sistema 10--20 usa como referentes al \textbf{inion}, protuberancia la región posterior del 
-cráneo, el \textbf{nasión}, la unión del hueso frontal y los huesos nasales, y el \textbf{punto 
-preauricular}, ubicado arriba del cartílago llamado tragus, que protege el canal auditivo ; los 
-sitios son ubicados según una cuadrícula construida respecto a las distancias 
-relativas entre los puntos de referencia.
+Dicho sistema define los sitios según una cuadrícula construida respecto a distancias relativas 
+entre varios puntos de referencia: el \textit{inion}, protuberancia la región posterior del cráneo, 
+el \textit{nasión}, unión del hueso frontal y los huesos nasales, y el \textit{punto preauricular}, 
+ubicado arriba del cartílago que protege el canal auditivo.
+%llamado tragus
+%y que se muestran el la figura \ref{img1020}.
 
 %En la figura \ref{corresponde_1020} se muestran esquemáticamente las regiones de la corteza 
 %cerebral que se corresponden a tales sitios (y de los cuales toman nombre); para une revisión más
@@ -300,46 +297,45 @@ de ser registradas digitalmente.
 %relativamente alta y son referidas como \textbf{potenciales evocados}.
 %
 Un efecto colateral de amplificar la señal es la inclusión de \textbf{ruido}, entendido como 
-señales que son registradas de manera no deseada.
-Como ejemplo, los músculos faciales, medianamente contraídos, generan campos eléctricos con
-frecuencias cercanas a 100 Hz y que son registradas en los canales frontales;
-este tipo de ruido puede ser evitando usando un filtro\footnote{Los detalles sobre el uso y
-construcción de estos filtros se discute en el anexo B} que elimine señales con componentes de
-frecuencia más o menos específicos.
-Otro tipo de ruidos, puntuales en el tiempo, son referidos como \textbf{artefactos}; como ejemplo
-están pestañear voluntariamente durante un episodio de quietud mental, lo cual interrumpe las ondas 
-alfa por cerca de dos segundos.
-La variedad de artefactos conocidos es muy basta, al grado de
-considerarse a la detección de éstos como un paso previo inevitable.
+señales que son registradas de manera no deseada; como ejemplo, los músculos faciales medianamente 
+contraídos generan campos eléctricos con frecuencia de 100 \hz.
+Este tipo de ruido \textit{persistentes} son eliminados usando un filtro\footnote{Los detalles 
+sobre el uso y construcción de estos filtros se discute en el anexo A} que \textit{elimine} los 
+componentes de frecuencia específicos.
+Los ruidos de duración corta son referidos como \textbf{artefactos}; como ejemplo,
+pestañear voluntariamente durante un episodio de quietud mental interrumpe las ondas alfa por cerca 
+de dos segundos. El enfoque tradicional es de eliminar las porciones de registro afectadas por 
+artefactos.
+%La variedad de artefactos conocidos es muy basta, al grado de
+%considerarse a la detección de éstos como un paso previo inevitable.
 
-Adicionalmente al registro de EEG, el PSG contiene registro de otras \textit{variables fisiológicas}:
-respiración, ritmo cardiaco, tono muscular, etc. En el estudio por Vázquez-Tagle se complementó el
-PSG con registro de actividad ocular y tono muscular, según las recomendaciones de la AASM.
-
-El registro de actividad ocular, referido como \textbf{electrooculograma} (EOG), fue obtenido
-con dos electrodos por cada ojo colocados como en la figura \ref{emg_eog} 
-(canales LOG, ROG).
-Para interpretar el EOG
-se supone que el ojo se comporta como una batería con polos en la retina y la pupila, de modo que
-el registro representa la proyección de los movimientos sobre el eje que forman los electrodos. 
-A su vez, el registro de
-tono muscular (\textbf{electromiograma}, EMG) es obtenido de los músculos sub-mentonianos a partir 
-de tres electrodos colocados como en la figura \ref{emg_eog} (canal EMG).
-El registro en este canal debe interpretarse como la actividad eléctrica de la placa motora tal.
-Debido a que las actividades en EOG y EMG no presentan la atenuación por el cráneo, estas señales
-no son amplificadas.
+Adicionalmente al registro del EEG, el PSG incluyue el registro de algunas otras \textit{variables 
+fisiológicas}, como respiración, ritmo cardiaco, temperatura, entre otros. En el estudio por 
+Vázquez-Tagle el registro de PSG fue complementado con registros de actividad ocular 
+(\textbf{electrooculograma}, EOG) y tono muscular (\textbf{electromiograma}, EMG), según las 
+recomendaciones de la AASM; la ubicación de los electrodos pertinentes es ilustrado en la
+figura \ref{emg_eog}
 
 \begin{figure}
 \centering
 \includegraphics[width=\linewidth]
-{./img_diagramas/emg_eog.pdf}
-\caption{Colocación de los electrodos para registrar la actividad ocular (canales LOG, ROG) y el
-tono muscular (canal EMG)}
+{./img_diagramas/emg_eog_v2.pdf}
+\caption{Colocación de electrodos para registrar actividad ocular y tono muscular}
 \label{emg_eog}
 \end{figure}
 
-En la figura \ref{ejemplos_mor} puede verse un ejemplo de PSG para los 22 canales en un lapso de
-10 segundos.
+Para interpretar los registros de EOG (canales LOG, ROG) se puede entender al ojo como una batería
+cuyos  polos son la retina y la pupila, y que genera pequeñas variaciones en el campo eléctrico
+cuando se mueve; el registro consiste en la proyección del movimiento sobre el eje que forman los
+electrodos.
+%
+Los registros de EMG (canal EMG) admiten una interpretación más \textit{sencilla}, ya que los
+músculos son activados directamente por señales eléctricas: el tono muscular es la actividad 
+muscular basal, y se relaciona con la velocidad con que los músculos pueden \textit{salir} del 
+reposo.
+
+%En la figura \ref{ejemplos_mor} puede verse un ejemplo de PSG para los 22 canales en un lapso de
+%10 segundos.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -372,7 +368,7 @@ Para su estudio, la clasificación del sueño
 contempla dos etapas fundamentalmente diferentes: N y R.
 La primera de ellas, la \textbf{fase N}, se caracteriza por movimientos oculares lentos, tono 
 muscular que decrece constantemente, actividad cerebral que recuerda al reposo, y la presencia de
-husos de sueño y complejos K; en base a estos indicadores, se definen las sub-fases N1, N2, N3, N4.
+husos de sueño y complejos K; en base a estos indicadores, se definen las sub-fases N1, N2, N3.
 %
 %El sueño fuera de la etapa MOR es referido como no-MOR (NMOR, fase N), y es dividido en etapas 
 %según la 'profundidad' del sueño, entendida en términos de la actividad cerebral registrada.
@@ -404,14 +400,14 @@ fase suelen recordar vívidamente el contenido de sus ensoñaciones
 \multicolumn{2}{l}{Etapa}& Características  & Movimientos & Tono \\
 &&del EEG & oculares & muscular \\
 \midrule
-Vigilia & W  & \textbf{Ritmo alfa} en $>50$\% de la época    & No & Alto \\
-        &    & en la región occipital                &    &      \\
-NMOR 1  & N1 & Cambio de alfa por AABFM, atenuación & Lentos & Variable,     \\
-        &    & del ritmo dominante. Ondas agudas   &    & $<$W     \\
-NMOR 2  & N2 & Husos de sueño y complejos K en la    & No & Variable     \\
-        &    & primera mitad de la época. AABFM &    & $<$W, $>$R    \\
-NMOR 3  & N3 & \textbf{Ondas lentas} (0.5--2 Hz, $> 75 \mu$V)& No & Variable, \\
-        &    & para $>20$\% de la época. Husos de sueño       && $<$N2, $\approx$R     \\
+Vigilia & W  & {Ritmo alfa} en $>50$\% de la época en   & No & Alto \\
+        &    & la región occipital                &    &      \\
+NMOR 1  & N1 & Cambio de alfa por AABFM, atenuación & Lentos & $<$W     \\
+        &    & del ritmo dominante. Ondas agudas   &    &      \\
+NMOR 2  & N2 & Husos de sueño y complejos K en la    & No & $<$W, $>$R     \\
+        &    & primera mitad de la época. AABFM &    &     \\
+NMOR 3  & N3 & {Ondas lentas} (0.5--2 \hz, $>75$ \mv) en& No & $<$N2, $\approx$R \\
+        &    & $>20$\% de la época. Husos de sueño       &&      \\
 MOR     & R  & Actividad baja amplitud y frecuencias & MOR's & Bajo  \\
         &    & mixtas. Ondas 'saw-tooth'             &       &       \\
 \bottomrule
@@ -426,7 +422,7 @@ Por espacio se abrevia AABFM = actividad de amplitud baja y frecuencias mixtas }
 \includegraphics[width=\linewidth]
 %{./img_ejemplos/MJNN__epoca.pdf}
 {./img_ejemplos/MJNN_epoca_stam.pdf}
-\caption{Registro de polisomnograma durante sueño MOR. Marca de calibración: vertical, 10 $\mu$V,
+\caption{Registro de polisomnograma durante sueño MOR. Marca de calibración: vertical, 10 \mv,
 horizontal, 1 segundo}
 \label{ejemplos_mor}
 \end{figure}

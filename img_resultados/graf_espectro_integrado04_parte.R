@@ -121,6 +121,21 @@ for(ch in 1:n_canales){
   norm      = scan(nom_arch)
   pv_t      = pv_t/norm
   
+  if(no_relativo){
+    nom_arch  = nom_arch  = paste0('VAR_',nombre,'_',
+                                   ch_actual,'.txt')
+    norm      = scan(nom_arch)
+    
+    kk        = quantile(norm,.9)
+    norm      = pmin(norm,kk)
+    kk        = quantile(norm,.9)
+    norm      = pmin(norm,kk)
+    kk        = quantile(norm,.9)
+    norm      = pmin(norm,kk)
+    
+    pv_t      = pv_t*norm
+  }
+  
   if(zoom){
     pv_t    = pv_t[min_e:max_e]
   }
@@ -171,21 +186,51 @@ if(grabar){
              '.png'),units='in',res=300,width=8*k,height=1.5*k)
 }
 
+mmin = min(RES)
+mmax = max(RES)
+
+if(no_relativo){
+  kk = quantile(as.numeric(RES),.9)
+  RES = pmin(RES,kk)
+  kk = quantile(as.numeric(RES),.9)
+  RES = pmin(RES,kk)
+  kk = quantile(as.numeric(RES),.9)
+  RES = pmin(RES,kk)
+}
+
 # grafico principal
-colorgram(z=t(RES[rev(1:n_canales),]),outlier='white',bty='n',axes=F,
-          #xlab='Tiempo (hh:mm)',ylab='',
-          xlab='Num. de epoca',
-          #ylab='',
-          ylab=banda.n[que.banda],las=2,cex.lab=2,font.lab=2,
-          #colFn=grayscale,
-          #zlab=paste0('Sujeto : ',etiqueta,
-          #            #'  (',toString(dur_epoca),' s)', 
-          #            ' | ',banda.n[que.banda]),
-          #            #' | DFA'),
-          zlab='',
-          breaks=seq(0,1,by=.01),
-          key=vkey,key.args=c(skip=10,stretch=.09*k)
-          )
+if(no_relativo){
+  colorgram(z=t(RES[rev(1:n_canales),]),outlier='white',bty='n',axes=F,
+            #xlab='Tiempo (hh:mm)',ylab='',
+            xlab='Num. de epoca',
+            #ylab='',
+            ylab=banda.n[que.banda],las=2,cex.lab=2,font.lab=2,
+            #colFn=grayscale,
+            #zlab=paste0('Sujeto : ',etiqueta,
+            #            #'  (',toString(dur_epoca),' s)', 
+            #            ' | ',banda.n[que.banda]),
+            #            #' | DFA'),
+            zlab='',
+            #breaks=seq(0,1,by=.01),
+            #breaks=seq(mmin,mmax,by=(mmax-mmin)/100),
+            key=vkey,key.args=c(skip=10,stretch=.09*k)
+  )
+}else{
+  colorgram(z=t(RES[rev(1:n_canales),]),outlier='white',bty='n',axes=F,
+            #xlab='Tiempo (hh:mm)',ylab='',
+            xlab='Num. de epoca',
+            #ylab='',
+            ylab=banda.n[que.banda],las=2,cex.lab=2,font.lab=2,
+            #colFn=grayscale,
+            #zlab=paste0('Sujeto : ',etiqueta,
+            #            #'  (',toString(dur_epoca),' s)', 
+            #            ' | ',banda.n[que.banda]),
+            #            #' | DFA'),
+            zlab='',
+            breaks=seq(0,1,by=.01),
+            key=vkey,key.args=c(skip=10,stretch=.08*k)
+  )
+}
 #title(paste0('Sujeto : ',etiqueta,
 #             #'  (',toString(dur_epoca),' s)'
 #             ' | ',
@@ -205,8 +250,8 @@ if(fr_muestreo==200){
   factor.extra = 3
 }
 for(i in indice_e){
-  rect(i/(factor.extra*2),0.5,
-       (i+1)/(factor.extra*2),22.5,
+  rect(i/(factor.extra/2),0.5,
+       (i+1)/(factor.extra/2),22.5,
        col=rgb(255,255,255,
                alpha=128,
                maxColorValue=255),

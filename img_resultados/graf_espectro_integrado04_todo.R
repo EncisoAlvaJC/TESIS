@@ -8,7 +8,9 @@ dir_epocas  = '~/TESIS/graf_datos/epocas3/'
 ###############################################################################
 # parametros
 #sujeto     = 2
-grabar_tot = F
+grabar_tot = T
+
+no_relativo = T
 
 ###############################################################################
 # datos generales
@@ -118,11 +120,16 @@ if(reemplazar){
   if(canales=='10-20'){
     canales = c('C3','C4','CZ','F3','F4','F7','F8','FP1','FP2','FZ','O1','O2',
                 'P3','P4','PZ','T3','T4','T5','T6')
+    if(stam){
+      orden_stam  = c(9,8,7,6,5,4,17,16,2,1,19,18,14,13,12,11,10,3,15)
+      canales = canales[orden_stam]
+    }
   }
   if(canales=='PSG'){
     canales = c('C3','C4','CZ','F3','F4','F7','F8','FP1','FP2','FZ','O1','O2',
                 'P3','P4','PZ','T3','T4','T5','T6','LOG','ROG','EMG')
     if(stam){
+      orden_stam  = c(9,8,7,6,5,4,17,16,2,1,19,18,14,13,12,11,10,3,15,20,21,22)
       canales = canales[orden_stam]
     }
   }
@@ -153,10 +160,16 @@ cont = .025+6*qq
 k = 1.5
 setwd(dir_actual)
 if(grabar_tot){
+  if(no_relativo){
+    tag = 'total'
+  }else{
+    tag = 'relativo'
+  }
+  
   setwd(dir_actual)
   #pdf(
   png(
-    paste0(nombre,'_espectral_',
+    paste0(nombre,'_espectral_',tag,
            #'.pdf'),width=5.941*k,height=1*k)
            '.png'),units='in',res=300,width=5.941*k,height=9*k)
 }
@@ -182,7 +195,19 @@ for(qb in 2:5){
   source('~/TESIS/TESIS/img_resultados/graf_espectro_integrado04_parte.R')
 }
 
-qq = qq*(2/3)
+# potencia total
+cont = cont - qq
+setwd(dir_actual)
+par(fig=c(0,1,cont,cont+qq), new=TRUE)
+source('~/TESIS/TESIS/img_resultados/graf_espectro_integrado04_varianza.R')
+
+# pseudo-color
+cont = cont - qq
+setwd(dir_actual)
+par(fig=c(0,1,cont,cont+qq), new=TRUE)
+source('~/TESIS/TESIS/img_resultados/graf_espectro_integrado04_exponente.R')
+
+#qq = qq*(2/3)
 
 
 

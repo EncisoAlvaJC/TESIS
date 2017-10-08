@@ -68,7 +68,6 @@ dir_res_mid = paste0(dir_datos,v.directorio[sujeto])
 fr_muestreo  = frecuenciasss[sujeto]
 
 stam         = T
-orden_stam  = c(9,8,7,6,5,4,17,16,2,1,19,18,14,13,12,11,10,3,15,20,21,22)
 
 grabar      = F
 anotaciones = ''
@@ -106,11 +105,16 @@ if(reemplazar){
   if(canales=='10-20'){
     canales = c('C3','C4','CZ','F3','F4','F7','F8','FP1','FP2','FZ','O1','O2',
                 'P3','P4','PZ','T3','T4','T5','T6')
+    if(stam){
+      orden_stam  = c(9,8,7,6,5,4,17,16,2,1,19,18,14,13,12,11,10,3,15)
+      canales = canales[orden_stam]
+    }
   }
   if(canales=='PSG'){
     canales = c('C3','C4','CZ','F3','F4','F7','F8','FP1','FP2','FZ','O1','O2',
                 'P3','P4','PZ','T3','T4','T5','T6','LOG','ROG','EMG')
     if(stam){
+      orden_stam  = c(9,8,7,6,5,4,17,16,2,1,19,18,14,13,12,11,10,3,15,20,21,22)
       canales = canales[orden_stam]
     }
   }
