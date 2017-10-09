@@ -10,7 +10,7 @@ dir_epocas  = '~/TESIS/graf_datos/epocas3/'
 #sujeto     = 2
 grabar_tot = T
 
-no_relativo = T
+no_relativo = F
 
 ###############################################################################
 # datos generales

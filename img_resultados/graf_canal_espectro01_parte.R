@@ -249,7 +249,7 @@ if(no_relativo){
             key=vkey,key.args=c(skip=10,stretch=.09*k)
   )
 }else{
-  colorgram(z=t(RES[rev(1:n_canales),]),outlier='white',bty='n',axes=F,
+  colorgram(z=t(RES[rev(1:6),]),outlier='white',bty='n',axes=F,
             #xlab='Tiempo (hh:mm)',ylab='',
             xlab='Num. de epoca',
             #ylab='',
