@@ -162,8 +162,9 @@ for(i in 1:(n_epocas+1)){
   if(ind_ss[i]<10){
     txt_ss = paste0('0',ind_ss[i])
   }
-  txt_t[i] = paste0(toString(ind_hh[i]),':',txt_mm,':',txt_ss)
+  #txt_t[i] = paste0(toString(ind_hh[i]),':',txt_mm,':',txt_ss)
   #txt_t[i] = paste0(toString(ind_hh[i]),':',txt_mm)
+  txt_t[i] = paste0(toString(ind_hh[i]))
 }
 
 etiqueta_epocas = character(lab_epo_fin-lab_epo_ini)
@@ -189,6 +190,8 @@ if(grabar){
 mmin = min(RES)
 mmax = max(RES)
 
+RES[is.na(RES)*1==1] = 0
+
 if(no_relativo){
   kk = quantile(as.numeric(RES),.9)
   RES = pmin(RES,kk)
@@ -213,7 +216,8 @@ if(no_relativo){
             zlab='',
             #breaks=seq(0,1,by=.01),
             #breaks=seq(mmin,mmax,by=(mmax-mmin)/100),
-            key=vkey,key.args=c(skip=10,stretch=.09*k)
+            #key=vkey,key.args=c(skip=10,stretch=.09*k)
+            key=vkey,key.args=c(stretch=.6*k)
   )
 }else{
   colorgram(z=t(RES[rev(1:n_canales),]),outlier='white',bty='n',axes=F,
@@ -228,7 +232,7 @@ if(no_relativo){
             #            #' | DFA'),
             zlab='',
             breaks=seq(0,1,by=.01),
-            key=vkey,key.args=c(skip=10,stretch=.08*k)
+            key=vkey,key.args=c(skip=10,stretch=.09*k)
   )
 }
 #title(paste0('Sujeto : ',etiqueta,
@@ -242,21 +246,21 @@ if(no_relativo){
 
 #################################################
 # graficacion de epocas
-setwd(dir_epocas)
-arch_indice_e = paste0('epocas_mor_',nombre,'.txt')
-indice_e      = scan(arch_indice_e)
-factor.extra = 1
-if(fr_muestreo==200){
-  factor.extra = 3
-}
-for(i in indice_e){
-  rect(i/(factor.extra/2),0.5,
-       (i+1)/(factor.extra/2),22.5,
-       col=rgb(255,255,255,
-               alpha=128,
-               maxColorValue=255),
-       border=NA)
-}
+# setwd(dir_epocas)
+# arch_indice_e = paste0('epocas_mor_',nombre,'.txt')
+# indice_e      = scan(arch_indice_e)
+# factor.extra = 1
+# if(fr_muestreo==200){
+#   factor.extra = 3
+# }
+# for(i in indice_e){
+#   rect(i/(factor.extra/2),0.5,
+#        (i+1)/(factor.extra/2),22.5,
+#        col=rgb(255,255,255,
+#                alpha=128,
+#                maxColorValue=255),
+#        border=NA)
+# }
 
 #################################################
 # graficacion de ejes

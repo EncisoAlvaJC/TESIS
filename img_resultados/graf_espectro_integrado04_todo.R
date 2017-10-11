@@ -10,7 +10,7 @@ dir_epocas  = '~/TESIS/graf_datos/epocas3/'
 #sujeto     = 2
 grabar_tot = T
 
-no_relativo = F
+no_relativo = T
 
 ###############################################################################
 # datos generales
@@ -108,7 +108,7 @@ min_epo        = 0
 max_epo        = 0
 
 # parametros de dibujo
-paso    = 15*2
+paso    = 15*4
 
 #################################################
 # libreria especifica para el grafico tipo matriz
@@ -151,9 +151,6 @@ if(grupo_de[sujeto]==-1){
 }
 
 ###############################################################################
-# contadores
-qq   = .925/7
-cont = .025+6*qq
 
 #################################################
 # inicia grafico
@@ -177,17 +174,61 @@ if(grabar_tot){
 ###############################################################################
 # meta-graficacion
 
+# contadores
+qq   = .925/7
+cont = .025+6*qq
+
 # grafico principal
 par(oma=c(0,0,0,0),
     mar=c(.25, 2+1.5, .25, 3+1),
     mgp=c(1.5,.5,0))
 
 setwd(dir_actual)
-par(fig=c(0,1,cont,cont+qq), new=FALSE)
+par(fig=c(0,1,cont,cont+qq), new=FALSE) #new=FALSE)
 que.banda = 1
 source('~/TESIS/TESIS/img_resultados/graf_espectro_integrado04_parte.R')
 
-for(qb in 2:5){
+# graficacion de epocas
+par(fig=c(0,1,.02,.955), new=TRUE,
+    mar=c(0,2+1.5,0,3+1),
+    mgp=c(0,-.4,0),
+    oma=c(0,0,0,0))
+setwd(dir_epocas)
+arch_indice_e = paste0('epocas_mor_',nombre,'.txt')
+indice_e      = scan(arch_indice_e)
+factor.extra = 1
+if(fr_muestreo==200){
+  factor.extra = 3
+}
+#plot(0,type='n',xaxt='n',yaxt='n',xlab='',ylab='',#bty='n',
+#     xlim=c(0,n_epocas)+.5,ylim=c(0,1))
+te = t(RES[rev(1:n_canales),])*0-1
+te[1,1]=.2
+te[1,2]=.2
+colorgram(z=te,outlier='white',
+          colFn = grayscale,
+          bty='n',axes=F,
+          xlab='Tiempo [hh]',ylab='',zlab='',
+          breaks=seq(0,1),
+          key=0)
+for(i in indice_e){
+  rect(i/(factor.extra/2),-1,
+       (i+1)/(factor.extra/2),25,
+       col='green',
+       border=NA)
+}
+skip = seq(1,n_epocas+1,by=paso*4)+.5
+skap = seq(1,length(txt_t),by=4*15*60/dur_epoca)
+axis(1,at=skip-1,labels=txt_t[skap],las=1,tick=F)
+
+# grafico principal
+par(oma=c(0,0,0,0),
+    mar=c(.25, 2+1.5, .25, 3+1),
+    mgp=c(1.5,.5,0))
+
+cont = cont + qq
+que.banda = 0
+for(qb in 1:5){
   cont = cont - qq
   setwd(dir_actual)
   que.banda = que.banda + 1 
@@ -208,8 +249,6 @@ par(fig=c(0,1,cont,cont+qq), new=TRUE)
 source('~/TESIS/TESIS/img_resultados/graf_espectro_integrado04_exponente.R')
 
 #qq = qq*(2/3)
-
-
 
 # el titulo
 par(oma=c(0,0,0,0),

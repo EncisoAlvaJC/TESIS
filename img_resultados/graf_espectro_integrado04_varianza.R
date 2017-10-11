@@ -193,7 +193,8 @@ colorgram(z=t(RES[rev(1:n_canales),]),outlier='white',bty='n',axes=F,
           #            #' | DFA'),
           zlab='',
           #breaks=seq(mmin,mmax,by=(mmax-mmin)/100),
-          key=vkey,key.args=c(skip=10,stretch=.08*k)
+          #key=vkey,key.args=c(skip=10,stretch=.08*k)
+          key=vkey,key.args=c(stretch=.6*k)
           )
 #title(paste0('Sujeto : ',etiqueta,
 #             #'  (',toString(dur_epoca),' s)'
@@ -205,21 +206,21 @@ colorgram(z=t(RES[rev(1:n_canales),]),outlier='white',bty='n',axes=F,
 
 #################################################
 # graficacion de epocas
-setwd(dir_epocas)
-arch_indice_e = paste0('epocas_mor_',nombre,'.txt')
-indice_e      = scan(arch_indice_e)
-factor.extra = 1
-if(fr_muestreo==200){
-  factor.extra = 3
-}
-for(i in indice_e){
-  rect(i/(factor.extra/2),0.5,
-       (i+1)/(factor.extra/2),22.5,
-       col=rgb(255,255,255,
-               alpha=128,
-               maxColorValue=255),
-       border=NA)
-}
+# setwd(dir_epocas)
+# arch_indice_e = paste0('epocas_mor_',nombre,'.txt')
+# indice_e      = scan(arch_indice_e)
+# factor.extra = 1
+# if(fr_muestreo==200){
+#   factor.extra = 3
+# }
+# for(i in indice_e){
+#   rect(i/(factor.extra/2),0.5,
+#        (i+1)/(factor.extra/2),22.5,
+#        col=rgb(255,255,255,
+#                alpha=128,
+#                maxColorValue=255),
+#        border=NA)
+# }
 
 #################################################
 # graficacion de ejes

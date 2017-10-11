@@ -3,6 +3,8 @@
 n_canales = length(canales)
 ventana   = dur_epoca*fr_muestreo
 
+binario = T
+
 #################################################
 # procesamiento parametros opcionales (ajuste)
 if(unidad_par_t =='tiempo'){
@@ -88,7 +90,7 @@ if(binario){
     M_RES1 = 1*( RES_TIR<.05 )
     M_RES2 = 1*( RES_T  <.05 )
     M_RES = pmin(M_RES1,M_RES2)
-    RES_T = (-M_RES+1)*.95 + .025
+    RES_T = (-M_RES+1)#*.95 + .025
   }
   
 }

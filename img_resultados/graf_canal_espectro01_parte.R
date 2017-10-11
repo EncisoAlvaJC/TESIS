@@ -157,8 +157,10 @@ if(zoom){
 # organizacion de los datos en una matriz
 RES[6,] = pv_t[1:n_epocas]
 
+RES[is.na(RES)*1==1] = 0
+
 kk = quantile(as.numeric(RES),.9)
-RES = pmin(RES,kk)
+ES = pmin(RES,kk)
 kk = quantile(as.numeric(RES),.9)
 RES = pmin(RES,kk)
 kk = quantile(as.numeric(RES),.9)
@@ -246,7 +248,7 @@ if(no_relativo){
             zlab='',
             #breaks=seq(0,1,by=.01),
             #breaks=seq(mmin,mmax,by=(mmax-mmin)/100),
-            key=vkey,key.args=c(skip=10,stretch=.09*k)
+            key=vkey,key.args=c(stretch=.6*k)
   )
 }else{
   colorgram(z=t(RES[rev(1:6),]),outlier='white',bty='n',axes=F,
