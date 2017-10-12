@@ -1,6 +1,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\documentclass[11pt]{beamer}
+%\documentclass[11pt,mathserif]{beamer}
+\documentclass[serif,mathserif,professionalfont]{beamer}
 \usetheme[block=fill,progressbar=frametitle]{metropolis}
+\usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage[spanish]{babel}
 \usepackage{amsmath}
@@ -28,8 +30,12 @@
 
 %\usefonttheme[onlymath]{mathserif}
 %\usepackage{mathpazo} 
-\usepackage{eulervm}                 %
-\usepackage[scaled ]{helvet}  
+%\usepackage[scaled ]{helvet}  
+%\usepackage{concmath}
+
+\usepackage{pxfonts}
+\usepackage{eulervm}
+
 
 % intento de incluir animaciones
 \usepackage{movie15}
@@ -64,13 +70,15 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% abreviaciones varias
-\newtheorem{defn}{Definición}
-\newtheorem{thrm}{Teorema}
+\newtheorem{definicion}{Definición}
+\newtheorem{teorema}{Teorema}
+\newtheorem{proposicion}{Proposición}
 \newtheorem{demostracion}{Demostración}
-\newtheorem{prop}{Proposición}
 
 \newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
 \newcommand{\intR}{\int_{-\infty}^{\infty}}
 \newcommand{\intZ}{\int_{-\infty}^{0}}
 \newcommand{\intPI}{\int_{-\pi}^{\pi}}
@@ -90,6 +98,25 @@
 \newcommand{\Var}[1]{\mathrm{Var}\left( #1 \right)}
 \newcommand{\Cov}[1]{\mathrm{Cov}\left( #1 \right)}
 \newcommand{\abso}[1]{\left| #1 \right|}
+
+\newcommand{\xt}{$\{X(t)\}_{t\in \boldsymbol{T}}$ }
+\newcommand{\xtd}{$\{x_t\}_{t=0,\dots,N}$ }
+\newcommand{\orden}{\mathcal{O}}
+
+\newcommand{\talque}{\mathrel{}\middle|\mathrel{}}
+
+\newcommand{\lp}{\ell^{p}}
+\newcommand{\llp}{L^{p}[I]}
+\newcommand{\ldos}{\ell^{2}}
+\newcommand{\lldos}{L^{2}[I]}
+
+\newcommand{\sip}{\ding{51}}
+\newcommand{\nop}{\ding{55}}
+
+\newcommand{\pz}{\phantom{.0}}
+
+\newcommand{\hz}{\si{\hertz}}
+\newcommand{\mv}{\si{\micro\volt}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -148,14 +175,15 @@ por naturaleza. Pero usualmente no se comprueban \textbf{formalmente} estas prop
 \section{Conceptos}
 
 \begin{frame}\frametitle{Conceptos}
+\begin{definicion}[Estacionariedad d\'ebil]
+Se dice de un proceso estocástico si, para cualesquiera tiempos admisibles $t$, $s$
 \begin{itemize}
-\item Promedio $( \mu )$
-\item Desviación estándar $( \sigma^{2} )$
+\item $\E{X(t)} = \mu_X$
+\item $\Var{X(t)} = \sigma^{2}_X$
+\item $\Cov{X(t),X(s)} = \rho_X (s-t)$
 \end{itemize}
-\begin{figure}
-\centering
-\includegraphics[width=\linewidth]{./curso_scripts/prob.png}
-\end{figure}
+con $\mu_X$, $\sigma^{2}_X$ constantes, $\rho_X(\tau)$ únicamente depende de $\tau$
+\end{definicion}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -205,7 +233,7 @@ por naturaleza. Pero usualmente no se comprueban \textbf{formalmente} estas prop
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}\frametitle{Conceptos}
-\begin{defn}[Estacionariedad débil]
+\begin{definicion}[Estacionariedad débil]
 Un proceso estocástico es débilmente estacionario si y sólo si para cualesquiera tiempos 
 admisibles $t$, $s$ se tiene que
 \begin{itemize}
@@ -214,7 +242,7 @@ admisibles $t$, $s$ se tiene que
 \item $\Cov{X(t),X(s)} = \rho_X (s-t)$
 \end{itemize}
 Con $\mu_X$, $\sigma^{2}_X$ constantes, $\rho_X(\tau)$ únicamente depende de $\tau$
-\end{defn}
+\end{definicion}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -241,7 +269,7 @@ Cantidad de operaciones: $\mathcal{O}(N \log{}N)$ vs $\mathcal{O}(N^{2})$
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}\frametitle{Espectro de potencias vs Autocorrelación}
-\begin{thrm}[Wiener-Khinchin]
+\begin{teorema}[Wiener-Khinchin]
 Una condición suficiente y necesaria para que $\rho$ sea función de autocorrelación para 
 algún proceso a tiempo continuo débilmente estacionario y estocásticamente continuo, 
 $\{X(t)\}$,  es que exista una función $F$ tal que
@@ -254,7 +282,7 @@ $\{X(t)\}$,  es que exista una función $F$ tal que
 \rho(\tau) = \intR e^{i \omega \tau} dF(\omega)
 \end{equation*}
 %\end{itemize}
-\end{thrm}
+\end{teorema}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -304,7 +332,7 @@ $H_0 : f(t,\bullet)$ no depende de $t$
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}\frametitle{El estimador de doble ventana}
-\begin{defn}[Estimador de doble ventana]
+\begin{definicion}[Estimador de doble ventana]
 %Se define a $\est{f}$, estimador para la $f$, como
 \begin{equation*}
 \widehat{f}(t,\omega) = \int_{t-T}^{t} w_{T'}(u) \lvert U(t-u,\omega) \lvert^{2} du
@@ -324,13 +352,13 @@ Donde $w_{T'}$, $U$, $g$, $\Gamma$ son tales que
 %$\lim_{\tau \rightarrow \infty} \tau \int_{-\infty}^{t} \abso{ W_{\tau}(\lambda) }^{2} d\lambda = C$
 \end{itemize}
 \end{small}
-\end{defn}
+\end{definicion}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}\frametitle{Estimador de doble ventana}
-\begin{prop}
+\begin{proposicion}
 El estimador $\widehat{f}$ tiene las siguientes propiedades
 \begin{itemize}
 \item $\displaystyle \E{\est{f}(t,\omega)} \approx f(t,\omega)$
@@ -341,7 +369,7 @@ El estimador $\widehat{f}$ tiene las siguientes propiedades
 w_\tau (u) w_\tau(v) \Cov{ \abso{U(t_1-u,\omega_1)}^{2} , \abso{U(t_2-u,\omega_2)}^{2} } du dv$
 }
 \end{itemize}
-\end{prop}
+\end{proposicion}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -488,7 +516,7 @@ Por simplicidad, se usará la interfaz gráfica de RStudio
 \begin{frame}\frametitle{Graficación de los datos}
 \begin{figure}
 \centering
-\includegraphics[width=\linewidth]{./img_ejemplos/MJH_190_PDG_lucirse_PSG.pdf}
+\includegraphics[width=\linewidth]{./img_ejemplos/MJNN_epoca_stam.pdf}
 \end{figure}
 \end{frame}
 
