@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 744.09448819 1052.3622047"
+   id="svg3657"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="asimov.svg">
+  <defs
+     id="defs3659">
+    <linearGradient
+       id="linearGradient4546"
+       inkscape:collect="always">
+      <stop
+         id="stop4602"
+         offset="0"
+         style="stop-color:#000000;stop-opacity:1;" />
+      <stop
+         id="stop4604"
+         offset="1"
+         style="stop-color:#000000;stop-opacity:0;" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4546"
+       id="linearGradient4554"
+       x1="37.144932"
+       y1="572.09241"
+       x2="795.05713"
+       y2="345.88303"
+       gradientUnits="userSpaceOnUse" />
+    <filter
+       inkscape:collect="always"
+       style="color-interpolation-filters:sRGB"
+       id="filter4697"
+       x="-0.0066521839"
+       width="1.0133044"
+       y="-0.005464279"
+       height="1.0109286">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="1.6663591"
+         id="feGaussianBlur4699" />
+    </filter>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.34671247"
+     inkscape:cx="1104.1283"
+     inkscape:cy="560.46665"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     showguides="false"
+     inkscape:window-width="1280"
+     inkscape:window-height="724"
+     inkscape:window-x="0"
+     inkscape:window-y="24"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata3662">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Capa 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <image
+       sodipodi:absref="/home/laptop_casa/TESIS/TESIS/68747470733a2f2f7261772e6769746875622e636f6d2f63346673686172702f446f6a6f2d4672616374616c2d466f726573742f6d61737465722f4173736574732f6b69646e65792d747265652e6a7067.jpeg"
+       xlink:href="68747470733a2f2f7261772e6769746875622e636f6d2f63346673686172702f446f6a6f2d4672616374616c2d466f726573742f6d61737465722f4173736574732f6b69646e65792d747265652e6a7067.jpeg"
+       transform="matrix(-0.81053509,-0.58569008,-0.6994824,0.71464982,0,0)"
+       width="485.2699"
+       height="402.03482"
+       preserveAspectRatio="none"
+       id="image3679"
+       x="-707.58496"
+       y="-252.77786" />
+    <path
+       style="display:inline;opacity:0.93800001;fill:url(#linearGradient4554);fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:10.28912354;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;filter:url(#filter4697)"
+       d="m 604.64339,764.49273 c -2.82045,-10.5606 -9.74827,-30.22381 -11.56809,-41.00192 -1.76253,-10.43923 -2.14394,-21.09538 -2.23686,-31.68183 -0.1019,-11.61034 0.53734,-23.23665 1.65336,-34.79356 1.02645,-10.63001 2.43344,-21.26003 4.76564,-31.68183 4.12837,-18.44782 9.15151,-36.69872 14.58861,-54.80433 4.29479,-14.30157 8.79134,-28.59435 14.58861,-42.3556 7.32338,-17.38401 16.26023,-34.04572 24.70338,-50.91426 6.98978,-13.96484 12.55056,-31.25395 16.92276,-46.24594 5.4703,-18.75724 6.77417,-41.72223 7.48883,-61.24784 0.65322,-17.84652 1.96819,-28.24066 -1.84787,-45.68669 -3.72911,-17.04846 -8.46451,-32.98854 -15.85296,-48.79887 -7.36252,-15.75485 -15.87082,-31.00406 -25.18968,-45.68667 -8.83981,-13.92782 -17.99836,-27.84192 -29.17722,-39.97281 -12.55952,-13.62913 -26.40992,-26.27954 -41.6262,-36.86056 -15.8511,-11.02252 -33.14926,-20.07883 -50.96287,-27.52384 -16.34513,-6.83127 -33.62732,-11.42697 -50.96292,-15.07492 -18.82151,-3.96064 -37.96023,-7.17911 -57.18735,-7.68333 -18.08867,-0.47437 -36.1747,2.11976 -54.07512,4.76563 -17.69327,2.61524 -35.46925,5.58651 -52.519,10.99005 -16.0659,5.09179 -31.64602,11.99246 -46.29451,20.32685 -15.94362,9.07122 -31.12821,19.66551 -45.03019,31.63296 -13.1442,11.31506 -25.56612,23.77772 -35.69348,37.85738 -9.69992,13.48551 -17.24605,28.59112 -23.24453,44.08195 -6.46309,16.69063 -9.30435,51.75677 -9.23945,54.97473 0.28079,13.91612 2.3531,27.90744 0.87532,41.74774 -1.07929,10.1079 -10.11815,19.26934 -8.4614,29.29882 2.09818,12.7019 19.10119,20.82775 18.86794,33.69965 -0.27122,14.96527 -12.73244,27.13163 -20.20524,40.10044 -7.05892,12.25054 -15.97693,23.34819 -23.31746,35.43211 -8.205449,13.50772 -18.725979,26.16754 -23.293169,41.29791 -1.3832,4.58252 3.01603,9.93492 7.05117,12.50977 8.10796,5.17368 20.891649,2.20824 27.280719,9.39748 5.754,6.47466 4.68217,17.06439 3.90244,25.69117 -0.81237,8.98848 -10.40221,16.85885 -8.54647,25.69113 1.19484,5.68693 14.69101,2.06915 15.5855,7.81099 0.90353,5.8 -11.99992,6.62477 -12.42466,12.47928 -1.25309,17.27307 7.41063,34.05308 7.79275,51.36711 0.15565,7.05715 -8.20265,13.47226 -6.21232,20.24484 1.83531,6.24466 9.2618,10.29316 15.60983,11.73142 15.21218,3.44713 33.27355,-5.48892 46.73221,2.39507 27.51164,16.11614 47.32287,70.45345 50.98688,80.93158 91.11579,52.4872 197.28137,78.24674 375.77307,-24.44126 z"
+       id="path4156"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="csssssssssssssssssssssssssssssssssssssssacc"
+       transform="matrix(0.98029023,0.03219039,-0.03219039,0.98029023,19.787961,-82.801928)" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:112.5px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="381.77481"
+       y="801.43103"
+       id="text4648"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4650"
+         x="381.77481"
+         y="801.43103"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:17.5px;font-family:'CMU Serif';-inkscape-font-specification:'CMU Serif Medium';text-align:center;text-anchor:middle">Creo que el conocimiento científico tiene propiedades</tspan><tspan
+         sodipodi:role="line"
+         x="384.69717"
+         y="823.30603"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:17.5px;font-family:'CMU Serif';-inkscape-font-specification:'CMU Serif Medium';text-align:center;text-anchor:middle"
+         id="tspan4652">fractales: que por mucho que aprendamos, lo que </tspan><tspan
+         sodipodi:role="line"
+         x="384.69717"
+         y="845.18103"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:17.5px;font-family:'CMU Serif';-inkscape-font-specification:'CMU Serif Medium';text-align:center;text-anchor:middle"
+         id="tspan4654">queda, por pequeño que parezca, es tan infinitamente </tspan><tspan
+         sodipodi:role="line"
+         x="384.69717"
+         y="867.05603"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:17.5px;font-family:'CMU Serif';-inkscape-font-specification:'CMU Serif Medium';text-align:center;text-anchor:middle"
+         id="tspan4656">complejo como el todo por el que empezamos. </tspan><tspan
+         sodipodi:role="line"
+         x="381.77481"
+         y="888.93103"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:17.5px;font-family:'CMU Serif';-inkscape-font-specification:'CMU Serif Medium';text-align:center;text-anchor:middle"
+         id="tspan4658">Ese, creo yo, es el secreto del universo.</tspan><tspan
+         sodipodi:role="line"
+         x="381.77481"
+         y="910.80603"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:17.5px;font-family:'CMU Serif';-inkscape-font-specification:'CMU Serif Medium';text-align:center;text-anchor:middle"
+         id="tspan4660" /><tspan
+         sodipodi:role="line"
+         x="381.77481"
+         y="932.68103"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:17.5px;font-family:'CMU Serif';-inkscape-font-specification:'CMU Serif Medium';text-align:center;text-anchor:middle"
+         id="tspan4662">Isaac Asimov (1920-1992)</tspan></text>
+  </g>
+</svg>

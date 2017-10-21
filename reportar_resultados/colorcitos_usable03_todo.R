@@ -1,16 +1,14 @@
 ###############################################################################
 # directorio de trabajo
-dir_actual  = '~/TESIS/TESIS/reportar_resultados'
-dir_graf    = '~/TESIS/TESIS/reportar_resultados'
-dir_res_mid = '~/TESIS/graf_datos/espectro_integrado_15s'
-dir_epocas  = '~/TESIS/graf_datos/epocas3/'
+dir_actual = '~/TESIS/TESIS/reportar_resultados'
+dir_graf   = '~/TESIS/TESIS/reportar_resultados'
+dir_datos  = '~/TESIS/graf_datos/estacionariedad_sinfiltro/'
+dir_epocas = '~/TESIS/graf_datos/epocas_dfa/'
 
 ###############################################################################
 # parametros
 #sujeto     = 2
-grabar_tot = T
-
-no_relativo = T
+grabar_tot = F
 
 ###############################################################################
 # datos generales
@@ -62,29 +60,22 @@ frecuenciasss = c(200,
                   200)
 grupo_de = c(0,0,0,0,0,1,1,1,1,-1,-1,-1)
 
-banda.n = c('Delta','Theta','Alfa','Beta','Gamma','Potencia total',
-            'Ondas lentas fuera de rango','Ondas rapidas fuera de rango')
-banda   = c('DELTA','THETA','ALFA','BETA','GAMMA','TOTAL','SUB','SUPER')
-nbandas = length(banda.n)
+h_ini = c( 1, 1, 0, 3, 2, 1, 1, 1, 3, 2, 1, 1)
+m_ini = c(55,28,51,14,13,19,57,53, 0,14,55,37)
+s_ini = c( 0, 0, 0, 0,30,30,30, 0,30,30,30,30)
+
+h_fin = c( 2, 1, 1, 3, 2, 1, 2, 2, 3, 2, 2, 1)
+m_fin = c(15,48,11,34,33,39,17,13,20,34,15,57)
+s_fin = c( 0, 0, 0, 0,30,30,30, 0,30,30,30,30)
 
 ###############################################################################
 # parametros del script
 nombre      = v.nombres[sujeto]
 etiqueta    = v.etiqueta[sujeto]
-fr_muestreo = frecuenciasss[sujeto]
-dir_res_est = paste0('~/TESIS/graf_datos/estacionariedad_sinfiltro/',
-                     v.directorio[sujeto])
-
-dur_epoca   = 15
-if(fr_muestreo==512){
-  dur_epo_reg = 30
-}
-if(fr_muestreo==200){
-  dur_epo_reg = 10
-}
+dir_res_mid = paste0(dir_datos,v.directorio[sujeto])
+fr_muestreo  = frecuenciasss[sujeto]
 
 stam         = T
-orden_stam  = c(9,8,7,6,5,4,17,16,2,1,19,18,14,13,12,11,10,3,15,20,21,22)
 
 grabar      = F
 anotaciones = ''
@@ -94,20 +85,20 @@ canales      = 'PSG'
 #canales     = c('C3','C4','CZ','F3','F4','F7','F8','FP1','FP2','FZ','O1','O2',
 #                'P3','P4','PZ','T3','T4','T5','T6')
 
-binario = F
+binario = T
+#p.vales = c(.05,.01,.005)
 escala  = F
-
-etiquetas_tiempo = F
 
 zoom           = T
 unidad_par_t   = 'tiempo'
 ajuste_ini_hms = c(0,0,0)
-min_hms        = c(0,51, 0)
-max_hms        = c(1, 2, 0)
+min_hms        = c(h_ini[sujeto],m_ini[sujeto],s_ini[sujeto])
+max_hms        = c(h_fin[sujeto],m_fin[sujeto],s_fin[sujeto])
 #unidad_par_t   = 'puntos'
 #ajuste_ini_epo = 0
+#min_epo        = epoca_ini[sujeto]
+#max_epo        = epoca_fin[sujeto]-1
 #min_epo        = 0
-#max_epo        = 0
 
 # parametros de dibujo
 paso    = 15*2
@@ -141,6 +132,24 @@ if(length(canales)<1){
 }
 
 #################################################
+# ajustes del zoom
+dur.min = 30/32
+if(zoom){
+  validar.zoom = F
+  if(unidad_par_t=='tiempo'){
+    s.ini = sum(min_hms*c(60*60,60,1))
+    s.fin = sum(max_hms*c(60*60,60,1))
+    
+    e.ini = s.ini/dur.min + 1
+    e.fin = s.fin/dur.min
+    
+    n.epo = e.fin-e.ini
+    
+    validar.zoom = T
+  }
+}
+
+#################################################
 # parametros que dependen del sujeto
 if(grupo_de[sujeto]==0){
   grupo = 'Nn'
@@ -152,26 +161,15 @@ if(grupo_de[sujeto]==-1){
   grupo = 'ex'
 }
 
-###############################################################################
-# contadores
-qq   = .925/6
-cont = .025+5*qq
-
 #################################################
 # inicia grafico
 k = 1.5
 setwd(dir_actual)
 if(grabar_tot){
-  if(no_relativo){
-    tag = 'total'
-  }else{
-    tag = 'relativo'
-  }
-  
   setwd(dir_actual)
   #pdf(
   png(
-    paste0(nombre,'_combinado_',#tag,
+    paste0(nombre,'_comp_est_',
            #'.pdf'),width=5.941*k,height=1*k)
            '.png'),units='in',res=300,width=5.941*k,height=9*k)
 }
@@ -181,45 +179,29 @@ if(grabar_tot){
 
 # grafico principal
 par(oma=c(0,0,0,0),
-    mar=c(.25, 2+2.0, .25, 3+1),
-    mgp=c(2.0,.5,0))
+    mar=c(.25, 2+1.5, .25, 2),
+    mgp=c(1.5,.5,0))
 
-# parche
-cont = cont + qq
+# contadores
+qq   = .925/8
+cont = .025
 
-binario = F
-for(ch in 20:22){
-  cont = cont - qq
+setwd(dir_actual)
+dur_epoca = 30/(2**5)
+par(fig=c(0,1,cont,cont+qq), new=FALSE)
+source('~/TESIS/TESIS/reportar_resultados/colorcitos_usable04_parte.R')
+
+# contadores
+qq   = .925/8
+cont = .025
+
+for(expon in -5:2){
   setwd(dir_actual)
-  #que.banda = que.banda + 1 
+  dur_epoca = 30*(2**expon)
   par(fig=c(0,1,cont,cont+qq), new=TRUE)
-  source('~/TESIS/TESIS/img_resultados/graf_canal_espectro01_parte.R')
+  source('~/TESIS/TESIS/reportar_resultados/colorcitos_usable04_parte.R')
+  cont = cont + qq
 }
-
-binario = T
-for(ch in 20:22){
-  cont = cont - qq
-  setwd(dir_actual)
-  que.banda = que.banda + 1 
-  par(fig=c(0,1,cont,cont+qq), new=TRUE)
-  source('~/TESIS/TESIS/img_resultados/graf_canal_est01_parte.R')
-}
-
-# # potencia total
-# cont = cont - qq
-# setwd(dir_actual)
-# par(fig=c(0,1,cont,cont+qq), new=TRUE)
-# source('~/TESIS/TESIS/img_resultados/graf_espectro_integrado04_varianza.R')
-# 
-# # pseudo-color
-# cont = cont - qq
-# setwd(dir_actual)
-# par(fig=c(0,1,cont,cont+qq), new=TRUE)
-# source('~/TESIS/TESIS/img_resultados/graf_espectro_integrado04_exponente.R')
-
-#qq = qq*(2/3)
-
-
 
 # el titulo
 par(oma=c(0,0,0,0),

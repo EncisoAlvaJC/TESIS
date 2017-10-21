@@ -86,6 +86,12 @@ pv_t      = scan(nom_arch)
 n_epocas  = length(pv_t)
 max_e     = n_epocas
 
+ajuste_ini_epo = sum(ajuste_ini_hms*c(60**2,60,1))/fr_muestreo
+if(fr_muestreo==200){
+  ajuste_ini_epo = ajuste_ini_epo/3
+}
+#ajuste_ini_epo = sum(ajuste_ini_hms*c(60**2,60,1))/fr_muestreo
+
 lab_epo_ini = ajuste_ini_epo
 lab_epo_fin = ajuste_ini_epo + length(pv_t)*dur_epoca/dur_epo_reg
 
@@ -193,11 +199,11 @@ mmax = max(RES)
 RES[is.na(RES)*1==1] = 0
 
 if(no_relativo){
-  kk = quantile(as.numeric(RES),.9)
+  kk = quantile(as.numeric(RES),.9,na.rm = T)
   RES = pmin(RES,kk)
-  kk = quantile(as.numeric(RES),.9)
+  kk = quantile(as.numeric(RES),.9,na.rm = T)
   RES = pmin(RES,kk)
-  kk = quantile(as.numeric(RES),.9)
+  kk = quantile(as.numeric(RES),.9,na.rm = T)
   RES = pmin(RES,kk)
 }
 
