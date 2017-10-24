@@ -6,9 +6,9 @@ ventana   = dur_epoca*fr_muestreo
 #################################################
 # procesamiento parametros opcionales (ajuste)
 if(unidad_par_t =='tiempo'){
-  ini_t   = ajuste_ini_hms[1]*60*60
-  +ajuste_ini_hms[2]*60
-  +ajuste_ini_hms[3]
+  ini_t   = ajuste_ini_hms[1]*60*60+
+            ajuste_ini_hms[2]*60+
+            ajuste_ini_hms[3]
   ini_epo = ini_t/dur_epoca
   ini_pt  = floor(ini_t*fr_muestreo)
 }
@@ -303,3 +303,4 @@ if(grabar){
 #################################################
 
 setwd(dir_actual)
+

@@ -19,7 +19,7 @@ col.col = c('gray','pink','red','blue','violet')
 n.colores = length(col.exp)
 
 # parametros: fr de muestreo (Hz) y duracion de la sennal (s)
-f.muestreo  = 2*(10**4)
+f.muestreo  = 2*(10**5)
 t.sennal    = 5
 
 # contenedor de datos
@@ -78,6 +78,7 @@ axis(1,at=log((1:10)*(10**0),10),label=F,tck=.03)
 axis(1,at=log((1:10)*(10**1),10),label=F,tck=.03)
 axis(1,at=log((1:10)*(10**2),10),label=F,tck=.03)
 axis(1,at=log((1:10)*(10**3),10),label=F,tck=.03)
+axis(1,at=log((1:10)*(10**4),10),label=F,tck=.03)
 
 # lineas per se de los espectros
 for(k in 1:n.colores){
@@ -122,5 +123,6 @@ spec.2 %>%
   #scale_x_log10(breaks = trans_breaks("log10", function(x) 10^x),
   #              labels = trans_format("log10", math_format(10^.x))) +
   scale_color_manual(values=c('blue','pink','red','violet','black'))+
-annotation_logticks(sides = 'b')  
+annotation_logticks(sides = 'b')  +
+  theme(legend.position='bottom')
 

@@ -8,7 +8,7 @@ dir_epocas  = '~/TESIS/graf_datos/epocas_dfa/'
 ###############################################################################
 # parametros
 #sujeto     = 2
-grabar_tot = T
+grabar_tot = F
 
 no_relativo = T
 
@@ -162,7 +162,7 @@ if(grupo_de[sujeto]==-1){
 #################################################
 # ajustes del zoom
 dur.min = 30/32
-if(zoom){
+#if(zoom){
   validar.zoom = F
   if(unidad_par_t=='tiempo'){
     s.ini = sum(min_hms*c(60*60,60,1))
@@ -175,7 +175,7 @@ if(zoom){
     
     validar.zoom = T
   }
-}
+#}
 
 ###############################################################################
 
@@ -245,8 +245,8 @@ for(i in indice_e){
   #     (i+1)/(factor.extra/2),25,
   #     col='green',
   #     border=NA)
-  rect(i,0.5,
-       i+30/(factor.extra/dur.min),22.5,
+  rect(i-30/(factor.extra),0.5,
+       i,22.5,
        col=rgb(128,255,128,
                #alpha=128,
                maxColorValue=255),
