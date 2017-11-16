@@ -5,14 +5,14 @@
 # usar sennales artificiales lo hace lucir mas 'realista'
 # que graficar lo que son, analiticamente, los colores
 
-# directorio de guardado, cambiar
-#setwd('~/TESIS/TESIS/extra')
-
 # librerias para generar los ruidos
 require(tuneR)
 require(psd)
 
-# colores para generar los ruidos, y su color grafico
+# PARAMETRO, guardado automatico
+guardar.auto = T
+
+# colores (exponente) para generar los ruidos, y su color grafico
 col.exp = c(0,1,2,-1,-2)
 col.col = c('gray','pink','red','blue','violet')
 
@@ -20,7 +20,7 @@ n.colores = length(col.exp)
 
 # parametros: fr de muestreo (Hz) y duracion de la sennal (s)
 f.muestreo  = 2*(10**5)
-t.sennal    = 5
+t.sennal    = 2
 
 # contenedor de datos
 esp = matrix(0,nrow=n.colores,
@@ -34,25 +34,30 @@ for(k in 1:n.colores){
                  xunit='time')
   sennal.v = attr(sennal,'left')
   
+  sennal.v = sennal.v - mean(sennal.v)
+  sennal.v = sennal.v/sd(sennal.v)
+  
   # el espectro se calcula usando el paquete psd
   espect   = pspectrum(sennal.v,Nyquist.normalize=F,
                        x.frqsamp=f.muestreo)
-  esp[k,] = log(espect$spec)
+  esp[k,] = 10*log(espect$spec,10) #decibeles
+  
+  # DEBUG
+  #plot(sennal.v,type='l')
+  #plot(log(espect$freq),esp[k,],type='l')
 }
 
 # vector con las frecuencias
 frec.v = espect$freq
 
-# parche
-# este paso equivale a usar el espectro normalizado
-for(k in 1:n.colores){
-  esp[k,] = esp[k,] - esp[k,20]
-}
+esp[5,] = (esp[5,]-2*esp[3,])/3
 
-# este paso equivale a usar el espectro normalizado
-#for(k in 1:n.colores){
-#  esp[k,] = esp[k,] - esp[k,1]
-#}
+# parche
+# forzar a que la integral del epectro sea la varianza hace que su valor en cero
+# pueda no ser la media, 
+for(k in 1:n.colores){
+  esp[k,] = esp[k,] - esp[k,1]
+}
 
 
 #######################################
@@ -62,12 +67,18 @@ for(k in 1:n.colores){
 mmax = max(esp)
 mmin = min(esp)
 
+if(guardar.auto){
+  #pdf('color_noise_plot.pdf',width=8,height=5.5)
+  png('color_noise_plot.png',res=300,units='in',width=8,height=5.5)
+  # las unidades son en pulgadas
+}
+
 # grafico vacio
 par(mgp=c(2,.5,0))
 plot(0,type='n',
-     xlim=c(1,log(max(frec.v),10)),ylim=c(mmin,mmax),
-     xlab = 'Frecuency (Hz)',
-     ylab='Power Spectral Density (dB)',
+     xlim=c(log(5,10),log(max(frec.v),10)),ylim=c(mmin,mmax),
+     xlab = 'Frecuency [Hz]',
+     ylab='Power Spectral Density [dB]\n Logarithm of spectrum',
      main='The Colors of Noise',
      xaxt='n',las=2,
      tck=.03)
@@ -84,6 +95,10 @@ axis(1,at=log((1:10)*(10**4),10),label=F,tck=.03)
 for(k in 1:n.colores){
   lines(log(frec.v,10),esp[k,],
         type='l',col=col.col[k],lwd=2)
+}
+
+if(grabar.auto){
+  dev.off()
 }
 
 #######################################
@@ -110,19 +125,30 @@ for(i in 1:3){
   esc_log = c(esc_log,c(1,2,3,4,5,6,7,8,9)*10**i)
 }
 
+if(guardar.auto){
+  #pdf('color_noise_ggplot.pdf',width=8,height=5.5)
+  png('color_noise_ggplot.png',res=300,units='in',width=8,height=5.5)
+  # las unidades son en pulgadas
+}
+
+# grafico per se, la gramatica de ggplot2 no la domino completamente
 spec.2 %>%
   gather(Noisecolour,Power, White,Pink,Red,Blue,Violet) %>%
   ggplot(aes(x=Frecuency, y=Power, colour=Noisecolour)) +
   geom_line() +
-  scale_y_continuous(breaks = c((-20/5):(15/5))*5,
+  scale_y_continuous(breaks = c((-100/20):(100/20))*20,
                      labels = waiver())+
-  scale_x_continuous(trans = log10_trans(),
-                     #breaks = trans_breaks("log10", function(x) 10^x),
-                     breaks = c(10,10**2,10**3,10**4,10**5),
+  scale_x_continuous(trans = log10_trans(),breaks = c(10,10**2,10**3,10**4,10**5),
                      labels = trans_format("log10", math_format(10^.x)))+
-  #scale_x_log10(breaks = trans_breaks("log10", function(x) 10^x),
-  #              labels = trans_format("log10", math_format(10^.x))) +
   scale_color_manual(values=c('blue','pink','red','violet','black'))+
 annotation_logticks(sides = 'b')  +
+  xlab('Frequency [Hz]') +
+  ylab('Power Spectrum Density [dB]\n Logarithm of spectrum') +
+  ggtitle('The Colors of Noise') +
+  labs(colour='Type of Noise')+
   theme(legend.position='bottom')
+
+if(grabar.auto){
+  dev.off()
+}
 

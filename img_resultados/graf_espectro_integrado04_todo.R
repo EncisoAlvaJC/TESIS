@@ -10,7 +10,7 @@ dir_epocas  = '~/TESIS/graf_datos/epocas3/'
 #sujeto     = 2
 grabar_tot = T
 
-no_relativo = T
+no_relativo = F
 
 ###############################################################################
 # datos generales
@@ -246,7 +246,8 @@ source('~/TESIS/TESIS/img_resultados/graf_espectro_integrado04_varianza.R')
 cont = cont - qq
 setwd(dir_actual)
 par(fig=c(0,1,cont,cont+qq), new=TRUE)
-source('~/TESIS/TESIS/img_resultados/graf_espectro_integrado04_exponente.R')
+#source('~/TESIS/TESIS/img_resultados/graf_espectro_integrado04_exponente.R')
+source('~/TESIS/TESIS/img_resultados/graf_espectro_integrado04_slow.R')
 
 #qq = qq*(2/3)
 
