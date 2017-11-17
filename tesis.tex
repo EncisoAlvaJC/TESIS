@@ -4,8 +4,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %\documentclass[12pt,letterpaper]{mitthesis}
-%\documentclass[12pt,letterpaper,draft]{book}
-\documentclass[12pt,letterpaper]{book}
+\documentclass[12pt,letterpaper,draft]{book}
+%\documentclass[12pt,letterpaper]{book}
 \usepackage[utf8]{inputenc}
 \usepackage[spanish]{babel}
 
@@ -107,6 +107,9 @@
 % para que aparezcan bien microvolt
 \usepackage{siunitx}
 
+% para que no haya espacio de sobra despues de las tablas
+\usepackage{tabularx}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -205,6 +208,7 @@
 \newcommand{\nop}{\ding{55}}
 
 \newcommand{\pz}{\phantom{.0}}
+\newcommand{\ppu}{\phantom{1}}
 
 \newcommand{\hz}{\si{\hertz}}
 \newcommand{\mv}{\si{\micro\volt}}
@@ -457,7 +461,7 @@ como posible marcador de deterioro cognitivo}
 \input{./texto/matematicas2.tex}
 
 %\input{./texto/previo.tex}
-%\input{./texto/metodologia.tex}
+\input{./texto/metodologia.tex}
 
 \input{./texto/resultados.tex}
 
@@ -465,11 +469,11 @@ como posible marcador de deterioro cognitivo}
 
 %\input{./texto/stl_fft.tex}
 
-\input{./texto/anexo_frecuencias.tex}
+%\input{./texto/anexo_frecuencias.tex}
 
-\input{./texto/anexo_mate.tex}
+%\input{./texto/anexo_mate.tex}
 
-\input{./texto/anexo_espectro_evo.tex}
+%\input{./texto/anexo_espectro_evo.tex}
 
 %\input{./texto/anexo_fisio.tex}
 
