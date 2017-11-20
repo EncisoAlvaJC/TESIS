@@ -16,12 +16,12 @@
 \chapter{Resultados}
 
 
+
 \section{Estacionariedad en sueño MOR}
 
-En busca de una interpretación significativa de la estacionariedad débil, desde la fisiología del
-sueño, se comparó si en sueño MOR era más frecuente la estacionariedad que en otras etapas de 
-sueño, para lo cual se usó la prueba $\chi^{2}$ para proporciones\footnote{Implementada en R como 
-\texttt{prop.test}} sobre las épocas (de 30 segundos) estacionarias en MOR y NMOR.
+Se comparó si en sueño MOR era más frecuente la estacionariedad que en otras etapas de 
+sueño, para lo cual se usó la prueba $\chi^{2}$ para proporciones sobre las épocas 
+(30 segundos) estacionarias en MOR y NMOR.
 %
 La diferencias encontradas no mostraron patrones consistentes claros entre los sujetos salvo por 
 los canales LOG y ROG ($p<0.05$), que presentan proporciones mayores de épocas estacionarias 
@@ -62,7 +62,7 @@ movimientos oculares rápidos, característicos de dicha etapa de sueño.
 %\end{figure}
 
 Para corroborar la consistencia de las diferencias en LOG y ROG, se repitió la comparación a nivel 
-grupal usando la prueba $U$ de  Mann-Whitney\footnote{Implementada en R como \texttt{wilcox.test}}
+grupal usando la prueba $U$ de  Mann-Whitney
 y se encontraron diferencias significativas ($p<0.05$) para el grupo Nn en los canales C4, F7, FP1, 
 FP2, LOG y ROG, mientras que en el grupo Mn sólo se observaron tales diferencias en FP1, LOG y ROG 
 (ver figura \ref{comparacion_verde});
@@ -98,50 +98,50 @@ significativas ($p<0.05$).
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Patrones visuales}
+%\section{Patrones visuales}
 
-Los resultados anteriores, aparentemente contradictorios, indican que la comparación directa no es 
-una herramienta efectiva para entender los cambios que se esperan en la estacionariedad durante
-sueño MOR.
-Como auxiliar visual, se \textit{graficaron} en el tiempo las épocas
-estacionarias indicando por cada canal la porción del registro que se comporta como débilmente 
-estacionario, como en la figura \ref{patroncito}.
-
+%Los resultados anteriores, aparentemente contradictorios, indican que la comparación directa no es 
+%una herramienta efectiva para entender los cambios que se esperan en la estacionariedad durante
+%sueño MOR.
+%Como auxiliar visual, se \textit{graficaron} en el tiempo las épocas
+%estacionarias indicando por cada canal la porción del registro que se comporta como débilmente 
+%estacionario, como en la figura \ref{patroncito}.
+%
+%%\begin{figure}
+%%\includegraphics[width=\textwidth]
+%%{./img_ejemplos/MJNNVIGILOS_est.png}
+%%\caption{Disposición gráfica para los resultados de la prueba PSR en el sujeto MJH. Se han 
+%%resaltado con color verde las épocas clasificadas como de sueño MOR.}
+%%\label{ejemplo_graf}
+%%\end{figure}
+%
+%Al construir estos gráficos, se hacen visibles \textit{bloques} de épocas con propiedades 
+%similares; ha parecido conveniente investigar este fenómeno porque su estructura es independiente 
+%de los métodos planteados. En principio, la aparición de estos bloques es consistente con la
+%caracterización del sueño por etapas; por ejemplo,
+%estos bloques aparecen relacionados con la aparición de sueño MOR en todos los 
+%sujetos del grupo Mn bajo el siguiente patrón:
+%\begin{itemize}
+%\item Bloque abundante en épocas estacionarias, visualmente oscuro
+%\item Bloque abundante en épocas no-estacionarias, visualmente claro
+%\item Sección que contiene el sueño MOR
+%\end{itemize}
+%
 %\begin{figure}
 %\includegraphics[width=\textwidth]
-%{./img_ejemplos/MJNNVIGILOS_est.png}
-%\caption{Disposición gráfica para los resultados de la prueba PSR en el sujeto MJH. Se han 
-%resaltado con color verde las épocas clasificadas como de sueño MOR.}
-%\label{ejemplo_graf}
+%{./img_ejemplos/zoom_VCR.pdf}
+%\caption[Patrón propuesto como asociado con el sueño MOR]
+%{Patrón propuesto como asociado con el sueño MOR: épocas estacionarias 
+%(rojo), épocas no-estacionarias (azul), bloque que contiene al sueño MOR}
+%\label{patroncito}
 %\end{figure}
-
-Al construir estos gráficos, se hacen visibles \textit{bloques} de épocas con propiedades 
-similares; ha parecido conveniente investigar este fenómeno porque su estructura es independiente 
-de los métodos planteados. En principio, la aparición de estos bloques es consistente con la
-caracterización del sueño por etapas; por ejemplo,
-estos bloques aparecen relacionados con la aparición de sueño MOR en todos los 
-sujetos del grupo Mn bajo el siguiente patrón:
-\begin{itemize}
-\item Bloque abundante en épocas estacionarias, visualmente oscuro
-\item Bloque abundante en épocas no-estacionarias, visualmente claro
-\item Sección que contiene el sueño MOR
-\end{itemize}
-
-\begin{figure}
-\includegraphics[width=\textwidth]
-{./img_ejemplos/zoom_VCR.pdf}
-\caption[Patrón propuesto como asociado con el sueño MOR]
-{Patrón propuesto como asociado con el sueño MOR: épocas estacionarias 
-(rojo), épocas no-estacionarias (azul), bloque que contiene al sueño MOR}
-\label{patroncito}
-\end{figure}
-
-Debido a que estos \textit{patrones de estacionariedad} se basan primeramente en propiedades del
-espectro de potencias, se graficó el mismo para poder compararlos. Se encontró que, visualmente,
-los patrones en la estacionariedad están relacionados con las ondas Beta.
-
-El hecho que estos patrones se encuentren definidos vagamente ha dificultado su análisis, motivo
-por el cual su estudio es limitado y se pretende como trabajo futuro.
+%
+%Debido a que estos \textit{patrones de estacionariedad} se basan primeramente en propiedades del
+%espectro de potencias, se graficó el mismo para poder compararlos. Se encontró que, visualmente,
+%los patrones en la estacionariedad están relacionados con las ondas Beta.
+%
+%El hecho que estos patrones se encuentren definidos vagamente ha dificultado su análisis, motivo
+%por el cual su estudio es limitado y se pretende como trabajo futuro.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -193,13 +193,12 @@ clasificadas como no-estacionarias.
 Sin embargo, al \textit{graficar} la estacionariedad para diferentes tamaños de época (figura
 \ref{comp_VCR}) ocurre que es más frecuente el efecto contrario.
 
-%\begin{figure}
-%\centering
-%\includegraphics[width=\linewidth]{./img_diagramas/epocas_diferentes_v2.pdf}
-%\caption{Esquema de cómo se tomaron diferentes tamaños de época para estudiar los registros de 
-%PSG}
-%\label{epocas_diferentes}
-%\end{figure}
+\begin{figure}
+\centering
+\includegraphics[width=\linewidth]{./img_diagramas/epocas_diferentes_v2.pdf}
+\caption{Efecto del tamaño de ventana sobre la clasificación de estacionariedad}
+\label{epocas_diferentes}
+\end{figure}
 
 Se propone que este efecto puede ser explicado si los registros de PSG son \textbf{localmente
 estacionarios}, una propiedad introducida por Dahlhaus \cite{Dahlhaus97} y que consiste en que un
@@ -215,14 +214,7 @@ que es posible hallar un fragmento de época en sueño N3 con únicamente un tre
 o un tren de husos de sueño.
 Este fenómeno es ilustrado de manera esquemática en la figura \ref{epocas_diferentes}.
 
-\begin{figure}
-\centering
-\includegraphics[width=0.7\linewidth]
-{./img_ejemplos/VCNNS1_comp_est_.png}
-\caption{Distribución en el tiempo de ventanas estacionarias, usando diferentes tamaños
-de ventana}
-\label{comp_VCR}
-\end{figure}
+
 
 Entonces, se propone que los registros de PSG se comportan como procesos localmente estacionarios; 
 más aún, se propone que esta característica cambia cualitativamente en adultos mayores con PDC,
