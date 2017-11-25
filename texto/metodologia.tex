@@ -368,32 +368,27 @@ basar las comparaciones en proporciones de épocas; por ejemplo, se calculó la 
 \begin{figure}
 \centering
 \begin{lstlisting}[caption={}]
-Priestley-Subba Rao stationarity Test for datos
------------------------------------------------
-Samples used              : 3072 
-Samples available         : 3069 
-Sampling interval         : 1 
-SDF estimator             : Multitaper 
-  Number of (sine) tapers : 5 
-  Centered                : TRUE 
-  Recentered              : FALSE 
-Number of blocks          : 11 
-Block size                : 279 
-Number of blocks          : 11 
-p-value for T             : 0.4130131 
-p-value for I+R           : 0.1787949 
-p-value for T+I+R         : 0.1801353 
+%Priestley-Subba Rao stationarity Test for datos
+%-----------------------------------------------
+%Samples used              : 3072 
+%Samples available         : 3069 
+%Sampling interval         : 1 
+%SDF estimator             : Multitaper 
+%  Number of (sine) tapers : 5 
+%  Centered                : TRUE 
+%  Recentered              : FALSE 
+%Number of blocks          : 11 
+%Block size                : 279 
+%Number of blocks          : 11 
+%p-value for T             : 0.4130131 
+%p-value for I+R           : 0.1787949 
+%p-value for T+I+R         : 0.1801353 
 \end{lstlisting}
-\caption[{Resultado típico para la función \texttt{stationarity}}]
-{Resultado típico para la función \texttt{stationarity}. La función de densidad espectral es
-referida como SDF, mientras que los p valores. El p-valor para \textttt{T+I+R} es equivalente al 
-estadístico $S_{I+R}$, y el p-valor para \texttt{T} equivale a $S_T$
-%El parámetro \texttt{n.blocks} define la cantidad grupos disjuntos para los cuales se calculará 
-%el estimador de la FDE.
-%Cabe resaltar el antepenúltimo renglón (\texttt{p-value for T}), según el cual se puede
-%aceptar o rechazar la hipótesis de estacionariedad débil. 
-%La FDE es referida como 'Spectral Density Function' (SDF).
-}
+%\caption[{Resultado típico para la función \texttt{stationarity}}]
+%{Resultado típico para la función \texttt{stationarity}. La función de densidad espectral es
+%referida como SDF, mientras que los p valores. El p-valor para \textttt{T+I+R} es equivalente al 
+%estadístico $S_{I+R}$, y el p-valor para \texttt{T} equivale a $S_T$
+%}
 \label{res_psr}
 \end{figure}
 
@@ -432,8 +427,8 @@ para comparar con el tamaño de época recomendado por la AASM.% (30 segundos).
 Usando la clasificación de épocas estacionarias, obtenida para diferentes tamaños de ventana,
 se construyeron más graficos sobre la ubicación de épocas estacionarias en el tiempo. Estos
 nuevos
-gráficos, como el de la figura \ref{comp_VCR}, refuerzan la hipótesis de que los 
-patrones son significativos. 
+gráficos, como el de la figura \ref{comp_VCR}, refuerzan heurísticamente la hipótesis de que los 
+patrones son significativos fisiológicamente. 
 %Los gráficos así obtenidos refuerzan la idea de que los patrones no son espurios., y es en base
 %a ellos que se obtenidos
 
@@ -462,30 +457,43 @@ de ventana}
 %y paralelamente se han incorporado a los diseños experimentales motivos para mantener este supuesto
 %\cite{Kaiser00}.
 
-Cabe destacar que la aplicación \textit{per se} de la prueba fue realizada usando el software 
-estadístico R \cite{R_citar}; en particular, se usó la implementación 
-bajo la función \texttt{stationarity} del paquete \texttt{fractal} \cite{R_fractal}.
+Cabe destacar que la aplicación \textit{per se} de la prueba fue efectuada usando el software 
+estadístico R \cite{R_citar}. En particular, se utilizó la implementación 
+incluida en el paquete \texttt{fractal} \cite{R_fractal} bajo la función \texttt{stationarity}.
 
 \subsection{Espectro de potencias}
 
-Adicionalmente al estudio de estacionariedad, se calculó el espectro de potencia de banda ancha,
-es decir la potencia total y relativa correspondiente a las ondas delta, theta, alfa, beta y gamma.
-%
-Este estudio se justifica en que la prueba de PSR está basa en el espectro de 
-potencias, luego lo más natural es analizar el espectro de potencias \textit{per se}.
-%Sin embargo, para poder asegurar heurísticamente 
+Adicionalmente a la clasificación de épocas como estacionarias, se calculó su espectro de potencia. 
+Como una metodología común, se calculó el \textbf{espectro de banda ancha},
+es decir, la potencia total y relativa correspondientes a las frecuencias que caracterizan las ondas 
+delta, theta, alfa, beta y gamma (ver cuadro \ref{tabla_ondas}).
+
+Usando los espectros de banda ancha se ha calculado el coeficiente de enlentecimiento \lento, 
+definido en la 
+expresión \ref{enlentecimiento}; se dio especial atención al sueño MOR. 
+Esta cantidad fue elegida debido a que se ha reportado como un posible marcador de deterioro
+cognitivo en adultos mayores \cite{Brayet16}.
+
+\begin{equation}
+R_{\text{lento}} = \frac{\text{potencia}_{\delta}+\text{potencia}_{\theta}}
+{\text{potencia}_{\alpha}+\text{potencia}_{\beta}}
+\label{enlentecimiento}
+\end{equation}
+
+Como se discute posteriormente, los bloques de épocas estacionarias están relacionados a bloques
+cuyo espectro de potencia son distintos. Así mismo son diferentes los coeficientes \lento calculado
+para dichos bloques.
+
+%Este estudio se justifica en que la prueba de PSR está basa en el espectro de 
+%potencias, luego lo más natural es analizar el espectro de potencias \textit{per se}.
 
 %Debido a que estos \textit{patrones de estacionariedad} se basan primeramente en propiedades del
 %espectro de potencias, se graficó el mismo para poder compararlos. Se encontró que, visualmente,
 %los patrones en la estacionariedad están relacionados con las ondas Beta.
 
-Adicionalmente se calculó por cada época el \textit{coeficiente de enlentecimiento}, 
-$R_\text{lento}$, el cual se encuentra asociado con el deterioro cognitivo leve \cite{Brayet16}; 
-esta cantidad se define como
-\begin{equation}
-R_{\text{lento}} = \frac{\text{potencia}_{\delta}+\text{potencia}_{\theta}}
-{\text{potencia}_{\alpha}+\text{potencia}_{\beta}}
-\end{equation}
+%Adicionalmente se calculó por cada época el \textit{coeficiente de enlentecimiento}, 
+%$R_\text{lento}$, el cual se encuentra asociado con el deterioro cognitivo leve \cite{Brayet16}; 
+%esta cantidad se define como
 
 \begin{figure}
 \centering

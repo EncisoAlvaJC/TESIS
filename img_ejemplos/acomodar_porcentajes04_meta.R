@@ -1,17 +1,22 @@
 ###############################################################################
 # carpeta central
 data_dir    = '~/TESIS/graf_datos/estacionariedad_sf/'
-central_dir = '~/TESIS/TESIS/img_ejemplos'
+central_dir = '~/TESIS/TESIS/img_art_dfa'
+info_dir    = '~/TESIS/TESIS/articulo_dfa'
 g_dir       = central_dir
 setwd(central_dir)
+
+dur_chunk = 30
 
 p.val = .05
 
 guardar_archivo = F
-nombre_archivo  = 'porcentajes.xlsx'
+nombre_archivo  = paste0('porcentajes_',toString(dur_chunk),'.xlsx')
 
 ###############################################################################
 # datos generales
+
+
 nomb_dir  = c('VCNNS',
               'MJNNVIGILOScCanal',
               'JANASUE_revisado',

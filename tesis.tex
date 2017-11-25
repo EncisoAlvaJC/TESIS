@@ -110,6 +110,9 @@
 % para que no haya espacio de sobra despues de las tablas
 \usepackage{tabularx}
 
+% resuelve el problema del espacio despues de as abreviaciones \newcommand
+\usepackage{xspace}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -210,8 +213,10 @@
 \newcommand{\pz}{\phantom{.0}}
 \newcommand{\ppu}{\phantom{1}}
 
-\newcommand{\hz}{\si{\hertz}}
-\newcommand{\mv}{\si{\micro\volt}}
+\newcommand{\hz}{\si{\hertz}\xspace}
+\newcommand{\mv}{\si{\micro\volt}\xspace}
+
+\newcommand{ \lento }{$\text{R}_{\text{E}}$\xspace}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
