@@ -77,8 +77,8 @@ Nula
 & 51 -- 65 &    102 &\ppu 93 &&\ppu 88 & 80 & 72 \\
 & 66 -- 85 &\ppu 92 &\ppu 78 &&\ppu 72 & 59 & 46 \\
 \bottomrule
-\end{tabular}\\
-Adaptado de  \cite{Ardila12}
+\multicolumn{3}{l}{Adaptado de  \cite{Ardila12}}
+\end{tabular}
 \label{puntajes}
 \end{table}
 
@@ -117,13 +117,13 @@ Adaptado de  \cite{Ardila12}
 &MJH    & F    & 72\pz & 9\pz  & 113\pz & 30\pz & 18\pz & 0\pz & 0\pz \\
 &JAE    & F    & 78\pz & 5\pz  & 102\pz & 28\pz & 19\pz & 0\pz & 5\pz \\
 &GHA    & M    & 65\pz & 9\pz  & 107.5  & 30\pz & 23\pz & 0\pz & 7\pz \\
-&MFGR   & F    & 67\pz & 11\pz & 110\pz & 30\pz & 18\pz & 0\pz &      \\
+&MFGR   & F    & 67\pz & 11\pz & 115\pz & 30\pz & 18\pz & 0\pz &      \\
 \rowcolor{gris}
 &\multicolumn{1}{c}{$\widehat{\mu}$} & 
-               & 68.2  & 9.2   & 107.9  & 29.4  & 19.8  & 0.0  & 3.0  \\
+               & 68.2  & 9.2   & 108.9  & 29.4  & 19.8  & 0.0  & 3.0  \\
 \rowcolor{gris}
 &\multicolumn{1}{c}{$\widehat{\sigma}$} & 
-               & 7.2   & 2.7   & 4.1    & 0.9   & 2.2   & 0.0  & 3.0  \\
+               & 7.2   & 2.7   & 5.2    & 0.9   & 2.2   & 0.0  & 3.0  \\
 \midrulec
 %\hline
 \multicolumn{6}{l}{\textbf{Grupo PDC}}\\
@@ -131,12 +131,19 @@ Adaptado de  \cite{Ardila12}
 &RLO    & F    & 63\pz & 9\pz  & 90\pz & 29\pz & 20\pz & 0\pz & 3\pz \\
 &RRU    & M    & 69\pz & 9\pz  & 85\pz & 27\pz & 10\pz & 0\pz & 3\pz \\
 &JGZ    & M    & 65\pz & 11\pz & 87\pz & 25\pz & 20\pz & 0\pz & 1\pz \\
+%\rowcolor{gris}
+%&\multicolumn{1}{c}{$\widehat{\mu}$} & 
+%              & 66.3   & 8.5   & 85.8  & 27.3  & 18.0  & 0.3  & 3.3  \\
+%\rowcolor{gris}
+%&\multicolumn{1}{c}{$\widehat{\sigma}$} & 
+%              & 2.8    & 2.5   & 3.8   & 1.7   & 5.4   & 0.5  & 2.1  \\
+&AEFP   & M    & 73\pz &  8\pz & 96\pz & 29\pz &   \pz & 0\pz & 2\pz \\
 \rowcolor{gris}
 &\multicolumn{1}{c}{$\widehat{\mu}$} & 
-              & 66.3   & 8.5   & 85.8  & 27.3  & 18.0  & 0.3  & 3.3  \\
+              & 67.6   & 8.4   & 87.8  & 27.4  & 18.0  & 0.2  & 3.0  \\
 \rowcolor{gris}
 &\multicolumn{1}{c}{$\widehat{\sigma}$} & 
-              & 2.8    & 2.5   & 3.8   & 1.7   & 5.4   & 0.5  & 2.1  \\
+              & 3.4    & 2.2   & 5.6   & 1.8   & 5.4   & 0.4  & 1.9  \\
 \bottomrulec
 \end{tabular} 
 }
@@ -250,39 +257,46 @@ de sueño como MOR o NMOR. Dicha clasificación fue llevada a cabo por expertos 
 \begin{tabular}{llcllcllr}
 \toprule
     \phantom{.}&
-    &\multirow{2}{*}{\bordes{1}\begin{tabular}{l}Frecuencia\\ muestreo\end{tabular}}
+    &\multirow{2}{*}{\bordes{1}\begin{tabular}{l}Frecuencia de\\ muestreo [\hz]\end{tabular}}
     \bordes{1.2}
     & \multicolumn{2}{c}{Total} & \phantom{l}   & \multicolumn{3}{c}{MOR*}\\
     \cmidrule{4-5}  \cmidrule{7-9}
     &&          &Puntos  &  Tiempo   &&Puntos  &  Tiempo   &  \% \\
 \midrule
 \multicolumn{6}{l}{\textbf{Grupo CTL}}\\
-&VCR &200       &\ppu 5166000 & \ppu  7:10:30 &&\ppu 438000  &   0:36:30 & 8.5 \\
-&MJH &512       &15851520     & \ppu  8:36:00 &&     1950720 &   1:03:30 &12.3 \\
-&JAE &512       &13931520     & \ppu  7:33:30 &&     2626560 &   1:25:30 &18.9 \\
-&GHA &200       &\ppu 6558000 & \ppu  9:06:00 &&\ppu 330000  &   0:27:30 & 5.0 \\
-&MFGR&200       &\ppu 4932000 & \ppu  6:51:00 &&\ppu 570000  &   0:47:30 &11.6 \\
+&VCR &200       &\ppu 5166000 & \ppu  7:10:30 &&\ppu 438000 &   0:36:30 & 8.48 \\
+&MJH &512       &    15851520 & \ppu  8:36:00 &&    1950720 &   1:03:30 &12.31 \\
+&JAE &512       &    13931520 & \ppu  7:33:30 &&    2626560 &   1:25:30 &18.85 \\
+&GHA &200       &\ppu 6558000 & \ppu  9:06:30 &&\ppu 330000 &   0:27:30 & 5.03 \\
+&MFGR&200       &\ppu 4932000 & \ppu  6:51:00 &&\ppu 570000 &   0:47:30 &11.56 \\
 
 \rowcolor{gris}
 &\multicolumn{1}{c}{$\widehat{\mu}$}  
-              & &        & \ppu 7:51:30   &&        &   0:52:06 &11.2 \\
+              & &        & \ppu 7:51:30   &&        &   0:52:06 &11.25 \\
 \rowcolor{gris}
 &\multicolumn{1}{c}{$\widehat{\sigma}$} 
-              & &        & \ppu 0:57:36   &&        &   0:23:00 & 5.1 \\
+              & &        & \ppu 0:57:36   &&        &   0:23:00 & 5.13 \\
 \midrulec
 
 \multicolumn{6}{l}{\textbf{Grupo PDC}}\\
-&CLO &512       &    14499840 & \ppu  7:52:00 &&    2027520 &   1:06:00 &14.0 \\
-&RLO &512       &    12994560 & \ppu  7:03:00 &&    1520640 &   0:49:30 &11.7 \\
-&RRU &200       &\ppu 2484000 & \ppu  3:27:00 &&\ppu 228000  &   0:19:00 & 9.2 \\
-&JGZ &512       &    18539520 &      10:03:30 &&\ppu 506880  &   0:16:30 & 2.7 \\
+&CLO &512       &    14499840 & \ppu  7:52:00 &&    2027520 &   1:06:00 &13.98 \\
+&RLO &512       &    12994560 & \ppu  7:03:00 &&    1520640 &   0:49:30 &11.70 \\
+&RRU &200       &\ppu 2484000 & \ppu  3:27:00 &&\ppu 228000 &   0:19:00 & 9.18 \\
+&JGZ &512       &    18539520 &      10:03:30 &&\ppu 506880 &   0:16:30 & 2.73 \\
+%\rowcolor{gris}
+%&\multicolumn{1}{c}{$\widehat{\mu}$}  
+%              & &        & \ppu 7:06:23   &&        &   0:37:45 &9.4 \\
+%\rowcolor{gris}
+%&\multicolumn{1}{c}{$\widehat{\sigma}$} 
+%              & &        & \ppu 2:44:55   &&        &   0:24:05 &4.9 \\
+&AEFP &512       &    14699520 &       7:58:30 &&\ppu 629760 &   0:20:30 & 4.28 \\
 
 \rowcolor{gris}
 &\multicolumn{1}{c}{$\widehat{\mu}$}  
-              & &        & \ppu 7:06:23   &&        &   0:37:45 &9.4 \\
+              & &        & \ppu 7:16:48   &&        &   0:34:18 &8.38 \\
 \rowcolor{gris}
 &\multicolumn{1}{c}{$\widehat{\sigma}$} 
-              & &        & \ppu 2:44:55   &&        &   0:24:05 &4.9 \\
+              & &        & \ppu 2:24:43   &&        &   0:22:14 &4.79 \\
 \bottomrulec
 \end{tabular}\\
 *Dado que el sueño MOR aparece fragmentado, se reporta la suma de tales tiempos
@@ -368,27 +382,27 @@ basar las comparaciones en proporciones de épocas; por ejemplo, se calculó la 
 \begin{figure}
 \centering
 \begin{lstlisting}[caption={}]
-%Priestley-Subba Rao stationarity Test for datos
-%-----------------------------------------------
-%Samples used              : 3072 
-%Samples available         : 3069 
-%Sampling interval         : 1 
-%SDF estimator             : Multitaper 
-%  Number of (sine) tapers : 5 
-%  Centered                : TRUE 
-%  Recentered              : FALSE 
-%Number of blocks          : 11 
-%Block size                : 279 
-%Number of blocks          : 11 
-%p-value for T             : 0.4130131 
-%p-value for I+R           : 0.1787949 
-%p-value for T+I+R         : 0.1801353 
+Priestley-Subba Rao stationarity Test for datos
+-----------------------------------------------
+Samples used              : 3072 
+Samples available         : 3069 
+Sampling interval         : 1 
+SDF estimator             : Multitaper 
+  Number of (sine) tapers : 5 
+  Centered                : TRUE 
+  Recentered              : FALSE 
+Number of blocks          : 11 
+Block size                : 279 
+Number of blocks          : 11 
+p-value for T             : 0.4130131 
+p-value for I+R           : 0.1787949 
+p-value for T+I+R         : 0.1801353 
 \end{lstlisting}
-%\caption[{Resultado típico para la función \texttt{stationarity}}]
-%{Resultado típico para la función \texttt{stationarity}. La función de densidad espectral es
-%referida como SDF, mientras que los p valores. El p-valor para \textttt{T+I+R} es equivalente al 
-%estadístico $S_{I+R}$, y el p-valor para \texttt{T} equivale a $S_T$
-%}
+\caption[Resultado típico para la función \texttt{stationarity}]
+{Resultado típico para la función \texttt{stationarity}. La función de densidad espectral es
+referida como SDF, mientras que los p valores. El p-valor para \texttt{T+I+R} es equivalente al 
+estadístico $S_{I+R}$, y el p-valor para \texttt{T} equivale a $S_T$
+}
 \label{res_psr}
 \end{figure}
 
@@ -425,7 +439,7 @@ tamaño de ventana; los tamaños de ventana se tomaron de la forma $30 \times 2^
 para comparar con el tamaño de época recomendado por la AASM.% (30 segundos).
 
 Usando la clasificación de épocas estacionarias, obtenida para diferentes tamaños de ventana,
-se construyeron más graficos sobre la ubicación de épocas estacionarias en el tiempo. Estos
+se construyeron más gráficos sobre la ubicación de épocas estacionarias en el tiempo. Estos
 nuevos
 gráficos, como el de la figura \ref{comp_VCR}, refuerzan heurísticamente la hipótesis de que los 
 patrones son significativos fisiológicamente. 
@@ -435,7 +449,7 @@ patrones son significativos fisiológicamente.
 \begin{figure}
 \centering
 \includegraphics[width=.9\linewidth]{./img_resultados/cabeza_VCR.pdf}
-\caption{Cambio en el porcentaje de épocas esacionarias conforme el tamaño de ventana}
+\caption{Cambio en el porcentaje de épocas estacionarias conforme el tamaño de ventana}
 \label{cabeza_repoio}
 \end{figure}
 
@@ -468,17 +482,36 @@ Como una metodología común, se calculó el \textbf{espectro de banda ancha},
 es decir, la potencia total y relativa correspondientes a las frecuencias que caracterizan las ondas 
 delta, theta, alfa, beta y gamma (ver cuadro \ref{tabla_ondas}).
 
+\begin{figure}
+\centering
+\includegraphics[width=0.8\linewidth]
+{./enlentecimiento/VCNNS1_espectral_total.png} 
+\caption[Espectro de potencias de banda ancha]{Espectro de potencias de banda ancha (delta, theta
+alfa, beta, gamma)}
+\end{figure}
+
 Usando los espectros de banda ancha se ha calculado el coeficiente de enlentecimiento \lento, 
 definido en la 
-expresión \ref{enlentecimiento}; se dio especial atención al sueño MOR. 
-Esta cantidad fue elegida debido a que se ha reportado como un posible marcador de deterioro
-cognitivo en adultos mayores \cite{Brayet16}.
+expresión \ref{enlentecimiento}, con particular atención al sueño MOR. Esta cantidad
+se ha reportado como un posible marcador de deterioro cognitivo leve en adultos mayores 
+\cite{Brayet16}.
 
 \begin{equation}
-R_{\text{lento}} = \frac{\text{potencia}_{\delta}+\text{potencia}_{\theta}}
-{\text{potencia}_{\alpha}+\text{potencia}_{\beta}}
+\text{R}_{\text{E}} = \frac{\text{potencia}_{\delta}+\text{potencia}_{\theta}}
+{\text{potencia}_{\alpha}+\text{potencia}_{\beta}} =
+\frac{\int_{\text 0.5 \hz}^{\text{7 \hz}}h(\omega) d\omega}
+{\int_{\text 7 \hz}^{\text{30 \hz}}h(\omega) d\omega}
 \label{enlentecimiento}
 \end{equation}
+
+El espectro de potencias se ha calculado usado el estimador adaptativo propuesto por
+Barbour y Parker \cite{Barbour14}, el cual se encuentra implementado dentro del paquete
+\texttt{psd} bajo la función \texttt{pspectrum}.
+Se ha usado dicho estimador para garantizar heurísticamente que el espectro de potencias
+calculado (1) es independiente del usado para determinar la estacionariedad y (2)
+es compatible con la metodología \textit{usual}\footnote{El algoritmo \texttt{psd} 
+supone estacionariedad débil; usándolo se espera emular resultados 
+obtenidos bajo tal supuesto}.
 
 Como se discute posteriormente, los bloques de épocas estacionarias están relacionados a bloques
 cuyo espectro de potencia son distintos. Así mismo son diferentes los coeficientes \lento calculado
@@ -494,12 +527,6 @@ para dichos bloques.
 %Adicionalmente se calculó por cada época el \textit{coeficiente de enlentecimiento}, 
 %$R_\text{lento}$, el cual se encuentra asociado con el deterioro cognitivo leve \cite{Brayet16}; 
 %esta cantidad se define como
-
-\begin{figure}
-\centering
-\includegraphics[width=0.8\linewidth]
-{./enlentecimiento/VCNNS1_espectral_total.png} 
-\end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
