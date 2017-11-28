@@ -163,7 +163,7 @@ En cuanto a estructura, el cerebro se divide en tallo cerebral, cerebelo y hemis
 
 \begin{figure}
 \centering
-\includegraphics[width=\linewidth]{./img_diagramas/cerebro_zonas.pdf} 
+\includegraphics[width=0.7\linewidth]{./img_diagramas/cerebro_zonas_limpio.pdf} 
 \caption{División de la corteza cerebral en lóbulos}
 \label{lobulos}
 \end{figure}
@@ -195,19 +195,50 @@ los lóbulos frontal y parietal, como en la figura \ref{lobulos}.
 
 %\subsection{Electrofisiología}
 
-La parte central de la generación son las neuronas, cuyo mecanismo de transmisión a partir de
-descargas iónicas en la membrana ha sido extensamente estudiado, la descripción puede verla en
-Ermentroutt
+%La parte central de la generación son las neuronas, cuyo mecanismo de transmisión a partir de
+%descargas iónicas en la membrana ha sido extensamente estudiado, la descripción puede verla en
+%Ermentroutt
 
-\begin{figure}
-\centering
-\includegraphics[width=\linewidth]{./img_diagramas/electrofisiologia.pdf} 
-\caption[Estructuras anatómicas involucradas en la generación del EEG]{Estructuras anatómicas 
-involucradas en la generación del EEG (A) Estructuras principales involucradas. (B) Neurona. 
-(C) Generación del EEG a partir de la transmisión neuronal.
-}
-\label{electro_fisio}
-\end{figure}
+El mecanismo base para la generación de campos eléctricos en las neuronas, fue descubierto 
+formalmente por Hodkin y Huxley\footnote{Lo cual les valió el
+Premio Nobel de Fisiología en 1963}. Dicho fenómeno depende de la capacidad de la membana celular, 
+particularmente en neuronas, para mantener un equilibrio estable de iones con el medio extracelular; 
+este equilibrio es contra-gradiente e implica un gasto de energía, y así mismo es la causa un 
+potencial eléctrico a través de la membrana.
+
+Cuando existe un desequilibrio puntual y súbito en la concentración extracelular de iones, se 
+bombean iones a través de la mebrana para reestablecer el equilibrio en tal punto; esta acción 
+genera desequilibrios secundarios en regiones vecinas de la mebrana, que a su vez activan mecanismos 
+similares. Como consecuencia, la perturbación en el potencial de membrana se propaga 
+a lo largo de ésta y se genera la transmisión de impulsos nerviosos en neuronas\footnote{La explicación
+escrita es más bien simplista debido a que no impacta de manera significativa los resultados del presente
+trabajo. El lector interesado puede referirse, por ejemplo, a \cite{Ermentrout10}}.
+
+El EEG mide directamente el resultado de la transmisión de impulsos nerviosos entre neuronas de la
+corteza cerebral. Contribuyen particularmente las neuronas piramidales, que se distribuyen muy densamente
+formando capas, y que están altamente conectadas entre sí.
+
+% iones a contra-gradiente a través a la 
+%membrana\footnote{Debido a que la membrana celular es una permeable para moléculas pequeñas --en 
+%particular iones cargados eléctricamente como sodio y potasio--, existe una presión homeostática
+%que impulsa a las moléculas del sitio con mayor densidad hacia el sitio con menor densidad; los
+%iones atraviesan la membrana en sicho sentido sin gasto de energía para la célula. Sin embargo,
+%la membrana tiene } 
+%celular. La concentración inusual, pero estable, de iones sobre la membrana celular genera un
+%potencial de acción.
+
+%(ver 
+%\cite{Ermentrout10})
+
+%\begin{figure}
+%\centering
+%\includegraphics[width=\linewidth]{./img_diagramas/electrofisiologia.pdf} 
+%\caption[Estructuras anatómicas involucradas en la generación del EEG]{Estructuras anatómicas 
+%involucradas en la generación del EEG (A) Estructuras principales involucradas. (B) Neurona. 
+%(C) Generación del EEG a partir de la transmisión neuronal.
+%}
+%\label{electro_fisio}
+%\end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -223,16 +254,19 @@ vigilia y sueño o durante quietud y concentración \cite{Clark98_2}.
 %cual se debe a que las ondas se vuelven más asíncronas, y entonces la magnitud del  potencial 
 %integrado de superficie decrece (a pesar de la alta actividad cortical).
 
-Aunque la mayor parte del tiempo el EEG es irregular, muestra patrones relativamente organizadas 
-conocidos como \textbf{ondas cerebrales} que, por referencia, se suelen clasificar en grupos 
-según su \textit{frecuencia}: alfa, beta, gamma, delta, theta.
+Aunque el EEG es irregular la mayor parte del tiempo, también muestra patrones relativamente organizadas 
+conocidos como \textbf{ondas cerebrales}. Las ondas cerebrales más comunes y estudiadas se tipifican
+en cuatro grupos según su \textit{frecuencia}: alfa, beta, gamma, delta, theta.
 En la figura \ref{ritmos} se representa un arquetipo visual de cada tipo de onda.
 
 \begin{figure}
 \centering
 %\includegraphics[width=0.55\linewidth]{./img_diagramas/ritmos_hechos.pdf} 
-\includegraphics[width=0.9\linewidth]{./img_ejemplos/144177-004-7621DE7D.jpg} 
-\caption{Ejemplos de ondas cerebrales encontradas en el EEG. 
+%\includegraphics[width=0.9\linewidth]{./img_ejemplos/144177-004-7621DE7D.jpg} 
+\includegraphics[width=0.8\linewidth]{./img_diagramas/ondas_britannica.jpg} 
+\caption[Ejemplos de ondas cerebrales encontradas en el EEG]
+{Ejemplos de ondas cerebrales encontradas en el EEG. 
+Imagen tomada de Encyclop{\ae}dia Britannica, versión en línea \cite{Britannica}
 %Reconstruido de \textit{EEG Signal Processing}, por S. Sanei y J. A. Chambers \cite{Sanei07} 
 }
 \label{ritmos}
@@ -257,11 +291,11 @@ Tipo de onda
 &&& adultos \\
 {Gamma} & 30 -- 100  &&\\
 &&& \\
-\midrule
-{Husos de} &&&\\
-sueño &&& \\
-{Complejo K} &&&\\
-&&& \\
+%\midrule
+%{Husos de} &&&\\
+%sueño &&& \\
+%{Complejo K} &&&\\
+%&&& \\
 \bottomrule
 \end{tabular}\\
 Se abrevian los lóbulos cerebrales: F=frontal, P=parietal, T=temporal, O=occipital
@@ -383,15 +417,14 @@ fisiológicas, además de que genera una \textit{deuda} acumulativa
 La duración del sueño es determinada en gran parte por la edad; el recién nacido duerme entre 14 y 
 18 horas, el lactante entre 12 y 14 horas, el niño en etapa escolar entre 11 y 12 horas y en la 
 edad adulta, la mayoría duerme entre 7 y 8 horas por noche \cite{Contreras13}.
-Sin embargo, el sueño no es un proceso homogéneo sino que tiene una estructura 
+Paralelemante el sueño no es un proceso homogéneo, sino que tiene una estructura 
 por etapas con rasgos electroencefalográficos y fisiológicos distintivos.
 
 %Según la tradición iniciada por Aserinsky y Kleitman en 1953, la clasificación del sueño
-Para su estudio, la clasificación del sueño 
-contempla dos etapas fundamentalmente diferentes: N y R.
-La primera de ellas, la \textbf{fase N}, se caracteriza por movimientos oculares lentos, tono 
+Para su estudio, el sueño se divide en dos etapas: N y R.
+La \textbf{fase N}, se caracteriza por movimientos oculares lentos, tono 
 muscular que decrece constantemente, actividad cerebral que recuerda al reposo, y la presencia de
-husos de sueño y complejos K; en base a estos indicadores, se definen las sub-fases N1, N2, N3.
+husos de sueño y complejos K; en base a ello se divide en las sub-fases N1, N2, N3.
 %
 %El sueño fuera de la etapa MOR es referido como no-MOR (NMOR, fase N), y es dividido en etapas 
 %según la 'profundidad' del sueño, entendida en términos de la actividad cerebral registrada.
@@ -401,12 +434,12 @@ husos de sueño y complejos K; en base a estos indicadores, se definen las sub-f
 %contraste con la actividad irregular, desincronizada y de bajo voltaje registrada en estado de 
 %alerta.
 
-Durante la \textbf{fase R} el tono muscular disminuye (con excepción de los músculos respiratorios 
+Durante la \textbf{fase R} el tono muscular disminuye (excepto para los músculos respiratorios 
 y los esfínteres), la frecuencia cardiaca y respiratoria se vuelve irregular, y el sujeto exhibe 
-movimientos oculares rápidos (MOR); en base a esta característica, la fase R es mejor conocida 
+movimientos oculares rápidos (MOR); en base a lo cual la fase R es conocida 
 como \textbf{sueño MOR}.
 En el EEG, aparecen ondas rápidas de bajo voltaje, irregulares, y que recuerdan la actividad 
-durante el estado de alerta; la presencia de estos patrones no interrumpen el sueño, sino que 
+durante el estado de alerta; estos patrones no interrumpen el sueño sino que, contrariamente,
 incrementan el umbral para estímulos externos, motivo por el cual esta fase también es referida como 
 \textbf{sueño paradójico}.
 %
@@ -422,8 +455,8 @@ fase suelen recordar vívidamente el contenido de sus ensoñaciones
 {\small
 \begin{tabular}{lllll}
 \toprule
-\multicolumn{2}{l}{Etapa}& Características  & Movimientos & Tono \\
-&&del EEG & oculares & muscular \\
+&&   & Movimientos & Tono \\
+\multicolumn{2}{l}{Etapa}& Características del EEG & oculares & muscular \\
 \midrule
 Vigilia & W  & {Ritmo alfa} en $>50$\% de la época en   & No & Alto \\
         &    & la región occipital                &    &      \\
@@ -436,8 +469,8 @@ NMOR 3  & N3 & {Ondas lentas} (0.5--2 \hz, $>75$ \mv) en& No & $<$N2, $\approx$R
 MOR     & R  & Actividad baja amplitud y frecuencias & MOR's & Bajo  \\
         &    & mixtas. Ondas 'saw-tooth'             &       &       \\
 \bottomrule
+\multicolumn{4}{l}{Se abrevia AABFM=Actividad de Amplitud Baja y Frecuencias Mixtas}
 \end{tabular}\\
-Se abrevia AABFM=Actividad de Amplitud Baja y Frecuencias mixtas
 }
 \end{table}
 

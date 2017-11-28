@@ -9,7 +9,7 @@ setwd(central_dir)
 #################################################
 # parametros del script
 
-dur_chunk = 30
+dur_chunk = 30/(2**1)
 
 p.val = .05
 

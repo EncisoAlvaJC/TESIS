@@ -31,6 +31,24 @@ if(frecuencia==200){
   indice = indixe
 }
 
+factor.escala = 30/dur_chunk
+if(factor.escala<1){
+  indixe = ceiling(indixe*factor.escala)
+  indixe = unique(indixe)
+  indixe = sort(indixe)
+  indice = indixe
+}
+if(factor.escala>1){
+  indixe = c()
+  for(k in 1:factor.escala){
+    indixe = c(indixe,indice*factor.escala-k+1)
+  }
+  indixe = unique(indixe)
+  indixe = sort(indixe)
+  indice = indixe
+}
+epo_s_min = 2*factor.escala
+
 #################################################
 # cargar los datos
 RES_T    = c()
@@ -55,11 +73,11 @@ for(ch in 1:n.canales){
 }
 
 #parche
-print(length(indice)*30)
-print(t2hms(length(indice)*30))
-print(length(pv_t)*30)
-print(t2hms(length(pv_t)*30))
-stop('Hoy no necesito el grafico')
+#print(length(indice)*30)
+#print(t2hms(length(indice)*30))
+#print(length(pv_t)*30)
+#print(t2hms(length(pv_t)*30))
+#stop('Hoy no necesito el grafico')
 
 #################################################
 # variables auxiliares
@@ -192,7 +210,7 @@ if(graf.indv){
 # asteriscos de significancia
 suma = rep(0,n.canales)
 
-for(i in length(p.ast)){
+for(i in 1:length(p.ast)){
   suma = suma + 1*(significados<p.ast[i])
 }
 
