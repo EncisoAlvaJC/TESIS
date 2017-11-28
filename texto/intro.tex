@@ -10,8 +10,8 @@ de vida; desafortunadamente también ha aumentado la presencia de enfermedades n
 asociadas con la edad, de las cuales no se han identificado factores causales 
 \cite{PlanAlzheimer04}.
 %
-Particularmente en México, el sector de la población con más de 60 años fue de 10 millones de
-personas en 2010, aunque se estima que ha aumentado a 12 millones y medio en 2015 
+Particularmente en México, el sector de la población en reisgo (individuos con más de 60 años) fue 
+de 10 millones de personas en 2010, y se estima que son 12 millones y medio en 2015 
 \cite{Censo10,Intercensal15}.
 
 %En México el sector de la población en riesgo\footnote{En el presente trabajo se consideran a los
@@ -39,7 +39,7 @@ en criterios psicológicos orientados a la funcionalidad del paciente;
 en contraparte Montplaisir \cite{Brayet16} reporta asociaciones entre ejecuciones pobres en pruebas
 neuropsicológicas y atrofias en el hipocampo, detectadas usando resonancia magnética funcional.
 En el presente trabajo se otorga cierta preferencia a los criterios basados en registros 
-electrofisiológicos, ya que son más fáciles de cuantificar; aún así se mantiene una conexión 
+electrofisiológicos, ya que son más fáciles de cuantificar; se mantiene una conexión 
 estrecha con los criterios neuropsicológicos.
 
 Cabe destacar que 
@@ -144,16 +144,16 @@ de sueño respecto al tiempo en cama} y la presencia de deterioro cognitivo \cit
 %en este trabajo se pretende verificar si efectivamente estas señales se pueden considerar con tal
 %característica.
 
-El supuesto de estacionariedad es básico en el estudio de series de tiempo, y usualmente se 
-acepta o rechaza sin un tratamiento formal; es de particular importancia, por ejemplo, para 
-calcular el espectro de potencias a partir de registros.
-La idea de que sujetos con PDC exhiben estacionariedad débil en sus registros de EEG en mayor 
-proporción, respecto a individuos sanos, fue sugerida por Cohen \cite{Cohen77}, quien a su vez se 
-refiere a trabajos anteriores sobre estacionariedad y normalidad en registros de EEG 
-\cite{McEwen75,Sugimoto78,Kawabata73}.
-%Cabe mencionar que en estos primeros estudios se palpa la posibilidad de que los registros de EEG 
-%fueran 'ruido' de algún tipo, una idea que se ha probado errónea en estudios más recientes 
-%\cite{Klonowski09}; sin embargo, se retoma como hipótesis a la luz de los estudios mencionados. 
+%El supuesto de estacionariedad es básico en el estudio de series de tiempo, y usualmente se 
+%acepta o rechaza sin un tratamiento formal; es de particular importancia, por ejemplo, para 
+%calcular el espectro de potencias a partir de registros.
+%La idea de que sujetos con PDC exhiben estacionariedad débil en sus registros de EEG en mayor 
+%proporción, respecto a individuos sanos, fue sugerida por Cohen \cite{Cohen77}, quien a su vez se 
+%refiere a trabajos anteriores sobre estacionariedad y normalidad en registros de EEG 
+%\cite{McEwen75,Sugimoto78,Kawabata73}.
+%%Cabe mencionar que en estos primeros estudios se palpa la posibilidad de que los registros de EEG 
+%%fueran 'ruido' de algún tipo, una idea que se ha probado errónea en estudios más recientes 
+%%\cite{Klonowski09}; sin embargo, se retoma como hipótesis a la luz de los estudios mencionados. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -168,16 +168,16 @@ refiere a trabajos anteriores sobre estacionariedad y normalidad en registros de
 ¿Los registros de PSG\footnote{Polisomnograma: actividad eléctrica del cerebro durante el sueño,
 además de otros marcadores como la actividad ocular o la respiración} en adultos mayores, pueden
 considerarse como series tiempo débilmente estacionarias?
-¿Es posible que tal caracterización se relacione con el estado cognoscitivo del adulto mayor?
+¿Es posible que tal caracterización se relacione con el estado cognitivo general del adulto mayor?
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Hipótesis}
 
-Existen diferencias en la conectividad funcional del cerebro en adultos mayores con PDC, respecto
-a sujetos sanos, y es posible detectar estas diferencias como una mayor o menor 'presencia' de 
-estacionariedad débil en registros de PSG durante el sueño profundo.
+Existen diferencias en la actividad eléctrica cerebral en adultos mayores con PDC, respecto
+a individuos sanos, y es posible detectar dichas diferencias como una mayor o menor \textit{presencia} 
+de estacionariedad débil en registros de PSG durante el sueño profundo.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -185,6 +185,7 @@ estacionariedad débil en registros de PSG durante el sueño profundo.
 
 Deducir, a partir de pruebas estadísticas formales, las presencia de estacionariedad débil en
 registros de PSG para adultos mayores con PDC, así como individuos control.
+Usar estas pruebas para vigilar registros de PSG en sueño profundo.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -192,16 +193,14 @@ registros de PSG para adultos mayores con PDC, así como individuos control.
 
 \begin{itemize}
 \item Estudiar la definición de estacionariedad para procesos estocásticos y sus posibles 
-consecuencias dentro de un modelo para los datos considerados
+consecuencias para el modelado de los datos considerados
 
-\item Investigar en la literatura cómo detectar si es plausible que una serie de tiempo dada sea 
-una realización para un proceso estocástico débilmente estacionario, y bajo qué supuestos 
-es válida esta caracterización
+\item Investigar cómo detectar, como prueba de hipótesis, si una serie de tiempo dada provenga
+de un proceso estocástico débilmente estacionario, y bajo qué supuestos 
+es válida dicha caracterización
 
-\item Usando los análisis hallados en la literatura, determinar si las series de tiempo 
-obtenidas a partir de los datos considerados provienen de procesos débilmente estacionarios.
-Revisar si la información obtenida en los diferentes sujetos muestra diferencias entre sujetos 
-con y sin PDC
+\item Analizar si los registros de PSG, durante sueño profundo, son débilmente estacionarios.
+Revisar si se pueden encontrar diferencias significativas entre individuos con y sin PDC
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
