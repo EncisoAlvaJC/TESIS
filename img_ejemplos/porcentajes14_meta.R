@@ -42,6 +42,7 @@ require('Rmisc')
 require('reshape')
 
 require('scales')
+require('hms')
 
 #################################################
 # constantes generales
