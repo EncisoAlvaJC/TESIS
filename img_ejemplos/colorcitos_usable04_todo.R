@@ -32,6 +32,8 @@ require('scales')
 
 require('squash')
 
+require('hms')
+
 ###############################################################################
 # datos generales
 info     = read_excel(paste0(info_dir,'/info_tecnico.xlsx'))
@@ -76,47 +78,57 @@ if(info$Grupo_n[sujeto]==-1){
   grupo = 'EX'
 }
 
-#################################################
-# inicia grafico
-if(grabar_tot){
-  setwd(dir_actual)
-  #pdf(
-  png(
-    paste0(nombre,'_comp_est_',
-           #'.pdf'),width=5.941*k,height=1*k)
-           '.png'),units='in',res=300,width=5.941*k,height=9*k)
-}
-
 ###############################################################################
 # meta-graficacion
 
-stop('Hasta aqui bien')
+#source('~/TESIS/TESIS/img_ejemplos/colorcitos_usable04_parte.R')
+RES.collect = data.frame(Indice=as.POSIXct(character()),
+                         Canal_var=character(),
+                         Estacionario=character(),
+                         D_chunk=integer(),
+                         stringsAsFactors=F)
 
-setwd(dir_actual)
-dur_epoca = 30/(2**5)
-par(fig=c(0,1,cont,cont+qq), new=FALSE)
-source('~/TESIS/TESIS/img_ejemplos/colorcitos_usable03_parte.R')
-cont = cont + qq
+stop('Espacio para usar otros scripts')
 
-for(expon in -4:2){
+for(expon in c(2,0,-2)){
   setwd(dir_actual)
   dur_epoca = 30*(2**expon)
-  par(fig=c(0,1,cont,cont+qq), new=TRUE)
-  source('~/TESIS/TESIS/img_ejemplos/colorcitos_usable03_parte.R')
-  cont = cont + qq
+  source('~/TESIS/TESIS/img_ejemplos/colorcitos_usable04_parte.R')
+  
 }
 
-# el titulo
-par(oma=c(0,0,0,0),
-    mar=c(0, 2, 2.5, 2),
-    mgp=c(0,.5,0),
-    fig=c(0,1,.95,1), new=TRUE)
-title(paste0('Sujeto : ',etiqueta,'  | Grupo :  ',grupo),cex.main=2)
+RES.collect$D_chunk = log2(RES.collect$D_chunk/30)
+escala_labeller = function(variable,value){
+  return(paste0('30*2^',value))
+}
 
-setwd(dir_actual)
+print(
+  ggplot(RES.collect,aes(x=Indice,y=Canal_var,fill=Estacionario)) +
+    geom_raster() +
+    xlab('Tiempo [hh:mm]') + ylab(NULL) +
+    theme_bw() +
+    #scale_x_discrete(expand=c(0,0)) +
+    scale_x_datetime(expand=c(0,0),labels=date_format("%H:%M"),
+                     breaks = date_breaks("20 min"))+
+    scale_y_discrete(expand=c(0,0),
+                     limits=rev(levels(RES.extenso$Canal_var))) +
+    #scale_fill_manual(values=c('white','black','#acff81','#077813'))+
+    scale_fill_manual(values=c('white','black'))+
+    #labs(title=paste('Época =',toString(dur_epoca),'s'),
+    #     subtitle=paste('Participante:',etiqueta,'| Grupo:',grupo)) +
+    labs(title=paste('Participante:',etiqueta,'| Grupo:',grupo)) +
+    #theme(legend.position=c(1,1),legend.direction = 'horizontal',
+    #      legend.justification=c(1,0))+
+    theme(legend.position='bottom') +
+    theme(legend.title=element_blank()) +
+    facet_grid(D_chunk~.,as.table = T,
+               labeller=label_bquote(rows=30%.%2^.(D_chunk)))+
+    rotate_x_text(angle = 45)
+)
+
 if(grabar_tot){
-  setwd(dir_actual)
-  dev.off()
+  ggsave(filename = paste0(nombre,'_comp_est_','.png'),
+         path = dir_graf,units='in',dpi=600,width=6,height=8)
 }
 # fin guardado automatico del grafico
 #################################################

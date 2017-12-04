@@ -9,9 +9,9 @@ setwd(central_dir)
 #################################################
 # parametros del script
 
-dur_chunk = 30/(2**1)
+dur_chunk = 30/(2**exponente)
 
-p.val = .05
+p.val = .01
 
 grabar.gral = T
 
@@ -135,7 +135,9 @@ ggplot(matriz2,aes(x=Canal_var,y=Proporcion,fill=GrupoEtapa))+
   labs(title=paste('Época =',toString(dur_chunk),'s')) +
   facet_grid(Grupo~.) +
   stat_compare_means(label = 'p.signif',method='wilcox.test',
-                     hide.ns = T)+
+                     hide.ns = T,paired = F)+
+  #stat_compare_means(label = 'p.format',method='wilcox.test',
+  #                  hide.ns = T)+
   rotate_x_text(angle = 45)
 if(grabar.gral){
   ggsave(filename=paste0('Comparacion_gpos_CTL_PDC_v3_',

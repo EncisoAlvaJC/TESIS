@@ -98,70 +98,79 @@ for(i in (1:otro_factor)){
 RES.grande = t(RES.grande)
 #RES.grande = RES.grande[,sort(RES.grande[n.canales+1,])]
 
+#################################################
+# epocas de suenno MOR
+ar_indice = read_excel(paste0(info_dir,'/info_tecnico.xlsx'),
+                       sheet='EpocasTesis')
+indice    = ar_indice[,etiqueta]
+indice    = as.numeric(unlist(indice))
+indice    = indice[!is.na(indice)]
+
+if(fr_muestreo==200){
+  indixe = ceiling(indice/3)
+  indixe = unique(indixe)
+  indixe = sort(indixe)
+  indice = indixe
+}
+
+indixe = c()
+for(k in 1:32){
+  indixe = c(indixe,indice*32-k+1)
+}
+indixe = unique(indixe)
+indixe = sort(indixe)
+indice = indixe
+
 RES.grande = as.data.frame(RES.grande)
 colnames(RES.grande) = c(kanales$Etiqueta,'Indice')
+
+mores = is.element(as.numeric(RES.grande$Indice),indice)
+#RES.grande[mores,1:n.canales] = RES.grande[mores,1:n.canales]+2
 
 RES.extenso = melt(RES.grande,id.vars=c('Indice'))
 colnames(RES.extenso) = c('Indice','Canal_var','Estacionario')
 
 #################################################
 # inicia grafico
-
 RES.extenso$Estacionario[is.na(RES.extenso$Estacionario)] = 0
+#RES.extenso$Estacionario = factor(RES.extenso$Estacionario,
+#                                  labels=c('No-estacionario',
+#                                           'Estacionario',
+#                                           'Sueño MOR',
+#                                           'MOR E'))
 RES.extenso$Estacionario = factor(RES.extenso$Estacionario,
-                                  labels=c('',
+                                  labels=c('No-estacionario',
                                            'Estacionario'))
 RES.extenso$Indice = (RES.extenso$Indice-1)*(30/(2**5))
-
-#levels(RES.extenso$Canal_var) = rev(levels(RES.extenso$Canal_var))
-#RES.extenso$Indice = as.POSIXct(RES.extenso$Indice)
-
 RES.extenso$Indice = as.POSIXct(as.hms(RES.extenso$Indice))
 
-ggplot(RES.extenso,aes(x=Indice,y=Canal_var,fill=Estacionario)) +
-  geom_raster() +
-  xlab('Tiempo [hh:mm]') + ylab(NULL) +
-  theme_bw() +
-  #scale_x_discrete(expand=c(0,0)) +
-  scale_x_datetime(expand=c(0,0),labels=date_format("%H:%M"),
-                   breaks = date_breaks("20 min"))+
-  scale_y_discrete(expand=c(0,0)) +
-  scale_fill_manual(values=c('white','black'))+
-  #labs(title=paste('Época =',toString(dur_epoca),'s'),
-  #     subtitle=paste('Participante:',etiqueta,'| Grupo:',grupo)) +
-  labs(title=paste('Participante:',etiqueta,'| Grupo:',grupo)) +
-  theme(legend.position=c(1,1),legend.direction = 'horizontal',
-        legend.justification=c(1,0))+
-  #theme(legend.position='bottom') +
-  theme(legend.title=element_blank()) +
-  #theme(legend.margin='black')+
-  rotate_x_text(angle = 45)
+RES.extenso$D_chunk = rep(dur_epoca,length(RES.extenso$Indice))
+RES.collect         = rbind(RES.collect,RES.extenso)
 
-ggsave(filename=paste0('zoom_no',etiqueta,'.png'),
-       device='png',dpi=600,width=6,height=4,unit='in',
-       path=dir_graf)
+# print(
+#   ggplot(RES.extenso,aes(x=Indice,y=Canal_var,fill=Estacionario)) +
+#     geom_raster() +
+#     xlab('Tiempo [hh:mm]') + ylab(NULL) +
+#     theme_bw() +
+#     #scale_x_discrete(expand=c(0,0)) +
+#     scale_x_datetime(expand=c(0,0),labels=date_format("%H:%M"),
+#                      breaks = date_breaks("20 min"))+
+#     scale_y_discrete(expand=c(0,0),
+#                      limits=rev(levels(RES.extenso$Canal_var))) +
+#     scale_fill_manual(values=c('white','black','#acff81','#077813'))+
+#     #labs(title=paste('Época =',toString(dur_epoca),'s'),
+#     #     subtitle=paste('Participante:',etiqueta,'| Grupo:',grupo)) +
+#     labs(title=paste('Participante:',etiqueta,'| Grupo:',grupo)) +
+#     #theme(legend.position=c(1,1),legend.direction = 'horizontal',
+#     #      legend.justification=c(1,0))+
+#     theme(legend.position='bottom') +
+#     theme(legend.title=element_blank()) +
+#     rotate_x_text(angle = 45)
+# )
 
-stop('Hasta aqui todo bien')
-
-#################################################
-# graficacion de epocas
-setwd(dir_epocas)
-arch_indice_e = paste0('epocas_mor_',nombre,'.txt')
-indice_e      = scan(arch_indice_e)
-factor.extra = 1
-if(fr_muestreo==200){
-  #parche_indice = ceiling(parche_indice/3)
-  #parche_indice = sort(unique(parche_indice))
-  factor.extra = 3
-}
-for(i in indice_e){
-  rect(i/(factor.extra*factor_escala),0.5,
-       (i+1)/(factor.extra*factor_escala),22.5,
-       col=rgb(128,255,128,
-               alpha=128,
-               maxColorValue=255),
-       border=NA)
-}
+#ggsave(filename=paste0('zoom_no',etiqueta,'.png'),
+#       device='png',dpi=600,width=6,height=4,unit='in',
+#       path=dir_graf)
 
 # fin grafico
 #################################################

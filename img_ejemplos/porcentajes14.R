@@ -154,7 +154,7 @@ for(ch in 1:n.canales){
   res_mor[ch]  = sum(pmax((RES_T[ch,mor]  >p.val)*1,
                           (RES_TIR[ch,mor]>p.val)*1))
   
-  tu = prop.test(x=c(res_tot[ch],res_mor[ch]),
+  tu = prop.test(x=c(res_nmor[ch],res_mor[ch]),
                  n=c(length(RES_T[ch,]),length(mor)),
                  correct=T)
   significados[ch] = as.numeric(tu['p.value'])
