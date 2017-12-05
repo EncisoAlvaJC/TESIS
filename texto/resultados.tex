@@ -253,51 +253,41 @@ no se puede establecer diferencias entre las medias grupales para esta cantidad 
 %como no-estacionarias durante la mayor parte del sueño, lo cual confirma el supuesto usual de que 
 %las señales de origen biológico son por naturaleza no-estacionarias. 
 
-\subsection{Efecto del tamaño de las época}
+%\subsection{Efecto del tamaño de las época}
 
-%Como se mencionó anteriormente, el uso de épocas de 30 segundos está motivado por las 
-%recomendaciones de la AASM para clasificar, de manera estandarizada, las etapas de sueño en
-%registros de PSG \cite{AASM07}. 
-%%No se discutirán en este trabajo motivaciones o evidencia para usar esta longitud de época en 
-%%particular, ni para el caso contrario, sino que se acepta por fines de comparabilidad. 
-%Debido a un error técnico, en una etapa temprana de este trabajo se usaron épocas de 10 segundos 
-%para algunos análisis, una inconsistencia que eventualmente fue corregida.
-%Al efectuar los análisis descritos con otro tamaño de época, se produjeron resultados que distan
-%bastante de los finales, razón por la cual pareció conveniente investigar más este fenómeno.
-
-En el apéndice X se explica que si disminuye el tamaño de época el test de PSR disminuye su 
-potencia, de modo que es más propensa a dar falsos negativos (rechazar la hipótesis de 
-estacionariedad cuando debía aceptarse); entonces, en épocas más pequeñas debería haber más épocas 
-clasificadas como no-estacionarias.
-Sin embargo, al \textit{graficar} la estacionariedad para diferentes tamaños de época (figura
-\ref{comp_VCR}) ocurre que es más frecuente el efecto contrario.
-
-\begin{figure}
-\centering
-\includegraphics[width=\linewidth]{./img_diagramas/epocas_diferentes_v2.pdf}
-\caption{Efecto del tamaño de ventana sobre la clasificación de estacionariedad}
-\label{epocas_diferentes}
-\end{figure}
-
-Se propone que este efecto puede ser explicado si los registros de PSG son \textbf{localmente
-estacionarios}, una propiedad introducida por Dahlhaus \cite{Dahlhaus97} y que consiste en que un
-proceso no-estacionario pueda ser aproximado a trozos \textit{ensamblando} procesos estacionarios
-definidos para intervalos pequeños de tiempo.
-Esta caracterización del EEG ha sido usada anteriormente de manera fructífera pero problemática
-[??].
-
-En el contexto particular del presente trabajo, la presencia de estacionariedad local puede ser
-explicada fisiológicamente por el contenido heterogéneo de ritmos cerebrales de las etapas de 
-sueño; como ejemplo, en la etapa N3 aparecen husos de sueño mezcladas con ritmos Alfa, de modo
-que es posible hallar un fragmento de época en sueño N3 con únicamente un tren de ondas Alfa
-o un tren de husos de sueño.
-Este fenómeno es ilustrado de manera esquemática en la figura \ref{epocas_diferentes}.
-
-
-
-Entonces, se propone que los registros de PSG se comportan como procesos localmente estacionarios; 
-más aún, se propone que esta característica cambia cualitativamente en adultos mayores con PDC,
-para los cuales el \textit{nivel de homogeneidad} del PSG es muy similar durante MOR y NMOR.
+%En el apéndice X se explica que si disminuye el tamaño de época el test de PSR disminuye su 
+%potencia, de modo que es más propensa a dar falsos negativos (rechazar la hipótesis de 
+%estacionariedad cuando debía aceptarse); entonces, en épocas más pequeñas debería haber más épocas 
+%clasificadas como no-estacionarias.
+%Sin embargo, al \textit{graficar} la estacionariedad para diferentes tamaños de época (figura
+%\ref{comp_VCR}) ocurre que es más frecuente el efecto contrario.
+%
+%\begin{figure}
+%\centering
+%\includegraphics[width=\linewidth]{./img_diagramas/epocas_diferentes_v2.pdf}
+%\caption{Efecto del tamaño de ventana sobre la clasificación de estacionariedad}
+%\label{epocas_diferentes}
+%\end{figure}
+%
+%Se propone que este efecto puede ser explicado si los registros de PSG son \textbf{localmente
+%estacionarios}, una propiedad introducida por Dahlhaus \cite{Dahlhaus97} y que consiste en que un
+%proceso no-estacionario pueda ser aproximado a trozos \textit{ensamblando} procesos estacionarios
+%definidos para intervalos pequeños de tiempo.
+%Esta caracterización del EEG ha sido usada anteriormente de manera fructífera pero problemática
+%[??].
+%
+%En el contexto particular del presente trabajo, la presencia de estacionariedad local puede ser
+%explicada fisiológicamente por el contenido heterogéneo de ritmos cerebrales de las etapas de 
+%sueño; como ejemplo, en la etapa N3 aparecen husos de sueño mezcladas con ritmos Alfa, de modo
+%que es posible hallar un fragmento de época en sueño N3 con únicamente un tren de ondas Alfa
+%o un tren de husos de sueño.
+%Este fenómeno es ilustrado de manera esquemática en la figura \ref{epocas_diferentes}.
+%
+%
+%
+%Entonces, se propone que los registros de PSG se comportan como procesos localmente estacionarios; 
+%más aún, se propone que esta característica cambia cualitativamente en adultos mayores con PDC,
+%para los cuales el \textit{nivel de homogeneidad} del PSG es muy similar durante MOR y NMOR.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

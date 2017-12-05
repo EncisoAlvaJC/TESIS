@@ -448,11 +448,60 @@ patrones son significativos fisiológicamente.
 %Los gráficos así obtenidos refuerzan la idea de que los patrones no son espurios., y es en base
 %a ellos que se obtenidos
 
+En base a resultados previos usando esta técnica, se espera que el comportamiento de los
+patrones visuales obedezca al fenómeno de \textbf{estacionariedad local}; esta característica,
+descrita por Dahlhaus \cite{Dahlhaus97}, implica que un proceso puede ser aproximado a trozos
+\textit{ensamblando} procesos estacionarios.
+%
+Esta caracterización del EEG ha sido usada anteriormente de manera fructífera pero problemática
+\cite{Barlow85,Kaplan99}.
+%
+Dentro del modelo para registros de PSG, la estacionariedad local significa que el PSG no es
+formalmente homogéneo \textit{pero} puede entenderse como varios segmentos homógeneos. En un
+sentido más general, es coherente pensar que el PSG se componga tanto de segmentos homógeneos
+como de \textit{eventos puntuales} y artefactos.
+
+En la figura \ref{epocas_diferentes} se muestra esquemáticamente cómo el tamaño
+de las ventanas puede influir para su clasificación como estacionarias/homogéneas.
+
+%Anteriormente se menciona que al disminuir el tamaño de ventana, el test de PSR disminuye su 
+%potencia; entonces a menor tamaño de ventana el test PSR es más propenso a dar falsos negativos
+%el declarar no-estacionariedad.
+%
+%Paradójicamente, la declaración de ventanas no-estacionarias falsas es contrario a lo observado.
+
+%Se propone que este efecto puede ser explicado si los registros de PSG son \textbf{localmente
+%estacionarios}, una propiedad introducida por Dahlhaus \cite{Dahlhaus97} y que consiste en que un
+%proceso no-estacionario pueda ser aproximado a trozos \textit{ensamblando} procesos estacionarios
+%definidos para intervalos pequeños de tiempo.
+%Esta caracterización del EEG ha sido usada anteriormente de manera fructífera pero problemática
+%[??].
+%
+%En el contexto particular del presente trabajo, la presencia de estacionariedad local puede ser
+%explicada fisiológicamente por el contenido heterogéneo de ritmos cerebrales de las etapas de 
+%sueño; como ejemplo, en la etapa N3 aparecen husos de sueño mezcladas con ritmos Alfa, de modo
+%que es posible hallar un fragmento de época en sueño N3 con únicamente un tren de ondas Alfa
+%o un tren de husos de sueño.
+%Este fenómeno es ilustrado de manera esquemática en la figura \ref{epocas_diferentes}.
+
+
+
+Entonces, se propone que los registros de PSG se comportan como procesos localmente estacionarios; 
+más aún, se propone que esta característica cambia cualitativamente en adultos mayores con PDC,
+para los cuales el \textit{nivel de homogeneidad} del PSG es muy similar durante MOR y NMOR.
+
 \begin{figure}
 \centering
 \includegraphics[width=.9\linewidth]{./img_resultados/cabeza_VCR.pdf}
 \caption{Cambio en el porcentaje de épocas estacionarias conforme el tamaño de ventana}
 \label{cabeza_repoio}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=\linewidth]{./img_diagramas/epocas_diferentes_v2.pdf}
+\caption{Efecto del tamaño de ventana sobre la clasificación de estacionariedad}
+\label{epocas_diferentes}
 \end{figure}
 
 \begin{figure}
