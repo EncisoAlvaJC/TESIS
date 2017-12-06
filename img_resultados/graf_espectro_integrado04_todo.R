@@ -2,15 +2,14 @@
 # directorio de trabajo
 dir_actual  = '~/TESIS/TESIS/img_resultados'
 dir_graf    = '~/TESIS/TESIS/img_resultados'
-dir_res_mid = '~/TESIS/graf_datos/espectro_integrado_15s'
-dir_epocas  = '~/TESIS/graf_datos/epocas3/'
+dir_res_mid = '~/TESIS/graf_datos/espectro_new_15s'
 
 ###############################################################################
 # parametros
 #sujeto     = 2
 grabar_tot = T
 
-no_relativo = F
+no_relativo = T
 
 ###############################################################################
 # datos generales

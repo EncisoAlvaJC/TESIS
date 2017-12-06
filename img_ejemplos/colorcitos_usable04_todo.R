@@ -30,8 +30,6 @@ require('reshape')
 
 require('scales')
 
-require('squash')
-
 require('hms')
 
 ###############################################################################

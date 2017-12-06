@@ -160,11 +160,11 @@ RES.extenso$Estacionario = factor(RES.extenso$Estacionario,
 RES.extenso$Indice = (RES.extenso$Indice-1)*(30)
 RES.extenso$Indice = as.POSIXct(as.hms(RES.extenso$Indice))
 
-x.min  = as.POSIXct(as.hms(8400-30))
-x.max  = as.POSIXct(as.hms(9360+30))
+x.min  = as.POSIXct(as.hms(8400-15))
+x.max  = as.POSIXct(as.hms(9360+15))
 y.min  = 1-.5
 y.max  = 22+.5
-x.max2 = as.POSIXct(as.hms(9540+30))
+x.max2 = as.POSIXct(as.hms(9600+15))
 
 RES.extenso$D_chunk = rep(dur_epoca,length(RES.extenso$Indice))
 #RES.collect         = rbind(RES.collect,RES.extenso)
@@ -187,17 +187,19 @@ print(
      #      legend.justification=c(1,0))+
      theme(legend.position='bottom') +
      theme(legend.title=element_blank()) +
-     geom_rect(aes(xmin=x.min,xmax=x.max,ymin=y.min,ymax=y.max),
-               fill='blue',alpha=0.5) +
-     geom_rect(aes(xmin=x.max,xmax=x.max2,ymin=y.min,ymax=y.max),
-               fill='red',alpha=0.5) +
-     #annotate('rect',xmin=8400-30,xmax=9360+30,ymin=1-.5,ymax=22+.5,
-     #         alpha=0.2,fill='blue')+
+     #geom_rect(aes(xmin=x.min,xmax=x.max,ymin=y.min,ymax=y.max),
+    #           fill='blue',alpha=0.5) +
+     #geom_rect(aes(xmin=x.max,xmax=x.max2,ymin=y.min,ymax=y.max),
+    #           fill='red',alpha=0.5) +
+     annotate('rect',xmin=x.min,xmax=x.max,ymin=1-.5,ymax=22+.5,
+              alpha=0.4,fill='blue')+
+     annotate('rect',xmin=x.max,xmax=x.max2,ymin=1-.5,ymax=22+.5,
+              alpha=0.4,fill='red')+
      rotate_x_text(angle = 45)
  )
 
-ggsave(filename=paste0('zoom_si',etiqueta,'.pdf'),
-       device='pdf',dpi=600,width=6,height=4,unit='in',
+ggsave(filename=paste0('zoom_si',etiqueta,'.png'),
+       device='png',dpi=600,width=6,height=4,unit='in',
        path=dir_graf)
 
 # fin grafico

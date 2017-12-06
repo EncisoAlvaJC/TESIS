@@ -1,14 +1,14 @@
 #################################################
 # parametros dependientes de los datos
-n_canales = length(canales)
+n_canales = length(kanales$Etiqueta)
 ventana   = dur_epoca*fr_muestreo
 
 #################################################
 # procesamiento parametros opcionales (ajuste)
 if(unidad_par_t =='tiempo'){
-  ini_t   = ajuste_ini_hms[1]*60*60
-  +ajuste_ini_hms[2]*60
-  +ajuste_ini_hms[3]
+  ini_t   = ajuste_ini_hms[1]*60*60 +
+    ajuste_ini_hms[2]*60 +
+    ajuste_ini_hms[3]
   ini_epo = ini_t/dur_epoca
   ini_pt  = floor(ini_t*fr_muestreo)
 }
@@ -60,27 +60,27 @@ if(zoom){
 
 #################################################
 # modo seguro: revisa si estan los archivos
-correctos = rep(FALSE,n_canales)
-n_datos   = Inf
-
-setwd(dir_res_mid)
-for(ch in 1:n_canales){
-  ch_actual = canales[ch]
-  if(file.exists(paste0('SP_INT_',nombre,'_',ch_actual,'_SUB.txt'))){
-    correctos[ch] =TRUE
-  }else{
-    warning('ERROR: En canal ',ch_actual,', no se encontro el archivo ',
-            paste0('SP_INT_',nombre,'_',ch_actual,'_(...).txt'))
-  }
-}
-canales   = canales[correctos]
-n_canales = length(canales)
+#correctos = rep(FALSE,n_canales)
+#n_datos   = Inf
+#
+#setwd(dir_res_mid)
+#for(ch in 1:n_canales){
+#  ch_actual = canales[ch]
+#  if(file.exists(paste0('SP_INT_',nombre,'_',ch_actual,'_SUB.txt'))){
+#    correctos[ch] =TRUE
+#  }else{
+#    warning('ERROR: En canal ',ch_actual,', no se encontro el archivo ',
+#            paste0('SP_INT_',nombre,'_',ch_actual,'_(...).txt'))
+#  }
+#}
+#canales   = canales[correctos]
+#n_canales = length(canales)
 
 #################################################
 # optimizacion: lee el tamano de los datos el contenedor
 setwd(dir_res_mid)
 ch        = 1
-ch_actual = canales[ch]
+ch_actual = kanales$Nombre_archivo[ch]
 nom_arch  = paste0('SP_INT_',nombre,'_',ch_actual,'_SUB.txt')
 pv_t      = scan(nom_arch)
 n_epocas  = length(pv_t)
@@ -112,7 +112,7 @@ RES = matrix(nrow=n_canales,ncol=n_epocas)
 # inicio ciclo que recorre todos los canales
 for(ch in 1:n_canales){
   # cargar los datos
-  ch_actual = canales[ch]
+  ch_actual = kanales$Nombre_archivo[ch]
   nom_arch  = nom_arch  = paste0('SP_INT_',nombre,'_',ch_actual,'_',
                                  banda[que.banda],'.txt')
   pv_t      = scan(nom_arch)
@@ -124,15 +124,21 @@ for(ch in 1:n_canales){
   if(no_relativo){
     nom_arch  = nom_arch  = paste0('VAR_',nombre,'_',
                                    ch_actual,'.txt')
-    norm      = scan(nom_arch)
+    norm = scan(nom_arch)
+    #norm = log(norm)
+    summary(norm)
     
-    kk        = quantile(norm,.9)
-    norm      = pmin(norm,kk)
-    kk        = quantile(norm,.9)
-    norm      = pmin(norm,kk)
-    kk        = quantile(norm,.9)
-    norm      = pmin(norm,kk)
-    
+    for(re in 1:10){
+      mm = mean(norm,na.rm = T)
+      de = 3*sd(norm,na.rm = T)
+      
+      norm[norm>(mm+de)] = NA
+      
+      #print(
+      #summary(norm))
+    }
+    #norm = exp(norm)
+    norm[is.na(norm)] = mm+de
     pv_t      = pv_t*norm
   }
   
@@ -147,63 +153,20 @@ for(ch in 1:n_canales){
 #################################################
 
 #################################################
-# creacion etiquetas de tiempo
-ind_t  = (0:n_epocas)*(dur_epoca) + ini_t
-ind_hh = floor(ind_t/(60*60))
-ind_mm = floor( (ind_t - ind_hh*60*60)/60 )
-ind_ss = floor(  ind_t - ind_hh*60*60 - ind_mm*60 )
-txt_t  = character(n_epocas+1)
-for(i in 1:(n_epocas+1)){
-  txt_mm = toString(ind_mm[i])
-  if(ind_mm[i]<10){
-    txt_mm = paste0('0',ind_mm[i])
-}
-  txt_ss = toString(ind_ss[i])
-  if(ind_ss[i]<10){
-    txt_ss = paste0('0',ind_ss[i])
-  }
-  #txt_t[i] = paste0(toString(ind_hh[i]),':',txt_mm,':',txt_ss)
-  #txt_t[i] = paste0(toString(ind_hh[i]),':',txt_mm)
-  txt_t[i] = paste0(toString(ind_hh[i]))
-}
+# inicio grafico
+RES = as.data.frame(t(RES))
+colnames(RES) = kanales$Etiqueta
+RES$Indice = 1:length(RES[,1])
 
-etiqueta_epocas = character(lab_epo_fin-lab_epo_ini)
-s = seq(lab_epo_ini,lab_epo_fin)
-for(i in 1:length(s)){
-  etiqueta_epocas[i] = toString(s[i])
-}
-
-pass  = paso/dur_epoca
+RES.largo = melt(RES,id='Indice')
+colnames(RES.largo) = c('Indice','Canal_var','Delta')
 
 #################################################
-# inicio guardado automatico del grafico
-k = 1.6
-if(grabar){
-  setwd(dir_graf)
-  #pdf(paste0(nombre,
-  png(paste0(nombre,'_2_',
-             '_bandaPROP_',banda[que.banda],
-  #           '.pdf'),width=12,height=6)
-             '.png'),units='in',res=300,width=8*k,height=1.5*k)
-}
-
-mmin = min(RES)
-mmax = max(RES)
-
-RES[is.na(RES)*1==1] = 0
-
-if(no_relativo){
-  kk = quantile(as.numeric(RES),.9)
-  RES = pmin(RES,kk)
-  kk = quantile(as.numeric(RES),.9)
-  RES = pmin(RES,kk)
-  kk = quantile(as.numeric(RES),.9)
-  RES = pmin(RES,kk)
-}
+# inicio grafico
 
 # grafico principal
 if(no_relativo){
-  colorgram(z=t(RES[rev(1:n_canales),]),outlier='white',bty='n',axes=F,
+  colorgram(z=t(RES[rev(1:n_canales),]),outlier='gray',bty='n',axes=F,
             #xlab='Tiempo (hh:mm)',ylab='',
             xlab='Num. de epoca',
             #ylab='',
@@ -297,3 +260,13 @@ if(grabar){
 #################################################
 
 setwd(dir_actual)
+
+k = 1.6
+if(grabar){
+  setwd(dir_graf)
+  #pdf(paste0(nombre,
+  png(paste0(nombre,'_2_',
+             '_bandaPROP_',banda[que.banda],
+             #           '.pdf'),width=12,height=6)
+             '.png'),units='in',res=300,width=8*k,height=1.5*k)
+}
