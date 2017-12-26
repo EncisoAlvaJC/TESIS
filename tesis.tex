@@ -1,9 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%\documentclass[12pt,letterpaper]{mitthesis}
 %\documentclass[12pt,letterpaper,draft]{book}
 \documentclass[12pt,letterpaper]{book}
 \usepackage[utf8]{inputenc}
@@ -344,14 +341,13 @@ como marcador de deterioro cognitivo}
         \vspace*{.25em}}
         {\Large
         Dra. Erika Elizabeth Rodríguez Torres\\
-%    \vspace*{3em}
     }
     {\Large
         Dra. Alejandra Rosales Lagarde\\
     \vspace*{3em}
     }
     {\large
-    Pachuca, Hidalgo, Noviembre de 2017\\
+    Pachuca, Hidalgo, Febrero de 2018\\
     M\'exico
     }
 \end{center}
@@ -374,85 +370,59 @@ es una mayor presencia de enfermedades no-transmisibles asociadas a la edad, ent
 demencia.
 %
 Anteriormente se ha reportado, para adultos mayores, correlaciones entre la presencia de deterioro
-cognitivo leve (PDC, considerado una etapa temprana de la demencia) y algunas propiedades del espectro 
-de potencias calculado para registros de polisomnograma (PSG, electroencefalograma durante ciertas 
-etapas de sueño) \cite{Brayet16}.
+cognitivo leve (PDC, considerado una etapa temprana de la demencia) y algunas propiedades del 
+espectro  de potencias calculado para registros de polisomnograma (PSG, electroencefalograma 
+durante el sueño) \cite{Brayet16}.
 %
 En este trabajo se buscan marcadores para un diagnóstico de PDC, basados en cantidades dependientes
 del espectro de potencias para registros de actividad. En particular se estudia la estacionariedad 
-débil, una cantidad que 
-se ha propuesto como marcador de alteraciones neurológicas \cite{Cohen77}, pero que
-usualmente se deshecha heurísticamente y sin una comprobación formal.
+débil, una cantidad que se ha propuesto como marcador de alteraciones neurológicas \cite{Cohen77}, 
+pero que usualmente se deshecha heurísticamente y sin una comprobación formal.
 %
-Se concluye que hay conexiones entre los marcador reportados en la literatura para PDC y el marcador 
-propuesto, basado en el estudio de la estacionariedad débil.
-
-%
-%{\small
-%%Si bien en el \'ultimo siglo han incrementado la esperanza y la calidad de vida, observada 
-%%\cite{PlanAlzheimer04} un aumento en la presencia de enfermedades no-transmisibles asociadas con 
-%%la edad, entre ellas la demencia.
-%%En particular, algunos estudios estad\'isticos \cite{Amer13,Miyata13,Potvin12} sugieren una 
-%%relaci\'on entre trastornos del sue\~no y el deterioro cognitivo (DC) durante la vejez.
-%
-%El presente trabajo, enmarcado en tal hip\'otesis, busca marcadores cl\'inicos para el DC
-%relacionados con el sue\~no.
-%Para ello se analizan registros de actividad cerebral durante el sue\~no (polisomnograf\'ia, PSG), 
-%modelados como procesos estoc\'asticos a tiempo continuo. 
-%Cuando se trabaja con este tipo de se\~nales se suelen presuponer propiedades como la 
-%no-estacionariedad, que es de particular relevancia en la obtenci\'on del espectro de potencias de 
-%estas se\~nales, por ejemplo; esta propiedad rara vez se verifica, y de hecho se ha sugerido
-%\cite{McEwen75,Cohen77,Sugimoto78} que en casos at\'ipicos, como el del DC, podr\'ia no cumplirse. 
-%En este trabajo se investiga si los registros de PSG en adultos mayores (AM) pueden modelarse 
-%efectivamente como procesos d\'ebilmente estacionarios, para lo cual se utiliza la prueba propuesta 
-%por Priestley y Subba Rao.
-%
-%Fueron analizados registros de PSG para AM diagnosticados, a trav\'es de pruebas 
-%neuropsicol\'ogicas, como controles o con DC (5 y 4 sujetos, respectivamente). 
-%Se prest\'o especial atenci\'on a la etapa de sue\~no denominada MOR, cuyo acr\'onimo refiere a la
-%presencia de movimientos oculares r\'apidos (entre otras caracter\'isticas).
-%Se encontraron, solamente en el grupo control y en las regiones frontal y posterior, diferencias 
-%significativas sobre el porcentaje de tiempo que las se\~nales son estacionarias durante sue\~no 
-%MOR y no-MOR.
-%Estos resultados sugieren que, en presencia de DC, cambia la organizaci\'on funcional del cerebro 
-%al transitar entre etapas de sue\~no.
-%Por \'ultimo destacamos que en AM sin DC son reconocibles patrones de 'etapas de estacionariedad' 
-%que, en un orden espec\'ifico, son consistentes con la aparici\'on del sue\~no MOR.
-%
-%}
+Se concluye que hay conexiones entre los marcador reportados en la literatura para PDC y el 
+marcador propuesto, basado en el estudio de la estacionariedad débil.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+La Dra. Alejandra Rosales Lagarde propuso investigar el tema del sueño en el adulto mayor al Mtro.
+José Sócrates López Noguerola, en ese entonces enlace ante \textit{Cátedras CONACYT}, y a los 
+responsables del Área Académica de Gerontología de la UAEH, institución a la que está comisionada
+de acuerdo al contrato con dicho programa, con el número de investigadora 1411 y el proyecto
+núm. 2162 "Evaluación y diagnóstico de los aspectos biopsicosociales del adulto mayor y sus 
+cuidadores primarios". Que este documento conste como prueba de que el Área Académica de
+Gerontología de la UAEH aceptó su propuesta, compró un polisomnógrafo con el dinero que CONACYT le
+otorgó y que la Dra. está ejerciendo el recurso de alto costo y su derecho a la libertadde 
+investigación, facultad estipulada en dicho contrato.
+
+Este estudio fue apoyado parcialmente por las siguientes entidades: SNI-CONACYT (96080) otorgado
+a ERT; Convenio PROMEP UAEHGO-103.5-14-10567; la Sociedad Matemática Mexicana Sofia Kovalévskaya
+(2014) otorgado a a la Dra. Ericka E. Rodríguez Torres.
+
+\newpage
 
 \chapter*{Agradecimientos}
 
-Antes que nada a mis padres, María Guadalupe Alva González y Nicolás Enciso Maturano, 
-quienes además  darme la vida me han soportado y apoyado en ella.
-Y también a mi hermano, Erick Ricardo Enciso Alva, por su apoyo incondicional.
+Antes que nada a mis padres, María Guadalupe Alva González y Nicolás Enciso Maturano, quienes 
+además  darme la vida me han soportado y apoyado en ella. Y también a mi hermano, Erick Ricardo 
+Enciso Alva, por su apoyo incondicional.
 %
 Les agradezco por su enorme paciencia conmigo.
 
-A todos los profesores de la Licenciatura en Matemáticas Aplicadas.
-Los muchos conocimientos que han compartido y a mis compañeros han sido más que una 
-inspiración, un ejemplo a seguir.
+A todos los profesores de la Licenciatura en Matemáticas Aplicadas. Los muchos conocimientos que 
+han compartido y a mis compañeros han sido más que una inspiración, un ejemplo a seguir.
 %
 
-Doblemente a mis asesoras, Dra. Ericka Rodríguez Torres y Dra. Alejandra Rosales Lagarde, 
-por obligarme a superarme a mí mismo y centrarme en el trabajo.
+Doblemente a mis asesoras, Dra. Ericka Rodríguez Torres y Dra. Alejandra Rosales Lagarde, por 
+obligarme a superarme a mí mismo y centrarme en el trabajo.
 
-De manera particular a la Dra. Alejandra Rosales Lagarde y a la Mtra. Génesis Vázquez Tagle
-por el permitirme el acceso y análisis de los registros de polisomnograma. Mi contribución con
-este trabajo luce pequeña en comparación.
+De manera particular a la Dra. Alejandra Rosales Lagarde y a la Mtra. Génesis Vázquez Tagle por el 
+permitirme el acceso y análisis de los registros de polisomnograma. Mi contribución con este 
+trabajo luce pequeña en comparación.
 
 También a los amigos que conocí durante la carrera: Alberto, Augusto, Daniel, Omar, Angie, Magali, 
-Alejandro; por hacer la vida más llevadera.\\
-
-Este estudio fue apoyado parcialmente por las siguientes entidades: SNI-CONACYT (96080) otorgado
-a ERT; Convenio PROMEP UAEHGO-103.5-14-10567, la Sociedad Matemática Mexicana Sofia Kovalévskaya
-(2014) otorgado a ERT.
-
-%[Posiblemente se modifique]
+Alejandro; por hacer la vida más llevadera.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -492,8 +462,6 @@ a ERT; Convenio PROMEP UAEHGO-103.5-14-10567, la Sociedad Matemática Mexicana S
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \thispagestyle{empty}
 
@@ -506,43 +474,6 @@ a ERT; Convenio PROMEP UAEHGO-103.5-14-10567, la Sociedad Matemática Mexicana S
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%\begin{savequote}[45mm]
-%\begin{quotation}
-%
-%Creo que el conocimiento científico tiene propiedades
-%fractales: que por mucho que aprendamos, lo que
-%queda, por pequeño que parezca, es tan infinitamente
-%complejo como el todo por el que empezamos.
-%Ese, creo yo, es el secreto del universo.
-%\end{quotation}
-%\qauthor{Isaac Asimov (1920--1992)}
-%\end{savequote}
-
-%\clearpage
-%
-%\thispagestyle{empty}
-%\null\vfill
-%
-%\settowidth\longest{\huge\itshape propiedades fractales: que por mucho que aprendamos, }
-%\centering
-%\parbox{\longest}{%
-%  \raggedright{\huge\itshape%
-%  Creo que el conocimiento científico tiene \\
-%propiedades fractales: que por mucho que aprendamos,  \\
-%lo que queda, por pequeño que parezca,  \\
-%es tan infinitamente complejo como el todo \\ 
-%por el que empezamos. \\
-%Ese, creo yo, es el secreto del universo.\par\bigskip
-%  }   
-%  \raggedleft\Large\MakeUppercase{Isaac Asimov (1920--1992)}\par%
-%}
-%
-%\vfill\vfill
-%
-%\clearpage
 
 \begin{center}\textit{
   Creo que el conocimiento científico tiene \\
@@ -571,37 +502,21 @@ Ese, creo yo, es el secreto del universo.}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\input{./texto/intro.tex}
+\input{./texto/intro_v2.tex}
 
-%\input{./texto/fisiologia.tex}
-\input{./texto/fisiologia2.tex}
+\input{./texto/fisiologia_v3.tex}
 
-%\input{./texto/matematicas.tex}
-\input{./texto/matematicas2.tex}
+\input{./texto/matematicas_v3.tex}
 
-%\input{./texto/previo.tex}
-\input{./texto/metodologia.tex}
+\input{./texto/metodologia_v2.tex}
 
-\input{./texto/resultados.tex}
+\input{./texto/resultados_v2.tex}
 
 \appendix
 
-%\input{./texto/stl_fft.tex}
+\input{./texto/anexo_teoremas_v2.tex}
 
-%\input{./texto/anexo_frecuencias.tex}
-
-%\input{./texto/anexo_mate.tex}
-
-%\input{./texto/anexo_espectro_evo.tex}
-
-\input{./texto/anexo_teoremas.tex}
-
-%\input{./texto/anexo_fisio.tex}
-
-%\input{./texto/eeg.tex}
-
-%\input{./texto/tablas_graficos.tex}
-\input{./texto/tablas_graficos_v2.tex}
+\input{./texto/tablas_graficos_v3.tex}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

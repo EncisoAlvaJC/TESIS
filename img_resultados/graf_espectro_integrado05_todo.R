@@ -142,7 +142,7 @@ ggplot(RES.collect,aes(x=Indice,y=Canal_var,fill=exp(Potencia))) +
   #theme(legend.title=element_blank()) +
   labs(fill='Potencia absoluta') +
   facet_grid(Banda.nombre~.)+
-  #theme(strip.text.x = element_text(size = 10)) +
+  theme(strip.text.y = element_text(size = 12)) +
 rotate_x_text(angle = 45)
 
 ggsave(filename = paste0(nombre,'_espectral_','total','.png'),
