@@ -387,7 +387,7 @@ y tal que para todo $\tau \in \R$ se cumple que
 \label{t_wold}
 \end{teorema}
 
-En virtud del teorema de Wold, se puede tener una variante del teorema \ref{rep_espectral}
+En virtud del teorema de Wold, se puede tener una variante del teorema de Wiener-Khinchin
 para procesos a tiempo discreto, razón por la cual  
 tal representación es referida como \textbf{representación de Wold-Cramér}.
 
@@ -478,10 +478,10 @@ mayor
 \item $B_g$, la dispersión en el tiempo para la ventana $g$, es menor
 \end{itemize}
 
----
-
-Entonces se ha probado en \cite{Priestley66,Priestley69} que bajo ciertas
-condiciones p
+%---
+%
+%Entonces se ha probado en \cite{Priestley66,Priestley69} que bajo ciertas
+%condiciones p
 
 \section{Estimador de doble ventana}
 
@@ -497,8 +497,8 @@ En cuando a $g$, se define a $\Gamma(u) = \intR g(u) e^{i u \omega} du$ y se les
 = 1
 \end{equation*}
 
-Cabe mencionar que las ventanas espectrales mostradas en la tabla \ref{ventanas} bien 
-pueden cumplir las propiedades requeridas para ser filtros.
+%Cabe mencionar que las ventanas espectrales mostradas en la tabla \ref{ventanas} bien 
+%pueden cumplir las propiedades requeridas para ser filtros.
 Posteriormente se define el estimador $U$ con el objetivo de asignar pesos en el tiempo para estimar
 a la FDE
 % en el tiempo dado; más aún, $U$ sirve 
@@ -530,8 +530,8 @@ $\displaystyle \lim_{\tau\rightarrow\infty} \tau \int_{-\infty}^{t} \abso{ W_{\t
 %Por ejemplo, la ventana de Daniell satisface estas propiedades; para ello, conviene calcular que
 %$\lim_{\tau\rightarrow\infty} \tau \int_{t-T}^{t} \lvert W_{\tau}(\lambda) \lvert^{2} d\lambda = 2\pi$;
 %más aún, 
-Cabe mencionar que todas las ventanas mostradas en \ref{ventanas} satisfacen las propiedades 
-anteriores.
+%Cabe mencionar que todas las ventanas mostradas en \ref{ventanas} satisfacen las propiedades 
+%anteriores.
 Finalmente, se define el estimador $\est{f}$ para las FDE normalizada, $f_t$, como
 \begin{equation*}
 \widehat{f}(t,\omega) = \int_{t-T}^{t} w_{T'}(u) \lvert U(t-u,\omega) \lvert^{2} du

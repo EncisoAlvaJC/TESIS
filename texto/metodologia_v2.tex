@@ -12,8 +12,7 @@
 \section{Participantes}
 
 Los sujetos fueron elegidos usando un muestreo \textit{no probabilístico por 
-conveniencia}\footnote{Lo cual implica que los resultados pueden no deben ser interpolados 
-inmediatamente a poblaciones más grandes} bajo los siguientes criterios de inclusión:
+conveniencia} bajo los siguientes criterios de inclusión:
 \begin{itemize}
 \item Edad entre 60 y 85 años
 \item Diestros (mano derecha dominante)
@@ -35,10 +34,12 @@ control (CTL) y con Probable Deterioro Cognitivo (PDC).
 Para esta clasificación se dio mayor atención al puntaje de Neuropsi, estandarizado 
 según edad y escolaridad (tabla \ref{puntajes}). Al puntaje de MMSE se le otorgó menos importancia
 como clasificador debido a que tiene baja sensibilidad para el diagnóstico de deterioro cognitivo 
-leve \cite{Ardila12}, y baja especificidad\footnote{Especificidad es 
-la probabilidad de que un individuo sano obtenga un resultado negativo en la prueba de deterioro 
-cognitivo} para individuos con escolaridad muy baja o muy alta \cite{Ostrosky00}, una situación 
-presente en los adultos mayores participantes.
+leve \cite{Ardila12}, y baja especificidad para individuos con escolaridad muy baja o muy 
+alta \cite{Ostrosky00}.
+Cabe mencionar que se entiende por especificidad a la probabilidad de 
+un verdadero negativo, es decir
+que un individuo sin deterioro 
+cognitivo obtenga un resultado de no-deterioro.
 
 %Para la clasificación se dio especial 
 %atención al puntaje total de Neuropsi estandarizado según edad y escolaridad \cite{Ardila12}, 
@@ -560,9 +561,9 @@ Barbour y Parker \cite{Barbour14}, el cual se encuentra implementado dentro del 
 \texttt{psd} bajo la función \texttt{pspectrum}.
 Se ha usado dicho estimador para garantizar heurísticamente que el espectro de potencias
 calculado (1) es independiente del usado para determinar la estacionariedad y (2)
-es compatible con la metodología \textit{usual}\footnote{El algoritmo \texttt{psd} 
-supone estacionariedad débil; usándolo se espera emular resultados 
-obtenidos bajo tal supuesto}.
+es compatible con la metodología \textit{usual}; como el algoritmo \texttt{psd} 
+supone estacionariedad débil se espera que emulae resultados 
+obtenidos bajo tal supuesto.
 
 Como se discute posteriormente, los bloques de épocas estacionarias están relacionados a bloques
 cuyo espectro de potencia son distintos. Así mismo son diferentes los coeficientes \lento calculado

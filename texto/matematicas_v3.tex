@@ -3,84 +3,190 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Matemáticas}
+\chapter{Medidas y frecuencias}
 
 Existe una larga tradición para entender --y modelar-- las señales electrofisiológicas en términos 
 de ondas y frecuencias, ya que fundamentalmente son fenómenos eléctricos \cite{Kaiser00}.
 En el presente trabajo se aborda el enfoque usual de asociar la \textit{energía} de una señal con 
 su varianza, y usar la transformada de Fourier para estudiar como se \textit{reparte} dicha energía
 entre los \textit{componentes de frecuencia}. 
-%
-Para modelar los registros de PSG como procesos estocásticos conviene mencionar que
+
+\begin{definicion}[$\boldsymbol{\sigma}$-álgebra]
+Sea $U$ un conjunto y $\mathcal{U}$ una colección de subconjuntos de $U$. Se dice que $\mathcal{U}$
+es una $\sigma$-álgebra si cumple que
 \begin{itemize}
-\item Usar un modelo estocástico para las señales no implica suponer que son aleatorias, sino que 
-en principio no se rechaza el no-determinismo
-\item Las señales ocurren efectivamente \textit{a tiempo continuo} aunque sólo son 
-registrables \textit{a tiempo discreto}, lo cual es importante dentro del modelo
+\item $U \in \mathcal{U}$
+\item $A \in \mathcal{U}$ implica que $A^{C} \in \mathcal{U}$
+\item Si $\{ A_n \}_{n\in \mathbb{N}}$ son conjuntos tales que $A_i \in \mathcal{U}$, entonces
+$\displaystyle \cup_{n\in \mathbb{N}} A_n \in \mathcal{U}$
 \end{itemize}
+Donde $A^{C}$ es el complemento $\{ u \in U | u \notin A \} $
+\end{definicion}
 
-El objetivo principal de este trabajo es estudiar si el modelo descrito admite --en el sentido 
-estadístico-- algunas propiedades, entre las cuales destaca la estacionariedad débil, y cómo la 
-información recabada durante la comparación puede relacionarse con las fases de sueño y el PDC.
+Por simplicidad, en este trabajo sólo se usarán medidas para conjuntos de números reales derivadas 
+de la $\sigma$-álgebra de Borel, que es definida como la $\sigma$-álgebra más pequeña que contiene a 
+los intervalos abiertos abiertos.
+
+\begin{definicion}[Medida]
+Sea $U$ un conjunto y $\mathcal{U}$ una $\sigma$-álgebra definida en $U$. Se dice que una función
+$\mu : \mathcal{U} \rightarrow \R \cup {\infty}$ es una medida si cumple que
+\begin{itemize}
+\item $\mu(\emptyset) = 0$
+\item $\mu(A) \geq 0$ para cualquier $A \in \mathcal{U}$
+\item Si $\{ A_n \}_{n\in \mathbb{N}}$ son conjuntos disjuntos a pares y tales que 
+$A_i \in \mathcal{U}$, entonces 
+$\displaystyle \mu\left( \cup_{n\in \mathbb{N}} A_n \right) = \sum_{n\in \mathbb{N}} \mu(A_n)$
+\end{itemize}
+Donde $\emptyset$ es el conjunto vacío %y $\R^{*} = \R \cup \{-\infty,\infty \}$
+\end{definicion}
+
+\begin{definicion}[Medida de probabilidad en $\boldsymbol{\R}$]
+Sea $\mathcal{B}$ la sigma álgebra de Borel definida para $\R$, se dice que una función
+$P : \mathcal{B} \rightarrow [0.1]$ es una \textbf{medida de probabilidad} si cumple que
+\begin{itemize}
+\item $P(\emptyset) = 0$
+\item $0 \leq P(A) \leq 1$ para cualquier $A \in \mathcal{B}$
+\item Si $A, B \in \mathcal{B}$ y $A\cap B = \emptyset$, entonces $P(A \cup B) = P(A) + P(B)$ 
+\item $P(\R) = 1$
+\end{itemize}
+\label{variable_aleatoria}
+\end{definicion}
+
+%Cabe mencionar que cuando se usa una variable aleatoria para modelar un fenómeno, existe un paso
+%intermedio en que los eventos relevantes se asocian con números reales
+
+Otra forma de entender una variables aleatoria es a partir de su función de probabilidad
+acumulada (FPA), ya que hay una correspondencia unívoca entre cada variable aleatoria y su FPA.
+
+\begin{definicion}[Función de Probabilidad Acumulada]
+Sea 
+\begin{equation*}
+F_X (x) = P\left( (-\infty,x] \right)
+\end{equation*}
+\end{definicion}
+
+Habitualmente, como se hace el presente texto, se usa el símbolo $X$ para denotar a una variable 
+aleatoria cuya FPA es $F_X$. Bajo esta idea, para cualquier conjunto $I \subseteq \R$ se denota
+$P(X \in I) = P(I)$, una notación muy extendida.
+
+
+
+%\begin{teorema}[Descomposición de Lebesgue]
+%Sea $f:I\rightarrow \R$ una función de variación acotada, con $I$ un intervalo. Entonces pueden 
+%hallarse funciones $f_j, f_c, f_a :I\rightarrow \R$ tales que
+%\begin{itemize}
+%\item $f = f_j+ f_c+ f_a$
+%\item $f_j = \sum_{y \leq x} f(x-0) + f(x+0)$
+%\item $f_a$ es absolutamente continua\footnote{Para que una función sea absolutamente continua,
+%basta que sea de variación acotada y que mapee conjuntos de medida cero en conjuntos de medida
+%cero} en $I$
+%\item $f_c$ es una función singular\footnote{Una función es singular si es continua, de 
+%variación acotada y no-constante, y se cumple que tiene derivada cero casi en todas partes} en 
+%$I$
+%\end{itemize}
+%Estas funciones son únicas excepto por constantes, y en conjunto son llamados la 
+%\textit{descomposición de Lebesgue} de $f$
+%\label{Lebesgue_decomp}
+%\end{teorema}
+
+%%
+%Para modelar los registros de PSG como procesos estocásticos conviene mencionar que
+%%\begin{itemize}
+%%\item Usar un modelo estocástico para las señales no implica suponer que son aleatorias, sino que 
+%%en principio no se rechaza el no-determinismo
+%%\item 
+%las señales ocurren efectivamente \textit{a tiempo continuo} aunque sólo son 
+%registrables \textit{a tiempo discreto}, lo cual es importante dentro del modelo
+%%\end{itemize}
+%
+%El objetivo principal de este trabajo es estudiar si el modelo descrito admite --en el sentido 
+%estadístico-- algunas propiedades, entre las cuales destaca la estacionariedad débil, y cómo la 
+%información recabada durante la comparación puede relacionarse con las fases de sueño y el PDC.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Frecuencia y energía}
-
-%Para estudiar formalmente a la transformada de Fourier y sus propiedades, cuando menos las 
-%relevantes como modelo, han de presentarse los espacios de funciones para las cuales \textit{tiene 
-%sentido}; tarea que es ejecutada en el anexo A.
-
-La \textbf{transformada de Fourier \textit{clásica}} ($\mathscr{F} $) se entiende formalmente como 
-un operador\footnote{Un operador es efectivamente una función, cuyo dominio es un conjunto de 
-funciones; toma un nombre distinto para evitar confusiones} que asocia una función $S=S(t)$,
-periódica con periodo $2T$, con una serie $A = A(n),  {n\in \Z}$ tal que
-\begin{equation}
-A(n) = \frac{1}{2T} \int_{-T}^{T} S(t) e^{ -i t \frac{n}{2T}} dt
-\label{txt_s_fourier}
-\end{equation}
+%\section{Procesos estocásticos}
 %
-donde el factor $\frac{n}{2T}$ es referido como \textit{frecuencia}; y se dice que 
-$\mathscr{F}[S] = A$. Los detalles formales sobre $\mathscr{F}$ se exponen en el anexo A.
+%%\begin{definicion}[Proceso estocástico]
+%%Un proceso estocástico \xt es una familia de variables aleatorias reales, 
+%%indexadas por $t \in T$.
+%%\label{proc_estocastico}
+%%\end{definicion}
+%%
+%%Respecto al conjunto $T$ que indexa a un proceso estocástico, y que será referido como 
+%%\textit{tiempo}, conviene introducir dos grandes grupos para los mismos
+%%\begin{itemize}
+%%\item \textit{Continuo} si $T$ es un intervalo cerrado
+%%\item \textit{Discreto} si $T$ es de la forma 
+%%$\{ t_0 + n \delta \lvert n \in U \subseteq \mathbb{Z} \}$
+%%\end{itemize}
+%%
+%%Los procesos a tiempo discreto contemplan conjuntos finitos e infinitos de puntos en el tiempo.
+%%No se manejan discutirá sobre otros tipos de tiempo en este trabajo.
+%%
+%%Como notación, se usará \xt  para el proceso estocástico y $X(t)$ para una de las variables
+%%aleatorias que lo componen; de la misma manera $x(t)$ es una realización de $X(t)$ y $F_{X(t)}$ 
+%%es la función de probabilidad acumulada para $X(t)$.
 %
-Con respecto a la \textbf{energía}, de manera operativa ésta se define 
-como\footnote{Potencia = Energía / Tiempo, ver anexo A}
-\begin{equation}
-\text{potencia}[S]_{[a,b]} = \frac{1}{b-a} \int_a^{b} \abso{S(t)}^{2} dt
-\label{txt_potencia}
-\end{equation}
-
-La relación de Parseval permite caracterizar la potencia de una señal si ésta admite una tr. de
-Fourier bien definida
-%
-\begin{equation}
-\int_{-T}^{T} \abso{S(t)}^{2} dt = \sum_{n=-\infty}^{\infty} \abso{A(n)}^{2}
-\label{txt_parseval}
-\end{equation}
-
-Reemplazando la expresión \ref{txt_parseval} sobre la definición de potencia, el módulo de la tr. 
-de Fourier puede verse como indicador de como se \textit{distribuye} la energía de la señal $S$,
-motivo por el cual es referido como \textbf{espectro de potencia}.
-En las diferentes genralizaciones que se presentan, se busca conservar tal interpretación.
-%
-%Por ejemplo, si $S$ no es periódica pero cumple que $\intR \abso{S(t)} dt < \infty$, entonces
-%puede definirse
-%
+%\begin{definicion}[Continuidad estocástica en media cuadrática]
+%Un proceso estocástico a tiempo continuo $\{ X(t) \}$ es estocásticamente continuo, en el 
+%entido de media cuadrática, en un tiempo admisible $t_0$ si y sólo si
 %\begin{equation*}
-%A(\omega) = \intR S(t) e^{- i \omega t} dt
+%\lim_{t \rightarrow t_0} \E{\left( X(t) - X(t_0) \right)^{2}} = 0
 %\end{equation*}
+%\label{cont_est}
+%\end{definicion}
+%
+%Una forma natural de pensar en la definición \ref{cont_est} es que, si $\abso{t-t_0}$ es muy 
+%pequeño, entonces $X(t)$ y $X(t_0)$ difieren muy poco entre s\'i (como variables aleatorias).
+%Es destacable que si un proceso es estocásticamente continuo en un intervalo, sus realizaciones 
+%solamente se pueden garantizar continuas casi en todas partes \footnote{Una propiedad se cumple 
+%\textbf{casi en todas partes} si se cumple en un conjunto cuyo complemento tiene medida cero} en 
+%ese intervalo.
+%
+%Como ejemplos, un proceso ruido blanco (definición \ref{r_blanco}) no es estocásticamente 
+%continuo, mientras que un proceso de Wiener (definición \ref{r_wiener}) s\'i lo es.
+%
+%\begin{definicion}[Proceso ruido blanco]
+%Se dice de un proceso estocástico $\{ R(t) \}$ que cumple, para cualesquiera tiempos admisibles
+%$t$ y $s$, las siguientes propiedades:
+%\begin{itemize}
+%\item $\E{R(t)}=0$
+%\item $\Cov{R(t),R(s)}=0 \Leftrightarrow t=s$ 
+%\end{itemize}
+%\label{r_blanco}
+%\end{definicion}
+%
+%\begin{definicion}[Proceso de Wiener]
+%Se dice de un proceso estocástico $\{ W(t) \}$ que cumple, para cualesquiera tiempos admisibles
+%$t$ y $s$ (con $s>t$) las siguientes propiedades:
+%\begin{itemize}
+%\item $W(0) = 0$ ($W(0)$ es constante)
+%\item $W(s)-W(t)$ es independiente de $W(u)$, para todo $u<t$ admisible
+%\item $W(s)-W(t) \sim N(0,\abso{t-s})$  (los incrementos tienen distribución normal)
+%\end{itemize}
+%\label{r_wiener}
+%\end{definicion}
+%
+%\begin{definicion}[Estacionariedad débil]
+%Un proceso estocástico \xt es débilmente estacionario si y sólo si para cualesquiera tiempos 
+%admisibles\footnote{El término \textit{tiempos admisibles} significa que la definición es la misma
+%para diferentes tipos de tiempo, bajo las restricciones pertinente} $t$, $s$ se tiene que
+%\begin{itemize}
+%\item $\E{X(t)} = \mu_X$
+%\item $\Var{X(t)} = \sigma^{2}_X$
+%\item $\Cov{X(t),X(s)} = \rho_X (s-t)$
+%\end{itemize}
+%Donde $\mu_X$, $\sigma^{2}_X$ son constantes, $\rho_X(\tau)$ es una función que únicamente 
+%depende de $\tau$
+%\label{est_orden_primera}
+%\end{definicion}
 
+\section{Estacionariedad débil}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\subsection{Estacionariedad débil}
-
-En el sentido formal un \textbf{proceso estocástico}\footnote{Durante el texto será referido 
-simplemente como \textbf{proceso}, por comodidad} \xt es una colección de \textit{variables 
+Un \textbf{proceso estocástico} \xt es una colección de \textit{variables 
 aleatorias} (VA) indexadas.
-El significado preciso y formal de los conceptos mencionados en la presente sección se discuten en
-el anexo B.
-
+%
 El conjunto $T \in \R$ que indexa a un proceso, referido como \textit{tiempo}, se considerará como 
 un intervalo cerrado (\textbf{tiempo continuo}) o bien un suconjunto de 
 $\left\{ t \in \R | {t} \cdot {\Delta_t} \in \Z \right\} $  para algún $\Delta_t$ 
@@ -99,21 +205,19 @@ $ {\Delta_t}$ & Frecuencia de muestreo (sólo en tiempo discreto)
 
 La estacionariedad es un indicativo de la \textit{homogeneidad} de un proceso, un proceso 
 fuertemente estacionario se compone de VA que tienen la misma distribución y distribuciones
-conjuntas que no dependen del tiempo (definición ??); tal característica usualmente se considera
+conjuntas que no dependen del tiempo; tal característica usualmente se considera
 \textit{innecesariamente} fuerte y se reemplaza por la siguiente
 
 \begin{definicion}%[Estacionariedad débil]
-Un proceso \xt es \textbf{débilmente estacionario} si y sólo si para cualesquiera tiempos 
-admisibles\footnote{\textbf{Tiempos admisibles} significa que la definición es la misma para tiempo
-y discreto, bajo las restricciones pertinente} $t$, $s$ se tiene que
+Un proceso \xt es \textbf{débilmente estacionario} si y sólo si existen $\mu, \sigma \in \R$ y una 
+función $R : T \rightarrow \R \cap \{ \pm \infty \} $, tales que para cualesquiera 
+$t, s \in T$ se tiene que
 \begin{itemize}
 \item $\E{X(t)} = \mu_X$
 \item $\Var{X(t)} = \sigma^{2}_X$
 \item $\Cov{X(t),X(s)} = R_X (s-t)$
 \end{itemize}
-Donde $\mu_X$, $\sigma^{2}_X$ son constantes, $\rho_X(\tau)$ es una función que únicamente 
-depende de $\tau$
-%\label{est_orden_primera}
+Donde $T_X$ es el conjunto de tiempos admisibles para \xt
 \end{definicion}
 
 Por simplicidad de notación, a lo largo del texto los procesos débilmente estacionarios serán 
@@ -121,15 +225,209 @@ referidos simplemente como \textit{estacionarios}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Función de densidad espectral}
+
+\section{Frecuencia}
+
+%Para estudiar formalmente a la transformada de Fourier y sus propiedades, cuando menos las 
+%relevantes como modelo, han de presentarse los espacios de funciones para las cuales \textit{tiene 
+%sentido}
+
+%La \textbf{transformada de Fourier \textit{clásica}} ($\mathscr{F} $) se entiende formalmente como 
+%un operador\footnote{Un operador es efectivamente una función, cuyo dominio es un conjunto de 
+%funciones; toma un nombre distinto para evitar confusiones} que asocia una función $S=S(t)$,
+%periódica con periodo $2T$, con una serie $A = A(n),  {n\in \Z}$ tal que
+%\begin{equation}
+%A(n) = \frac{1}{2T} \int_{-T}^{T} S(t) e^{ -i t \frac{n}{2T}} dt
+%\label{txt_s_fourier}
+%\end{equation}
+%%
+%donde el factor $\frac{n}{2T}$ es referido como \textit{frecuencia}; y se dice que 
+%$\mathscr{F}[S] = A$.
+%
+%\section{Transformada de Fourier como operador}
+
+La exposición inicia con los espacios de las \textbf{series $\boldsymbol{p}$-sumables}
+($\lp$), y las  \textbf{funciones $\boldsymbol{p}$-integrables} sobre un intervalo 
+$I \subseteq \R$ ($\llp$).
+%; en el presente trabajo sólo se usarán los casos $p=1,2$.
+%
+%\begin{align}
+%\ell^{p} &:= \left\{ s: \Z\rightarrow\C \talque \sum_{n=-\infty}^{\infty} \abso{s(n)}^{p} < \infty \right\}
+%\label{lpdef} \\
+%L^{p}[I] &:= \left\{ S: I\rightarrow\C \talque \int_I \abso{S(t)}^{p} dt < \infty \right\}
+%\label{llpdef}
+%\end{align}
+\begin{align*}
+\ell^{p} &:= \left\{ s: \Z\rightarrow\C \talque \sum_{n=-\infty}^{\infty} \abso{s(n)}^{p} < \infty \right\}
+\\
+L^{p}[I] &:= \left\{ S: I\rightarrow\C \talque \int_I \abso{S(t)}^{p} dt < \infty \right\}
+\end{align*}
+
+Estos espacios admiten las operaciones $+$, $\cdot$ y multiplicación por escalares complejos de la 
+manera usual.%, es decir
+
+%\begin{align*}
+%s, z \in \lp, c \in \C \Rightarrow 
+%[s+z](n) &= s(n) + z(n) \\
+%[s\cdot z](n) &= s(n) z(n) \\
+%[c \cdot s](n) &= s(n)c \\
+%S, Z \in \llp, c \in \C \Rightarrow 
+%[S+Z](t) &= S(t) + Z(t) \\
+%[S\cdot Z](t) &= S(t)  Z(t) \\
+%[c \cdot S](t) &= S(t)c
+%\end{align*}
+%
+%En las próximas líneas se seguirán usando $s, z, S, Z, c$.
+
+Para el caso particular $p=2$, los conjuntos $\ldos$ y $\lldos$ admiten los siguientes productos 
+internos:
+%
+\begin{align*}
+\left\langle s,z \right\rangle &= \sum_{n=-\infty}^{\infty} s(n) \overline{z(n)}\\
+\left\langle S,Z \right\rangle &= \int_I S(t) \overline{Z(t)} dt
+\end{align*}
+
+Usando dichos productos internos, junto con las normas y métricas que inducen, los conjuntos 
+$\ldos$ y $\lldos$ tienen estructura de \textbf{espacio de Hilbert}.
+
+Con las definiciones anteriores, que muestran que $\ldos$ y $\lldos$ son \textit{muy}
+parecidos, se puede formular unas definición para la transformada de Fourier como una equivalencia
+entre estos espacios.
+
+%{De manera pragm\'atica, en el presente trabajo la 
+%palabra  'frecuencia' se usar\'a para referirse a la cantidad $q$ en expresiones del tipo 
+%$e^{i q t}$}
+
+\begin{definicion}[Serie de Fourier]
+Sea $S: \R \rightarrow \C$ una función periódica con periodo $2T$ y tal que 
+$S \in L^{2}\left[[-T,T]\right]$. Se dice que $A$ es la serie de Fourier para $S$ si cumple que
+\begin{equation*}
+A(n) = \frac{1}{2 T} \simint{T} S(t) e^{-\nicefrac{ i \abso{n} t}{2T}} dt
+\end{equation*}
+%Adicionalmente, la función $\mathcal{F} : \lldos \rightarrow \ldos : S \mapsto A$  recibe el nombre
+%de \textbf{Transformada de Fourier}
+\label{FourierClasico}
+\end{definicion}
+
+\begin{definicion}[Transformada de Fourier]
+Sean $S$ y $A$ como en la definición \ref{FourierClasico}. Se le llama transformada de Fourier a la
+función $\mathcal{F}_T : L^{2}\left[[-T,T]\right] \rightarrow \ldos : S \mapsto A$
+\end{definicion}
+
+Puede interpretarse a $A$ como las \textit{coordenadas} de $S$ en $L^{2}\left[[-T,T]\right]$, 
+usando una base de funciones $\left\{ e^{\nicefrac{i \abso{n} t}{2 T}} \right\}_{n\in \Z}$, las
+cuales resultan ser ortonormales; esta base en particular es conocida como la \textbf{base de 
+Fourier}.
+%Se demuestra en el  A que $\mathcal{F_T}$ está bien definida en el sentido de 
+%tener efectivamente el dominio y codominio indicados. 
+Así mismo, cabe mencionar las siguientes 
+propiedades de $\mathcal{F}_T$
+\begin{itemize}
+\item Es lineal, es decir, $\mathcal{F}_T[cS + Z] = c\mathcal{F}_T[S] + \mathcal{F}_T[Z]$
+
+\item \textbf{No} es invertible, aunque se le suele definir una
+pseudoinversa
+%\footnote{$\mathcal{F}_T^{\text{inv}}$ es \textit{exacta} salvo por la suma
+%de alguna función $S_0$ tal que $\int_{-T}^{T}\abso{S_0(t)}dt = 0$} 
+como
+\begin{equation*}
+\mathcal{F}_{T}^{\text{inv}} : \ldos \rightarrow L^{2}\left[[-T,T]\right] :
+A \mapsto \sum_{n -\infty}^{\infty} A(n) e^{\nicefrac{i \abso{n} t}{2 T}}
+\end{equation*}
+%Como $\mathcal{F}_T$ es lineal conviene revisar su núcleo $\mathcal{N}_{\mathcal{F}}$,
+%definido como 
+\end{itemize}
+
+Con esta terminología se define, de manera pragmática, la \textbf{energía disipada} y la 
+\textbf{potencia} de una función $S$ en un intervalo $[a,b]$ como 
+\begin{align*}
+\text{energía}[S]_{[a,b]} &= \int_a^{b} \abso{S(t)}^{2} dt \\
+\text{potencia}[S]_{[a,b]} &= \frac{1}{b-a} \int_a^{b} \abso{S(t)}^{2} dt
+\end{align*}
+%
+%Estas últimas definiciones cobran importancia a la luz del teorema \ref{parseval}: la energía de 
+%una función eqen definida
+uivale a su norma.
+
+Una consecuencia interesante de este concepto de energía frente al teorema \ref{parseval} es que la 
+energía disipada por una función equivale a la suma de la energía disipada por sus 
+\textit{componentes} en la base de Fourier.
+Conviene, entonces, definir una función que \textit{desglose} estos \textit{aportes}.
+
+\begin{teorema}[Parseval]
+Sea $S \in L^{2}\left[[-T,T]\right]$, y sea $A = \mathcal{F}[S]$. Se cumple que
+\begin{equation*}
+\int_{-T}^{T} \abso{S(t)}^{2} dt = \sum_{n=-\infty}^{\infty} \abso{A(n)}^{2}
+\end{equation*}
+\label{parseval}
+\end{teorema}
+
+\begin{definicion}[Espectro de potencias]
+Sea $S \in L^{2}\left[[-T,T]\right]$, y sea $A = \mathcal{F}[S]$. Se llama espectro de potencias 
+para $S$ a la función $h_S : \R \rightarrow \R $, definida como
+\begin{equation*}
+h_S(\omega) = 
+\begin{cases}
+\abso{A(n)}^{2} & \text{ , si } \omega = \nicefrac{n}{2T}, \text{   con } n\in \mathbb{Z} \\
+0 & \text{ ,  otro caso}
+\end{cases}
+\end{equation*}
+\label{espec}
+\end{definicion}
+
+Un elemento que será de crucial importancia en el desarrollo posterior es la \textbf{convolución}, 
+$\ast$, una tercera operación binaria definida en estos espacios como
+%
+\begin{align*}
+[s \ast z] (\tau) &= \sum_{n=-\infty}^{\infty} s(n) \overline{z(\tau-n)} \\
+[S \ast Z] (\tau) &= \int_I S(t) \overline{Z(\tau-t)}
+\end{align*}
+%
+donde $\overline{c}$ es el conjugado complejo de $c$. 
+%La convolución es conmutativa y asociativa con la suma. 
+Esta operación cobra importancia por la forma en que se relaciona con $\mathcal{F}_T$
+%
+\begin{teorema}%[de la convolución]
+Sean $S,Z \in L^{2}\left[[-T,T]\right]$, entonces se satisface que
+\begin{align*}
+\mathcal{F}_T[S\ast Z]  &= \mathcal{F}_T[S] \cdot \mathcal{F}_T[Z] \\
+\mathcal{F}_T[S\cdot Z] &= \mathcal{F}_T[S] \ast  \mathcal{F}_T[Z] 
+\end{align*}
+\label{t_convolucion}
+\end{teorema}
+
+%Con respecto a la \textbf{energía}, de manera operativa ésta se define 
+%como\footnote{Potencia = Energía / Tiempo, ver _ A}
+%\begin{equation}
+%\text{potencia}[S]_{[a,b]} = \frac{1}{b-a} \int_a^{b} \abso{S(t)}^{2} dt
+%\label{txt_potencia}
+%\end{equation}
+%
+%La relación de Parseval permite caracterizar la potencia de una señal si ésta admite una tr. de
+%Fourier bien definida
+%%
+%\begin{equation}
+%\int_{-T}^{T} \abso{S(t)}^{2} dt = \sum_{n=-\infty}^{\infty} \abso{A(n)}^{2}
+%\label{txt_parseval}
+%\end{equation}
+%
+%Reemplazando la expresión \ref{txt_parseval} sobre la definición de potencia, el módulo de la tr. 
+%de Fourier puede verse como indicador de como se \textit{distribuye} la energía de la señal $S$,
+%motivo por el cual es referido como \textbf{espectro de potencia}.
+%En las diferentes genralizaciones que se presentan, se busca conservar tal interpretación.
+%%
+%%Por ejemplo, si $S$ no es periódica pero cumple que $\intR \abso{S(t)} dt < \infty$, entonces
+%%puede definirse
+%%
+%%\begin{equation*}
+%%A(\omega) = \intR S(t) e^{- i \omega t} dt
+%%\end{equation*}
+
+\section{Función de densidad espectral}
 
 La forma más natural de definir un espectro de potencias para un proceso estacionario 
 es a través de la tr. de Fourier de sus realizaciones. Sin embargo, en general no se puede 
-garantizar que quede \textit{bien definida}\footnote{Dos problemas presentes al definir una cantidad 
-como el resultado de un procedimiento, es garantizar que (1) el procedimiento efectivamente arroje 
-algún resultado y (2) que bajo diferentes 
-el mismo resultado 
-independientemente de lconstante} de esa manera: la señal puede no ser periódica, 
+garantizar que quede \textit{bien definida}: la señal puede no ser periódica, 
 cuadrado-integrable, uniformemente continua, etc.
 %
 Este problema se aborda restringiendo el tiempo a un conjunto \textit{sin problemas}, para luego
@@ -155,16 +453,17 @@ h(\omega) = \frac{1}{2 \pi} \lim_{N\rightarrow \infty} \E{ \frac{1}{2N}
 \end{equation}
 \end{definicion}
 
-Los detalles formales sobre la definición de la función de densidad espectral (FDE) se discuten en 
-el anexo B; algunas de sus propiedades que conviene resaltar son 
+%En el _ B se discuten algunas de las propiedades de FDE, en particular bajo qué condiciones 
+%está bien definida; conviene destacar algunas de ellas
+Alunas de las propiedades de la FDE son
 \begin{itemize}
-\item La FDE de un proceso en tiempo continuo está definida para $\omega \in \R$, y en tiempo
-discreto para $\omega \in [-\pi,\pi]$
-\item Es una función par ($h(-\omega) = h(\omega)$) y no-negativa
+\item Para un proceso en tiempo continuo, tiene dominio en $\R$; para un proceso a tiempo discreto 
+su dominio es $[-\pi,\pi]$
+\item Es una función par ($\omega$, $h(-\omega) = h(\omega)$) y no-negativa ($h(\omega) \geq 0$)
 \item $h(0) = \mu_X$, el promedio del proceso
 \item $\int h(\omega) d\omega = \sigma^{2}_X$, la varianza del proceso %_{\boldsymbol{T}}
 \item Como consecuencia de los teorema de Wiener-Khinchin (\ref{t_wienerkhinchin}) y de Wold
-(\ref{t_wold}), y suponiendo que el espectro es continuo, se puede escribir
+(\ref{t_wold}) se puede escribir
 \begin{equation}
 R(\tau) = \int_{\boldsymbol{T}} h(\omega) e^{i \omega \tau} d\omega
 \label{txt_r_ft_h}
@@ -174,29 +473,29 @@ con $R$ la función de autocovarianza del proceso
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Estimadores}
+\section{Estimadores}
 
-Cuando se supone la existencia de la FDE es inmediato el querer calcularla; sin embargo, manejar 
+Manejar 
 procesos estocásticos implica la imposibilidad de \textit{acceder} a las VA's a partir de 
 observaciones, de modo que el cálculo se basa en realizaciones y no da lugar a un resultado 
 \textit{exacto} (como con la tr. de Foruier) sino una VA.
 
 Sea \xt un proceso estacionario y \xtd una muestra de tamaño $N$ para una realización del proceso.
 %
-Un estimador \textit{natural}\footnote{Comparar las expresiones en \ref{txt_periodograma} y en 
-\ref{txt_FDE_disc}} para la FDE es el \textbf{periodograma}, definido como
+Con vista a las expresiones \ref{txt_periodograma} y \ref{txt_FDE_disc},
+un estimador \textit{natural} para la FDE es el \textbf{periodograma}, definido como
 \begin{equation}
 I_N(\omega) = \frac{2}{N} \abso{\sum_{t = 0}^{N} e^{i \omega t} x(t)}^{2}
 \label{txt_periodograma}
 \end{equation}
 
-Como se demuestra en el anexo B, el periodograma es un estimador 
-insesgado\footnote{$\E{I_N(\omega)}=h(\omega)$} pero 
-inconsistente\footnote{$\lim_{N\rightarrow\infty} \Var{I_N(\omega)} = h^{2}(\omega) \neq 0$} para
+Lamentablemente el periodograma es un estimador 
+insesgado ($\E{I_N(\omega)}=h(\omega)$) pero 
+inconsistente ($\lim_{N\rightarrow\infty} \Var{I_N(\omega)} = h^{2}(\omega) \neq 0$) para
 la FDE, lo cual lo descalifica para usarse en la práctica.
 
 Para entender --y evitar-- la inconsistencia del periodograma conviene escribirlo de una forma
-equivalente (teorema ??)
+equivalente
 \begin{equation}
 I_N(\omega) = 2 \sum_{\tau = -(N-1)}^{N-1} \widehat{R}^{\star}(\tau) \COS{\omega \tau}
 \label{txt_periodograma2}
@@ -205,19 +504,19 @@ I_N(\omega) = 2 \sum_{\tau = -(N-1)}^{N-1} \widehat{R}^{\star}(\tau) \COS{\omega
 donde $\widehat{R}^{\star}$ es un estimador para $R$, la función de autocovarianza, 
 definido como
 \begin{equation}
-\widehat{R}^{\star} (\tau) = \frac{1}{N} \sum_{t = 1}^{N-\abso{\tau}} x_t x_{t+\abso{\tau}}
+\widehat{R}^{\star} (\tau) = \frac{1}{N} \sum_{t = 1}^{N-\abso{\tau}} x(t) x(t+\abso{\tau})
 \end{equation}
 
-Como se demuestra en el anexo B, el estimador $\widehat{R}^{\star}$ es consistente y sesgado, aunque
-es \textit{asintóticamente insesgado}\footnote{$\lim_{N\rightarrow \infty} 
-\widehat{R}^{\star}(\tau) = R(\tau)$}.
+El estimador $\widehat{R}^{\star}$ es consistente y sesgado, aunque
+es \textit{asintóticamente insesgado} ($\lim_{N\rightarrow \infty} 
+\widehat{R}^{\star}(\tau) = R(\tau)$).
 %
 La expresión \ref{txt_periodograma2} bien puede verse como una versión discreta e invertida de la 
 expresión en \ref{txt_r_ft_h}, tomando en cuenta que la FDE y la función de autocovarianza son 
 simétricas. 
 
-Una ventaja de la segunda forma del periodograma es que puede verse como una suma ponderada de 
-$\widehat{R}^{\star}$ para diferentes valores de $\tau$. 
+Una ventaja de la expresión \ref{txt_periodograma2} es que permite ver al periodograma como 
+una suma ponderada de los valores de $\widehat{R}^{\star}$. 
 Mientras más grande es $\tau$, es menor la cantidad de parejas de puntos cuya distancia en el 
 tiempo es $\tau$, de modo que el estimador $\widehat{R}^{\star}$ tiene más varianza. 
 
@@ -235,34 +534,264 @@ e^{i \omega \tau}
 donde $g$, referida como \textbf{ventana de retrasos}, es una función de que decae 
 \textit{rápidamente} lejos de cero, con el propósito que $\widehat{h}$ sea un estimador
 consistente y aunque se vuelva asintóticamente insesgado.
-%
-En el anexo B se exponen más detalladamente las propiedades de este tipo de estimadores.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Espectro evolutivo, generalidades}
+\section{Representación espectral}
 
-La definición de espectro presentada en la sección anterior, para tiempo continuo y discreto, se
-limita expresamente a procesos estacionarios.
+\begin{teorema}
+Sea $\{X(t)\}$ un proceso estocástico a tiempo continuo débilmente estacionario de media 0 y 
+estocásticamente continuo en el sentido de media cuadrática. Entonces, existe un proceso 
+ortogonal $\{Z(\omega)\}$ tal que, para todo tiempo $\omega$ admisible, se puede 
+escribir%\footnote{La integral se encuentra definida en el sentido de media cuadrática.}
+\begin{equation*}
+X(t) = \intR e^{i t \omega} dZ(\omega)
+\end{equation*}
+Donde el proceso $\{Z(t)\}$ tiene las siguientes propiedades para todo $\omega$
+\begin{itemize}
+\item $\E{dZ(\omega)} = 0$
+\item $\E{\abso{dZ(\omega)}^{2}} = dH(\omega)$
+\item $\Cov{dZ(\omega),dZ(\lambda)} = 0 \Leftrightarrow \omega \neq \lambda$
+\end{itemize}
+Donde $dH(\omega)$ la FDE integrada de $\{X(t)\}$
+%\label{rep_espectral}
+\end{teorema}
 
-La tarea de definir un espectro de potencias para procesos no-estacionarios\footnote{En el 
-presente trabajo se limita al caso de procesos no-estacionarios \xt tales que $\E{X(t)}<\infty$, 
-$\Cov{X(t),X(s)}$ para cualesquiera tiempos admisibles $s$, $t$} 
+\begin{teorema}[Wiener-Khinchin]
+Una condición suficiente y necesaria para que $\rho$ sea una función de autocorrelación de 
+algún proceso estocástico a tiempo continuo $\{X(t)\}$ débilmente estacionario y 
+estocásticamente continuo, es que exista una función $F$ que tenga las siguientes propiedades
+\begin{itemize}
+\item Monótonamente creciente
+\item $F(-\infty) = 0$
+\item $F(+\infty) = 1$
+\end{itemize}
+y tal que para todo $\tau \in \R$ se cumple que
+\begin{equation*}
+\rho(\tau) = \intR e^{i \omega \tau} dF(\omega)
+\end{equation*}
+\label{t_wienerkhinchin}
+\end{teorema}
 
+\begin{teorema}[Wold]
+Una condición suficiente y necesaria para que $\rho$ sea una función de autocorrelación de 
+algún proceso estocástico a tiempo discreto $\{X(t)\}$ débilmente estacionario es que exista 
+una función $F$ con las siguientes propiedades
+\begin{itemize}
+\item Monótonamente creciente
+\item $F(-\pi) = 0$
+\item $F(+\pi) = 1$
+\end{itemize}
+y tal que para todo $\tau \in \R$ se cumple que
+\begin{equation*}
+\rho(\tau) = \intPI e^{i \omega \tau} dF(\omega)
+\end{equation*}
+\label{t_wold}
+\end{teorema}
 
-----------------------------------------------
+En virtud del teorema de Wold, se puede tener una variante del teorema de Wiener-Khinchin
+para procesos a tiempo discreto, razón por la cual  
+tal representación es referida como \textbf{representación de Wold-Cramér}.
 
+En el marco de la estimación del espectro de potencias, 
 
+\begin{proposicion}
+Sean $u$ y $v$ dos funciones con las siguientes características
+\begin{itemize}
+\item $\argmax_x u(x), \argmax_x u(x) \ni 0$
+\item $\intR \abso{u(x)} dx, \intR \abso{v(x)} dx < \infty$
+\item $\intR x\abso{u(x)} dx, \intR x\abso{v(x)} dx < \infty$
+\end{itemize} 
+Si además se satisface que $u$ tiene una {concentración} muy alta con relación a $v$
+($ \intR \abso{u(x)} dx << \intR \abso{v(x)} dx $),
+entonces se cunple que
+\begin{equation*}
+\intR u(x) v(x+k) dx \approx v(k) \intR u(x) dx
+\end{equation*}
+\label{pseudo_d}
+\end{proposicion}
+
+%Las funciones con las características del teorema \ref{pseudo_d} serán referidas como funciones tipo 
+%\textit{pseudo $\delta$ de Dirac}
+
+\chapter{Espectro evolutivo, generalidades}
 
 En el presente trabajo se ha elegido usar el espectro evolutivo, propuesto por Priesltley en
 1965 \cite{Priestley65} debido a que fue diseñado específicamente para (1) conservar linealidad 
 (2) ser siempre positivo, (3) conservar la interpretación física como distribución de energía
 \cite{Loynes68}.
 
+\section{Estimación del espectro evolutivo}
+
+Una vez definido el espectro evolutivo para procesos no-estacionarios con varianza finita, cabe 
+preguntarse sobre le estimación de esta cantidad a partir de una realización del proceso usando, 
+por ejemplo, periodogramas modificados; tal pregunta no tiene, en general, una respuesta 
+satisfactoria.
+Es por ello que se define una colección, más restringida, de procesos no-estacionarios cuyo 
+espectro evolutivo pueda ser estimado efectivamente usando la técnica de ventanas.
+
+Considerando un proceso no-estacionario \xt que admite una representación de la forma 
+$X(t) = \intR A(t,\omega) e^{i \omega t} dZ(\omega)$, entonces el espectro evolutivo queda definido 
+como
+\begin{equation}
+dF_t(\omega) = \abso{A(t,\omega)}^{2} d\mu(\omega)
+\label{esp_evolutivo}
+\end{equation}
+
+Antes de poder usar la proposición \ref{pseudo_d} para estimar $F_t$ (con respecto a $t$) usando 
+una ventana espectral, hay que medir la dispersión de $F_t$ en el tiempo; más aún, hay que pedir 
+que esa dispersión sea finita.
+Con vista a la ecuación \ref{esp_evolutivo}, se puede usar la conexión entre $F$ y $A$ para 
+establecer condiciones respecto a la segunda; se define entonces a $H_\omega$, la transformada de
+Fourier de $A$ en el tiempo
+\begin{equation}
+A(t,\omega) = \intR e^{i t \theta} dH_\omega(\theta)
+\end{equation}
+
+Un motivo muy fuerte para definir un objeto tan rebuscado es que (...)
+
+Posteriormente se define a $B_{\mathbf{F}}$, el ancho de banda para $H_\omega$ con respecto a la 
+familia de funciones $\mathbf{F}$, como
+%
+\begin{equation}
+B_{\mathbf{F}}(\omega) = \intR \abso{\theta} \abso{dH_\omega(\theta)}
+\end{equation}
+
+Se dice que el proceso es semi-estacionario con respecto a $\mathbf{F}$ si 
+$\sup_\omega B_{\mathbf{F}} < \infty$. El proceso se dice simplemente \textbf{semi-estacionario} 
+si esta cantidad es acotada para cualquier familia de funciones admisibles 
+$\mathbf{F} \in \mathbf{C}$; entonces se puede definir la constante $B_X$, el \textit{ancho de 
+banda característico de} \xt, como
+
+\begin{equation}
+B_X = \sup_{\mathbf{F}\in \mathbf{C}} \left[ \sup_\omega B_{\mathbf{F}}(\omega) \right]^{-1}
+\end{equation}
+
+Muy vagamente, $B_X$ indica el tiempo máximo en el cual el proceso, representado en la forma
+\ref{esp_evolutivo}, (...)
+
+Una vez definida la cantidad $B_X$, y habiendo supuesto que no es 0, es demostrado en 
+\cite{Priestley65} que el estimador $U$ definido como en ... satisface que
+%
+\begin{equation}
+\E{\abso{U(t,\omega)}^{2}} = \intR \abso{\Gamma(\omega)}^{2} f(t,\omega+\omega_0) d\omega
++ \orden\left( \nicefrac{B_g}{B_X} \right)
+\end{equation}
+
+De esta última expresión es evidente que el estimador es mejor conforme 
+\begin{itemize}
+\item  $B_X$, el tiempo máximo para el cual el proceso es \textit{básicamente estacionario}, es 
+mayor
+\item $B_g$, la dispersión en el tiempo para la ventana $g$, es menor
+\end{itemize}
+
+%---
+%
+%Entonces se ha probado en \cite{Priestley66,Priestley69} que bajo ciertas
+%condiciones p
+
+\section{Estimador de doble ventana}
+
+Respecto a la estimación del espectro local se usa el \textbf{estimador de doble ventana}, 
+técnica introducida por Priestley \cite{Priestley69} y que requiere dos funciones, $w_\tau$ y 
+$g$, que funcionan como ventana de retrasos y como filtro lineal, respectivamente.
+%
+En cuando a $g$, se define a $\Gamma(u) = \intR g(u) e^{i u \omega} du$ y se les pide que
+\begin{equation*}
+2\pi \int_{-\infty}^{\infty} \lvert g(u) \lvert^{2} du 
+= 
+\int_{-\infty}^{\infty} \lvert \Gamma(\omega) \lvert^{2} d\omega
+= 1
+\end{equation*}
+
+%Cabe mencionar que las ventanas espectrales mostradas en la tabla \ref{ventanas} bien 
+%pueden cumplir las propiedades requeridas para ser filtros.
+Posteriormente se define el estimador $U$ con el objetivo de asignar pesos en el tiempo para estimar
+a la FDE
+% en el tiempo dado; más aún, $U$ sirve 
+%como una aproximación de la representación de Wold-Cramér para 
+%el proceso.
+\begin{equation*}
+U(t,\omega) = \int_{t-T}^{t} g(u) X({t-u}) e^{i \omega (t-u)} du
+\end{equation*}
+
+Bajo el entendido que la función $\Gamma$ converge a una función tipo \dirac, puede 
+considerarse que 
+$\E{\abso{U(t,\omega)}^{2}} \approx f_t(\omega)$; sin embargo, se demuestra en \cite{Priestley66} 
+que $\Var{\abso{U(t,\omega)}^{2}} \nrightarrow 0$.
+%
+Debido a ello se usa una segunda función tipo ventana,
+%, para 'suavizar' el estimador y hacerlo consistente (
+de forma similar al periodograma.
+Se considera la función $W_\tau$, ventana de retrasos, y su respectiva ventana espectral 
+$w_\tau$; deben satisfacer las siguientes propiedades:
+\begin{itemize}
+\item $w_{\tau}(t) \geq 0$ para cualesquiera $t$, $\tau$
+\item $w_{\tau}(t) \rightarrow 0$ cuando $\lvert t \lvert \rightarrow \infty$, para todo $\tau$
+\item $\displaystyle \int_{-\infty}^{\infty} w_{\tau}(t) dt = 1$ para todo $\tau$
+\item $\displaystyle \int_{-\infty}^{\infty} \left( w_{\tau}(t) \right)^{2} dt < \infty$ para todo $\tau$
+\item $\exists C$ tal que  
+$\displaystyle \lim_{\tau\rightarrow\infty} \tau \int_{-\infty}^{t} \abso{ W_{\tau}(\lambda) }^{2} d\lambda = C$
+\end{itemize}
+
+%Por ejemplo, la ventana de Daniell satisface estas propiedades; para ello, conviene calcular que
+%$\lim_{\tau\rightarrow\infty} \tau \int_{t-T}^{t} \lvert W_{\tau}(\lambda) \lvert^{2} d\lambda = 2\pi$;
+%más aún, 
+%Cabe mencionar que todas las ventanas mostradas en \ref{ventanas} satisfacen las propiedades 
+%anteriores.
+Finalmente, se define el estimador $\est{f}$ para las FDE normalizada, $f_t$, como
+\begin{equation*}
+\widehat{f}(t,\omega) = \int_{t-T}^{t} w_{T'}(u) \lvert U(t-u,\omega) \lvert^{2} du
+\label{estimador_doble_ventana}
+\end{equation*}
+
+Fue demostrado por Priestley \cite{Priestley65} que los estimadores de doble ventana son 
+asintóticamente insesgados y consistentes, y propone las siguientes aproximaciones:
+%conviene exhibir las siguientes expresiones aproximadas propuestas en aquél trabajo
+\begin{itemize}
+\item $\displaystyle
+\E{\est{f}(t,\omega)} \approx 
+\intR \widetilde{f}(t,\omega+\theta) \abso{\Gamma(\theta)}^{2} d\theta$
+\item $\displaystyle
+\Var{\est{f}(t,\omega)} \approx \frac{C}{\tau} \left( \overline{f}^{2}(\omega) \right)
+\intR \abso{\Gamma(\theta)}^{4} d\theta $
+\end{itemize}
+
+donde las funciones $\widetilde{f}$ y $\overline{f}$ son versiones 'suavizadas' de la FDE 
+normalizada, $f$, y están definidas de la siguiente manera
+\begin{equation*}
+\widetilde{f}(t,\omega+\theta) = 
+\intR W_{\tau}(u) f(t-u,\omega+\theta) du
+\end{equation*}
+\begin{equation*}
+\overline{f}^{2} (t,\omega) =
+\frac{\intR f^{2}\left(t-u,W_{\tau}^{2}(u)\right) du}
+{\intR \left( W_{\tau}(u) \right)^{2} du}
+\end{equation*}
+
+Como $W_{\tau}$ funciona como ventana espectral, converge a una 
+función tipo \dirac; luego $\widetilde{f}$ es aproximadamente la convolución 
+$\widetilde{f}(t,\omega+\theta) \approx \delta_t \ast f(\bullet,\omega+\theta)$. 
+Una aproximación muy similar 
+puede hacerse respecto al segundo término, de modo que $\widetilde{f}\approx f$ y 
+$\overline{f}^{2}\approx f^{2}$.
+Tales aproximaciones serán mejores en tanto las ventanas $w_{\tau}$ y $W_{\tau}$ sean más 
+cercanas a funciones tipo \dirac.
+%; más aún, una condición adecuada es que estas funciones 
+%tengan una forma 'más delgada' que el espacio entre los tiempos y frecuencias donde se estimará 
+%$f$.
+Dicho esto, se pueden hacer las siguientes aproximaciones, un poco más arriesgadas:
+\begin{itemize}
+\item $\displaystyle \E{\est{f}(t,\omega)} \approx f(t,\omega)$
+\item $\displaystyle \Var{\est{f}(t,\omega)} \approx 
+\frac{C}{\tau} f^{2}(t,\omega) \intR \abso{\Gamma (\theta)}^{4} d\theta$
+\end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Prueba de Priestley-Subba Rao}
+\section{Prueba de Priestley-Subba Rao}
+
+
 
 Una propiedad interesante de poder estimar el espectro evolutivo de un proceso, a partir de una 
 realización del mismo, es la capacidad para identificar si éste pudiera reducirse al espectro 
@@ -270,44 +799,48 @@ usual, definido para procesos débilmente estacionarios --bastaría con revisar 
 estimado es constante en el tiempo.
 
 La prueba de estacionariedad propuesta por Priestley y Subba Rao en 1969 \cite{Priestley69} tiene 
-como \textit{ingrediente principal} un estimador muy particular para una cantidad que depende del 
-espectro, con propiedades estadísticas adecuadas para detectar la posible estacionariedad.
+como \textit{ingrediente principal} la estimación de una cantidad que depende del espectro de
+potencias. Las propiedades estadísticas de esta cantidad son adecuadas para detectar si una serie
+de tiempo procede de un proceso débilmente estacionariedad débil.
 
-Sea \xt que se tiene un proceso semi-estacionario y sea \xtd un conjunto de observaciones del 
-proceso, espaciadas uniformemente en el tiempo.
-Se construye a $\widehat{f}$, el estimador de doble ventana definido como en la sección anterior,
-usando las funciones ventana $g_h$ y $w_\tau$, y sus respectivas transformadas de Fourier 
-$\Gamma_h$ y $W_\tau$. Bajo las condiciones descritas, se cumple que aproximadamente
+Sea \xt un proceso semi-estacionario y sea \xtd un conjunto de observaciones del proceso, 
+espaciadas uniformemente en el tiempo.
+Se construye a $\widehat{h}$, el estimador de doble ventana, definido como en la sección anterior;
+se eligen como parámetros las funciones $g_h$ y $w_\tau$ bajo las restricciones 
+descritas\footnote{Las funciones $g_h$ y $w_{\tau}$ están definidas a su vez en base a los 
+parámetros $h$ y $\tau$}.
+Entonces se cumple aproximadamente que
 %
 \begin{itemize}
-\item $\E{\widehat{f}(t,\omega)} \approx f(t,\omega)$
-\item $\Var{\widehat{f}(t,\omega)} \approx 
-\frac{C}{T} f^{2}(t,\omega) \intR \abso{\Gamma^{4}(\theta)} d\theta$
+\item $\E{\widehat{h}(t,\omega)} \approx h(t,\omega)$
+\item $\Var{\widehat{h}(t,\omega)} \approx 
+\frac{C}{N} h^{2}(t,\omega) \intR \abso{\Gamma^{4}(\theta)} d\theta$
 \end{itemize}
 %
 donde $C = \lim_{T\rightarrow \infty} T \intR \abso{W_T(\lambda)} d\lambda$.
-Se define el estimador $Y(t,\omega) = \log\left(\widehat{f}(t,\omega)\right)$, que tiene 
+Se propone la cantidad $Y(t,\omega) = \log\left(\widehat{h}(t,\omega)\right)$, que tiene 
 las siguientes propiedades
 %
 \begin{itemize}
-\item $\E{Y(t,\omega)} \approx \log\left(f(t,\omega)\right)$
+\item $\E{Y(t,\omega)} \approx \log\left(h(t,\omega)\right)$
 \item $\Var{Y(t,\omega)} \approx 
 \frac{C}{T} \intR \abso{\Gamma_h(\theta)}^{4} d\theta =: \sigma^{2}$
 \end{itemize}
 %
 
-Cabe destacar que la varianza $Y$ no es formalmente independiente de $f$ sino que es 
-\textit{aproximadamente independiente}, es decir, la varianza de $Y$ depende \textit{más} 
-del propio estimador que del verdadero valor de $\log\circ f$.
-Esto no es tan sorprendente tomando en cuenta el diseño del estimador de doble ventana, que otorga 
-mayor importancia a la información local usando repetidamente la proposición \ref{pseudo_d}. Esta 
-independencia asintótica sugiere que $Y$ puede verse como
-%
-%\begin{equation}
-$Y(t,\omega) = \log\left(f(t,\omega) \right) + \varepsilon(t,\omega)$,
-%\end{equation}
-%
-con $\E{\varepsilon(t,\omega)} \approx 0$ y $\Var{\varepsilon(t,\omega)} \approx \sigma^{2}$.
+La varianza de $Y$ no es independiente de $h$ en el sentido formal, sino que es 
+\textit{aproximadamente independiente}.
+Esto no es tan sorprendente tomando en cuenta que el estimador de doble ventana, fue diseñado para 
+otorgar mayor \textit{peso} a la información local. Esta independencia asintótica sugiere que $Y$ 
+puede verse como
+
+\begin{equation}
+Y(t,\omega) = \log\left(h(t,\omega) \right) + \varepsilon(t,\omega)
+\end{equation}
+\begin{align*}
+\E{\varepsilon(t,\omega)} &\approx 0 \\
+\Var{\varepsilon(t,\omega)} &\approx \sigma^{2}
+\end{align*}
 
 Más aún, es demostrado en \cite{Priestley66} que si $\abso{\omega-\omega_0}$ es suficientemente 
 grande como para que 
@@ -339,14 +872,16 @@ como $Y_{i,j} = Y(t_i,\omega_j)$, que satisface
 \item $\Cov{\varepsilon_{i,j},\varepsilon_{i_0,j_0}} \approx 0$ siempre que $(i,j)\neq (i_0,j_0)$
 \end{itemize}
 
-Si el número de puntos es \textit{suficientemente grande}, entonces
-las componentes de $Y$ siguen distribuciones aproximadamente normales, de modo que
+Si el número de puntos es \textit{suficientemente grande}, entonces aproximadamente
 $\varepsilon_{i,j} \sim N(0,\sigma^{2})$.
 
-Habiendo definido al estimador $Y$ según de esta forma en su versión discretizada (proceso resumido
-en el gráfico \ref{algoritmo_stationarity}), es posible definir criterios estadísticos para determinar la 
-estacionariedad débil usando a $Y$. El primer caso es definir, como hipótesis nula, un modelo 
-general
+Habiendo definido al estimador $Y$ según de esta forma, es posible establecer criterios para
+decidir la estacionariedad débil de \xt.
+%
+La condición de estacionariedad débil, en términos del espectro evolutivo 
+
+
+
 %
 \begin{equation*}
 H_0 : \hspace{1em} Y_{i,j} = \mu + \alpha_i + \beta_j + \gamma_{i,j} + \varepsilon_{i,j}
@@ -408,9 +943,8 @@ Los procesos \textbf{uniformemente modulados} (UM) necesariamente pueden expresa
 $X(t) = S(t) X_0(t)$, donde $\{X_0(t)\}_{t\in T}$ es un proceso débilmente estacionario.
 
 Para un proceso UM, si se hace a $S$ constante ($\beta = 0$) se obtiene un proceso débilmente 
-estacionario. En otro modelo, si se hace a $f_0$ constante\footnote{Lo cual 
-sólo es físicamente relevante si el proceso es a tiempo discreto} ($\alpha = 0$) entonces el 
-proceso puede interpretarse como un proceso ruido blanco (definición ??) multiplicado en el tiempo 
+estacionario. En otro modelo, si se hace a $f_0$ constante ($\alpha = 0$) entonces el 
+proceso puede interpretarse como un proceso ruido blanco multiplicado en el tiempo 
 por una función arbitraria.
 
 \begin{table}
@@ -462,7 +996,7 @@ $Y_{\bullet,\bullet} = \frac{1}{I J} \sum_{i=1}^{I} \sum_{j=1}^{J} Y_{i,j}$ \;
 \end{algorithm}
 
 
-%\subsubsection{Implementación}
+%\section{Implementación}
 %
 %%Para poder usar efectivamente la prueba de PSR en el análisis de señales electrofisiológicas, ésta 
 %%debe ser ejecutada por una computadora. 
