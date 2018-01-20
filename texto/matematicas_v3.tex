@@ -1,7 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \chapter{Medidas y frecuencias}
 
@@ -37,7 +36,7 @@ $\mu : \mathcal{U} \rightarrow \R \cup {\infty}$ es una medida si cumple que
 $A_i \in \mathcal{U}$, entonces 
 $\displaystyle \mu\left( \cup_{n\in \mathbb{N}} A_n \right) = \sum_{n\in \mathbb{N}} \mu(A_n)$
 \end{itemize}
-Donde $\emptyset$ es el conjunto vacío %y $\R^{*} = \R \cup \{-\infty,\infty \}$
+Donde $\emptyset$ es el conjunto vacío
 \end{definicion}
 
 \begin{definicion}[Medida de probabilidad en $\boldsymbol{\R}$]
@@ -52,9 +51,6 @@ $P : \mathcal{B} \rightarrow [0.1]$ es una \textbf{medida de probabilidad} si cu
 \label{variable_aleatoria}
 \end{definicion}
 
-%Cabe mencionar que cuando se usa una variable aleatoria para modelar un fenómeno, existe un paso
-%intermedio en que los eventos relevantes se asocian con números reales
-
 Otra forma de entender una variables aleatoria es a partir de su función de probabilidad
 acumulada (FPA), ya que hay una correspondencia unívoca entre cada variable aleatoria y su FPA.
 
@@ -68,8 +64,6 @@ F_X (x) = P\left( (-\infty,x] \right)
 Habitualmente, como se hace el presente texto, se usa el símbolo $X$ para denotar a una variable 
 aleatoria cuya FPA es $F_X$. Bajo esta idea, para cualquier conjunto $I \subseteq \R$ se denota
 $P(X \in I) = P(I)$, una notación muy extendida.
-
-
 
 %\begin{teorema}[Descomposición de Lebesgue]
 %Sea $f:I\rightarrow \R$ una función de variación acotada, con $I$ un intervalo. Entonces pueden 
@@ -89,45 +83,6 @@ $P(X \in I) = P(I)$, una notación muy extendida.
 %\label{Lebesgue_decomp}
 %\end{teorema}
 
-%%
-%Para modelar los registros de PSG como procesos estocásticos conviene mencionar que
-%%\begin{itemize}
-%%\item Usar un modelo estocástico para las señales no implica suponer que son aleatorias, sino que 
-%%en principio no se rechaza el no-determinismo
-%%\item 
-%las señales ocurren efectivamente \textit{a tiempo continuo} aunque sólo son 
-%registrables \textit{a tiempo discreto}, lo cual es importante dentro del modelo
-%%\end{itemize}
-%
-%El objetivo principal de este trabajo es estudiar si el modelo descrito admite --en el sentido 
-%estadístico-- algunas propiedades, entre las cuales destaca la estacionariedad débil, y cómo la 
-%información recabada durante la comparación puede relacionarse con las fases de sueño y el PDC.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%\section{Procesos estocásticos}
-%
-%%\begin{definicion}[Proceso estocástico]
-%%Un proceso estocástico \xt es una familia de variables aleatorias reales, 
-%%indexadas por $t \in T$.
-%%\label{proc_estocastico}
-%%\end{definicion}
-%%
-%%Respecto al conjunto $T$ que indexa a un proceso estocástico, y que será referido como 
-%%\textit{tiempo}, conviene introducir dos grandes grupos para los mismos
-%%\begin{itemize}
-%%\item \textit{Continuo} si $T$ es un intervalo cerrado
-%%\item \textit{Discreto} si $T$ es de la forma 
-%%$\{ t_0 + n \delta \lvert n \in U \subseteq \mathbb{Z} \}$
-%%\end{itemize}
-%%
-%%Los procesos a tiempo discreto contemplan conjuntos finitos e infinitos de puntos en el tiempo.
-%%No se manejan discutirá sobre otros tipos de tiempo en este trabajo.
-%%
-%%Como notación, se usará \xt  para el proceso estocástico y $X(t)$ para una de las variables
-%%aleatorias que lo componen; de la misma manera $x(t)$ es una realización de $X(t)$ y $F_{X(t)}$ 
-%%es la función de probabilidad acumulada para $X(t)$.
-%
 %\begin{definicion}[Continuidad estocástica en media cuadrática]
 %Un proceso estocástico a tiempo continuo $\{ X(t) \}$ es estocásticamente continuo, en el 
 %entido de media cuadrática, en un tiempo admisible $t_0$ si y sólo si
@@ -167,20 +122,9 @@ $P(X \in I) = P(I)$, una notación muy extendida.
 %\end{itemize}
 %\label{r_wiener}
 %\end{definicion}
-%
-%\begin{definicion}[Estacionariedad débil]
-%Un proceso estocástico \xt es débilmente estacionario si y sólo si para cualesquiera tiempos 
-%admisibles\footnote{El término \textit{tiempos admisibles} significa que la definición es la misma
-%para diferentes tipos de tiempo, bajo las restricciones pertinente} $t$, $s$ se tiene que
-%\begin{itemize}
-%\item $\E{X(t)} = \mu_X$
-%\item $\Var{X(t)} = \sigma^{2}_X$
-%\item $\Cov{X(t),X(s)} = \rho_X (s-t)$
-%\end{itemize}
-%Donde $\mu_X$, $\sigma^{2}_X$ son constantes, $\rho_X(\tau)$ es una función que únicamente 
-%depende de $\tau$
-%\label{est_orden_primera}
-%\end{definicion}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Estacionariedad débil}
 
@@ -224,39 +168,13 @@ Por simplicidad de notación, a lo largo del texto los procesos débilmente esta
 referidos simplemente como \textit{estacionarios}. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Frecuencia}
-
-%Para estudiar formalmente a la transformada de Fourier y sus propiedades, cuando menos las 
-%relevantes como modelo, han de presentarse los espacios de funciones para las cuales \textit{tiene 
-%sentido}
-
-%La \textbf{transformada de Fourier \textit{clásica}} ($\mathscr{F} $) se entiende formalmente como 
-%un operador\footnote{Un operador es efectivamente una función, cuyo dominio es un conjunto de 
-%funciones; toma un nombre distinto para evitar confusiones} que asocia una función $S=S(t)$,
-%periódica con periodo $2T$, con una serie $A = A(n),  {n\in \Z}$ tal que
-%\begin{equation}
-%A(n) = \frac{1}{2T} \int_{-T}^{T} S(t) e^{ -i t \frac{n}{2T}} dt
-%\label{txt_s_fourier}
-%\end{equation}
-%%
-%donde el factor $\frac{n}{2T}$ es referido como \textit{frecuencia}; y se dice que 
-%$\mathscr{F}[S] = A$.
-%
-%\section{Transformada de Fourier como operador}
 
 La exposición inicia con los espacios de las \textbf{series $\boldsymbol{p}$-sumables}
 ($\lp$), y las  \textbf{funciones $\boldsymbol{p}$-integrables} sobre un intervalo 
 $I \subseteq \R$ ($\llp$).
-%; en el presente trabajo sólo se usarán los casos $p=1,2$.
-%
-%\begin{align}
-%\ell^{p} &:= \left\{ s: \Z\rightarrow\C \talque \sum_{n=-\infty}^{\infty} \abso{s(n)}^{p} < \infty \right\}
-%\label{lpdef} \\
-%L^{p}[I] &:= \left\{ S: I\rightarrow\C \talque \int_I \abso{S(t)}^{p} dt < \infty \right\}
-%\label{llpdef}
-%\end{align}
 \begin{align*}
 \ell^{p} &:= \left\{ s: \Z\rightarrow\C \talque \sum_{n=-\infty}^{\infty} \abso{s(n)}^{p} < \infty \right\}
 \\
@@ -264,20 +182,7 @@ L^{p}[I] &:= \left\{ S: I\rightarrow\C \talque \int_I \abso{S(t)}^{p} dt < \inft
 \end{align*}
 
 Estos espacios admiten las operaciones $+$, $\cdot$ y multiplicación por escalares complejos de la 
-manera usual.%, es decir
-
-%\begin{align*}
-%s, z \in \lp, c \in \C \Rightarrow 
-%[s+z](n) &= s(n) + z(n) \\
-%[s\cdot z](n) &= s(n) z(n) \\
-%[c \cdot s](n) &= s(n)c \\
-%S, Z \in \llp, c \in \C \Rightarrow 
-%[S+Z](t) &= S(t) + Z(t) \\
-%[S\cdot Z](t) &= S(t)  Z(t) \\
-%[c \cdot S](t) &= S(t)c
-%\end{align*}
-%
-%En las próximas líneas se seguirán usando $s, z, S, Z, c$.
+manera usual.
 
 Para el caso particular $p=2$, los conjuntos $\ldos$ y $\lldos$ admiten los siguientes productos 
 internos:
@@ -294,18 +199,12 @@ Con las definiciones anteriores, que muestran que $\ldos$ y $\lldos$ son \textit
 parecidos, se puede formular unas definición para la transformada de Fourier como una equivalencia
 entre estos espacios.
 
-%{De manera pragm\'atica, en el presente trabajo la 
-%palabra  'frecuencia' se usar\'a para referirse a la cantidad $q$ en expresiones del tipo 
-%$e^{i q t}$}
-
 \begin{definicion}[Serie de Fourier]
 Sea $S: \R \rightarrow \C$ una función periódica con periodo $2T$ y tal que 
 $S \in L^{2}\left[[-T,T]\right]$. Se dice que $A$ es la serie de Fourier para $S$ si cumple que
 \begin{equation*}
 A(n) = \frac{1}{2 T} \simint{T} S(t) e^{-\nicefrac{ i \abso{n} t}{2T}} dt
 \end{equation*}
-%Adicionalmente, la función $\mathcal{F} : \lldos \rightarrow \ldos : S \mapsto A$  recibe el nombre
-%de \textbf{Transformada de Fourier}
 \label{FourierClasico}
 \end{definicion}
 
@@ -318,8 +217,6 @@ Puede interpretarse a $A$ como las \textit{coordenadas} de $S$ en $L^{2}\left[[-
 usando una base de funciones $\left\{ e^{\nicefrac{i \abso{n} t}{2 T}} \right\}_{n\in \Z}$, las
 cuales resultan ser ortonormales; esta base en particular es conocida como la \textbf{base de 
 Fourier}.
-%Se demuestra en el  A que $\mathcal{F_T}$ está bien definida en el sentido de 
-%tener efectivamente el dominio y codominio indicados. 
 Así mismo, cabe mencionar las siguientes 
 propiedades de $\mathcal{F}_T$
 \begin{itemize}
@@ -327,15 +224,11 @@ propiedades de $\mathcal{F}_T$
 
 \item \textbf{No} es invertible, aunque se le suele definir una
 pseudoinversa
-%\footnote{$\mathcal{F}_T^{\text{inv}}$ es \textit{exacta} salvo por la suma
-%de alguna función $S_0$ tal que $\int_{-T}^{T}\abso{S_0(t)}dt = 0$} 
 como
 \begin{equation*}
 \mathcal{F}_{T}^{\text{inv}} : \ldos \rightarrow L^{2}\left[[-T,T]\right] :
 A \mapsto \sum_{n -\infty}^{\infty} A(n) e^{\nicefrac{i \abso{n} t}{2 T}}
 \end{equation*}
-%Como $\mathcal{F}_T$ es lineal conviene revisar su núcleo $\mathcal{N}_{\mathcal{F}}$,
-%definido como 
 \end{itemize}
 
 Con esta terminología se define, de manera pragmática, la \textbf{energía disipada} y la 
@@ -344,10 +237,6 @@ Con esta terminología se define, de manera pragmática, la \textbf{energía dis
 \text{energía}[S]_{[a,b]} &= \int_a^{b} \abso{S(t)}^{2} dt \\
 \text{potencia}[S]_{[a,b]} &= \frac{1}{b-a} \int_a^{b} \abso{S(t)}^{2} dt
 \end{align*}
-%
-%Estas últimas definiciones cobran importancia a la luz del teorema \ref{parseval}: la energía de 
-%una función eqen definida
-uivale a su norma.
 
 Una consecuencia interesante de este concepto de energía frente al teorema \ref{parseval} es que la 
 energía disipada por una función equivale a la suma de la energía disipada por sus 
@@ -402,26 +291,9 @@ Sean $S,Z \in L^{2}\left[[-T,T]\right]$, entonces se satisface que
 %\text{potencia}[S]_{[a,b]} = \frac{1}{b-a} \int_a^{b} \abso{S(t)}^{2} dt
 %\label{txt_potencia}
 %\end{equation}
-%
-%La relación de Parseval permite caracterizar la potencia de una señal si ésta admite una tr. de
-%Fourier bien definida
-%%
-%\begin{equation}
-%\int_{-T}^{T} \abso{S(t)}^{2} dt = \sum_{n=-\infty}^{\infty} \abso{A(n)}^{2}
-%\label{txt_parseval}
-%\end{equation}
-%
-%Reemplazando la expresión \ref{txt_parseval} sobre la definición de potencia, el módulo de la tr. 
-%de Fourier puede verse como indicador de como se \textit{distribuye} la energía de la señal $S$,
-%motivo por el cual es referido como \textbf{espectro de potencia}.
-%En las diferentes genralizaciones que se presentan, se busca conservar tal interpretación.
-%%
-%%Por ejemplo, si $S$ no es periódica pero cumple que $\intR \abso{S(t)} dt < \infty$, entonces
-%%puede definirse
-%%
-%%\begin{equation*}
-%%A(\omega) = \intR S(t) e^{- i \omega t} dt
-%%\end{equation*}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Función de densidad espectral}
 
@@ -471,6 +343,7 @@ R(\tau) = \int_{\boldsymbol{T}} h(\omega) e^{i \omega \tau} d\omega
 con $R$ la función de autocovarianza del proceso
 \end{itemize}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Estimadores}
@@ -535,6 +408,7 @@ donde $g$, referida como \textbf{ventana de retrasos}, es una función de que de
 \textit{rápidamente} lejos de cero, con el propósito que $\widehat{h}$ sea un estimador
 consistente y aunque se vuelva asintóticamente insesgado.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Representación espectral}
@@ -611,8 +485,10 @@ entonces se cunple que
 \label{pseudo_d}
 \end{proposicion}
 
-%Las funciones con las características del teorema \ref{pseudo_d} serán referidas como funciones tipo 
-%\textit{pseudo $\delta$ de Dirac}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \chapter{Espectro evolutivo, generalidades}
 
@@ -620,6 +496,9 @@ En el presente trabajo se ha elegido usar el espectro evolutivo, propuesto por P
 1965 \cite{Priestley65} debido a que fue diseñado específicamente para (1) conservar linealidad 
 (2) ser siempre positivo, (3) conservar la interpretación física como distribución de energía
 \cite{Loynes68}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Estimación del espectro evolutivo}
 
@@ -685,10 +564,8 @@ mayor
 \item $B_g$, la dispersión en el tiempo para la ventana $g$, es menor
 \end{itemize}
 
-%---
-%
-%Entonces se ha probado en \cite{Priestley66,Priestley69} que bajo ciertas
-%condiciones p
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Estimador de doble ventana}
 
@@ -704,13 +581,8 @@ En cuando a $g$, se define a $\Gamma(u) = \intR g(u) e^{i u \omega} du$ y se les
 = 1
 \end{equation*}
 
-%Cabe mencionar que las ventanas espectrales mostradas en la tabla \ref{ventanas} bien 
-%pueden cumplir las propiedades requeridas para ser filtros.
 Posteriormente se define el estimador $U$ con el objetivo de asignar pesos en el tiempo para estimar
 a la FDE
-% en el tiempo dado; más aún, $U$ sirve 
-%como una aproximación de la representación de Wold-Cramér para 
-%el proceso.
 \begin{equation*}
 U(t,\omega) = \int_{t-T}^{t} g(u) X({t-u}) e^{i \omega (t-u)} du
 \end{equation*}
@@ -721,7 +593,6 @@ $\E{\abso{U(t,\omega)}^{2}} \approx f_t(\omega)$; sin embargo, se demuestra en \
 que $\Var{\abso{U(t,\omega)}^{2}} \nrightarrow 0$.
 %
 Debido a ello se usa una segunda función tipo ventana,
-%, para 'suavizar' el estimador y hacerlo consistente (
 de forma similar al periodograma.
 Se considera la función $W_\tau$, ventana de retrasos, y su respectiva ventana espectral 
 $w_\tau$; deben satisfacer las siguientes propiedades:
@@ -734,11 +605,6 @@ $w_\tau$; deben satisfacer las siguientes propiedades:
 $\displaystyle \lim_{\tau\rightarrow\infty} \tau \int_{-\infty}^{t} \abso{ W_{\tau}(\lambda) }^{2} d\lambda = C$
 \end{itemize}
 
-%Por ejemplo, la ventana de Daniell satisface estas propiedades; para ello, conviene calcular que
-%$\lim_{\tau\rightarrow\infty} \tau \int_{t-T}^{t} \lvert W_{\tau}(\lambda) \lvert^{2} d\lambda = 2\pi$;
-%más aún, 
-%Cabe mencionar que todas las ventanas mostradas en \ref{ventanas} satisfacen las propiedades 
-%anteriores.
 Finalmente, se define el estimador $\est{f}$ para las FDE normalizada, $f_t$, como
 \begin{equation*}
 \widehat{f}(t,\omega) = \int_{t-T}^{t} w_{T'}(u) \lvert U(t-u,\omega) \lvert^{2} du
@@ -747,7 +613,6 @@ Finalmente, se define el estimador $\est{f}$ para las FDE normalizada, $f_t$, co
 
 Fue demostrado por Priestley \cite{Priestley65} que los estimadores de doble ventana son 
 asintóticamente insesgados y consistentes, y propone las siguientes aproximaciones:
-%conviene exhibir las siguientes expresiones aproximadas propuestas en aquél trabajo
 \begin{itemize}
 \item $\displaystyle
 \E{\est{f}(t,\omega)} \approx 
@@ -777,9 +642,6 @@ puede hacerse respecto al segundo término, de modo que $\widetilde{f}\approx f$
 $\overline{f}^{2}\approx f^{2}$.
 Tales aproximaciones serán mejores en tanto las ventanas $w_{\tau}$ y $W_{\tau}$ sean más 
 cercanas a funciones tipo \dirac.
-%; más aún, una condición adecuada es que estas funciones 
-%tengan una forma 'más delgada' que el espacio entre los tiempos y frecuencias donde se estimará 
-%$f$.
 Dicho esto, se pueden hacer las siguientes aproximaciones, un poco más arriesgadas:
 \begin{itemize}
 \item $\displaystyle \E{\est{f}(t,\omega)} \approx f(t,\omega)$
@@ -788,10 +650,9 @@ Dicho esto, se pueden hacer las siguientes aproximaciones, un poco más arriesga
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Prueba de Priestley-Subba Rao}
-
-
 
 Una propiedad interesante de poder estimar el espectro evolutivo de un proceso, a partir de una 
 realización del mismo, es la capacidad para identificar si éste pudiera reducirse al espectro 
@@ -846,18 +707,9 @@ Más aún, es demostrado en \cite{Priestley66} que si $\abso{\omega-\omega_0}$ e
 grande como para que 
 $\intR \abso{\Gamma_h(\theta+\omega)}^{2}\abso{\Gamma_h(\theta+\omega_0)}^{2} d\theta \approx 0$,
 entonces 
-%
-%\begin{itemize}
-%\item 
 $\Cov{Y(t,\omega),Y(t,\omega_0)} \approx 0$.
-%\end{itemize}
-%
 Similarmente, si $\abso{t-t_0} >> \intR \abso{t} \abso{w_\tau (t)} dt $, entonces
-%
-%\begin{itemize}
-%\item 
 $\Cov{Y(t,\omega),Y(t_0,\omega)} \approx 0$.
-%\end{itemize}
 
 Bajo estas nuevas condiciones, es posible construir una versión discretizada de $Y$ tal que los 
 componentes $\varepsilon$ sean estadísticamente independientes. Para ello se define una malla de 
@@ -995,18 +847,6 @@ $Y_{\bullet,\bullet} = \frac{1}{I J} \sum_{i=1}^{I} \sum_{j=1}^{J} Y_{i,j}$ \;
 \label{algoritmo_stationarity}
 \end{algorithm}
 
-
-%\section{Implementación}
-%
-%%Para poder usar efectivamente la prueba de PSR en el análisis de señales electrofisiológicas, ésta 
-%%debe ser ejecutada por una computadora. 
-%Conviene destacar que la prueba de PSR se encuentra implementada para el software estadístico R 
-%\cite{R_citar}, dentro del paquete \texttt{fractal} \cite{R_fractal}; esta implementeación en 
-%particular fue usada para los analizar las series de tiempo.
-%
-%La prueba se encuentra normalizada para 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
