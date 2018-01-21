@@ -4,186 +4,232 @@
 
 \chapter{Medidas y frecuencias}
 
-Existe una larga tradición para entender --y modelar-- las señales electrofisiológicas en términos 
-de ondas y frecuencias, ya que fundamentalmente son fenómenos eléctricos \cite{Kaiser00}.
-En el presente trabajo se aborda el enfoque usual de asociar la \textit{energía} de una señal con 
-su varianza, y usar la transformada de Fourier para estudiar como se \textit{reparte} dicha energía
-entre los \textit{componentes de frecuencia}. 
+Existe una larga tradición para entender y modelar las señales electrofisiológicas en términos de 
+\textit{ondas y frecuencias}, ya que fundamentalmente son fenómenos eléctricos \cite{Kaiser00}.
+%
+Se aborda el enfoque usual del espectro de potencias: se asocia la energía de una señal con su 
+dispersión (varianza) y se estudia cómo se distribuye en la base de Fourier.
+%
+En el entendido de que el espectro de potencias puede variar en el tiempo, la estacionariedad
+es equivalente a que el tal cambio no ocurra.
+
+Como el espectro de potencias clásico está definido para funciones, conviene mencionar con las 
+definiciones pertinentes sobre procesos estocásticos, y posteriormente deducir condiciones bajo las 
+cuales se les puede definir un espectro de potencias.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Variables aleatorias}
 
 \begin{definicion}[$\boldsymbol{\sigma}$-álgebra]
-Sea $U$ un conjunto y $\mathcal{U}$ una colección de subconjuntos de $U$. Se dice que $\mathcal{U}$
-es una $\sigma$-álgebra si cumple que
+Sea $U$ un conjunto y sea $\mathcal{U}$ una colección de subconjuntos de $U$. Se dice que 
+$\mathcal{U}$ es una $\sigma$-álgebra si cumple
 \begin{itemize}
 \item $U \in \mathcal{U}$
-\item $A \in \mathcal{U}$ implica que $A^{C} \in \mathcal{U}$
-\item Si $\{ A_n \}_{n\in \mathbb{N}}$ son conjuntos tales que $A_i \in \mathcal{U}$, entonces
-$\displaystyle \cup_{n\in \mathbb{N}} A_n \in \mathcal{U}$
+\item $A \in \mathcal{U} \Rightarrow A^{C} \in \mathcal{U}$
+\item 
+$ \displaystyle \{ A_n \}_{n\in \mathbb{N}} \subseteq \mathcal{U} 
+\Rightarrow \cup_{n\in \mathbb{N}} A_n \in \mathcal{U}$
 \end{itemize}
-Donde $A^{C}$ es el complemento $\{ u \in U | u \notin A \} $
+Donde $A^{C} = \{ u \in U | u \notin A \} $
 \end{definicion}
 
-Por simplicidad, en este trabajo sólo se usarán medidas para conjuntos de números reales derivadas 
-de la $\sigma$-álgebra de Borel, que es definida como la $\sigma$-álgebra más pequeña que contiene a 
-los intervalos abiertos abiertos.
+Por simplicidad, sólo se usarán medidas en $\R$ derivadas de $\mathcal{B}$, la $\sigma$-álgebra de 
+Borel; ésta se define como la $\sigma$-álgebra más pequeña que contiene a los intervalos abiertos, 
+definidos de la manera usual. 
 
 \begin{definicion}[Medida]
-Sea $U$ un conjunto y $\mathcal{U}$ una $\sigma$-álgebra definida en $U$. Se dice que una función
-$\mu : \mathcal{U} \rightarrow \R \cup {\infty}$ es una medida si cumple que
+Sea $U$ un conjunto y sea $\mathcal{U}$ una $\sigma$-álgebra definida en $U$. Se dice que una 
+función $\mu : \mathcal{U} \rightarrow \R_+$ es una medida si cumple que
 \begin{itemize}
 \item $\mu(\emptyset) = 0$
-\item $\mu(A) \geq 0$ para cualquier $A \in \mathcal{U}$
-\item Si $\{ A_n \}_{n\in \mathbb{N}}$ son conjuntos disjuntos a pares y tales que 
-$A_i \in \mathcal{U}$, entonces 
-$\displaystyle \mu\left( \cup_{n\in \mathbb{N}} A_n \right) = \sum_{n\in \mathbb{N}} \mu(A_n)$
+\item Si $\{ A_n \}_{n\in \mathbb{N}} \subseteq \mathcal{U}$ son tales que 
+$A_n \cap A_m = \emptyset \Leftrightarrow m\neq n$, entonces
+$$ \mu\left( \bigcup_{n\in \mathbb{N}} A_n \right) = \sum_{n\in \mathbb{N}} \mu(A_n)$$
 \end{itemize}
-Donde $\emptyset$ es el conjunto vacío
+Donde $\R_+ = \{ x\in \R | 0 \leq x \}$ y $\emptyset$ es el conjunto vacío
+\label{medida}
 \end{definicion}
 
-\begin{definicion}[Medida de probabilidad en $\boldsymbol{\R}$]
-Sea $\mathcal{B}$ la sigma álgebra de Borel definida para $\R$, se dice que una función
-$P : \mathcal{B} \rightarrow [0.1]$ es una \textbf{medida de probabilidad} si cumple que
-\begin{itemize}
-\item $P(\emptyset) = 0$
-\item $0 \leq P(A) \leq 1$ para cualquier $A \in \mathcal{B}$
-\item Si $A, B \in \mathcal{B}$ y $A\cap B = \emptyset$, entonces $P(A \cup B) = P(A) + P(B)$ 
-\item $P(\R) = 1$
-\end{itemize}
-\label{variable_aleatoria}
-\end{definicion}
+Una medida de probabilidad en $\R$, $P$, puede verse como una medida definida en $\mathcal{B}$ tal
+que $P(\R) = 1$. 
+%
+Heurísticamente se suele asociar una medida de probabilidad al resultado de un experimento 
+\textit{aleatorio}, de modo que el resultado --en este caso, un número-- ocurre dentro de un 
+intervalo $I$ con \textit{probabilidad} $100 \times P(I)$.
 
-Otra forma de entender una variables aleatoria es a partir de su función de probabilidad
-acumulada (FPA), ya que hay una correspondencia unívoca entre cada variable aleatoria y su FPA.
+Para facilitar la interpretación anterior, se define una \textbf{variable aleatoria} (VA) como una 
+función $X : U \rightarrow E$ que es medible con respecto a la medida de probabilidad $P$.
+%
+El conjunto $E$ corresponde a los resultados del experimento que se modela, mientras que $U$ y $P$ 
+son como en la definición \ref{medida}.
+
+Una forma de estudiar una VA en $\R$ es a través de su función de probabilidad acumulada (FPA);
+esta función da información sobre cómo se \textit{distribuye} la probabilidad, es decir, qué
+subonjuntos tienen mayor probabilidad. 
+%
+En el presente texto únicamente se usarán VA en $\R$.
 
 \begin{definicion}[Función de Probabilidad Acumulada]
-Sea 
+Sea $X$ una VA en y sea $P_X$ su medida de probabilidad. Se define su función de 
+probabilidad acumulada, $F_X : \R \rightarrow [0,1]$, como
 \begin{equation*}
-F_X (x) = P\left( (-\infty,x] \right)
+F_X (x) := P\left( \left(-\infty,x \right] \right)
 \end{equation*}
 \end{definicion}
 
-Habitualmente, como se hace el presente texto, se usa el símbolo $X$ para denotar a una variable 
-aleatoria cuya FPA es $F_X$. Bajo esta idea, para cualquier conjunto $I \subseteq \R$ se denota
-$P(X \in I) = P(I)$, una notación muy extendida.
+Si una VA $X$ tiene asociada una FPA que es \textit{absolutamente continua}, entonces se dice que 
+$X$ es una \textbf{VA continua}. 
+%
+El que una FPA sea absolutamente continua es equivalente a que los conjuntos de medida cero en la 
+medida de Lebesgue tengan medida cero en la medida de probabilidad asociada a $X$.
+%
+Adicionalmente en este caso, $F_X$ es derivable y se puede le definir una \textbf{función de 
+densidad de probabilidad} (FDA), $f_X$, como $f_X := F_X\prima$.
 
-%\begin{teorema}[Descomposición de Lebesgue]
-%Sea $f:I\rightarrow \R$ una función de variación acotada, con $I$ un intervalo. Entonces pueden 
-%hallarse funciones $f_j, f_c, f_a :I\rightarrow \R$ tales que
-%\begin{itemize}
-%\item $f = f_j+ f_c+ f_a$
-%\item $f_j = \sum_{y \leq x} f(x-0) + f(x+0)$
-%\item $f_a$ es absolutamente continua\footnote{Para que una función sea absolutamente continua,
-%basta que sea de variación acotada y que mapee conjuntos de medida cero en conjuntos de medida
-%cero} en $I$
-%\item $f_c$ es una función singular\footnote{Una función es singular si es continua, de 
-%variación acotada y no-constante, y se cumple que tiene derivada cero casi en todas partes} en 
-%$I$
-%\end{itemize}
-%Estas funciones son únicas excepto por constantes, y en conjunto son llamados la 
-%\textit{descomposición de Lebesgue} de $f$
-%\label{Lebesgue_decomp}
-%\end{teorema}
+Se dice que $X$ es una \textbf{VA discreta} si existen $\{ x_n \}_{n\in \mathbb{N}}$ tales que su 
+FPA puede escribirse como
+%
+\begin{equation*}
+F_X(x) = \sum_{n \in \mathbb{N}} F_X(x_n^+) - F_X(x_n^-)
+\end{equation*}
 
-%\begin{definicion}[Continuidad estocástica en media cuadrática]
-%Un proceso estocástico a tiempo continuo $\{ X(t) \}$ es estocásticamente continuo, en el 
-%entido de media cuadrática, en un tiempo admisible $t_0$ si y sólo si
-%\begin{equation*}
-%\lim_{t \rightarrow t_0} \E{\left( X(t) - X(t_0) \right)^{2}} = 0
-%\end{equation*}
-%\label{cont_est}
-%\end{definicion}
-%
-%Una forma natural de pensar en la definición \ref{cont_est} es que, si $\abso{t-t_0}$ es muy 
-%pequeño, entonces $X(t)$ y $X(t_0)$ difieren muy poco entre s\'i (como variables aleatorias).
-%Es destacable que si un proceso es estocásticamente continuo en un intervalo, sus realizaciones 
-%solamente se pueden garantizar continuas casi en todas partes \footnote{Una propiedad se cumple 
-%\textbf{casi en todas partes} si se cumple en un conjunto cuyo complemento tiene medida cero} en 
-%ese intervalo.
-%
-%Como ejemplos, un proceso ruido blanco (definición \ref{r_blanco}) no es estocásticamente 
-%continuo, mientras que un proceso de Wiener (definición \ref{r_wiener}) s\'i lo es.
-%
-%\begin{definicion}[Proceso ruido blanco]
-%Se dice de un proceso estocástico $\{ R(t) \}$ que cumple, para cualesquiera tiempos admisibles
-%$t$ y $s$, las siguientes propiedades:
-%\begin{itemize}
-%\item $\E{R(t)}=0$
-%\item $\Cov{R(t),R(s)}=0 \Leftrightarrow t=s$ 
-%\end{itemize}
-%\label{r_blanco}
-%\end{definicion}
-%
-%\begin{definicion}[Proceso de Wiener]
-%Se dice de un proceso estocástico $\{ W(t) \}$ que cumple, para cualesquiera tiempos admisibles
-%$t$ y $s$ (con $s>t$) las siguientes propiedades:
-%\begin{itemize}
-%\item $W(0) = 0$ ($W(0)$ es constante)
-%\item $W(s)-W(t)$ es independiente de $W(u)$, para todo $u<t$ admisible
-%\item $W(s)-W(t) \sim N(0,\abso{t-s})$  (los incrementos tienen distribución normal)
-%\end{itemize}
-%\label{r_wiener}
-%\end{definicion}
+Conviene destacar que todas la VA poseen una FDP, pero sólo si son continuas poseen una FDA. La
+distinción entre VA continuas y discretas puede verse más notoria en virtud del teorema 
+\ref{Lebesgue_decomp}.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{teorema}[Descomposición de Radon-Nikodym]
+Sea $\mu$ una medida definida sobre la $\sigma$-álgebra $\mathcal{B}$, y sea $\nu$ una medida 
+$\sigma$-finita definida sobre $\mathcal{B}$. Entonces $\mu$ puede descomponerse de manera única como
+$\mu = \mu_A + \mu_S$, donde
+\begin{itemize}
+\item $\mu_A$ es absolutamente continua respecto a $\nu$
+\item Existe un conjunto $A$ tal que $\nu(A)=0$, $\mu_S\left(A^{C}\right) = 0$
+\end{itemize}
+\label{Lebesgue_decomp}
+\end{teorema}
+
+\begin{definicion}[Medida $\boldsymbol{\sigma}$-finita]
+Una medida $\mu$ sobre la $\sigma$-álgebra $\mathcal{U}$, definida para el conjunto $U$, es 
+$\sigma$-finita si existen $\{ A_n \}_{n\in \mathbb{N}}$ tales que
+\begin{itemize}
+\item $\mu\left( A_n \right) < \infty$
+\item $\displaystyle \bigcup_{n\in \mathbb{N}} A_n = U$
+\end{itemize}
+\end{definicion}
+
+La medida de Lebesgue es $\sigma$-finita y entonces cualquier medida de probabilidad puede 
+\textit{descomponerse} en una parte continua, una parte discreta y un \textit{residuo}; no hay
+garantía de que alguna de ellas resulten ser medidas de probabilidad.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Estacionariedad débil}
 
-Un \textbf{proceso estocástico} \xt es una colección de \textit{variables 
-aleatorias} (VA) indexadas.
+Algunas cantidades asociadas a una variable aleatoria $X$ pueden entenderse en términos de la 
+función $\mathrm{E}$ (definición \ref{esperado}), referida como \textit{valor esperado}.
 %
-El conjunto $T \in \R$ que indexa a un proceso, referido como \textit{tiempo}, se considerará como 
-un intervalo cerrado (\textbf{tiempo continuo}) o bien un suconjunto de 
-$\left\{ t \in \R | {t} \cdot {\Delta_t} \in \Z \right\} $  para algún $\Delta_t$ 
-(\textbf{tiempo discreto}).
-Estos procesos suelen ser referidos como \textit{univariados} o \textit{series de tiempo}.
-%
-Las diferentes partes de un proceso estocástico serán denotadas como:\\
-
-\begin{tabular}{cl}
-\xt & Todo el proceso \\
-$X(t)$ & Una VA que compone al proceso, en el tiempo $t$ \\
-$x(t)$ & Una realización de $X(t)$ \\
-$F_{X(t)}$ & Función de propbabilidad acumulada para $X(t)$ \\
-$ {\Delta_t}$ & Frecuencia de muestreo (sólo en tiempo discreto)
-\end{tabular}\\
-
-La estacionariedad es un indicativo de la \textit{homogeneidad} de un proceso, un proceso 
-fuertemente estacionario se compone de VA que tienen la misma distribución y distribuciones
-conjuntas que no dependen del tiempo; tal característica usualmente se considera
-\textit{innecesariamente} fuerte y se reemplaza por la siguiente
-
-\begin{definicion}%[Estacionariedad débil]
-Un proceso \xt es \textbf{débilmente estacionario} si y sólo si existen $\mu, \sigma \in \R$ y una 
-función $R : T \rightarrow \R \cap \{ \pm \infty \} $, tales que para cualesquiera 
-$t, s \in T$ se tiene que
+Por ejemplo
 \begin{itemize}
-\item $\E{X(t)} = \mu_X$
-\item $\Var{X(t)} = \sigma^{2}_X$
-\item $\Cov{X(t),X(s)} = R_X (s-t)$
+\item Promedio, $\E{X}$
+\item Varianza, $\Var{X} := \E{\left( X - \E{X} \right)^{2}}$
+\item Covarianza, $\Cov{X,Y} := \E{\left( X - \E{X} \right)\left( Y - \E{Y} \right)}$
 \end{itemize}
-Donde $T_X$ es el conjunto de tiempos admisibles para \xt
+
+\begin{definicion}[Valor esperado]
+Sea $X$ una VA cuya FPA es $F_X$ y sea $g: \R \rightarrow \R$ una función arbitraria. El operador
+$\mathrm{E}_X$, valore esperado, se define como
+\begin{equation}
+\mathrm{E}\left[ g(X) \right] := \int_{\R} g(x) dF_X(x)
+\end{equation}
+La integral está definida en el sentido de Stieltjes
+\label{esperado}
 \end{definicion}
 
-Por simplicidad de notación, a lo largo del texto los procesos débilmente estacionarios serán 
-referidos simplemente como \textit{estacionarios}. 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Un \textbf{proceso estocástico} \xt es una colección de VA indexadas por el símbolo $t$, referido
+como \textbf{tiempo}. El conjunto $\mathcal{T} \subseteq \R$ será referido como \textit{tiempos 
+permitidos}, y se tomará como un intervalo cerrado (\textbf{tiempo continuo}) o bien un subconjunto 
+de $\left\{ t \in \R | {t} \cdot {\Delta_t} \in \Z \right\} $  para algún $\Delta_t$ 
+(\textbf{tiempo discreto}). 
+%
+Las \textit{componentes} de un proceso estocástico serán denotadas como:\\
+
+\begin{tabular}{cl}
+\xt    & Todo el proceso \\
+$X(t)$ & Una de las VA que componen al proceso, en el tiempo $t$ \\
+$x(t)$ & Una realización de $X(t)$ \\
+$F_{X(t)}$ & FPA para $X(t)$ \\
+$ {\Delta_t}$ & Frecuencia de muestreo (en tiempo discreto)
+\end{tabular}\\
+
+La estacionariedad es un indicativo de la \textit{homogeneidad} de un proceso; un proceso 
+\textit{muy} estacionario sería aqué cuyas VA que tiene distribuciones conjuntas que no cambian 
+con el tiempo. 
+%
+Tal condición es difícil de detecar a partir de series de tiempo, debido a lo cual se suelen 
+definir versiones menos fuertes de estacionariedad.
+
+\begin{definicion}[Estacionariedad débil]
+Un proceso \xt es débilmente estacionario si existen constantes $\mu, \sigma \in \R$ y una función 
+$R : T \rightarrow \R \cap \{ \pm \infty \} $ tales que, para cualesquiera $t, s \in T$ se cumple
+\begin{itemize}
+\item $\E{X(t)} = \mu$
+\item $\Var{X(t)} = \sigma^{2}$
+\item $\Cov{X(t),X(s)} = R(s-t)$
+\end{itemize}
+\end{definicion}
+
+Cabe destacar que la estacionariedad débil no sólo tiene como condición que todas las variables del
+proceso tengan la misma media y varianza, sino que también supone que éstas son finitas.
+%
+Sobre la función de covarianza $R$ (que en un único proceso es referida como \textit{autocovarianza}),
+no hay restricciones sobre los valores que pueda tomar, excepto que 
+$R(0) = \Var{X(\bullet)} < \infty$. 
+%
+En el marco del modelo de series electrofisiológicas, conviene suponer que los registros 
+corresponden a procesos a tiempo continuo que son continuosde alguna forma; se ha elegido la 
+continuidad en media mcuadrática.
+
+%\begin{observacion}
+%Sea \xt un proceso débilmente estacionario y $T$ su función de autocovarianza. Si $R$ es continua
+%en 0 entonces es continua en todos lados
+%\end{observacion}
+
+\begin{definicion}[Continuidad estocástica en media cuadrática]
+Un proceso a tiempo continuo \xt es estocásticamente continuo, en el sentido de media cuadrática, 
+en un tiempo admisible $t_0$ si
+\begin{equation*}
+\lim_{t \rightarrow t_0} \E{\left( X(t) - X(t_0) \right)^{2}} = 0
+\end{equation*}
+\label{cont_est}
+\end{definicion}
+
+Una forma natural de pensar en la definición \ref{cont_est} es que si $\abso{t-t_0}$ es muy pequeño 
+entonces $X(t)$ y $X(t_0)$ difieren muy poco entre sí, como variables aleatorias.
+%
+Hablando de procesos débilmente estacionarios, la continuidad estocástica de un proceso es 
+equivalente a que su función de autocovarianza sea continua en 0.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Frecuencia}
+\section{Transformada de Fourier}
 
-La exposición inicia con los espacios de las \textbf{series $\boldsymbol{p}$-sumables}
-($\lp$), y las  \textbf{funciones $\boldsymbol{p}$-integrables} sobre un intervalo 
-$I \subseteq \R$ ($\llp$).
+Para exponer formalmente lo que es la transformada de Fourier, conviene mencionar los espacios de 
+las \textbf{series $\boldsymbol{p}$-sumables} ($\lp$), y las  \textbf{funciones 
+$\boldsymbol{p}$-integrables} sobre un intervalo $I \subseteq \R$ ($\llp_I$).
 \begin{align*}
 \ell^{p} &:= \left\{ s: \Z\rightarrow\C \talque \sum_{n=-\infty}^{\infty} \abso{s(n)}^{p} < \infty \right\}
 \\
-L^{p}[I] &:= \left\{ S: I\rightarrow\C \talque \int_I \abso{S(t)}^{p} dt < \infty \right\}
+L^{p}_I &:= \left\{ S: I\rightarrow\C \talque \int_I \abso{S(t)}^{p} dt < \infty \right\}
 \end{align*}
 
-Estos espacios admiten las operaciones $+$, $\cdot$ y multiplicación por escalares complejos de la 
-manera usual.
-
+Estos conjuntos admiten las operaciones  suma ($+$), producto ($\cdot$) y multiplicación por 
+escalares de la manera usual.
+%
 Para el caso particular $p=2$, los conjuntos $\ldos$ y $\lldos$ admiten los siguientes productos 
 internos:
 %
@@ -193,15 +239,14 @@ internos:
 \end{align*}
 
 Usando dichos productos internos, junto con las normas y métricas que inducen, los conjuntos 
-$\ldos$ y $\lldos$ tienen estructura de \textbf{espacio de Hilbert}.
+$\ldos$ y $\lldos$ tienen estructura de \textit{espacio de Hilbert}.
 
-Con las definiciones anteriores, que muestran que $\ldos$ y $\lldos$ son \textit{muy}
-parecidos, se puede formular unas definición para la transformada de Fourier como una equivalencia
-entre estos espacios.
+Las definiciones anteriores revelan cómo $\ldos$ y $\lldos$ son \textit{muy} parecidos, luego
+entonces se puede definir la transformada de Fourier como una conexión natural entre eellos.
 
 \begin{definicion}[Serie de Fourier]
 Sea $S: \R \rightarrow \C$ una función periódica con periodo $2T$ y tal que 
-$S \in L^{2}\left[[-T,T]\right]$. Se dice que $A$ es la serie de Fourier para $S$ si cumple que
+$S \in L^{2}_{[-T,T]}$. Se dice que $A$ es la serie de Fourier para $S$ si satisface
 \begin{equation*}
 A(n) = \frac{1}{2 T} \simint{T} S(t) e^{-\nicefrac{ i \abso{n} t}{2T}} dt
 \end{equation*}
@@ -210,41 +255,43 @@ A(n) = \frac{1}{2 T} \simint{T} S(t) e^{-\nicefrac{ i \abso{n} t}{2T}} dt
 
 \begin{definicion}[Transformada de Fourier]
 Sean $S$ y $A$ como en la definición \ref{FourierClasico}. Se le llama transformada de Fourier a la
-función $\mathcal{F}_T : L^{2}\left[[-T,T]\right] \rightarrow \ldos : S \mapsto A$
+función $\mathcal{F}_T : L^{2}_{[-T,T]} \rightarrow \ldos : S \mapsto A$
 \end{definicion}
 
-Puede interpretarse a $A$ como las \textit{coordenadas} de $S$ en $L^{2}\left[[-T,T]\right]$, 
-usando una base de funciones $\left\{ e^{\nicefrac{i \abso{n} t}{2 T}} \right\}_{n\in \Z}$, las
-cuales resultan ser ortonormales; esta base en particular es conocida como la \textbf{base de 
-Fourier}.
-Así mismo, cabe mencionar las siguientes 
-propiedades de $\mathcal{F}_T$
+Puede interpretarse a $A$ como las \textit{coordenadas} de $S$ en $L^{2}_{[-T,T]}$, usando una base 
+de funciones ortonormales $\left\{ e^{\nicefrac{i \abso{n} t}{2 T}} \right\}_{n\in \Z}$; esta base 
+en particular es conocida como la \textbf{base de Fourier}.
+%
+Cabe mencionar las siguientes propiedades de $\mathcal{F}_T$
 \begin{itemize}
-\item Es lineal, es decir, $\mathcal{F}_T[cS + Z] = c\mathcal{F}_T[S] + \mathcal{F}_T[Z]$
+\item Es lineal, $\mathcal{F}_T[cS + Z] = c\mathcal{F}_T[S] + \mathcal{F}_T[Z]$
 
-\item \textbf{No} es invertible, aunque se le suele definir una
-pseudoinversa
-como
+\item \textbf{No} es invertible, aunque se le suele definir una pseudoinversa como
 \begin{equation*}
-\mathcal{F}_{T}^{\text{inv}} : \ldos \rightarrow L^{2}\left[[-T,T]\right] :
+\mathcal{F}_{T}^{\text{inv}} : \ldos \rightarrow L^{2}_{[-T,T]} :
 A \mapsto \sum_{n -\infty}^{\infty} A(n) e^{\nicefrac{i \abso{n} t}{2 T}}
 \end{equation*}
 \end{itemize}
 
-Con esta terminología se define, de manera pragmática, la \textbf{energía disipada} y la 
-\textbf{potencia} de una función $S$ en un intervalo $[a,b]$ como 
+Se define, de manera pragmática, la \textbf{energía disipada} y la \textbf{potencia} de una función 
+$S$ en un intervalo $[a,b]$ como 
 \begin{align*}
 \text{energía}[S]_{[a,b]} &= \int_a^{b} \abso{S(t)}^{2} dt \\
 \text{potencia}[S]_{[a,b]} &= \frac{1}{b-a} \int_a^{b} \abso{S(t)}^{2} dt
 \end{align*}
 
-Una consecuencia interesante de este concepto de energía frente al teorema \ref{parseval} es que la 
-energía disipada por una función equivale a la suma de la energía disipada por sus 
-\textit{componentes} en la base de Fourier.
+Es evidente que la energía y potencia están relacioadas a la norma en $L^{2}_{[-T,T]}$ inducida por
+su producto interno.
+%
+Dicha relación junto a las propiedades \textit{agradables} de $\mathcal{F}_T$ pueden ser usadas 
+para conectar la energía con la norma en $\ldos$ (teorema \ref{parseval}): la energía disipada por 
+una función equivale a la suma de las energías disipada por cada una de sus \textit{componentes} en 
+la base de Fourier.
+%
 Conviene, entonces, definir una función que \textit{desglose} estos \textit{aportes}.
 
 \begin{teorema}[Parseval]
-Sea $S \in L^{2}\left[[-T,T]\right]$, y sea $A = \mathcal{F}[S]$. Se cumple que
+Sea $S \in L^{2}_{[-T,T]}$, y sea $A = \mathcal{F}[S]$. Se cumple que
 \begin{equation*}
 \int_{-T}^{T} \abso{S(t)}^{2} dt = \sum_{n=-\infty}^{\infty} \abso{A(n)}^{2}
 \end{equation*}
@@ -252,7 +299,7 @@ Sea $S \in L^{2}\left[[-T,T]\right]$, y sea $A = \mathcal{F}[S]$. Se cumple que
 \end{teorema}
 
 \begin{definicion}[Espectro de potencias]
-Sea $S \in L^{2}\left[[-T,T]\right]$, y sea $A = \mathcal{F}[S]$. Se llama espectro de potencias 
+Sea $S \in L^{2}_{[-T,T]}$, y sea $A = \mathcal{F}[S]$. Se llama espectro de potencias 
 para $S$ a la función $h_S : \R \rightarrow \R $, definida como
 \begin{equation*}
 h_S(\omega) = 
@@ -264,8 +311,8 @@ h_S(\omega) =
 \label{espec}
 \end{definicion}
 
-Un elemento que será de crucial importancia en el desarrollo posterior es la \textbf{convolución}, 
-$\ast$, una tercera operación binaria definida en estos espacios como
+Un elemento que será de crucial importancia en el desarrollo posterior es la \textbf{convolución} 
+($\ast$), una tercera operación binaria en estos espacios y definida como
 %
 \begin{align*}
 [s \ast z] (\tau) &= \sum_{n=-\infty}^{\infty} s(n) \overline{z(\tau-n)} \\
@@ -273,40 +320,32 @@ $\ast$, una tercera operación binaria definida en estos espacios como
 \end{align*}
 %
 donde $\overline{c}$ es el conjugado complejo de $c$. 
-%La convolución es conmutativa y asociativa con la suma. 
+%
 Esta operación cobra importancia por la forma en que se relaciona con $\mathcal{F}_T$
 %
-\begin{teorema}%[de la convolución]
-Sean $S,Z \in L^{2}\left[[-T,T]\right]$, entonces se satisface que
+\begin{observacion}%[de la convolución]
+Sean $S,Z \in L^{2}_{[-T,T]}$, entonces se satisface que
 \begin{align*}
 \mathcal{F}_T[S\ast Z]  &= \mathcal{F}_T[S] \cdot \mathcal{F}_T[Z] \\
 \mathcal{F}_T[S\cdot Z] &= \mathcal{F}_T[S] \ast  \mathcal{F}_T[Z] 
 \end{align*}
 \label{t_convolucion}
-\end{teorema}
-
-%Con respecto a la \textbf{energía}, de manera operativa ésta se define 
-%como\footnote{Potencia = Energía / Tiempo, ver _ A}
-%\begin{equation}
-%\text{potencia}[S]_{[a,b]} = \frac{1}{b-a} \int_a^{b} \abso{S(t)}^{2} dt
-%\label{txt_potencia}
-%\end{equation}
+\end{observacion}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Función de densidad espectral}
 
-La forma más natural de definir un espectro de potencias para un proceso estacionario 
-es a través de la tr. de Fourier de sus realizaciones. Sin embargo, en general no se puede 
-garantizar que quede \textit{bien definida}: la señal puede no ser periódica, 
-cuadrado-integrable, uniformemente continua, etc.
+La forma más natural de definir un espectro de potencias para un proceso estacionario es a través 
+de la tr. de Fourier de sus realizaciones. En general no se puede garantizar que una definición así \textit{funcione} ya que las realizaciones pueden ser señales que no son periódicas, 
+cuadrado-integrable, continuas, etc.
 %
-Este problema se aborda restringiendo el tiempo a un conjunto \textit{sin problemas}, para luego
-considerar el límite cuando tal conjunto tiende a su \textit{forma original}.
+Este problema será abordado al restringir los tiempos permitidos a un conjunto \textit{sin 
+problemas}, para luego considerar el límite cuando \textit{recupera su forma original}.
 
-\begin{definicion}%[Función de densidad espectral]
-Sea \xt un proceso estacionario a tiempo continuo. Se define su \textbf{función de densidad 
+\begin{definicion}[Función de densidad espectral, tiempo continuo]
+Sea \xt un proceso estacionario a tiempo continuo. Se define su {función de densidad 
 espectral} como
 \begin{equation}
 h(\omega) = \frac{1}{2 \pi} \lim_{T\rightarrow \infty} \E{ \frac{1}{2T} 
@@ -315,9 +354,9 @@ h(\omega) = \frac{1}{2 \pi} \lim_{T\rightarrow \infty} \E{ \frac{1}{2T}
 \end{equation}
 \end{definicion}
 
-\begin{definicion}%[Función de densidad espectral]
+\begin{definicion}[Función de densidad espectral, tiempo discreto]
 Sea $\{X(t)\}_{\nicefrac{t}{\Delta_t}\in \Z}$ un proceso estacionario a tiempo discreto. Se 
-define su \textbf{función de densidad espectral} como
+define su {función de densidad espectral} como
 \begin{equation}
 h(\omega) = \frac{1}{2 \pi} \lim_{N\rightarrow \infty} \E{ \frac{1}{2N} 
 \abso{ \sum_{n=-N}^{N} X(n \Delta_t) e^{-i \omega n \Delta_t}}^{2} }
@@ -325,23 +364,67 @@ h(\omega) = \frac{1}{2 \pi} \lim_{N\rightarrow \infty} \E{ \frac{1}{2N}
 \end{equation}
 \end{definicion}
 
-%En el _ B se discuten algunas de las propiedades de FDE, en particular bajo qué condiciones 
-%está bien definida; conviene destacar algunas de ellas
-Alunas de las propiedades de la FDE son
+De la definción se deduce que la función de densidad espectral (FDE) siempre es una función
+no-negativa
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\section{Representación espectral}
+
+\begin{teorema}[Wiener-Khinchin]
+Una condición suficiente y necesaria para que $\rho$ sea una función de autocorrelación de 
+algún proceso estocástico a tiempo continuo $\{X(t)\}$ débilmente estacionario y 
+estocásticamente continuo, es que exista una función $F$ que tenga las siguientes propiedades
 \begin{itemize}
-\item Para un proceso en tiempo continuo, tiene dominio en $\R$; para un proceso a tiempo discreto 
-su dominio es $[-\pi,\pi]$
-\item Es una función par ($\omega$, $h(-\omega) = h(\omega)$) y no-negativa ($h(\omega) \geq 0$)
-\item $h(0) = \mu_X$, el promedio del proceso
-\item $\int h(\omega) d\omega = \sigma^{2}_X$, la varianza del proceso %_{\boldsymbol{T}}
-\item Como consecuencia de los teorema de Wiener-Khinchin (\ref{t_wienerkhinchin}) y de Wold
-(\ref{t_wold}) se puede escribir
-\begin{equation}
-R(\tau) = \int_{\boldsymbol{T}} h(\omega) e^{i \omega \tau} d\omega
-\label{txt_r_ft_h}
-\end{equation}
-con $R$ la función de autocovarianza del proceso
+\item Monótonamente creciente
+\item $F(-\infty) = 0$
+\item $F(+\infty) = 1$
 \end{itemize}
+y tal que para todo $\tau \in \R$ se cumple que
+\begin{equation*}
+\rho(\tau) = \intR e^{i \omega \tau} dF(\omega)
+\end{equation*}
+\label{t_wienerkhinchin}
+\end{teorema}
+
+\begin{teorema}[Wold]
+Una condición suficiente y necesaria para que $\rho$ sea una función de autocorrelación de 
+algún proceso estocástico a tiempo discreto $\{X(t)\}$ débilmente estacionario es que exista 
+una función $F$ con las siguientes propiedades
+\begin{itemize}
+\item Monótonamente creciente
+\item $F(-\pi) = 0$
+\item $F(+\pi) = 1$
+\end{itemize}
+y tal que para todo $\tau \in \R$ se cumple que
+\begin{equation*}
+\rho(\tau) = \intPI e^{i \omega \tau} dF(\omega)
+\end{equation*}
+\label{t_wold}
+\end{teorema}
+
+\begin{teorema}
+Sea \xt un proceso a tiempo continuo, débilmente estacionario, de media 0 y estocásticamente 
+continuo en el sentido de media cuadrática. Entonces, existe un proceso 
+ortogonal $\{Z(\omega)\}$ tal que, para todo tiempo $\omega$ admisible, se puede 
+escribir
+\begin{equation*}
+X(t) = \intR e^{i t \omega} dZ(\omega)
+\end{equation*}
+Donde el proceso $\{Z(t)\}$ tiene las siguientes propiedades para todo $\omega$
+\begin{itemize}
+\item $\E{dZ(\omega)} = 0$
+\item $\E{\abso{dZ(\omega)}^{2}} = dH(\omega)$
+\item $\Cov{dZ(\omega),dZ(\lambda)} = 0 \Leftrightarrow \omega \neq \lambda$
+\end{itemize}
+Donde $dH(\omega)$ la FDE integrada de $\{X(t)\}$
+%\label{rep_espectral}
+\end{teorema}
+
+En virtud del teorema de Wold, se puede tener una variante del teorema de Wiener-Khinchin
+para procesos a tiempo discreto, razón por la cual  
+tal representación es referida como \textbf{representación de Wold-Cramér}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -351,7 +434,7 @@ con $R$ la función de autocovarianza del proceso
 Manejar 
 procesos estocásticos implica la imposibilidad de \textit{acceder} a las VA's a partir de 
 observaciones, de modo que el cálculo se basa en realizaciones y no da lugar a un resultado 
-\textit{exacto} (como con la tr. de Foruier) sino una VA.
+\textit{exacto} (como con la tr. de Fourier) sino una VA.
 
 Sea \xt un proceso estacionario y \xtd una muestra de tamaño $N$ para una realización del proceso.
 %
@@ -410,64 +493,10 @@ consistente y aunque se vuelva asintóticamente insesgado.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Representación espectral}
-
-\begin{teorema}
-Sea $\{X(t)\}$ un proceso estocástico a tiempo continuo débilmente estacionario de media 0 y 
-estocásticamente continuo en el sentido de media cuadrática. Entonces, existe un proceso 
-ortogonal $\{Z(\omega)\}$ tal que, para todo tiempo $\omega$ admisible, se puede 
-escribir%\footnote{La integral se encuentra definida en el sentido de media cuadrática.}
-\begin{equation*}
-X(t) = \intR e^{i t \omega} dZ(\omega)
-\end{equation*}
-Donde el proceso $\{Z(t)\}$ tiene las siguientes propiedades para todo $\omega$
-\begin{itemize}
-\item $\E{dZ(\omega)} = 0$
-\item $\E{\abso{dZ(\omega)}^{2}} = dH(\omega)$
-\item $\Cov{dZ(\omega),dZ(\lambda)} = 0 \Leftrightarrow \omega \neq \lambda$
-\end{itemize}
-Donde $dH(\omega)$ la FDE integrada de $\{X(t)\}$
-%\label{rep_espectral}
-\end{teorema}
-
-\begin{teorema}[Wiener-Khinchin]
-Una condición suficiente y necesaria para que $\rho$ sea una función de autocorrelación de 
-algún proceso estocástico a tiempo continuo $\{X(t)\}$ débilmente estacionario y 
-estocásticamente continuo, es que exista una función $F$ que tenga las siguientes propiedades
-\begin{itemize}
-\item Monótonamente creciente
-\item $F(-\infty) = 0$
-\item $F(+\infty) = 1$
-\end{itemize}
-y tal que para todo $\tau \in \R$ se cumple que
-\begin{equation*}
-\rho(\tau) = \intR e^{i \omega \tau} dF(\omega)
-\end{equation*}
-\label{t_wienerkhinchin}
-\end{teorema}
-
-\begin{teorema}[Wold]
-Una condición suficiente y necesaria para que $\rho$ sea una función de autocorrelación de 
-algún proceso estocástico a tiempo discreto $\{X(t)\}$ débilmente estacionario es que exista 
-una función $F$ con las siguientes propiedades
-\begin{itemize}
-\item Monótonamente creciente
-\item $F(-\pi) = 0$
-\item $F(+\pi) = 1$
-\end{itemize}
-y tal que para todo $\tau \in \R$ se cumple que
-\begin{equation*}
-\rho(\tau) = \intPI e^{i \omega \tau} dF(\omega)
-\end{equation*}
-\label{t_wold}
-\end{teorema}
-
-En virtud del teorema de Wold, se puede tener una variante del teorema de Wiener-Khinchin
-para procesos a tiempo discreto, razón por la cual  
-tal representación es referida como \textbf{representación de Wold-Cramér}.
-
-En el marco de la estimación del espectro de potencias, 
+\chapter{Espectro evolutivo}
 
 \begin{proposicion}
 Sean $u$ y $v$ dos funciones con las siguientes características
@@ -478,19 +507,12 @@ Sean $u$ y $v$ dos funciones con las siguientes características
 \end{itemize} 
 Si además se satisface que $u$ tiene una {concentración} muy alta con relación a $v$
 ($ \intR \abso{u(x)} dx << \intR \abso{v(x)} dx $),
-entonces se cunple que
+entonces se cumple que
 \begin{equation*}
 \intR u(x) v(x+k) dx \approx v(k) \intR u(x) dx
 \end{equation*}
 \label{pseudo_d}
 \end{proposicion}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\chapter{Espectro evolutivo, generalidades}
 
 En el presente trabajo se ha elegido usar el espectro evolutivo, propuesto por Priesltley en
 1965 \cite{Priestley65} debido a que fue diseñado específicamente para (1) conservar linealidad 
@@ -765,26 +787,33 @@ libertad indicados indicados en el cuadro.
 \bordes{1.1}
 \begin{tabular}{llc}
 \toprule
-\multicolumn{2}{l}{{Estadístico}} & {Gr. de libertad} \\
+Descripción & Estadístico & {Gr. de libertad} \\
 \midrule
-$S_T$ & $=J \sum_{i=1}^{I} \left( Y_{i,\bullet} - Y_{\bullet,\bullet} \right)^{2}$ 
+Efecto tiempo &
+$S_T =J \sum_{i=1}^{I} \left( Y_{i,\bullet} - Y_{\bullet,\bullet} \right)^{2}$ 
 & $I-1$ \\
-$S_F$ & $= I \sum_{j=1}^{J} \left( Y_{\bullet,j} - Y_{\bullet,\bullet} \right)^{2}$ 
+Efecto frecuencia &
+$S_F = I \sum_{j=1}^{J} \left( Y_{\bullet,j} - Y_{\bullet,\bullet} \right)^{2}$ 
 & $J-1$ \\
-$S_{I+R}$ & $= \sum_{i=1}^{I} \sum_{j=1}^{J} 
+Interacción &
+$S_{I+R} = \sum_{i=1}^{I} \sum_{j=1}^{J} 
 \left( Y_{i,j} - Y_{i,\bullet} - Y_{\bullet,j} + Y_{\bullet,\bullet} \right)^{2}$ 
 & $(I-1)(J-1)$ \\
 %\midrule
 \rowcolor{gris}
-$S_{0}$ & $= \sum_{i=1}^{I} \sum_{j=1}^{J} 
+Total &
+$S_{0} = \sum_{i=1}^{I} \sum_{j=1}^{J} 
 \left( Y_{i,j} - Y_{\bullet,\bullet} \right)^{2}$ 
 & $IJ -1$ \\
 \midrulec
-$Y_{i,\bullet}$ & $= \frac{1}{J} \sum_{j=1}^{J} Y_{i,j}$ & \\
-$Y_{\bullet,j}$ & $= \frac{1}{I} \sum_{i=1}^{I} Y_{i,j}$ & \\
-$Y_{\bullet,\bullet}$ & $= \frac{1}{I J} \sum_{i=1}^{I} \sum_{j=1}^{J} Y_{i,j}$ & \\
+Prom. tiempo &
+$Y_{i,\bullet} = \frac{1}{J} \sum_{j=1}^{J} Y_{i,j}$ & \\
+Prom. frecuencia &
+$Y_{\bullet,j} = \frac{1}{I} \sum_{i=1}^{I} Y_{i,j}$ & \\
+Prom. general &
+$Y_{\bullet,\bullet} = \frac{1}{I J} \sum_{i=1}^{I} \sum_{j=1}^{J} Y_{i,j}$ & \\
 \bottomrule
-\end{tabular}
+\end{tabular} \\
 \caption{Estadísticos involucrados en la prueba PSR}
 \label{cantidades_psr}
 \end{table}

@@ -1,8 +1,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%\documentclass[12pt,letterpaper,draft]{book}
-\documentclass[12pt,letterpaper]{book}
+\documentclass[12pt,letterpaper,draft]{book}
+%\documentclass[12pt,letterpaper]{book}
 \usepackage[utf8]{inputenc}
 \usepackage[spanish]{babel}
 
@@ -26,6 +26,7 @@
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
+\usepackage{amsthm}
 
 % sin este no se pueden incluir imagenes
 \usepackage{graphicx}
@@ -67,7 +68,6 @@
 \usepackage{float}
 
 % para que el indice tenga hipervinculos
-%\usepackage{hyperref}
 \usepackage[pdftex,
             pdfauthor={Enciso Alva Julio Cesar},
             pdftitle={Tesis: Estacionariedad en PSG de AM como macador de PDC},
@@ -112,6 +112,9 @@
 
 % usar figuras de varias paginas
 \usepackage[label font=bf]{subcaption}
+
+% textsc + textbf
+\usepackage{bold-extra}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -171,6 +174,7 @@
 \newtheorem{teorema}{Teorema}[chapter]
 \newtheorem{proposicion}{Proposición}[chapter]
 \newtheorem{demostracion}{Demostración}[chapter]
+\newtheorem{observacion}{Observación}[chapter]
 
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\C}{\mathbb{C}}
@@ -196,16 +200,16 @@
 \newcommand{\Cov}[1]{\mathrm{Cov}\left( #1 \right)}
 \newcommand{\abso}[1]{\left| #1 \right|}
 
-\newcommand{\xt}{$\{X(t)\}_{t\in \boldsymbol{T}}$ }
+\newcommand{\xt}{$\{X(t)\}_{t\in \mathcal{T}}$ }
 \newcommand{\xtd}{$\{x_t\}_{t=0,\dots,N}$ }
 \newcommand{\orden}{\mathcal{O}}
 
 \newcommand{\talque}{\mathrel{}\middle|\mathrel{}}
 
 \newcommand{\lp}{\ell^{p}}
-\newcommand{\llp}{L^{p}[I]}
+\newcommand{\llp}{L^{p}}
 \newcommand{\ldos}{\ell^{2}}
-\newcommand{\lldos}{L^{2}[I]}
+\newcommand{\lldos}{L^{2}_I}
 
 \newcommand{\sip}{\ding{51}}
 \newcommand{\nop}{\ding{55}}
@@ -309,44 +313,43 @@
 como marcador de deterioro cognitivo}
 \author{Julio Cesar Enciso Alva}
 
-%\scalebox{0.7}
-{\setstretch{1.0}
 \begin{center}
     \includegraphics[width=0.2\linewidth]{./img_oficiales/logo_uaeh.png}\\
-    {\Large \textbf{ \textsc{
-        Universidad Autónoma del Estado de Hidalgo\\
-        Instituto de Ciencias Básicas e Ingeniería\\
+    
+    {\large 
+        \textbf{\textsc{
+            Universidad Autónoma del Estado de Hidalgo\\
+            Instituto de Ciencias Básicas e Ingeniería\\
         }}
-    \vspace*{2.5em}
     }
+\vspace*{2.5em}
     {\huge
         Estacionariedad débil en registros polisomnográficos de adultos mayores,
         como marcador de deterioro cognitivo\\
-    \vspace*{2.5em}
     }
+\vspace*{2.5em}
     {\large
         \textbf{Presenta}\\
-        \vspace*{.25em}}
-        {\Large
-        Julio Cesar Enciso Alva\\
-        \vspace*{3em}
-        }
-        {\large
-        \textbf{Dirección}\\
-        \vspace*{.25em}}
-        {\Large
-        Dra. Erika Elizabeth Rodríguez Torres\\
     }
+\vspace*{.25em}
     {\Large
-        Dra. Alejandra Rosales Lagarde\\
-    \vspace*{3em}
+        Julio Cesar Enciso Alva\\
     }
+\vspace*{3em}
     {\large
-    Pachuca, Hidalgo, Febrero de 2018\\
-    M\'exico
+        \textbf{Dirección}\\
+    }
+\vspace*{.25em}
+    {\Large
+        Dra. Erika Elizabeth Rodríguez Torres\\
+        Dra. Alejandra Rosales Lagarde\\
+    }
+\vspace*{3em}
+    {\large
+        Pachuca, Hidalgo, Febrero de 2018\\
+        M\'exico
     }
 \end{center}
-}
 
 \newpage
 
