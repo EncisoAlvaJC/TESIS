@@ -1,8 +1,5 @@
 > tomar de angie cosas de los tests
 
-> mejorar antecedentes, hablar sobre el pdc en relacion al suenno
-  ¿ quitar justificacion ?
-
 > todo lo de matematicas:
 
    > explicacion rapida del espectro evolutivo y el estimador de doble ventana
@@ -14,8 +11,6 @@
   > mejorar transformada rapida de fourier
   
   > ancho de banda
-  
-  > efecto de alias
   
  ---Medidas
 
@@ -31,12 +26,4 @@
 
   > efecto de cambiar tamaño de epoca
 
-> mejorar las cabecitas de diferencias individuales, puede esperar
-
 > recrear lo de patrones visuales, puede esperar
-
-> hacer mas ejemplo lo de diferentes tamaños de epoca, puede esperar
-
-> robarme a mi mismo las conclusiones, puede esperar
-
-> los espectros faltan, pero es necesario esperar
