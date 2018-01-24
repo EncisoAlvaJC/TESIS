@@ -802,15 +802,13 @@ Dicho esto, se pueden hacer las siguientes aproximaciones, un poco más arriesga
 
 \section{Prueba de Priestley-Subba Rao}
 
-Una propiedad interesante de poder estimar el espectro evolutivo de un proceso, a partir de una 
-realización del mismo, es la capacidad para identificar si éste pudiera reducirse al espectro 
-usual, definido para procesos débilmente estacionarios --bastaría con revisar si el espectro 
-estimado es constante en el tiempo.
-
-La prueba de estacionariedad propuesta por Priestley y Subba Rao en 1969 \cite{Priestley69} tiene 
-como \textit{ingrediente principal} la estimación de una cantidad que depende del espectro de
-potencias. Las propiedades estadísticas de esta cantidad son adecuadas para detectar si una serie
-de tiempo procede de un proceso débilmente estacionariedad débil.
+La prueba de estacionariedad propuesta por Priestley y Subba Rao \cite{Priestley69} consiste en 
+probar la hipótesis de que el espectro evolutivo efectivamente cambia en el tiempo. 
+%
+El proceso consiste en \textit{calcular} el logaritmo del espectro evolutivo para algunos tiempos y 
+frecuencias puntuales, para lo cual se usa el estimador de doble ventana, y posteriormente usar un
+análisis ANOVA para verificar si dichas cantidades tienen el mismo valor esperado --recordando que
+el estimador de doble ventana es asintóticamente consistente.
 
 Sea \xt un proceso semi-estacionario y sea \xtd un conjunto de observaciones del proceso, 
 espaciadas uniformemente en el tiempo.
