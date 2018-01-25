@@ -169,18 +169,58 @@ La estacionariedad es un indicativo de la \textit{homogeneidad} de un proceso; u
 \textit{muy} estacionario sería aquél cuyas VA que tiene distribuciones conjuntas que no cambian 
 con el tiempo. 
 %
-Tal condición es difícil de detectar a partir de series de tiempo, debido a lo cual se suelen 
-definir versiones menos fuertes de estacionariedad.
+La definición \ref{est_fuerte} representa con exactitud tales requerimientos, pero se le considera 
+\textit{innecesariamente fuerte}; una definición común es \ref{est_m}.
+
+\begin{definicion}[Estacionariedad fuerte]
+Un proceso \xt se dice fuertemente estacionario si para cualesquiera 
+$t_1, t_2, \dots, t_n \in \mathcal{T}$ y cualquier $\tau$ tal que $t_i + \tau \in \mathcal{T}$,
+se cumple que
+\begin{equation*}
+F_{\left[ X(t_1), X(t_2), \dots, X(t_n) \right]} \equiv
+F_{\left[ X(t_1 + \tau), X(t_2 + \tau), \dots, X(t_n + \tau) \right]}
+\end{equation*}
+Donde $F_{[v_1,v_2,\dots,v_N]}$ es la FPA conjunta para el vector $[v_1,v_2,\dots,v_N]$
+\label{est_fuerte}
+\end{definicion}
+
+\begin{definicion}[Estacionariedad de orden $m$]
+Un proceso \xt se dice estacionario de orden $m$ si, para cualesquiera
+$t_1, t_2, \dots, t_n \in \mathcal{T}$ y cualquier $\tau$ tal que $t_i + \tau \in \mathcal{T}$,
+se cumple que
+\begin{equation*}
+\E{X^{m_1}(t_1)X^{m_2}(t_2)\cdots X^{m_n}(t_n)} =
+\E{X^{m_1}(t_1+\tau)X^{m_2}(t_2+\tau)\cdots X^{m_n}(t_n+\tau)}
+\end{equation*}
+para cualesquiera enteros $m_1, m_2, \dots, m_n$ tales que $m_1+m_2+\cdots+m_n \leq m$
+\label{est_m}
+\end{definicion}
+
+Cabe mencionar que la definición \ref{est_m} no es equivalente a la definición \ref{est_fuerte}, ni
+aún cuando $m\rightarrow \infty$; sin embargo permite asegurar que los \textit{momentos} 
+($\E{X^{k}}$ para algún $k$) del proceso sean invariantes en el tiempo, y éstos suelen encontrarse
+asociados a cantidades físicas.
+
+Como un ejemplo muy particular conviene destacar la energía, que suele ser asociada con el segundo
+momento (definición \ref{energia}). 
+%
+Dicha conexión motiva a escoger una definición de estacionariedad que permita analizar la energía 
+del proceso: la estacionariedad débil.
 
 \begin{definicion}[Estacionariedad débil]
-Un proceso \xt es débilmente estacionario si existen constantes $\mu, \sigma \in \R$ y una función 
-$R : T \rightarrow \R \cap \{ \pm \infty \} $ tales que, para cualesquiera $t, s \in T$ se cumple
+Un proceso \xt se dice débilmente estacionario si existen constantes $\mu, \sigma \in \R$ y una 
+función $R : T \rightarrow \R \cup \{ \pm \infty \} $ tales que, para cualesquiera $t, s \in T$ se 
+cumple
 \begin{itemize}
 \item $\E{X(t)} = \mu$
 \item $\Var{X(t)} = \sigma^{2}$
 \item $\Cov{X(t),X(s)} = R(s-t)$
 \end{itemize}
 \end{definicion}
+
+\begin{proposicion}
+Un proceso es débilmente estacionario si y sólo si es estacionario de orden 2
+\end{proposicion}
 
 Cabe destacar que la estacionariedad débil no sólo tiene como condición que todas las variables del
 proceso tengan la misma media y varianza, sino que también supone que éstas son finitas.
@@ -275,10 +315,11 @@ A \mapsto \sum_{n -\infty}^{\infty} A(n) e^{\nicefrac{i \abso{n} t}{2 T}}
 
 Se define, de manera pragmática, la \textbf{energía disipada} y la \textbf{potencia} de una función 
 $S$ en un intervalo $[a,b]$ como 
-\begin{align*}
-\text{energía}[S]_{[a,b]} &= \int_a^{b} \abso{S(t)}^{2} dt \\
+\begin{align}
+\text{energía}[S]_{[a,b]} &= \int_a^{b} \abso{S(t)}^{2} dt \nonumber \\
 \text{potencia}[S]_{[a,b]} &= \frac{1}{b-a} \int_a^{b} \abso{S(t)}^{2} dt
-\end{align*}
+\label{energia}
+\end{align}
 
 Es evidente que la energía y potencia están relacionadas a la norma en $L^{2}_{[-T,T]}$ inducida por
 su producto interno.
@@ -438,7 +479,7 @@ Dicho procedimiento está limitado por la velocidad con que se pueden registrar 
 como por la capacidad para almacenar los datos obtenidos; tales limitaciones deben tomarse en 
 cuenta dentro del diseño experimental para el fenómeno que se estudia, pero no se discutirán aquí.
 
-Sobre el efecto del muestreo, consíderese un proceso a tiempo continuo y débilmente estacionario, 
+Sobre el efecto del muestreo, considérese un proceso a tiempo continuo y débilmente estacionario, 
 \xt, y sea $\Delta_t \in \R$ arbitrario.
 %
 Se construye al proceso $\{Y(n)\}_{n\in \mathbb{N}}$ como
@@ -675,8 +716,6 @@ Fourier de $A$ en el tiempo
 A(t,\omega) = \intR e^{i t \theta} dH_\omega(\theta)
 \end{equation}
 
-Un motivo muy fuerte para definir un objeto tan rebuscado es que (...)
-
 Posteriormente se define a $B_{\mathbf{F}}$, el ancho de banda para $H_\omega$ con respecto a la 
 familia de funciones $\mathbf{F}$, como
 %
@@ -694,23 +733,13 @@ banda característico de} \xt, como
 B_X = \sup_{\mathbf{F}\in \mathbf{C}} \left[ \sup_\omega B_{\mathbf{F}}(\omega) \right]^{-1}
 \end{equation}
 
-Muy vagamente, $B_X$ indica el tiempo máximo en el cual el proceso, representado en la forma
-\ref{esp_evolutivo}, (...)
-
 Una vez definida la cantidad $B_X$, y habiendo supuesto que no es 0, es demostrado en 
 \cite{Priestley65} que el estimador $U$ definido como en ... satisface que
 %
 \begin{equation}
-\E{\abso{U(t,\omega)}^{2}} = \intR \abso{\Gamma(\omega)}^{2} f(t,\omega+\omega_0) d\omega
+\E{\abso{U(t,\omega)}^{2}} = \intR \abso{\Gamma(\omega)}^{2} h(t,\omega+\omega_0) d\omega
 + \orden\left( \nicefrac{B_g}{B_X} \right)
 \end{equation}
-
-De esta última expresión es evidente que el estimador es mejor conforme 
-\begin{itemize}
-\item  $B_X$, el tiempo máximo para el cual el proceso es \textit{básicamente estacionario}, es 
-mayor
-\item $B_g$, la dispersión en el tiempo para la ventana $g$, es menor
-\end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -719,25 +748,25 @@ mayor
 
 Respecto a la estimación del espectro local se usa el \textbf{estimador de doble ventana}, 
 técnica introducida por Priestley \cite{Priestley69} y que requiere dos funciones, $w_\tau$ y 
-$g$, que funcionan como ventana de retrasos y como filtro lineal, respectivamente.
+$g_\kappa$, que funcionan como ventana de retrasos y como filtro lineal, respectivamente.
 %
-En cuando a $g$, se define a $\Gamma(u) = \intR g(u) e^{i u \omega} du$ y se les pide que
+En cuando a $g_\kappa$, se define a $\Gamma_\kappa(u) = \intR g(u) e^{i u \omega} du$ y se les pide que
 \begin{equation*}
-2\pi \int_{-\infty}^{\infty} \lvert g(u) \lvert^{2} du 
+2\pi \int_{-\infty}^{\infty} \lvert g_\kappa(u) \lvert^{2} du 
 = 
-\int_{-\infty}^{\infty} \lvert \Gamma(\omega) \lvert^{2} d\omega
+\int_{-\infty}^{\infty} \lvert \Gamma_\kappa(\omega) \lvert^{2} d\omega
 = 1
 \end{equation*}
 
 Posteriormente se define el estimador $U$ con el objetivo de asignar pesos en el tiempo para estimar
 a la FDE
 \begin{equation*}
-U(t,\omega) = \int_{t-T}^{t} g(u) X({t-u}) e^{i \omega (t-u)} du
+U(t,\omega) = \int_{t-T}^{t} g_\kappa(u) X({t-u}) e^{i \omega (t-u)} du
 \end{equation*}
 
-Bajo el entendido que la función $\Gamma$ converge a una función tipo \dirac, puede 
+Bajo el entendido que la función $\Gamma_\kappa$ converge a una función tipo \dirac, puede 
 considerarse que 
-$\E{\abso{U(t,\omega)}^{2}} \approx f_t(\omega)$; sin embargo, se demuestra en \cite{Priestley66} 
+$\E{\abso{U(t,\omega)}^{2}} \approx h(t,\omega)$; sin embargo, se demuestra en \cite{Priestley66} 
 que $\Var{\abso{U(t,\omega)}^{2}} \nrightarrow 0$.
 %
 Debido a ello se usa una segunda función tipo ventana,
@@ -753,9 +782,9 @@ $w_\tau$; deben satisfacer las siguientes propiedades:
 $\displaystyle \lim_{\tau\rightarrow\infty} \tau \int_{-\infty}^{t} \abso{ W_{\tau}(\lambda) }^{2} d\lambda = C$
 \end{itemize}
 
-Finalmente, se define el estimador $\est{f}$ para las FDE normalizada, $f_t$, como
+Finalmente, se define el estimador $\est{h}$ para las FDE normalizada, $h$, como
 \begin{equation*}
-\widehat{f}(t,\omega) = \int_{t-T}^{t} w_{T'}(u) \lvert U(t-u,\omega) \lvert^{2} du
+\widehat{h}(t,\omega) = \int_{t-T}^{t} w_{\tau}(u) \lvert U(t-u,\omega) \lvert^{2} du
 \label{estimador_doble_ventana}
 \end{equation*}
 
@@ -763,38 +792,38 @@ Fue demostrado por Priestley \cite{Priestley65} que los estimadores de doble ven
 asintóticamente insesgados y consistentes, y propone las siguientes aproximaciones:
 \begin{itemize}
 \item $\displaystyle
-\E{\est{f}(t,\omega)} \approx 
-\intR \widetilde{f}(t,\omega+\theta) \abso{\Gamma(\theta)}^{2} d\theta$
+\E{\est{h}(t,\omega)} \approx 
+\intR \widetilde{h}(t,\omega+\theta) \abso{\Gamma_\kappa(\theta)}^{2} d\theta$
 \item $\displaystyle
-\Var{\est{f}(t,\omega)} \approx \frac{C}{\tau} \left( \overline{f}^{2}(\omega) \right)
-\intR \abso{\Gamma(\theta)}^{4} d\theta $
+\Var{\est{h}(t,\omega)} \approx \frac{C}{\tau} \left( \overline{h}^{2}(\omega) \right)
+\intR \abso{\Gamma_\kappa(\theta)}^{4} d\theta $
 \end{itemize}
 
-donde las funciones $\widetilde{f}$ y $\overline{f}$ son versiones 'suavizadas' de la FDE 
-normalizada, $f$, y están definidas de la siguiente manera
+donde las funciones $\widetilde{h}$ y $\overline{h}$ son versiones \textit{suavizadas} de la FDE 
+normalizada, $h$, y están definidas de la siguiente manera
 \begin{equation*}
-\widetilde{f}(t,\omega+\theta) = 
-\intR W_{\tau}(u) f(t-u,\omega+\theta) du
+\widetilde{h}(t,\omega+\theta) = 
+\intR W_{\tau}(u) h(t-u,\omega+\theta) du
 \end{equation*}
 \begin{equation*}
-\overline{f}^{2} (t,\omega) =
-\frac{\intR f^{2}\left(t-u,W_{\tau}^{2}(u)\right) du}
+\overline{h}^{2} (t,\omega) =
+\frac{\intR h^{2}\left(t-u,W_{\tau}^{2}(u)\right) du}
 {\intR \left( W_{\tau}(u) \right)^{2} du}
 \end{equation*}
 
 Como $W_{\tau}$ funciona como ventana espectral, converge a una 
-función tipo \dirac; luego $\widetilde{f}$ es aproximadamente la convolución 
-$\widetilde{f}(t,\omega+\theta) \approx \delta_t \ast f(\bullet,\omega+\theta)$. 
+función tipo \dirac; luego $\widetilde{h}$ es aproximadamente la convolución 
+$\widetilde{h}(t,\omega+\theta) \approx \delta_t \ast h(\bullet,\omega+\theta)$. 
 Una aproximación muy similar 
-puede hacerse respecto al segundo término, de modo que $\widetilde{f}\approx f$ y 
-$\overline{f}^{2}\approx f^{2}$.
+puede hacerse respecto al segundo término, de modo que $\widetilde{h}\approx h$ y 
+$\overline{h}^{2}\approx h^{2}$.
 Tales aproximaciones serán mejores en tanto las ventanas $w_{\tau}$ y $W_{\tau}$ sean más 
 cercanas a funciones tipo \dirac.
 Dicho esto, se pueden hacer las siguientes aproximaciones, un poco más arriesgadas:
 \begin{itemize}
-\item $\displaystyle \E{\est{f}(t,\omega)} \approx f(t,\omega)$
-\item $\displaystyle \Var{\est{f}(t,\omega)} \approx 
-\frac{C}{\tau} f^{2}(t,\omega) \intR \abso{\Gamma (\theta)}^{4} d\theta$
+\item $\displaystyle \E{\est{h}(t,\omega)} \approx h(t,\omega)$
+\item $\displaystyle \Var{\est{h}(t,\omega)} \approx 
+\frac{C}{\tau} h^{2}(t,\omega) \intR \abso{\Gamma_\kappa (\theta)}^{4} d\theta$
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -810,106 +839,180 @@ frecuencias puntuales, para lo cual se usa el estimador de doble ventana, y post
 análisis ANOVA para verificar si dichas cantidades tienen el mismo valor esperado --recordando que
 el estimador de doble ventana es asintóticamente consistente.
 
-Sea \xt un proceso semi-estacionario y sea \xtd un conjunto de observaciones del proceso, 
-espaciadas uniformemente en el tiempo.
-Se construye a $\widehat{h}$, el estimador de doble ventana, definido como en la sección anterior;
-se eligen como parámetros las funciones $g_h$ y $w_\tau$ bajo las restricciones 
-descritas\footnote{Las funciones $g_h$ y $w_{\tau}$ están definidas a su vez en base a los 
-parámetros $h$ y $\tau$}.
-Entonces se cumple aproximadamente que
+Sea \xt un proceso semi-estacionario y sea \xtd un conjunto de observacion, cuya frecuencia de 
+muestreo es $\Delta_t=1$ por simplicidad.
 %
-\begin{itemize}
-\item $\E{\widehat{h}(t,\omega)} \approx h(t,\omega)$
-\item $\Var{\widehat{h}(t,\omega)} \approx 
-\frac{C}{N} h^{2}(t,\omega) \intR \abso{\Gamma^{4}(\theta)} d\theta$
-\end{itemize}
+Usando estos datos se construye el estimador de doble ventana, $\widehat{h}$; para ello se eligen 
+como parámetros las funciones $g_\kappa$ y $w_\tau$, que dependen a su vez de los parámetros 
+$\kappa$ y $\tau$, y por consecuencia a sus respectivas tr. de Fourier $\Gamma_\kappa$ y $W_\tau$.
 %
-donde $C = \lim_{T\rightarrow \infty} T \intR \abso{W_T(\lambda)} d\lambda$.
-Se propone la cantidad $Y(t,\omega) = \log\left(\widehat{h}(t,\omega)\right)$, que tiene 
-las siguientes propiedades
+Bajo las condiciones descritas en la sección anterior, se satisface que
 %
-\begin{itemize}
-\item $\E{Y(t,\omega)} \approx \log\left(h(t,\omega)\right)$
-\item $\Var{Y(t,\omega)} \approx 
-\frac{C}{T} \intR \abso{\Gamma_h(\theta)}^{4} d\theta =: \sigma^{2}$
-\end{itemize}
+\begin{align*}
+\E{\widehat{h}(t,\omega)} &\approx h(t,\omega) \\
+\Var{\widehat{h}(t,\omega)} &\approx 
+\frac{C}{N} h^{2}(t,\omega) \intR \abso{\Gamma^{4}(\theta)} d\theta
+\end{align*}
 %
+donde $\displaystyle C = \lim_{T\rightarrow \infty} T \intR \abso{W_T(\lambda)} d\lambda$.
+%
+Como es habitual en el estudio del espectro de potencias, se propone la cantidad 
+\begin{equation}
+Y(t,\omega) = \log\left(\widehat{h}(t,\omega)\right)
+\end{equation}
+que, por ser $\log$ una función inversible y derivable, cumple que
+%
+\begin{align*}
+\E{Y(t,\omega)} &\approx \log\left(h(t,\omega)\right) \\
+\Var{Y(t,\omega)} &\approx 
+\frac{C}{T} \intR \abso{\Gamma_\kappa(\theta)}^{4} d\theta \\
+\end{align*}
 
-La varianza de $Y$ no es independiente de $h$ en el sentido formal, sino que es 
-\textit{aproximadamente independiente}.
-Esto no es tan sorprendente tomando en cuenta que el estimador de doble ventana, fue diseñado para 
-otorgar mayor \textit{peso} a la información local. Esta independencia asintótica sugiere que $Y$ 
-puede verse como
+Cabe destacar que la varianza de $Y$ no es independiente de $h$ en el sentido formal, sino que 
+sólo es \textit{aproximadamente independiente} pues depende en mayor medida de la forma de 
+$\widehat{h}$ que del mismo $h$.
+%
+Esto era de esperarse, ya que el estimador de doble ventana fue diseñado para exagerar el 
+\textit{peso} de la información local. 
+%
+En otra dirección, la independencia aproximada sugiere que $Y$ puede escribirse como
 
 \begin{equation}
 Y(t,\omega) = \log\left(h(t,\omega) \right) + \varepsilon(t,\omega)
+\label{ye}
 \end{equation}
+%la cual \textit{hereda} las características
+%\begin{align*}
+%\E{\varepsilon(t,\omega)} &\approx 0 \\
+%\Var{\varepsilon(t,\omega)} 
+%&\approx \frac{C}{T} \intR \abso{\Gamma_\kappa(\theta)}^{4} d\theta
+%\end{align*}
+
+El que la varianza de $Y$ sea aproximadamente constante en todos los tiempos y frecuencias lo hace 
+una excelente elección para verificar que el espectro evolutivo es constante en el tiempo.
+%
+Dos problemas respecto a la expresión \ref{ye} son (1) la covarianza de $\varepsilon$ entre
+tiempos y frecuencias y (2) computacionalmente sólo es posible evaluar a $Y$ sobre una malla
+de puntos en tiempo y frecuencia.
+
+Sea una malla de puntos en el tiempo y las frecuencias, equiespaciado en el tiempo con distancia 
+$\delta_t$ y en las frecuencias con distancia $\delta_\omega$.
+%$\left\{ (t_i,\omega_j) \in \mathcal{T} \times [-\pi,\pi] | i = 1,\dots,I ; j=1,\dots,J \right\}$
+Es demostrado en \cite{Priestley66} que si $\delta_\omega$ o $\delta_t$ son suficientemente grandes
+como para que se cumpla alguna de las condiciones en \ref{separacion}, entonces los valores de $Y$
+sobre la cuadrícula son aproximadamente no-correlacionados.
+
+\begin{equation}
+\left.
+\begin{aligned}
+\intR \abso{\Gamma_\kappa(\theta)}^{2}\abso{\Gamma_\kappa(\theta+\delta_\omega)}^{2} d\theta 
+&\approx 0 \\
+\frac{1}{\delta_t} \intR \abso{t} \abso{w_\tau (t)} dt &\approx 0
+\end{aligned}
+\right\rbrace
+\Rightarrow
+\Cov{Y(t,\omega),Y(t,\omega_0)} \approx 0
+\label{separacion}
+\end{equation}
+
+Así entonces, sea
+$\left\{ (t_i,\omega_j) \in \mathcal{T} \times [-\pi,\pi] | i = 1,\dots,I ; j=1,\dots,J \right\}$
+la cuadrícula descrita, con $\delta_t= \abso{t_i - t_{i+1}}$ y 
+$\delta_\omega = \abso{\omega_j-\omega_{j+1}}$. 
+%
+Se define el estimador
+\begin{equation}
+Y_{i,j} = \log\left(\widehat{h}(t_i,\omega_j)\right)
+\end{equation}
+%
+el cual tiene las siguientes propiedades
+%
 \begin{align*}
-\E{\varepsilon(t,\omega)} &\approx 0 \\
-\Var{\varepsilon(t,\omega)} &\approx \sigma^{2}
+Y_{i,j} &\approx \log\left(h(t_i,\omega_j)\right) + \varepsilon_{i,j} \\
+\E{\varepsilon_{i,j}} &\approx 0 \\
+\Var{\varepsilon_{i,j}} &\approx
+\frac{C}{T} \intR \abso{\Gamma_\kappa(\theta)}^{4} d\theta \\
+\Cov{\varepsilon_{i,j},\varepsilon_{i_0,j_0}} &\approx 0 
+\Leftarrow (i,j)\neq (i_0,j_0)
 \end{align*}
 
-Más aún, es demostrado en \cite{Priestley66} que si $\abso{\omega-\omega_0}$ es suficientemente 
-grande como para que 
-$\intR \abso{\Gamma_h(\theta+\omega)}^{2}\abso{\Gamma_h(\theta+\omega_0)}^{2} d\theta \approx 0$,
-entonces 
-$\Cov{Y(t,\omega),Y(t,\omega_0)} \approx 0$.
-Similarmente, si $\abso{t-t_0} >> \intR \abso{t} \abso{w_\tau (t)} dt $, entonces
-$\Cov{Y(t,\omega),Y(t_0,\omega)} \approx 0$.
+%Si el número de puntos es \textit{suficientemente grande}, entonces aproximadamente
+%$\varepsilon_{i,j} \sim N(0,\sigma^{2})$.
 
-Bajo estas nuevas condiciones, es posible construir una versión discretizada de $Y$ tal que los 
-componentes $\varepsilon$ sean estadísticamente independientes. Para ello se define una malla de 
-puntos $(t_i,\omega_j)$, con $i = 1,\dots,I$ y  $j=1,\dots,J$, y posteriormente a la matriz $Y$ 
-como $Y_{i,j} = Y(t_i,\omega_j)$, que satisface
+Una vez definido un estimador adecuado para detectar la estacionariedad débil, conviene escribir
+explícitamente las condiciones para tal detección.
 %
-\begin{itemize}
-\item $Y_{i,j} = \log\left(f(t_i,\omega_j)\right) + \varepsilon_{i,j}$
-\item $\E{\varepsilon_{i,j}} \approx 0$
-\item $\Var{\varepsilon_{i,j}} \approx \sigma^{2} = 
-\frac{C}{T} \intR \abso{\Gamma_h(\theta)}^{4} d\theta$
-\item $\Cov{\varepsilon_{i,j},\varepsilon_{i_0,j_0}} \approx 0$ siempre que $(i,j)\neq (i_0,j_0)$
-\end{itemize}
-
-Si el número de puntos es \textit{suficientemente grande}, entonces aproximadamente
-$\varepsilon_{i,j} \sim N(0,\sigma^{2})$.
-
-Habiendo definido al estimador $Y$ según de esta forma, es posible establecer criterios para
-decidir la estacionariedad débil de \xt.
-%
-La condición de estacionariedad débil, en términos del espectro evolutivo 
-
-
-
+La estacionariedad débil, en términos del espectro evolutivo $h$, puede expresarse como
 %
 \begin{equation*}
-H_0 : \hspace{1em} Y_{i,j} = \mu + \alpha_i + \beta_j + \gamma_{i,j} + \varepsilon_{i,j}
+H_{E_1} : h(t_0,\omega_j) = h(t_1,\omega_j) = \cdots = h(t_I,\omega_j)
+\text{ , para } j = 1, 2, \dots , J
 \end{equation*}
 %
-donde $\varepsilon$ son como se definieron anteriormente. Respecto a los otros parámetros, $\mu$ 
-representa el promedio de $Y$ (así $\alpha$, $\beta$, $\gamma$ tienen media cero), $\alpha$ y 
-$\beta$ son las \textit{variaciones} de $Y$ en el tiempo y las frecuencias, respectivamente, y 
-$\gamma$ abarca las \textit{variaciones} no-lineales; $\gamma$ y $\varepsilon$ se diferencian en 
-que por diseño se sabe que $\varepsilon_{i,j} \sim N(0,\sigma^{2})$, mientras que no se ha supuesto 
-nada sobre $\gamma$.
+condición que puede reescribirse\footnote{$H_{E_1}$ y $H_{E_2}$ son equivalentes en cuanto a la
+decisión producen} en términos de $Y$, en su versión discreta
+%
+\begin{equation*}
+H_{E_2} : \E{Y_{0,j}} = \E{Y_{1,j}} = \cdots = \E{Y_{I,j}} \text{ , para } j = 1, 2, \dots , J
+\end{equation*}
+%
+la cual, a su vez, puede reescribirse como
+\begin{equation*}
+H_{E_3} : \E{\varepsilon_{0,j}} = \E{\varepsilon_{1,j}} = \cdots =
+\E{\varepsilon_{I,j}} \text{ , para } j = 1, 2, \dots , J
+\end{equation*}
 
-Para determinar la estacionariedad se define, como hipótesis alterna, un modelo el $Y$ es 
-efectivamente constante en el tiempo
+Sin embargo, la condición $H_{E_3}$ es una consecuencia directa de las propiedades de $Y$ si
+$H_{E_2}$ es cierta; este \textit{juego} de equivalencias pierde consistencia si resulta que
+$H_{E_3}$ fuera rechazada, lo cual implicaría en una contradicción.
+
+El objetivo de la prueba puede fijarse en verificar efectivamente ocurre la contradicción
+referida, en cuyo caso se podrá concluir que el proceso \textbf{no} es débilmente estacionario.
+%
+Con base a la forma de $H_{E_2}$, la prueba puede formularse en términos de un análisis ANOVA de dos
+factores, el cual parte de un modelo general
+%
+\begin{equation*}
+H_0 : Y_{i,j} = \mu + \alpha_i + \beta_j + \gamma_{i,j} + \varepsilon_{i,j}
+\end{equation*}
+%
+donde $\varepsilon$ es como se definió anteriormente. 
+%
+Dentro del contexto, las cantidades involucradas pueden interpretarse como
+\begin{description}
+\item[$\mu$] Promedio de $h$ sobre tiempo y frecuencia
+\item[$\alpha$] Efecto al variar el tiempo
+\item[$\beta$] Efecto al variar la frecuencia
+\item[$\gamma$] Efecto no lineal de tiempo y frecuencia (\textit{interacción})
+\end{description}
+
+La diferencia entre $\gamma$ y $\varepsilon$ consiste en que se conocen (por diseño) la media y 
+varianza de $\varepsilon$, y se espera que siga una distribución normal si se cuentan con 
+suficientes puntos; en contraparte, no se ha supuesto nada sobre $\gamma$.
+
+Ahora bien, la hipótesis $H_{E_2}$ puede reescribirse para contrastarse contra $H_0$ como
 %
 \begin{equation*}
 H_A : \hspace{1em} Y_{i,j} = \mu + \alpha_i + \varepsilon_{i,j}
 \end{equation*}
+
+Por simplicidad, conviene considerar un paso intermedio
+\begin{equation*}
+H_{\text{inter}} : Y_{i,j} = \mu + \alpha_i + \beta_j + \varepsilon_{i,j}
+\end{equation*}
+
+Como es usual con los ANOVA, se definen las sumas de cuadrados dentro de los grupos y entre los
+grupos (cuadro \ref{cantidades_psr}), las cuales siguen distribuciones $\chi^{2}$.
 %
-posteriormente se prueba si se puede rechazar $H_0$ a favor de $H_A$; para ello se evalúan los 
-estadísticos de el cuadro \ref{cantidades_psr} y se verifican las hipótesis 
-$\nicefrac{S_{I+R}}{\sigma^{2}} = 0$ (para $\gamma=0$)  y $\nicefrac{S_T}{\sigma^{2}} = 0$ (para 
-$\beta=0$).
-Por cómo se construyeron, estos estadísticos tienen distribuciones $\chi^{2}$, con los grados de 
-libertad indicados indicados en el cuadro.
+Al probar $H_0$ contra $H_{\text{inter}}$ se usa el estadístico de prueba 
+$\nicefrac{S_{I+R}}{\sigma^{2}}$, mientras que al probar $H_{\text{inter}}$ contra $H_A$ se usa
+$\nicefrac{S_T}{\sigma^{2}} = 0$.
 
 \begin{table}
+\caption{Estadísticos involucrados en la prueba PSR}
 \centering
 \bordes{1.1}
-\begin{tabular}{llc}
+\begin{tabular}{lll}
 \toprule
 Descripción & Estadístico & {Gr. de libertad} \\
 \midrule
@@ -938,39 +1041,15 @@ Prom. general &
 $Y_{\bullet,\bullet} = \frac{1}{I J} \sum_{i=1}^{I} \sum_{j=1}^{J} Y_{i,j}$ & \\
 \bottomrule
 \end{tabular} \\
-\caption{Estadísticos involucrados en la prueba PSR}
 \label{cantidades_psr}
 \end{table}
 
-Cabe mencionar que en la formulación original de la prueba de PSR se exploran algunas otros modelos 
-que pueden ser verificadas usando el estimador $Y$, descritos en el cuadro \ref{modelos}.
-Los procesos \textbf{uniformemente modulados} (UM) necesariamente pueden expresarse como 
-$X(t) = S(t) X_0(t)$, donde $\{X_0(t)\}_{t\in T}$ es un proceso débilmente estacionario.
-
-Para un proceso UM, si se hace a $S$ constante ($\beta = 0$) se obtiene un proceso débilmente 
-estacionario. En otro modelo, si se hace a $f_0$ constante ($\alpha = 0$) entonces el 
-proceso puede interpretarse como un proceso ruido blanco multiplicado en el tiempo 
-por una función arbitraria.
-
-\begin{table}
-\centering
-\begin{tabular}{lcc}
-\toprule
-{Modelo} & {Estacionario} & {UM} \\
-\midrule
-$H_0 : \hspace{.5em} Y_{i,j} = \mu + \alpha_i + \beta_j + \gamma_{i,j} + \varepsilon_{i,j}$
-& \ding{55} & \ding{55} \\
-$H_1 : \hspace{.5em} Y_{i,j} = \mu + \alpha_i + \beta_j + \varepsilon_{i,j}$ 
-& \ding{55} & \ding{51} \\
-$H_2 : \hspace{.5em} Y_{i,j} = \mu + \alpha_i + \varepsilon_{i,j}$ 
-& \ding{51} & \ding{51} \\
-$H_3 : \hspace{.5em} Y_{i,j} = \mu + \beta_j + \varepsilon_{i,j}$ 
-& \ding{55} & \ding{51} \\
-\bottomrule
-\end{tabular}
-\caption{Modelos que pueden ser contrastados usando la prueba PSR}
-\label{modelos}
-\end{table}
+Cabe mencionar que en la formulación original de la prueba de PSR se exploran algunas otros 
+modelos. 
+%
+Por ejemplo, si se acepta $H_{\text{inter}}$ entonces el proceso es referido como
+\textbf{uniformemente modulados} y necesariamente pueden expresarse como $X(t) = S(t) X_0(t)$, 
+donde $\{X_0(t)\}_{t\in \mathcal{T}}$ es un proceso débilmente estacionario.
 
 \begin{algorithm}
 %\SetAlgoLined
