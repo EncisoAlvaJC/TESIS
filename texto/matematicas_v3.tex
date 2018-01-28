@@ -2,7 +2,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\chapter{Medidas y frecuencias}
+\chapter{Medida y frecuencia}
 
 Existe una larga tradición para entender y modelar las señales electrofisiológicas en términos de 
 \textit{ondas y frecuencias}, ya que fundamentalmente son fenómenos eléctricos \cite{Kaiser00}.
@@ -578,6 +578,31 @@ h_Y(\omega) = \abso{\Gamma(\omega)}^{2} h_X(\omega)
 lo cual se esperaba heurísticamente como generalización de la relación entre convolución y tr. de
 Fourier.
 
+Como notación la función $g$ será referida como \textbf{función de respuesta}, mientras que 
+$\Gamma$ es la \textbf{función de transferencia}. 
+%
+Estos nombre nacen de la interpretación de $Y$ como el resultado de \textit{pasar} a $X$ a través 
+de un circuito RC:
+si $X$ no fuera un un \textit{pulso} unitario de longitud infinitesimal entonces $Y$ sería $g$,
+y si $X$ fuera una función periódica entonces $Y$ sería un pulso unitario.
+
+Conviene destacar que el papel de los filtros se ve incrementando en dos casos particuares:
+\begin{itemize}
+\item En la interpretación como circuito RC, si $\Gamma$ fuera 1 sobre un intervalo de frecuencias
+y 0 en otro caso entonces puede decirse que el sistema \textit{filtra} dichas frecuencias.
+%
+Estos objetos son físicamente posibles de manera aproximada, y son de uso común 
+en el procesamiento de señales para eliminar algunos artefactos
+\item Considérese una versión más general de $Y$ como
+\begin{equation}
+Y(t) = \intR X(t-u) dG(u)
+\end{equation}
+con $G$ absolutamente continua. Entonces es posible generalizar la teoría de filtros para incluir
+al operador de retraso, definido como $B_{\Delta_t}[Y](t) = Y(t-\Delta_t)$, y con ello se pueden
+establecer equivalencias con los métodos basados en modelos tipo ARIMA
+\end{itemize}
+Por simplicidad, ninguno de estos enfoques será explorado en el presente trabajo.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -681,22 +706,22 @@ entonces se cumple que
 \label{pseudo_d}
 \end{proposicion}
 
-En el presente trabajo se ha elegido usar el espectro evolutivo, propuesto por Priesltley en
-1965 \cite{Priestley65} debido a que fue diseñado específicamente para (1) conservar linealidad 
-(2) ser siempre positivo, (3) conservar la interpretación física como distribución de energía
-\cite{Loynes68}.
+%En el presente trabajo se ha elegido usar el espectro evolutivo, propuesto por Priesltley en
+%1965 \cite{Priestley65} debido a que fue diseñado específicamente para (1) conservar linealidad 
+%(2) ser siempre positivo, (3) conservar la interpretación física como distribución de energía
+%\cite{Loynes68}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Estimación del espectro evolutivo}
+%\section{Estimación del espectro evolutivo}
 
-Una vez definido el espectro evolutivo para procesos no-estacionarios con varianza finita, cabe 
-preguntarse sobre le estimación de esta cantidad a partir de una realización del proceso usando, 
-por ejemplo, periodogramas modificados; tal pregunta no tiene, en general, una respuesta 
-satisfactoria.
-Es por ello que se define una colección, más restringida, de procesos no-estacionarios cuyo 
-espectro evolutivo pueda ser estimado efectivamente usando la técnica de ventanas.
+%Una vez definido el espectro evolutivo para procesos no-estacionarios con varianza finita, cabe 
+%preguntarse sobre le estimación de esta cantidad a partir de una realización del proceso usando, 
+%por ejemplo, periodogramas modificados; tal pregunta no tiene, en general, una respuesta 
+%satisfactoria.
+%Es por ello que se define una colección, más restringida, de procesos no-estacionarios cuyo 
+%espectro evolutivo pueda ser estimado efectivamente usando la técnica de ventanas.
 
 Considerando un proceso no-estacionario \xt que admite una representación de la forma 
 $X(t) = \intR A(t,\omega) e^{i \omega t} dZ(\omega)$, entonces el espectro evolutivo queda definido 
@@ -733,13 +758,7 @@ banda característico de} \xt, como
 B_X = \sup_{\mathbf{F}\in \mathbf{C}} \left[ \sup_\omega B_{\mathbf{F}}(\omega) \right]^{-1}
 \end{equation}
 
-Una vez definida la cantidad $B_X$, y habiendo supuesto que no es 0, es demostrado en 
-\cite{Priestley65} que el estimador $U$ definido como en ... satisface que
-%
-\begin{equation}
-\E{\abso{U(t,\omega)}^{2}} = \intR \abso{\Gamma(\omega)}^{2} h(t,\omega+\omega_0) d\omega
-+ \orden\left( \nicefrac{B_g}{B_X} \right)
-\end{equation}
+la cual será importante como cota para estimar efectivamente el proceso.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -763,6 +782,14 @@ a la FDE
 \begin{equation*}
 U(t,\omega) = \int_{t-T}^{t} g_\kappa(u) X({t-u}) e^{i \omega (t-u)} du
 \end{equation*}
+
+Una vez definida la cantidad $B_X$, y habiendo supuesto que no es 0, es demostrado en 
+\cite{Priestley65} que el estimador $U$ satisface que
+%
+\begin{equation}
+\E{\abso{U(t,\omega)}^{2}} = \intR \abso{\Gamma(\omega)}^{2} h(t,\omega+\omega_0) d\omega
++ \orden\left( \nicefrac{B_g}{B_X} \right)
+\end{equation}
 
 Bajo el entendido que la función $\Gamma_\kappa$ converge a una función tipo \dirac, puede 
 considerarse que 
