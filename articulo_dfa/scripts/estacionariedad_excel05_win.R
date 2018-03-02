@@ -26,14 +26,14 @@ dir_info    = 'C:/Users/EQUIPO 1/Desktop/julio/TESIS/articulo_dfa'
 dir_scripts = 'C:/Users/EQUIPO 1/Desktop/julio/TESIS/articulo_dfa'
 dir_res_pre = 'C:/Users/EQUIPO 1/Desktop/julio/estacionariedad_171118'
 #dir_res_pre = 'C:/Users/EQUIPO 1/Desktop/julio/estacionariedad_sf'
-dir_epocas  = 'C:/Users/EQUIPO 1/Desktop/julio/epocas_dfa_10'
+#dir_epocas  = 'C:/Users/EQUIPO 1/Desktop/julio/epocas_dfa_10'
 dir_graf    = 'C:/Users/EQUIPO 1/Desktop/julio/TESIS/articulo_dfa/stat'
 
 ###############################################################################
 # librerias
 Sys.setenv(JAVA_HOME='C:\\Program Files\\Java\\jdk1.8.0_65')
 require(readxl)
-require(xlsx)
+#require(xlsx)
 
 require(ggplot2)
 
@@ -75,31 +75,33 @@ diez = 10*factor.extra
 
 #################################################
 # ajustes del zoom
-if(zoom){
-  validar.zoom = F
-  if(unidad_par_t=='tiempo'){
-    s.ini = hms2t(ajuste_ini_hms)
-    s.fin = hms2t(max_hms)
-    
-    e.ini = s.ini/30+1
-    e.fin = s.fin/30+1
-    
-    n.epo = e.fin - e.ini
-    
-    validar.zoom = T
-  }
-  if(unidad_par_t=='epocas'){
-    # agregar posteriormente
-  }
-}
+# zoom = F
+# if(zoom){
+#   validar.zoom = F
+   if(unidad_par_t=='tiempo'){
+     s.ini = hms2t(ajuste_ini_hms)
+     s.fin = hms2t(max_hms)
+     
+     #e.ini = s.ini/30+1
+     #e.fin = s.fin/30+1
+     
+     #n.epo = e.fin - e.ini
+     
+     #validar.zoom = T
+   }
+#   if(unidad_par_t=='epocas'){
+#     # agregar posteriormente
+#   }
+# }
 
 ###############################################################################
 # leer epocas
 archivo.epocas = read_excel(paste0(dir_info,'/info_tecnico.xlsx'),
                            sheet='parche_EpocasMOR')
 indice.epocas  = as.numeric(unlist(archivo.epocas[,nombre]))
-epo0           = indice.epocas[1] - 10*factor.extra
+epo0           = indice.epocas[1] - diez
 indice.epocas  = c(epo0+(1:diez)-1,indice.epocas)
+indice.epocas  = sort(unique(indice.epocas))
 
 indice.chunk   = indice.epocas*30/factor.extra - s.ini #epoca->segundos
 indice.chunk   = indice.chunk/dur.chunk               #segundos->chunks
@@ -146,6 +148,7 @@ n.chunks  = length(datos.t)
 indice.chunk = indice.chunk[indice.chunk<=n.chunks]
 
 i.d = length(indice.chunk)
+indize = 1:i.d
 
 RES.todo = as.data.frame(matrix(0,ncol=9,nrow=n.canales*i.d))
 colnames(RES.todo) = c('Participante','Canal','EpocaMOR','NumEpoca',
@@ -157,8 +160,8 @@ colnames(RES.suma) = c('Participante','Canal','EpocaMOR','NumEpoca',
                        'Epocas','Epocas_estacionarias',
                        'Grupo','Etapa','Proporcion')
 
-RES.todo[,'Particiopante'] = rep(sujeto,n.canales*i.d)
-RES.suma[,'Particiopante'] = rep(sujeto,n.canales*2)
+RES.todo[,'Participante'] = rep(sujeto,n.canales*i.d)
+RES.suma[,'Participante'] = rep(sujeto,n.canales*2)
 if(sujeto<6){
   RES.todo[,'Grupo'] = rep(0,n.canales*i.d)
   RES.suma[,'Grupo'] = rep(0,n.canales*2)
@@ -167,7 +170,6 @@ if(sujeto<6){
   RES.suma[,'Grupo'] = rep(1,n.canales*2)
 }
 
-indize = 1:i.d
 
 #################################################
 # contenedores de los datos
@@ -232,10 +234,10 @@ for(ch in 1:n.canales){
   RES.suma[2*ch-1,8] = 0
   RES.suma[2*ch  ,8] = 1
   
-  RES.todo[step.ch+(1:(10*30/(dur.chunk))),8]   = 
-    rep(0,10*30/(dur.chunk))
-  RES.todo[step.ch+((10*30/(dur.chunk)+1):i.d),8] = 
-    rep(1,10*30/(dur.chunk))
+  RES.todo[step.ch+(1:diez),8]   = 
+    rep(0,diez)
+  RES.todo[step.ch+((diez+1):i.d),8] = 
+    rep(1,i.d-diez)
 }
 # fin ciclo que recorre canales
 ###############################################################################
@@ -244,12 +246,12 @@ setwd(dir_graf)
 
 archivo.excel = paste0(nombre,'_estacionariedad_',toString(dur.chunk),'.xlsx')
 
-write.xlsx(tag,file=archivo.excel,
-           row.names=FALSE,col.names=FALSE,
-           sheetName='General',append=FALSE,showNA=TRUE)
-write.xlsx(gral,file=archivo.excel,
-           row.names=FALSE,col.names=TRUE,
-           sheetName='Epocas',append=TRUE,showNA=TRUE)
+#write.xlsx(tag,file=archivo.excel,
+#           row.names=FALSE,col.names=FALSE,
+#           sheetName='General',append=FALSE,showNA=TRUE)
+#write.xlsx(gral,file=archivo.excel,
+#           row.names=FALSE,col.names=TRUE,
+#           sheetName='Epocas',append=TRUE,showNA=TRUE)
 
 RES.todo$Canal = factor(RES.todo$Canal,labels=kanales$Etiqueta)
 
@@ -296,9 +298,9 @@ for(i in 1:i.d){
     tmp[ch,1] = mean(RES.t[ch,])
     tmp[ch,2] =   sd(RES.t[ch,])
   }
-  write.xlsx(tmp,file=archivo.excel,sheetName='pre-MOR',
-             col.names=TRUE,row.names=TRUE,
-             append=TRUE)
+#  write.xlsx(tmp,file=archivo.excel,sheetName='pre-MOR',
+#             col.names=TRUE,row.names=TRUE,
+#             append=TRUE)
 
   tmp = matrix(0,nrow=n.canales,ncol=(i.d-diez+2))
   tmp[,3:length(tmp[1,])] = RES.t[,(diez+1):i.d]
@@ -309,9 +311,9 @@ for(i in 1:i.d){
     tmp[ch,1] = mean(RES.t[ch,])
     tmp[ch,2] =   sd(RES.t[ch,])
   }
-  write.xlsx(tmp,file=archivo.excel,sheetName='MOR',
-             col.names=TRUE,row.names=TRUE,
-             append=TRUE)
+#  write.xlsx(tmp,file=archivo.excel,sheetName='MOR',
+#             col.names=TRUE,row.names=TRUE,
+#             append=TRUE)
 
 ###############################################################################
 ###############################################################################
@@ -345,6 +347,7 @@ ggplot(RES.todo,aes(x=Indice,y=Canal,fill=Estacionario)) +
   labs(title=nombre,
        subtitle='Épocas que son estacionarias')+
   geom_raster()+
+  theme_classic2()+
   #geom_vline(xintercept=10*30/factor.extra)
   facet_grid(.~Etapa) +
   scale_x_continuous(expand=c(0,0))
@@ -352,6 +355,8 @@ ggplot(RES.todo,aes(x=Indice,y=Canal,fill=Estacionario)) +
 setwd(dir_graf)
 ggsave(filename=paste0(nombre,'_panorama_estacionariedad_30.png'),
        device='png')
+
+
 #print(
 #ggplot(RES.todo,aes(x=Canal,y=Estacionario,fill=Etapa)) + 
 #  labs(title=nombre,

@@ -3,8 +3,11 @@
 orden_stam = T
 
 # tamano de la ventana analizada, nombre raro para evitar confusiones
-dur.chunk   = c(rev(30*(2**c(-4,3))),2,5,10,30*(2**-5))
-quienes     = 1:14
+#dur.chunk   = c(rev(30*(2**c(-4,3))),2,5,10,30*(2**-5))
+#dur.chunk   = rev(c(rev(30*(2**c(-4:3))),2,5,10,30*(2**-5)))
+dur.chunk   = (c(rev(30*(2**c(-4:0)))))
+# 15 a medias
+quienes     = rev(1:14)
 
 zoom           = T
 unidad_par_t   = 'tiempo'

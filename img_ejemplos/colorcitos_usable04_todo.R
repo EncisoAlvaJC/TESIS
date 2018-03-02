@@ -1,8 +1,8 @@
 ###############################################################################
 # directorio de trabajo
-dir_actual = '~/TESIS/TESIS/img_ejemplos'
-dir_graf   = '~/TESIS/TESIS/img_art_dfa'
-info_dir    = '~/TESIS/TESIS/articulo_dfa'
+dir_actual = '~/TESIS/TESIS_JULIO/scripts_graf'
+dir_graf   = '~/TESIS/TESIS_JULIO/scripts_graf_res'
+info_dir   = '~/TESIS/TESIS_JULIO/articulo_dfa'
 dir_datos  = '~/TESIS/graf_datos/estacionariedad_sf/'
 dir_epocas = '~/TESIS/graf_datos/epocas3/'
 
@@ -37,9 +37,11 @@ require('hms')
 info     = read_excel(paste0(info_dir,'/info_tecnico.xlsx'))
 
 orden_k  = read_excel(paste0(info_dir,'/info_canales.xlsx'))
-kanales  = read_excel(paste0(info_dir,'/info_canales.xlsx'))
+kanales  = read_excel(paste0(info_dir,'/info_canales.xlsx'),
+                      sheet='Alfabetico')
 if(orden_stam){
-  kanales  = read_excel(paste0(info_dir,'/info_canales_alterno.xlsx'))
+  kanales  = read_excel(paste0(info_dir,'/info_canales.xlsx'),
+                        sheet='Stam')
 }
 n.canales    = length(kanales$Etiqueta)
 canales.arch = kanales$Nombre_archivo
@@ -91,8 +93,7 @@ stop('Espacio para usar otros scripts')
 for(expon in c(2,0,-2)){
   setwd(dir_actual)
   dur_epoca = 30*(2**expon)
-  source('~/TESIS/TESIS/img_ejemplos/colorcitos_usable04_parte.R')
-  
+  source('~/TESIS/TESIS_JULIO/img_ejemplos/colorcitos_usable04_parte.R')
 }
 
 RES.collect$D_chunk = log2(RES.collect$D_chunk/30)

@@ -1,0 +1,744 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Preliminares}
+
+Redactar una introducción [?]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Medidas}
+
+\begin{definicion}%[$\boldsymbol{\sigma}$-álgebra]
+Sea $\Omega$ un conjunto y sea $\mathcal{U}$ una familia de subconjuntos de $\Omega$. Se dice que 
+$\mathcal{U}$ es una \textbf{$\boldsymbol{\sigma}$-álgebra} si cumple
+\begin{itemize}
+\item $\Omega \in \mathcal{U}$
+\item $A \in \mathcal{U} \Rightarrow A^{C} \in \mathcal{U}$
+\item 
+$ \displaystyle \{ A_n \}_{n\in \mathbb{N}} \subseteq \mathcal{U} 
+\Rightarrow \cup_{n\in \mathbb{N}} A_n \in \mathcal{U}$
+\end{itemize}
+Donde $A^{C}$ es el complemento de $A$ en $U$
+\end{definicion}
+
+Los elementos de una $\sigma$-álgebra se denominan \textbf{conjuntos medibles}. 
+
+\begin{definicion}
+Sea $\Omega$ un conjunto y $\mathcal{A} \subseteq \Omega$ una familia de subconjuntos. Se define a $\sigma(\mathcal{A})$, la $\sigma$-álgebra generada por $\mathcal{A}$, como la intersección de todas las $\sigma$-álgebras que contienen a $\mathcal{A}$  
+\end{definicion}
+
+En el contexto de la probabilidad, es particularmente importante la $\sigma$-álgebra de Borel, definida como
+\begin{equation}
+\mathcal{B} = \sigma\left( \left\{ \left( -\infty , a \right] \subset \R \lvert a\in \R \right\} \right)
+\end{equation}
+Este tipo de $\sigma$-álgebras puede definirse sencillamente para algún subconjunto $A \subset \R$
+\begin{equation}
+\mathcal{B}_A = \sigma\left( \left\{ \left( -\infty , a \right] \cap A \subset \R \lvert a\in \R \right\} \right)
+\end{equation}
+
+\begin{definicion}
+Sea $\Omega$ un conjunto y $\mathcal{U}$ una $\sigma$-álgebra definida en $\Omega$. El par $(\Omega,\mathcal{U})$ será referido como \textbf{espacio de medida}. Por nomenclatura, $\Omega$ es referido como \textit{espacio muestral} y $\mathcal{U}$ como \textit{$\sigma$-álgebra de sucesos}.
+\end{definicion}
+
+\begin{definicion}%[Medida]
+Sea $(\Omega, \mathcal{U})$ un espacio de medida. Se dice que una función $\mu : \mathcal{U} \rightarrow \R_+$ es una \textbf{medida} si cumple que
+\begin{itemize}
+\item $\mu(\emptyset) = 0$
+\item Si $\{ A_n \}_{n\in \mathbb{N}} \subseteq \mathcal{U}$ son tales que 
+$A_n \cap A_m = \emptyset \Leftrightarrow m\neq n$, entonces
+$$ \mu\left( \bigcup_{n\in \mathbb{N}} A_n \right) = \sum_{n\in \mathbb{N}} \mu(A_n)$$
+\end{itemize}
+Donde $\R_+ = \{ x\in \R | 0 \leq x \} \cup \{ \infty \}$ y $\emptyset$ es el conjunto vacío.
+La terna $(\Omega,\mathcal{U},\mu)$ será referida como \textbf{espacio de medida}.
+\label{medida}
+\end{definicion}
+
+\begin{definicion}%[Medida $\boldsymbol{\sigma}$-finita]
+Sea $(\Omega,\mathcal{U},\mu)$ un espacio de medida. Se dice que $\mu$ es 
+\textbf{$\boldsymbol{\sigma}$-finita} si existen una familia de conjuntos medibles $\{ A_n \}_{n\in \mathbb{N}}$ tales que
+\begin{itemize}
+\item $\mu\left( A_n \right) < \infty$
+\item $ \bigcup_{n\in \mathbb{N}} A_n = \Omega$
+\end{itemize}
+\end{definicion}
+
+\begin{definicion}
+Considérese el espacio medible $(\R, \mathcal{B})$, con $\mathcal{B}$ la $\sigma$-álgebra de Borel. Se define la medida de Lebesgue, $\mu_L$, la medida en el espacio mencionado tal que 
+\begin{equation}
+\mu_L([a,b]) = b-a
+\end{equation}
+para cualesquiera $a,b \in \R$ con $a<b$
+\end{definicion}
+
+\begin{proposicion}
+Sea $(\Omega,\mathcal{U},P)$ un espacio de probabilidad. Sea $\{ A_n \}_{n\in \mathbb{N}}$ una amilia de conjuntos medibles tales que 
+\begin{itemize}
+\item $A_n \subset A_{n+1}$ para todo $n \in \N$
+\item Existe un conjunto medible $A$ tal que $\cup_{n\in \N} A_n = A$
+\end{itemize}
+Entonces
+\begin{equation}
+\lim_{n\rightarrow \infty} P(A_n) = P(A)
+\end{equation}
+\end{proposicion}
+\begin{proof}
+Nótese que
+\begin{align*}
+P(A) &= P\left( \cup_{n\in \N} A_n \right) \\
+\end{align*}
+\end{proof}
+
+\subsection{Integración en espacios medibles}
+
+\begin{definicion}
+Sea $(\Omega, \mathcal{U}, \mu)$ un espacio de medida y sea $f:\omega \rightarrow \R_+$ una función medible no-negativa. Sea $A\in \mathcal{U}$ un conjunto arbitrario y $\mathcal{C}_A \subset \mathcal{U}$ el conjunto de las particiones de $A$ en una cantidad finita de conjuntos medibles.
+Se define la \textbf{integral de $f$ respecto a $\mu$ en el conjunto $A$} como
+\begin{equation}
+\int_A f(x) \mu(x) := \sup_{\mathcal{C}_A} \left[ \sum_{j=1}^{n} f(\lambda) \mu(E_m) \right]
+\end{equation}
+Donde $\mathcal{C}_A = \{ E_1, E_2, \dots, E_n \}$
+\end{definicion}
+
+\begin{definicion}
+Sea $(\Omega, \mathcal{U}, \mu)$ un espacio de medida y sea $f:\omega \rightarrow \R_+$ una función medible. Se definen las funciones $f^{+}$ y $f^{-}$ como
+\begin{align*}
+f^{+}(x) &= \max (f(x), 0 ) \\
+f^{-}(x) &= -\min (f(x), 0 )
+\end{align*}
+Se dice que $f$ es integrable en $A$ respecto a $\mu$ si cumple que $\int_A f^{+}(\lambda) d\mu(\lambda) < \infty$ y $\int_A f^{-}(\lambda) d\mu(\lambda) < \infty$; si así fuere, se define
+\begin{equation}
+\int_A f(\lambda) d\mu(\lambda) := \int_A f^{+}(\lambda) d\mu(\lambda) - \int_A f^{-}(\lambda) d\mu(\lambda)
+\end{equation}
+\end{definicion}
+
+\begin{definicion}
+Sean $(\Omega_1,\mathcal{U}_1)$ y $(\Omega_2,\mathcal{U}_2)$ espacios medibles y $\mu$ una medida sobre el primero. Una función $g$ es integrable en $A \in \mathcal{U_2}$ respecto a $\mu_f$ si y sólo si $g \circ f$ es integrable en $f^{-1}(A)$ respecto a $\mu$
+\end{definicion}
+\begin{proof}
+[?] pagina 47 del manual
+\end{proof}
+
+%\begin{proposicion}
+%Sea $(\Omega, \mathcal{U}, \mu)$ un espacio de medida y sea $f:\omega \rightarrow \R_+$ una función medible no-negativa. La función $\mu_f$ definida como
+%\begin{equation}
+%\mu_f(A) := \int_A f(\lambda) \mu(\lambda)
+%\end{equation}
+%es una medida en el espacio medible $(\Omega, \mathcal{U})$
+%\end{proposicion}
+%
+%\begin{proof}
+%[?] Si se necesita, en la pagina 39 el manual
+%\end{proof}
+
+%\begin{proposicion}
+%Sean $f$ y $g$ funciones integrables en $A$ con respecto a $\mu$ y sean $\alpha, \beta \in \R$ arbitrarios. Se cumple que la función $(\alpha f + \beta g)$ es integrable y
+%\begin{equation}
+%\int_A \left[ \alpha f + \beta g \right] (\lambda) \mu(\lambda) = \alpha \int_A f(\lambda) \mu(\lambda) + \beta \int_A 
+%\end{equation}
+%\end{proposicion}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Variables aleatorias}
+
+Si una medida $\mu$ es acotada en todo el espacio de eventos se dice que es una \textbf{medida finita} (no confundir con $\sigma$-finita). 
+%
+Una medida de probabilidad puede entenderse como un caso particular de medida finita sobre los reales.
+
+\begin{definicion}
+El espacio de medida $(\Omega,\mathcal{U},P)$ se dice un \textbf{espacio de probabilidad} si satisface que $P(\Omega) = 1$ 
+\end{definicion}
+
+\begin{definicion}
+Sean $(\Omega_1,\mathcal{U}_1)$ y $(\Omega_2,\mathcal{U}_2)$ dos espacios medibles. Se dice que una función $f: \omega_1 \rightarrow \Omega_2$ es \textbf{medible} si para todo $A\in \mathcal{U}_2$
+$f^{-1}(A)\in\mathcal{U}$
+\end{definicion}
+
+\begin{definicion}
+Sea $(\Omega,\mathcal{U})$ un espacio medible y $(I,\mathcal{B}_I,P)$ un espacio de probabilidad. Una \textbf{variable aleatoria} es una función medible $X: \Omega \rightarrow \mathcal{B}_I$ entre estos espacios
+\end{definicion}
+
+Siendo $X$ una variable aleatoria, intuitivamente se puede definir la función de densidad de probabilidad de un conjunto medible $A \in \mathcal{B}$ como
+\begin{equation}
+P_X(A) = P\left( X^{-1} \left( A \right) \right)
+\end{equation}
+
+%Los espacios de probabilidad pueden definirse para una gran variedad de conjuntos; por simplicidad, en el presente texto únicamente se manejan espacios de probabilidad de la forma $(I,\mathcal{B}_I,P)$, con $I\subseteq \R$ un intervalo.
+
+%Comunmente se asocia el resultado de un experimento \textit{aleatorio} con un espacio de probabilidad; el espacio muestral correspondería a los resultados posibles, y la medida representaría la \textit{probabilidad} de que el resultado ocurra en determinado conjunto.
+%%
+%Es común interpretar que si la probabilidad de un conjunto medible es $p$, entonces se espera que el resultado ocurra en dicho conjunto el $100*p \%$ de las ocasiones que se repita el experimento.
+
+\begin{definicion}%[Función de Probabilidad Acumulada]
+Sea $(\R,\mathcal{B},P)$ un espacio de probabilidad. La \textbf{función de probabilidad acumulada}, $F : \R \rightarrow [0,1]$, se define como
+\begin{equation*}
+F (x) := P\left( \left(-\infty,x \right] \right)
+\end{equation*}
+\end{definicion}
+
+Por comodidad, se define una notación alterna para la función de probabilidad acumulada de $X$ como
+\begin{equation}
+P_X(x\leq x) := F_X(x) = P_X\left( \left( -\infty,x \right] \right)
+\end{equation}
+Si se puede definir una función de densidad de probabilidad para $X$, entonces puede escribirse
+\begin{equation}
+P(x\in A) = \int_A f_X(\lambda) d\lambda 
+\end{equation}
+
+Una función de probabilidad acumulada satisface las siguientes propiedades
+\begin{itemize}
+\item Para cualesquiera $x,y\in \R$, $x < y \Rightarrow F(x) < F(y)$
+\item Pra cualquier $x\in\R$, $F(x) = \lim_{x\rightarrow x^{-}} F(x) + P(\{x\})$
+\item $\lim_{x\rightarrow +\infty} F(x) = 1$
+\item $\lim_{x\rightarrow -\infty} F(x) = 0$
+\end{itemize}
+
+Conviene considerar las funciones que satisface las condiciones anteriores, referidas simplemente como \textbf{función de distribución}, pero que no necesariamente provienen de un espacio de probabilidad. Naturalmente, una función de distribución $F$ puede inducir una medida $\mu$.
+
+\begin{teorema}
+Sea $F:\R \rightarrow \R$ una función de distribución; se puede contruir una medida $\mu_F$ sobre el espacio medible $(\R, \mathcal{B})$ tal que la función de probabilidad acumulada asociada al espacio de probabilidad $(\R, \mathcal{B}, \mu_F)$ es exactamente $F$.
+
+La medida $\mu_F$ será referida como la \textbf{medida inducida} por $F$.
+\end{teorema}
+\begin{proof}
+Para cualesquiera $a, b \in \R$, puede escribirse
+\begin{equation}
+\mu((a,b]) := F(b) - F(a)
+\end{equation}
+[? pag 18, 25 del libro de teorei ade la medida]
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Variables aleatorias continuas y discretas}
+
+\begin{definicion}
+Una función $F: \R \rightarrow \R$ se dice \textbf{absolutamente continua} si para cualquier $\varepsilon>0$ arbitrario existe un $\delta>0$ y una familia de intervalos, $\{ [a_n, b_n]\}_{n\in \N}$, tal que
+\begin{equation}
+\sum_{n\in \N} \abso{b_n - a_n} < \delta 
+\end{equation}
+\begin{equation}
+\sum_{n\in \N} \abso{F(b_n) - F(a_n)} < \varepsilon 
+\end{equation}
+\end{definicion}
+
+Se dice que una medida de probabilidad $P$ es \textbf{continua} si su función de probabilidad acumulada es absolutamente continua.
+
+\begin{proposicion}
+Si una medida de probabilidad $F$ es absolutamente continua, entonces existe una función $f$ tal que 
+\begin{equation}
+F(x) = \int_{-\infty}^{x}f(y) dy
+\end{equation}
+Se dice que $f$ es la \textbf{función de densidad de probabilidad}.
+\end{proposicion}
+
+Sea $P$ una medida de probabilidad, se define su \textbf{soporte} como
+\begin{equation}
+\mathcal{D}_P = \left\{ x\in \R \lvert P\left( \left\{ x\right\} \right)>0 \right\}
+\end{equation}
+%
+Se dice que una medida de probabilidad, $P$, es \textbf{discreta} si su soporte es numerable.
+
+\begin{proposicion}
+Si una medida de probabilidad $F$ es discreta, entonces existe una finito o infinito numerable $Q_F=\{q_n\}_{n\in \N}$ tal que 
+\begin{equation}
+F(x) = \sum_{n\leq x} q_n F({q_n})
+\end{equation}
+Es posible construir una función de densidad de probabilidad para $F$ como
+\begin{equation}
+f(x) = \begin{cases}
+F({x}) &, x\in Q_F \\
+0 &, \text{otro caso}
+\end{cases}
+\end{equation}
+\end{proposicion}
+
+Naturalmente es posible construir medidas de probabilidad que no sean ni continuas ni discretas. Por ejemplo, considérese la función de Cantor $K$ que puede ser definida iterativamente como
+\begin{equation}
+K_{n+1}(x) =
+\begin{cases}
+\frac{1}{2} K_n(3 x) &, 0\leq x \leq \frac{1}{3} \\
+\frac{1}{2} K_n(3 x-2) + \frac{1}{2} &, 0\leq x \leq \frac{1}{3} \\
+0 &, \text{otro caso}
+\end{cases}
+\end{equation}
+con $K_0(x) = x$ y $K := \lim_{n\rightarrow \infty} K_n$
+
+[?] demostracion de que la funcion de cantor esta bien definida
+% https://es.wikipedia.org/wiki/Funci%C3%B3n_de_Cantor
+
+\begin{proposicion}
+La función de Cantor es continua pero no es absolutamente continua
+\end{proposicion}
+
+Luego entonces, puede construirse la siguiente función de distribución
+\begin{equation}
+F_K = \begin{cases}
+K(x) &, 0\leq x \leq 1 \\
+0 &, x < 0 \\
+1 ,& x > 1
+\end{cases}
+\end{equation}
+la cual no es ni continua ni discreta. Por simplicidad, en el presente trabajo únicamente se considerarán variables aleatorias que son continuas o discretas.
+
+%La distinción entre variables aleatorias continuas y discretas puede verse más notoria en virtud del teorema \ref{Lebesgue_decomp}.
+
+%\subsection{Vectores aleatorios}
+% si se necesita, esta en la pagina 30 del manual
+
+%\begin{teorema}[Descomposición de Radon-Nikodym]
+%Sea $\mu$ una medida definida sobre la $\sigma$-álgebra $\mathcal{B}$, y sea $\nu$ una medida 
+%$\sigma$-finita definida sobre $\mathcal{B}$. Entonces $\mu$ puede descomponerse de manera única como
+%$\mu = \mu_A + \mu_S$, donde
+%\begin{itemize}
+%\item $\mu_A$ es absolutamente continua respecto a $\nu$
+%\item Existe un conjunto $A$ tal que $\nu(A)=0$, $\mu_S\left(A^{C}\right) = 0$
+%\end{itemize}
+%\label{Lebesgue_decomp}
+%\end{teorema}
+
+%? pagina 109 del manual
+
+%Dado que la medida de Lebesgue es $\sigma$-finita, cualquier medida de probabilidad puede 
+%\textit{descomponerse} como la suma de una medida continua, una medida discreta y un \textit{residuo}.
+
+%\subsection{Vectores aleatorios}
+%
+%El concepto de variable aleatoria dado en [?] puede extenderse trivialmente a conjuntos más generales como, por ejemplo, $\R^{n}$ (para algún entero $n$); por simplicidad en la interpretación, conviene definirlos en base a la versión descrita.
+%
+%\begin{definicion}
+%Se llama \textbf{vector aleatorio} a una variable aleatoria sobre el espacio de probabilidad $(\R^{n},\mathcal{B}^{n},P)$, donde $\mathcal{B}^{n}$ es la $\sigma$-álgebra de Borel $n$-dimensional
+%\begin{equation}
+%\mathcal{B}^{n} := \sigma\left(\left\{ \left(-\infty, a_1\right]\times \left(-\infty, a_2\right]\times \cdots \times \left(-\infty, a_n\right] \lvert a_1, \dots, a_n \in \R \right\}\right)
+%\end{equation}
+%Por notación, un vector aleatorio es referido como
+%\begin{equation}
+%X = (X_1, X_2, \dots, X_n)
+%\end{equation}
+%\end{definicion}
+
+\subsection{Valor esperado}
+
+\begin{definicion}
+Sea $X$ una variable aleatoria definida sobre el espacio de probabilidad $(\Omega, \mathcal{U}, P)$. Si $P$ es integrable en $\Omega$ respecto a $P$, entonces se define el \textbf{valor esperado} de $X$ como
+\begin{equation}
+\E{X} := \int_\omega X(\lambda) dP(\lambda)
+\end{equation}
+\end{definicion}
+
+\begin{proposicion}
+Sea $X$ una variable aleatoria y $g$ una función medible en el espacio edible $(\R,\mathcal{B})$. Entonces $g(X)$ es una variable aleatoria cuyo valor esperado es
+\begin{equation}
+\E{g(x)} = \int_\Omega [g(X)](\lambda) dP(\lambda) = \int_R g(x) dP(x)
+\end{equation}
+\end{proposicion}
+
+\begin{definicion}
+Sea $X$ una variable aleatoria, se definen (si es posible) su media $\mu_X$ y varianza $\sigma_X^{2}$ como
+\begin{align}
+\mu_X &{:=} \E{X} \\
+\sigma_X^{2} &{:=} \E{(X-\mu_X)^{2}}
+\end{align}
+\end{definicion}
+
+Naturalmente la notación $\mu_X$ únicamente se usa cuando no hay confusión con la notación para medidas. Así mismo, conviene mencionar ejemplos de varaibles aleatorias para las cuales no está bien definida su media o varianza.
+
+? Ejemplos
+
+%De manera más general, se define el $m$-momento de una variable aleatoria $X$ como
+%\begin{equation}
+%M
+%\end{equation}
+
+\begin{definicion}
+Sea $X$ una varaible aleatoria. Se define su \textbf{función característica} como
+\begin{equation}
+\phi_X (\omega) := \E{e^{i \omega X}} = \int_\R e^{i \omega x} dF_X(x)
+\end{equation}
+donde, para todo $z\in \R$, $e^{i z} := \COS{z} + i \SEN{z}$
+\end{definicion}
+
+\begin{definicion}
+Sean $X$, $Y$ dos variables aleatorias. Se define su \textbf{covarianza} como
+\begin{equation}
+\Cov{X,Y} := \E{X Y} = \int_{\R^{2}} x y d P_{(X,Y)}(x,y) = \int_\R \int_\R x y dP_X(x) dP_Y(y)
+\end{equation}
+\end{definicion}
+
+\begin{proposicion}
+Si $X$, $Y$ son independientes, entonces $\Cov{X,Y} = 0$
+\end{proposicion}
+
+\begin{definicion}
+Sean $X$, $Y$ dos variables aleatorias. Se define su \textbf{coeficiente de correlación de Pearson} como
+\begin{equation}
+\rho (X,Y) := \sqrt{\frac{\Cov{X,Y}}{\Var{X} \Var{Y}}}
+\end{equation}
+\end{definicion}
+
+%\begin{proof}
+%en la pagina 65 del maual
+%\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Estimación de parámetros}
+
+Es común que se conozca cierta información de estos fenómenos que permita suponer que se comportan como variables aleatorias con cierta forma. Por ejemplo, ?.%se suele suponer que entre la población, 
+%
+Conviene destacar el caso de fenómenos que son \textit{forzados} a seguir una distribución conocida; por ejemplo, la metodología para aplicar la prueba Neuropsi \cite{Ostrosky00} ha sido diseñada de tal forma que los puntajes siguen una distribución normal para cada segmento poblacional.
+
+En este tipo de escenarios se puede hablar de una función de distribución $f(\bullet; \theta)$ que depende de un parámetro $\theta \in \Omega$, donde $\Omega$ se conoce como \textbf{espacio de parámetros}; el objetivo consiste en deducir el valor de $\theta$ a partir de los datos recabados.
+
+\begin{definicion}
+Sea $X$ una variable aleatoria. Una \textbf{muestra de $X$ de tamaño $N$} es una colección de variables aleatorias $\{ X_1, X_2, \dots, X_N \}$ tales que son independientes y que comparten la misma distribución de $X$
+\end{definicion}
+
+\begin{proposicion}
+Sea $X$ una variable aleatoria que admite una función de densidad $f_X$, y sea $\{ X_1, X_2, \dots, X_N \}$ una muestra. La función de densidad de probabilidad conjunta para el vector $[ X_1, X_2, \dots, X_N ]$ es
+\begin{equation}
+f_{[ X_1, \dots, X_N ]}(x_1, \dots, x_N ) = \prod_{j=1}^{N} f(x_j)
+\end{equation}
+Mientras no se indique lo contrario, las variables aleatorias en la muestra no están ordenadas.
+\end{proposicion}
+
+\begin{proposicion}
+Sea $X$ una variable aleatoria, $\{ X_1, X_2, \dots, X_N \}$ una muestra y $\{ x_1, x_2, \dots, x_N \}$ un conjunto de observaciones. Se define la \textbf{función de distribución muestral} como
+\begin{equation}
+F_{X; N} (x) := \frac{1}{N} \sum_{x_j \leq x } 1
+\end{equation}
+\end{proposicion}
+
+\begin{proposicion}
+Si el tamaño de una muestra de $X$ se vuelve arbitrariamente grande, la función de distribución muestral converge en probabilidad a $F$, la función de probabilidad acumulada de $X$
+\begin{equation}
+\lim_{N \rightarrow \infty} F_{X; N} = F_X
+\end{equation}
+\end{proposicion}
+
+%\begin{proof}
+%Ver seccion 5.2 C R Rao, Linear Statistic Inference and its applications 2 ed pag 42
+%\end{proof}
+
+\begin{definicion}
+Un \textbf{estadístico} es una función de las observaciones en una muestra
+\end{definicion}
+
+Ejemplo en pagina 112 del libro de lindgren.
+Si $X\sim N(\mu,\sigma^{2})$, sea $\overline{X} = \frac{1}{N} \sum X_j$, entonces
+\begin{equation}
+\overline{X} \sim N(\mu,\frac{\sigma^{2}}{N})
+\end{equation}
+
+Ejemplo.
+Considérese la variable aleatoria binomial $X \sim B(\theta)$ con $\theta \in [0, 1]$, cuya FDP es
+\begin{equation}
+f_X(x; \theta) = \begin{cases}
+\theta^{x} (1-\theta)^{1-x} &, x\in \{ 0,1 \} \\
+0 &, \text{otro caso}
+\end{cases}
+\end{equation}
+La FDP conjunta para una muestra de tamaño $N$ es
+\begin{equation}
+f_N(x_1, \dots, x_N; \theta) = 
+\begin{cases}
+\theta^{\sum_i x_i}(1-\theta)^{\sum_i(1-x_i)} &, x_i \in \{ 0,1 \}, i\in \{1, \dots, N\} \\
+0 &, \text{otro caso}
+\end{cases}
+\end{equation}
+
+Se puede entender a $f_N$, evaluada en los datos obtenidos y como función de $\theta$, como la probabilidad de que se hayan obtenido los datos que de hecho se obtuvieron.
+%
+Esta redundancia sugiere que una elección adecuada para el parámetro $\theta$ sería aquél que maximice a tal función, que que recibe el nombre de \textbf{función de verosimilitud}
+\begin{equation}
+L(\theta; x_1, \dots, x_N) = \theta^{\sum_i x_i}(1-\theta)^{\sum_i(1-x_i)}
+\end{equation}
+con $\theta \in [0, 1]$. Por simplicidad técnica, se maximizará a $L$ igualando a cero la derivada de $\log \circ L$ con respecto a $\theta$.
+\begin{align*}
+\frac{d}{d\theta} \log\left( L(\theta; x_1, \dots, x_N)\right)
+&= 
+\frac{d}{d\theta} \log\left(\theta^{\sum_1^{N} x_i}(1-\theta)^{\sum_1^{N}(1-x_i)}\right) \\
+&=
+\frac{d}{d\theta} \left[ \left( \sum_{1}^{N} x_i \right) \log(\theta) + 
+\left( \sum_{1}^{N}(1-x_i) \right) \log (1-\theta)\right] \\
+&= \left( \sum_{i=1}^{N} x_i \right) \frac{1}{\theta} -
+\left( N - \sum_{i=1}^{N}(x_i) \right) \frac{1}{1-\theta}
+\end{align*}
+
+Luego entonces, la función de verosimilitud es maximizada usando $\theta = \frac{1}{N} \sum_{1}^{N}(x_i)$.
+
+\begin{definicion}
+Sea $X$ una variable aleatoria que depende de un parámetro $\theta$ y $X_1, \dots, X_N$ una muestra de tamaño $N$. Un estimador $\widehat{\theta}$ es \textbf{suficiente} si
+la distribución de la variable $X \lvert \widehat{\theta}$ no depende de $\theta$
+\end{definicion}
+
+\begin{teorema}
+Sea $X$ una varaible aleatoria que depende del paraámetro $\theta$. Un estadístico $\widehat{\theta}$ es suficiente si y sólo si existen funciones $g$ y $h$ tales que
+\begin{equation}
+f_X(\bullet; \theta ) = g(\widehat{\theta},\theta) h_X(\bullet)
+\end{equation}
+\end{teorema}
+
+%\begin{proof}
+%ver pagina 121 del libro de lindgren
+%\end{proof}
+
+%El \textbf{espacio de datos} es 
+
+%Usando la desigualdad de Chebyshev de puede deducir que
+%\begin{equation}
+%P\left( \abso{\widehat{\theta} - \theta} > \varepsilon \right) \leq 
+%\frac{1}{\varepsilon^{2}} \E{\left( \widehat{\theta} - \theta \right)^{2}}
+%\end{equation}
+
+\begin{definicion}
+El \textbf{error de media cuadrática} para el estimador $\widehat{\theta}$ se define como
+\begin{equation}
+\text{EMC}(\widehat{\theta}) := \E{\left( \widehat{\theta} - \theta \right)^{2}} =
+\Var{\widehat{\theta}} + \left( \E{\theta} - \theta^{2} \right)
+\end{equation}
+\end{definicion}
+
+\begin{definicion}
+Sea $X$ una variable aleatoria que depende de un parámetro $\theta$ y $X_1, \dots, X_N$ una muestra de tamaño $N$. Un estimador $\widehat{\theta}$ es \textbf{insesgado} si cumple que
+\begin{equation}
+\E{\widehat{\theta}} = \theta
+\end{equation}
+\end{definicion}
+
+Se puede hablar del \textbf{sesgo} del estimador $\widehat{\theta}$ como $\E{\widehat{\theta}}-\theta$
+
+\begin{definicion}
+Sea $X$ una variable aleatoria que depende de un parámetro $\theta$ y $\left\{ \widehat{\theta}_n \right\}_{n\in \N}$ una familia de estimadores definidos para muestras de $X$ de tamaño arbitrario. La familia de estimadores se dice \textbf{consistente} si para cualquier $\varepsilon > 0$
+\begin{equation}
+\lim_{n\rightarrow\infty} P\left( \abso{\widehat{\theta}_n-\theta} > \varepsilon \right) = 0
+\end{equation}
+\end{definicion}
+
+\begin{definicion}
+Así como en la definición anterior, se dice que a familia de estimadores \textit{converge en media cuadrática} si
+\begin{equation}
+\lim_{n\rightarrow\infty} \E{\left( \widehat{\theta}_n - \theta \right)^{2}} = 0
+\end{equation}
+Si esto se cumple, se dice que la familia de estimadores es \textbf{consistente en media cuadrática} \end{definicion}
+
+\begin{teorema}
+Si $\widehat{\theta}_n$ es una familia de estimadores consistente en media cuadrática, entonces es consistente
+\end{teorema}
+
+\begin{teorema}
+Una condición suficiente para para que una familia sea consistente en en media cuadrática es
+\begin{align}
+\lim_{n\rightarrow\infty} \E{\widehat{\theta}_n} &= \theta \\
+\lim_{n\rightarrow\infty} \Var{\widehat{\theta}_n} &= 0
+\end{align}
+\end{teorema}
+
+\begin{proof}
+? pag 141 del libro de lindgren
+\end{proof}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Pruebas de hipótesis}
+
+%? empieza en la pagina 156 del libro de lindgren
+
+Una hipótesis es una afirmación sobre algún aspecto desconocido.
+%
+Es tarea común en la estadística el decidir si alguna afirmación puede sostenerse a partir de la
+información proporcionada por un conjunto de observaciones. 
+%
+A partir de la aplicación masiva de pruebas neuropsicológicas a un grupo de adultos mayores uno 
+puede preguntarse, por ejemplo, si hombres y mujeres tienden a obtener puntajes diferentes en las
+pruebas, o si la edad de los participantes está correlacionada con su desempeño en tareas de 
+memoria.
+%
+En la tabla ... se muestran los datos sobre una simulación (artificial) de dicho escenario.
+
+Una herramienta de uso común para producir estas decisiones es la \textbf{pruebas de hipótesis},
+la cual consiste en dos afirmaciones complementarias, es decir, tales que exactamente una de ellas es verdadera; tales afirmaciones
+son referidas como \textit{hipótesis}, y deben elegirse de forma que sean equivalentes a la 
+decisión que se busca. 
+%
+Usualmente la primera de las hipótesis (hipótesis nula, $H_0$) representa la afirmación más general o que se cree verdadera por omisión, mientras que la segunda hipótesis (hipótesis alternativa, $H_A$) se tomará como verdadera si
+existe suficente información para rechazar la veracidad de la primera.
+%
+%La idea intuitiva detrás de las pruebas estadísticas es que una muestra de la población se comporta de manera similar a la población.
+%
+El enfoque de prueba de significancia es  tomar un estadístico $\est{\theta}$ y evaluarlo sobre los datos, posteriormente se analiza qué tan diferente es el valor obrevado del típico cuando la hipótesis nula es verdadera.
+
+Los estadísticos de prueba suele ser un estadístico construido para tener una distribución conocida salvo unos pocos parámetros fáciles de estimar.
+%
+La interpretación usual es que, si $H_0$ es verdadera entonces $\est{\theta}$ puede no tener el valor predicho debido a factores ajenos al fenómeno estudiado, en consecuencia se suele hablar de una región de rechazo en el espacio de estados (ver más adelante).
+%
+Bajo esta interpretación, un valor de $\widehat{\theta}$ dentro de la región de rechazo significa que los datos representan evidencia para rechazar $H_0$; un no-rechazo no significa precisamente que $H_0$ sea verdadera, sino que las observaciones no representan evidencia suficiente para rechazar $H_0$.
+
+\begin{definicion}
+En una prueba de hipótesis, rechazar $H_0$ cuando es verdadero es un \textbf{error del tipo I}. Así msimo, aceptar $H_0$ cuando es falsa es un \textbf{error del tipo II}.
+\end{definicion}
+
+La naturaleza e intepretación de los estadísticos de prueba suelen ser muy particulares de las situaciones bajo las cuales son definidos.
+%
+Una forma típica de normalizar los diferentes estadísticos es a través del $p$-valor, definido como la probabilidad de que ocurra un valor extremo del estadístico de prueba; 
+el $p$-valor suele interpretarse como la \textit{fuerza} de la evidencia contra $H_0$.
+
+\begin{definicion}
+Sea $\widehat{\theta}$ un estadístico de prueba. El \textbf{$\boldsymbol{p}$-valor} asociado al $\widehat{\theta}=\theta_0$ es la probabilidad $P\left(\widehat{\theta}\right>\theta_0)$
+\end{definicion}
+
+Una \textbf{prueba de sinificancia} se entiende como una pruebas de hipótesis para algunos $p$-valores predefinidos, usualmente 0.05, 0.01, 0.005, entre otros.
+%
+Un error común, pero muy extendido, es interpretar al $p$-valor como la probabilidad de obtener $H_0$.
+
+\begin{definicion}
+Dada una muestra poblacional y dos afirmaciones complementarias $H_0$ y $H_A$, una \textbf{prueba de hipótesis} es una regla de decisión que asigna a cada punto del espacio de estados una acción del conjunto Aceptar $H_0$, rechazar $H_A$, Rechazar $H_0$, aceptar $H_A$.
+
+Al conjunto del espacio muestral sonde se rechaza $H_0$ se le denomina \textbf{región crítica}. 
+\end{definicion}
+
+%Por comodidad, uno puede redefinir a la región crítica en términos del estimador $\widehat{\theta}$. 
+Una propiedad deseable para un estadístico de prueba es poder acotar los errores de tipo I y de tipo II; para ello, para alguna región crítica arbitraria $\mathcal{C}$ se define el \textbf{nivel de significancia} de la prueba como
+\begin{equation}
+\alpha := \sup_{\theta \in H_0} p(\mathcal{C} \lvert \theta)
+\end{equation}
+
+Ejemplo:
+Retomando los datos de la tabla ..., considérese la pregunta \textit{¿Los hombres y mujeres tienden
+a obtener puntajes diferentes en las pruebas neuropsicológicas?}. 
+%
+En este ejemplo se supone que los puntajes de los hombres en la prueba siguen una distribución normal con media $\mu_H$ y varianza 1, y similarmente para las mujeres con media $\mu_M$ y varianza 1.
+%
+Como hipótesis nula se elige la posibilidad de que en promedio ambos grupos (hombre y mujeres) obtengan el mismo puntaje en la prueba, es decir
+\begin{equation}
+H_0 : \mu_H = \mu_M
+\end{equation}
+y como hipótesis alternativa está la posibilidad de que los puntajes sean diferentes
+\begin{equation}
+H_A : \mu_H \neq \mu_M
+\end{equation}
+
+%\subsection{Clasificación de dos vías}
+%
+%Un \textbf{diseño aleatorio por bloques} es un muestreo aleatorio en varias categorías de sujetos 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Procesos estocásticos}
+
+\begin{definicion}
+Un \textbf{proceso estocástico} \xt es una colección de variables aleatorias indexadas en el conjunto $\mathcal{T}$
+\begin{equation}
+\{X(t)\}_{t\in \mathcal{T}} := \left\{ X(t) \lvert t\in \mathcal{T} \right\}
+\end{equation}
+La variable $t$ es referida como \textit{tiempo}, mientras que el conjunto $\mathcal{T}$ es referido como el \textit{conjunto de tiempos admisibles}
+\end{definicion}
+
+de $\left\{ t \in \R | {t} \cdot {\Delta_t} \in \Z \right\} $  para algún $\Delta_t$ 
+(\textbf{tiempo discreto}). 
+%
+Las \textit{componentes} de un proceso estocástico serán denotadas como:\\
+
+\begin{tabular}{cl}
+\xt    & Todo el proceso \\
+$X(t)$ & Una de las variable aleatoria que componen al proceso, en el tiempo $t$ \\
+$x(t)$ & Una realización de $X(t)$ \\
+$F_{X(t)}$ & FPA para $X(t)$ \\
+$ {\Delta_t}$ & Frecuencia de muestreo (en tiempo discreto)
+\end{tabular}\\
+
+La estacionariedad es un indicativo de la \textit{homogeneidad} de un proceso; un proceso 
+\textit{muy} estacionario sería aquél cuyas variable aleatoria que tiene distribuciones conjuntas que no cambian 
+con el tiempo. 
+%
+La definición \ref{est_fuerte} representa con exactitud tales requerimientos, pero se le considera 
+\textit{innecesariamente fuerte}; una definición común es \ref{est_m}.
+
+\begin{definicion}[Estacionariedad fuerte]
+Un proceso \xt se dice fuertemente estacionario si para cualesquiera 
+$t_1, t_2, \dots, t_n \in \mathcal{T}$ y cualquier $\tau$ tal que $t_i + \tau \in \mathcal{T}$,
+se cumple que
+\begin{equation*}
+F_{\left[ X(t_1), X(t_2), \dots, X(t_n) \right]} \equiv
+F_{\left[ X(t_1 + \tau), X(t_2 + \tau), \dots, X(t_n + \tau) \right]}
+\end{equation*}
+Donde $F_{[v_1,v_2,\dots,v_N]}$ es la FPA conjunta para el vector $[v_1,v_2,\dots,v_N]$
+\label{est_fuerte}
+\end{definicion}
+
+\begin{definicion}[Estacionariedad de orden $m$]
+Un proceso \xt se dice estacionario de orden $m$ si, para cualesquiera
+$t_1, t_2, \dots, t_n \in \mathcal{T}$ y cualquier $\tau$ tal que $t_i + \tau \in \mathcal{T}$,
+se cumple que
+\begin{equation*}
+\E{X^{m_1}(t_1)X^{m_2}(t_2)\cdots X^{m_n}(t_n)} =
+\E{X^{m_1}(t_1+\tau)X^{m_2}(t_2+\tau)\cdots X^{m_n}(t_n+\tau)}
+\end{equation*}
+para cualesquiera enteros $m_1, m_2, \dots, m_n$ tales que $m_1+m_2+\cdots+m_n \leq m$
+\label{est_m}
+\end{definicion}
+
+Cabe mencionar que la definición \ref{est_m} no es equivalente a la definición \ref{est_fuerte}, ni
+aún cuando $m\rightarrow \infty$; sin embargo permite asegurar que los \textit{momentos} 
+($\E{X^{k}}$ para algún $k$) del proceso sean invariantes en el tiempo, y éstos suelen encontrarse
+asociados a cantidades físicas.
+
+Como un ejemplo muy particular conviene destacar la energía, que suele ser asociada con el segundo
+momento (definición \ref{energia}). 
+%
+Dicha conexión motiva a escoger una definición de estacionariedad que permita analizar la energía 
+del proceso: la estacionariedad débil.
+
+\begin{definicion}[Estacionariedad débil]
+Un proceso \xt se dice débilmente estacionario si existen constantes $\mu, \sigma \in \R$ y una 
+función $R : T \rightarrow \R \cup \{ \pm \infty \} $ tales que, para cualesquiera $t, s \in T$ se 
+cumple
+\begin{itemize}
+\item $\E{X(t)} = \mu$
+\item $\Var{X(t)} = \sigma^{2}$
+\item $\Cov{X(t),X(s)} = R(s-t)$
+\end{itemize}
+\end{definicion}
+
+\begin{proposicion}
+Un proceso es débilmente estacionario si y sólo si es estacionario de orden 2
+\end{proposicion}
+
+Cabe destacar que la estacionariedad débil no sólo tiene como condición que todas las variables del
+proceso tengan la misma media y varianza, sino que también supone que éstas son finitas.
+%
+Sobre la función de covarianza $R$ (que en un único proceso es referida como \textit{autocovarianza}),
+no hay restricciones sobre los valores que pueda tomar, excepto que 
+$R(0) = \Var{X(\bullet)} < \infty$. 
+%
+En el marco del modelo de series electrofisiológicas, conviene suponer que los registros 
+corresponden a procesos a tiempo continuo que son continuos de alguna forma; se ha elegido la 
+continuidad en media cuadrática.
+
+%\begin{observacion}
+%Sea \xt un proceso débilmente estacionario y $T$ su función de autocovarianza. Si $R$ es continua
+%en 0 entonces es continua en todos lados
+%\end{observacion}
+
+\begin{definicion}[Continuidad estocástica en media cuadrática]
+Un proceso a tiempo continuo \xt es estocásticamente continuo, en el sentido de media cuadrática, 
+en un tiempo admisible $t_0$ si
+\begin{equation*}
+\lim_{t \rightarrow t_0} \E{\left( X(t) - X(t_0) \right)^{2}} = 0
+\end{equation*}
+\label{cont_est}
+\end{definicion}
+
+Una forma natural de pensar en la definición \ref{cont_est} es que si $\abso{t-t_0}$ es muy pequeño 
+entonces $X(t)$ y $X(t_0)$ difieren muy poco entre sí, como variables aleatorias.
+%
+Hablando de procesos débilmente estacionarios, la continuidad estocástica de un proceso es 
+equivalente a que su función de autocovarianza sea continua en 0.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

@@ -4,9 +4,10 @@ orden_stam = T
 
 # tamano de la ventana analizada, nombre raro para evitar confusiones
 dur.chunk   = c(15)
-quienes     = c(10,7,4,9)
+quienes     = rev(2:7)
+#quienes = 10
 
-zoom           = T
+zoom           = F
 unidad_par_t   = 'tiempo'
 
 ###############################################################################
@@ -23,12 +24,21 @@ dir_gral       = 'C:/Users/EQUIPO 1/Desktop/julio/TESIS/articulo_dfa'
 dir_info       = 'C:/Users/EQUIPO 1/Desktop/julio/TESIS/articulo_dfa'
 dir_scripts    = 'C:/Users/EQUIPO 1/Desktop/julio/TESIS/articulo_dfa/scripts'
 dir_registro   = 'C:/Users/EQUIPO 1/Desktop/julio/DATOS_corregido/'
-dir_resultados = 'C:/Users/EQUIPO 1/Desktop/julio/espectro_171113'
+dir_resultados = 'C:/Users/EQUIPO 1/Desktop/julio/espectro_171203'
 
 ###############################################################################
 # librerias
 require('beepr')
 require('readxl')
+
+# libreria que contiene la prueba de PSR
+require('psd')
+require('fractal')
+
+# libreria para correr en paralelo
+require('foreach')
+require('doParallel')
+require('parallel')
 
 # sub-rutinas que acortan el codigo
 source(paste0(dir_scripts,'/utileria.R'))

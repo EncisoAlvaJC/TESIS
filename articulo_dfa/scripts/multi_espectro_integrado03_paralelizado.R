@@ -7,20 +7,9 @@ filtrar     = F
 
 #################################################
 # parametros para el zoom
-zoom           = T
+zoom           = F
 unidad_par_t   = 'tiempo'
 ajuste_ini_hms = c(0,0,0)
-
-#################################################
-# libreria que contiene la prueba de PSR
-require('psd')
-require('fractal')
-
-#################################################
-# libreria para correr en paralelo
-require(foreach)
-require(doParallel)
-require(parallel)
 
 #################################################
 # parametros opcionales
@@ -123,8 +112,8 @@ if(zoom){
 
 #################################################
 # inicio del ciclo que recorre los canales
-#for(ch in (1:n_canales)){
-for(ch in (6:n_canales)){
+for(ch in rev(1:n_canales)){
+#for(ch in (6:n_canales)){
   
   # construye el nombre del archivo
   ch_actual   = canales[ch]
@@ -248,11 +237,12 @@ for(ch in (6:n_canales)){
     i_banda.S = sum(spp)*d.f
     
     VARR = var(tmp)
-    if(VARR>0.005){
-      i_dfa_r  = as.numeric(DFA(tmp.t))
-    }else{
-      i_dfa_r  = 0
-    }
+    #if(VARR>0.005){
+    #  i_dfa_r  = as.numeric(DFA(tmp.t))
+    #}else{
+    #  i_dfa_r  = 0
+    #}
+    i_dfa_r  = 0
 
     return(c(i,i_banda..,i_banda.d,i_banda.t,i_banda.a,i_banda.b,
       i_banda.g,i_banda._,i_banda.S,

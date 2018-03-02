@@ -58,12 +58,12 @@ canales.arch = kanales$Nombre_archivo
 # cargar los datos
 raw = read_excel(paste0(dir_res_pre,'/Source_vale2.xlsx'))
 
-Hurst.todo = matrix(0,ncol=9,nrow=90*n.canales)
+Hurst.todo = matrix(0,ncol=9,nrow=100*n.canales)
 colnames(Hurst.todo) = c('Participante','MOR_n','Epoca_n','Canal','Hurst','Estado',
                          'Neuropsi','Edad','MMSE')
 Hurst.todo = as.data.frame(Hurst.todo)
 
-for(i in 1:90){
+for(i in 1:100){
   step = n.canales*(i-1)
   channels = 1:n.canales
   Hurst.todo[step+channels,'Participante'] = raw$Sujeto[i]
@@ -81,7 +81,7 @@ for(i in 1:90){
 }
 
 Hurst.promedio = c()
-for(sujeto in 1:9){
+for(sujeto in 1:10){
   tmp       = Hurst.todo[grep(sujeto,Hurst.todo$Participante),]
   promedios = aggregate(tmp,by=list(tmp$Canal),mean)
   Hurst.promedio = rbind(Hurst.promedio,promedios)
@@ -228,9 +228,9 @@ correlaciones[,1] = kanales$Etiqueta
 colnames(correlaciones) = c('Canal','R_Spear','p','S')
 
 Hurst.todo$Participante    = factor(Hurst.todo$Participante,
-                                    labels=info$Nombre[1:9])
+                                    labels=info$Nombre[1:10])
 Hurst.promedio$Participante = factor(Hurst.promedio$Participante,
-                                    labels=info$Nombre[1:9])
+                                    labels=info$Nombre[1:10])
 
 # todas las observaciones
 # Hurst vs Neuropsi

@@ -24,14 +24,14 @@ unidad_par_t   = 'tiempo'
 dir_gral    = 'C:/Users/EQUIPO 1/Desktop/julio/TESIS/articulo_dfa'
 dir_info    = 'C:/Users/EQUIPO 1/Desktop/julio/TESIS/articulo_dfa'
 dir_scripts = 'C:/Users/EQUIPO 1/Desktop/julio/TESIS/articulo_dfa/scripts'
-dir_res_pre = 'C:/Users/EQUIPO 1/Desktop/julio/TESIS/articulo_dfa/espectro_171111'
-dir_graf    = 'C:/Users/EQUIPO 1/Desktop/julio/TESIS/articulo_dfa/espectro_excel_171112'
+dir_res_pre = 'C:/Users/EQUIPO 1/Desktop/julio/espectro_171124'
+dir_graf    = 'C:/Users/EQUIPO 1/Desktop/julio/TESIS/articulo_dfa/espectro_171129'
 
 ###############################################################################
 # librerias
 Sys.setenv(JAVA_HOME='C:\\Program Files\\Java\\jdk1.8.0_65')
 require(readxl)
-require(xlsx)
+#require(xlsx)
 
 require(ggplot2)
 
@@ -88,17 +88,20 @@ if(zoom){
 
 ###############################################################################
 # leer epocas
-epocas.mor    = read_excel(paste0(dir_info,'/info_tecnico.xlsx'),
-                           sheet='EpocasMOR')
-indice.epocas = epocas.mor[,etiqueta]
-indice.epocas = as.numeric(unlist(indice.epocas))
-epo0          = indice.epocas[1]-10
-indice.epocas = c(epo0+0:9,indice.epocas)
-
 factor.extra = 1
 if(fr_muestreo==200){
   factor.extra = 3
 }
+diez = 10*factor.extra
+
+epocas.mor    = read_excel(paste0(dir_info,'/info_tecnico.xlsx'),
+                           sheet='EpocasMOR')
+indice.epocas = epocas.mor[,etiqueta]
+indice.epocas = as.numeric(unlist(indice.epocas))
+indice.epocas = indice.epocas[!is.na(indice.epocas)]
+indice.epocas = sort(unique(indice.epocas))
+epo0          = indice.epocas[1]-diez
+indice.epocas = c(epo0-1+1:diez,indice.epocas)
 
 indice.chunk   = indice.epocas*30/factor.extra - s.ini #epoca->segundos
 indice.chunk   = indice.chunk/dur.chunk                #segundos->chunks
@@ -119,17 +122,17 @@ tag = rbind(c('Participante',etiqueta),
 gral           = matrix(ncol=5,nrow=length(indice.epocas))
 colnames(gral) = c('Etapa','[#]','Epoca [#]','Inicio [hhmmss]','Fin [hhmmss]')
 
-for(i in 1:10){
-  hhmmss1  = t2hms((indice.epocas[i]-1)*30/factor.extra)
-  hhmmss2  = corregir.hms(corregir.hms(hhmmss1+c(0,0,30/factor.extra)))
-  gral[i,] = c('NMOR',i,indice.epocas[i],hms2txt(hhmmss1),hms2txt(hhmmss2))
-}
+#for(i in 1:10){
+#  hhmmss1  = t2hms((indice.epocas[i]-1)*30/factor.extra)
+#  hhmmss2  = corregir.hms(corregir.hms(hhmmss1+c(0,0,30/factor.extra)))
+#  gral[i,] = c('NMOR',i,indice.epocas[i],hms2txt(hhmmss1),hms2txt(hhmmss2))
+#}
 
-for(i in 11:length(indice.epocas)){
-  hhmmss1  = t2hms((indice.epocas[i]-1)*30/factor.extra)
-  hhmmss2  = corregir.hms(hhmmss1+c(0,0,30/factor.extra))
-  gral[i,] = c('MOR',i-10,indice.epocas[i],hms2txt(hhmmss1),hms2txt(hhmmss2))
-}
+#for(i in 11:length(indice.epocas)){
+##  hhmmss1  = t2hms((indice.epocas[i]-1)*30/factor.extra)
+#  hhmmss2  = corregir.hms(hhmmss1+c(0,0,30/factor.extra))
+#  gral[i,] = c('MOR',i-10,indice.epocas[i],hms2txt(hhmmss1),hms2txt(hhmmss2))
+#}
 
 if(potencia.total){
   agregado = 'total'
@@ -246,12 +249,12 @@ for(banda.actual in 1:n.bandas){
   archivo.excel = paste0(nombre,'_',bandas$Nombre_archivo[banda.actual],
                          '_',agregado,'.xlsx')
   
-  write.xlsx(tag,file=archivo.excel,
-             row.names=FALSE,col.names=FALSE,
-             sheetName='General',append=FALSE,showNA=TRUE)
-  write.xlsx(gral,file=archivo.excel,
-             row.names=FALSE,col.names=TRUE,
-             sheetName='Epocas',append=TRUE,showNA=TRUE)
+#  write.xlsx(tag,file=archivo.excel,
+#             row.names=FALSE,col.names=FALSE,
+#             sheetName='General',append=FALSE,showNA=TRUE)
+#  write.xlsx(gral,file=archivo.excel,
+#             row.names=FALSE,col.names=TRUE,
+#             sheetName='Epocas',append=TRUE,showNA=TRUE)
   
   setwd(dir_graf)
   
@@ -281,9 +284,9 @@ for(banda.actual in 1:n.bandas){
     }
     tmp[,1:(30/factor.extra)+2] = 
       RES[,(((i-1)*30/factor.extra+1):(i*30/factor.extra))]
-    write.xlsx(tmp,file=archivo.excel,sheetName=paste('pre-MOR',toString(i)),
-               col.names=TRUE,row.names=TRUE,
-               append=TRUE)
+#    write.xlsx(tmp,file=archivo.excel,sheetName=paste('pre-MOR',toString(i)),
+#               col.names=TRUE,row.names=TRUE,
+#               append=TRUE)
   }
   for(i in 11:(length(indice.epocas))){
     tmp = matrix(0,nrow=n.canales,ncol=30/factor.extra+2)
@@ -295,9 +298,9 @@ for(banda.actual in 1:n.bandas){
     }
     tmp[,1:(30/factor.extra)+2] = 
       RES[,(((i-1)*30/factor.extra+1):(i*30/factor.extra))]
-    write.xlsx(tmp,file=archivo.excel,sheetName=paste('MOR',toString(i)),
-               col.names=TRUE,row.names=TRUE,
-               append=TRUE)
+#    write.xlsx(tmp,file=archivo.excel,sheetName=paste('MOR',toString(i)),
+#               col.names=TRUE,row.names=TRUE,
+#               append=TRUE)
   }
 }
 
@@ -308,12 +311,12 @@ for(banda.actual in 1:n.bandas){
   archivo.excel = paste0(nombre,'_VARIANZA',
                          '_',agregado,'.xlsx')
   
-  write.xlsx(tag,file=archivo.excel,
-             row.names=FALSE,col.names=FALSE,
-             sheetName='General',append=FALSE,showNA=TRUE)
-  write.xlsx(gral,file=archivo.excel,
-             row.names=FALSE,col.names=TRUE,
-             sheetName='Epocas',append=TRUE,showNA=TRUE)
+#  write.xlsx(tag,file=archivo.excel,
+#             row.names=FALSE,col.names=FALSE,
+#             sheetName='General',append=FALSE,showNA=TRUE)
+#  write.xlsx(gral,file=archivo.excel,
+#             row.names=FALSE,col.names=TRUE,
+#             sheetName='Epocas',append=TRUE,showNA=TRUE)
   
   #################################################
   # contenedores de los datos
@@ -366,9 +369,9 @@ for(banda.actual in 1:n.bandas){
     }
     tmp[,1:(30/factor.extra)+2] = 
       RES[,(((i-1)*30/factor.extra+1):(i*30/factor.extra))]
-    write.xlsx(tmp,file=archivo.excel,sheetName=paste('pre-MOR',toString(i)),
-               col.names=TRUE,row.names=TRUE,
-               append=TRUE)
+#    write.xlsx(tmp,file=archivo.excel,sheetName=paste('pre-MOR',toString(i)),
+#               col.names=TRUE,row.names=TRUE,
+#               append=TRUE)
   }
   for(i in 11:(length(indice.epocas))){
     tmp = matrix(0,nrow=n.canales,ncol=30/factor.extra+2)
@@ -380,9 +383,9 @@ for(banda.actual in 1:n.bandas){
     }
     tmp[,1:(30/factor.extra)+2] = 
       RES[,(((i-1)*30/factor.extra+1):(i*30/factor.extra))]
-    write.xlsx(tmp,file=archivo.excel,sheetName=paste('MOR',toString(i)),
-               col.names=TRUE,row.names=TRUE,
-               append=TRUE)
+#    write.xlsx(tmp,file=archivo.excel,sheetName=paste('MOR',toString(i)),
+#               col.names=TRUE,row.names=TRUE,
+#               append=TRUE)
   }
 }
 
@@ -419,40 +422,238 @@ jet.colors = colorRampPalette(c('#00007F','blue','#007FFF',
 
 RES.todo$Etapa  = factor(RES.todo$Etapa,labels=c('NMOR','MOR'))
 
-for(banda.actual in 1:n.bandas){
-  bnd       = bandas$Banda[banda.actual]
-  promedios = summarySE(RES.todo,measurevar=bnd,
-                        groupvars=c('Etapa','Canal'))
-  
-  ggplot(RES.todo,aes(x=Indice,y=Canal,fill=bnd)) + 
-    #scale_fill_distiller(palette='Spectral')+
-    #scale_fill_gradientn(colors=jet.colors(7)) +
-    scale_fill_gradient(low='white',high='black') +
-    labs(title=etiqueta,
-         subtitle=paste('Espectrograma |',bnd,'| Potencia',agregado))+
-    xlab(NULL)+ylab(NULL)+
-    geom_raster()+
-    theme_classic() +
-    facet_grid(.~Etapa) +
-    scale_x_continuous(expand=c(0,0))
-  ggsave(filename=paste0('plot_espectro_',nombre,'_',bnd,'.png'),
-         device='png',path=dir_graf)
-  
-  ggplot(promedios,aes(x=Canal,y=bnd,fill=Etapa)) +
-    labs(title=etiqueta,
-         subtitle=paste('Comparación banda',
-                        bandas$Banda[banda.actual]))+
-    theme_classic() +
-    geom_bar(stat='identity',position=position_dodge(),
-             color='black') +
-    geom_errorbar(aes(ymin=Delta-se,ymax=Delta+se),
-                  position=position_dodge(.9),width=.5) +
-    stat_compare_means(label='p.signif',method='wilcox.test',hide.ns=T)+
-    xlab(NULL) + ylab('Área bajo la curva') +
-    scale_y_continuous(expand = c(0, 0)) +
-    scale_fill_grey(start = 1, end = 0) +
-    #rotate_x_text(angle = 45)+
-    theme(legend.position='bottom')
-  ggsave(filename=paste0('plot_espectro_NR_',nombre,'_',bnd,'.png'),
-         device='png',path=dir_graf)
-}
+banda.actual = 1
+bnd       = bandas$Banda[banda.actual]
+promedios = summarySE(RES.todo,measurevar=bnd,
+                      groupvars=c('Etapa','Canal'))
+
+p = ggplot(RES.todo,aes(x=Indice,y=Canal,fill=Delta)) + 
+  #scale_fill_gradient(palette='Spectral')+
+  #scale_fill_gradientn(colors=jet.colors(7)) +
+  scale_fill_gradient(low='white',high='black') +
+  labs(title=etiqueta,
+       subtitle=paste('Espectrograma |',bnd,'| Potencia',agregado))+
+  xlab(NULL)+ylab(NULL)+
+  geom_raster()+
+  theme_classic() +
+  facet_grid(.~Etapa) +
+  scale_x_continuous(expand=c(0,0))
+print(p)
+ggsave(filename=paste0('plot_espectro_',nombre,'_',bnd,'.png'),
+       device='png',path=dir_graf)
+
+p = ggplot(promedios,aes(x=Canal,y=Delta,fill=Etapa)) +
+  labs(title=etiqueta,
+       subtitle=paste('Comparación banda',
+                      bandas$Banda[banda.actual]))+
+  theme_classic() +
+  geom_bar(stat='identity',position=position_dodge(),
+           color='black') +
+  geom_errorbar(aes(ymin=Delta-se,ymax=Delta+se),
+                position=position_dodge(.9),width=.5) +
+  stat_compare_means(label='p.signif',method='wilcox.test',hide.ns=T)+
+  xlab(NULL) + ylab('Área bajo la curva') +
+  scale_y_continuous(expand = c(0, 0)) +
+  scale_fill_grey(start = 1, end = 0) +
+  rotate_x_text(angle = 45)+
+  theme(legend.position='bottom')
+print(p)
+ggsave(filename=paste0('plot_espectro_NR_',nombre,'_',bnd,'.png'),
+       device='png',path=dir_graf)
+
+banda.actual = 2
+bnd       = bandas$Banda[banda.actual]
+promedios = summarySE(RES.todo,measurevar=bnd,
+                      groupvars=c('Etapa','Canal'))
+
+p = ggplot(RES.todo,aes(x=Indice,y=Canal,fill=Theta)) + 
+  #scale_fill_gradient(palette='Spectral')+
+  #scale_fill_gradientn(colors=jet.colors(7)) +
+  scale_fill_gradient(low='white',high='black') +
+  labs(title=etiqueta,
+       subtitle=paste('Espectrograma |',bnd,'| Potencia',agregado))+
+  xlab(NULL)+ylab(NULL)+
+  geom_raster()+
+  theme_classic() +
+  facet_grid(.~Etapa) +
+  scale_x_continuous(expand=c(0,0))
+print(p)
+ggsave(filename=paste0('plot_espectro_',nombre,'_',bnd,'.png'),
+       device='png',path=dir_graf)
+
+p = ggplot(promedios,aes(x=Canal,y=Theta,fill=Etapa)) +
+  labs(title=etiqueta,
+       subtitle=paste('Comparación banda',
+                      bandas$Banda[banda.actual]))+
+  theme_classic() +
+  geom_bar(stat='identity',position=position_dodge(),
+           color='black') +
+  geom_errorbar(aes(ymin=Theta-se,ymax=Theta+se),
+                position=position_dodge(.9),width=.5) +
+  stat_compare_means(label='p.signif',method='wilcox.test',hide.ns=T)+
+  xlab(NULL) + ylab('Área bajo la curva') +
+  scale_y_continuous(expand = c(0, 0)) +
+  scale_fill_grey(start = 1, end = 0) +
+  rotate_x_text(angle = 45)+
+  theme(legend.position='bottom')
+print(p)
+ggsave(filename=paste0('plot_espectro_NR_',nombre,'_',bnd,'.png'),
+       device='png',path=dir_graf)
+
+
+banda.actual = 3
+bnd       = bandas$Banda[banda.actual]
+promedios = summarySE(RES.todo,measurevar=bnd,
+                      groupvars=c('Etapa','Canal'))
+
+p = ggplot(RES.todo,aes(x=Indice,y=Canal,fill=Alfa)) + 
+  #scale_fill_gradient(palette='Spectral')+
+  #scale_fill_gradientn(colors=jet.colors(7)) +
+  scale_fill_gradient(low='white',high='black') +
+  labs(title=etiqueta,
+       subtitle=paste('Espectrograma |',bnd,'| Potencia',agregado))+
+  xlab(NULL)+ylab(NULL)+
+  geom_raster()+
+  theme_classic() +
+  facet_grid(.~Etapa) +
+  scale_x_continuous(expand=c(0,0))
+print(p)
+ggsave(filename=paste0('plot_espectro_',nombre,'_',bnd,'.png'),
+       device='png',path=dir_graf)
+
+p = ggplot(promedios,aes(x=Canal,y=Alfa,fill=Etapa)) +
+  labs(title=etiqueta,
+       subtitle=paste('Comparación banda',
+                      bandas$Banda[banda.actual]))+
+  theme_classic() +
+  geom_bar(stat='identity',position=position_dodge(),
+           color='black') +
+  geom_errorbar(aes(ymin=Alfa-se,ymax=Alfa+se),
+                position=position_dodge(.9),width=.5) +
+  stat_compare_means(label='p.signif',method='wilcox.test',hide.ns=T)+
+  xlab(NULL) + ylab('Área bajo la curva') +
+  scale_y_continuous(expand = c(0, 0)) +
+  scale_fill_grey(start = 1, end = 0) +
+  rotate_x_text(angle = 45)+
+  theme(legend.position='bottom')
+print(p)
+ggsave(filename=paste0('plot_espectro_NR_',nombre,'_',bnd,'.png'),
+       device='png',path=dir_graf)
+
+
+banda.actual = 4
+bnd       = bandas$Banda[banda.actual]
+promedios = summarySE(RES.todo,measurevar=bnd,
+                      groupvars=c('Etapa','Canal'))
+
+p = ggplot(RES.todo,aes(x=Indice,y=Canal,fill=Beta)) + 
+  #scale_fill_gradient(palette='Spectral')+
+  #scale_fill_gradientn(colors=jet.colors(7)) +
+  scale_fill_gradient(low='white',high='black') +
+  labs(title=etiqueta,
+       subtitle=paste('Espectrograma |',bnd,'| Potencia',agregado))+
+  xlab(NULL)+ylab(NULL)+
+  geom_raster()+
+  theme_classic() +
+  facet_grid(.~Etapa) +
+  scale_x_continuous(expand=c(0,0))
+print(p)
+ggsave(filename=paste0('plot_espectro_',nombre,'_',bnd,'.png'),
+       device='png',path=dir_graf)
+
+p = ggplot(promedios,aes(x=Canal,y=Beta,fill=Etapa)) +
+  labs(title=etiqueta,
+       subtitle=paste('Comparación banda',
+                      bandas$Banda[banda.actual]))+
+  theme_classic() +
+  geom_bar(stat='identity',position=position_dodge(),
+           color='black') +
+  geom_errorbar(aes(ymin=Beta-se,ymax=Beta+se),
+                position=position_dodge(.9),width=.5) +
+  stat_compare_means(label='p.signif',method='wilcox.test',hide.ns=T)+
+  xlab(NULL) + ylab('Área bajo la curva') +
+  scale_y_continuous(expand = c(0, 0)) +
+  scale_fill_grey(start = 1, end = 0) +
+  rotate_x_text(angle = 45)+
+  theme(legend.position='bottom')
+print(p)
+ggsave(filename=paste0('plot_espectro_NR_',nombre,'_',bnd,'.png'),
+       device='png',path=dir_graf)
+
+banda.actual = 5
+bnd       = bandas$Banda[banda.actual]
+promedios = summarySE(RES.todo,measurevar=bnd,
+                      groupvars=c('Etapa','Canal'))
+
+p = ggplot(RES.todo,aes(x=Indice,y=Canal,fill=Beta)) + 
+  #scale_fill_gradient(palette='Spectral')+
+  #scale_fill_gradientn(colors=jet.colors(7)) +
+  scale_fill_gradient(low='white',high='black') +
+  labs(title=etiqueta,
+       subtitle=paste('Espectrograma |',bnd,'| Potencia',agregado))+
+  xlab(NULL)+ylab(NULL)+
+  geom_raster()+
+  theme_classic() +
+  facet_grid(.~Etapa) +
+  scale_x_continuous(expand=c(0,0))
+print(p)
+ggsave(filename=paste0('plot_espectro_',nombre,'_',bnd,'.png'),
+       device='png',path=dir_graf)
+
+p = ggplot(promedios,aes(x=Canal,y=Gamma,fill=Etapa)) +
+  labs(title=etiqueta,
+       subtitle=paste('Comparación banda',
+                      bandas$Banda[banda.actual]))+
+  theme_classic() +
+  geom_bar(stat='identity',position=position_dodge(),
+           color='black') +
+  geom_errorbar(aes(ymin=Gamma-se,ymax=Gamma+se),
+                position=position_dodge(.9),width=.5) +
+  stat_compare_means(label='p.signif',method='wilcox.test',hide.ns=T)+
+  xlab(NULL) + ylab('Área bajo la curva') +
+  scale_y_continuous(expand = c(0, 0)) +
+  scale_fill_grey(start = 1, end = 0) +
+  rotate_x_text(angle = 45)+
+  theme(legend.position='bottom')
+print(p)
+ggsave(filename=paste0('plot_espectro_NR_',nombre,'_',bnd,'.png'),
+       device='png',path=dir_graf)
+
+
+bnd       = 'Varianza'
+promedios = summarySE(RES.todo,measurevar=bnd,
+                      groupvars=c('Etapa','Canal'))
+
+p = ggplot(RES.todo,aes(x=Indice,y=Canal,fill=Beta)) + 
+  #scale_fill_gradient(palette='Spectral')+
+  #scale_fill_gradientn(colors=jet.colors(7)) +
+  scale_fill_gradient(low='white',high='black') +
+  labs(title=etiqueta,
+       subtitle=paste('Espectrograma |',bnd,'| Potencia',agregado))+
+  xlab(NULL)+ylab(NULL)+
+  geom_raster()+
+  theme_classic() +
+  facet_grid(.~Etapa) +
+  scale_x_continuous(expand=c(0,0))
+print(p)
+ggsave(filename=paste0('plot_espectro_',nombre,'_',bnd,'.png'),
+       device='png',path=dir_graf)
+
+p = ggplot(promedios,aes(x=Canal,y=Varianza,fill=Etapa)) +
+  labs(title=etiqueta,
+       subtitle=paste('Comparación banda',
+                      bandas$Banda[banda.actual]))+
+  theme_classic() +
+  geom_bar(stat='identity',position=position_dodge(),
+           color='black') +
+  geom_errorbar(aes(ymin=Varianza-se,ymax=Varianza+se),
+                position=position_dodge(.9),width=.5) +
+  stat_compare_means(label='p.signif',method='wilcox.test',hide.ns=T)+
+  xlab(NULL) + ylab('Área bajo la curva') +
+  scale_y_continuous(expand = c(0, 0)) +
+  scale_fill_grey(start = 1, end = 0) +
+  rotate_x_text(angle = 45)+
+  theme(legend.position='bottom')
+print(p)
+ggsave(filename=paste0('plot_espectro_NR_',nombre,'_',bnd,'.png'),
+       device='png',path=dir_graf)
