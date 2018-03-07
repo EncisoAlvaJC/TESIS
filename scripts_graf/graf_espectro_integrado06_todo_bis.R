@@ -1,9 +1,9 @@
 ###############################################################################
 # directorio de trabajo
-dir_actual = 'C:/Users/EQUIPO 1/Desktop/julio/Tesis_en_Git/Tesis/scripts_graf'
-dir_graf   = 'C:/Users/EQUIPO 1/Desktop/julio/Tesis_en_Git/Tesis/scripts_graf_res'
-info_dir   = 'C:/Users/EQUIPO 1/Desktop/julio/Tesis_en_Git/Tesis/scripts_graf'
-dir_datos  = 'C:/Users/EQUIPO 1/Desktop/julio/Tesis_en_Git/espectro_integrado_171104'
+dir_actual = 'C:/Users/EQUIPO 1/Desktop/Tesis_bis/scripts_graf'
+dir_graf   = 'C:/Users/EQUIPO 1/Desktop/Tesis_bis/scripts_graf_res'
+info_dir   = 'C:/Users/EQUIPO 1/Desktop/Tesis_bis/scripts_graf'
+dir_datos  = 'C:/Users/EQUIPO 1/Desktop/julio/espectro_integrado_171104'
 
 ###############################################################################
 # librerias

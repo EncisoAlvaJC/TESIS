@@ -1,9 +1,9 @@
 ###############################################################################
 # directorio de trabajo
-dir_actual = 'C:/Users/EQUIPO 1/Desktop/julio/Tesis_en_Git/Tesis/scripts_graf'
-dir_graf   = 'C:/Users/EQUIPO 1/Desktop/julio/Tesis_en_Git/Tesis/scripts_graf_res'
-info_dir   = 'C:/Users/EQUIPO 1/Desktop/julio/Tesis_en_Git/Tesis/scripts_graf'
-dir_datos  = 'C:/Users/EQUIPO 1/Desktop/julio/Tesis_en_Git/estacionariedad_171118'
+dir_actual = 'C:/Users/EQUIPO 1/Desktop/Tesis_bis/scripts_graf'
+dir_graf   = 'C:/Users/EQUIPO 1/Desktop/Tesis_bis/scripts_graf_res'
+info_dir   = 'C:/Users/EQUIPO 1/Desktop/Tesis_bis/scripts_graf'
+dir_datos  = 'C:/Users/EQUIPO 1/Desktop/julio/estacionariedad_171118'
 
 ###############################################################################
 # parametros
@@ -141,7 +141,7 @@ for(expon in (-5):(2)){
   source('colorcitos_usable05_parte.R')
 }
 
-RES.collect$D_chunk = log2(RES.collect$D_chunk/30)
+#RES.collect$D_chunk = log2(RES.collect$D_chunk/30)
 
 RES.algo = RES.collect[is.element(RES.collect$Canal_var,
                                   c('P4','P3','PZ','LOG','ROG','EMG')),]
@@ -162,8 +162,7 @@ EST.graf = ggplot(RES.algo,aes(x=Indice,y=Canal_var,fill=(Estacionario))) +
   theme(legend.position='bottom') +
   labs(fill=NULL) +
   facet_grid(D_chunk~.)+
-  facet_grid(D_chunk~.,as.table = T,
-             labeller=label_bquote(rows=30%.%2^.(D_chunk)))+
+  facet_grid(D_chunk~.,as.table = T)+
   rotate_x_text(angle = 45)
 
 the.graf = ggarrange(SPEC.graf,EST.graf,MOR.graf,
