@@ -1,0 +1,22 @@
+> Pag inicio series tiempo
+> Acronimos -> glosario
+> Poner puntos
+> Tabla 1,2
+> completamente autocontenido
+> VA no
+> aprovechar la figura 2.2, ponerlemas cosas
+> ser mas explicito en que sirven las figuras
+> citar fuetes de matematicas
+> checar bibligrafia que no es citada
+> un eje
+> revisar consistencia del uso de palabras
+> desarrollar ejemplos explicitos
+> corregir 6.1
+
+
+> cambiar titulo 'posible'
+
+http://www.conapo.gob.mx/es/CONAPO/Proyecciones
+dehejia, r.h., y wahba, s. (1999). causal effects in nonexperimental studies: reevaluatingthe evaluation of training programs. journal of the american statisticalassociation.
+
+https://tex.stackexchange.com/questions/98660/two-bibliographies-one-for-main-text-and-one-for-appendix

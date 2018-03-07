@@ -2,7 +2,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\chapter{Medida y frecuencia}
+\chapter{Espectro de potencias}
 
 Existe una larga tradición para entender y modelar las señales electrofisiológicas en términos de 
 \textit{ondas y frecuencias}, ya que fundamentalmente son fenómenos eléctricos \cite{Kaiser00}.
@@ -12,10 +12,6 @@ dispersión (varianza) y se estudia cómo se distribuye en la base de Fourier.
 %
 En el entendido de que el espectro de potencias puede variar en el tiempo, la estacionariedad
 es equivalente a que el tal cambio no ocurra.
-
-%Como el espectro de potencias clásico está definido para funciones, conviene mencionar con las 
-%definiciones pertinentes sobre procesos estocásticos, y posteriormente deducir condiciones bajo las 
-%cuales se les puede definir un espectro de potencias.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -143,7 +139,7 @@ Sean $S,Z \in L^{2}_{[-T,T]}$, entonces se satisface que
 \section{Función de densidad espectral}
 
 La forma más natural de definir un espectro de potencias para un proceso estacionario es a través 
-de la tr. de Fourier de sus realizaciones. En general no se puede garantizar que una definición así \textit{funcione} ya que las realizaciones pueden ser señales que no son periódicas, 
+de la transformada de Fourier de sus realizaciones. En general no se puede garantizar que una definición así \textit{funcione} ya que las realizaciones pueden ser señales que no son periódicas, 
 cuadrado-integrable, continuas, etc.
 %
 Este problema será abordado al restringir los tiempos permitidos a un conjunto \textit{sin 
@@ -196,12 +192,6 @@ k(t) = \intR f(u) g(u-t) du
 \begin{proof}
 Nótese que
 \begin{align*}
-\abso{G_T(\omega)}^{2} &= 
-\intR e^{i \omega t} \left[ \frac{1}{2\pi} \intR X_T(u) X_T(u-\tau) du \right] d\tau \\
-&= 
-\frac{2 T}{2\pi } \intR e^{i \omega t} \widehat{R}(\tau) d\tau \\
-\end{align*}
-\begin{align*}
 \intR e^{i \omega t} k(t) dt &= \intR e^{i \omega t} \left[ k(t) = \intR f(u) g(u-t) du \right] dt \\
 &= \intR e^{-i \omega u} f(u) \left[ \intR e^{i \omega (u-t)} g(u-t) \right] du \\
 &= \intR e^{-i \omega u} f(u) \overline{G(\omega)} du \\
@@ -224,14 +214,115 @@ k(t) = \intR f(u) f(u-t) du
 \begin{teorema}
 Sea \xt un proceso continuo de media cero, débilmente estacionario, y que admite una función de densidad espectral $h$, sea $R$ su función de autocovarianza. Entonces
 \begin{equation}
-h(\omega) = \frac{1}{2\pi} \intR e^{i \omega \tau} d\tau
+h(\omega) = \frac{1}{2\pi} \intR e^{i \omega \tau} R(\tau) d\tau
 \end{equation}
+\label{teo:corr_four}
 \end{teorema}
+\begin{proof}
+Usando que $h = \lim_{T\rightarrow\infty} G_T$, nótese que
+\begin{align*}
+\abso{G_T(\omega)}^{2} &= 
+\intR e^{i \omega t} \left[ \left(\frac{1}{\sqrt{2\pi}} \right)^{2} \intR X_T(u) X_T(u-\tau) du \right] d\tau \\
+&=
+\frac{1}{2\pi} \intR e^{i \omega t} \left[ \intR X_T(u) X_T(u-\tau) du \right] d\tau \\
+\end{align*}
+Esta integral puede verse como la transformada de Fourier de la función de autocorrelación de la serie truncada, $\widehat{R}_T$
+\begin{align*}
+\widehat{R}_T (\tau) &= \frac{1}{2T} \intR X_T(u) X_T(u-\tau) du \\
+&= \begin{cases}
+\frac{1}{2T} \int_{-T+\abso{\tau}}^{T} X(u) X(u-\abso{\tau}) du &, \abso{\tau} \leq T \\
+0 &, \text{otro caso}
+\end{cases}
+\end{align*}
+Así entonces
+\begin{align*}
+h(\omega) &=
+\lim_{T\rightarrow \infty} \E{\frac{1}{2T} \abso{G_T(\omega)}^{2}} \\
+&=
+\lim_{T\rightarrow \infty}
+\E{\frac{2T}{2\pi} \intR e^{i \omega t} \widehat{R}_T(\tau) d\tau }\\
+&=
+\frac{1}{2\pi}
+\lim_{T\rightarrow \infty}
+2T \intR e^{i \omega t} \E{\widehat{R}_T(\tau)} d\tau\\
+\end{align*}
+Para esto, si $\abso{\tau} \leq 2T$
+\begin{align*}
+\E{\widehat{R}_T(\tau)} &=
+\E{\frac{1}{2T} \intR X_T(u) X_T(u-\tau) du} \\
+&=
+\E{ \frac{1}{2T} \int_{-T+\abso{\tau}}^{T} X(u) X(u-\tau) du } \\
+&=
+\frac{1}{2T} \int_{-T+\abso{\tau}}^{T} \E{X(u) X(u-\tau)} du \\
+&=
+\frac{1}{2T} \int_{-T+\abso{\tau}}^{T} R(\tau) du \\
+&=
+\frac{1}{2T} \left( 1 - \frac{\abso{\tau}}{2T} \right) R(\tau)
+\end{align*}
+pero si $\abso{\tau}>2T$ entonces $\widehat{R}_T = 0$. Luego entonces
+\begin{align*}
+h(\omega) &=
+\frac{1}{2\pi} \lim_{T\rightarrow \infty}
+\int_{-T}^{T} e^{i \omega t} \left( 1 - \frac{\abso{\tau}}{2T} \right) R(\tau) d\tau\\
+&=
+\frac{1}{2\pi} \lim_{T\rightarrow \infty}
+\intR e^{i \omega t} g_T(t) R(\tau) d\tau
+\end{align*}
+con
+\begin{equation}
+g_T = \begin{cases}
+1 - \nicefrac{\abso{\tau}}{2T} &, \abso{\tau} \leq 2T \\
+0 &, \text{otro caso}
+\end{cases}
+\end{equation}
 
+Para establecer el límite anterior nótese que para cualesquiera $\tau, T$ se cumple que $0\leq g_\tau \leq 1$, entonces
+\begin{align*}
+\intR e^{i \omega t} g_T(t) R(\tau) d\tau
+&\leq
+\abso{\intR e^{i \omega t} g_T(t) R(\tau) d\tau } \\
+&\leq
+\intR \abso{g_T(\tau)} \abso{ R(\tau)} d\tau \\
+&\leq
+\intR \abso{ R(\tau)} d\tau 
+\end{align*}
 
-\begin{teorema}[Wiener-Khinchin]
+%Suponiendo que $\intR \abso{ R(\tau)} d\tau < \infty$. 
+Para cada $\omega$, el módulo de $\int_{-T}^{T} e^{i \omega t} g_\tau(t) R(\tau) d\tau$ es monótonamente creciente y acotado, luego entonces, por el teorema de convergencia dominada de Lebesgue, se tiene que
+\begin{align*}
+h(\omega) &=
+\frac{1}{2\pi} \lim_{T\rightarrow \infty}
+\intR e^{i \omega t} g_T(t) R(\tau) d\tau\\
+&=
+\frac{1}{2\pi} 
+\intR e^{i \omega t} \left[ \lim_{T\rightarrow \infty} g_T(t) \right] R(\tau) d\tau\\
+&=
+\frac{1}{2\pi} 
+\intR e^{i \omega t} R(\tau) d\tau\\
+\end{align*}
+\end{proof}
+
+Es posible definir una \textbf{función de espectro integrado}, $H$, como
+\begin{equation}
+H(\omega_2) - H(\omega_1) = \frac{1}{2 \pi} \int_{\omega_1}^{\omega_2} h(\omega) d\omega =
+\frac{1}{2\pi} \intR \frac{e^{i \omega_2 \tau}-e^{i \omega_1 \tau}}{i \tau} R(\tau) d\tau
+\end{equation}
+
+Usando que $h$ es una función simétrica tal que $\intR h(\omega) d\omega = \sigma_X^{2}$, entonces puede escribirse
+\begin{equation}
+H(\omega) = \frac{\sigma_X^{2}}{2} + \frac{1}{2 \pi} \intR \frac{e^{i \omega_1 \tau}-1}{i \tau} R(\tau) d\tau = \frac{\sigma_X^{2}}{2} + \frac{1}{2 \pi} \intR \frac{\SEN{\omega \tau}}{\tau} R(\tau) d\tau
+\end{equation}
+
+Conviene remarcar que el teorema \ref{teo:corr_four} sólo aplica si el proceso admite una función de densidad espectral, y en consecuencia no es claro si el espectro integrado queda bien definido para procesos que no admiten una densidad espectral. 
+%
+Por ejemplo, considérese el proceso $P$ definido como 
+%$$ P(t) = \int_{t-\nicefrac{1}{2}}^{t+\nicefrac{1}{2}} \overline{\varepsilon} $$
+
+El siguiente teorema permite establecer condiciones generales para las cuales se puede definir un espectro de potencias para un proceso estacionario.
+
+\begin{teorema}[Wiener-Khintchine]
 Una condición suficiente y necesaria para que $\rho$ sea una función de autocorrelación de 
-algún proceso estocástico a tiempo continuo $\{X(t)\}$ débilmente estacionario y 
+algún proceso estocástico a tiempo continuo \xt débilmente estacionario y 
 estocásticamente continuo, es que exista una función $F$ que tenga las siguientes propiedades
 \begin{itemize}
 \item Monótonamente creciente
@@ -242,24 +333,28 @@ y tal que para todo $\tau \in \R$ se cumple que
 \begin{equation*}
 \rho(\tau) = \intR e^{i \omega \tau} dF(\omega)
 \end{equation*}
+Como notación, el factor $dF$ será referido como la \textbf{función de espectro integrado normalizado} para el proceso.
 \label{t_wienerkhinchin}
 \end{teorema}
 
-\begin{teorema}[Wold]
-Una condición suficiente y necesaria para que $\rho$ sea una función de autocorrelación de 
-algún proceso estocástico a tiempo discreto $\{X(t)\}$ débilmente estacionario es que exista 
-una función $F$ con las siguientes propiedades
-\begin{itemize}
-\item Monótonamente creciente
-\item $F(-\pi) = 0$
-\item $F(+\pi) = 1$
-\end{itemize}
-y tal que para todo $\tau \in \R$ se cumple que
-\begin{equation*}
-\rho(\tau) = \intPI e^{i \omega \tau} dF(\omega)
-\end{equation*}
-\label{t_wold}
-\end{teorema}
+Una vez definido y probada la existencia de la función de espectro integrado normalizado $dF$, se define la \textbf{función de espectro integrado} $dH$ (sin el adjetivo \textit{normalizado}) como
+$dH := \sigma_X^{2} dF$.
+
+%\begin{teorema}[Wold]
+%Una condición suficiente y necesaria para que $\rho$ sea una función de autocorrelación de 
+%algún proceso estocástico a tiempo discreto $\{X(t)\}$ débilmente estacionario es que exista 
+%una función $F$ con las siguientes propiedades
+%\begin{itemize}
+%\item Monótonamente creciente
+%\item $F(-\pi) = 0$
+%\item $F(+\pi) = 1$
+%\end{itemize}
+%y tal que para todo $\tau \in \R$ se cumple que
+%\begin{equation*}
+%\rho(\tau) = \intPI e^{i \omega \tau} dF(\omega)
+%\end{equation*}
+%\label{t_wold}
+%\end{teorema}
 
 \begin{teorema}
 Sea \xt un proceso a tiempo continuo, débilmente estacionario, de media 0 y estocásticamente 
@@ -288,14 +383,15 @@ tal representación es referida como \textbf{representación de Wold-Cramér}.
 
 \subsection{Efecto \textit{alias}}
 
-Merecen especial atención los procesos a tiempo discreto que son generados al registrar 
-digitalmente procesos a tiempo continuo, procedimiento referido como \textit{muestreo}.
+Merecen especial atención los procesos a tiempo discreto que son generados como subcolección de un proceso a tiempo discreto. Dicho  al tomar un conjunto discreto de puntos en el tiempo, procedimiento referido como \textit{muestreo}\footnote{Esta terminología entra en conflicto con el procedimiento de muestreo en estadística. En lo próximo se usará la palabra \textit{muestra} para referirse a estadistica y se evitará en cuanto a discretización, pero se conservará el término \textit{frecuencia de muestreo}}.
 %
-Dicho procedimiento está limitado por la velocidad con que se pueden registrar mediciones, así 
-como por la capacidad para almacenar los datos obtenidos; tales limitaciones deben tomarse en 
-cuenta dentro del diseño experimental para el fenómeno que se estudia, pero no se discutirán aquí.
+%Dicho procedimiento está limitado por la velocidad con que se pueden registrar mediciones, así 
+%como por la capacidad para almacenar los datos obtenidos; tales limitaciones deben tomarse en 
+%cuenta dentro del diseño experimental para el fenómeno que se estudia, pero no se discutirán aquí.
+%
+El objetivo de las siguientes observaciones es describir el efecto de un cambio en la frecuencia de muestreo sobre el espectro deducido a partir de los registros.
 
-Sobre el efecto del muestreo, considérese un proceso a tiempo continuo y débilmente estacionario, 
+Considérese un proceso a tiempo continuo y débilmente estacionario, 
 \xt, y sea $\Delta_t \in \R$ arbitrario.
 %
 Se construye al proceso $\{Y(n)\}_{n\in \mathbb{N}}$ como
@@ -391,33 +487,36 @@ Se concluye que si ambos procesos tengan FDE bien definidas, se cumple que
 h_Y(\omega) = \abso{\Gamma(\omega)}^{2} h_X(\omega)
 \end{equation}
 %
-lo cual se esperaba heurísticamente como generalización de la relación entre convolución y tr. de
+lo cual se esperaba heurísticamente como generalización de la relación entre convolución y transformada de
 Fourier.
 
 Como notación la función $g$ será referida como \textbf{función de respuesta}, mientras que 
 $\Gamma$ es la \textbf{función de transferencia}. 
 %
-Estos nombre nacen de la interpretación de $Y$ como el resultado de \textit{pasar} a $X$ a través 
-de un circuito RC:
-si $X$ no fuera un un \textit{pulso} unitario de longitud infinitesimal entonces $Y$ sería $g$,
-y si $X$ fuera una función periódica entonces $Y$ sería un pulso unitario.
+Estos nombres se deben a motivos históricos que no serán discutidos en este texto.
 
-Conviene destacar que el papel de los filtros se ve incrementando en dos casos particulares:
-\begin{itemize}
-\item En la interpretación como circuito RC, si $\Gamma$ fuera 1 sobre un intervalo de frecuencias
-y 0 en otro caso entonces puede decirse que el sistema \textit{filtra} dichas frecuencias.
-%
-Estos objetos son físicamente posibles de manera aproximada, y son de uso común 
-en el procesamiento de señales para eliminar algunos artefactos
-\item Considérese una versión más general de $Y$ como
-\begin{equation}
-Y(t) = \intR X(t-u) dG(u)
-\end{equation}
-con $G$ absolutamente continua. Entonces es posible generalizar la teoría de filtros para incluir
-al operador de retraso, definido como $B_{\Delta_t}[Y](t) = Y(t-\Delta_t)$, y con ello se pueden
-establecer equivalencias con los métodos basados en modelos tipo ARIMA
-\end{itemize}
-Por simplicidad, ninguno de estos enfoques será explorado en el presente trabajo.
+%%
+%Estos nombre nacen de la interpretación de $Y$ como el resultado de \textit{pasar} a $X$ a través 
+%de un circuito RC:
+%si $X$ no fuera un un \textit{pulso} unitario de longitud infinitesimal entonces $Y$ sería $g$,
+%y si $X$ fuera una función periódica entonces $Y$ sería un pulso unitario.
+
+%Conviene destacar que el papel de los filtros se ve incrementando en dos casos particulares:
+%\begin{itemize}
+%\item En la interpretación como circuito RC, si $\Gamma$ fuera 1 sobre un intervalo de frecuencias
+%y 0 en otro caso entonces puede decirse que el sistema \textit{filtra} dichas frecuencias.
+%%
+%Estos objetos son físicamente posibles de manera aproximada, y son de uso común 
+%en el procesamiento de señales para eliminar algunos artefactos
+%\item Considérese una versión más general de $Y$ como
+%\begin{equation}
+%Y(t) = \intR X(t-u) dG(u)
+%\end{equation}
+%con $G$ absolutamente continua. Entonces es posible generalizar la teoría de filtros para incluir
+%al operador de retraso, definido como $B_{\Delta_t}[Y](t) = Y(t-\Delta_t)$, y con ello se pueden
+%establecer equivalencias con los métodos basados en modelos tipo ARIMA
+%\end{itemize}
+%Por simplicidad, ninguno de estos enfoques será explorado en el presente trabajo.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

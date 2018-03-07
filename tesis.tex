@@ -1,8 +1,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\documentclass[12pt,letterpaper,draft]{book}
-%\documentclass[12pt,letterpaper]{book}
+%\documentclass[12pt,letterpaper,draft]{book}
+\documentclass[12pt,letterpaper]{book}
 \usepackage[utf8]{inputenc}
 \usepackage[spanish]{babel}
 
@@ -68,13 +68,14 @@
 \usepackage{float}
 
 % para que el indice tenga hipervinculos
-\usepackage[pdftex,
-            pdfauthor={Enciso Alva Julio Cesar},
-            pdftitle={Tesis: Estacionariedad en PSG de AM como macador de PDC},
-            pdfsubject={Matemáticas Aplicadas},
-            %pdfkeywords={PALABRAS CLAVE},
-            pdfproducer={Latex en Linux},
-            pdfcreator={pdflatex}]{hyperref}
+%\usepackage[pdftex,
+%            pdfauthor={Enciso Alva Julio Cesar},
+%            pdftitle={Tesis: Estacionariedad en PSG de AM como marcador de PDC},
+%            pdfsubject={Matemáticas Aplicadas},
+%            %pdfkeywords={PALABRAS CLAVE},
+%            pdfproducer={Latex en Linux},
+%            pdfcreator={pdflatex}]{hyperref}
+\usepackage[backref]{hyperref}
 
 % para que la bibliografia aparezca en el indice
 \usepackage[nottoc]{tocbibind}
@@ -505,7 +506,7 @@ Alejandro; por hacer la vida más llevadera.
 
 \begin{center}\textit{
 ``Creo que el conocimiento científico tiene \\
-propiedades fractales: que por mucho que aprendamos,  \\
+propiedades fractales; que por mucho que aprendamos,  \\
 lo que queda, por pequeño que parezca,  \\
 es tan infinitamente complejo como el todo \\ 
 por el que empezamos. \\
@@ -513,7 +514,7 @@ Ese, creo yo, es el secreto del universo."}
 \vspace{1em}
 \end{center}
 \begin{flushright}
-\textsc{Isaac Asimov (1920--1992)}
+\textsc{Isaac Asimov \cite{Asimov}}
 \end{flushright}
 
 \begin{figure*}
@@ -530,7 +531,7 @@ Ese, creo yo, es el secreto del universo."}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\input{./texto/intro_v3.tex}
+\input{./texto/intro_v2.tex}
 
 \input{./texto/preliminares.tex}
 

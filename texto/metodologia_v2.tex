@@ -2,9 +2,9 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\chapter{Metodología}
+\chapter{Metodología y resultados}
 
-\section{Participantes}
+\section{Características de los participantes}
 
 Los sujetos fueron elegidos usando un muestreo \textit{no probabilístico por conveniencia} bajo los 
 siguientes criterios de inclusión:
@@ -120,7 +120,7 @@ Nula
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Registro del polisomnograma}
+\subsection{Registro del polisomnograma}
 
 Para llevar a cabo el registro, los adultos mayores participantes fueron invitados a acudir a las 
 instalaciones del Laboratorio de Sueño, Emoción y Cognición, ubicado dentro del Instituto de Ciencias 
@@ -207,169 +207,88 @@ de sueño como MOR o NMOR. Dicha clasificación fue llevada a cabo por expertos 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Aplicación de la prueba de Priestley-Subba Rao}
+\section{Análisis de las características de los participantes}
 
-Se fragmentaron los registros en ventanas de 30 segundos de duración, sin traslape. Cada una de 
-estas ventanas fue sometida a la prueba de PSR, y se clasificó como \textit{estacionaria en el 
-sentido de PSR} si fue posible rechazar ($p<0.05$) la hipótesis de no-estacionariedad. 
+Previo al análisis de la estacionariedad, se corroboró la hipótesis de que las variables 
+independientes son estadísticamente iguales entre los grupos CTL y PDC. Las comparaciones
+usando la prueba $t$ de Welch (cuadro \ref{var_ind}) indican que efectivamente la hipótesis se cumple salvo
+para los puntajes de Neuropsi.
+
+Se evalúo si pudieran existir relaciones entre las variables que se presumen independientes.
+Usando la prueba de correlación de Spearman (cuadro \ref{cor_ind}) se encontró sólo hay 
+correlaciones monotónicas entre los siguientes pares de variables:
+\begin{itemize}
+\item Edad y Escolaridad
+\item Puntaje en Neuropsi y Puntaje en Mini Mental-State Examination (MMSE)
+\item Tiempo de MOR (en segundos) y Tiempo en MOR (porcentaje)
+\end{itemize}
+
+La primera relación, no muy fuerte, puede explicarse como un \textit{efecto generacional}: la educación 
+superior ha aumentado su cobertura durante las últimas décadas, y entonces los grupos poblacionales 
+más jóvenes tienen en promedio más años de escolaridad. 
 %
-Los resultados obtenidos (una lista de las épocas que son estacionarias) se guardaron en archivos 
-de texto para su posterior análisis. 
+Algunos autores han sugerido que un bajo nivel de escolaridad es un factor de riesgo para padecer
+deterioro cognitivo, en base a estudios horizontales de larga escala \cite{Mejia_Arango2007}.
 %
-Debido a la gran variabilidad entre el tiempo que los participantes pasaron en sueño MOR, se decidió
-basar las comparaciones en proporciones de épocas; por ejemplo, se calculó la proporción de
-épocas MOR que son estacionarias para todos los participantes.
+En el presente trabajo se ignora este dato, en vista de que no se pudieron relacionar el nivel de 
+escolaridad de los participantes con su desempeño en pruebas neuropsicológicas.
 
-\begin{figure}
+La relación entre los puntajes en Neuropsi y en MMSE era de esperarse, ya que ambas pruebas miden
+parámetros similares y tienen contenidos independientes. Cabe mencionar el curioso fenómeno en que (1) 
+los puntajes de MMSE
+tienen estadísticamente las mismas medias grupales, (2) los puntajes de MMSE están 
+fuertemente correlacionados con los puntajes de Neuropsi, y (3) los puntajes de Neuropsi
+tienen estadísticamente medias grupales diferentes. Se confirma que la prueba MMSE
+tiene menor sensibilidad que la prueba Neuropsi para detectar deterioro cognitivo.
+
+Era por demás obvia la relación entre la cantidad total de sueño MOR, con su proporción respecto a 
+todo el sueño. Sin embargo, conviene mencionar que la cantidad de sueño MOR no es afectada por
+ninguna de las otras variables independientes; luego entonces las cantidades que fueron estudiadas
+(estacionariedad, espectro de potencias) no tienen correlaciones sesgadas con las demás variables.
+
+\begin{table}
 \centering
-\begin{lstlisting}[caption={}]
-Priestley-Subba Rao stationarity Test for datos
------------------------------------------------
-Samples used              : 3072 
-Samples available         : 3069 
-Sampling interval         : 1 
-SDF estimator             : Multitaper 
-  Number of (sine) tapers : 5 
-  Centered                : TRUE 
-  Recentered              : FALSE 
-Number of blocks          : 11 
-Block size                : 279 
-Number of blocks          : 11 
-p-value for T             : 0.4130131 
-p-value for I+R           : 0.1787949 
-p-value for T+I+R         : 0.1801353 
-\end{lstlisting}
-\caption[Resultado típico para la función \texttt{stationarity}]
-{Resultado típico para la función \texttt{stationarity}. La función de densidad espectral es
-referida como SDF, mientras que los p valores. El p-valor para \texttt{T+I+R} corresponde al 
-estadístico $S_{I+R}$, y el p-valor para \texttt{T} corresponde $S_T$
-}
-\label{res_psr}
-\end{figure}
+\caption{Variables independientes entre grupos}
+\begin{tabular}{lrlcrlcccc}
+\toprule
+ & \multicolumn{2}{l}{Grupo CTL} & \phantom{.} & \multicolumn{2}{l}{Grupo PDC} 
+ & \phantom{.} & \multicolumn{3}{l}{t de Welch}
+ \\
+\cmidrule{2-3} \cmidrule{5-6} \cmidrule{8-10}
+& Media & (DE) & & Media & (DE) & & $p$ & $t$ & $\nu$ \\
+\midrule
+Edad              &  68.2   & (7.2)     & &    67.6 & (3.4)     & & 0.8746 & 0.16 & 6.11 \\
+Escolaridad       &   9.2   & (2.7)     & &     8.4 & (2.2)     & & 0.6201 & 0.52 & 7.69 \\
+Neuropsi          & 108.9   & (5.2)     & &    87.8 & (5.6)     & & \bf 0.0003 & 6.17 & 7.94 \\
+MMSE              &  29.4   & (0.9)     & &    27.4 & (1.4)     & & 0.0706 & 0.16 & 6.11 \\
+Sueño [s]         & 7:51:30 & (0:57:36) & & 7:16:48 & (2:24:43) & & 0.6836 & 0.50 & 5.24 \\
+MOR [s]           & 0:52:06 & (0:23:00) & & 0:34:18 & (0:22:14) & & 0.2486 & 1.24 & 7.99 \\
+MOR [\%]          &  11.3   & (5.1)     & &     8.4 & (4.8)     & & 0.3871 & 0.91 & 7.96 \\
+\bottomrule 
+\multicolumn{5}{l}{DE=Desviación Estándar}
+\end{tabular} 
+\label{var_ind}
+\end{table}
 
-Como análisis exploratorio se graficaron en el tiempo las épocas, en todos los canales, como se 
-muestra en la figura \ref{patroncito}. Este tipo de gráficos \textit{revelan} cierto tipo de 
-\textit{bloques} de épocas estacionarias o no-estacionarias. Heurísticamente se puede afirmar que 
-éstos patrones son independientes de la prueba de PSR, y anteriormente se reportó que estos patrones
-suelen coincidir con la aparición de sueño MOR. Más adelante se ofrece una discusión al 
-respecto.
-
-\begin{figure}
+\begin{table}
 \centering
-\includegraphics[width=.9\textwidth]
-{./img_art_dfa/zoom_noVCR_v2.png} \\
-\includegraphics[width=.9\textwidth]
-{./img_art_dfa/zoom_siVCR_v2.png}
-\caption[Ubicación de épocas estacionarias en el tiempo y patrones emergentes]
-{Ubicación de épocas estacionarias en el tiempo y patrones emergentes. \textbf{Arriba:} 
-Ubicación de épocas estacionarias en el tiempo.
-\textbf{Abajo:} Patrón de bloques relacionado con el sueño MOR}
-\label{patroncito}
-\end{figure}
-
-En otro ámbito, se replicó la metodología usada por McEwen \cite{McEwen75} para contrastar la 
-afirmación de que las series de tiempo \textit{suficiente cortas} son estacionarias. 
-%
-Este procedimiento consistió en repetir la clasificación de épocas variando el tamaño de ventana; 
-los tamaños de ventana se tomaron de la forma $30 \times 2^{n}$ segundos, para comparar con el 
-tamaño de época recomendado por la AASM.
-
-Usando la clasificación de épocas estacionarias, obtenida para diferentes tamaños de ventana, se 
-construyeron más gráficos sobre la ubicación de épocas estacionarias en el tiempo. Estos nuevos
-gráficos, como el de la figura \ref{comp_VCR}, refuerzan heurísticamente la hipótesis de que los 
-patrones son significativos fisiológicamente. 
-
-En base a resultados previos usando esta técnica, se espera que el comportamiento de los patrones 
-visuales obedezca al fenómeno de \textbf{estacionariedad local}; esta característica, descrita por 
-Dahlhaus \cite{Dahlhaus97}, implica que un proceso puede ser aproximado a trozos 
-\textit{ensamblando} procesos estacionarios.
-%
-Esta caracterización del EEG ha sido usada anteriormente de manera fructífera pero problemática
-\cite{Barlow85,Kaplan99}.
-%
-Dentro del modelo para registros de PSG, la estacionariedad local significa que el PSG no es
-formalmente homogéneo \textit{pero} puede entenderse como varios segmentos homógeneos. En un
-sentido más general, es coherente pensar que el PSG se componga tanto de segmentos homógeneos
-como de \textit{eventos puntuales} y artefactos.
-
-En la figura \ref{epocas_diferentes} se muestra esquemáticamente cómo el tamaño
-de las ventanas puede influir para su clasificación como estacionarias/homogéneas.
-
-Entonces, se propone que los registros de PSG se comportan como procesos localmente estacionarios; 
-más aún, se propone que esta característica cambia cualitativamente en adultos mayores con PDC,
-para los cuales el \textit{nivel de homogeneidad} del PSG es muy similar durante MOR y NMOR.
-
-\begin{figure}
-\centering
-\includegraphics[width=.9\linewidth]{./img_resultados/cabeza_VCR.pdf}
-\caption{Cambio en el porcentaje de épocas estacionarias conforme el tamaño de ventana}
-\label{cabeza_repoio}
-\end{figure}
-
-\begin{figure}
-\centering
-\includegraphics[width=\linewidth]{./img_diagramas/epocas_diferentes_v3.pdf}
-\caption{Efecto del tamaño de ventana sobre la clasificación de estacionariedad.}
-\label{epocas_diferentes}
-\end{figure}
-
-\begin{figure}
-\centering
-\includegraphics[width=\linewidth]
-{./img_art_dfa/VCNNS1_comp_est_.png}
-\caption{Distribución en el tiempo de ventanas estacionarias, usando diferentes tamaños
-de ventana.}
-\label{comp_VCR}
-\end{figure}
-
-Cabe destacar que la aplicación \textit{per se} de la prueba fue efectuada usando el software 
-estadístico R \cite{R_citar}. En particular, se utilizó la implementación 
-incluida en el paquete \texttt{fractal} \cite{R_fractal} bajo la función \texttt{stationarity}.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{Espectro de potencias}
-
-Adicionalmente a la clasificación de épocas como estacionarias, se calculó su espectro de potencia. 
-Como una metodología común, se calculó el \textbf{espectro de banda ancha},
-es decir, la potencia total y relativa correspondientes a las frecuencias que caracterizan las ondas 
-delta, theta, alfa, beta y gamma (ver cuadro \ref{tabla_ondas}).
-
-\begin{figure}
-\centering
-\includegraphics[width=\linewidth]
-{./img_art_dfa/VCNNS1_espectral_total.png} 
-\caption[Espectro de potencias de banda ancha]{Espectro de potencias de banda ancha (delta, theta
-alfa, beta, gamma).}
-\end{figure}
-
-Usando los espectros de banda ancha se ha calculado el coeficiente de enlentecimiento \lento, 
-definido en la 
-expresión \ref{enlentecimiento}, con particular atención al sueño MOR. Esta cantidad
-se ha reportado como un posible marcador de deterioro cognitivo leve en adultos mayores 
-\cite{Brayet16}.
-
-\begin{equation}
-\text{R}_{\text{E}} = \frac{\text{potencia}_{\delta}+\text{potencia}_{\theta}}
-{\text{potencia}_{\alpha}+\text{potencia}_{\beta}} =
-\frac{\int_{\text 0.5 \hz}^{\text{7 \hz}}h(\omega) d\omega}
-{\int_{\text 7 \hz}^{\text{30 \hz}}h(\omega) d\omega}
-\label{enlentecimiento}
-\end{equation}
-
-El espectro de potencias se ha calculado usado el estimador adaptativo propuesto por
-Barbour y Parker \cite{Barbour14}, el cual se encuentra implementado dentro del paquete
-\texttt{psd} bajo la función \texttt{pspectrum}.
-Se ha usado dicho estimador para garantizar heurísticamente que el espectro de potencias
-calculado (1) es independiente del usado para determinar la estacionariedad y (2)
-es compatible con la metodología \textit{usual}; como el algoritmo \texttt{psd} 
-supone estacionariedad débil se espera que emule resultados 
-obtenidos bajo tal supuesto.
-
-Como se discute posteriormente, los bloques de épocas estacionarias están relacionados a bloques
-cuyo espectro de potencia son distintos. Así mismo son diferentes los coeficientes \lento calculados
-para dichos bloques.
+\caption{Correlaciones entre variables independientes}
+\begin{tabular}{llllllll}
+\toprule
+  &             & 1 & 2 & 3 & 4 & 5 & 6 \\
+\midrule
+1 & Edad        & $\bullet$  &          &           &          &          & \\
+2 & Escolaridad & -0.7134* &  $\bullet$ &           &          &          & \\
+3 & Neuropsi    & -0.2432  & \phm 0.3776  & $\bullet$   &          &          & \\
+4 & MMSE        & -0.1063  & \phm 0.1812  & 0.8477*** & $\bullet$  &          & \\
+5 & Sueño [s]   & \phm  0.0486  & -0.0944  & 0.0545    & 0.0374   & $\bullet$  & \\
+6 & MOR [s]     & \phm 0.2796  & -0.5035  & 0.1879    & 0.2618   & -0.1515  & $\bullet$ \\
+7 & MOR [\%]    & \phm 0.3709  & -0.5287  & 0.0182    & 0.0748   & -0.3578  & 1**** \\
+\bottomrule
+\multicolumn{7}{l}{Niveles de significancia: *$<$.05 , **$<$.01 , ***$<$.005 , ****$<$.001}
+\end{tabular}
+\label{cor_ind}
+\end{table}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

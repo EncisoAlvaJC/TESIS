@@ -4,7 +4,7 @@
 
 \chapter{Preliminares}
 
-Redactar una introducción [?]
+El lector interesado puede revisar mayores detalles sobre teoría de la medida, probabilidad y estadística en los libros \textit{``Probability for Statisticians"} por Galen R. Shorack \cite{probabilidad_shorack} y \textit{``Statistical Theory"} por Bernard W. Lindgren \cite{estadistica_lindgren}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -631,24 +631,50 @@ H_A : \mu_H \neq \mu_M
 \section{Procesos estocásticos}
 
 \begin{definicion}
-Un \textbf{proceso estocástico} \xt es una colección de variables aleatorias indexadas en el conjunto $\mathcal{T}$
+Un \textbf{proceso estocástico} \xt es una colección de variables aleatorias indexadas en el 
+conjunto $\mathcal{T}$
 \begin{equation}
 \{X(t)\}_{t\in \mathcal{T}} := \left\{ X(t) \lvert t\in \mathcal{T} \right\}
 \end{equation}
-La variable $t$ es referida como \textit{tiempo}, mientras que el conjunto $\mathcal{T}$ es referido como el \textit{conjunto de tiempos admisibles}
 \end{definicion}
 
-de $\left\{ t \in \R | {t} \cdot {\Delta_t} \in \Z \right\} $  para algún $\Delta_t$ 
-(\textbf{tiempo discreto}). 
+\begin{definicion}
+Si en un proceso estocástico \xt ocurre que $\mathcal{T} \subseteq \R$, se dice que es un \textbf{proceso estocástico en $\R$}.
 %
-Las \textit{componentes} de un proceso estocástico serán denotadas como:\\
+Por notación, el índice $t$ es referido como \textbf{tiempo}, mientras que $\mathcal{T}$ será el conjunto de \textbf{tiempos admisibles}.
+\end{definicion}
 
+Por simplicidad sobre las condiciones del presente trabajo, sólo se trabajará con dos familias de procesos estocásticos en $\R$: si $\mathcal{T}$ es un intervalo o si es parte de una \textit{malla} de puntos equiespaciados. 
+%
+La primera familia se reserva para modelar las señales electrofisiológicas per se, mientras que el segundo se usa para modelar los registros de estas mismas señales.
+%
+La distinción se debe a la naturaleza puntual del proceso de registro
+
+\begin{definicion}
+Se dice que un proceso estocástico en $\R$ es \textbf{a tiempo continuo} si existen $a, b \in \R \cup \{ -\infty, \infty \}$ tales que
+\begin{equation}
+\mathcal{T} = (a,b)
+\end{equation}
+Así mismo, se dice que un proceso estocástico en $\R$ es \textbf{a tiempo discreto} si existen $t_0, \Delta_X \in \R \cup \{ -\infty, \infty \}$ tales que
+\begin{equation}
+\mathcal{T} = \left\{ t_0 + t \in \R | {t} \cdot {\Delta_t} \in \Z \right\}
+\end{equation}
+Por notación, $\Delta_X$ es referida como \textit{frecuencia de muestreo}.
+\end{definicion}
+
+Conviene destacar que el nombre \textit{frecuencia de muestreo} hace referencia al proceso de registro, que algunos autores usan como equivalente a \textit{muestreo}; esta terminología entra claramente en conflicto con las muestras de una variable aleatoria. En lo siguiente se evita llamar muestreo al proceso de registro, pero se conservará el término frecuencia de muestro.
+
+Cabe mencionar una cuestión similar con los términos \textit{tiempo continuo} y \textit{tiempo discreto}; cabe resaltar que no guardan ninguna analogía con las variables aleatorias discretas y continuas, ni con los espectro de potencias puramente continuos o puramente discretos (ver más adelante ?).
+%
+El uso de estos términos se debe principalmente a que se encuentran ampliamente extendidos en la literatura sobre análisis de señales.
+
+Los elementos que componen a un proceso estocástico serán referidos como:
 \begin{tabular}{cl}
 \xt    & Todo el proceso \\
 $X(t)$ & Una de las variable aleatoria que componen al proceso, en el tiempo $t$ \\
 $x(t)$ & Una realización de $X(t)$ \\
-$F_{X(t)}$ & FPA para $X(t)$ \\
-$ {\Delta_t}$ & Frecuencia de muestreo (en tiempo discreto)
+$F_{X(t)}$ & FPA para $X(t)$
+%$ {\Delta_t}$ & Frecuencia de muestreo (en tiempo discreto)
 \end{tabular}\\
 
 La estacionariedad es un indicativo de la \textit{homogeneidad} de un proceso; un proceso 
@@ -719,10 +745,10 @@ En el marco del modelo de series electrofisiológicas, conviene suponer que los 
 corresponden a procesos a tiempo continuo que son continuos de alguna forma; se ha elegido la 
 continuidad en media cuadrática.
 
-%\begin{observacion}
-%Sea \xt un proceso débilmente estacionario y $T$ su función de autocovarianza. Si $R$ es continua
-%en 0 entonces es continua en todos lados
-%\end{observacion}
+\begin{observacion}
+Sea \xt un proceso débilmente estacionario y $T$ su función de autocovarianza. Si $R$ es continua
+en 0 entonces es continua en todos lados
+\end{observacion}
 
 \begin{definicion}[Continuidad estocástica en media cuadrática]
 Un proceso a tiempo continuo \xt es estocásticamente continuo, en el sentido de media cuadrática, 

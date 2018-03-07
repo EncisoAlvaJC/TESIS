@@ -11,15 +11,23 @@ Esta definición en particular fue presentada por Maurice Priestley en 1965 \cit
 información del presente capítulo puede revisarse con mayor detalle en su libro \textit{"Spectral
 Analysis and Time Series"} \cite{Priestley81}, particularmente en el capítulo 11.
 
-Las secciones \ref{sec:frecuencias2}, ..., pueden verse como preliminares de este capítulo y pueden
-omitirse en una primera lectura, pues lidian con detalles sobre diferentes posibilidades para 
-generalización el espectro.
+%Las secciones \ref{sec:frecuencias2}, ..., pueden verse como preliminares de este capítulo y pueden
+%omitirse en una primera lectura, pues lidian con detalles sobre diferentes posibilidades para 
+%generalización el espectro.
 
-Es importante mencionar que la sección \ref{sec:espectro} representa la parte central de este capítulo, describiendo un objeto matemático bien definido que lidia con un problema que roza la vaguedad; es por ello que viene acompañado de una discusión que podría ser omitida dentro del contexto global del trabajo, pero que tiene repercusiones importantes en el uso práctico del espectro evolutivo.
+Es importante mencionar que la sección \ref{sec:espectro} representa la parte central de este
+capítulo, describiendo un objeto matemático bien definido que lidia con un problema que roza la 
+vaguedad; es por ello que viene acompañado de una discusión que podría ser omitida dentro del 
+contexto global del trabajo, pero que tiene repercusiones importantes en el uso práctico del 
+espectro evolutivo.
 %
-Por ejemplo, en la sección \ref{sec:estimacion} se discute sobre las condiciones bajo las cuales es \textit{posible} estimar el espectro evolutivo del proceso, mientras que la sección \ref{sec:doble_ventana} parte de tales condiciones para describir cómo efectuar la estimación.
+Por ejemplo, en la sección \ref{sec:estimacion} se discute sobre las condiciones bajo las cuales es 
+\textit{posible} estimar el espectro evolutivo del proceso, mientras que la sección 
+\ref{sec:doble_ventana} parte de tales condiciones para describir cómo efectuar la estimación.
 
-Finalmente, en la sección \ref{sec:psr} se describe una aplicación aparentemente menor del espectro evolutivo, pero que constituye una parte central en el presente trabajo: la detección de estacionariedad débil a partir del espectro de potencias.
+Finalmente, en la sección \ref{sec:psr} se describe una aplicación aparentemente menor del espectro 
+evolutivo, pero que constituye una parte central en el presente trabajo: la detección de 
+estacionariedad débil a partir del espectro evolutivo.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -27,9 +35,8 @@ Finalmente, en la sección \ref{sec:psr} se describe una aplicación aparentemen
 \section{Definición del espectro evolutivo}
 \label{sec:espectro}
 
-Considérese un proceso estocástico
-a tiempo continuo \xtin{\R} que, por simplicidad, tiene media cero y varianza finita en todo 
-momento, es decir
+Considérese un proceso estocástico a tiempo continuo \xtin{\R} que, por simplicidad, tiene media 
+cero y varianza finita en todo momento, es decir
 \begin{equation*}
 \E{X(t)} = 0 \text{  ,  } \Var{X^{2}(t)} < \infty
 \end{equation*}
@@ -826,6 +833,13 @@ Aceptar $H_2$ \;
 \caption{Prueba de Priestley-Subba Rao}
 \label{algoritmo_stationarity}
 \end{algorithm}
+
+\begin{figure}
+\centering
+\includegraphics[width=\linewidth]{./img_diagramas/epocas_diferentes_v3.pdf}
+\caption{Efecto del tamaño de ventana sobre la clasificación de estacionariedad.}
+\label{epocas_diferentes}
+\end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
