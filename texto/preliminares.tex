@@ -767,4 +767,184 @@ equivalente a que su función de autocovarianza sea continua en 0.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Transformada de Fourier}
+\label{sec:fourier1}
+
+Para exponer formalmente lo que es la transformada de Fourier, conviene mencionar los espacios de 
+las \textbf{series $\boldsymbol{p}$-sumables} ($\lp$), y las  \textbf{funciones 
+$\boldsymbol{p}$-integrables} sobre un intervalo $I \subseteq \R$ ($\llp_I$).
+\begin{align*}
+\ell^{p} &:= \left\{ s: \Z\rightarrow\C \talque \sum_{n=-\infty}^{\infty} \abso{s(n)}^{p} < \infty \right\}
+\\
+L^{p}_I &:= \left\{ S: I\rightarrow\C \talque \int_I \abso{S(t)}^{p} dt < \infty \right\}
+\end{align*}
+
+Estos conjuntos admiten las operaciones  suma ($+$), producto ($\cdot$) y multiplicación por 
+escalares de la manera usual.
+%
+Para el caso particular $p=2$, los conjuntos $\ldos$ y $\lldos$ admiten los siguientes productos 
+internos:
+%
+\begin{align*}
+\left\langle s,z \right\rangle &= \sum_{n=-\infty}^{\infty} s(n) \overline{z(n)}\\
+\left\langle S,Z \right\rangle &= \int_I S(t) \overline{Z(t)} dt
+\end{align*}
+
+Usando dichos productos internos, junto con las normas y métricas que inducen, los conjuntos 
+$\ldos$ y $\lldos$ tienen estructura de \textit{espacio de Hilbert}.
+
+Las definiciones anteriores revelan cómo $\ldos$ y $\lldos$ son \textit{muy} parecidos, luego
+entonces se puede definir la transformada de Fourier como una conexión natural entre ellos.
+
+\begin{definicion}[Serie de Fourier]
+Sea $S: \R \rightarrow \C$ una función periódica con periodo $2T$ y tal que 
+$S \in L^{2}_{[-T,T]}$. Se dice que $A$ es la serie de Fourier para $S$ si satisface
+\begin{equation*}
+A(n) = \frac{1}{2 T} \simint{T} S(t) e^{-\nicefrac{ i \abso{n} t}{2T}} dt
+\end{equation*}
+\label{FourierClasico}
+\end{definicion}
+
+\begin{definicion}[Transformada de Fourier]
+Sean $S$ y $A$ como en la definición \ref{FourierClasico}. Se le llama transformada de Fourier a la
+función $\mathcal{F}_T : L^{2}_{[-T,T]} \rightarrow \ldos : S \mapsto A$
+\end{definicion}
+
+Puede interpretarse a $A$ como las \textit{coordenadas} de $S$ en $L^{2}_{[-T,T]}$, usando una base 
+de funciones ortonormales $\left\{ e^{\nicefrac{i \abso{n} t}{2 T}} \right\}_{n\in \Z}$; esta base 
+en particular es conocida como la \textbf{base de Fourier}.
+%
+Cabe mencionar las siguientes propiedades de $\mathcal{F}_T$
+\begin{itemize}
+\item Es lineal, $\mathcal{F}_T[cS + Z] = c\mathcal{F}_T[S] + \mathcal{F}_T[Z]$
+
+\item \textbf{No} es invertible, aunque se le suele definir una pseudoinversa como
+\begin{equation*}
+\mathcal{F}_{T}^{\text{inv}} : \ldos \rightarrow L^{2}_{[-T,T]} :
+A \mapsto \sum_{n -\infty}^{\infty} A(n) e^{\nicefrac{i \abso{n} t}{2 T}}
+\end{equation*}
+\end{itemize}
+
+Se define, de manera pragmática, la \textbf{energía disipada} y la \textbf{potencia} de una función 
+$S$ en un intervalo $[a,b]$ como 
+\begin{align}
+\text{energía}[S]_{[a,b]} &= \int_a^{b} \abso{S(t)}^{2} dt \nonumber \\
+\text{potencia}[S]_{[a,b]} &= \frac{1}{b-a} \int_a^{b} \abso{S(t)}^{2} dt
+\label{energia}
+\end{align}
+
+Es evidente que la energía y potencia están relacionadas a la norma en $L^{2}_{[-T,T]}$ inducida por
+su producto interno.
+%
+Dicha relación junto a las propiedades \textit{agradables} de $\mathcal{F}_T$ pueden ser usadas 
+para conectar la energía con la norma en $\ldos$ (teorema \ref{parseval}): la energía disipada por 
+una función equivale a la suma de las energías disipada por cada una de sus \textit{componentes} en 
+la base de Fourier.
+%
+Conviene, entonces, definir una función que \textit{desglose} estos \textit{aportes}.
+
+\begin{teorema}[Parseval]
+Sea $S \in L^{2}_{[-T,T]}$, y sea $A = \mathcal{F}[S]$. Se cumple que
+\begin{equation*}
+\int_{-T}^{T} \abso{S(t)}^{2} dt = \sum_{n=-\infty}^{\infty} \abso{A(n)}^{2}
+\end{equation*}
+\label{parseval}
+\end{teorema}
+
+\begin{definicion}[Espectro de potencias]
+Sea $S \in L^{2}_{[-T,T]}$, y sea $A = \mathcal{F}[S]$. Se llama espectro de potencias 
+para $S$ a la función $h_S : \R \rightarrow \R $, definida como
+\begin{equation*}
+h_S(\omega) = 
+\begin{cases}
+\abso{A(n)}^{2} & \text{ , si } \omega = \nicefrac{n}{2T}, \text{   con } n\in \mathbb{Z} \\
+0 & \text{ ,  otro caso}
+\end{cases}
+\end{equation*}
+\label{espec}
+\end{definicion}
+
+Un elemento que será de crucial importancia en el desarrollo posterior es la \textbf{convolución} 
+($\ast$), una tercera operación binaria en estos espacios y definida como
+%
+\begin{align*}
+[s \ast z] (\tau) &= \sum_{n=-\infty}^{\infty} s(n) \overline{z(\tau-n)} \\
+[S \ast Z] (\tau) &= \int_I S(t) \overline{Z(\tau-t)}
+\end{align*}
+%
+donde $\overline{c}$ es el conjugado complejo de $c$. 
+%
+Esta operación cobra importancia por la forma en que se relaciona con $\mathcal{F}_T$
+%
+\begin{observacion}%[de la convolución]
+Sean $S,Z \in L^{2}_{[-T,T]}$, entonces se satisface que
+\begin{align*}
+\mathcal{F}_T[S\ast Z]  &= \mathcal{F}_T[S] \cdot \mathcal{F}_T[Z] \\
+\mathcal{F}_T[S\cdot Z] &= \mathcal{F}_T[S] \ast  \mathcal{F}_T[Z] 
+\end{align*}
+\label{t_convolucion}
+\end{observacion}
+
+\begin{teorema}
+Sean $f, g \in \ldos$, las cuales poseen una transformada de Fourier de la forma
+\begin{align*}
+F(\omega) = \intR e^{-i \omega t} f(t) dt \\
+G(\omega) = \intR e^{-i \omega t} g(t) dt 
+\end{align*}
+Entonces
+\begin{equation}
+F(\omega) \overline{G(\omega)} = \intR e^{i \omega t} k(t) dt
+\end{equation}
+donde
+\begin{equation}
+k(t) = \intR f(u) g(u-t) du
+\end{equation}
+\end{teorema}
+
+\begin{proof}
+Nótese que
+\begin{align*}
+\intR e^{i \omega t} k(t) dt &= \intR e^{i \omega t} \left[ k(t) = \intR f(u) g(u-t) du \right] dt \\
+&= \intR e^{-i \omega u} f(u) \left[ \intR e^{i \omega (u-t)} g(u-t) \right] du \\
+&= \intR e^{-i \omega u} f(u) \overline{G(\omega)} du \\
+&= \overline{G(\omega)} \intR e^{-i \omega u} f(u)  du \\
+&= \overline{G(\omega)} F(\omega) \\
+\end{align*}
+\end{proof}
+
+\begin{teorema}
+COROLARIO. Usando $f \equiv g$ en el teorema anterior
+\begin{equation}
+\abso{F(\omega)}^{2} = \intR e^{- i \omega t} k(t) dt 
+\end{equation}
+donde 
+\begin{equation}
+k(t) = \intR f(u) f(u-t) du
+\end{equation}
+\end{teorema}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Otros resultados importantes}
+
+Los siguientes teoremas y proposiciones se refieren a propiedades únicamente de los objetos descritos en el capítulo.
+%
+Aunque no son una consecuencia clara de los resultados expuestos anteriormente, son una base importante de algunos resultados que se expondrán en capítulos posteriores.
+
+\begin{proposicion}
+Sea $\mathcal{R}$ el conjunto de variables aleatorias con media cero y varianza finita. Se define un producto interno entre dos variables aleatorias arbitrarias, $U$ y $V$, como
+\begin{equation}
+\langle U , V \rangle := \E{U, \overline{V}}
+\end{equation}
+Usando la suma y productos usuales de variables aleatorias, junto al producto interno descrito, el espacio $\mathcal{R}$ tiene la estructura de espacio de Hilbert.
+\end{proposicion}
+
+\begin{proposicion}
+Sea \xt un proceso débilmente estacionario y $R$ su función de autocorrelación. Se cumple que $R$ es una función positiva definida.
+\end{proposicion}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

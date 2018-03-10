@@ -1,8 +1,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%\documentclass[12pt,letterpaper,draft]{book}
-\documentclass[12pt,letterpaper]{book}
+\documentclass[12pt,letterpaper,draft]{book}
+%\documentclass[12pt,letterpaper]{book}
 \usepackage[utf8]{inputenc}
 \usepackage[spanish]{babel}
 
@@ -117,6 +117,10 @@
 % textsc + textbf
 \usepackage{bold-extra}
 
+%% nomenclatura
+%%\usepackage[intoc,spanish]{nomencl}
+%\usepackage{nomencl}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -210,6 +214,8 @@
 \newcommand{\xtin}[1]{$\{X(t)\}_{t\in \mathcal{ #1 }}$ }
 
 \newcommand{\orden}[1]{\mathcal{O}\left( #1 \right)}
+\newcommand{\entero}[1]{\left\lfloor #1 \right\rfloor}
+\newcommand{\pint}[1]{\left\langle #1 \right\rangle}
 
 \newcommand{\talque}{\mathrel{}\middle|\mathrel{}}
 
@@ -311,6 +317,12 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% glosario
+%\makenomenclature
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -320,7 +332,7 @@
 \thispagestyle{empty}
 
 \title{Estacionariedad débil en registros polisomnográficos de adultos mayores,
-como marcador de deterioro cognitivo}
+como marcador de posible deterioro cognitivo}
 \author{Julio Cesar Enciso Alva}
 
 \begin{center}
@@ -415,6 +427,7 @@ marker, based on the study of weak stationarity.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newpage
+
 La doctora Alejandra Rosales Lagarde propuso investigar el tema del sueño en el adulto mayor en el
 Área Académica de Gerontología de la UAEH, institución a la cual está comisionada de acuerdo al 
 contrato con el programa Cátedras CONACYT con el número de investigadora 1411 y el proyecto número 
@@ -458,34 +471,80 @@ Alejandro; por hacer la vida más llevadera.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\chapter*{Acrónimos}
+\chapter*{Glosario}
 
-\begin{tabular}{rl}
-\textbf{AABFM} & Actividad de Amplitud Baja y Frecuencias Mixtas
-\\
-\textbf{AASM} & American Association of Sleep Medicine
-\\
-\textbf{DCL} & Deterioro Cognitivo Leve
-\\
-\textbf{EEG} & Electroencefalografía
-\\
-\textbf{EMG} & Electromiografía
-\\
-\textbf{EOG} & Electrooculografía
-\\
-\textbf{FDE} & Función de Densidad Espectral
-\\
-\textbf{MOR} & Movimientos Oculares Rápidos
-\\
-\textbf{NMOR}& No-MOR
-\\
-\textbf{PSG} & Polisomnografía
-\\
-\textbf{PDC} & Posible Deterioro Cognitivo
-\\
-\textbf{PSR} & [Prueba de] Priestley-Subba Rao
-\\
-\end{tabular}
+%asdasd%
+%\nomenclature{AABFM}{Actividad de amplitud relativamente baja ($<10 \mu$A), visualmente desorganizada.
+%No tiene una forma senoidal clara.}%
+
+{
+\setlength{\leftskip}{2em}
+\setlength{\parindent}{-2em}
+
+\textbf{AABFM:} Actividad de Amplitud Baja y Frecuencias Mixtas \\
+Actividad de amplitud relativamente baja ($<10$ \mv), visualmente desorganizada.
+No tiene una forma senoidal clara.
+
+\textbf{AASM:} American Academy of Sleep Medicine \\
+Sociedad estadounidense dedicada al estudio de la \textit{Medicina del sueño} (relativo al 
+diagnóstico y tratamiento de trastornos del sueño).
+En dicha área, los estándares establecidos por esta organización se encuentran ampliamente 
+difundidos.
+
+\textbf{DCL:} Deterioro Cognitivo Leve \\
+Conjunto de deficiencias cognitivas \textit{objetivas}, respecto a un estado anterior, que no cumplen los criterios para ser clasificadas como demencia. 
+Para ello se entiende que una deficiencia es objetiva si puede confirmarse usando pruebas neuropsicológicas, en contraposición al reporte subjetiva por parte del individuo.
+
+\textbf{EEG:}  Electroencefalografía \\
+Lectura de la actividad eléctrica en la corteza cerebral, la cual se origina por la actividad postsináptica de las neuronas en dicha región. 
+En el presente trabajo, el término EEG se limita a registros obtenidos mediante electrodos colocados en el cuero cabelludo del individuo, siendo que otros autores también engloban registros obtenidos con microelectrodos insertos en el cerebro por ejemplo.
+
+\textbf{EMG:}  Electromiografía \\
+Lectura de la actividad eléctrica en las fibras musculares, la cual se origina por el reclutamiento y activación de fibras musculares por parte del sistema nervioso.
+En el presente trabajo, se limita el uso del EMG para distinguir la mayor o menor presencia de \textit{tono muscular}, fenómeno característico de fibras musculares en actividad latente.
+
+\textbf{EOG:}  Electrooculografía \\
+
+\textbf{MOR:} [Sueño de] Movimientos Oculares Rápidos \\
+%Etapa del sueño profundo caracterizada por la presencia de movimientos oculares rápidos, disminución del tono muscular, y actividad eléctrica cerebral de baja intensidad y frecuencias mixtas.
+Etapa de sueño nombrada con base la presencia típica de movimientos oculares rápidos. También se le conoce como \textit{sueño paradójico} debido a que la actividad cerebral es similar a la vigilia pese a ser la etapa más profunda del sueño. Según los estándares de la AASM en 2007 también se le conoce como \textit{fase R}.
+
+\textbf{NMOR:} [Sueño] No-MOR \\
+Contempla el sueño fuera de la etapa MOR, presentando características radicalmente diferentes.
+%También se conoce como \textit{sueño de ondas lentas} por las ondas
+Pese a su definición negativa, se divide en sub-etapas con características distintivas claras.
+Según los estándares de la AASM en 2007 también se le conoce como \textit{fase N}.
+
+\textbf{PSG:}  Polisomnografía \\
+Registro conjunto durante el sueño de varias señales electrofisiológicas u otros indicadores fisiológicos.
+
+\textbf{PDC:}  Posible Deterioro Cognitivo [Leve] \\
+Diagnóstico positivo para deterioro cognitivo usando únicamente los resultados de pruebas neuropsicológicas, y en particular las usadas en el presente trabajo.
+Debido a los estándares cautelosos de la psicología clínica, para otorgar el diagnóstico de \textit{deterioro cognitivo leve} no puede otorgarse deben tomarse en cuenta varios estudios complementarios, como imagenología del cerebro por ejemplo.
+
+}
+
+\section*{Catálogo de funciones comunes}
+{
+\setlength{\leftskip}{2em}
+\setlength{\parindent}{-2em}
+
+\textbf{Delta de Kroneker ($\delta$)} \\
+Función definida principalmente para facilitar la referencia de productos ortogonales.
+\begin{equation*}
+\delta(i,j) = \begin{cases}
+1 &, i = j \\
+0 &, i \neq j
+\end{cases}
+\end{equation*}
+
+\textbf{O mayúscula de Landau ($\mathcal{O}$)} \\
+Sean $f, g : \R \rightarrow \R$ dos funciones y $x_0 \in \R \cup \{ -\infty, \infty\}$ arbitrario. Se dice que $f$ es \textit{de orden $g$ alrededor de $x_0$} si existe $C \in \R$ tal que
+\begin{equation*}
+\lim_{x \rightarrow x_0} \frac{f(x)}{g(x)} = C
+\end{equation*} 
+en cuyo caso se dice $f = \orden{g}$
+}
 
 \newpage
 

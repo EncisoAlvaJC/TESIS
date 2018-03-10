@@ -7,143 +7,39 @@
 Existe una larga tradición para entender y modelar las señales electrofisiológicas en términos de 
 \textit{ondas y frecuencias}, ya que fundamentalmente son fenómenos eléctricos \cite{Kaiser00}.
 %
-Se aborda el enfoque usual del espectro de potencias: se asocia la energía de una señal con su 
-dispersión (varianza) y se estudia cómo se distribuye en la base de Fourier.
+%Se aborda el enfoque usual del espectro de potencias: se asocia la energía de una señal con su 
+%dispersión (varianza) y se estudia cómo se distribuye en la base de Fourier.
+%%
+%En el entendido de que el espectro de potencias puede variar en el tiempo, la estacionariedad
+%es equivalente a que el tal cambio no ocurra.
 %
-En el entendido de que el espectro de potencias puede variar en el tiempo, la estacionariedad
-es equivalente a que el tal cambio no ocurra.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{Transformada de Fourier}
-
-Para exponer formalmente lo que es la transformada de Fourier, conviene mencionar los espacios de 
-las \textbf{series $\boldsymbol{p}$-sumables} ($\lp$), y las  \textbf{funciones 
-$\boldsymbol{p}$-integrables} sobre un intervalo $I \subseteq \R$ ($\llp_I$).
-\begin{align*}
-\ell^{p} &:= \left\{ s: \Z\rightarrow\C \talque \sum_{n=-\infty}^{\infty} \abso{s(n)}^{p} < \infty \right\}
-\\
-L^{p}_I &:= \left\{ S: I\rightarrow\C \talque \int_I \abso{S(t)}^{p} dt < \infty \right\}
-\end{align*}
-
-Estos conjuntos admiten las operaciones  suma ($+$), producto ($\cdot$) y multiplicación por 
-escalares de la manera usual.
+En este capítulo se expone el enfoque \textit{usual} en cuanto a modelar las señales electrofisiológicas como procesos estocásticos a los cuales se puede definir un \textit{espectro de potencias}.
 %
-Para el caso particular $p=2$, los conjuntos $\ldos$ y $\lldos$ admiten los siguientes productos 
-internos:
+El espectro de potencias es entendido como una generalización para el módulo de la transformada de Fourier; conserva algunas de sus propiedades, como el ser una norma inducida por un producto interno, así como la interpretación asociada como distribución de \textit{energía}.
+
+%La sección \ref{sec:fourier1} trata específicamente sobre la transformada de Fourier y algunas de sus propiedades, así como algunas de sus generalizaciones para varios espacios importantes en el contexto de series fisiológicas.
 %
-\begin{align*}
-\left\langle s,z \right\rangle &= \sum_{n=-\infty}^{\infty} s(n) \overline{z(n)}\\
-\left\langle S,Z \right\rangle &= \int_I S(t) \overline{Z(t)} dt
-\end{align*}
-
-Usando dichos productos internos, junto con las normas y métricas que inducen, los conjuntos 
-$\ldos$ y $\lldos$ tienen estructura de \textit{espacio de Hilbert}.
-
-Las definiciones anteriores revelan cómo $\ldos$ y $\lldos$ son \textit{muy} parecidos, luego
-entonces se puede definir la transformada de Fourier como una conexión natural entre ellos.
-
-\begin{definicion}[Serie de Fourier]
-Sea $S: \R \rightarrow \C$ una función periódica con periodo $2T$ y tal que 
-$S \in L^{2}_{[-T,T]}$. Se dice que $A$ es la serie de Fourier para $S$ si satisface
-\begin{equation*}
-A(n) = \frac{1}{2 T} \simint{T} S(t) e^{-\nicefrac{ i \abso{n} t}{2T}} dt
-\end{equation*}
-\label{FourierClasico}
-\end{definicion}
-
-\begin{definicion}[Transformada de Fourier]
-Sean $S$ y $A$ como en la definición \ref{FourierClasico}. Se le llama transformada de Fourier a la
-función $\mathcal{F}_T : L^{2}_{[-T,T]} \rightarrow \ldos : S \mapsto A$
-\end{definicion}
-
-Puede interpretarse a $A$ como las \textit{coordenadas} de $S$ en $L^{2}_{[-T,T]}$, usando una base 
-de funciones ortonormales $\left\{ e^{\nicefrac{i \abso{n} t}{2 T}} \right\}_{n\in \Z}$; esta base 
-en particular es conocida como la \textbf{base de Fourier}.
+En la sección \ref{sec:fde} se define el espectro de potencias para procesos estocásticos débilmente estacionarios y se establecen condiciones de existencia; la discusión sobre unicidad se ubica en la sección \ref{sec:representacion}, donde se define una forma de representar al proceso en términos de su espectro.
 %
-Cabe mencionar las siguientes propiedades de $\mathcal{F}_T$
-\begin{itemize}
-\item Es lineal, $\mathcal{F}_T[cS + Z] = c\mathcal{F}_T[S] + \mathcal{F}_T[Z]$
+Finalmente, la sección \ref{sec:estimadores} trata sobre la estimación del espectro de un proceso a partir de una realización del mismo; se aborda el enfoque de obtener una versión \textit{suavizada} del espectro en aras de que los estimadores sean consistentes.
 
-\item \textbf{No} es invertible, aunque se le suele definir una pseudoinversa como
-\begin{equation*}
-\mathcal{F}_{T}^{\text{inv}} : \ldos \rightarrow L^{2}_{[-T,T]} :
-A \mapsto \sum_{n -\infty}^{\infty} A(n) e^{\nicefrac{i \abso{n} t}{2 T}}
-\end{equation*}
-\end{itemize}
-
-Se define, de manera pragmática, la \textbf{energía disipada} y la \textbf{potencia} de una función 
-$S$ en un intervalo $[a,b]$ como 
-\begin{align}
-\text{energía}[S]_{[a,b]} &= \int_a^{b} \abso{S(t)}^{2} dt \nonumber \\
-\text{potencia}[S]_{[a,b]} &= \frac{1}{b-a} \int_a^{b} \abso{S(t)}^{2} dt
-\label{energia}
-\end{align}
-
-Es evidente que la energía y potencia están relacionadas a la norma en $L^{2}_{[-T,T]}$ inducida por
-su producto interno.
+Un hecho que conviene reiterar es que todos los temas son expuestos dos veces: para procesos estocásticos a tiempo continuo y para aquellos a tiempo discreto; 
 %
-Dicha relación junto a las propiedades \textit{agradables} de $\mathcal{F}_T$ pueden ser usadas 
-para conectar la energía con la norma en $\ldos$ (teorema \ref{parseval}): la energía disipada por 
-una función equivale a la suma de las energías disipada por cada una de sus \textit{componentes} en 
-la base de Fourier.
+Cabe mencionar que en este capítulo se trata únicamente el caso de procesos estocásticos \textit{débilmente estacionarios}, mientras que en el siguiente se explora una familia más general de procesos estocásticos.
 %
-Conviene, entonces, definir una función que \textit{desglose} estos \textit{aportes}.
-
-\begin{teorema}[Parseval]
-Sea $S \in L^{2}_{[-T,T]}$, y sea $A = \mathcal{F}[S]$. Se cumple que
-\begin{equation*}
-\int_{-T}^{T} \abso{S(t)}^{2} dt = \sum_{n=-\infty}^{\infty} \abso{A(n)}^{2}
-\end{equation*}
-\label{parseval}
-\end{teorema}
-
-\begin{definicion}[Espectro de potencias]
-Sea $S \in L^{2}_{[-T,T]}$, y sea $A = \mathcal{F}[S]$. Se llama espectro de potencias 
-para $S$ a la función $h_S : \R \rightarrow \R $, definida como
-\begin{equation*}
-h_S(\omega) = 
-\begin{cases}
-\abso{A(n)}^{2} & \text{ , si } \omega = \nicefrac{n}{2T}, \text{   con } n\in \mathbb{Z} \\
-0 & \text{ ,  otro caso}
-\end{cases}
-\end{equation*}
-\label{espec}
-\end{definicion}
-
-Un elemento que será de crucial importancia en el desarrollo posterior es la \textbf{convolución} 
-($\ast$), una tercera operación binaria en estos espacios y definida como
-%
-\begin{align*}
-[s \ast z] (\tau) &= \sum_{n=-\infty}^{\infty} s(n) \overline{z(\tau-n)} \\
-[S \ast Z] (\tau) &= \int_I S(t) \overline{Z(\tau-t)}
-\end{align*}
-%
-donde $\overline{c}$ es el conjugado complejo de $c$. 
-%
-Esta operación cobra importancia por la forma en que se relaciona con $\mathcal{F}_T$
-%
-\begin{observacion}%[de la convolución]
-Sean $S,Z \in L^{2}_{[-T,T]}$, entonces se satisface que
-\begin{align*}
-\mathcal{F}_T[S\ast Z]  &= \mathcal{F}_T[S] \cdot \mathcal{F}_T[Z] \\
-\mathcal{F}_T[S\cdot Z] &= \mathcal{F}_T[S] \ast  \mathcal{F}_T[Z] 
-\end{align*}
-\label{t_convolucion}
-\end{observacion}
+Dentro del contexto global del presente trabajo, el capítulo entero pudiera etiquetarse como el estudio de un caso particular salvo por simplicidad expositiva.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Función de densidad espectral}
+\label{sec:fde}
 
-La forma más natural de definir un espectro de potencias para un proceso estacionario es a través 
-de la transformada de Fourier de sus realizaciones. En general no se puede garantizar que una definición así \textit{funcione} ya que las realizaciones pueden ser señales que no son periódicas, 
-cuadrado-integrable, continuas, etc.
+La forma más \textit{natural} de definir un espectro de potencias para un proceso estacionario es a través de la transformada de Fourier de sus realizaciones. 
 %
-Este problema será abordado al restringir los tiempos permitidos a un conjunto \textit{sin 
-problemas}, para luego considerar el límite cuando \textit{recupera su forma original}.
+Tal enfoque no funciona en general, pues no se puede garantizar que las realizaciones arbitrarias admitan una transformada de Fourier (ni aún de Fourier-Stieltjes).
+%
+Se define entonces el espectro en base a un límite de subcolecciones de la realización, de modo que éstas sí admitan una transformada de Fourier.
 
 \begin{definicion}[Función de densidad espectral, tiempo continuo]
 Sea \xt un proceso estacionario a tiempo continuo. Se define su {función de densidad 
@@ -155,6 +51,11 @@ h(\omega) = \frac{1}{2 \pi} \lim_{T\rightarrow \infty} \E{ \frac{1}{2T}
 \end{equation}
 \end{definicion}
 
+%De la defunción se deduce que la función de densidad espectral (FDE) siempre es una función
+%no-negativa
+
+[? ejemplos: ruido rosa esta bien definido, proceso oscilatorio no esta definido, ruido blanco no esta definido]
+
 \begin{definicion}[Función de densidad espectral, tiempo discreto]
 Sea $\{X(t)\}_{\nicefrac{t}{\Delta_t}\in \Z}$ un proceso estacionario a tiempo discreto. Se 
 define su {función de densidad espectral} como
@@ -165,51 +66,11 @@ h(\omega) = \frac{1}{2 \pi} \lim_{N\rightarrow \infty} \E{ \frac{1}{2N}
 \end{equation}
 \end{definicion}
 
-De la defunción se deduce que la función de densidad espectral (FDE) siempre es una función
-no-negativa
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Representación espectral}
-
-\begin{teorema}
-Sean $f, g \in \ldos$, las cuales poseen una transformada de Fourier de la forma
-\begin{align*}
-F(\omega) = \intR e^{-i \omega t} f(t) dt \\
-G(\omega) = \intR e^{-i \omega t} g(t) dt 
-\end{align*}
-Entonces
-\begin{equation}
-F(\omega) \overline{G(\omega)} = \intR e^{i \omega t} k(t) dt
-\end{equation}
-donde
-\begin{equation}
-k(t) = \intR f(u) g(u-t) du
-\end{equation}
-\end{teorema}
-
-\begin{proof}
-Nótese que
-\begin{align*}
-\intR e^{i \omega t} k(t) dt &= \intR e^{i \omega t} \left[ k(t) = \intR f(u) g(u-t) du \right] dt \\
-&= \intR e^{-i \omega u} f(u) \left[ \intR e^{i \omega (u-t)} g(u-t) \right] du \\
-&= \intR e^{-i \omega u} f(u) \overline{G(\omega)} du \\
-&= \overline{G(\omega)} \intR e^{-i \omega u} f(u)  du \\
-&= \overline{G(\omega)} F(\omega) \\
-\end{align*}
-\end{proof}
-
-\begin{teorema}
-COROLARIO. Usando $f \equiv g$ en el teorema anterior
-\begin{equation}
-\abso{F(\omega)}^{2} = \intR e^{- i \omega t} k(t) dt 
-\end{equation}
-donde 
-\begin{equation}
-k(t) = \intR f(u) f(u-t) du
-\end{equation}
-\end{teorema}
+\label{sec:representacion}
 
 \begin{teorema}
 Sea \xt un proceso continuo de media cero, débilmente estacionario, y que admite una función de densidad espectral $h$, sea $R$ su función de autocovarianza. Entonces
@@ -333,66 +194,212 @@ y tal que para todo $\tau \in \R$ se cumple que
 \begin{equation*}
 \rho(\tau) = \intR e^{i \omega \tau} dF(\omega)
 \end{equation*}
-Como notación, el factor $dF$ será referido como la \textbf{función de espectro integrado normalizado} para el proceso.
+Como notación, el factor $dF$ será referido como la \textit{función de espectro integrado normalizado} para el proceso.
 \label{t_wienerkhinchin}
 \end{teorema}
 
 Una vez definido y probada la existencia de la función de espectro integrado normalizado $dF$, se define la \textbf{función de espectro integrado} $dH$ (sin el adjetivo \textit{normalizado}) como
 $dH := \sigma_X^{2} dF$.
 
-%\begin{teorema}[Wold]
-%Una condición suficiente y necesaria para que $\rho$ sea una función de autocorrelación de 
-%algún proceso estocástico a tiempo discreto $\{X(t)\}$ débilmente estacionario es que exista 
-%una función $F$ con las siguientes propiedades
-%\begin{itemize}
-%\item Monótonamente creciente
-%\item $F(-\pi) = 0$
-%\item $F(+\pi) = 1$
-%\end{itemize}
-%y tal que para todo $\tau \in \R$ se cumple que
-%\begin{equation*}
-%\rho(\tau) = \intPI e^{i \omega \tau} dF(\omega)
-%\end{equation*}
-%\label{t_wold}
-%\end{teorema}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Una vez establecidas las condiciones de existencia para el espectro de potencias de un proceso débilmente estacionario, una pregunta muy natural es sobre la unicidad.
+%
+Cuando se discutió la transformada de Fourier para funciones en $L^{2}$, se dejó en claro que es un operador invertible salvo por su núcleo (definición ?).
+
+Se mostró que la transformada de Fourier puede ser parameterizada en módulo y argumento, siendo el primero es equivalente (salvo una función invertible) al espectro.
+%
+El espectro de un proceso estacionario fue definido como
+\begin{align*}
+h(\omega) &= \lim_{T\rightarrow\infty} \E{\abso{ G_T(\omega)}^{2}} \\
+G_T(\omega) &= \int_{-T}^{T} e_{i \omega t} X(t) dt
+\end{align*}
+la componente $G_T$ cumple intuitivamente el papel de la transformada de Fourier, pero es omitida para demostrar más fácilmente la existencia del espectro $h$. Contemplando la parametrización de la transformada de Fourier, ¿puede definirse algo equivalente al argumento para un proceso estacionario?
+%
+%Un enfoque propuesto por Winer [citar, 1930, capitulo 1] es
+[? mejorar redacción]
 
 \begin{teorema}
-Sea \xt un proceso a tiempo continuo, débilmente estacionario, de media 0 y estocásticamente 
-continuo en el sentido de media cuadrática. Entonces, existe un proceso 
-ortogonal $\{Z(\omega)\}$ tal que, para todo tiempo $\omega$ admisible, se puede 
-escribir
+Sea \xt un proceso a tiempo continuo, débilmente estacionario, de media 0 y estocásticamente continuo en el sentido de media cuadrática. Existe un proceso ortogonal $\{Z(\omega)\}$ tal que, para todo tiempo $\omega$ admisible, se puede escribir
 \begin{equation*}
 X(t) = \intR e^{i t \omega} dZ(\omega)
 \end{equation*}
 Donde el proceso $\{Z(t)\}$ tiene las siguientes propiedades para todo $\omega$
 \begin{itemize}
 \item $\E{dZ(\omega)} = 0$
-\item $\E{\abso{dZ(\omega)}^{2}} = dH(\omega)$
-\item $\Cov{dZ(\omega),dZ(\lambda)} = 0 \Leftrightarrow \omega \neq \lambda$
+%\item $\E{\abso{dZ(\omega)}^{2}} = dH(\omega)$
+\item $\Cov{dZ(\omega),dZ(\lambda)} = dH(\omega) \delta(\omega, \lambda)$
 \end{itemize}
-Donde $dH(\omega)$ la FDE integrada de $\{X(t)\}$
+Donde $dH(\omega)$ el espectro integrado de \xt
 \label{rep_espectral}
 \end{teorema}
 
-En virtud del teorema de Wold, se puede tener una variante del teorema de Wiener-Khinchin
-para procesos a tiempo discreto, razón por la cual  
-tal representación es referida como \textbf{representación de Wold-Cramér}.
+%\begin{proof}
+%Se considera a \xt, un proceso que satisface las condiciones del teorema, y a $\{x(t)\}_{t\in \mathcal{T}}$, una realización. Se define $x_T$, una extensión periódica de la restricción de longitud $T$ para $x$, como
+%%\begin{equation}
+%%x_T(t) = x\left( 2T \entero{\frac{t+T}{2T}} -T \right)
+%%\end{equation}
+%\begin{equation}
+%x_T(t) = \begin{cases}
+%x(t) &, \abso{t} \leq T \\
+%x(t_*+2pT) &, p \text{ tal que } \abso{t_*}\leq T
+%\end{cases}
+%\end{equation}
+%Como $x_T$ es periódica, con periodo $2T$, puede escribirse como
+%\begin{align*}
+%x_T(t) &= \sum_{n=-\infty}^{\infty} A_n e^{i \nicefrac{2\pi n t }{T}} \\
+%A_n &= \frac{1}{2T} \int_{-T}^{T} x_T(t) e^{-i \nicefrac{2\pi n t }{T}}
+%\end{align*}
+%Se define entonces una función $G_T$, análoga a la usada al definir el espectro, como
+%\begin{equation}
+%G_T(\omega) = \int_{-T}^{T} \frac{1}{\sqrt{2 \pi}} x_T(t) e^{i \omega t} dt = \int_{-T}^{T}     \frac{1}{\sqrt{2 \pi}} x_T(t) e^{i \omega t} dt
+%\end{equation}
+%Luego entonces, puede escribirse
+%\begin{equation}
+%asdasd
+%\end{equation}
+%\end{proof}
+
+\begin{proof}
+Se mostró anteriormente que $\mathcal{R}$, el conjunto de variables aleatorias con media cero y varianza finita, tiene la estructura de espacio de Hilbert con el producto interno
+\begin{equation}
+\langle U , V \rangle := \Cov{U,V} = \E{U, \overline{V}}
+\end{equation}
+Ahora bien, un proceso débilmente estacionario \xt puede verse como una \textit{curva} en $\mathcal{R}$ indexada por $t \in \mathcal{T}$.
+%
+Por el teorema de Winer-Khintchine, existe un proceso ortogonal $dH$ tal que puede escribirse
+\begin{equation}
+\pint{X(t),X(s)} = R(t-s) = \intR e^{i \omega (t-s)} dH(\omega)
+\end{equation} 
+De manera más general, puede hablarse de una familia de funciones $\{ \phi_t \}_{t\in \mathcal{T}}$ (anteriormente se usó $\phi_t(\omega) = e^{i \omega t}$) y escribir
+\begin{equation}
+\pint{X(t),X(s)} = \intR \phi_t(\omega) \overline{\phi_s(\omega)} dH(\omega)
+\end{equation} 
+Usando la familia de funciones $\{ \phi_t \}_{t\in \mathcal{T}}$ puede construirse un segundo espacio de Hilbert, $\mathcal{H}_\phi$, como las combinaciones lineales de estas funciones.
+A este segundo espacio se le define el producto interno
+\begin{equation}
+\pint{\phi_1,\phi_2}_H := \intR \phi_1(\omega) \overline{\phi_2(\omega)} dH(\omega)
+\end{equation} 
+Posteriormente se define un mapeo $M : \mathcal{H}_\phi \rightarrow \mathcal{R}$ como
+\begin{equation}
+M[\phi_t] := X(t)
+\end{equation}
+el cual se extiende linealmente para cualesquiera coeficientes $c_1, c_2, \cdots \in \R$ y tiempos admisibles $t_1, t_2, \cdots \in \mathcal{T}$
+\begin{equation}
+M\left[ \sum_i c_i \phi_{t_i} \right] = \sum_i c_i M\left[ \phi_{t_i} \right]
+\end{equation}
+Trivialmente, $M$ conserva productos internos; basta notar que
+\begin{equation}
+\pint{X(t),X(s)} = \intR \phi_1(\omega) \overline{\phi_2(\omega)} dH(\omega) = \pint{\phi_1,\phi_2}_H
+\end{equation}
+Ahora, para trabajar con las funciones $\phi$ conviene descomponerlas en una base más \textit{sencilla}, como límite de funciones simples. Para ello, se define una función indicadora
+\begin{equation}
+I(\omega; \omega_0, \omega_f) := \begin{cases}
+1 &, \omega_0 \leq \omega < \omega_f \\
+0 &, \text{otro caso}
+\end{cases}
+\end{equation}
+Luego, sea $\{\omega_0, \omega_1, \cdots, \omega_N\}$ una partición del intervalo $[-n,n]$, con $n>>N$. Entonces, en virtud del teorema de convergencia dominada de Lebesgue
+\begin{equation}
+\phi_t(\omega) = \lim_{n\rightarrow\infty} \sum_{i=1}^{N} I(\omega; \omega_{i-1}, \omega_i) \left[  \inf_{\omega \in [\omega_{i-1},\omega_i]} \phi_t(\omega_{i})\right]
+\label{asd}
+\end{equation}
+Usando tal representación para las funciones $\phi$'s, se define a $Z$ como
+\begin{equation}
+Z(\omega_f) - Z(\omega_0) = M\left[ I(\omega; \omega_f, \omega_0) \right]
+\end{equation}
+Luego entonces, aplicando $M$ a ambos lados de la expresión \ref{asd} se obtiene
+\begin{align*}
+M\left[ \phi_t(\omega) \right] &= M\left[ \lim_{n\rightarrow\infty} \sum_{i=1}^{N} I(\omega; \omega_{i-1}, \omega_i) \left[  \inf_{\omega \in [\omega_{i-1},\omega_i]} \phi_t(\omega_{i})\right] \right] \\
+&= \lim_{n\rightarrow\infty} \sum_{i=1}^{N} M\left[I(\omega; \omega_{i-1}, \omega_i) \right] \left[  \inf_{\omega \in [\omega_{i-1},\omega_i]} \phi_t(\omega_{i})\right] \\
+&= \lim_{n\rightarrow\infty} \sum_{i=1}^{N} \left( Z(\omega_i) - Z(\omega_{i-1})\right) \left[  \inf_{\omega \in [\omega_{i-1},\omega_i]} \phi_t(\omega_{i})\right] \\
+&= \intR \phi_t(\omega) dZ(\omega)
+\end{align*}
+El resultado que se busca queda establecido porque $M[\phi_t] = X(t)$
+\begin{equation}
+X(t) = \intR \phi_t(\omega) dZ(\omega)
+\end{equation}
+\end{proof}
+
+\subsection{Representación de procesos a tiempo discreto}
+
+La existencia de espectros para procesos a tiempo discreto es dada por el teorema
+
+\begin{teorema}[Wold]
+Una condición suficiente y necesaria para que $\rho$ sea una función de autocorrelación de 
+algún proceso estocástico a tiempo discreto \xt débilmente estacionario es que exista 
+una función $F$ con las siguientes propiedades
+\begin{itemize}
+\item Monótonamente creciente
+\item $F(-\pi) = 0$
+\item $F(+\pi) = 1$
+\end{itemize}
+y tal que para todo $\tau \in \R$ se cumple que
+\begin{equation*}
+\rho(\tau) = \intPI e^{i \omega \tau} dF(\omega)
+\end{equation*}
+\label{t_wold}
+\end{teorema}
+
+\begin{proof}
+Por simplicidad, supóngase que $\Delta_X=1$. A tiempo discreto, la función de autocovarianza adquiere la forma de una secuencia $\{R(\tau)\}_{\tau\in \Z}$. Se define una función $R_C$ que es igual a $R$ pero cuyo dominio es $\R$, de la forma
+\begin{equation}
+R_C(\tau) = \left( 1 - \tau + \entero{\tau} \right) R\left( \entero{\tau} \right) +
+\left( s - \entero{\tau} \right) R\left( \entero{\tau} +1 \right)
+\end{equation}
+Se demuestra en Priestley 1963 [?] que existe un proceso estacionario cuya función de autovarianza es $R_C$, luego entonces por el teorema \ref{t_wienerkhinchin} existe una función de distribución $Q$ tal que 
+\begin{equation}
+R_C(\tau) = \intR e^{i \omega \tau} dQ(\omega)
+\end{equation}
+Dado que $R$ y $R_C$ son iguales cuando $\tau$ es entero, se puede considerar la siguiente manipulación con $\tau \in \Z$.
+\begin{align*}
+R(\tau) &= 
+\intR e^{i \omega \tau} dQ(\omega) \\
+&=
+\sum_{s = -\infty}^{\infty} \int_{(2s-1)\pi}^{2s+1 \pi} e^{i \omega \tau} Q(\omega) \\
+&=
+\sum_{s = -\infty}^{\infty} \int_{-\pi}^{\pi} e^{i \left(\omega + 2\pi s \right) \tau} Q(\omega + 2 \pi s) \\
+&=
+\sum_{s = -\infty}^{\infty} \int_{-\pi}^{\pi} e^{i \omega \tau} Q(\omega + 2 \pi s) \\
+&=
+\int_{-\pi}^{\pi} e^{i \omega \tau} \left[ \sum_{s = -\infty}^{\infty} Q(\omega + 2 \pi s) \right] \\
+\end{align*}
+Finalmente se puede definir a $F$, la función de densidad descrita por el teorema, usando
+\begin{equation}
+dF(\omega) = \sum_{s = -\infty}^{\infty} Q(\omega + 2 \pi s)
+\end{equation}
+El que $F$ sea monótonamente se deduce de que $Q$ lo es. Como $dQ$ es simétrica, puede definirse convenientemente que $F(-\pi)=0$ y $F(\pi) = 1$ con base a que
+\begin{equation}
+F(\pi) = \intPI \left[ \sum_{s = -\infty}^{\infty} Q(\omega + 2 \pi s) \right] = \intR dQ(\omega) = 1
+\end{equation}
+\end{proof}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Efecto \textit{alias}}
+\section{Efecto {alias}}
 
-Merecen especial atención los procesos a tiempo discreto que son generados como subcolección de un proceso a tiempo discreto. Dicho  al tomar un conjunto discreto de puntos en el tiempo, procedimiento referido como \textit{muestreo}\footnote{Esta terminología entra en conflicto con el procedimiento de muestreo en estadística. En lo próximo se usará la palabra \textit{muestra} para referirse a estadistica y se evitará en cuanto a discretización, pero se conservará el término \textit{frecuencia de muestreo}}.
+Hasta ahora se han tratado por separado los procesos a tiempo discreto y a tiempo continuo. 
+%
+Una vez expuestos algunos resultados importantes, se procede a explorar la familia de los procesos a tiempo discreto generados como subcolección de algún proceso a tiempo continuo. 
+%
+Dicha familia se vuelve importante porque se ha decidido modelar a las señales electrofisiológicas como procesos a tiempo continuo, pero sólo se pueden obtener registros de ellas a tiempo discreto.
+
+%En este trabajo no se habla sobre el proceso per se por el cual se obtienen registros a partir de las señales, un tópico que puede ser explorado con mayor detalle en el libro \textit{``Medical Instrumentation. Applications and Design"} por John G. Webster \cite{Webster}.
+%
+Este tópico es relevante desde el punto de vista práctico, ya que existe una amplia variedad de condiciones técnicas bajo las cuales se suelen efectuar los registros. La AASM establece un mínimo de 128 puntos por segundo (\hz) para registrar el polisomnograma, pero la frecuencia de muestreo usualmente es decidida dependiendo del fenómeno a observar y las características del aparato de registro a usarse.
+%
+Siguiendo esta idea, conviene hablar del posible efecto de obtener registros con una mayor o menor cantidad de puntos por unidad de tiempo
+
+%Dicho  al tomar un conjunto discreto de puntos en el tiempo, procedimiento referido como \textit{muestreo}.
 %
 %Dicho procedimiento está limitado por la velocidad con que se pueden registrar mediciones, así 
 %como por la capacidad para almacenar los datos obtenidos; tales limitaciones deben tomarse en 
 %cuenta dentro del diseño experimental para el fenómeno que se estudia, pero no se discutirán aquí.
 %
-El objetivo de las siguientes observaciones es describir el efecto de un cambio en la frecuencia de muestreo sobre el espectro deducido a partir de los registros.
+%El objetivo de las siguientes observaciones es describir el efecto de un cambio en la frecuencia de muestreo sobre el espectro deducido a partir de los registros.
 
-Considérese un proceso a tiempo continuo y débilmente estacionario, 
-\xt, y sea $\Delta_t \in \R$ arbitrario.
+Considérese un proceso a tiempo continuo y débilmente estacionario, \xt, y sea $\Delta_t \in \R$ arbitrario.
 %
 Se construye al proceso $\{Y(n)\}_{n\in \mathbb{N}}$ como
 \begin{equation}
@@ -455,25 +462,53 @@ como \textbf{efecto alias}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Filtros lineales}
+\section{Filtros lineales}
 
-Otra familia de procesos que merecen atención especial son aquellos de la forma son aquellos 
-construidos de la forma
+%Otra familia de procesos que merecen atención, sobre todo con miras a la estimación, son aquellos de la forma son aquellos construidos como
+%\begin{equation}
+%Y(t) = \intR g(u) X(t-u) du
+%\end{equation}
+%%
+%donde \xt es un proceso a tiempo continuo débilmente estacionario, y $g\in L^{2}$ es una función arbitraria; el proceso $\{Y(n)\}_{n\in \mathbb{N}}$ es referido como un proceso \textit{filtrado}. 
+
+\begin{definicion}
+Se dice que un operador $\mathcal{L}_g : L^{2} \rightarrow L^{2}$ es un \textbf{filtro lineal} si puede escribirse de la forma
 \begin{equation}
-Y(t) = \intR g(u) X(t-u) du
+\mathcal{L}_g[f] = \intR g(u) f(t-u) du
 \end{equation}
+para alguna función $g\in L^{2}$ que es referida como \textbf{función de respuesta}.
+\end{definicion}
+
+Naturalmente, los filtros lineales son funciones lineales. 
 %
-con \xt un proceso a tiempo continuo, débilmente estacionario, y $g\in L^{2}_{\R}$ una función 
-simétrica, por simplicidad. 
+Son continuos en la identidad aditiva de $L^{2}$, y por tanto son continuos en todo $L^{2}$. 
 %
-La conexión entre las FDE respectivas puede obtenerse escribiendo
+Como los filtros lineales son funciones lineales y continuas, entonces son funciones medibles bajo la medida de Lebesgue. 
+%
+Se puede hablar de la composición de un filtro lineal $\mathcal{L}_g$ con un proceso estocástico \xt, es decir, definir un proceso de la forma
+\begin{equation}
+Y(t) = \mathcal{L}_g[X](t) =  \intR g(u) X(t-u) du
+\label{eq:filtrado}
+\end{equation}
+
+Los procesos generados como en \ref{eq:filtrado}, usualmente referidos como \textit{procesos filtrados}, son comunes en el análisis de señales. 
+%
+En este trabajo serán usados para construir estimadores consistentes para el espectro de potencias.
+%
+Para ello, conviene describir la relación entre el espectro de un proceso y el de su \textit{versión filtrada}.
+
+Sea \xt un proceso a tiempo continuo, débilmente estacionario. Usando el teorema de representación espectral [?], puede escribirse
+\begin{equation}
+X(t) = \intR e^{i \omega t }  dZ_X(\omega)
+\end{equation}
+Ahora bien, escribiendo al proceso $\{Y(t)\}_{n\in \mathbb{N}}$
 \begin{align*}
-X(t) &= \intR e^{i \omega t }  dZ_X(\omega) \\
-Y(t) &= \intR g(u) \left[ \intR e^{i \omega (t-u) }  dZ_X(\omega) \right] du \\
+Y(t) &= \intR g(u) X(t-u) du \\
+&= \intR g(u) \left[ \intR e^{i \omega (t-u) }  dZ_X(\omega) \right] du \\
 &= \intR e^{i \omega t } \left[ \intR g(u) e^{i \omega -u } du \right] dZ_X(\omega) \\
 &= \intR e^{i \omega t } \Gamma(\omega) dZ_X(\omega)
 \end{align*}
-donde $\Gamma(\omega) = \intR g(u) e^{i \omega -u } du$. 
+donde $\Gamma(\omega) = \intR g(u) e^{i \omega -u } du$ será referida como la \textbf{función de transferencia} asociada al filtro. 
 %
 Luego entonces
 \begin{align*}
@@ -485,15 +520,14 @@ dH_Y(\omega) &= \E{\abso{dZ_Y(\omega)}^{2}}  \\
 Se concluye que si ambos procesos tengan FDE bien definidas, se cumple que
 \begin{equation}
 h_Y(\omega) = \abso{\Gamma(\omega)}^{2} h_X(\omega)
+\label{rel:espectros}
 \end{equation}
+%Como notación, la función $g$ será referida como \textbf{función de respuesta}, mientras que 
+%$\Gamma$ es la \textbf{función de transferencia}. 
+%%
+%Estos nombres se deben a motivos históricos que no serán discutidos en este texto.
 %
-lo cual se esperaba heurísticamente como generalización de la relación entre convolución y transformada de
-Fourier.
-
-Como notación la función $g$ será referida como \textbf{función de respuesta}, mientras que 
-$\Gamma$ es la \textbf{función de transferencia}. 
-%
-Estos nombres se deben a motivos históricos que no serán discutidos en este texto.
+Conviene notar que la relación \ref{rel:espectros} era de esperarse como una generalización del teorema [fourier ?].
 
 %%
 %Estos nombre nacen de la interpretación de $Y$ como el resultado de \textit{pasar} a $X$ a través 
@@ -522,18 +556,38 @@ Estos nombres se deben a motivos históricos que no serán discutidos en este te
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Estimadores}
+\label{sec:estimadores}
 
-Sea \xt un proceso débilmente estacionario cuyo espectro es puramente continuo, y \xtd un registro 
-de una realización, de tamo $N$. 
+El objetivo de esta sección es calcular el espectro de potencias de un proceso a partir de una realización del mismo; en el contexto del presente trabajo, las palabras \textit{observación} y \textit{registro} serán usadas como sinónimos.
 %
-El objetivo de esta sección es calcular la FDE del proceso a partir del registro obtenido.
+Con vista en la expresión \ref{txt_FDE_disc}, un estimador \textit{natural} para el espectro sería el \textit{periodograma}.
+
+\begin{definicion}
+Sea \xt un proceso débilmente estacionario a tiempo discreto, cuyo espectro es puramente continuo y cuya frecuencia de muestreo es $\Delta_X=1$. Sea \xtd una realización de longitud $N$. 
 %
-Con vista en la expresión \ref{txt_FDE_disc}, un estimador natural es el \textbf{periodograma}, 
+El \textbf{periodograma}, $I_N$, es un estimador 
+%para el espectro 
 definido como
 \begin{equation}
 I_N(\omega) = \frac{1}{N} \abso{\sum_{t = 0}^{N} e^{i \omega t} x(t)}^{2}
-\label{txt_periodograma}
 \end{equation}
+\label{txt_periodograma}
+\end{definicion}
+
+\begin{proposicion}
+El periodograma ($I_N$) es un estimador insesgado para el espectro de potencias ($h$), es decir
+\begin{equation}
+\E{I_N(\omega)} = h(\omega)
+\end{equation}
+\end{proposicion}
+
+\begin{proposicion}
+La familia de estimadores $\{I_N\}_{N\in\N}$ satisface que
+\begin{equation}
+\lim_{N\rightarrow \infty} \Var{I_N(\omega)} = \left[ h(\omega) \right]^{2}
+\E{I_N)(\omega)} = h(\omega)
+\end{equation}
+\end{proposicion}
 
 %Para poder estudiar mejor al periodograma conviene escribirlo como
 %\begin{align*}
@@ -597,6 +651,281 @@ Resulta ilustrativo reescribir a $\widehat{h}$ en términos del periodograma
 donde $\Gamma(\omega) = \intR g(u) e^{i \omega -u } du$.
 %
 Se puede demostrar que este tipo de estimadores son asintóticamente insesgado y consistentes.
+
+\begin{SidewaysTable}
+\caption{Ejemplos de funciones ventana (función de respuesta)}
+\centering
+{
+\begin{tabular*}{\textwidth}{lll}
+\toprule
+Nombre & $k(u), \abso{u} \leq 1$ & Bosquejo \\
+\midrule
+Bartlett &
+$\displaystyle 
+1 
+$
+& \includegraphics[width=3cm,height=2cm]{./img_ventanas/ventana_bartlett.pdf}
+\\
+\rowcolor{gris}
+Fejer &
+$\displaystyle 
+1-\abso{u}
+$
+& \includegraphics[width=3cm,height=2cm]{./img_ventanas/ventana_fejer.pdf}
+\\
+Daniell &
+$\displaystyle 
+\frac{\SEN{\pi u}}{\pi u}
+$
+& \includegraphics[width=3cm,height=2cm]{./img_ventanas/ventana_daniell.pdf}
+\\
+%\rowcolor{gris}
+%Parzen (1) &
+%$\displaystyle 
+%1-u^{2}
+%$
+%& \includegraphics[width=3cm,height=2cm]{./img_ventanas/ventana_parzen1.pdf}
+%\\
+%Parzen (2) &
+%$\displaystyle 
+%\frac{1}{1+\abso{u}}
+%$
+%& \includegraphics[width=3cm,height=2cm]{./img_ventanas/ventana_parzen2.pdf}
+%\\
+%\rowcolor{gris}
+%Parzen (3) &
+%$\displaystyle 
+%\frac{1}{1+u^{2}}
+%$
+%& \includegraphics[width=3cm,height=2cm]{./img_ventanas/ventana_parzen3.pdf}
+%\\
+\rowcolor{gris}
+Bartlett-Priestley &
+$\displaystyle 
+\frac{3}{(\pi u)^{2}} \left[ \frac{\SEN{\pi u}}{\pi u} - \COS{\pi u} \right]
+$
+& \includegraphics[width=3cm,height=2cm]{./img_ventanas/ventana_bartlet_priestley.pdf}
+\\
+%Parzen &
+%$\displaystyle 
+%\begin{cases}
+%1-6 u^{2} + 6 \abso{u}^{3} &, \abso{u}\leq \nicefrac{1}{2}\\
+%2\left( 1-\abso{u} \right)^{3} &, \text{otro caso}
+%\end{cases}
+%$
+%& \includegraphics[width=3cm,height=2cm]{./img_ventanas/ventana_parzen4.pdf}
+%\\
+%\rowcolor{gris}
+%Tukey &
+%$\displaystyle 
+%1 -2a +2a \COS{\pi u}
+%$
+%& \includegraphics[width=3cm,height=2cm]{./img_ventanas/ventana_tukey.pdf}
+%\\
+Cosenoidal &
+$\displaystyle 
+\COS{\pi u}
+$
+& \includegraphics[width=3cm,height=2cm]{./img_ventanas/ventana_cosenoidal.pdf}
+\\
+%\bottomrulec
+\bottomrule
+\end{tabular*}
+}
+\label{ventanas}
+\end{SidewaysTable}
+
+%\begin{SidewaysTable}
+%\caption{Ejemplos de funciones ventana (función de respuesta)}
+%\centering
+%{
+%\begin{tabular}{lll}
+%\toprule
+%& $k(u)$ para $\abso{u} \leq 1$  & \\
+%\midrule
+%Neave &
+%{\small
+%$\displaystyle 
+%\begin{cases}
+%1 &, \abso{u}\leq a \\
+%\frac{1}{1-a}\left[ 1-u +\frac{b-a}{\pi}\SEN{\frac{b-u}{b-a}\pi} \right] &, a \leq \abso{u}\leq a \\
+%\frac{1}{1-a}\left[ 1-u -\frac{1-b}{\pi}\SEN{\frac{u-b}{1-b}\pi} \right] &, b \leq \abso{u} \\
+%\end{cases}
+%$
+%}
+%& \includegraphics[width=3cm,height=2cm]{./img_ventanas/ventana_neave.pdf}
+%\\
+%\rowcolor{gris}
+%Cuadrática &
+%$\displaystyle 
+%\frac{25}{12(\pi u)^{2}} 
+%\left[ \frac{\SEN{\nicefrac{6 \pi u}{5}}}{\nicefrac{6\pi u}{5}} - \COS{\nicefrac{6 \pi u}{5}} \right]
+%$
+%& \includegraphics[width=3cm,height=2cm]{./img_ventanas/ventana_cuadratica.pdf}
+%\\
+%Bartlett-Priestley &
+%$\displaystyle 
+%\frac{3}{(\pi u)^{2}} \left[ \frac{\SEN{\pi u}}{\pi u} - \COS{\pi u} \right]
+%$
+%& \includegraphics[width=3cm,height=2cm]{./img_ventanas/ventana_bartlet_priestley.pdf}
+%\\
+%\rowcolor{gris}
+%Papoulis &
+%$\displaystyle 
+%(1-u)\COS{\pi u} + \frac{\SEN{\pi u }}{\pi u }
+%$
+%& \includegraphics[width=3cm,height=2cm]{./img_ventanas/ventana_papoulis.pdf}
+%\\
+%Cosenoidal &
+%$\displaystyle 
+%\COS{\pi u}
+%$
+%& \includegraphics[width=3cm,height=2cm]{./img_ventanas/ventana_cosenoidal.pdf}
+%\\
+%\rowcolor{gris}
+%Trapezoidal &
+%$\displaystyle 
+%\begin{cases}
+%1 &, \abso{u}\leq a \\
+%\frac{u-1}{a-1} &, a \leq \abso{u}\leq a 
+%\end{cases}
+%$
+%& \includegraphics[width=3cm,height=2cm]{./img_ventanas/ventana_trapezoidal.pdf}
+%\\
+%Normal &
+%$\displaystyle 
+%\exp \left( - \nicefrac{u^{2}}{2 \sigma^{2}}  \right)
+%$
+%%& \includegraphics[width=3cm,height=2cm]{./img_ventanas/ventana_normal.pdf}
+%& \includegraphics[width=3cm,height=2cm]{./img_ventanas/ventana_.pdf}
+%\\
+%\bottomrule
+%\end{tabular}
+%}
+%\end{SidewaysTable}
+
+\begin{SidewaysTable}
+\caption{Ejemplos de funciones ventana (función de transferencia)}
+\centering
+{
+\begin{tabular}{ll}
+\toprule
+& $K(\theta)$ para $\abso{\theta} \leq 1$ \\
+\midrule
+Bartlett &
+$\displaystyle 
+\frac{1}{\pi} \frac{\SEN{\theta}}{\theta}
+$
+\\
+\rowcolor{gris}
+Fejer &
+$\displaystyle 
+\frac{1}{2\pi} \left[ \frac{\SEN{\nicefrac{\theta}{2}}}{\nicefrac{\theta}{2}} \right]^{2}
+$
+\\
+Daniell &
+$
+\displaystyle 
+\nicefrac{1}{2\pi} \text{, si } \abso{\theta}\leq \pi
+$
+\\
+%\rowcolor{gris}
+%Parzen (1) &
+%$\displaystyle 
+%d
+%$
+%\\
+%Parzen (2) &
+%$\displaystyle 
+%d
+%$
+%\\
+%\rowcolor{gris}
+%Parzen (3) &
+%$\displaystyle 
+%d
+%$
+%\\
+\rowcolor{gris}
+Bartlett-Priestley &
+$\displaystyle 
+\frac{3}{4 \pi} \left[ 1 - \left( \nicefrac{\theta}{\pi} \right) \right]
+\text{, si } \abso{\theta}\leq \pi
+$
+\\
+%Parzen (4) &
+%$\displaystyle 
+%\frac{3}{8 \pi} \left[ \frac{\SEN{\nicefrac{\theta}{4}}}{\nicefrac{\theta}{4}} \right]
+%$
+%\\
+%\rowcolor{gris}
+%Tukey &
+%$\displaystyle 
+%d
+%$
+%\\
+Cosenoidal &
+$\displaystyle 
+d
+$
+\\
+\bottomrule
+%\bottomrulec
+\end{tabular}
+}
+\end{SidewaysTable}
+
+%\begin{SidewaysTable}
+%\caption{Ejemplos de funciones ventana (función de transferencia)}
+%\centering
+%{
+%\begin{tabular}{ll}
+%\toprule
+%& $K(\theta)$ para $\abso{\theta} \leq 1$ \\
+%\midrule
+%Neave &
+%$
+%d
+%$
+%\\
+%\rowcolor{gris}
+%Cuadrática &
+%$\displaystyle 
+%d
+%$
+%\\
+%Bartlett-Priestley &
+%$\displaystyle 
+%\frac{3}{4 \pi} \left[ 1 - \left( \nicefrac{\theta}{\pi} \right) \right]
+%\text{, si } \abso{\theta}\leq \pi
+%$
+%\\
+%\rowcolor{gris}
+%Papoulis &
+%$\displaystyle 
+%d
+%$
+%\\
+%Coseno &
+%$\displaystyle 
+%d
+%$
+%\\
+%\rowcolor{gris}
+%Trapezoidal &
+%$\displaystyle 
+%d
+%$
+%\\
+%Normal &
+%$\displaystyle 
+%d
+%$
+%\\
+%\bottomrule
+%\end{tabular}
+%}
+%\end{SidewaysTable}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
