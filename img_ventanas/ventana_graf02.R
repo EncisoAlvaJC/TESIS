@@ -20,6 +20,13 @@ if(n==1){
     }
     return(1)
   }
+  
+  k.trans = function(th){
+    if(th==0){
+      return(1/pi)
+    }
+    return((1/pi)*(sin(th))/th)
+  }
 }
 if(n==2){
   # Fejer
@@ -30,6 +37,13 @@ if(n==2){
     }
     return(1-abs(u))
   }
+  
+  k.trans = function(th){
+    if(th==0){
+      return(1/(2*pi))
+    }
+    return((.5/pi)*((sin(th/2)/(th/2))**2))
+  }
 }
 if(n==3){
   # Daniell
@@ -39,6 +53,13 @@ if(n==3){
       return(1)
     }
     return(sin(pi*u)/(pi*u))
+  }
+  
+  k.trans = function(th){
+    if(th>pi){
+      return(0)
+    }
+    return(1/(2*pi))
   }
 }
 if(n==4){
@@ -135,6 +156,13 @@ if(n==11){
     }
     return((3/((pi*u)**2))*((sin(pi*u))/(pi*u) - cos(pi*u)))
   }
+  
+  k.trans = function(th){
+    if(th>pi){
+      return(0)
+    }
+    return( (3/(4*pi))*(1-th/pi) )
+  }
 }
 if(n==12){
   # Papoulis
@@ -185,27 +213,30 @@ if(n==15){
   }
 }
 
+#################################################################
+# funcion de respuesta
+
 # funcion k, vectorizada
 k = function(u){
   sapply(u,function(tt) k.base(tt) )
 }
 
-# funcion generadora k, truncada
-k.t.base = function(u){
-  if(abs(u)>1){
-    return(0)
-  }else{
-    if(u==0){
-      return(1)
-    }
-  }
-  return((3/((pi*u)**2))*((sin(pi*u))/(pi*u) - cos(pi*u)))
-}
-
-# funcion k, vectorizada
-k.t = function(u){
-  sapply(u,function(tt) k.t.base(tt) )
-}
+# # funcion generadora k, truncada
+# k.t.base = function(u){
+#   if(abs(u)>1){
+#     return(0)
+#   }else{
+#     if(u==0){
+#       return(1)
+#     }
+#   }
+#   return((3/((pi*u)**2))*((sin(pi*u))/(pi*u) - cos(pi*u)))
+# }
+# 
+# # funcion k, vectorizada
+# k.t = function(u){
+#   sapply(u,function(tt) k.t.base(tt) )
+# }
 
 # grafica de k
 u = seq(0,1.5,by=1/500)
@@ -218,7 +249,7 @@ ggplot(u,aes(x=xx,y=yy)) +
   theme_bw()+
   theme(panel.background = element_rect(fill = 'transparent',colour = NA),
        plot.background = element_rect(fill = 'transparent',colour = NA))+
-  scale_x_continuous(expand=c(0,0),breaks=c(0,.5,1,1.5))+
+  scale_x_continuous(expand=c(0,0),breaks=c(.5,1,1.5))+
   scale_y_continuous(expand=c(0,0),breaks=c(.5,1))+
   theme(panel.border = element_blank())+
   #annotate('rect',#inherit.aes = F,
@@ -229,6 +260,48 @@ ggplot(u,aes(x=xx,y=yy)) +
 
 
 # grabar
-q = 1.5
+q = 2
 ggsave(file=paste0('ventana_',nombre,'.pdf'),width=3,height=2,
+       scale=q,bg='transparent',unit='cm')
+
+#################################################################
+# funcion de transferencia
+
+# funcion k, vectorizada
+k = function(u){
+  sapply(u,function(tt) k.trans(tt) )
+}
+
+# grafica de k
+u = seq(0,2.5*pi,by=1/500)
+u = as.data.frame(u)
+colnames(u) = c('xx')
+u$yy = k(u$xx)
+
+print(
+ggplot(u,aes(x=xx,y=yy)) +
+  xlab(NULL)+ylab(NULL)+
+  theme_bw()+
+  theme(panel.background = element_rect(fill = 'transparent',colour = NA),
+        plot.background = element_rect(fill = 'transparent',colour = NA))+
+  expand_limits(y=1/pi) +
+  scale_x_continuous(labels=math_format(.x * pi, format = function(x) x / pi),
+                     expand=c(0,0),breaks=pi*c(1,2))+
+  #scale_y_continuous(labels=math_format(.x * pi, format = function(x) x / pi),
+  #                   expand=c(0,0),
+  #                   breaks = (pretty_breaks(n=3)(u$yy/pi))*pi)+
+  scale_y_continuous(labels=math_format(.x / pi, format = function(x) x * pi),
+                     expand=c(0,0),
+                     breaks = (1/pi)*c(0,.5,1))+
+  theme(panel.border = element_blank())+
+  #annotate('rect',#inherit.aes = F,
+  #          xmin=1,xmax=1.5,ymin=-Inf,ymax=Inf,fill='gray',alpha=0.2)+
+  geom_vline(xintercept = 0)+
+  geom_hline(yintercept = 0)+
+  geom_line(col='red')
+)
+
+# grabar
+q = 2
+ggsave(file=paste0('ventana_2_',nombre,'.pdf'),width=3,height=2,
        scale=q,bg='transparent',unit='cm')

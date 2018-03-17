@@ -1,8 +1,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\documentclass[12pt,letterpaper,draft]{book}
-%\documentclass[12pt,letterpaper]{book}
+%\documentclass[12pt,letterpaper,draft]{book}
+\documentclass[12pt,letterpaper]{book}
 \usepackage[utf8]{inputenc}
 \usepackage[spanish]{babel}
 
@@ -471,11 +471,74 @@ Alejandro; por hacer la vida más llevadera.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\chapter*{Glosario}
+\thispagestyle{empty}
 
-%asdasd%
-%\nomenclature{AABFM}{Actividad de amplitud relativamente baja ($<10 \mu$A), visualmente desorganizada.
-%No tiene una forma senoidal clara.}%
+\tableofcontents
+\newpage
+
+\listoffigures
+\listoftables
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{center}\textit{
+``Creo que el conocimiento científico tiene \\
+propiedades fractales; que por mucho que aprendamos,  \\
+lo que queda, por pequeño que parezca,  \\
+es tan infinitamente complejo como el todo \\ 
+por el que empezamos. \\
+Ese, creo yo, es el secreto del universo."} 
+\vspace{1em}
+\end{center}
+\begin{flushright}
+\textsc{Isaac Asimov \cite{Asimov}}
+\end{flushright}
+
+\begin{figure*}
+\centering
+\includegraphics[width = 0.7\textwidth]{frase.png} 
+\end{figure*}
+
+\newpage
+
+\setcounter{page}{1}
+\pagenumbering{arabic}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\input{./texto/intro_v2.tex}
+
+\input{./texto/preliminares.tex}
+
+\input{./texto/espectro_v2.tex}
+
+\input{./texto/espectro_evolutivo.tex}
+
+\input{./texto/fisiologia_v3.tex}
+
+\input{./texto/metodologia_v2.tex}
+
+\input{./texto/resultados_v2.tex}
+
+\appendix
+
+\input{./texto/tablas_graficos_v3.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\bibliographystyle{bababbrv-lf}
+\bibliography{referencias_estacionariedad,referencias_fisiologia,referencias_otros,referencias_mixto}%{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter*{Glosario}
+\addcontentsline{toc}{chapter}{Glosario}
 
 {
 \setlength{\leftskip}{2em}
@@ -530,11 +593,21 @@ Debido a los estándares cautelosos de la psicología clínica, para otorgar el 
 \setlength{\parindent}{-2em}
 
 \textbf{Delta de Kroneker ($\delta$)} \\
-Función definida principalmente para facilitar la referencia de productos ortogonales.
+Usada para facilitar la descripción de productos ortogonales.
 \begin{equation*}
 \delta(i,j) = \begin{cases}
 1 &, i = j \\
 0 &, i \neq j
+\end{cases}
+\end{equation*}
+
+\textbf{H de Heavyside ($H$)} \\
+Usada para facilitar la descripción de \textit{ondas cuadradas}.
+\begin{equation*}
+H(x) = \begin{cases}
+1 &, x>0 \\
+0 &, x=0 \\
+-1 &, x<0
 \end{cases}
 \end{equation*}
 
@@ -545,74 +618,6 @@ Sean $f, g : \R \rightarrow \R$ dos funciones y $x_0 \in \R \cup \{ -\infty, \in
 \end{equation*} 
 en cuyo caso se dice $f = \orden{g}$
 }
-
-\newpage
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\thispagestyle{empty}
-
-\tableofcontents
-\newpage
-
-\listoffigures
-\listoftables
-\newpage
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{center}\textit{
-``Creo que el conocimiento científico tiene \\
-propiedades fractales; que por mucho que aprendamos,  \\
-lo que queda, por pequeño que parezca,  \\
-es tan infinitamente complejo como el todo \\ 
-por el que empezamos. \\
-Ese, creo yo, es el secreto del universo."} 
-\vspace{1em}
-\end{center}
-\begin{flushright}
-\textsc{Isaac Asimov \cite{Asimov}}
-\end{flushright}
-
-\begin{figure*}
-\centering
-\includegraphics[width = 0.7\textwidth]{frase.png} 
-\end{figure*}
-
-\newpage
-
-\setcounter{page}{1}
-\pagenumbering{arabic}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\input{./texto/intro_v2.tex}
-
-\input{./texto/preliminares.tex}
-
-\input{./texto/matematicas_v3.tex}
-
-\input{./texto/espectro_evolutivo.tex}
-
-\input{./texto/fisiologia_v3.tex}
-
-\input{./texto/metodologia_v2.tex}
-
-\input{./texto/resultados_v2.tex}
-
-\appendix
-
-\input{./texto/tablas_graficos_v3.tex}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\bibliographystyle{bababbrv-lf}
-\bibliography{referencias_estacionariedad,referencias_fisiologia,referencias_otros,referencias_mixto}%{}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

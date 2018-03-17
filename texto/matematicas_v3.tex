@@ -374,6 +374,25 @@ F(\pi) = \intPI \left[ \sum_{s = -\infty}^{\infty} Q(\omega + 2 \pi s) \right] =
 \end{equation}
 \end{proof}
 
+En virtud del teorema de Wold, se puede obtener una variante del teorema \ref{rep_espectral} para procesos a tiempo discreto cambiando el intervalo de integración.
+
+\begin{teorema}
+Sea \xt un proceso a tiempo discreto, débilmente estacionario y de media 0. Existe un proceso ortogonal $\{Z(\omega)\}$ tal que, para todo tiempo $\omega$ admisible, se puede escribir
+\begin{equation*}
+X(t) = \intPI e^{i t \omega} dZ(\omega)
+\end{equation*}
+Donde el proceso $\{Z(t)\}$ tiene las siguientes propiedades para todo $\omega$
+\begin{itemize}
+\item $\E{dZ(\omega)} = 0$
+%\item $\E{\abso{dZ(\omega)}^{2}} = dH(\omega)$
+\item $\Cov{dZ(\omega),dZ(\lambda)} = dH(\omega) \delta(\omega, \lambda)$
+\end{itemize}
+Donde $dH(\omega)$ el espectro integrado de \xt
+\label{rep_espectral2}
+\end{teorema}
+
+La demostración es completamente análoga, reemplazando el teorema de Winer-Khintchine por el de Wold. Como notación, las representaciones en los teoremas \ref{rep_espectral} y \ref{rep_espectral2} son referidas como \textbf{representaciones de Wold-Cramér}.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -552,6 +571,37 @@ Conviene notar que la relación \ref{rel:espectros} era de esperarse como una ge
 %\end{itemize}
 %Por simplicidad, ninguno de estos enfoques será explorado en el presente trabajo.
 
+\subsection{Filtros de banda}
+
+Como se mencionó, los filtros lineales tienen múltiples aplicaciones en el análisis de señales, además de la estimación del espectro de potencias.
+%
+Conviene destacar, aún como comentario, la familia de filtros lineales cuya función de transferencia es de la forma
+\begin{equation}
+\Gamma_{\omega_0}^{\star} (\omega) = \begin{cases}
+1 &, \abso{\omega} \leq \omega_0 \\
+0 &, \text{otro caso}
+\end{cases}
+\end{equation}
+este tipo de filtros son referidos como \textit{filtros pasa bajas}.%; en la literatura en español es común verlos referidos por su nombre en inglés, \textit{low-pass filter}.
+%
+Análogamente, un \textit{filtro pasa altas} tiene una la misma forma cambiando la condición por $\abso{\omega} \geq \omega_0$.
+
+Cuando se aplica un filtro pasa bajas a un proceso, el efecto producido suele interpretarse como la \textit{eliminación de los componentes de frecuencia} mayores a $\omega_0$. 
+%
+Tal efecto es deseable si, por ejemplo, se desea estudiar la actividad alfa en el lóbulo frontal (7--12 \hz) pero se espera la interferencia de actividad muscular en el rostro (típicamente $>100$ \hz); bastaría construir un filtro pasabajas con $\omega_0 = $ 100 \hz.
+
+[?] escribir la forma que debería tener $g$
+
+%Naturalmente no es posible construir físicamente este tipo de filtros, ya que requieren actuar sobre una señal de longitud infinita.
+%%
+%Sin embargo, es común la construcción de 
+
+%En lo siguiente no se explora más este tipo de filtros, pero éstos efectivamente son utilizados durante el registro de las señales electrofisiológicas que componen el PSG.
+%
+Este tipo de pre-procesamiento garantiza, por ejemplo, que en los registros no hay ruido inducido por la corriente eléctrica (120 \hz); en general, el uso de filtros pasa bajas y pasa bajas garantiza heurísticamente la eliminación de una variedad de ruidos comunes.
+%
+En el presente texto no se exploran con más detalles este tipo de filtros y sus efectos, el lector interesado puede dirigirse al libro \textit{``Medical {I}nstrumentation. {A}pplications and {D}esign"} por John G. Webster \cite{Webster}.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -585,7 +635,6 @@ El periodograma ($I_N$) es un estimador insesgado para el espectro de potencias 
 La familia de estimadores $\{I_N\}_{N\in\N}$ satisface que
 \begin{equation}
 \lim_{N\rightarrow \infty} \Var{I_N(\omega)} = \left[ h(\omega) \right]^{2}
-\E{I_N)(\omega)} = h(\omega)
 \end{equation}
 \end{proposicion}
 
@@ -627,8 +676,8 @@ donde $\widehat{R}^{\star}$ es un estimador para la función de autocovarianza, 
 
 %Se puede demostrar que $\widehat{R}^{\star}$ es consistente y \textit{asintóticamente insesgado}.
 %
-La expresión \ref{txt_periodograma2} bien puede verse como una inversión de la relación entre la
-FDE y la autocovarianza dada por el teorema \ref{t_wold}.
+%La expresión \ref{txt_periodograma2} bien puede verse como una inversión de la relación entre la
+%FDE y la autocovarianza dada por el teorema \ref{t_wold}.
 %
 Así mismo, la misma expresión puede interpretarse como que el periodograma es una suma ponderada de 
 los valores de $\widehat{R}^{\star}$; mientras más grande es $\tau$, menos parejas de puntos cuya 

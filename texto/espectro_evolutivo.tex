@@ -8,7 +8,7 @@ En esta sección se introduce el \textit{espectro evolutivo}, una generalizació
 potencias para procesos no-estacionarios cuya estructura cambia lentamente en el tiempo.
 %
 Esta definición en particular fue presentada por Maurice Priestley en 1965 \cite{Priestley65}; la
-información del presente capítulo puede revisarse con mayor detalle en su libro \textit{"Spectral
+información del presente capítulo puede revisarse con mayor detalle en su libro \textit{``Spectral
 Analysis and Time Series"} \cite{Priestley81}, particularmente en el capítulo 11.
 
 %Las secciones \ref{sec:frecuencias2}, ..., pueden verse como preliminares de este capítulo y pueden
@@ -65,11 +65,7 @@ X(t) = \intR e^{i\omega t} dZ(\omega)
 %
 donde $Z$ es un proceso estocástico que satisface
 \begin{equation}
-\Cov{dZ(\omega_1),dZ(\omega_2)} = 
-\begin{cases}
-dH(\omega_1) &, \text{si } \omega_1 = \omega_2 \\
-0 &, \text{otro caso}
-\end{cases}
+\Cov{dZ(\omega_1),dZ(\omega_2)} = dH(\omega_1) \delta(\omega_1, \omega_2)
 \end{equation}
 
 En general, se espera tener una generalización que conserve las propiedades anteriores. Con vista
@@ -97,11 +93,7 @@ X(t) = \intR \phi(\omega;t) dZ(\omega)
 \end{equation}
 donde el proceso $Z$ satisface que
 \begin{equation}
-\Cov{dZ(\omega_1),dZ(\omega_2)} = 
-\begin{cases}
-\mu(\omega_1) &, \text{si } \omega_1 = \omega_2 \\
-0 &, \text{otro caso}
-\end{cases}
+\Cov{dZ(\omega_1),dZ(\omega_2)} = \mu(\omega_1) \delta(\omega_1, \omega_2)
 \end{equation}
 
 
@@ -140,13 +132,20 @@ X(t) &= \intR A(\omega; t) e^{i \omega t} dZ(\omega)
 \begin{definicion}
 Sea \xt un proceso oscilatorio y $\ef$ una familia de funciones oscilatorias de la forma
 $\phi(\omega;t) = A(\omega;t) e^{i \omega t}$. 
-Sea $\mu$ tal que ...
+Sea $\mu$ tal que satisface las condiciones anteriores.
 Se define al \textbf{espectro evolutivo} del proceso respecto a la familia $\ef$ como
 \begin{equation}
 dH(t,\omega) := \abso{A(\omega;t)}^{2} d\mu(\omega)
 \end{equation}
 \label{def:oscilatorio}
 \end{definicion}
+
+\begin{proposicion}
+Si un proceso \xt es débilmente estacionario, entonces su espectro de potencias $h$ y su espectro evolutivo $h^{\star}$ satisfacen, para todo $t\in \mathcal{T}$, que
+\begin{equation}
+h^{\star}(\omega, t) = h(\omega)
+\end{equation}
+\end{proposicion}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -158,7 +157,7 @@ En el capítulo anterior se mostró un estimador consistente para el espectro de
 %
 El objetivo de esta sección es aclarar algunos teoremas que permitan usar una técnica similar, la cual requiere imponer algunas condiciones más fuertes que ser oscilatorios.
 
-\subsection{Filtros lineales}
+\subsection{Filtros lineales sobre procesos oscilatorios}
 
 Sea \xt un proceso oscilatorio, no necesariamente estacionario, y sea $g\in \lldos$; se construye al proceso $\{Y(t)\}_{t\in \mathcal{T}}$ como\footnote{En el texto de Priestley se considera un filtro de la forma $Y(t) = \intR g(u) X(t-u) e^{-i \omega_0 (t-u)} du$ para algún $\omega_0$ constante. 
 Por simplicidad se considera únicamente el caso $\omega_0=0$}
@@ -191,7 +190,7 @@ Una familia de funciones $\ef$ se dice \textbf{semi-estacionaria} si, para todo 
 \begin{equation}
 \intR \abso{\omega} \abso{dK(\omega)} < \infty
 \end{equation}
-En cuyo caso se define su \textbf{ancho característico}
+En cuyo caso se define su \textbf{ancho de banda característico}
 \begin{equation}
 B_\ef := \left[ \sup_\omega \intR \abso{\omega} \abso{dK(\omega)} \right]^{-1}
 \end{equation}
@@ -437,74 +436,166 @@ aplica de manera aproximada, y entonces se cumple que
 \begin{proposicion}
 Dadas las condiciones, y si \xt es un proceso normal cuyo que admite un espectro evolutivo uniformemente continuo, se tiene que
 \begin{equation}
-\Var{\abso{U(\omega;t)}^{2}} \approx \left[ \intR \abso{\Gamma(\omega)}^{2} h(\omega, t)d\omega \right]^{2}
+\Var{\abso{U(\omega;t)}^{2}} = \left[ \intR \abso{\Gamma(\omega)}^{2} h(\omega, t)d\omega \right]^{2} + \orden{\nicefrac{B_g}{B_X}}
 \end{equation}
 \end{proposicion}
 
-La demostración al teorema anterior puede ahllarse en el artículo de Maurice Priestley \textit{Design Relations for Non-Stationary Processes} \cite{Priestley66}, sección 3.
+%La demostración al teorema anterior puede ahllarse en el artículo de Maurice Priestley \textit{Design Relations for Non-Stationary Processes} \cite{Priestley66}, sección 3.
 
-%\begin{proof}
-%En general, puede escribirse para $t,s \in \mathcal{T}$, $\omega, \lambda \in \R$
+\begin{proof}
+Por conveniencia se obtendrá una expresión aproximada para la covarianza de $U$, a partir de la cual se deducirá su varianza. 
+%
+Para ello, por definición puede escribirse para $t,s \in \mathcal{T}$ y $\omega, \lambda \in \R$
+\begin{align*}
+\Cov{\abso{U(\omega;t)}^{2},\abso{U(\lambda;s)}^{2}} =
+\E{\abso{U(\omega;t)}^{2} \abso{U(\lambda;s)}^{2}} - 
+\E{\abso{U(\omega;t)}^{2}} \E{\abso{U(\lambda;s)}^{2}}
+\end{align*}
+\begin{multline}
+\E{\abso{U(\omega;t)}^{2} \abso{U(\lambda;s)}^{2}}
+=
+\int \int \int \int_{R^{4}} g(u) g(v) g(w) g(z) e^{i u \omega} e^{i v \omega} e^{i w \lambda} e^{i z \lambda} \\
+ \times
+\E{{X(t-u)} {X(t-v)} {X(s-w)} {X(s-z)}}
+du dv dw dz 
+\end{multline}
+Si para cada $t$ $X(t)$ sigue una distribución normal, entonces en virtud del teorema \ref{teo:isserlis} puede escribirse
 %\begin{align*}
-%\Cov{\abso{U(\omega;t)}^{2},\abso{U(\lambda;s)}^{2}} &=
-%\E{\abso{U(\omega;t)}^{2},\abso{U(\lambda;s)}^{2}} \\
-%&=
-%\int \int \int \int_{R^{4}} g(u) g(v) g(w) g(z) e^{i u \omega} e^{i v \omega} e^{i w \lambda} e^{i z \lambda} \\
-%&\pheq \times
-%\E{{X(t-u)} {X(t-v)} {X(s-w)} {X(s-z)}}
-%du dv dw dz 
+%\begin{split}
+%\E{X(t-u) {X(t-v)} {X(t-w)} X(t-z)} 
+%={}& \E{X(t-u) X(t-v)} \E{X(t-w) X(t-z)} \\
+%& +  \E{X(t-u) X(t-w)} \E{X(t-v) X(t-z)} \\
+%& +  \E{X(t-u) X(t-z)} \E{X(t-v) X(t-w) }
+%\end{split}\\
+%\begin{split}
+%={}& R(t-u,t-v)R(s-w,s-z) \\
+%&+   R(t-u,s-z)R(t-v,s-w) \\
+%&+   R(t-u,s-w)R(t-v,s-z)
+%\end{split}
 %\end{align*}
-%Si \xt es normal, entonces
-%\begin{align*}
-%\E{X(t-u) {X(t-v)} {X(t-w)} X(t-z)} &=
-%R(t-u,t-v)R(s-w,s-z) \\
-%&\pheq + R(t-u,s-z)R(t-v,s-w) \\
-%&\pheq + R(t-u,s-w)R(t-v,s-z)
-%\end{align*}
-%donde
-%\begin{equation}
-%R(p,q) = \intR e^{i \omega (p-q)} A(\omega; p)\overline{A(\omega; q)} d\mu(\omega) 
-%\end{equation}
-%Así entonces, puede escribirse
-%\begin{align*}
-%\Cov{\abso{U(\omega;t)}^{2},\abso{U(\lambda;s)}^{2}} &=
-%\E{\abso{U(\omega, t)}^{2}} \E{\abso{U(\lambda, s)}^{2}} + S_1 + S_2
-%\end{align*}
-%donde
-%\begin{align*}
-%S_1 &= 
-%\int \int \int \int_{\R^{4}} g(u) g(v) g(w) g(z) e^{i u \omega} e^{i v \omega} e^{i w \lambda} e^{i z \lambda} \\
-%&\pheq \times \left( 
-%\int \int_{\R^{2}} 
-%\left[ 
-%e^{-i \theta (s-z-t+u)} A(\theta; t-u) \overline{A(\theta; s-z)} 
-%\right] 
-%\right. \\
-%&\pheq 
-%\left. \vphantom{\int}
-%\left[ e^{-i \phi (s-w-t+u)} A(\phi; t-v) \overline{A(\theta; s-w)} \right] d\theta d\phi
-%\right) du dv dw dz
-%\end{align*}
-%Puede escribirse
-%\begin{align*}
-%S_1 &= \int \int_{\R^{2}} \Gamma(\theta+ \omega; t, \theta) \overline{\Gamma(\phi + \omega; t, \phi)}
-% \Gamma(\phi+ \lambda; s, \phi) \overline{\Gamma(\theta + \lambda; s, \theta)} \\
-% &\pheq \times
-% \left[
-% A(\theta; t) \overline{A(\phi; t)} A(\phi; s) \overline{A(\theta; t)}
-% \right] d\theta d\phi
-%\end{align*}
-%Usando el teorema [?], si $B_g << B_X$ entonces $\Gamma(\bullet; t, \lambda) \approx \Gamma(\bullet)$, luego
+\begin{align*}
+\E{X(t-u) {X(t-v)} {X(t-w)} X(t-z)} 
+&=       R(t-u,t-v)R(s-w,s-z) \\
+&\pheq + R(t-u,s-z)R(t-v,s-w) \\
+&\pheq + R(t-u,s-w)R(t-v,s-z)
+\end{align*}
+Reemplazando sobre la expresión anterior, puede escribirse
+\begin{equation}
+\E{\abso{U(\omega;t)}^{2} \abso{U(\lambda;s)}^{2}} = \E{\abso{U(\omega;t)}^{2}} \E{\abso{U(\lambda;s)}^{2}}+ S_1 + S_2
+\end{equation}
+donde
+\begin{multline*}
+S_1 = \int \int \int \int_{R^{4}} g(u) g(v) g(w) g(z) e^{i u \omega} e^{i v \omega} e^{i w \lambda} e^{i z \lambda} \\
+\times
+R(t-u,s-z)R(t-v,s-w)
+du dv dw dz 
+\end{multline*}
+Se define a $S_2$ de manera similar, intercambiando $w$ y $z$. 
+%
+Estas expresiones, de apariencia innecesariamente complicada, pueden interpretarse como la \textit{interferencias} de la covarianza entre los puntos $(\omega, t)$ y $(\lambda,s)$.
+%
+Para ello, nótese que
+\begin{equation}
+\Cov{\abso{U(\omega;t)}^{2},\abso{U(\lambda;s)}^{2}} = S_1 + S_2 + \orden{\nicefrac{B_g}{B_X}}
+\end{equation}
+%
+Cabe mencionar que es conveniente que las cantidades $S_1$ y $S_2$ sean pequeñas.
+
+Sea ha elegido a $g$ de forma que $B_g << B_X$ con el objetivo de que $U$ tenga un sesgo pequeño, en virtud del teorema [?]. Este teorema puede ser usado nuevamente si $S_1$ y $S_2$ son reescritas en cierta forma \textit{adecuada}, para lo cual la autocovarainza debe ser vista como
+\begin{equation}
+R(p,q) = \intR e^{i \omega (p-q)} A(\omega; p)\overline{A(\omega; q)} d\mu(\omega) 
+\end{equation}
+Así pues, reemplazando esta expresión sobre (?) se obtiene
+\begin{align*}
+S_1 &=
+\int \int \int \int_{R^{4}} g(u) g(v) g(w) g(z) e^{i u \omega} e^{i v \omega} e^{i w \lambda} e^{i z \lambda} \\
+&\pheq \times R(t-u,s-z)R(t-v,s-w) du dv dw dz \\
+&= 
+\int \int \int \int_{\R^{4}} g(u) g(v) g(w) g(z) e^{i u \omega} e^{i v \omega} e^{i w \lambda} e^{i z \lambda} \\
+&\pheq \times \left( 
+\int \int_{\R^{2}} 
+\left[ 
+e^{-i \theta (s-z-t+u)} A(\theta; t-u) \overline{A(\theta; s-z)} 
+\right] 
+\right. \\
+&\pheq 
+\left. \vphantom{\int}
+\left[ e^{-i \phi (s-w-t+u)} A(\phi; t-v) \overline{A(\theta; s-w)} \right] d\theta d\phi
+\right) du dv dw dz
+\\
+ &= \int \int_{\R^{2}} \Gamma_*(\theta+ \omega; t, \theta) \overline{\Gamma_*(\phi + \omega; t, \phi)}
+ \Gamma_*(\phi+ \lambda; s, \phi) \overline{\Gamma_*(\theta + \lambda; s, \theta)} \\
+ &\pheq \times
+ \left[
+ A(\theta; t) \overline{A(\phi; t)} A(\phi; s) \overline{A(\theta; t)}
+ \right] d\theta d\phi
+\\
+ &= \left[ \intR \overline{\Gamma_*(\phi + \omega; t, \phi)} \Gamma_*(\phi+ \lambda; s, \phi)
+ \overline{A(\phi; t)} A(\phi; s) d\phi \right] \\
+ &\pheq \times \left[ \int_{\R^{2}} \Gamma_*(\theta+ \omega; t, \theta) 
+  \overline{\Gamma_*(\theta + \lambda; s, \theta)}  
+ A(\theta; t)   \overline{A(\theta; t)} d\theta \right] 
+\end{align*}
+Donde $\Gamma_*$ es la función de transferencia generalizada
+\begin{equation}
+\Gamma_*(\kappa; t, \omega) = \intR g(u) \frac{A(\omega; t-u)}{A(\omega; t)} e^{-i u \kappa} du
+\end{equation}
+Usando el teorema [?], se puede decir que $\abso{\Gamma(\bullet; t, \lambda) - \Gamma(\bullet)} \leq \nicefrac{B_g}{B_X}$. Así entonces
 %\begin{align*}
 %S_1 &\approx \left[ e^{-i \theta (s-t) } A(\theta; t) \overline{A(\theta; s)} \Gamma(\theta + \omega) \Gamma(\theta + \lambda) d\theta\left] \\
 %\phantom{\approx} \times
 %\left[ e^{-i \phi (s-t) } A(\theta; t) \overline{A(\phi; s)} \Gamma(\phi + \omega) \Gamma(\phi + \lambda) d\phi\left] \\
 %\end{align*}
-%\end{proof}
+\begin{align*}
+\abso{S_1} &=
+ \abso{ \intR \overline{\Gamma_*(\phi + \omega; t, \phi)} \Gamma_*(\phi+ \lambda; s, \phi)
+ \overline{A(\phi; t)} A(\phi; s) d\phi } \\
+ &\pheq \times \abso{ \int_{\R^{2}} \Gamma_*(\theta+ \omega; t, \theta) 
+  \overline{\Gamma_*(\theta + \lambda; s, \theta)}  
+ A(\theta; t)   \overline{A(\theta; t)} d\theta } \\ 
+ &\leq
+ \left[ \intR \abso{\Gamma_*(\phi + \omega; t, \phi)} \abso{\Gamma_*(\phi+ \lambda; s, \phi)}
+ \abso{A(\phi; t) A(\phi; s)} d\phi \right] \\
+ &\pheq \times \left[ \int_{\R^{2}} \abso{\Gamma_*(\theta+ \omega; t, \theta)} 
+  \abso{\Gamma_*(\theta + \lambda; s, \theta)}  
+ \abso{A(\theta; t) A(\theta; t)} d\theta \right] \\ 
+ &\leq
+ \left[ \intR \abso{\Gamma(\phi + \omega)} \abso{\Gamma(\phi+ \lambda)}
+ \abso{A(\phi; t) A(\phi; s)} d\phi \right]^{2} + \orden{\nicefrac{B_g}{B_X}}
+\end{align*}
+La misma cota puede hallarse para $S_2$. En lo inmediato, conviene analizar el caso $\omega = \lambda$ y $t = s$, de donde se obtiene
+\begin{align*}
+\Var{\abso{U(\omega; t)}^{2}} &= \Cov{\abso{U(\omega; t)}^{2}, \abso{U(\omega; t)}^{2}} = S_1 + S_2 + \orden{\nicefrac{B_g}{B_X}}
+\end{align*}
+pero en este caso particular, la cota obtenida puede reducirse a
+\begin{align*}
+\abso{S_1} & \leq
+\left[ \intR \abso{\Gamma(\phi + \omega)}^{2} \abso{A(\phi; t)}^{2} d\phi \right]^{2} + \orden{\nicefrac{B_g}{B_X}} \\
+&= 
+\left[ \intR \abso{\Gamma(\phi + \omega)}^{2} h(\phi, t) d\phi \right]^{2} + \orden{\nicefrac{B_g}{B_X}}
+\end{align*}
+\end{proof}
 
-Un resultado que es muy análogo a la estimación del espectro en el caso de estacionariedad.
+En el teorema anterior puede interpretarse que $\intR \abso{\Gamma(\phi + \omega)}^{2} h(\phi, t) d\phi$ es una versión \textit{suavizada} de $h$.
 %
-Siguiendo con la analogía, este problema es resuelto al usar un filtro $w_\tau$ que satisfaga las siguientes propiedades
+Bajo este comentario, el resultado obtenido es muy análogo a la estimación del espectro en un proceso estacionario (teorema ??).
+%
+Siguiendo dicha analogía, se sabe que $U$ puede \textit{modificarse} para generar estimadores consistentes; para lo cual se usa una segunda función de ventana $w_\tau$. 
+%
+Por estética y comodidad, las condiciones sobre $w_\tau$ serán presentadas junto a las propiedades de la ventana $g$; todas ellas en la definición
+
+\begin{definicion}
+El \textbf{estimador de doble ventana} es un estimador para $h$ definido como
+\begin{equation}
+\widehat{h}(\omega, t) = \int_{T-t}^{t} w_\tau (u) \abso{U(\omega,t-u)}^{2} du
+\end{equation}
+donde la función $g$ satisface
+\begin{itemize}
+\item $B_g << B_X << T$
+\item $g(t) \rightarrow 0$ cuando $\abso{t} \rightarrow \infty$
+\item $2\pi \intR \abso{g(u)}^{2} du = \intR \abso{\Gamma(\omega)}^{2} d\omega = 1$
+\end{itemize}
+con $\Gamma(\lambda) = \intR e^{-i \lambda t} g(t) d\lambda$. Así mismo, la función $w_\tau$ satisface
 \begin{itemize}
 \item $w_\tau(t) \geq 0$ para cualesquiera $t$, $\tau$
 \item $w_\tau(t) \rightarrow 0$ cuando $\abso{t} \rightarrow \infty$, para todo $\tau$
@@ -513,17 +604,28 @@ Siguiendo con la analogía, este problema es resuelto al usar un filtro $w_\tau$
 \item $\exists C \in \R$ tal que  
 $\displaystyle \lim_{\tau\rightarrow\infty} \tau \intR \abso{ W_{\tau}(\lambda) }^{2} d\lambda = C$
 \end{itemize}
-donde $W_\tau = \intR e^{-i \lambda t} w_\tau(t) d\lambda$. Se define el segundo estimador
-\begin{equation}
-V(t) = \int_{T-t}^{t} w_\tau (u) \abso{U(t-u)}^{2} du
+donde $W_\tau(\lambda) = \intR e^{-i \lambda t} w_\tau(t) d\lambda$.
 \label{estimador_doble_ventana}
+\end{definicion}
+
+El supuesto sobre que $w_\tau$ decaiga rápidamente lejos de 0 permite reemplazar el intervalo de integración que define a $\widehat{h}$ por $\R$ (excepto cerca de 0). 
+
+\begin{proposicion}
+El estimador de doble ventana satisface
+\begin{equation}
+\E{\widehat{h}(\omega, t)} = \intR \abso{\Gamma(\omega)}^{2} \overline{h}(\omega,t) d\omega du +
+\orden{\nicefrac{B_g}{B_X}}
 \end{equation}
+donde
+\begin{equation}
+\overline{h}(\omega,t) = \intR w_\tau (u) h(\omega, t-u) du
+\end{equation}
+\end{proposicion}
 
-El supuesto sobre que $g$ decaiga lejos de 0, aplicado ahora a $w_\tau$, permite reemplazar el intervalo de integración que define a $V$ por $\R$. 
-
-De manera sencilla puede verse que
+\begin{proof}
+De manera relativamente sencilla puede verificarse que
 \begin{align*}
-\E{V(t)} &= 
+\E{\widehat{h}(\omega,t)} &= 
 \E{\intR w_\tau (u) \abso{U(t-u)}^{2} du} \\
 &= 
 \int_{T-t}^{t} w_\tau (u) \E{\abso{U(t-u)}^{2}} du \\
@@ -535,17 +637,19 @@ De manera sencilla puede verse que
 \orden{\nicefrac{B_g}{B_X}} \intR w_\tau (u) du \\
 &=
 \intR \abso{\Gamma(\omega)}^{2} \left[ \intR w_\tau (u) h(\omega, t-u) du \right] d\omega du +
-\orden{\nicefrac{B_g}{B_X}} \intR w_\tau (u) du \\
+\orden{\nicefrac{B_g}{B_X}} \\
 &=
 \intR \abso{\Gamma(\omega)}^{2} \overline{h}(\omega,t) d\omega du +
-\orden{\nicefrac{B_g}{B_X}} \\
+\orden{\nicefrac{B_g}{B_X}}
 \end{align*}
-donde
-\begin{equation}
-\overline{h}(\omega,t) = \intR w_\tau (u) h(\omega, t-u) du
-\end{equation}
+\end{proof}
 
-Es demostrado en Priestley [1966?] que
+%Nótese que $\overline{h}$ puede interpretarse como una versión suavizada de $h$, una característica compartida con el estimador $U$. 
+%
+A diferencia de $U$, el estimador de doble ventana no es consistente salvo en caso que $\overline{h}$ sea parecido a $h$; como $\overline{h}$ es una versión suavizada, que el estimador sea sesgado depende de que $B_{w_\tau}$ sea pequeño en comparación a $B_X$.
+
+\begin{proposicion}
+El estimador de doble ventana satisface
 \begin{equation}
 \Var{V(t)} \approx \widetilde{h}^{2}(\omega_0,t) \left[ \intR \abso{W_\tau(\omega)}^{2} d\omega \right] \left[ \intR \abso{\Gamma(\omega)}^{4} \right] (1+\delta(0,\omega_0))
 \end{equation}
@@ -553,6 +657,59 @@ donde
 \begin{equation}
 \widetilde{h}^{2} = \frac{\intR h^{2}(\omega_0,t) \left(w_\tau(u)\right)^{2}}{\intR \left(w_\tau(u)\right) du}
 \end{equation}
+\end{proposicion}
+
+\begin{proof}
+Como en el caso del estimador $U$, será conveniente calcular la covarianza de $\widehat{h}$ y posteriormente deducir la varianza. Se escribe para $t, s \in \mathcal{T}$ y $\omega, \lambda \in \R$
+\begin{equation}
+\Cov{\widehat{h}(\omega, t),\widehat{h}(\lambda, s)} = \E{\widehat{h}(\omega, t)\widehat{h}(\lambda, s)} - \E{\widehat{h}(\omega, t)}\E{\widehat{h}(\lambda, s)}
+\end{equation}
+Hecho el trabajo previo, es claro que
+\begin{align*}
+\Cov{\widehat{h}(\omega, t), \widehat{h}(\lambda, s)} &=
+\int \int_{\R^{2}} w_\tau(u) w_\tau(v) \Cov{\abso{U(\omega; t-u)}^{2},\abso{U(\lambda; s-v)}^{2}} du dv \\
+&=
+\int \int_{\R^{2}} w_\tau(u) w_\tau(v) \left[ S_1 + S_2 \right] du dv + \orden{\nicefrac{B_g}{B_X}} \\
+&= T_1 + T_2
+\end{align*}
+usando, por comodidad
+\begin{equation}
+T_1 = \int \int_{\R^{2}} w_\tau(u) w_\tau(v) \left[ S_1 \right] du dv
+\end{equation}
+y similarmente para $T_2$; $S_1$ es como en la expresión (?), evaluado en los puntos $(t-u,\omega), (s-v, \lambda)$
+\begin{align*}
+S_1 &=
+ \left[ \intR \overline{\Gamma_*(\phi + \omega; t-u, \phi)} \Gamma_*(\phi+ \lambda; s-v, \phi)
+ \overline{A(\phi; t-u)} A(\phi; s-v) d\phi \right] \\
+ &\pheq \times \left[ \intR \Gamma_*(\theta+ \omega; t-u, \theta) 
+  \overline{\Gamma_*(\theta + \lambda; s-v, \theta)}  
+ A(\theta; t-u)   \overline{A(\theta; s-v)} d\theta \right] 
+\end{align*}
+con $\Gamma_*$ es la función de transferencia generalizada; $S_2$ se define de manera similar.
+Se usará el teorema (?) para acotar la covarianza, comenzando por el primer sumando
+\begin{align*}
+T_1 &= 
+\int \int_{\R^{2}} w_\tau(u) w_\tau(v) \left[ S_1 \right] du dv \\
+&\leq
+\int \int_{\R^{2}} w_\tau(u) w_\tau(v) \abso{ S_1 } du dv \\
+&\leq 
+\int \int_{\R^{2}} 
+w_\tau(u) w_\tau(v) \\
+&\pheq 
+ \times \left[ \intR
+ \abso{\Gamma(\phi + \omega)} \abso{\Gamma(\phi+ \lambda)}
+ \abso{A(\phi; t-u) A(\phi; s-v)} d\phi \right]^{2}
+ du dv + \orden{\nicefrac{B_g}{B_X}} \\
+&\leq 
+\int \int_{\R^{2}} \abso{\Gamma(\phi + \omega)} \abso{\Gamma(\phi+ \lambda)}
+\abso{\Gamma(\theta + \omega)} \abso{\Gamma(\theta+ \lambda)} \\
+&\pheq 
+ \times \left[ \int \int_{\R^{2}}  w_\tau(u) w_\tau(v)
+ \abso{A(\phi; t-u) A(\phi; s-v)} du dv \right]
+ d\phi d\theta + \orden{\nicefrac{B_g}{B_X}} \\
+\end{align*}
+\end{proof}
+
 
 Aún más, si se usa la propiedad de en el límite de $\tau W_\tau$ se puede escribir
 \begin{equation}
@@ -579,51 +736,50 @@ Dicho esto, se pueden hacer las siguientes aproximaciones, un poco más arriesga
 \label{sec:psr}
 
 La prueba de estacionariedad propuesta por Priestley y Subba Rao \cite{Priestley69} consiste en 
-probar la hipótesis de que el espectro evolutivo efectivamente cambia en el tiempo. 
+probar si el espectro evolutivo de un proceso dado puede reducirse a un espectro de potencias; en otras palabras, se prueba la hipótesis de que el espectro evolutivo efectivamente cambia en el tiempo. 
 %
-El proceso consiste en \textit{calcular} el logaritmo del espectro evolutivo para algunos tiempos y 
-frecuencias puntuales, para lo cual se usa el estimador de doble ventana, y posteriormente usar un
-análisis ANOVA para verificar si dichas cantidades tienen el mismo valor esperado --recordando que
-el estimador de doble ventana es asintóticamente consistente.
+Naturalmente, la prueba debe construirse sobre una única realización del proceso.
 
-Sea \xt un proceso semi-estacionario y sea \xtd un conjunto de observacion, cuya frecuencia de 
+El procedimiento consiste en estimar el espectro evolutivo del proceso para algunos tiempos y frecuencias, usando en particular el estimador de doble ventana; dichos puntos deben ser tales que los estimadores sean aproximadamente no-correlacionados.
+%
+Posteriormente se calcula el logaritmo de la estimación obtenida con el fin de \textit{estabilizar} la varianza.
+%
+Finalmente, como parte central, se efectúa un ANOVA de dos vías para verificar si se puede afirmar que el espectro estimado tiene --estadísticamente-- el mismo valor en los diferentes puntos a través del tiempo.
+%
+Cabe destacar que este último paso tiene una interpretación poco convencional, y es que los estimadores tienen (por diseño) ciertas propiedades
+
+Sea \xt un proceso semi-estacionario y sea \xtd un conjunto de observaciones, cuya frecuencia de 
 muestreo es $\Delta_t=1$ por simplicidad.
 %
-Usando estos datos se construye el estimador de doble ventana, $\widehat{h}$; para ello se eligen 
-como parámetros las funciones $g_\kappa$ y $w_\tau$, que dependen a su vez de los parámetros 
-$\kappa$ y $\tau$, y por consecuencia a sus respectivas tr. de Fourier $\Gamma_\kappa$ y $W_\tau$.
-%
+Usando esta información se construye el estimador de doble ventana, $\widehat{h}$; para ello se eligen las funciones ventana $g_\kappa$ y $w_\tau$ que, por simplicidad, son ventanas de escalamiento con parámetros $\kappa$ y $\tau$. Sus funciones de transferencia serán $\Gamma_\kappa$ y $W_\tau$, respectivamente.
+
 Bajo las condiciones descritas en la sección anterior, se satisface que
 %
 \begin{align*}
 \E{\widehat{h}(t,\omega)} &\approx h(t,\omega) \\
-\Var{\widehat{h}(t,\omega)} &\approx 
-\frac{C}{N} h^{2}(t,\omega) \intR \abso{\Gamma^{4}(\theta)} d\theta
+\Var{\widehat{h}(t,\omega)} &\approx \frac{C}{N} h^{2}(t,\omega) \intR \abso{\Gamma^{4}(\theta)} d\theta
 \end{align*}
 %
-donde $\displaystyle C = \lim_{T\rightarrow \infty} T \intR \abso{W_T(\lambda)} d\lambda$.
+donde $C = \lim_{T\rightarrow \infty} \tau \intR \abso{W_\tau(\lambda)} d\lambda$.
 %
-Como es habitual en el estudio del espectro de potencias, se propone la cantidad 
+Como se mencionó, se propone la cantidad 
 \begin{equation}
 Y(t,\omega) = \log\left(\widehat{h}(t,\omega)\right)
 \end{equation}
-que, por ser $\log$ una función inversible y derivable, cumple que
-%
-\begin{align*}
+en virtud de la proposición (?), se cumple que
+\begin{align}
 \E{Y(t,\omega)} &\approx \log\left(h(t,\omega)\right) \\
-\Var{Y(t,\omega)} &\approx 
-\frac{C}{T} \intR \abso{\Gamma_\kappa(\theta)}^{4} d\theta \\
-\end{align*}
-
+\Var{Y(t,\omega)} &\approx \frac{C}{T} \intR \abso{\Gamma_\kappa(\theta)}^{4} d\theta \\
+\end{align}
 Cabe destacar que la varianza de $Y$ no es independiente de $h$ en el sentido formal, sino que 
 sólo es \textit{aproximadamente independiente} pues depende en mayor medida de la forma de 
 $\widehat{h}$ que del mismo $h$.
 %
-Esto era de esperarse, ya que el estimador de doble ventana fue diseñado para exagerar el 
-\textit{peso} de la información local. 
+Esto era de esperarse, ya que el estimador de doble ventana fue diseñado para exagerar el \textit{peso} de la información local al grado de obtener versiones suavizadas del espectro evolutivo. 
 %
-En otra dirección, la independencia aproximada sugiere que $Y$ puede escribirse como
-
+Adicionalmente, se suele decir intuitivamente que el logaritmo \textit{estabiliza} la varianza. 
+%
+En otra dirección, la varianza aproximadamente constante de $Y$ sugiere que puede escribirse como
 \begin{equation}
 Y(t,\omega) = \log\left(h(t,\omega) \right) + \varepsilon(t,\omega)
 \label{ye}
@@ -635,95 +791,94 @@ Y(t,\omega) = \log\left(h(t,\omega) \right) + \varepsilon(t,\omega)
 %&\approx \frac{C}{T} \intR \abso{\Gamma_\kappa(\theta)}^{4} d\theta
 %\end{align*}
 
-El que la varianza de $Y$ sea aproximadamente constante en todos los tiempos y frecuencias lo hace 
-una excelente elección para verificar que el espectro evolutivo es constante en el tiempo.
+%El que la varianza de $Y$ sea aproximadamente constante en todos los tiempos y frecuencias lo hace 
+%una excelente elección para verificar que el espectro evolutivo es constante en el tiempo.
 %
-Dos problemas respecto a la expresión \ref{ye} son (1) la covarianza de $\varepsilon$ entre
-tiempos y frecuencias y (2) computacionalmente sólo es posible evaluar a $Y$ sobre una malla
-de puntos en tiempo y frecuencia.
+%Dos problemas respecto a la expresión \ref{ye} son (1) la covarianza de $\varepsilon$ entre
+%tiempos y frecuencias y (2) computacionalmente sólo es posible evaluar a $Y$ sobre una malla
+%de puntos en tiempo y frecuencia.
 
-Sea una malla de puntos en el tiempo y las frecuencias, equiespaciado en el tiempo con distancia 
-$\delta_t$ y en las frecuencias con distancia $\delta_\omega$.
+Debido a la naturaleza naturalmente discreta de los datos, conviene construir una malla de puntos en el tiempo y las frecuencias, equiespaciado en el tiempo por $\Delta_t$ y en las frecuencias por $\Delta_\omega$.
 %$\left\{ (t_i,\omega_j) \in \mathcal{T} \times [-\pi,\pi] | i = 1,\dots,I ; j=1,\dots,J \right\}$
-Es demostrado en \cite{Priestley66} que si $\delta_\omega$ o $\delta_t$ son suficientemente grandes
-como para que se cumpla alguna de las condiciones en \ref{separacion}, entonces los valores de $Y$
-sobre la cuadrícula son aproximadamente no-correlacionados.
-
+Si dichas distancias son suficientemente grandes
+como para que se cumplan las condiciones en \ref{separacion}, entonces los valores de $Y$
+sobre la cuadrícula serán aproximadamente no-correlacionados.
+%
 \begin{equation}
 \left.
 \begin{aligned}
-\intR \abso{\Gamma_\kappa(\theta)}^{2}\abso{\Gamma_\kappa(\theta+\delta_\omega)}^{2} d\theta 
+\intR \abso{\Gamma_\kappa(\theta)}^{2}\abso{\Gamma_\kappa(\theta+\Delta_\omega)}^{2} d\theta 
 &\approx 0 \\
-\frac{1}{\delta_t} \intR \abso{t} \abso{w_\tau (t)} dt &\approx 0
+\frac{1}{\Delta_t} \intR \abso{t} \abso{w_\tau (t)} dt &\approx 0
 \end{aligned}
 \right\rbrace
 \Rightarrow
-\Cov{Y(t,\omega),Y(t,\omega_0)} \approx 0
+\Cov{Y(t,\omega),Y(t+\Delta_t,\omega+\Delta_\omega)} \approx 0
 \label{separacion}
 \end{equation}
-
+%
 Así entonces, sea
 $\left\{ (t_i,\omega_j) \in \mathcal{T} \times [-\pi,\pi] | i = 1,\dots,I ; j=1,\dots,J \right\}$
-la cuadrícula descrita, con $\delta_t= \abso{t_i - t_{i+1}}$ y 
-$\delta_\omega = \abso{\omega_j-\omega_{j+1}}$. 
+la cuadrícula descrita, con $\abso{t_i - t_{i+1}}= \Delta_t$ y 
+$\abso{\omega_j-\omega_{j+1}}= \Delta_\omega$. 
 %
 Se define el estimador
 \begin{equation}
 Y_{i,j} = \log\left(\widehat{h}(t_i,\omega_j)\right)
 \end{equation}
 %
-el cual tiene las siguientes propiedades
-%
-\begin{align*}
-Y_{i,j} &\approx \log\left(h(t_i,\omega_j)\right) + \varepsilon_{i,j} \\
+el cual puede escribirse como
+\begin{equation}
+Y_{i,j} \approx \log\left(h(t_i,\omega_j)\right) + \varepsilon_{i,j}
+\label{def:ye}
+\end{equation}
+donde
+\begin{align}
 \E{\varepsilon_{i,j}} &\approx 0 \\
-\Var{\varepsilon_{i,j}} &\approx
-\frac{C}{T} \intR \abso{\Gamma_\kappa(\theta)}^{4} d\theta \\
-\Cov{\varepsilon_{i,j},\varepsilon_{i_0,j_0}} &\approx 0 
-\Leftarrow (i,j)\neq (i_0,j_0)
-\end{align*}
+\Cov{\varepsilon_{i,j}} &\approx
+\frac{C}{T} \intR \abso{\Gamma_\kappa(\theta)}^{4} d\theta \left[ \delta(i,i_0)\delta(j,j_0) \right]
+\end{align}
 
 %Si el número de puntos es \textit{suficientemente grande}, entonces aproximadamente
 %$\varepsilon_{i,j} \sim N(0,\sigma^{2})$.
 
-Una vez definido un estimador adecuado para detectar la estacionariedad débil, conviene escribir
-explícitamente las condiciones para tal detección.
+Una vez definido a $Y$, un estimador adecuado para detectar la estacionariedad débil, conviene escribir explícitamente las condiciones para tal detección.
 %
-La estacionariedad débil, en términos del espectro evolutivo $h$, puede expresarse como
+Con base a la proposición (?), si el proceso \xt es débilmente estacionario \textbf{entonces}
+%La estacionariedad débil, en términos del espectro evolutivo $h$, puede expresarse como
 %
-\begin{equation*}
-H_{E_1} : h(t_0,\omega_j) = h(t_1,\omega_j) = \cdots = h(t_I,\omega_j)
-\text{ , para } j = 1, 2, \dots , J
-\end{equation*}
+\begin{equation}
+h(t_0,\omega_j) = h(t_1,\omega_j) = \cdots = h(t_I,\omega_j) \text{ , para } j = 1, 2, \dots , J
+\label{h1}
+\end{equation}
 %
-condición que puede reescribirse\footnote{$H_{E_1}$ y $H_{E_2}$ son equivalentes en cuanto a la
-decisión que producen} en términos de $Y$, en su versión discreta
+condición que puede reescribirse en términos de $Y$ como
 %
-\begin{equation*}
-H_{E_2} : \E{Y_{0,j}} = \E{Y_{1,j}} = \cdots = \E{Y_{I,j}} \text{ , para } j = 1, 2, \dots , J
-\end{equation*}
+\begin{equation}
+\E{Y_{0,j}} = \E{Y_{1,j}} = \cdots = \E{Y_{I,j}} \text{ , para } j = 1, 2, \dots , J
+\label{h2}
+\end{equation}
 %
 la cual, a su vez, puede reescribirse como
-\begin{equation*}
-H_{E_3} : \E{\varepsilon_{0,j}} = \E{\varepsilon_{1,j}} = \cdots =
-\E{\varepsilon_{I,j}} \text{ , para } j = 1, 2, \dots , J
-\end{equation*}
+\begin{equation}
+\E{\varepsilon_{0,j}} = \E{\varepsilon_{1,j}} = \cdots = \E{\varepsilon_{I,j}} \text{ , para } j = 1, 2, \dots , J
+\label{h3}
+\end{equation}
 
-Sin embargo, la condición $H_{E_3}$ es una consecuencia directa de las propiedades de $Y$ si
-$H_{E_2}$ es cierta; este \textit{juego} de equivalencias pierde consistencia si resulta que
-$H_{E_3}$ fuera rechazada, lo cual implicaría en una contradicción.
-
-El objetivo de la prueba puede fijarse en verificar efectivamente ocurre la contradicción
-referida, en cuyo caso se podrá concluir que el proceso \textbf{no} es débilmente estacionario.
+Sin embargo, la expresión en \ref{h3} puede deducirse directamente de las propiedades de $Y$ en caso de que la expresión en \ref{h2} es cierta. 
 %
-Con base a la forma de $H_{E_2}$, la prueba puede formularse en términos de un análisis ANOVA de dos
+En consecuencia, rechazar \ref{h3} implica rechazar \ref{h2}, lo cual aporta evidencia para rechazar \ref{h1}; si se rechaza \ref{h1} entonces puede rechazarse que el proceso sea estacionario, pero un no-rechazo no garantiza que elproceso sea estacionario.
+
+El objetivo de la prueba puede fijarse en decidir si puede rechazarse la condición en \ref{h3}, en cuyo caso se podrá concluir que el proceso \textbf{no} es débilmente estacionario.
+%
+Con base a la expresión en \ref{h2}, la prueba puede formularse en términos de un ANOVA de dos
 factores, el cual parte de un modelo general
 %
-\begin{equation*}
+\begin{equation}
 H_0 : Y_{i,j} = \mu + \alpha_i + \beta_j + \gamma_{i,j} + \varepsilon_{i,j}
-\end{equation*}
+\end{equation}
 %
-donde $\varepsilon$ es como se definió anteriormente. 
+donde $\varepsilon$ es como en la expresión \ref{def:ye}.
 %
 Dentro del contexto, las cantidades involucradas pueden interpretarse como
 \begin{description}
@@ -732,28 +887,29 @@ Dentro del contexto, las cantidades involucradas pueden interpretarse como
 \item[$\beta$] Efecto al variar la frecuencia
 \item[$\gamma$] Efecto no lineal de tiempo y frecuencia (\textit{interacción})
 \end{description}
-
-La diferencia entre $\gamma$ y $\varepsilon$ consiste en que se conocen (por diseño) la media y 
-varianza de $\varepsilon$, y se espera que siga una distribución normal si se cuentan con 
-suficientes puntos; en contraparte, no se ha supuesto nada sobre $\gamma$.
-
-Ahora bien, la hipótesis $H_{E_2}$ puede reescribirse para contrastarse contra $H_0$ como
 %
-\begin{equation*}
-H_A : \hspace{1em} Y_{i,j} = \mu + \alpha_i + \varepsilon_{i,j}
-\end{equation*}
+La diferencia entre $\gamma$ y $\varepsilon$ consiste en que (por diseño) se conocen la media y 
+varianza de $\varepsilon$;
+%y se espera que siga una distribución normal si se cuentan con suficientes puntos; 
+en contraparte, no se ha supuesto nada sobre $\gamma$.
 
-Por simplicidad, conviene considerar un paso intermedio
-\begin{equation*}
-H_{\text{inter}} : Y_{i,j} = \mu + \alpha_i + \beta_j + \varepsilon_{i,j}
-\end{equation*}
+Ahora bien, la expresión \ref{h2} uede formularse como hipótesis para contrastarse contra $H_0$, de la forma
+%
+\begin{equation}
+H_A : \hspace{1em} Y_{i,j} = \mu + \alpha_i + \varepsilon_{i,j}
+\end{equation}
+
+Por simplicidad, conviene considerar, como paso intermedio, una prueba de hipótesis \textit{encadenada}
+\begin{equation}
+H_{A_0} : Y_{i,j} = \mu + \alpha_i + \beta_j + \varepsilon_{i,j}
+\end{equation}
 
 Como es usual con los ANOVA, se definen las sumas de cuadrados dentro de los grupos y entre los
 grupos (cuadro \ref{cantidades_psr}), las cuales siguen distribuciones $\chi^{2}$.
 %
 Al probar $H_0$ contra $H_{\text{inter}}$ se usa el estadístico de prueba 
 $\nicefrac{S_{I+R}}{\sigma^{2}}$, mientras que al probar $H_{\text{inter}}$ contra $H_A$ se usa
-$\nicefrac{S_T}{\sigma^{2}} = 0$.
+$\nicefrac{S_T}{\sigma^{2}}$.
 
 \begin{table}
 \caption{Estadísticos involucrados en la prueba PSR}
@@ -791,18 +947,18 @@ $Y_{\bullet,\bullet} = \frac{1}{I J} \sum_{i=1}^{I} \sum_{j=1}^{J} Y_{i,j}$ & \\
 \label{cantidades_psr}
 \end{table}
 
-Cabe mencionar que en la formulación original de la prueba de PSR se exploran algunas otros 
-modelos. 
-%
-Por ejemplo, si se acepta $H_{\text{inter}}$ entonces el proceso es referido como
-\textbf{uniformemente modulados} y necesariamente pueden expresarse como $X(t) = S(t) X_0(t)$, 
-donde $\{X_0(t)\}_{t\in \mathcal{T}}$ es un proceso débilmente estacionario.
+%Cabe mencionar que en la formulación original de la prueba de PSR se exploran algunas otros 
+%modelos. 
+%%
+%Por ejemplo, si se acepta $H_{\text{inter}}$ entonces el proceso es referido como
+%\textbf{uniformemente modulados} y necesariamente pueden expresarse como $X(t) = S(t) X_0(t)$, 
+%donde $\{X_0(t)\}_{t\in \mathcal{T}}$ es un proceso débilmente estacionario.
 
 \begin{algorithm}
 %\SetAlgoLined
 \DontPrintSemicolon
 \KwData{$X = \left(x_1, x_2, \cdots, x_N \right)$}
-\KwResult{p-valores para $S_{I+R} = 0$, $S_T = 0$, $S_F = 0$}
+\KwResult{p-valores para $S_{I+R}$, $S_T$, $S_F$}
 %initialization\;
 
 $ X \leftarrow \left(x_1, x_2, \cdots, x_N \right)$\;
@@ -810,9 +966,9 @@ $ X \leftarrow \left(x_1, x_2, \cdots, x_N \right)$\;
     $ U[i,j] \leftarrow \sum_{u = t-T}^{T} g(u) X[t-u] \exp\left(-\boldsymbol{i} \omega_j i\right)$ \;
 }
 \For{$i = 1, \cdots$; $j=1, \cdots $}{
-    $ \widehat{f}[i,j] \leftarrow \sum_{u = t-T}^{T} w_\tau (u) \abso{U[i-u,j]}^{2}$ \;
+    $ \widehat{h}[i,j] \leftarrow \sum_{u = t-T}^{T} w_\tau (u) \abso{U[i-u,j]}^{2}$ \;
 }
-$Y \leftarrow \log{\widehat{f}}$\;
+$Y \leftarrow \log{\widehat{h}}$\;
 \For{$i=1,\cdots, I$}{
     $Y_{i,\bullet} = \frac{1}{J} \sum_{j=1}^{J} Y_{i,j}$\;
 }

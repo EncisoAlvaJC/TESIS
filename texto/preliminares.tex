@@ -72,23 +72,23 @@ Considérese el espacio medible $(\R, \mathcal{B})$, con $\mathcal{B}$ la $\sigm
 para cualesquiera $a,b \in \R$ con $a<b$
 \end{definicion}
 
-\begin{proposicion}
-Sea $(\Omega,\mathcal{U},P)$ un espacio de probabilidad. Sea $\{ A_n \}_{n\in \mathbb{N}}$ una amilia de conjuntos medibles tales que 
-\begin{itemize}
-\item $A_n \subset A_{n+1}$ para todo $n \in \N$
-\item Existe un conjunto medible $A$ tal que $\cup_{n\in \N} A_n = A$
-\end{itemize}
-Entonces
-\begin{equation}
-\lim_{n\rightarrow \infty} P(A_n) = P(A)
-\end{equation}
-\end{proposicion}
-\begin{proof}
-Nótese que
-\begin{align*}
-P(A) &= P\left( \cup_{n\in \N} A_n \right) \\
-\end{align*}
-\end{proof}
+%\begin{proposicion}
+%Sea $(\Omega,\mathcal{U},P)$ un espacio de probabilidad. Sea $\{ A_n \}_{n\in \mathbb{N}}$ una amilia de conjuntos medibles tales que 
+%\begin{itemize}
+%\item $A_n \subset A_{n+1}$ para todo $n \in \N$
+%\item Existe un conjunto medible $A$ tal que $\cup_{n\in \N} A_n = A$
+%\end{itemize}
+%Entonces
+%\begin{equation}
+%\lim_{n\rightarrow \infty} P(A_n) = P(A)
+%\end{equation}
+%\end{proposicion}
+%\begin{proof}
+%Nótese que
+%\begin{align*}
+%P(A) &= P\left( \cup_{n\in \N} A_n \right) \\
+%\end{align*}
+%\end{proof}
 
 \subsection{Integración en espacios medibles}
 
@@ -113,12 +113,15 @@ Se dice que $f$ es integrable en $A$ respecto a $\mu$ si cumple que $\int_A f^{+
 \end{equation}
 \end{definicion}
 
-\begin{definicion}
-Sean $(\Omega_1,\mathcal{U}_1)$ y $(\Omega_2,\mathcal{U}_2)$ espacios medibles y $\mu$ una medida sobre el primero. Una función $g$ es integrable en $A \in \mathcal{U_2}$ respecto a $\mu_f$ si y sólo si $g \circ f$ es integrable en $f^{-1}(A)$ respecto a $\mu$
-\end{definicion}
-\begin{proof}
-[?] pagina 47 del manual
-\end{proof}
+\begin{proposicion}
+Sean $(\Omega_1,\mathcal{U}_1)$ y $(\Omega_2,\mathcal{U}_2)$ espacios medibles y $\mu$ una medida sobre el primero. Una función $g$ es integrable en $A \in \mathcal{U}_2$ respecto a $\mu_f$ si y sólo si $g \circ f$ es integrable en $f^{-1}(A)$ respecto a $\mu$. En dado caso, se satisface que
+\begin{equation}
+\int_A g(\lambda) d\mu_f(\lambda) = \int_{f^{-1}(A)} g \circ f (\lambda) d\mu(\lambda)
+\end{equation}
+\end{proposicion}
+%\begin{proof}
+%asdasd [?] pagina 47 del manual
+%\end{proof}
 
 %\begin{proposicion}
 %Sea $(\Omega, \mathcal{U}, \mu)$ un espacio de medida y sea $f:\omega \rightarrow \R_+$ una función medible no-negativa. La función $\mu_f$ definida como
@@ -197,18 +200,19 @@ Una función de probabilidad acumulada satisface las siguientes propiedades
 
 Conviene considerar las funciones que satisface las condiciones anteriores, referidas simplemente como \textbf{función de distribución}, pero que no necesariamente provienen de un espacio de probabilidad. Naturalmente, una función de distribución $F$ puede inducir una medida $\mu$.
 
-\begin{teorema}
+\begin{proposicion}
 Sea $F:\R \rightarrow \R$ una función de distribución; se puede contruir una medida $\mu_F$ sobre el espacio medible $(\R, \mathcal{B})$ tal que la función de probabilidad acumulada asociada al espacio de probabilidad $(\R, \mathcal{B}, \mu_F)$ es exactamente $F$.
-
+%
 La medida $\mu_F$ será referida como la \textbf{medida inducida} por $F$.
-\end{teorema}
-\begin{proof}
-Para cualesquiera $a, b \in \R$, puede escribirse
-\begin{equation}
-\mu((a,b]) := F(b) - F(a)
-\end{equation}
-[? pag 18, 25 del libro de teorei ade la medida]
-\end{proof}
+\end{proposicion}
+%\begin{proof}
+%Para cualesquiera $a, b \in \R$, puede escribirse
+%\begin{equation}
+%\mu((a,b]) := F(b) - F(a)
+%\end{equation}
+%[? pag 18, 25 del libro de teorei ade la medida],
+%se necesita teorema de extension de caratheodory
+%\end{proof}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -226,13 +230,13 @@ Una función $F: \R \rightarrow \R$ se dice \textbf{absolutamente continua} si p
 
 Se dice que una medida de probabilidad $P$ es \textbf{continua} si su función de probabilidad acumulada es absolutamente continua.
 
-\begin{proposicion}
+%\begin{proposicion}
 Si una medida de probabilidad $F$ es absolutamente continua, entonces existe una función $f$ tal que 
 \begin{equation}
 F(x) = \int_{-\infty}^{x}f(y) dy
 \end{equation}
 Se dice que $f$ es la \textbf{función de densidad de probabilidad}.
-\end{proposicion}
+%\end{proposicion}
 
 Sea $P$ una medida de probabilidad, se define su \textbf{soporte} como
 \begin{equation}
@@ -241,7 +245,7 @@ Sea $P$ una medida de probabilidad, se define su \textbf{soporte} como
 %
 Se dice que una medida de probabilidad, $P$, es \textbf{discreta} si su soporte es numerable.
 
-\begin{proposicion}
+%\begin{proposicion}
 Si una medida de probabilidad $F$ es discreta, entonces existe una finito o infinito numerable $Q_F=\{q_n\}_{n\in \N}$ tal que 
 \begin{equation}
 F(x) = \sum_{n\leq x} q_n F({q_n})
@@ -253,7 +257,7 @@ F({x}) &, x\in Q_F \\
 0 &, \text{otro caso}
 \end{cases}
 \end{equation}
-\end{proposicion}
+%\end{proposicion}
 
 Naturalmente es posible construir medidas de probabilidad que no sean ni continuas ni discretas. Por ejemplo, considérese la función de Cantor $K$ que puede ser definida iterativamente como
 \begin{equation}
@@ -266,7 +270,7 @@ K_{n+1}(x) =
 \end{equation}
 con $K_0(x) = x$ y $K := \lim_{n\rightarrow \infty} K_n$
 
-[?] demostracion de que la funcion de cantor esta bien definida
+%[?] demostracion de que la funcion de cantor esta bien definida
 % https://es.wikipedia.org/wiki/Funci%C3%B3n_de_Cantor
 
 \begin{proposicion}
@@ -336,11 +340,12 @@ Sea $X$ una variable aleatoria y $g$ una función medible en el espacio edible $
 \end{proposicion}
 
 \begin{definicion}
-Sea $X$ una variable aleatoria, se definen (si es posible) su media $\mu_X$ y varianza $\sigma_X^{2}$ como
+Sea $X$ una variable aleatoria, se definen su media $\mu_X$ y varianza $\sigma_X^{2}$ como
 \begin{align}
 \mu_X &{:=} \E{X} \\
 \sigma_X^{2} &{:=} \E{(X-\mu_X)^{2}}
 \end{align}
+Por definición, no hay garantía que una variable aleatoria arbitraria tenga media o varianza bien definidas.
 \end{definicion}
 
 Naturalmente la notación $\mu_X$ únicamente se usa cuando no hay confusión con la notación para medidas. Así mismo, conviene mencionar ejemplos de varaibles aleatorias para las cuales no está bien definida su media o varianza.
@@ -352,13 +357,13 @@ Naturalmente la notación $\mu_X$ únicamente se usa cuando no hay confusión co
 %M
 %\end{equation}
 
-\begin{definicion}
-Sea $X$ una varaible aleatoria. Se define su \textbf{función característica} como
-\begin{equation}
-\phi_X (\omega) := \E{e^{i \omega X}} = \int_\R e^{i \omega x} dF_X(x)
-\end{equation}
-donde, para todo $z\in \R$, $e^{i z} := \COS{z} + i \SEN{z}$
-\end{definicion}
+%\begin{definicion}
+%Sea $X$ una varaible aleatoria. Se define su \textbf{función característica} como
+%\begin{equation}
+%\phi_X (\omega) := \E{e^{i \omega X}} = \int_\R e^{i \omega x} dF_X(x)
+%\end{equation}
+%donde, para todo $z\in \R$, $e^{i z} := \COS{z} + i \SEN{z}$
+%\end{definicion}
 
 \begin{definicion}
 Sean $X$, $Y$ dos variables aleatorias. Se define su \textbf{covarianza} como
@@ -367,9 +372,9 @@ Sean $X$, $Y$ dos variables aleatorias. Se define su \textbf{covarianza} como
 \end{equation}
 \end{definicion}
 
-\begin{proposicion}
-Si $X$, $Y$ son independientes, entonces $\Cov{X,Y} = 0$
-\end{proposicion}
+%\begin{proposicion}
+%Si $X$, $Y$ son independientes, entonces $\Cov{X,Y} = 0$
+%\end{proposicion}
 
 \begin{definicion}
 Sean $X$, $Y$ dos variables aleatorias. Se define su \textbf{coeficiente de correlación de Pearson} como
@@ -432,42 +437,54 @@ Si $X\sim N(\mu,\sigma^{2})$, sea $\overline{X} = \frac{1}{N} \sum X_j$, entonce
 \overline{X} \sim N(\mu,\frac{\sigma^{2}}{N})
 \end{equation}
 
-Ejemplo.
-Considérese la variable aleatoria binomial $X \sim B(\theta)$ con $\theta \in [0, 1]$, cuya FDP es
+\begin{teorema}[Cramér-Rao]
+Sea $\widehat{\theta}$ un estimador insesgado de $\theta$. Si la función de verosimilitud asociada al estimador, $L$, es diferenciable, entonces
 \begin{equation}
-f_X(x; \theta) = \begin{cases}
-\theta^{x} (1-\theta)^{1-x} &, x\in \{ 0,1 \} \\
-0 &, \text{otro caso}
-\end{cases}
+\Var{\widehat{\theta}} \geq \left( \E{\frac{\partial}{\partial\theta} L(X; \theta)} \right)^{-2}
 \end{equation}
-La FDP conjunta para una muestra de tamaño $N$ es
+La igualdad se alcanza si y sólo si existe una función positiva $k$ tal que puede escribirse
 \begin{equation}
-f_N(x_1, \dots, x_N; \theta) = 
-\begin{cases}
-\theta^{\sum_i x_i}(1-\theta)^{\sum_i(1-x_i)} &, x_i \in \{ 0,1 \}, i\in \{1, \dots, N\} \\
-0 &, \text{otro caso}
-\end{cases}
+\frac{\partial}{\partial\theta} L(X; \theta) = k(\theta) \left[ \widehat{\theta}(X) - \theta \right] 
 \end{equation}
+\end{teorema}
 
-Se puede entender a $f_N$, evaluada en los datos obtenidos y como función de $\theta$, como la probabilidad de que se hayan obtenido los datos que de hecho se obtuvieron.
+
+%Ejemplo.
+%Considérese la variable aleatoria binomial $X \sim B(\theta)$ con $\theta \in [0, 1]$, cuya FDP es
+%\begin{equation}
+%f_X(x; \theta) = \begin{cases}
+%\theta^{x} (1-\theta)^{1-x} &, x\in \{ 0,1 \} \\
+%0 &, \text{otro caso}
+%\end{cases}
+%\end{equation}
+%La FDP conjunta para una muestra de tamaño $N$ es
+%\begin{equation}
+%f_N(x_1, \dots, x_N; \theta) = 
+%\begin{cases}
+%\theta^{\sum_i x_i}(1-\theta)^{\sum_i(1-x_i)} &, x_i \in \{ 0,1 \}, i\in \{1, \dots, N\} \\
+%0 &, \text{otro caso}
+%\end{cases}
+%\end{equation}
 %
-Esta redundancia sugiere que una elección adecuada para el parámetro $\theta$ sería aquél que maximice a tal función, que que recibe el nombre de \textbf{función de verosimilitud}
-\begin{equation}
-L(\theta; x_1, \dots, x_N) = \theta^{\sum_i x_i}(1-\theta)^{\sum_i(1-x_i)}
-\end{equation}
-con $\theta \in [0, 1]$. Por simplicidad técnica, se maximizará a $L$ igualando a cero la derivada de $\log \circ L$ con respecto a $\theta$.
-\begin{align*}
-\frac{d}{d\theta} \log\left( L(\theta; x_1, \dots, x_N)\right)
-&= 
-\frac{d}{d\theta} \log\left(\theta^{\sum_1^{N} x_i}(1-\theta)^{\sum_1^{N}(1-x_i)}\right) \\
-&=
-\frac{d}{d\theta} \left[ \left( \sum_{1}^{N} x_i \right) \log(\theta) + 
-\left( \sum_{1}^{N}(1-x_i) \right) \log (1-\theta)\right] \\
-&= \left( \sum_{i=1}^{N} x_i \right) \frac{1}{\theta} -
-\left( N - \sum_{i=1}^{N}(x_i) \right) \frac{1}{1-\theta}
-\end{align*}
-
-Luego entonces, la función de verosimilitud es maximizada usando $\theta = \frac{1}{N} \sum_{1}^{N}(x_i)$.
+%Se puede entender a $f_N$, evaluada en los datos obtenidos y como función de $\theta$, como la probabilidad de que se hayan obtenido los datos que de hecho se obtuvieron.
+%%
+%Esta redundancia sugiere que una elección adecuada para el parámetro $\theta$ sería aquél que maximice a tal función, que que recibe el nombre de \textbf{función de verosimilitud}
+%\begin{equation}
+%L(\theta; x_1, \dots, x_N) = \theta^{\sum_i x_i}(1-\theta)^{\sum_i(1-x_i)}
+%\end{equation}
+%con $\theta \in [0, 1]$. Por simplicidad técnica, se maximizará a $L$ igualando a cero la derivada de $\log \circ L$ con respecto a $\theta$.
+%\begin{align*}
+%\frac{d}{d\theta} \log\left( L(\theta; x_1, \dots, x_N)\right)
+%&= 
+%\frac{d}{d\theta} \log\left(\theta^{\sum_1^{N} x_i}(1-\theta)^{\sum_1^{N}(1-x_i)}\right) \\
+%&=
+%\frac{d}{d\theta} \left[ \left( \sum_{1}^{N} x_i \right) \log(\theta) + 
+%\left( \sum_{1}^{N}(1-x_i) \right) \log (1-\theta)\right] \\
+%&= \left( \sum_{i=1}^{N} x_i \right) \frac{1}{\theta} -
+%\left( N - \sum_{i=1}^{N}(x_i) \right) \frac{1}{1-\theta}
+%\end{align*}
+%
+%Luego entonces, la función de verosimilitud es maximizada usando $\theta = \frac{1}{N} \sum_{1}^{N}(x_i)$.
 
 \begin{definicion}
 Sea $X$ una variable aleatoria que depende de un parámetro $\theta$ y $X_1, \dots, X_N$ una muestra de tamaño $N$. Un estimador $\widehat{\theta}$ es \textbf{suficiente} si
@@ -524,21 +541,21 @@ Así como en la definición anterior, se dice que a familia de estimadores \text
 \end{equation}
 Si esto se cumple, se dice que la familia de estimadores es \textbf{consistente en media cuadrática} \end{definicion}
 
-\begin{teorema}
+\begin{proposicion}
 Si $\widehat{\theta}_n$ es una familia de estimadores consistente en media cuadrática, entonces es consistente
-\end{teorema}
+\end{proposicion}
 
-\begin{teorema}
+\begin{proposicion} COROLARIO
 Una condición suficiente para para que una familia sea consistente en en media cuadrática es
 \begin{align}
 \lim_{n\rightarrow\infty} \E{\widehat{\theta}_n} &= \theta \\
 \lim_{n\rightarrow\infty} \Var{\widehat{\theta}_n} &= 0
 \end{align}
-\end{teorema}
+\end{proposicion}
 
-\begin{proof}
-? pag 141 del libro de lindgren
-\end{proof}
+%\begin{proof}
+%? pag 141 del libro de lindgren
+%\end{proof}
 
 
 
@@ -721,7 +738,7 @@ del proceso: la estacionariedad débil.
 
 \begin{definicion}[Estacionariedad débil]
 Un proceso \xt se dice débilmente estacionario si existen constantes $\mu, \sigma \in \R$ y una 
-función $R : T \rightarrow \R \cup \{ \pm \infty \} $ tales que, para cualesquiera $t, s \in T$ se 
+función $R : \mathcal{T} \rightarrow \R \cup \{ \pm \infty \} $ tales que, para cualesquiera $t, s \in T$ se 
 cumple
 \begin{itemize}
 \item $\E{X(t)} = \mu$
@@ -731,23 +748,33 @@ cumple
 \end{definicion}
 
 \begin{proposicion}
-Un proceso es débilmente estacionario si y sólo si es estacionario de orden 2
+Un proceso estocástico es débilmente estacionario si y sólo si es estacionario de orden 2.
 \end{proposicion}
 
-Cabe destacar que la estacionariedad débil no sólo tiene como condición que todas las variables del
-proceso tengan la misma media y varianza, sino que también supone que éstas son finitas.
+La proposición anterior deja en claro que la estacionariedad débil puede entenderse como una \textit{estabilidad} en los momentos conjuntos de orden al menos dos, condición suficiente para trabajar con la media y la varianza del proceso.
 %
-Sobre la función de covarianza $R$ (que en un único proceso es referida como \textit{autocovarianza}),
-no hay restricciones sobre los valores que pueda tomar, excepto que 
-$R(0) = \Var{X(\bullet)} < \infty$. 
+Sin embargo, en ocasiones se requerirán condiciones más fuertes sobre los procesos. Como ejemplo, cuando se quiere obtener la varianza para un estimador del espectro de potencias, se necesita que la serie sea estacionaria de orden 4. 
+
+%Cabe destacar que la estacionariedad débil no sólo tiene como condición que todas las variables del
+%proceso tengan la misma media y varianza, sino que también supone que éstas son finitas.
 %
+%Sobre la función de covarianza $R$ (que en un único proceso es referida como \textit{autocovarianza}),
+%no hay restricciones sobre los valores que pueda tomar, excepto que 
+%$R(0) = \Var{X(\bullet)} < \infty$. 
+%%
 En el marco del modelo de series electrofisiológicas, conviene suponer que los registros 
 corresponden a procesos a tiempo continuo que son continuos de alguna forma; se ha elegido la 
 continuidad en media cuadrática.
 
+Cuando una señal electrofisiológica se modela como un proceso estocástico, es necesario suponer que su media y varianza son finitas en todo momento. 
+%
+Esto se debe a que existen umbrales \textit{naturales} en los que ocurren las mediciones, fuera de los cuales la vida misma es imposible; este comentario aplica también sobre la energía dentro del sistema.
+%
+Más aún, la actividad eléctrica cerebral y muscular presentan una actividad característica del estado de reposo (\textit{actividad basal}) de la cual no se \textit{alejan mucho} el resto del tiempo; esta suerte de media intuitiva es referida como \textit{línea base}, y se refleja dentro del modelado con la insistencia heurística de tratar a los procesos como si tuvieran media cero.
+
 \begin{observacion}
-Sea \xt un proceso débilmente estacionario y $T$ su función de autocovarianza. Si $R$ es continua
-en 0 entonces es continua en todos lados
+Sea \xt un proceso débilmente estacionario y $R$ su función de autocovarianza. Si $R$ es continua
+en 0 entonces es continua en todo $\R$.
 \end{observacion}
 
 \begin{definicion}[Continuidad estocástica en media cuadrática]
@@ -759,11 +786,15 @@ en un tiempo admisible $t_0$ si
 \label{cont_est}
 \end{definicion}
 
-Una forma natural de pensar en la definición \ref{cont_est} es que si $\abso{t-t_0}$ es muy pequeño 
-entonces $X(t)$ y $X(t_0)$ difieren muy poco entre sí, como variables aleatorias.
-%
-Hablando de procesos débilmente estacionarios, la continuidad estocástica de un proceso es 
-equivalente a que su función de autocovarianza sea continua en 0.
+%Una forma natural de pensar en la definición \ref{cont_est} es que si $\abso{t-t_0}$ es muy pequeño 
+%entonces $X(t)$ y $X(t_0)$ difieren muy poco entre sí, como variables aleatorias.
+%%
+%Hablando de procesos débilmente estacionarios, la continuidad estocástica de un proceso es 
+%equivalente a que su función de autocovarianza sea continua en 0.
+
+\begin{proposicion}
+Sea \xt un proceso a tiempo continuo y débilmente estacionario, y sea $R$ su función de autocovarianza. El proceso es estocásticamente continuo si y sólo si $R$ es continua en 0.
+\end{proposicion}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -852,18 +883,18 @@ Sea $S \in L^{2}_{[-T,T]}$, y sea $A = \mathcal{F}[S]$. Se cumple que
 \label{parseval}
 \end{teorema}
 
-\begin{definicion}[Espectro de potencias]
-Sea $S \in L^{2}_{[-T,T]}$, y sea $A = \mathcal{F}[S]$. Se llama espectro de potencias 
-para $S$ a la función $h_S : \R \rightarrow \R $, definida como
-\begin{equation*}
-h_S(\omega) = 
-\begin{cases}
-\abso{A(n)}^{2} & \text{ , si } \omega = \nicefrac{n}{2T}, \text{   con } n\in \mathbb{Z} \\
-0 & \text{ ,  otro caso}
-\end{cases}
-\end{equation*}
-\label{espec}
-\end{definicion}
+%\begin{definicion}[Espectro de potencias]
+%Sea $S \in L^{2}_{[-T,T]}$, y sea $A = \mathcal{F}[S]$. Se llama espectro de potencias 
+%para $S$ a la función $h_S : \R \rightarrow \R $, definida como
+%\begin{equation*}
+%h_S(\omega) = 
+%\begin{cases}
+%\abso{A(n)}^{2} & \text{ , si } \omega = \nicefrac{n}{2T}, \text{   con } n\in \mathbb{Z} \\
+%0 & \text{ ,  otro caso}
+%\end{cases}
+%\end{equation*}
+%\label{espec}
+%\end{definicion}
 
 Un elemento que será de crucial importancia en el desarrollo posterior es la \textbf{convolución} 
 ($\ast$), una tercera operación binaria en estos espacios y definida como
@@ -875,16 +906,16 @@ Un elemento que será de crucial importancia en el desarrollo posterior es la \t
 %
 donde $\overline{c}$ es el conjugado complejo de $c$. 
 %
-Esta operación cobra importancia por la forma en que se relaciona con $\mathcal{F}_T$
-%
-\begin{observacion}%[de la convolución]
-Sean $S,Z \in L^{2}_{[-T,T]}$, entonces se satisface que
-\begin{align*}
-\mathcal{F}_T[S\ast Z]  &= \mathcal{F}_T[S] \cdot \mathcal{F}_T[Z] \\
-\mathcal{F}_T[S\cdot Z] &= \mathcal{F}_T[S] \ast  \mathcal{F}_T[Z] 
-\end{align*}
-\label{t_convolucion}
-\end{observacion}
+%Esta operación cobra importancia por la forma en que se relaciona con $\mathcal{F}_T$
+%%
+%\begin{observacion}%[de la convolución]
+%Sean $S,Z \in L^{2}_{[-T,T]}$, entonces se satisface que
+%\begin{align*}
+%\mathcal{F}_T[S\ast Z]  &= \mathcal{F}_T[S] \cdot \mathcal{F}_T[Z] \\
+%\mathcal{F}_T[S\cdot Z] &= \mathcal{F}_T[S] \ast  \mathcal{F}_T[Z] 
+%\end{align*}
+%\label{t_convolucion}
+%\end{observacion}
 
 \begin{teorema}
 Sean $f, g \in \ldos$, las cuales poseen una transformada de Fourier de la forma
@@ -913,6 +944,11 @@ Nótese que
 \end{align*}
 \end{proof}
 
+\begin{align*}
+[s \ast z] (\tau) &= \sum_{n=-\infty}^{\infty} s(n) \overline{z(\tau-n)} \\
+[S \ast Z] (\tau) &= \int_I S(t) \overline{Z(\tau-t)}
+\end{align*}
+
 \begin{teorema}
 COROLARIO. Usando $f \equiv g$ en el teorema anterior
 \begin{equation}
@@ -933,6 +969,85 @@ Los siguientes teoremas y proposiciones se refieren a propiedades únicamente de
 %
 Aunque no son una consecuencia clara de los resultados expuestos anteriormente, son una base importante de algunos resultados que se expondrán en capítulos posteriores.
 
+El teorema de Isserlis es una identidad relativamente poco conocida sobre los cuartos momentos de una distribución multinormal; el caso particular de cuatro variables será usado para calcular la covarianza de algunos estimadores del espectro de potencias.
+
+\begin{proposicion}
+Sea $g$ una función cuando menos dos veces derivable cuyo dominio es $\mathcal{D}_g$, y sea $X$ una variable aleatoria real tal que $P(X\notin \mathcal{D}) = 0$. 
+%Si los momentos de $X$ están acotados y la secuencia $\left\{ \frac{1}{n !} \frac{d^{n}}{dx^{n}} g\left( \E{X} \right) \right\}$ está acotada, entonces 
+Pueden usarse las siguientes aproximaciones
+\begin{align}
+\E{g(X)} &\approx g\left( \E{X} \right) \\
+\Var{g(X)} &\approx \Var{X} \left[ g\prima \left( \E{X} \right) \right]^{-2}
+\end{align}
+\end{proposicion}
+
+\begin{proof}
+Usando polinomio de Taylor de grado 2 para $g$, alrededor de $\E{X}$ y evaluada en $X$
+\begin{equation}
+g(X) = g\left( \E{X} \right) + \left(X - \E{X} \right) g\prima \left( \E{X} \right) + \frac{\left( X - \E{X} \right)^{2}}{2} g^{\prime \prime}(\xi)
+\end{equation}
+donde la variable aleatoria $\xi$ satisface $\abso{\xi} \leq \abso{X - \E{X}}$.
+%
+La aproximación, con una obvia pérdida, consiste en considerar que $\frac{1}{2}\left( X - \E{X} \right)^{2} g^{\prime \prime}(\xi) \approx 0$.
+\begin{equation}
+g(X) \approx g\left( \E{X} \right) + \left(X - \E{X} \right) g\prima \left( \E{X} \right)
+\end{equation}
+Si se toma el valor esperado de ambos lados
+\begin{align*}
+\E{g(X)} &\approx \E{g\left( \E{X} \right)} + \E{\left(X - \E{X} \right)} g\prima \left( \E{X} \right) \\
+&= g\left( \E{X} \right)
+\end{align*}
+Lo cual consiste en la primera parte del resultado. Por otro lado, se se elevan ambos lados al cuadrado
+\begin{align}
+\left[g(X)\right]^{2} &\approx \left[g\left( \E{X} \right)\right]^{2} + 2 g\left( \E{X} \right) \left(X - \E{X} \right) g\prima \left( \E{X} \right) \nonumber \\
+&\pheq + \left(X - \E{X} \right)^{2} \left[ g\prima \left( \E{X} \right] \right)^{2}
+\end{align}
+Si se toma el valor esperado de ambos lados
+\begin{align*}
+\E{\left[g(X)\right]^{2}} &\approx \E{\left[g\left( \E{X} \right)\right]^{2}} + 2 g\left( \E{X} \right) \E{X - \E{X} } g\prima \left( \E{X} \right) \nonumber \\
+&\pheq + \E{\left(X - \E{X} \right)^{2}} \left[ g\prima \left( \E{X} \right] \right)^{2} \\
+&= \left[g\left( \E{X} \right)\right]^{2} + \Var{X} \left[ g\prima \left( \E{X} \right] \right)^{2}
+\end{align*}
+entonces
+\begin{equation}
+\Var{g(X)} = \E{\left[g(X)\right]^{2}} - \left[g\left( \E{X} \right)\right]^{2} \approx \Var{X} \left[ g\prima \left( \E{X} \right] \right)^{2}
+\end{equation}
+de donde se sigue la segunda parte del resultado.
+\end{proof}
+
+\begin{proposicion}
+COROLARIO. Si se usa el teorema anterior con $g = \log$ se obtiene
+\begin{align}
+\E{\log(X)} &\approx \log\left( \E{X} \right) \\
+\Var{\log(X)} &\approx \frac{\Var{X}}{\left( \E{X} \right)^{2}}
+\end{align}
+\end{proposicion}
+
+\begin{definicion}
+Se dice que un vector aleatorio $\overrightarrow{X} = (X_1, X_2, \cdots, X_d)$ sigue una \textbf{distribución multinormal} si su función de densidad conjunta tiene la forma
+\begin{equation}
+f_{\overrightarrow{X}}\left( \overrightarrow{x} \right) = \frac{1}{\sqrt{(2\pi)^{d}\abso{C}}} \exp\left( -\frac{\overrightarrow{x} C^{-1} \overrightarrow{x}^{\intercal} }{2} \right)
+\end{equation}
+donde $\overrightarrow{x} = (x_1, x_2, \cdots, x_d)$. El vector $\mu \in \R^{d}$ será referido como \textit{vector de medias}, y la matriz $C \in \R^{d\times d}$ como \textit{matriz de covarianza}.
+\end{definicion}
+
+\begin{teorema}[Isserlis]
+Sea $(X_1, X_2, X_3, X_4)$ un vector aleatorio siguiendo una distribución multinormal con media cero y matriz de covrianza finita. Se cumple que
+\begin{equation}
+\E{X_1 X_2 X_3 X_4} = \E{X_1 X_2} \E{X_3 X_4} + \E{X_1 X_3} \E{X_2 X_4} + \E{X_1 X_4} \E{X_2 X_3}
+\end{equation}
+\label{teo:isserlis}
+\end{teorema}
+
+%\begin{proof}
+%Si $\phi$ es la función característica de $(X_1, X_2, X_3, X_4)$, entonces puede escribirse
+%\begin{equation}
+%\E{X_1 X_2 X_3 X_4} = \frac{\partial^{2}}{\partial s_1 \partial s_2 \partial s_3 \partial s_4} \phi(s_1, s_2, s_3, s_4) \vert_{s_i = 0}
+%\end{equation}
+%
+%[?] completar, no es dificil
+%\end{proof}
+
 \begin{proposicion}
 Sea $\mathcal{R}$ el conjunto de variables aleatorias con media cero y varianza finita. Se define un producto interno entre dos variables aleatorias arbitrarias, $U$ y $V$, como
 \begin{equation}
@@ -944,6 +1059,27 @@ Usando la suma y productos usuales de variables aleatorias, junto al producto in
 \begin{proposicion}
 Sea \xt un proceso débilmente estacionario y $R$ su función de autocorrelación. Se cumple que $R$ es una función positiva definida.
 \end{proposicion}
+
+\begin{teorema}[Bochner]
+Sea $f$ una función real arbitraria. Una condición suficiente y necesaria para que $f$ sea definida positiva es que exista una función real $F$ monótonamente creciente, continua por la derecha y acotada tal que puede escribirse
+\begin{equation}
+f(t) = \intR e^{i \omega t} dF(\omega)
+\end{equation}
+\end{teorema}
+
+%\begin{proof}
+%Para demostrar que la condición es suficiente, supóngase que puede escribirse
+%\begin{equation}
+%f(t) = \intR e^{i \omega t} dF(\omega)
+%\end{equation}
+%Luego, sean $a_1, a_2, \cdot, a_N \in \C$ y $t_1, t_2, \cdots, t_N \in \R$ arbitrarios, entonces
+%\begin{align*}
+%\sum_{m = 1}^{N} \sum_{n = 1}^{N} f(t_m - t_n) a_m \overline{a_n} &=
+%\sum_{m = 1}^{N} \sum_{n = 1}^{N} \left[ \intR e^{i \omega (t_m-t_n)} dF(\omega) \right] a_m \overline{a_n} \\
+%&= \intR \left[ \sum_{m = 1}^{N} \sum_{n = 1}^{N} a_m e^{i \omega t_m} \overline{a_n e^{i \omega t_n}} \right] dF(\omega) \\
+%&= \intR \abso{ \sum_{n = 1}^{N} a_n e^{i \omega t_n} }^{2} dF(\omega) \geq 0
+%\end{align*}
+%\end{proof}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
