@@ -5,10 +5,11 @@ require('ggpubr')
 require('scales')
 
 ###########################################################
-setwd('C:/Users/EQUIPO 1/Desktop/julio/Tesis_respaldo/TESIS/img_mas_ejemplos')
-grabar = T
+#setwd('C:/Users/EQUIPO 1/Desktop/julio/Tesis_respaldo/TESIS/img_mas_ejemplos')
 
-set.seed(2018)
+k = .5
+
+set.seed(2019)
 
 le1 = 100000
 le2 = 1000
@@ -16,8 +17,11 @@ le2 = 1000
 ee = rnorm(le2 + 2*le1 + 1)
 
 tt = 1:le1
-gg = 2/(tt**2+1)
+gg = k*sqrt(2/pi)/(tt+k**2)
 gg = c(rev(gg),1,gg)
+
+gg = ((0.049922035 -0.095993537/(tt) +0.050612699/(tt**2) -0.004408786/(tt**3))/
+        (1 -2.494956002/(tt) +2.017265875/(tt**2) -0.522189400/(tt**3)))
 
 le1 = length(gg)
 
@@ -26,6 +30,17 @@ pn = rep(0,le2)
 for(i in 1:le2){
   pn[i] = sum(gg*ee[1:le1+ i-1])
 }
+
+s = pspectrum(pn)
+plot(pn,type='l')
+lineal = lm(log(s$spec)~s$freq)
+print(lineal)
+plot(s)
+plot(s$freq,(log(s$spec)),type='l')
+lines(s$freq,(lineal$coefficients[1]+s$freq*lineal$coefficients[2]),
+      type='l',col='red')
+
+DFA(pn)
 
 plot(ee[1:le2],type='l')
 plot(pn,type='l')
@@ -47,20 +62,21 @@ ggplot(m,aes(x=te,y=pin)) +
   geom_line(color='purple')
 
 # grabar
-ggsave(file=paste0('ruido_rosa.pdf'),#width=3,height=2,
-       bg='transparent',unit='cm')
+ggsave('ruido_rosa.pdf',device='pdf',dpi=600,
+       width = 15,height = 8,unit='cm')
 
 ###########################################################
 
-set.seed(2018)
+set.seed(2019)
 
 le1 = 100000
 le2 = 1000
 
 ee = rnorm(le2 + 2*le1 + 1)
 
+k=1
 tt = 1:le1
-gg = 1/(tt+1)
+gg = k*sqrt(2/pi)/(tt**2+k**2)
 gg = c(rev(gg),1,gg)
 
 le1 = length(gg)
@@ -68,6 +84,10 @@ le1 = length(gg)
 pn = rep(0,le2)
 
 for(i in 1:le2){
+  k = exp()
+  gg = k*sqrt(2/pi)/(tt**2+k**2)
+  gg = c(rev(gg),1,gg)
+  
   pn[i] = sum(gg*ee[1:le1+ i-1])
 }
 
@@ -91,5 +111,5 @@ ggplot(m,aes(x=te,y=pin)) +
   geom_line(color='purple')
 
 # grabar
-ggsave(file=paste0('ruido_rosa.pdf'),#width=3,height=2,
-       bg='transparent',unit='cm')
+ggsave('ruido_rosa.pdf',device='pdf',dpi=600,
+       width = 15,height = 8,unit='cm')
