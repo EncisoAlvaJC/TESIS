@@ -194,7 +194,7 @@ P(x\in A) = \int_A f_X(\lambda) d\lambda
 Una función de probabilidad acumulada satisface las siguientes propiedades
 \begin{itemize}
 \item Para cualesquiera $x,y\in \R$, $x < y \Rightarrow F(x) < F(y)$
-\item Pra cualquier $x\in\R$, $F(x) = \lim_{x\rightarrow x^{-}} F(x) + P(\{x\})$
+\item Para cualquier $x\in\R$, $F(x) = \lim_{x\rightarrow x^{-}} F(x) + P(\{x\})$
 \item $\lim_{x\rightarrow +\infty} F(x) = 1$
 \item $\lim_{x\rightarrow -\infty} F(x) = 0$
 \end{itemize}
@@ -202,7 +202,7 @@ Una función de probabilidad acumulada satisface las siguientes propiedades
 Conviene considerar las funciones que satisface las condiciones anteriores, referidas simplemente como \textbf{función de distribución}, pero que no necesariamente provienen de un espacio de probabilidad. Naturalmente, una función de distribución $F$ puede inducir una medida $\mu$.
 
 \begin{proposicion}
-Sea $F:\R \rightarrow \R$ una función de distribución; se puede contruir una medida $\mu_F$ sobre el espacio medible $(\R, \mathcal{B})$ tal que la función de probabilidad acumulada asociada al espacio de probabilidad $(\R, \mathcal{B}, \mu_F)$ es exactamente $F$.
+Sea $F:\R \rightarrow \R$ una función de distribución; se puede construir una medida $\mu_F$ sobre el espacio medible $(\R, \mathcal{B})$ tal que la función de probabilidad acumulada asociada al espacio de probabilidad $(\R, \mathcal{B}, \mu_F)$ es exactamente $F$.
 %
 La medida $\mu_F$ será referida como la \textbf{medida inducida} por $F$.
 \end{proposicion}
@@ -218,7 +218,7 @@ La medida $\mu_F$ será referida como la \textbf{medida inducida} por $F$.
 Así entonces, es perfectamente posible definir variables aleatorias especificando su respectiva función de probabilidad acumulada.
 
 %\begin{definicion}
-Cuando dos variableas aleatorias $X, Y$ tienen la misma función de densidad de probabilidad, se denota como
+Cuando dos variables aleatorias $X, Y$ tienen la misma función de densidad de probabilidad, se denota como
 \begin{equation}
 X \sim Y
 \end{equation}
@@ -260,7 +260,7 @@ para algunos $\mu, \sigma \in \R$. Se dice entonces que $X$ sigue una \textbf{di
 \subsection{Convergencia de variables aleatorias}
 
 \begin{definicion}
-Sea $\{ F_n \}_{n\in \N}$ una sucesión de funciones de probabilidad acumulada, correspondientes a la sucesión de varaibles aleatorias reales $\{ X_n \}_{n\in \N}$. Se dice que la sucesión $\{ X_n \}_{n\in \N}$ \textbf{converge en distribución} a una variable aleatoria $X$ si, para todo $x\in \R$, se cumple que
+Sea $\{ F_n \}_{n\in \N}$ una sucesión de funciones de probabilidad acumulada, correspondientes a la sucesión de variables aleatorias reales $\{ X_n \}_{n\in \N}$. Se dice que la sucesión $\{ X_n \}_{n\in \N}$ \textbf{converge en distribución} a una variable aleatoria $X$ si, para todo $x\in \R$, se cumple que
 \begin{equation}
 \lim_{n\rightarrow\infty} F_n(x) = F(x)
 \end{equation}
@@ -268,7 +268,7 @@ donde $F$ es la función de probabilidad acumulada de $X$.
 \end{definicion}
 
 \begin{definicion}
-Sea $\{ F_n \}_{n\in \N}$ una sucesión de funciones de probabilidad acumulada, correspondientes a la sucesión de varaibles aleatorias reales $\{ X_n \}_{n\in \N}$. Se dice que la sucesión $\{ X_n \}_{n\in \N}$ \textbf{converge en probabilidad} a una variable aleatoria $X$ si, para todo $x\in \R$, se cumple que
+Sea $\{ F_n \}_{n\in \N}$ una sucesión de funciones de probabilidad acumulada, correspondientes a la sucesión de variables aleatorias reales $\{ X_n \}_{n\in \N}$. Se dice que la sucesión $\{ X_n \}_{n\in \N}$ \textbf{converge en probabilidad} a una variable aleatoria $X$ si, para todo $x\in \R$, se cumple que
 \begin{equation}
 \lim_{n\rightarrow\infty} P\left( \abso{X_n-X} < \varepsilon \right) = 1
 \end{equation}
@@ -333,7 +333,7 @@ con $K_0(x) = x$ y $K := \lim_{n\rightarrow \infty} K_n$
 
 \begin{figure}
 \includegraphics[width=\linewidth]{./img_mas_ejemplos/cantor.pdf}
-\caption[Algunos pasos en la \textit{contrucción iterativa} de la función de Cantor]{Algunos pasos en la \textit{contrucción iterativa} de la función de Cantor, que es creciente, acotada y continua pero no absolutamente continua. En el texto, la función de Cantor es usado para construir medidas con propiedades patológicas.}
+\caption[Algunos pasos en la \textit{construcción iterativa} de la función de Cantor]{Algunos pasos en la \textit{construcción iterativa} de la función de Cantor, que es creciente, acotada y continua pero no absolutamente continua. En el texto, la función de Cantor es usado para construir medidas con propiedades patológicas.}
 \end{figure}
 
 %[?] demostracion de que la funcion de cantor esta bien definida
@@ -381,7 +381,7 @@ Sea $X$ una variable aleatoria definida sobre el espacio de probabilidad $(\Omeg
 \end{definicion}
 
 \begin{proposicion}
-Sea $X$ una variable aleatoria y $g$ una función medible en el espacio edible $(\R,\mathcal{B})$. Entonces $g(X)$ es una variable aleatoria cuyo valor esperado es
+Sea $X$ una variable aleatoria y $g$ una función medible en el espacio medible $(\R,\mathcal{B})$. Entonces $g(X)$ es una variable aleatoria cuyo valor esperado es
 \begin{equation}
 \E{g(x)} = \int_\Omega [g(X)](\lambda) dP(\lambda) = \int_R g(x) dP(x)
 \end{equation}
@@ -396,7 +396,7 @@ Sea $X$ una variable aleatoria, se definen su media $\mu_X$ y varianza $\sigma_X
 Por definición, no hay garantía que una variable aleatoria arbitraria tenga media o varianza bien definidas.
 \end{definicion}
 
-Naturalmente la notación $\mu_X$ únicamente se usa cuando no hay confusión con la notación para medidas. Así mismo, conviene mencionar ejemplos de varaibles aleatorias para las cuales no está bien definida su media o varianza.
+Naturalmente la notación $\mu_X$ únicamente se usa cuando no hay confusión con la notación para medidas. Así mismo, conviene mencionar ejemplos de variables aleatorias para las cuales no está bien definida su media o varianza.
 
 ? Ejemplos
 
@@ -450,7 +450,7 @@ Por notación, el vector aleatorio \textit{$n$-dimensional} $\boldsymbol{X}$ ser
 \begin{equation}
 \boldsymbol{X} = [X_1, X_2, \dots, X_n]
 \end{equation}
-esta notación para denotar vectores con \textit{símbolos gruesos} será usada durante el texto, extiendida igualmente para realizaciones y otros vectores dimilares.
+esta notación para denotar vectores con \textit{símbolos gruesos} será usada durante el texto, extendida igualmente para realizaciones y otros vectores similares.
 
 \begin{ejemplo}
 Se dice que un vector aleatorio $\boldsymbol{X} = [X_1, X_2, \cdots, X_d]$ sigue una \textbf{distribución multinormal} si su función de probabilidad acumulada conjunta tiene la forma
@@ -461,187 +461,6 @@ donde $\boldsymbol{x} = (x_1, x_2, \cdots, x_d)$. El vector $\mu \in \R^{d}$ ser
 \end{ejemplo}
 
 % si se necesita, esta en la pagina 30 del manual
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{Procesos estocásticos}
-
-En el presente trabajo se maneja una definición muy superflua para procesos estocásticos: como una \textit{concatenación} de variables aleatorias indexadas por un conjunto $\mathcal{T} \subseteq \R$. 
-%
-En el libro [] se maneja una definición más formal cuya lectura es altamente recomendable; en el presente trabajo no usa tal enfoque debido a sus limitaciones y objetivos específicos.
-%
-Sin embargo, parece conveniente mencionarlo por comparabilidad.
-
-Primeramente se define al conjunto $\R^{\mathcal{T}}$, de las funciones reales con dominio en $\mathcal{T}$, el cual será usado como espacio de eventos. 
-%
-Se pueden definir intervalos abiertos y cerrados en $\R^{\mathcal{T}}$; por ejemplo como esferas inducidas por alguna métrica, o más en concreto considerando conjuntos de la forma
-\begin{equation}
-B(f, R; g) = \left\{ f: \mathcal{T} \rightarrow \R \talque \int_{\mathcal{T}} \abso{f(x)-g(x)} dx < R \right\}
-\end{equation}
-
-En general, habiendo definido una colección \textit{suficientemente buena} de conjuntos se puede definir inmediatamente la $\sigma$-álgebra definida por dicha familia.
-%
-Finalmente, basta definir una medida sobre la $\sigma$-álgebra mencionada.
-
-Escribir un proceso estocástico como variable aleatoria facilita algunas \textit{tareas}, como definir sus realizaciones y hablar sobre límites de procesos estocásticos. 
-%
-Por oto lado, ello dificulta tareas como construir procesos procedimentalmente, definir la autocovarianza y hablar sobre muestreo.
-%
-Bajo este comentario, escribir un proceso estocástico como concatenación de variables aleatorias es un enfoque intuitivamente contrario, pues \textit{invierte} las ventajas y desventajas.
-
-\begin{definicion}
-Un \textbf{proceso estocástico} \xt es una colección de variables aleatorias indexadas por el símbolo $t\in\mathcal{T}$
-%\begin{equation}
-%\{X(t)\}_{t\in \mathcal{T}} := \left\{ X(t) \lvert t\in \mathcal{T} \right\}
-%\end{equation}
-\end{definicion}
-
-\begin{definicion}
-Se dice que un proceso estocástico \xt es un \textbf{proceso estocástico en $\R$} si cumple que $\mathcal{T} \subseteq \R$.
-%
-Por notación, el índice $t$ es referido como \textbf{tiempo}, mientras que $\mathcal{T}$ es el conjunto de \textbf{tiempos admisibles}.
-\end{definicion}
-
-Por simplicidad sobre las condiciones del presente trabajo, sólo se trabajará con dos familias de procesos estocásticos en $\R$: si $\mathcal{T}$ es un intervalo, o si es parte de una \textit{malla}. 
-%
-La primera familia se reserva para modelar las señales electrofisiológicas per se, mientras que el segundo se usa para modelar los registros de estas mismas señales.
-%
-La distinción consiste en que las señales sólo pueden ser registradas digitalmente en un conjunto finito de puntos; ambos grupos merecen atención, y se espera que sus características sean similares.
-
-\begin{definicion}
-Se dice que un proceso estocástico en $\R$ es \textbf{a tiempo continuo} si existen $a, b \in \R \cup \{ -\infty, \infty \}$ tales que
-\begin{equation}
-\mathcal{T} = (a,b)
-\end{equation}
-Así mismo, se dice que un proceso estocástico en $\R$ es \textbf{a tiempo discreto} si existen $t_0, \Delta_X \in \R \cup \{ -\infty, \infty \}$ tales que
-\begin{equation}
-\mathcal{T} = \left\{ t_0 + t \in \R \talque {t} \cdot {\Delta_X} \in \Z \right\}
-\end{equation}
-Por notación, $\Delta_X$ es referida como \textit{frecuencia de muestreo}.
-\end{definicion}
-
-Conviene destacar que el nombre \textit{frecuencia de muestreo} hace referencia al proceso de registro, que algunos autores usan como equivalente a \textit{muestreo}; esta terminología entra claramente en conflicto con las muestras de una variable aleatoria. En lo siguiente se evita llamar muestreo al proceso de registro, pero se conservará el término frecuencia de muestro.
-
-Cabe mencionar una cuestión similar con los términos \textit{tiempo continuo} y \textit{tiempo discreto}; cabe resaltar que \underline{no guardan ninguna analogía} con las variables aleatorias discretas y continuas, ni con los espectro de potencias puramente continuos o puramente discretos (ver el capítulo siguiente).
-%
-El uso de estos términos se debe principalmente a que se encuentran ampliamente extendidos en la literatura sobre análisis de señales.
-
-Para evitar confusiones, los elementos que componen a un proceso estocástico son denotados como:\\
-\begin{tabular}{cl}
-\xt    & Todo el proceso \\
-$X(t)$ & Variable aleatoria en el proceso, para el tiempo $t$ \\
-$x(t)$ & Una realización de $X(t)$ \\
-$F_{X(t)}$ & Función de probabilidad acumulada para $X(t)$
-%$ {\Delta_t}$ & Frecuencia de muestreo (en tiempo discreto)
-\end{tabular}\\
-
-La estacionariedad es un indicativo de la \textit{homogeneidad} de un proceso; un proceso 
-\textit{muy} estacionario sería aquél cuyas variable aleatoria que tiene distribuciones conjuntas que no cambian 
-con el tiempo. 
-%
-La definición \ref{est_fuerte} representa con exactitud tales requerimientos, pero se le considera 
-\textit{innecesariamente fuerte}; una definición común es \ref{est_m}.
-
-\begin{definicion}[Estacionariedad fuerte]
-Un proceso \xt se dice fuertemente estacionario si para cualesquiera 
-$t_1, t_2, \dots, t_n \in \mathcal{T}$ y cualquier $\tau$ tal que $t_i + \tau \in \mathcal{T}$,
-se cumple que
-\begin{equation*}
-F_{\left[ X(t_1), X(t_2), \dots, X(t_n) \right]} \equiv
-F_{\left[ X(t_1 + \tau), X(t_2 + \tau), \dots, X(t_n + \tau) \right]}
-\end{equation*}
-Donde $F_{[v_1,v_2,\dots,v_N]}$ es la FPA conjunta para el vector $[v_1,v_2,\dots,v_N]$
-\label{est_fuerte}
-\end{definicion}
-
-\begin{definicion}[Estacionariedad de orden $m$]
-Un proceso \xt se dice estacionario de orden $m$ si, para cualesquiera
-$t_1, t_2, \dots, t_n \in \mathcal{T}$ y cualquier $\tau$ tal que $t_i + \tau \in \mathcal{T}$,
-se cumple que
-\begin{equation*}
-\E{X^{m_1}(t_1)X^{m_2}(t_2)\cdots X^{m_n}(t_n)} =
-\E{X^{m_1}(t_1+\tau)X^{m_2}(t_2+\tau)\cdots X^{m_n}(t_n+\tau)}
-\end{equation*}
-para cualesquiera enteros $m_1, m_2, \dots, m_n$ tales que $m_1+m_2+\cdots+m_n \leq m$
-\label{est_m}
-\end{definicion}
-
-Cabe mencionar que la definición \ref{est_m} no es equivalente a la definición \ref{est_fuerte}, ni
-aún cuando $m\rightarrow \infty$; sin embargo permite asegurar que los \textit{momentos} 
-($\E{X^{k}}$ para algún $k$) del proceso sean invariantes en el tiempo, y éstos suelen encontrarse
-asociados a cantidades físicas.
-
-Como un ejemplo muy particular conviene destacar la energía, que suele ser asociada con el segundo
-momento (definición \ref{energia}). 
-%
-Dicha conexión motiva a escoger una definición de estacionariedad que permita analizar la energía 
-del proceso: la estacionariedad débil.
-
-\begin{definicion}[Estacionariedad débil]
-Un proceso \xt se dice débilmente estacionario si existen constantes $\mu, \sigma \in \R$ y una 
-función $R : \mathcal{T} \rightarrow \R \cup \{ \pm \infty \} $ tales que, para cualesquiera $t, s \in T$ se 
-cumple
-\begin{itemize}
-\item $\E{X(t)} = \mu$
-\item $\Var{X(t)} = \sigma^{2}$
-\item $\Cov{X(t),X(s)} = R(s-t)$
-\end{itemize}
-\end{definicion}
-
-\begin{figure}
-\centering
-\includegraphics[width=\linewidth]{./img_mas_ejemplos/ruidos_ejemplos.pdf}
-\caption[Realizaciones de algunos proceos débilmente estacionarios]{Realizaciones de algunos procesos débilmente estacionarios. \textbf{A.} Proceso oscilante, del cual se grafican tres realizaciones diferentes. \textbf{B.} Proceso ruido blanco. \textbf{C.} Proceso de medias móviles (MA). \textbf{D.} Proceso tipo alfa. \textbf{E.} Proceso ruido rosa.}
-\end{figure}
-
-\begin{proposicion}
-Un proceso estocástico es débilmente estacionario si y sólo si es estacionario de orden 2.
-\end{proposicion}
-
-La proposición anterior deja en claro que la estacionariedad débil puede entenderse como una \textit{estabilidad} en los momentos conjuntos de orden al menos dos, condición suficiente para trabajar con la media y la varianza del proceso.
-%
-Sin embargo, en ocasiones se requerirán condiciones más fuertes sobre los procesos. Como ejemplo, cuando se quiere obtener la varianza para un estimador del espectro de potencias, se necesita que la serie sea estacionaria de orden 4. 
-
-%Cabe destacar que la estacionariedad débil no sólo tiene como condición que todas las variables del
-%proceso tengan la misma media y varianza, sino que también supone que éstas son finitas.
-%
-%Sobre la función de covarianza $R$ (que en un único proceso es referida como \textit{autocovarianza}),
-%no hay restricciones sobre los valores que pueda tomar, excepto que 
-%$R(0) = \Var{X(\bullet)} < \infty$. 
-%%
-En el marco del modelo de series electrofisiológicas, conviene suponer que los registros 
-corresponden a procesos a tiempo continuo que son continuos de alguna forma; se ha elegido la 
-continuidad en media cuadrática.
-
-Cuando una señal electrofisiológica se modela como un proceso estocástico, es necesario suponer que su media y varianza son finitas en todo momento. 
-%
-Esto se debe a que existen umbrales \textit{naturales} en los que ocurren las mediciones, fuera de los cuales la vida misma es imposible; este comentario aplica también sobre la energía dentro del sistema.
-%
-Más aún, la actividad eléctrica cerebral y muscular presentan una actividad característica del estado de reposo (\textit{actividad basal}) de la cual no se \textit{alejan mucho} el resto del tiempo; esta suerte de media intuitiva es referida como \textit{línea base}, y se refleja dentro del modelado con la insistencia heurística de tratar a los procesos como si tuvieran media cero.
-
-\begin{observacion}
-Sea \xt un proceso débilmente estacionario y $R$ su función de autocovarianza. Si $R$ es continua
-en 0 entonces es continua en todo $\R$.
-\end{observacion}
-
-\begin{definicion}[Continuidad estocástica en media cuadrática]
-Un proceso a tiempo continuo \xt es estocásticamente continuo, en el sentido de media cuadrática, 
-en un tiempo admisible $t_0$ si
-\begin{equation*}
-\lim_{t \rightarrow t_0} \E{\left( X(t) - X(t_0) \right)^{2}} = 0
-\end{equation*}
-\label{cont_est}
-\end{definicion}
-
-%Una forma natural de pensar en la definición \ref{cont_est} es que si $\abso{t-t_0}$ es muy pequeño 
-%entonces $X(t)$ y $X(t_0)$ difieren muy poco entre sí, como variables aleatorias.
-%%
-%Hablando de procesos débilmente estacionarios, la continuidad estocástica de un proceso es 
-%equivalente a que su función de autocovarianza sea continua en 0.
-
-\begin{proposicion}
-Sea \xt un proceso a tiempo continuo y débilmente estacionario, y sea $R$ su función de autocovarianza. El proceso es estocásticamente continuo si y sólo si $R$ es continua en 0.
-\end{proposicion}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -748,7 +567,7 @@ la distribución de la variable $X \lvert \widehat{\theta}$ no depende de $\thet
 \end{definicion}
 
 \begin{teorema}
-Sea $X$ una varaible aleatoria que depende del paraámetro $\theta$. Un estadístico $\widehat{\theta}$ es suficiente si y sólo si existen funciones $g$ y $h$ tales que
+Sea $X$ una variable aleatoria que depende del parámetro $\theta$. Un estadístico $\widehat{\theta}$ es suficiente si y sólo si existen funciones $g$ y $h$ tales que
 \begin{equation}
 f_X(\bullet; \theta ) = g(\widehat{\theta},\theta) h_X(\bullet)
 \end{equation}
@@ -820,6 +639,188 @@ Y_N = \frac{\sum_{i=1}^{N}X_i - N \mu}{\sqrt{N \sigma^{2}}}
 \end{equation}
 Entonces $\{ Y_N \}_{N \in \N}$ converge en probabilidad a una distribución normal $N(0,1)$.
 \end{teorema}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Procesos estocásticos}
+
+Los procesos estocásticos se definen formalmente como variables aleatorias cuyo espacio muestral es un espacio de funciones, para lo cual deben definirse previamente una $\sigma$-álgebra \textit{suficientemente buena} para estos espacios.
+%
+Intuitivamente es posible definir %(alternativamente) 
+los procesos estocásticos como una mera concatenación de variables aleatorias; sin embargo, el usar un conjunto infinito de ellas representa un problema desde el punto de vista formal.
+%
+Debido a las limitaciones del presente trabajo, el tema se expone de manera formal pero incompleta; la exposición se basa en aquella presentada por [Kolmogorov?], de modo que el lector interesado debe dirigirse a dicho texto.
+
+Primeramente se define a $\R^{\mathcal{T}}$, el conjunto de funciones con dominio en $\mathcal{T}$ y codominio en $\R$, el cual será usado como espacio de eventos\footnote{Se puede definir análogamente a $\C^{\mathcal{T}}$, o espacios más generales}. 
+%
+A modo de \textit{intervalos generalizados} se definen los conjuntos de la forma
+\begin{equation}
+I\left( [t_1, a_1, b_1], \cdots, [t_N, a_N, b_N] \right) = 
+\left\{ f \in \R^{\mathcal{T}} \talque f(t_i) \in (a_i, b_i] \, , \, i = 1, \cdots, N \right\}
+\end{equation}
+
+Es relativamente fácil extender la familia de estos intervalos por uniones e intersecciones finitas. Es un tanto más interesante definir una $\sigma$-álgebra generada por éstos conjuntos, pero tal parte se omite en el presente trabajo.
+%
+En el texto por Kolmogorov se explora con mayor detalle la existencia de dicha $\sigma$-álgebra --y por tanto, la existencia de procesos estocásticos.
+
+
+
+\begin{definicion}
+Un \textbf{proceso estocástico} \xt es una colección de variables aleatorias indexadas por el símbolo $t\in\mathcal{T}$.
+%\begin{equation}
+%\{X(t)\}_{t\in \mathcal{T}} := \left\{ X(t) \lvert t\in \mathcal{T} \right\}
+%\end{equation}
+\end{definicion}
+
+\begin{definicion}
+Se dice que un proceso estocástico \xt es un \textbf{proceso estocástico en $\R$} si cumple que $\mathcal{T} \subseteq \R$.
+%
+Por notación, el índice $t$ es referido como \textbf{tiempo}, mientras que $\mathcal{T}$ es el conjunto de \textbf{tiempos admisibles}.
+\end{definicion}
+
+Por simplicidad, durante el presente trabajo sólo se usarán dos familias de procesos estocásticos en $\R$: si $\mathcal{T}$ es un intervalo, o si es parte de una \textit{malla}. 
+%
+La primera familia se reserva para modelar las señales electrofisiológicas, mientras que la segunda se usará para modelar los registros de estas mismas señales.
+%
+La distinción consiste en que las señales electrofisiológicas sólo pueden ser registradas digitalmente en un conjunto finito de puntos en el tiempo; la atención del texto recae en ambos grupos de procesos, en espera que sus características sean similares de algún modo.
+
+\begin{definicion}
+Se dice que un proceso estocástico en $\R$ es \textbf{a tiempo continuo} si existen $a, b \in \R \cup \{ -\infty, \infty \}$ tales que
+\begin{equation}
+\mathcal{T} = (a,b)
+\end{equation}
+Así mismo, se dice que un proceso estocástico en $\R$ es \textbf{a tiempo discreto} si existen $t_0, \Delta_X \in \R \cup \{ -\infty, \infty \}$ tales que
+\begin{equation}
+\mathcal{T} = \left\{ t_0 + t \in \R \talque {t} \cdot {\Delta_X} \in \Z \right\}
+\end{equation}
+Por notación, $\Delta_X$ es referida como \textit{frecuencia de muestreo}.
+\end{definicion}
+
+Conviene destacar que el nombre \textit{frecuencia de muestreo} hace referencia al proceso de registro, que algunos textos es referido como \textit{muestreo}; esta terminología entra claramente en conflicto con las muestras de una variable aleatoria. En lo siguiente se evita llamar muestreo al proceso de registro, pero se conservará el término frecuencia de muestro.
+
+Cabe mencionar que hay un conflicto similar con los términos \textit{tiempo continuo} y \textit{tiempo discreto}; estos términos \underline{no guardan ninguna analogía} con las variables aleatorias discretas y continuas, ni con los espectro de potencias puramente continuos o puramente discretos (ver el capítulo siguiente).
+%
+Estos términos se usan porque se encuentran muy extendidos en la literatura sobre análisis de señales.
+
+Refiriendo a los proceso estocásticos como colecciones de variables 
+????
+Para evitar confusiones, los elementos que componen a un proceso estocástico son denotados como:\\
+\begin{tabular}{cl}
+\xt    & Todo el proceso \\
+$X(t)$ & Variable aleatoria en el proceso, para el tiempo $t$ \\
+$x(t)$ & Una realización de $X(t)$ \\
+$F_{X(t)}$ & Función de probabilidad acumulada para $X(t)$
+%$ {\Delta_t}$ & Frecuencia de muestreo (en tiempo discreto)
+\end{tabular}\\
+
+La estacionariedad es un indicativo de la \textit{homogeneidad} de un proceso; un proceso 
+\textit{muy} estacionario sería aquél cuyas variable aleatoria que tiene distribuciones conjuntas que no cambian 
+con el tiempo. 
+%
+La definición \ref{est_fuerte} representa con exactitud tales requerimientos, pero se le considera 
+\textit{innecesariamente fuerte}; una definición común es \ref{est_m}.
+
+\begin{definicion}[Estacionariedad fuerte]
+Un proceso \xt se dice fuertemente estacionario si para cualesquiera 
+$t_1, t_2, \dots, t_n \in \mathcal{T}$ y cualquier $\tau$ tal que $t_i + \tau \in \mathcal{T}$,
+se cumple que
+\begin{equation*}
+F_{\left[ X(t_1), X(t_2), \dots, X(t_n) \right]} \equiv
+F_{\left[ X(t_1 + \tau), X(t_2 + \tau), \dots, X(t_n + \tau) \right]}
+\end{equation*}
+Donde $F_{[v_1,v_2,\dots,v_N]}$ es la FPA conjunta para el vector $[v_1,v_2,\dots,v_N]$
+\label{est_fuerte}
+\end{definicion}
+
+\begin{definicion}[Estacionariedad de orden $m$]
+Un proceso \xt se dice estacionario de orden $m$ si, para cualesquiera
+$t_1, t_2, \dots, t_n \in \mathcal{T}$ y cualquier $\tau$ tal que $t_i + \tau \in \mathcal{T}$,
+se cumple que
+\begin{equation*}
+\E{X^{m_1}(t_1)X^{m_2}(t_2)\cdots X^{m_n}(t_n)} =
+\E{X^{m_1}(t_1+\tau)X^{m_2}(t_2+\tau)\cdots X^{m_n}(t_n+\tau)}
+\end{equation*}
+para cualesquiera enteros $m_1, m_2, \dots, m_n$ tales que $m_1+m_2+\cdots+m_n \leq m$
+\label{est_m}
+\end{definicion}
+
+Cabe mencionar que la definición \ref{est_m} no es equivalente a la definición \ref{est_fuerte}, ni
+aún cuando $m\rightarrow \infty$; sin embargo permite asegurar que los \textit{momentos} 
+($\E{X^{k}}$ para algún $k$) del proceso sean invariantes en el tiempo, y éstos suelen encontrarse
+asociados a cantidades físicas.
+
+Como un ejemplo muy particular conviene destacar la energía, que suele ser asociada con el segundo
+momento (definición \ref{energia}). 
+%
+Dicha conexión motiva a escoger una definición de estacionariedad que permita analizar la energía 
+del proceso: la estacionariedad débil.
+
+\begin{definicion}[Estacionariedad débil]
+Un proceso \xt se dice débilmente estacionario si existen constantes $\mu, \sigma \in \R$ y una 
+función $R : \mathcal{T} \rightarrow \R \cup \{ \pm \infty \} $ tales que, para cualesquiera $t, s \in T$ se 
+cumple
+\begin{itemize}
+\item $\E{X(t)} = \mu$
+\item $\Var{X(t)} = \sigma^{2}$
+\item $\Cov{X(t),X(s)} = R(s-t)$
+\end{itemize}
+\end{definicion}
+
+\begin{figure}
+\centering
+\includegraphics[width=\linewidth]{./img_mas_ejemplos/ruidos_ejemplos.pdf}
+\caption[Realizaciones de algunos proceso débilmente estacionarios]{Realizaciones de algunos procesos débilmente estacionarios. \textbf{A.} Proceso oscilante, del cual se grafican tres realizaciones diferentes. \textbf{B.} Proceso ruido blanco. \textbf{C.} Proceso de medias móviles (MA). \textbf{D.} Proceso tipo alfa. \textbf{E.} Proceso ruido rosa.}
+\end{figure}
+
+\begin{proposicion}
+Un proceso estocástico es débilmente estacionario si y sólo si es estacionario de orden 2.
+\end{proposicion}
+
+La proposición anterior deja en claro que la estacionariedad débil puede entenderse como una \textit{estabilidad} en los momentos conjuntos de orden al menos dos, condición suficiente para trabajar con la media y la varianza del proceso.
+%
+Sin embargo, en ocasiones se requerirán condiciones más fuertes sobre los procesos. Como ejemplo, cuando se quiere obtener la varianza para un estimador del espectro de potencias, se necesita que la serie sea estacionaria de orden 4. 
+
+%Cabe destacar que la estacionariedad débil no sólo tiene como condición que todas las variables del
+%proceso tengan la misma media y varianza, sino que también supone que éstas son finitas.
+%
+%Sobre la función de covarianza $R$ (que en un único proceso es referida como \textit{autocovarianza}),
+%no hay restricciones sobre los valores que pueda tomar, excepto que 
+%$R(0) = \Var{X(\bullet)} < \infty$. 
+%%
+En el marco del modelo de series electrofisiológicas, conviene suponer que los registros 
+corresponden a procesos a tiempo continuo que son continuos de alguna forma; se ha elegido la 
+continuidad en media cuadrática.
+
+Cuando una señal electrofisiológica se modela como un proceso estocástico, es necesario suponer que su media y varianza son finitas en todo momento. 
+%
+Esto se debe a que existen umbrales \textit{naturales} en los que ocurren las mediciones, fuera de los cuales la vida misma es imposible; este comentario aplica también sobre la energía dentro del sistema.
+%
+Más aún, la actividad eléctrica cerebral y muscular presentan una actividad característica del estado de reposo (\textit{actividad basal}) de la cual no se \textit{alejan mucho} el resto del tiempo; esta suerte de media intuitiva es referida como \textit{línea base}, y se refleja dentro del modelado con la insistencia heurística de tratar a los procesos como si tuvieran media cero.
+
+\begin{observacion}
+Sea \xt un proceso débilmente estacionario y $R$ su función de autocovarianza. Si $R$ es continua
+en 0 entonces es continua en todo $\R$.
+\end{observacion}
+
+\begin{definicion}[Continuidad estocástica en media cuadrática]
+Un proceso a tiempo continuo \xt es estocásticamente continuo, en el sentido de media cuadrática, 
+en un tiempo admisible $t_0$ si
+\begin{equation*}
+\lim_{t \rightarrow t_0} \E{\left( X(t) - X(t_0) \right)^{2}} = 0
+\end{equation*}
+\label{cont_est}
+\end{definicion}
+
+%Una forma natural de pensar en la definición \ref{cont_est} es que si $\abso{t-t_0}$ es muy pequeño 
+%entonces $X(t)$ y $X(t_0)$ difieren muy poco entre sí, como variables aleatorias.
+%%
+%Hablando de procesos débilmente estacionarios, la continuidad estocástica de un proceso es 
+%equivalente a que su función de autocovarianza sea continua en 0.
+
+\begin{proposicion}
+Sea \xt un proceso a tiempo continuo y débilmente estacionario, y sea $R$ su función de autocovarianza. El proceso es estocásticamente continuo si y sólo si $R$ es continua en 0.
+\end{proposicion}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -1100,24 +1101,26 @@ Pueden usarse las siguientes aproximaciones
 Usando polinomio de Taylor de grado 2 para $g$, alrededor de $\E{X}$ y evaluada en $X$
 \begin{equation}
 g(X) = g\left( \E{X} \right) + \left(X - \E{X} \right) g\prima \left( \E{X} \right) + \frac{\left( X - \E{X} \right)^{2}}{2} g^{\prime \prime}(\xi)
+\label{detalle:aprox}
 \end{equation}
-donde la variable aleatoria $\xi$ satisface $\abso{\xi} \leq \abso{X - \E{X}}$.
+donde la variable aleatoria $\xi$ satisface $\abso{X-\xi} \leq \abso{X - \E{X}}$.
 %
 La aproximación, con una obvia pérdida, consiste en considerar que $\frac{1}{2}\left( X - \E{X} \right)^{2} g^{\prime \prime}(\xi) \approx 0$.
 \begin{equation}
 g(X) \approx g\left( \E{X} \right) + \left(X - \E{X} \right) g\prima \left( \E{X} \right)
 \end{equation}
 Si se toma el valor esperado de ambos lados
-\begin{align*}
-\E{g(X)} &\approx \E{g\left( \E{X} \right)} + \E{\left(X - \E{X} \right)} g\prima \left( \E{X} \right) \\
-&= g\left( \E{X} \right)
-\end{align*}
-Lo cual consiste en la primera parte del resultado. Por otro lado, se se elevan ambos lados al cuadrado
+\begin{align}
+\E{g(X)} &\approx \E{g\left( \E{X} \right)} + \E{\left(X - \E{X} \right)} g\prima \left( \E{X} \right) = g\left( \E{X} \right)
+\end{align}
+
+Lo cual confirma la primera parte del resultado. Para verificar la segunda parte del mismo, se elevan ambos lados al cuadrado
 \begin{align}
 \left[g(X)\right]^{2} &\approx \left[g\left( \E{X} \right)\right]^{2} + 2 g\left( \E{X} \right) \left(X - \E{X} \right) g\prima \left( \E{X} \right) \nonumber \\
 &\pheq + \left(X - \E{X} \right)^{2} \left[ g\prima \left( \E{X} \right] \right)^{2}
 \end{align}
-Si se toma el valor esperado de ambos lados
+
+Posteriormente se toma el valor esperado de ambos lados
 \begin{align*}
 \E{\left[g(X)\right]^{2}} &\approx \E{\left[g\left( \E{X} \right)\right]^{2}} + 2 g\left( \E{X} \right) \E{X - \E{X} } g\prima \left( \E{X} \right) \nonumber \\
 &\pheq + \E{\left(X - \E{X} \right)^{2}} \left[ g\prima \left( \E{X} \right] \right)^{2} \\
@@ -1127,7 +1130,13 @@ entonces
 \begin{equation}
 \Var{g(X)} = \E{\left[g(X)\right]^{2}} - \left[g\left( \E{X} \right)\right]^{2} \approx \Var{X} \left[ g\prima \left( \E{X} \right] \right)^{2}
 \end{equation}
-de donde se sigue la segunda parte del resultado.
+de donde se obtiene la segunda parte del resultado. 
+
+Antes de concluir la demostración, conviene discutir bajo qué condiciones la aproximación es eficiente. La forma completa de la expresión \ref{detalle:aprox} contempla el término
+\begin{equation}
+\frac{\left( X - \E{X} \right)^{2}}{2} g^{\prime \prime}(\xi)
+\end{equation}
+Como $\abso{\xi} < $
 \end{proof}
 
 \begin{corolario}
@@ -1139,7 +1148,7 @@ Si se usa el teorema anterior con $g = \log$ se obtiene
 \end{corolario}
 
 \begin{teorema}[Isserlis]
-Sea $(X_1, X_2, X_3, X_4)$ un vector aleatorio siguiendo una distribución multinormal con media cero y matriz de covrianza finita. Se cumple que
+Sea $[X_1, X_2, X_3, X_4]$ un vector aleatorio siguiendo una distribución multinormal con media cero y matriz de covarianza finita. Se cumple que
 \begin{equation}
 \E{X_1 X_2 X_3 X_4} = \E{X_1 X_2} \E{X_3 X_4} + \E{X_1 X_3} \E{X_2 X_4} + \E{X_1 X_4} \E{X_2 X_3}
 \end{equation}

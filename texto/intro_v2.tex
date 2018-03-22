@@ -8,73 +8,80 @@ Gracias a los avances médicos del último siglo se ha incrementado la esperanza
 %
 Desafortunadamente, también ha aumentado la presencia de enfermedades no-transmisibles asociadas con la edad. 
 %
-En México el sector de la población con más de 60 años de edad, considerados en alto riesgo para este tipo de enfermedades, contempló a 10 millones de personas en 2010, y en 2015 dicha cifra creció a 12 millones \cite{Censo10,Intercensal15}.
-
-En este trabajo se destaca la demencia de entre las enfermedades asociadas con la edad.
+En México el sector de la población con más de 60 años de edad (considerados en alto riesgo para este tipo de enfermedades) contempló a 10 millones de personas en 2010, y en 2015 dicha cifra creció a 12 millones \cite{Censo10,Intercensal15}.
 %
+En este trabajo se destaca la demencia de entre las enfermedades asociadas con la edad.
+
 La demencia consiste en el desarrollo de déficits cognoscitivos suficientemente graves como para interferir en las actividades laborales y sociales.
 %
-La demencia se considera irreversible y no se han identificado curas definitivas \cite{PlanAlzheimer04}, debido a lo cual ha surgido un gran interés en definir y diagnosticar sus etapas tempranas \cite{Knopman01}.
+Se considera que la demencia es irreversible, y no se han identificado curas definitivas \cite{PlanAlzheimer04}, debido a lo cual ha surgido un gran interés en definir y diagnosticar sus etapas tempranas \cite{Knopman01}.
 %
-El deterioro cognitivo leve (PCL), considerado una etapa temprana de la demencia, se define como \textit{``una alteración adquirida y prolongada de una o varias funciones cognitivas, que no corresponde a un síndrome focal y que no cumple con criterios suficientes de gravedad para ser calificada como demencia"} \cite{Robles02}.
-%
-Por síndrome focal se entiende un daño en una estructura nerviosa específica y de causa conocida (como una hemorragia o una embolia) cuyo inicio sea inmediato y evidente; en cambio, el inicio del DCL es insidioso \cite{Petersen01}.
+El deterioro cognitivo leve (DCL), considerado como etapa temprana de la demencia, se define como ``una alteración adquirida y prolongada de una o varias funciones cognitivas, que no corresponde a un \textit{síndrome focal}\footnote{Se entiende por síndrome focal al daño en una estructura nerviosa específica, cuya causa es conocida (como una hemorragia o una embolia) y cuyo inicio sea inmediato y evidente. 
+%%
+%En contraparte, se considera que el inicio del DCL es \textit{insidioso} \cite{Petersen01}.
+} y que no cumple con criterios suficientes de gravedad para ser calificada como demencia" \cite{Robles02}.
 
-El DCL puede detectarse por medio de diversos métodos que pueden ser complementarios. 
+En el presente trabajo se delimita al DCL por fines de precisión, para lo cual se define el Posible Deterioro Cognitivo Leve (PDCL) como ``una disminución de las funciones cognitivas del sujeto con respecto las típicas de su edad y nivel de educación". 
 %
-La forma más sencilla de detectarlo es por la autopercepción de fallas en la memoria o por la percepción de otros;
-es común que estos criterios subjetivos lleven a falsos negativos o falsos positivos, ésto por la percepción personal del nivel \textit{normal} de deterioro que se debe al envejecimiento.
+En concreto, el desempeño de las funciones cognoscitivas para un individuo es medido usando la prueba neuropsicológica Neuropsi \cite{Ostrosky1999}; se considera un déficit si la puntuación obtenida es menor a un umbral predefinido para su grupo de edad y nivel de escolaridad. 
 %
-Otras posibilidades para la detección incluyen la entrevista clínica de un especialista, o la aplicación de cuestionarios sobre dificultades en la memoria. 
+El umbral recomendado para la prueba Neuropsi debe calcularse como la media menos 3 desviaciones estándar de los puntajes típicos para individuos de cada grupo de edad y nivel de escolaridad. 
 %
-Métodos más objetivos aún corresponden al diagnóstico con pruebas neuropsicológicas. 
-%
-Los análisis genéticos, químicos, de imágenes cerebral, entre otros, estudian el sistema nervioso central per se; dichas técnicas y otras, en combinación con las pruebas neuropsicológicas, permitirán diagnosticar más acertadamente el DCL y desentrañar los fenómenos neurobiológicos subyacentes.
-%Técnicas genéticas, químicas o de imágenes cerebrales u otras en elaboración, que pueden ser o no muy costosas, en su combinación con las neuropsicológicas, permitirían diagnosticar más acertadamente el DCL así como desentrañar sus correlatos neurobiológicos. 
+Estos parámetros fueron estimados para la población mexicana por Ostrosky-Solís y colaboradores \cite{Ostrosky1999}.
 
-En este sentido, en el presente trabajo se busca desarrollar métodos para determinar el DCL con base en mediciones de la actividad eléctrica cerebral, muscular y ocular; se mantiene presente que el fenómeno del deterioro cognitivo (más allá del DCL) no puede reducirse exclusivamente a tales mediciones. 
-%
-Las conclusiones sobre las señales electrofisiológicas deben ser contrastadas siempre con los resultados de evaluaciones neuropsicológicas y revisiones neurológicas.
+%El DCL puede detectarse por medio de diversos métodos que pueden ser complementarios. 
+%%
+%La forma más sencilla de detectarlo es por la autopercepción de fallas en la memoria o por la percepción de otros;
+%es común que estos criterios subjetivos lleven a falsos negativos o falsos positivos, ésto por la percepción personal del nivel \textit{normal} de deterioro que se debe al envejecimiento.
+%%
+%Otras posibilidades para la detección incluyen la entrevista clínica de un especialista, o la aplicación de cuestionarios sobre dificultades en la memoria. 
+%%
+%Métodos más objetivos aún corresponden al diagnóstico con pruebas neuropsicológicas. 
+%%
+%Los análisis genéticos, químicos, de imágenes cerebral, entre otros, estudian el sistema nervioso central per se; dichas técnicas y otras, en combinación con las pruebas neuropsicológicas, permitirán diagnosticar más acertadamente el DCL y desentrañar los fenómenos neurobiológicos subyacentes.
+%%Técnicas genéticas, químicas o de imágenes cerebrales u otras en elaboración, que pueden ser o no muy costosas, en su combinación con las neuropsicológicas, permitirían diagnosticar más acertadamente el DCL así como desentrañar sus correlatos neurobiológicos. 
 
-En concreto se utilizarán registros de varias señales electrofisiológicas --electroencefalograma (EEG), electrooculograma (EOG) y electromiograma (EMG)--, técnica conocida como polisomnografía (PSG)\footnote{La 
-PSG puede contener otro tipo de señales como electrocardiograma, niveles de oxígeno en la sangre, 
-esfuerzo respiratorio, movimiento de las piernas, entre otras}, obtenidas durante 
-etapas específicas en el sueño del paciente.
-%%ANADÏ ESTO, checar para qué figura queda, porque debe especificarse que comunmente en la PSG se registran 2 electrodos, C3 y C4, emg y ojos. Sin embargo, como el objetivo es conocer la actividad eléctrica cerebral de más regiones, se colocaron 19 electrodos en la cabeza de cada paciente, dispuestos según el sistema 10/20. ESTO DEBE ESTAR EN EL PIE DE FIGURA CORRESPONDIENTE. NO ME ACUERDO SI ESTÁ O NO, PERO FUE QUE NOS PIDIERON QUE EXPLICARAS MÁS...Y LO DE LAS OREJAS CORTOCIRCUITADAS. CITA AL MANUAL DE NIEDERMEYER
+Existen varios otros métodos alternativos para detectar --o definir-- el DCL; desde la autopercepción por parte del paciente, hasta análisis genéticos, químicos y de imagenología cerebral.
 %
-Conviene destacar que muchos de los marcadores para el DCL definidos con base en el EEG dependen
-efectivamente de su respectivo espectro de potencia%%ANADÏ ESTO: y que normalmente estos marcadores electrofisiológicos se obtienen durante un estado de vigilia en reposo, es decir, despierto con ojos cerrados AGREGAR AQUÍ VARIAS REFS QUE ESTÁN AQUÍ ABAJITO  \cite{ Prichep et al., 1994; Rossini et al., 2006; Prichep et al., 2006; Rossini et al., 2008}. En general, se encontró que la potencia absoluta (PA) y relativa (PR) es mayor en la frecuencia de theta en estos pacientes y hay una correlación positiva con delta a más deterioro cognitivo en amplias regiones cerebrales y además la estabilidad de las fuentes de alfa en regiones posteriores sirve como un predictor confiable (Babiloni et al., 2013). Estos patrones se cree que representan alteraciones en el hipocampo relacionadas al deterioro cognitivo. 
-EEG está asociado al grado de actividad cerebral en términos de energía, entonces el espectro de 
-potencias explica \textit{cómo} es dicha actividad.%, pero esta última frase se puede quitar.
+De entre estas técnicas se destaca a la polisomnografía (PSG), el registro conjunto de varias señales electrofisiológicas durante el sueño.
+%
+En particular, se considera una PSG compuesta por registros de electroencefalograma (EEG), electrooculograma (EOG) y electromiograma (EMG) para medir, respectivamente, actividad eléctrica cerebral, tono muscular y movimientos oculares.
+%
+El uso en particular de registros de PSG obedece principalmente a que (1) es una técnica relativamente barata y no invasiva, con relación al tipo de información que se obtiene, y (2) existe una cantidad moderadamente grande de marcadores para el DCL reportados usando la PSG.
+
+Se ha encontrado, por ejemplo, correlaciones entre el DCL en adultos mayores con la \textit{presencia} de ciertos tipos de ondas cerebrales \cite{babiloni13,prichep94,prichep06}.
+%
+Sin embargo, otros estudios sugieren que el EEG durante el sueño es un mejor predictor del DCL [buscar y citar Baryet ??].
+%
+El sueño MOR mejora la memoria y los procesos de atención mediante las entradas colinérgicas \cite{Braun} a través de pontine \cite{Datta2004} y las estructuras del basales del cerebro anterior \cite{Blake}. Durante el envejecimiento normal y especialmente durante el envejecimiento patológico, los procesos de atención y memoria se vuelven más vulnerables, y las neuronas colinérgicas son las más afectadas \cite{Schliebs11}. El envejecimiento afecta a varias estructuras anatómicas que resultan en la pérdida de un eje dendrítico en las neuronas corticales que muestran una degradación en su complejidad fractal estructural \cite{Lipsitz}.
+
+%%ANADÏ ESTO: y que normalmente estos marcadores electrofisiológicos se obtienen durante un estado de vigilia en reposo, es decir, despierto con ojos cerrados AGREGAR AQUÍ VARIAS REFS QUE ESTÁN AQUÍ ABAJITO  \cite{ Prichep et al., 1994; Rossini et al., 2006; Prichep et al., 2006; Rossini et al., 2008}. En general, se encontró que la potencia absoluta (PA) y relativa (PR) es mayor en la frecuencia de theta en estos pacientes y hay una correlación positiva con delta a más deterioro cognitivo en amplias regiones cerebrales y además la estabilidad de las fuentes de alfa en regiones posteriores sirve como un predictor confiable (Babiloni et al., 2013). Estos patrones se cree que representan alteraciones en el hipocampo relacionadas al deterioro cognitivo. 
+
 %Montplaisir   citar aquí de la tesis de Gén la referencia, Julito, x fa hallan que el sueño MOR es mejor predictor que la vigilia
-%Babiloni C, Carducci F, Lizio R, Vecchio F, Baglieri A, Bernardini S, Cavedo S,  Bozzao A, Buttinelli C, Esposito F, Giubilei F, Guizzaro A, Marino S , Montella P, Quattrocchi QC, Redolfi A, Soricelli A, Tedeschi G, Ferri R, Rossi-Fedele G, Ursini F, Scrascia F, Vernieri F, Pedersen TJ, Hardemark HG, Rossini PM, Frisoni GB (2013). Resting state cortical electroencephalographic rhythms are related to gray matter volume in subjects with mild cognitive impairment and Alzheimer´s disease. Human brain mapping, 34, 1427-1446.
-%Prichep LS, John ER, Ferris SH, Rausch L, Fang Z, Cancro R, Torossian C, Reisberg B (2006). Prediction of longitudinal cognitive decline in normaly elderly with subjective complaints using electrophysiological imaging. Neurobiology and aging, 27, 471-481.
-%Prichep LS, John ER, Ferris SH, Reisberg B, Almas M, Alper K, Cancro R (1994). Quantitative EEG correlates of cognitive deterioration in the elderly. Neurobiology and aging, 15, 85-90.
 
-El presente trabajo toma parte en el problema metodológico de que las señales electrofisiológicas típicamente representan procesos no--lineales y no--estacionarios, y sin 
-embargo suelen ser analizadas usando herramientas que suponen linealidad y estacionariedad. Se sabe que
-las señales biológicas son mayormente no estacionarias, pero en ventanas pequeñas de tiempo éstas son
-mayormente estacionarias.%AQUÍ PUEDEN PONER LA FIGURA DEL ARTÍCULO.
-Además estudios previos han demostrado que señales mayores de 20 segundos pueden ayudar 
-a inferir problemas neurológicos \cite{Cohen77}.
+%arreglar la cita. Es decir, se espera hallar marcadores en la actividad eléctrica cerebral, muscular u ocular correlacionados con los déficits en alguna o varias funciones neuropsicológicas. Se usa el término de probable para ser congruentes con las especificaciones sobre los métodos, es decir, porque los análisis que se presentan pretenden arrojar mayores indicios anatómicos y fisiológicos sobre lo ya detectado con las pruebas.
+
+En el presente trabajo se busca desarrollar métodos para determinar el DCL en base a registros de PSG en adultos mayores, como complemento a los resultados de pruebas neuropsicológicas.
 %
-En el caso particular del espectro de potencias, es común que sea calculado usando la 
-transformada de Fourier sobre segmentos cortos para evitar los \textit{efectos} de la 
-no--estacionariedad \cite{Kaiser00}.
+Se mantiene presente que el deterioro cognitivo (más allá del DCL) no puede reducirse exclusivamente a tales mediciones; las conclusiones obtenidas usando registros de señales electrofisiológicas deben ser contrastadas siempre con resultados de análisis complementarios.
+
+
+%El presente trabajo toma parte en el problema metodológico de que las señales electrofisiológicas típicamente representan procesos no--lineales y no--estacionarios, y sin 
+%embargo suelen ser analizadas usando herramientas que suponen linealidad y estacionariedad. Se sabe que
+%las señales biológicas son mayormente no estacionarias, pero en ventanas pequeñas de tiempo éstas son
+%mayormente estacionarias.%AQUÍ PUEDEN PONER LA FIGURA DEL ARTÍCULO.
+%Además estudios previos han demostrado que señales mayores de 20 segundos pueden ayudar 
+%a inferir problemas neurológicos \cite{Cohen77}.
 %
-Es por ello que se buscan herramientas para verificar la estacionariedad débil (más detalles en 
-la sección de métodos)  en los registros electrofisiológicas, y con especial atención en la 
-posibilidad de que puedan usarse como marcadores de deterioro cognitivo.
+%En el caso particular del espectro de potencias, es común que sea calculado usando la 
+%transformada de Fourier sobre segmentos cortos para evitar los \textit{efectos} de la 
+%no--estacionariedad \cite{Kaiser00}.
+%
+%Es por ello que se buscan herramientas para verificar la estacionariedad débil (más detalles en 
+%la sección de métodos)  en los registros electrofisiológicas, y con especial atención en la 
+%posibilidad de que puedan usarse como marcadores de deterioro cognitivo.
 %No se conocen otros estudios que empleen la prueba de Priestley-Subba-Rao (ref) que se explicará más adelante para probar estacionariedad con excepción de Rosales-Lagarde et al. (2017), sin embargo aquí se muestra con una mayor precisión.
 %Rosales-Lagarde, A., Rodríguez-Torres, E.E., Enciso-Alva, J., Martínez-Alcalá, C., Vázquez-Tagle, G., Tetlamatzi-Montiel, M., Viveros, J. and López-Noguerola, J.S. (2017). Stationarity during REM sleep in Old Adults. Alzheimer´s and Dementia, P723-P724. doi: http://dx.doi.org/10.1016/j.jalz.2017.06.937
-
-En este trabajo se definirá al Posible Deterioro Cognitivo Leve (PDCL) como una disminución de las funciones cognitivas del sujeto con respecto las típicas de su edad y nivel de educación. 
-%
-El desempeño de las funciones cognoscitivas es medido de acuerdo a la prueba neuropsicológica Neuropsi [citar? ostrosky]. 
-%
-Se entiende el déficit en estas funciones como mediciones por debajo de la media menos 3 desviaciones estándar de las mediciones típicas para el grupo de edad y nivel de educación, según la validación de la prueba para México [citar].
-%arreglar la cita. Es decir, se espera hallar marcadores en la actividad eléctrica cerebral, muscular u ocular correlacionados con los déficits en alguna o varias funciones neuropsicológicas. Se usa el término de probable para ser congruentes con las especificaciones sobre los métodos, es decir, porque los análisis que se presentan pretenden arrojar mayores indicios anatómicos y fisiológicos sobre lo ya detectado con las pruebas.
-%Ostrosky-Solís, F. Ardila, A. & Rosselli, M. (1999). Neuropsi: A brief neuropsychological test battery in Spanish with norms by age and educational level. Journal of the International Neuropsychological Society, 5, 413-433.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -82,43 +89,20 @@ Se entiende el déficit en estas funciones como mediciones por debajo de la medi
 \section*{Antecedentes}
 \addcontentsline{toc}{section}{Antecedentes}
 
-El sueño MOR ha sido ampliamente relacionado con la consolidación de la memoria, así como con
-otras funciones cognitivas como la integración de conocimientos aprendidos durante la vigilia y las funciones ejecutivas
-\cite{Fishbein1971,Fishbein1977,Lucero1970,Pearlman1971,Pearlman1974,Smith1991}.%Añadir a Corsi-Cabrera et al. (2015).
-%Corsi-Cabrera, M., Rosales-Lagarde, A., Del Río-Portilla, Y., Sifuentes-Ortega, R., Alcántara-Quintero, B. (2015). Effects of selective REM sleep deprivation on prefrontal gamma activity and executive functions. International journal of psychophysiology, 96, 115-124, doi: 10.1016/j.ijpsycho.2015.02.027. 
-En el caso de adultos mayores, la correlación entre deterioro cognitivo y trastornos del sueño ha 
-sido reportada por varios autores a partir de estudios poblacionales 
-\cite{Amer13,Miyata13,Reid06,Potvin12}.
-%
-Tal correlación era de esperarse ya que los procesos de atención y memoria, por ejemplo, dependen de 
-los circuitos colinérgicos activados durante el sueño MOR \cite{Braun1997}; y estos circuitos son 
-propensos a degradación estructural tanto en el envejecimiento normal como en el patológico,  y 
-especialmente en el segundo \cite{Schliebs11}.
-
 En 2016 Vázquez-Tagle y colaboradores estudiaron el PDCL en adultos mayores del estado de Hidalgo con el método no lineal del Análisis de Fluctuaciones sin Tendencia (DFA, por sus siglas en inglés), encontrando efectivamente que los sujetos con PDCL presentan mayor ruido browniano en varias regiones en comparación con los pacientes sin PDCL\cite{VazquezTagle16}.
 %
-Adicionalmente, la sugerencia de que sujetos con alteraciones neurológicas y deterioro cognitivo exhiben estacionariedad débil en sus 
-registros de EEG en mayor proporción (respecto a individuos sanos) fue sugerida anteriormente
-\cite{Cohen77}; aquél análisis se 
-refiere a su vez a trabajos anteriores sobre estacionariedad y normalidad en registros de EEG
-\cite{McEwen75,Sugimoto78,Kawabata73}.
-%
-Los estudios referidos se enmarcan en un primer intento de verificar que los registros 
-electrofisiológicos no pueden modelarse como señales \textit{simples} (lo contrario a señales 
-complejas).
-%
-%El tema de la estacionariedad en señales parece relevante nuevamente a la luz de una revisión
-%por Kreuz y colaboradores \cite{Kreuz07}, según la cual el método más eficaz para detectar 
-%correlación es la correlación \textit{clásica} --en comparación con algunos métodos basados en 
-%entropía o información mutua, por ejemplo. 
+%Adicionalmente, la sugerencia de que sujetos con alteraciones neurológicas y deterioro cognitivo exhiben estacionariedad débil en sus 
+%registros de EEG en mayor proporción (respecto a individuos sanos) fue sugerida anteriormente
+%\cite{Cohen77}; aquél análisis se 
+%refiere a su vez a trabajos anteriores sobre estacionariedad y normalidad en registros de EEG
+%\cite{McEwen75,Sugimoto78,Kawabata73}.
 %%
-%Para llegar a tal conclusión analizaron algunos tipos \textit{comunes} de datos, experimentales y 
-%simulados, así como algunos tipos comunes de perturbaciones. Un resultado tan controversial provoca replantearse, por ejemplo, si algún método en particular es 
-%adecuado para un tipo arbitrario de datos, o si algunas generalizaciones para estos métodos son 
-%efectivamente necesarias.
+%Los estudios referidos se enmarcan en un primer intento de verificar que los registros 
+%electrofisiológicos no pueden modelarse como señales \textit{simples} (lo contrario a señales 
+%complejas).
 
-El presente trabajo tiene el objetivo de identificar concretamente
-los posibles cambios en los registros de PSG  debidos al PDCL. Siguiendo a Cohen \cite{Cohen77}, es posible predecir que en sujetos con PDCL habrá menores porcentajes de épocas estacionarias en comparación con sujetos controles, lo que puede deberse a una mayor cantidad de ondas lentas. Sin embargo, en esta tesis sólo se explorará si la primera condición se cumple, verificando el comportamiento estacionario de los registros.%CHECAR SI ASÍ ESTÁ BIEN DICHO...
+%El presente trabajo tiene el objetivo de identificar concretamente
+%los posibles cambios en los registros de PSG  debidos al PDCL. Siguiendo a Cohen \cite{Cohen77}, es posible predecir que en sujetos con PDCL habrá menores porcentajes de épocas estacionarias en comparación con sujetos controles, lo que puede deberse a una mayor cantidad de ondas lentas. Sin embargo, en esta tesis sólo se explorará si la primera condición se cumple, verificando el comportamiento estacionario de los registros.%CHECAR SI ASÍ ESTÁ BIEN DICHO...
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -157,18 +141,6 @@ En un estudio reciente, EEG de una noche polisomnografía de personas mayores co
 %Los estudios referidos se enmarcan en un primer intento de verificar que los registros 
 %electrofisiológicos no pueden modelarse como señales \textit{simples} (lo contrario a señales 
 %complejas).
-%%
-%%El tema de la estacionariedad en señales parece relevante nuevamente a la luz de una revisión
-%%por Kreuz y colaboradores \cite{Kreuz07}, según la cual el método más eficaz para detectar 
-%%correlación es la correlación \textit{clásica} --en comparación con algunos métodos basados en 
-%%entropía o información mutua, por ejemplo. 
-%%%
-%%Para llegar a tal conclusión analizaron algunos tipos \textit{comunes} de datos, experimentales y 
-%%simulados, así como algunos tipos comunes de perturbaciones.
-%%
-%%Un resultado tan controversial provoca replantearse, por ejemplo, si algún método en particular es 
-%%adecuado para un tipo arbitrario de datos, o si algunas generalizaciones para estos métodos son 
-%%efectivamente necesarias.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -183,11 +155,11 @@ Si en efecto, son débilmente estacionarias ¿Ésta es distinta entre los sujeto
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection*{Hipótesis}
-
-Existen diferencias en la estacionariedad débil de la actividad eléctrica cerebral, muscular u ocular en adultos mayores con PDCL respecto a 
-individuos sanos. 
-\textit{presencia} deen registros de PSG.
+%\subsection*{Hipótesis}
+%
+%Existen diferencias en la estacionariedad débil de la actividad eléctrica cerebral, muscular u ocular en adultos mayores con PDCL respecto a 
+%individuos sanos. 
+%\textit{presencia} deen registros de PSG.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 

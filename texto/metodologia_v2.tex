@@ -37,80 +37,84 @@ para individuos con escolaridad muy baja o muy alta \cite{Ostrosky00}.
 Cabe mencionar que se entiende por especificidad a la probabilidad de un verdadero negativo, es 
 decir que un individuo sin deterioro cognitivo obtenga un resultado de no-deterioro.
 
-\begin{table}
-\centering
-\caption{Puntajes de corte para la prueba Neuropsi}
-\begin{tabular}{llccrccc}
-\toprule
-&& \multicolumn{2}{l}{Sano} & \phantom{.} & \multicolumn{3}{l}{Deterioro cognitivo} \\
-\cmidrule{3-4} \cmidrule{6-8} 
-Escolaridad & Edad & Alto & Normal && Leve & Moderado & Severo\\
-\midrule
-Nula
-& 16 -- 30 &\ppu 92 &\ppu 60 &&\ppu 45 & 30 & 14 \\
-& 31 -- 50 &\ppu 95 &\ppu 68 &&\ppu 54 & 41 & 28 \\
-& 51 -- 65 &\ppu 91 &\ppu 59 &&\ppu 44 & 28 & 13 \\
-& 66 -- 85 &\ppu 76 &\ppu 48 &&\ppu 34 & 20 &\ppu 6 \\
-\midrule
-1 -- 4 años
-& 16 -- 30 &    105 &\ppu 73 &&\ppu 58 & 42 & 27 \\
-& 31 -- 50 &    105 &\ppu 81 &&\ppu 69 & 58 & 46 \\
-& 51 -- 65 &\ppu 98 &\ppu 77 &&\ppu 67 & 57 & 47 \\
-& 66 -- 85 &\ppu 90 &\ppu 61 &&\ppu 46 & 32 & 18 \\
-\midrule
-5 -- 9 años
-& 16 -- 30 &    114 &    102 &&\ppu 97 & 86 & 75 \\
-& 31 -- 50 &    118 &    106 &&    101 & 90 & 79 \\
-& 51 -- 65 &    111 &\ppu 98 &&\ppu 91 & 79 & 67 \\
-& 66 -- 85 &\ppu 97 &\ppu 80 &&\ppu 72 & 56 & 39 \\
-\midrule
-10 -- 24 años
-& 16 -- 30 &    115 &    103 &&\ppu 98 & 87 & 77 \\
-& 31 -- 50 &    113 &    102 &&\ppu 97 & 88 & 78 \\
-& 51 -- 65 &    102 &\ppu 93 &&\ppu 88 & 80 & 72 \\
-& 66 -- 85 &\ppu 92 &\ppu 78 &&\ppu 72 & 59 & 46 \\
-\bottomrule
-\multicolumn{5}{l}{Fuente: Ardila y Ostrosky \cite{Ardila12}}
-\end{tabular}
-\label{puntajes}
-\end{table}
+%\begin{table}
+%\caption{Datos generales de los participantes}
+%\centering
+%\bordes{1.1}
+%{\small
+%\begin{tabular}{llcrrrrrrr}
+%\toprule
+% \phantom{.}&
+% & {Sexo} & {Edad} & {Escol.} & {Neuropsi} & {MMSE} & {SATS} & {KATZ} & {GDS} \\
+%\midrule
+%\multicolumn{6}{l}{\textbf{Grupo CTL}}\\
+%&VCR    & F    & 59\pz & 12\pz & 107\pz & 29\pz & 21\pz & 0\pz & 3\pz \\
+%&MJH    & F    & 72\pz & 9\pz  & 113\pz & 30\pz & 18\pz & 0\pz & 0\pz \\
+%&JAE    & F    & 78\pz & 5\pz  & 102\pz & 28\pz & 19\pz & 0\pz & 5\pz \\
+%&GHA    & M    & 65\pz & 9\pz  & 107.5  & 30\pz & 23\pz & 0\pz & 7\pz \\
+%&MFGR   & F    & 67\pz & 11\pz & 115\pz & 30\pz & 18\pz & 0\pz &      \\
+%\rowcolor{gris}
+%&\multicolumn{1}{c}{$\widehat{\mu}$} & 
+%               & 68.2  & 9.2   & 108.9  & 29.4  & 19.8  & 0.0  & 3.0  \\
+%\rowcolor{gris}
+%&\multicolumn{1}{c}{$\widehat{\sigma}$} & 
+%               & 7.2   & 2.7   & 5.2    & 0.9   & 2.2   & 0.0  & 3.0  \\
+%\midrulec
+%%\hline
+%\multicolumn{6}{l}{\textbf{Grupo PDC}}\\
+%&CLO    & F    & 68\pz & 5\pz  & 81\pz & 28\pz & 22\pz & 1\pz & 6\pz \\
+%&RLO    & F    & 63\pz & 9\pz  & 90\pz & 29\pz & 20\pz & 0\pz & 3\pz \\
+%&RRU    & M    & 69\pz & 9\pz  & 85\pz & 27\pz & 10\pz & 0\pz & 3\pz \\
+%&JGZ    & M    & 65\pz & 11\pz & 87\pz & 25\pz & 20\pz & 0\pz & 1\pz \\
+%&AEFP   & M    & 73\pz &  8\pz & 96\pz & 29\pz &   \pz & 0\pz & 2\pz \\
+%\rowcolor{gris}
+%&\multicolumn{1}{c}{$\widehat{\mu}$} & 
+%              & 67.6   & 8.4   & 87.8  & 27.4  & 18.0  & 0.2  & 3.0  \\
+%\rowcolor{gris}
+%&\multicolumn{1}{c}{$\widehat{\sigma}$} & 
+%              & 3.4    & 2.2   & 5.6   & 1.8   & 5.4   & 0.4  & 1.9  \\
+%\bottomrulec
+%\end{tabular} 
+%}
+%\label{tab_sujetos}
+%\end{table}
 
 \begin{table}
 \caption{Datos generales de los participantes}
 \centering
 \bordes{1.1}
 {\small
-\begin{tabular}{llcrrrrrrr}
+\begin{tabular}{llcrrrr}
 \toprule
  \phantom{.}&
- & {Sexo} & {Edad} & {Escol.} & {Neuropsi} & {MMSE} & {SATS} & {KATZ} & {GDS} \\
+ & {Sexo} & {Edad} & {Escol.} & {Neuropsi} & {MMSE} \\
 \midrule
 \multicolumn{6}{l}{\textbf{Grupo CTL}}\\
-&VCR    & F    & 59\pz & 12\pz & 107\pz & 29\pz & 21\pz & 0\pz & 3\pz \\
-&MJH    & F    & 72\pz & 9\pz  & 113\pz & 30\pz & 18\pz & 0\pz & 0\pz \\
-&JAE    & F    & 78\pz & 5\pz  & 102\pz & 28\pz & 19\pz & 0\pz & 5\pz \\
-&GHA    & M    & 65\pz & 9\pz  & 107.5  & 30\pz & 23\pz & 0\pz & 7\pz \\
-&MFGR   & F    & 67\pz & 11\pz & 115\pz & 30\pz & 18\pz & 0\pz &      \\
+&VCR    & F    & 59\pz & 12\pz & 107\pz & 29\pz \\
+&MJH    & F    & 72\pz & 9\pz  & 113\pz & 30\pz \\
+&JAE    & F    & 78\pz & 5\pz  & 102\pz & 28\pz \\
+&GHA    & M    & 65\pz & 9\pz  & 107.5  & 30\pz \\
+&MFGR   & F    & 67\pz & 11\pz & 115\pz & 30\pz \\
 \rowcolor{gris}
 &\multicolumn{1}{c}{$\widehat{\mu}$} & 
-               & 68.2  & 9.2   & 108.9  & 29.4  & 19.8  & 0.0  & 3.0  \\
+               & 68.2  & 9.2   & 108.9  & 29.4  \\
 \rowcolor{gris}
 &\multicolumn{1}{c}{$\widehat{\sigma}$} & 
-               & 7.2   & 2.7   & 5.2    & 0.9   & 2.2   & 0.0  & 3.0  \\
+               & 7.2   & 2.7   & 5.2    & 0.9   \\
 \midrulec
 %\hline
 \multicolumn{6}{l}{\textbf{Grupo PDC}}\\
-&CLO    & F    & 68\pz & 5\pz  & 81\pz & 28\pz & 22\pz & 1\pz & 6\pz \\
-&RLO    & F    & 63\pz & 9\pz  & 90\pz & 29\pz & 20\pz & 0\pz & 3\pz \\
-&RRU    & M    & 69\pz & 9\pz  & 85\pz & 27\pz & 10\pz & 0\pz & 3\pz \\
-&JGZ    & M    & 65\pz & 11\pz & 87\pz & 25\pz & 20\pz & 0\pz & 1\pz \\
-&AEFP   & M    & 73\pz &  8\pz & 96\pz & 29\pz &   \pz & 0\pz & 2\pz \\
+&CLO    & F    & 68\pz & 5\pz  & 81\pz & 28\pz \\
+&RLO    & F    & 63\pz & 9\pz  & 90\pz & 29\pz \\
+&RRU    & M    & 69\pz & 9\pz  & 85\pz & 27\pz \\
+&JGZ    & M    & 65\pz & 11\pz & 87\pz & 25\pz \\
+&AEFP   & M    & 73\pz &  8\pz & 96\pz & 29\pz \\
 \rowcolor{gris}
 &\multicolumn{1}{c}{$\widehat{\mu}$} & 
-              & 67.6   & 8.4   & 87.8  & 27.4  & 18.0  & 0.2  & 3.0  \\
+              & 67.6   & 8.4   & 87.8  & 27.4  \\
 \rowcolor{gris}
 &\multicolumn{1}{c}{$\widehat{\sigma}$} & 
-              & 3.4    & 2.2   & 5.6   & 1.8   & 5.4   & 0.4  & 1.9  \\
+              & 3.4    & 2.2   & 5.6   & 1.8   \\
 \bottomrulec
 \end{tabular} 
 }
@@ -207,7 +211,7 @@ de sueño como MOR o NMOR. Dicha clasificación fue llevada a cabo por expertos 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Análisis de las características de los participantes}
+\section{Características muestrales}
 
 Previo al análisis de la estacionariedad, se corroboró la hipótesis de que las variables 
 independientes son estadísticamente iguales entre los grupos CTL y PDC. Las comparaciones
