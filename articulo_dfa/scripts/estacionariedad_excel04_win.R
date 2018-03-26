@@ -23,13 +23,12 @@ unidad_par_t   = 'tiempo'
 #  res_pre : resultados previos, solo para analizar y/o graficar
 #   epocas : epocas para resaltar, por ahora solo MOR
 #     graf : donde guardar los graficos, en caso de producirse
-
-dir_gral    = 'C:/Users/EQUIPO 1/Desktop/julio/TESIS/articulo_dfa'
-dir_info    = 'C:/Users/EQUIPO 1/Desktop/julio/TESIS/articulo_dfa'
-dir_scripts = 'C:/Users/EQUIPO 1/Desktop/julio/TESIS/articulo_dfa'
+dir_gral    = 'C:/Users/EQUIPO 1/Desktop/julio/tesis_respaldo/TESIS/articulo_dfa'
+dir_info    = 'C:/Users/EQUIPO 1/Desktop/julio/tesis_respaldo/TESIS/articulo_dfa'
+dir_scripts = 'C:/Users/EQUIPO 1/Desktop/julio/tesis_respaldo/TESIS/articulo_dfa/scripts'
 #dir_res_pre = paste0('C:/Users/EQUIPO 1/Desktop/julio/estacionariedad_sf/',)
-dir_epocas  = 'C:/Users/EQUIPO 1/Desktop/julio/epocas_dfa'
-dir_graf    = 'C:/Users/EQUIPO 1/Desktop/julio/TESIS/articulo_dfa/espectro_tmp'
+#dir_epocas  = 'C:/Users/EQUIPO 1/Desktop/julio/tesis_respaldo/epocas_dfa'
+dir_graf    = 'C:/Users/EQUIPO 1/Desktop/julio/tesis_respaldo/TESIS/articulo_dfa/espectro_tmp'
 
 ###############################################################################
 # librerias
@@ -44,14 +43,16 @@ source(paste0(dir_scripts,'/utileria.R'))
 
 ###############################################################################
 # datos generales
-info     = read_excel(paste0(dir_info,'/info_participantes2.xlsx'))
+info     = read_excel(paste0(dir_info,'/info_tecnico.xlsx'))
 bandas   = read_excel(paste0(dir_info,'/info_bandas.xlsx'))
 
 n.bandas = length(bandas$Banda)
 
-canales  = read_excel(paste0(dir_info,'/info_canales.xlsx'))
+canales  = read_excel(paste0(dir_info,'/info_canales.xlsx'),
+                      sheet='Alfabetico')
 if(orden_stam){
-  canales  = read_excel(paste0(dir_info,'/info_canales_alterno.xlsx'))
+  canales  = read_excel(paste0(dir_info,'/info_canales.xlsx'),
+                        sheet='Stam')
 }
 n.canales = length(canales$Etiqueta)
 

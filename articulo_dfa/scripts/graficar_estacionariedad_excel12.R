@@ -25,11 +25,11 @@ n.sujetos = length(quienes)
 #   epocas : epocas para resaltar, por ahora solo MOR
 #     graf : donde guardar los graficos, en caso de producirse
 
-dir_gral    = 'C:/Users/EQUIPO 1/Desktop/julio/TESIS/articulo_dfa'
-dir_info    = 'C:/Users/EQUIPO 1/Desktop/julio/TESIS/articulo_dfa'
-dir_scripts = 'C:/Users/EQUIPO 1/Desktop/julio/TESIS/articulo_dfa/scripts'
-dir_res_pre = 'C:/Users/EQUIPO 1/Desktop/julio/TESIS/articulo_dfa/stat'
-dir_graf    = 'C:/Users/EQUIPO 1/Desktop/julio/TESIS/articulo_dfa/graf_def'
+dir_gral    = 'C:/Users/EQUIPO 1/Desktop/julio/tesis_respaldo/TESIS/articulo_dfa'
+dir_info    = 'C:/Users/EQUIPO 1/Desktop/julio/tesis_respaldo/TESIS/articulo_dfa'
+dir_scripts = 'C:/Users/EQUIPO 1/Desktop/julio/tesis_respaldo/TESIS/articulo_dfa/scripts'
+dir_res_pre = 'C:/Users/EQUIPO 1/Desktop/julio/tesis_respaldo/TESIS/articulo_dfa/stat'
+dir_graf    = 'C:/Users/EQUIPO 1/Desktop/julio/tesis_respaldo/TESIS/articulo_dfa/graf_def'
 
 ###############################################################################
 # librerias
@@ -53,9 +53,11 @@ source(paste0(dir_scripts,'/utileria.R'))
 info     = read_excel(paste0(dir_info,
                              '/info_tecnico2.xlsx'),sheet='General')
 
-kanales  = read_excel(paste0(dir_info,'/info_canales.xlsx'))
+kanales  = read_excel(paste0(dir_info,'/info_canales.xlsx'),
+                      sheet='Alfabetico')
 if(orden_stam){
-  kanales  = read_excel(paste0(dir_info,'/info_canales_alterno.xlsx'))
+  kanales  = read_excel(paste0(dir_info,'/info_canales.xlsx'),
+                        sheet='Stam')
 }
 n.canales = length(kanales$Etiqueta)
 

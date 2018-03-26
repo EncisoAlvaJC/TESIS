@@ -6,11 +6,11 @@ usar.log       = F
 ###############################################################################
 # directorios de trabajo
 
-dir_gral    = 'C:/Users/EQUIPO 1/Desktop/julio/TESIS/articulo_dfa'
-dir_info    = 'C:/Users/EQUIPO 1/Desktop/julio/TESIS/articulo_dfa'
-dir_scripts = 'C:/Users/EQUIPO 1/Desktop/julio/TESIS/articulo_dfa/scripts'
-dir_res_pre = 'C:/Users/EQUIPO 1/Desktop/julio/TESIS/articulo_dfa/Hurst'
-dir_graf    = 'C:/Users/EQUIPO 1/Desktop/julio/TESIS/articulo_dfa/graf_def'
+dir_gral    = 'C:/Users/EQUIPO 1/Desktop/julio/tesis_respaldo/TESIS/articulo_dfa'
+dir_info    = 'C:/Users/EQUIPO 1/Desktop/julio/tesis_respaldo/TESIS/articulo_dfa'
+dir_scripts = 'C:/Users/EQUIPO 1/Desktop/julio/tesis_respaldo/TESIS/articulo_dfa/scripts'
+dir_res_pre = 'C:/Users/EQUIPO 1/Desktop/julio/tesis_respaldo/TESIS/articulo_dfa/Hurst'
+dir_graf    = 'C:/Users/EQUIPO 1/Desktop/julio/tesis_respaldo/TESIS/articulo_dfa/graf_def'
 
 ###############################################################################
 # librerias
@@ -28,7 +28,7 @@ source(paste0(dir_scripts,'/utileria.R'))
 
 ###############################################################################
 # datos generales
-info     = read_excel(paste0(dir_info,'/info_tecnico2.xlsx'))
+info     = read_excel(paste0(dir_info,'/info_tecnico.xlsx'))
 
 kanales  = read_excel(paste0(dir_info,'/info_canales.xlsx'),
                       sheet='Alfabetico')
@@ -45,21 +45,31 @@ raw = read_excel(paste0(dir_res_pre,'/dfa_asdataframe.xlsx'),
 raw = as.data.frame(raw)
 
 Hurst.MOR           = melt(raw,id=c('Sujeto','Grupo','Edad',
-                                    'MMSE','Neuropsi',
-                                    'MORn','Epoca','Etapa'))
+                                    'MMSE','Neuropsi','Escol',
+                                    'MORn','Epoca','Etapa',
+                                    'Usar','Etapa_2'))
 colnames(Hurst.MOR) = c('Sujeto','Grupo','Edad','MMSE','Neuropsi',
-                        'MORn','Epoca','Etapa','Canal_var','Hurst')
+                        'Escol',
+                        'MORn','Epoca','Etapa',
+                        'Usar','Etapa_2',
+                        'Canal_var','Hurst')
+Hurst.MOR$Sujeto_n  = factor(Hurst.MOR$Sujeto,
+                             labels = info$Nombre)
 Hurst.MOR           = Hurst.MOR[!is.na(Hurst.MOR$Hurst),]
 Hurst.MOR$Canal_var = as.numeric(Hurst.MOR$Canal_var)
-Hurst.MOR$Sujeto_n  = factor(Hurst.MOR$Sujeto,labels = info$Nombre[1:10])
 Hurst.MOR$Etapa     = rep(1,length(Hurst.MOR$Sujeto))
+
+Hurst.MOR = Hurst.MOR[!is.na(Hurst.MOR$Hurst),]
+Hurst.MOR = Hurst.MOR[Hurst.MOR$Grupo>-1,]
+
+sujetos = unique(Hurst.MOR$Sujeto)
 
 if(usar.log){
   Hurst.MOR$Hurst     = log(Hurst.MOR$Hurst)
   Hurst.promedio$Hurst = log(Hurst.promedio$Hurst)
 }
 Hurst.MOR.promedio = c()
-for(suj in 1:10){
+for(suj in sujetos){
   tmp       = Hurst.MOR[grep(info$Nombre[suj],Hurst.MOR$Sujeto_n),]
   promedios = aggregate(tmp,by=list(tmp$Canal_var),mean)
   Hurst.MOR.promedio = rbind(Hurst.MOR.promedio,promedios)
@@ -88,21 +98,31 @@ raw = read_excel(paste0(dir_res_pre,'/dfa_asdataframe.xlsx'),
 raw = as.data.frame(raw)
 
 Hurst.NMOR           = melt(raw,id=c('Sujeto','Grupo','Edad',
-                                     'MMSE','Neuropsi',
-                                     'MORn','Epoca','Etapa'))
+                                     'MMSE','Neuropsi','Escol',
+                                     'MORn','Epoca','Etapa',
+                                     'Usar','Etapa_2'))
 colnames(Hurst.NMOR) = c('Sujeto','Grupo','Edad','MMSE','Neuropsi',
-                         'MORn','Epoca','Etapa','Canal_var','Hurst')
+                         'Escol',
+                         'MORn','Epoca','Etapa',
+                         'Usar','Etapa_2',
+                         'Canal_var','Hurst')
+Hurst.NMOR$Sujeto_n  = factor(Hurst.NMOR$Sujeto,
+                              labels = info$Nombre)
 Hurst.NMOR           = Hurst.NMOR[!is.na(Hurst.NMOR$Hurst),]
 Hurst.NMOR$Canal_var = as.numeric(Hurst.NMOR$Canal_var)
-Hurst.NMOR$Sujeto_n  = factor(Hurst.NMOR$Sujeto,labels = info$Nombre[1:10])
 Hurst.NMOR$Etapa     = rep(0,length(Hurst.NMOR$Sujeto))
+
+Hurst.NMOR = Hurst.NMOR[!is.na(Hurst.NMOR$Hurst),]
+Hurst.NMOR = Hurst.NMOR[Hurst.NMOR$Grupo>-1,]
+
+sujetos = unique(Hurst.NMOR$Sujeto)
 
 if(usar.log){
   Hurst.NMOR$Hurst     = log(Hurst.NMOR$Hurst)
   Hurst.promedio$Hurst = log(Hurst.promedio$Hurst)
 }
 Hurst.NMOR.promedio = c()
-for(suj in 1:10){
+for(suj in sujetos){
   tmp       = Hurst.NMOR[grep(info$Nombre[suj],Hurst.NMOR$Sujeto_n),]
   promedios = aggregate(tmp,by=list(tmp$Canal_var),mean)
   Hurst.NMOR.promedio = rbind(Hurst.NMOR.promedio,promedios)
@@ -138,13 +158,15 @@ promedios.todo       = rbind(promedios.MOR,promedios.NMOR)
 
 #rm(Hurst.MOR,Hurst.NMOR,Hurst.todo,promedios,raw,tmp)
 
-stop()
+#stop()
 
-Hurst_un = dcast(Hurst.todo,MORn+Sujeto_n~Canal_var,value.var ='Hurst',
-                 fun.aggregate = mean)
+#Hurst_un = dcast(Hurst.todo,MORn+Sujeto_n~Canal_var,value.var ='Hurst',
+#                 fun.aggregate = mean)
 
-Hurst_un = dcast(Hurst.todo,Sujeto_n+Canal_var~MORn,value.var ='Hurst',
-                 fun.aggregate = mean)
+#Hurst_un = dcast(Hurst.todo,Sujeto_n+Canal_var~MORn,value.var ='Hurst',
+#                 fun.aggregate = mean)
+
+Hurst.select.MOR = Hurst.MOR[!is.na(Hurst.MOR$Usar),]
 
 ###############################################################################
 # Neuropsi vs MMSE
@@ -182,6 +204,52 @@ ggplot(Hurst.MOR.promedio,aes(x=Edad,y=Neuropsi,shape=Grupo,
   theme_classic2() +
   geom_smooth(method=lm,
               mapping=aes(x=Edad,y=Neuropsi),
+              inherit.aes=F,
+              se=F,color='gray2') +
+  theme(legend.position=c(1,.05),legend.direction = 'horizontal',
+        legend.justification=c(1,0))+
+  scale_shape_discrete(name=NULL)+
+  geom_point()
+ggsave(filename='/Neuropsi_Edad.png',path=dir_graf,
+       device='png',units='cm',width=6,height=4.5,dpi=400,
+       scale=2)
+
+###############################################################################
+# Neuropsi vs Escolaridad
+cor.test(Hurst.MOR.promedio$Neuropsi,Hurst.MOR.promedio$Escol,
+         method='spearman')
+
+cor.test(Hurst.MOR.promedio$Neuropsi,Hurst.MOR.promedio$Escol,
+         method='pearson')
+
+ggplot(Hurst.MOR.promedio,aes(x=Neuropsi,y=Escol,shape=Grupo,
+                              add='reg.line')) +
+  theme_classic2() +
+  geom_smooth(method=lm,
+              mapping=aes(x=Neuropsi,y=Escol),
+              inherit.aes=F,
+              se=F,color='gray2') +
+  theme(legend.position=c(1,.05),legend.direction = 'horizontal',
+        legend.justification=c(1,0))+
+  scale_shape_discrete(name=NULL)+
+  geom_point()
+ggsave(filename='/Neuropsi_Escolaridad.png',path=dir_graf,
+       device='png',units='cm',width=6,height=4.5,dpi=400,
+       scale=2)
+
+###############################################################################
+# Edad vs Escolaridad
+cor.test(Hurst.MOR.promedio$Edad,Hurst.MOR.promedio$Escol,
+         method='spearman')
+
+cor.test(Hurst.MOR.promedio$Edad,Hurst.MOR.promedio$Escol,
+         method='pearson')
+
+ggplot(Hurst.MOR.promedio,aes(x=Edad,y=Escol,shape=Grupo,
+                              add='reg.line')) +
+  theme_classic2() +
+  geom_smooth(method=lm,
+              mapping=aes(x=Edad,y=Escol),
               inherit.aes=F,
               se=F,color='gray2') +
   theme(legend.position=c(1,.05),legend.direction = 'horizontal',
@@ -811,7 +879,7 @@ colnames(Hurst.MOR) = c('Sujeto','Grupo','Edad','MMSE','Neuropsi',
                         'MORn','Epoca','Etapa','Canal_var','Hurst')
 Hurst.MOR           = Hurst.MOR[!is.na(Hurst.MOR$Hurst),]
 Hurst.MOR$Canal_var = as.numeric(Hurst.MOR$Canal_var)
-Hurst.MOR$Sujeto_n  = factor(Hurst.MOR$Sujeto,labels = info$Nombre[1:10])
+Hurst.MOR$Sujeto_n  = factor(Hurst.MOR$Sujeto,labels = info$Nombre[1:13])
 Hurst.MOR$Etapa     = rep(1,length(Hurst.MOR$Sujeto))
 
 if(usar.log){
@@ -819,7 +887,7 @@ if(usar.log){
   Hurst.promedio$Hurst = log(Hurst.promedio$Hurst)
 }
 Hurst.MOR.promedio = c()
-for(suj in 1:10){
+for(suj in 1:13){
   tmp       = Hurst.MOR[grep(info$Nombre[suj],Hurst.MOR$Sujeto_n),]
   promedios = aggregate(tmp,by=list(tmp$Canal_var),mean)
   Hurst.MOR.promedio = rbind(Hurst.MOR.promedio,promedios)
@@ -854,7 +922,7 @@ colnames(Hurst.NMOR) = c('Sujeto','Grupo','Edad','MMSE','Neuropsi',
                          'MORn','Epoca','Etapa','Canal_var','Hurst')
 Hurst.NMOR           = Hurst.NMOR[!is.na(Hurst.NMOR$Hurst),]
 Hurst.NMOR$Canal_var = as.numeric(Hurst.NMOR$Canal_var)
-Hurst.NMOR$Sujeto_n  = factor(Hurst.NMOR$Sujeto,labels = info$Nombre[1:10])
+Hurst.NMOR$Sujeto_n  = factor(Hurst.NMOR$Sujeto,labels = info$Nombre[1:13])
 Hurst.NMOR$Etapa     = rep(0,length(Hurst.NMOR$Sujeto))
 
 if(usar.log){
@@ -862,7 +930,7 @@ if(usar.log){
   Hurst.promedio$Hurst = log(Hurst.promedio$Hurst)
 }
 Hurst.NMOR.promedio = c()
-for(suj in 1:10){
+for(suj in 1:13){
   tmp       = Hurst.NMOR[grep(info$Nombre[suj],Hurst.NMOR$Sujeto_n),]
   promedios = aggregate(tmp,by=list(tmp$Canal_var),mean)
   Hurst.NMOR.promedio = rbind(Hurst.NMOR.promedio,promedios)

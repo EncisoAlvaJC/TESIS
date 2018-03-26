@@ -219,6 +219,50 @@ for(ch in 1:n.canales){
   #invisible(readline(prompt="Presion [enter] para continuar"))
 }
 
+if(FALSE){
+  big.summary = c()
+  
+  for(ch in 1:n.canales){
+    ch.actual = kanales$Etiqueta[ch]
+    print(ch.actual)
+    #tmp   = Hurst.todo.promedio[grep(ch.actual,Hurst.todo.promedio$Canal),]
+    tmp   = Hurst.MOR[grep(ch.actual,Hurst.MOR$Canal),]
+    tmp.m = promedios.MOR[grep(ch.actual,promedios.MOR$Canal),]
+    
+    aov   = aov(Hurst ~ (Grupo),
+                data=tmp)
+    
+    k = summary(aov)
+    k = k[[1]]
+    
+    #print(k)
+    
+    p = ggplot(tmp.m,aes(x=Etapa,y=Hurst,linetype=Grupo))+
+      theme_classic2() +
+      labs(linetype=ch.actual)+
+      coord_cartesian(ylim=c(0.3,1.75))+
+      geom_line(aes(group=Grupo))+
+      geom_errorbar(aes(ymin=Hurst-se,ymax=Hurst+se),width=.1,
+                    color='grey40') +
+      geom_point()
+    print(p)
+    
+    #ggsave(path=dir_graf,device='png',units='cm',
+    #       width=8,height=4,dpi=400,scale=2,
+    #       file=paste0(ch.actual,'.png'))
+    
+    qs  = summarySE(data=tmp,groupvars=c('Grupo','Etapa'),
+                    measurevar='Hurst')
+    qs2 = unlist(t(qs))
+    qs2 = as.list((qs2))
+    qs2 = unlist(t(qs2))
+    big.summary = rbind(big.summary,qs2)
+    
+    View(k)
+    invisible(readline(prompt="Presion [enter] para continuar"))
+  }
+}
+
 stop()
 
 min(promedios.todo$Hurst- promedios.todo$sd)
@@ -527,3 +571,97 @@ p = ggplot(biggr,aes(x=Etapa,y=Hurst,linetype=Grupo))+
 print(p)
 ggsave(filename='/comparacion_hurst_uno_REM_NREM_signif.png',path=dir_graf,
        device='png',units='cm',width=8,height=4,dpi=400,scale=2)
+
+# nuevo: anova de medidas repetidas
+big.summary = c()
+
+promedios2.MOR = summarySE(Hurst.MOR,na.rm=T,measurevar='Hurst',
+                           groupvars=c('Grupo','MORn','Canal_var'))
+min(promedios2.MOR$Hurst- promedios2.MOR$sd)
+max(promedios2.MOR$Hurst+ promedios2.MOR$sd)
+
+for(ch in 1:n.canales){
+  ch.actual = kanales$Etiqueta[ch]
+  print(ch.actual)
+  #tmp   = Hurst.todo.promedio[grep(ch.actual,Hurst.todo.promedio$Canal),]
+  tmp   = Hurst.MOR[grep(ch.actual,Hurst.MOR$Canal),]
+  #tmp.m = promedios.MOR[grep(ch.actual,promedios.MOR$Canal),]
+  tmp.m = summarySE(tmp,na.rm=T,measurevar='Hurst',
+                    groupvars=c('Grupo','MORn'))
+  
+  aov   = aov(Hurst ~ (Grupo) + (MORn) +(Grupo:MORn),
+              data=tmp)
+  
+  k = summary(aov)
+  k = k[[1]]
+  
+  print(k)
+  
+  p = ggplot(tmp.m,aes(x=MORn,y=Hurst,linetype=Grupo))+
+    theme_classic2() +
+    labs(linetype=ch.actual)+
+    coord_cartesian(ylim=c(0.3,2.25))+
+    geom_line(aes(group=Grupo))+
+    geom_errorbar(aes(ymin=Hurst-sd,ymax=Hurst+sd),width=.1,
+                  color='grey40') +
+    geom_point()
+  print(p)
+  
+  ggsave(path=dir_graf,device='png',units='cm',
+         width=8,height=4,dpi=400,scale=2,
+         file=paste0('anova_etapasMOR_',ch.actual,'.png'))
+  
+  qs  = summarySE(data=tmp,groupvars=c('Grupo','MORn'),
+                  measurevar='Hurst')
+  qs2 = unlist(t(qs))
+  qs2 = as.list((qs2))
+  qs2 = unlist(t(qs2))
+  big.summary = rbind(big.summary,qs2)
+  
+  View(k)
+  invisible(readline(prompt="Presion [enter] para continuar"))
+}
+
+if(FALSE){
+  big.summary = c()
+  
+  for(ch in 1:n.canales){
+    ch.actual = kanales$Etiqueta[ch]
+    print(ch.actual)
+    #tmp   = Hurst.todo.promedio[grep(ch.actual,Hurst.todo.promedio$Canal),]
+    tmp   = Hurst.MOR[grep(ch.actual,Hurst.MOR$Canal),]
+    tmp.m = promedios.MOR[grep(ch.actual,promedios.MOR$Canal),]
+    
+    aov   = aov(Hurst ~ (Grupo),
+                data=tmp)
+    
+    k = summary(aov)
+    k = k[[1]]
+    
+    #print(k)
+    
+    p = ggplot(tmp.m,aes(x=Etapa,y=Hurst,linetype=Grupo))+
+      theme_classic2() +
+      labs(linetype=ch.actual)+
+      coord_cartesian(ylim=c(0.3,1.75))+
+      geom_line(aes(group=Grupo))+
+      geom_errorbar(aes(ymin=Hurst-se,ymax=Hurst+se),width=.1,
+                    color='grey40') +
+      geom_point()
+    print(p)
+    
+    #ggsave(path=dir_graf,device='png',units='cm',
+    #       width=8,height=4,dpi=400,scale=2,
+    #       file=paste0(ch.actual,'.png'))
+    
+    qs  = summarySE(data=tmp,groupvars=c('Grupo','Etapa'),
+                    measurevar='Hurst')
+    qs2 = unlist(t(qs))
+    qs2 = as.list((qs2))
+    qs2 = unlist(t(qs2))
+    big.summary = rbind(big.summary,qs2)
+    
+    View(k)
+    invisible(readline(prompt="Presion [enter] para continuar"))
+  }
+}

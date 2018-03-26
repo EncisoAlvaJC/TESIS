@@ -20,10 +20,10 @@ unidad_par_t   = 'tiempo'
 #   epocas : epocas para resaltar, por ahora solo MOR
 #     graf : donde guardar los graficos, en caso de producirse
 
-dir_gral    = 'C:/Users/EQUIPO 1/Desktop/julio/TESIS/articulo_dfa'
-dir_info    = 'C:/Users/EQUIPO 1/Desktop/julio/TESIS/articulo_dfa'
-dir_scripts = 'C:/Users/EQUIPO 1/Desktop/julio/TESIS/articulo_dfa'
-dir_res_pre = 'C:/Users/EQUIPO 1/Desktop/julio/estacionariedad_171118'
+dir_gral    = 'C:/Users/EQUIPO 1/Desktop/julio/tesis_respaldo/TESIS/articulo_dfa'
+dir_info    = 'C:/Users/EQUIPO 1/Desktop/julio/tesis_respaldo/TESIS/articulo_dfa'
+dir_scripts = 'C:/Users/EQUIPO 1/Desktop/julio/tesis_respaldo/TESIS/articulo_dfa/scripts'
+dir_res_pre = 'C:/Users/EQUIPO 1/Desktop/julio/tesis_respaldo/estacionariedad_171118'
 #dir_res_pre = 'C:/Users/EQUIPO 1/Desktop/julio/estacionariedad_sf'
 #dir_epocas  = 'C:/Users/EQUIPO 1/Desktop/julio/epocas_dfa_10'
 dir_graf    = 'C:/Users/EQUIPO 1/Desktop/julio/TESIS/articulo_dfa/stat'

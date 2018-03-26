@@ -4,10 +4,54 @@
 
 \chapter{Metodología y resultados}
 
+El presente trabajo surge de una colaboración con el Laboratorio de Sueño, Emoción y Cognición, dependiente del Instituto de Ciencias de la Salud de la UAEH y a cargo de la Dra. Alejandra Rosales Lagarde.
+%
+La colaboración incluye acceso a los registros obtenidos en un estudio por Vázquez-Tagle en 2016 \cite{VazquezTagle16}. 
+%
+Dicho estudio se centró en la epidemiología de los trastornos del sueño en adultos mayores dentro del estado de Hidalgo, y consideró registros de PSG para evaluar parámetros relacionados al sueño MOR.
+%
+El presente trabajo tiene como objetivo particular analizar con mayor detalle dichos registros.
+
+En este capítulo se describe primeramente la metodología seguida para obtener los registros de PSG.
+%
+Posteriormente se describe la metodología usada para analizar los registros de PSG, usando las herramientas descritas en el capítulo \ref{capitulo:espectro_evo}.
+
+Los registros de PSG fueron segmentados en ventanas de 30 segundos, referidas como \textbf{épocas}.
+%
+El análisis de los registros de PSG se llevó a cabo a tres niveles:
+\begin{itemize}
+\item Dentro de cada época.
+\item Entre las diferentes épocas en un registro.
+\item Entre los diferentes participantes.
+\end{itemize}
+
+El análisis a nivel de época contempla su clasificación según etapa de sueño (limitada a MOR y NMOR), y su clasificación como estacionarias (usando la prueba de PSR).
+%
+El uso de épocas como unidades de estudio se justifica por la gran heterogeneidad del sueño nocturno; paralelamente, destaca el supuesto fisiológico de que las etapas de sueño son \textit{comunes} entre los humanos.
+%
+En suma, los registros de PSG para un sólo individuo pueden interpretarse como una población de épocas.
+%; en una misma etapa de sueño, las épocas de dos individuos cualesquiera son comparables.
+
+El análisis a nivel de registro surge de considerar la heterogeneidad del sueño pero usando al registro entero como unidad de estudio.
+%
+%Aún antes de comparar los registros de diferentes sujetos, se hallaron algunos patrones interesantes de actividad en los registros. 
+%, que revelan información sobre la estructura de estos registros. 
+%
+El tomar las épocas junto con su estructura temporal reveló algunos patrones interesantes de actividad.
+
+Para el análisis entre participantes (divididos en grupos), varias de las características descritas fueron \textit{colapsadas} para constituir características \textit{simples}. 
+%
+%Como ejemplo, se calculó el porcentaje de épocas MOR que también fueron clasificadas como estacionarias; dicha 
+%
+Debido a las características de la muestra (ver más adelante), los resultados obtenidos no pueden extrapolarse a la población en general.
+%
+Los resultados obtenidos, entonces, se presentan como \textit{indicios}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \section{Características de los participantes}
 
-Los sujetos fueron elegidos usando un muestreo \textit{no probabilístico por conveniencia} bajo los 
-siguientes criterios de inclusión:
+Los participantes fueron elegidos usando un muestreo \textit{no probabilístico por conveniencia} bajo los siguientes criterios de inclusión:
 \begin{itemize}
 \item Edad entre 60 y 85 años
 \item Diestros (mano derecha dominante)
@@ -17,25 +61,28 @@ siguientes criterios de inclusión:
 \item Voluntario para el registro de PSG
 \end{itemize}
 
-Un total de 14 adultos mayores cumplieron los criterios de inclusión. Estos participantes fueron 
-sometidos a una batería de pruebas neuropsicológicas para determinar su estado cognoscitivo general 
-(Neuropsi, MMSE), descartar cuadros depresivos (GDS, SATS) y cambios en la vida cotidiana (KATZ).
+Un total de 16 adultos mayores cumplieron los criterios de inclusión. 
 %
-En base a las pruebas se determinó que, objetivamente, 10 de los voluntarios no padecen depresión ni 
-ansiedad, además de que no presentan afectaciones significativas en la vida diaria.
+Con el fin de detectar el DCL en estos pacientes, éstos fueron sometidos a una batería de pruebas neuropsicológicas para determinar su estado cognoscitivo general (Neuropsi, MMSE), detectar cambios en su vida cotidiana (KATZ) y descartar cuadros depresivos (SAST, GDS); para más detalles ver capítulo anterior, sección \ref{seccion:pruebas}.
+%
+%En las tablas ??--?? se resumen las puntuaciones que pueden obtenerse en las pruebas mencionadas, así como de qué son indicativos; 
+%
+En la tabla \ref{puntajes} se reportan los puntajes obtenidos por los participantes en dichas pruebas.
+%
+Se determinó que, objetivamente, 12 de los voluntarios no padecen depresión o ansiedad, ni presentan afectaciones significativas en la vida diaria.
+%
+Debido a problemas técnicos diversos, sólo 9 participantes fueron considerados; se reportan únicamente los datos relativos a esos participantes.
 
-Para su análisis, los 10 participantes se dividieron en dos grupos en base a su estado cognoscitivo:
-control (CTL) y con Probable Deterioro Cognitivo (PDC). 
+En base al diagnóstico de Posible Deterioro Cognitivo Leve, los 9 participantes fueron divididos en dos grupos: PDCL y CTRL. 
 %
-Para esta clasificación se dio mayor atención al puntaje de Neuropsi, estandarizado según edad y 
-escolaridad (cuadro \ref{puntajes}). 
+Es importante mencionar que, bajo las condiciones muestrales, el grupo CTRL no puede fungir satisfactoriamente como grupo control; una descripción más adecuada sería \textit{grupo sin PDCL}.
+
+%Para esta clasificación se dio mayor atención al puntaje de Neuropsi, estandarizado según edad y 
+%escolaridad (cuadro \ref{puntajes}). 
 %
-El puntaje de MMSE se le otorgó menos importancia como clasificador debido a que tiene baja 
-sensibilidad para el diagnóstico de deterioro cognitivo leve \cite{Ardila12}, y baja especificidad 
-para individuos con escolaridad muy baja o muy alta \cite{Ostrosky00}.
-%
-Cabe mencionar que se entiende por especificidad a la probabilidad de un verdadero negativo, es 
-decir que un individuo sin deterioro cognitivo obtenga un resultado de no-deterioro.
+%Cabe mencionar que intencionalmente se dio menor importancia a los puntajes de la prueba MMSE en cuanto al diagnóstico del PDCL; ésto porque se ha reportado que, en la población mexicana, esa prueba tiene baja sensibilidad para el diagnóstico de DCL en general, y baja especificidad para individuos con escolaridad muy baja o muy alta \cite{Ostrosky00}.
+%%
+%Para fines del comentario anterior, se entiende por \textit{sensibilidad} a la probabilidad de obtener verdaderos positivos, y por \textit{especificidad} a la probabilidad de obtener verdaderos negativos.
 
 %\begin{table}
 %\caption{Datos generales de los participantes}
@@ -45,7 +92,7 @@ decir que un individuo sin deterioro cognitivo obtenga un resultado de no-deteri
 %\begin{tabular}{llcrrrrrrr}
 %\toprule
 % \phantom{.}&
-% & {Sexo} & {Edad} & {Escol.} & {Neuropsi} & {MMSE} & {SATS} & {KATZ} & {GDS} \\
+% & {Sexo} & {Edad} & {Escol.} & {Neuropsi} & {MMSE} & {SAST} & {KATZ} & {GDS} \\
 %\midrule
 %\multicolumn{6}{l}{\textbf{Grupo CTL}}\\
 %&VCR    & F    & 59\pz & 12\pz & 107\pz & 29\pz & 21\pz & 0\pz & 3\pz \\
@@ -84,37 +131,36 @@ decir que un individuo sin deterioro cognitivo obtenga un resultado de no-deteri
 \centering
 \bordes{1.1}
 {\small
-\begin{tabular}{llcrrrr}
+\begin{tabular}{llcrrrrrrr}
 \toprule
- \phantom{.}&
- & {Sexo} & {Edad} & {Escol.} & {Neuropsi} & {MMSE} \\
+ \phantom{mmm}&
+ & {Sexo} & {Edad} & {Escol.} & {Neuropsi} & {MMSE} & {SAST} & {KATZ} & {GDS} \\
 \midrule
-\multicolumn{6}{l}{\textbf{Grupo CTL}}\\
-&VCR    & F    & 59\pz & 12\pz & 107\pz & 29\pz \\
-&MJH    & F    & 72\pz & 9\pz  & 113\pz & 30\pz \\
-&JAE    & F    & 78\pz & 5\pz  & 102\pz & 28\pz \\
-&GHA    & M    & 65\pz & 9\pz  & 107.5  & 30\pz \\
-&MFGR   & F    & 67\pz & 11\pz & 115\pz & 30\pz \\
+\multicolumn{2}{l}{\textbf{Grupo CTRL}}\\
+&MJH    & F    & 72\pz & 9\pz  & 113\pz & 30\pz & 18\pz & 0\pz & 0\pz  \\
+&JAE    & F    & 78\pz & 5\pz  & 102\pz & 28\pz & 19\pz & 0\pz & 5\pz  \\
+&MGG    & F    & 61\pz & 9\pz  & 114\pz & 28\pz & 29\pz & 1\pz & 14\pz \\
+&EMT    & F    & 50\pz & 22\pz & 117\pz & 30\pz & 15\pz & 0\pz & 4\pz  \\
 \rowcolor{gris}
 &\multicolumn{1}{c}{$\widehat{\mu}$} & 
-               & 68.2  & 9.2   & 108.9  & 29.4  \\
+               & 65.3  & 11.3  & 111.5  & 29.0  & 20.3  & 0.3  & 5.8  \\
 \rowcolor{gris}
 &\multicolumn{1}{c}{$\widehat{\sigma}$} & 
-               & 7.2   & 2.7   & 5.2    & 0.9   \\
+               & 12.4  & 7.4   & 6.6    & 1.2   & 6.1   & 0.5  & 5.9  \\
 \midrulec
 %\hline
-\multicolumn{6}{l}{\textbf{Grupo PDC}}\\
-&CLO    & F    & 68\pz & 5\pz  & 81\pz & 28\pz \\
-&RLO    & F    & 63\pz & 9\pz  & 90\pz & 29\pz \\
-&RRU    & M    & 69\pz & 9\pz  & 85\pz & 27\pz \\
-&JGZ    & M    & 65\pz & 11\pz & 87\pz & 25\pz \\
-&AEFP   & M    & 73\pz &  8\pz & 96\pz & 29\pz \\
+\multicolumn{2}{l}{\textbf{Grupo PDCL}}\\
+& CLO   & F    & 68\pz &  5\pz &  81\pz & 28\pz & 22\pz & 1\pz &  6\pz \\
+& RLO   & F    & 63\pz &  9\pz &  90\pz & 29\pz & 20\pz & 0\pz &  3\pz \\
+& JGZ   & M    & 65\pz & 11\pz &  87\pz & 25\pz & 20\pz & 0\pz &  1\pz \\
+& AEFP  & M    & 73\pz &  8\pz &  96\pz & 29\pz &   \pz & 0\pz &  2\pz \\
+& PCM   & M    & 71\pz &  9\pz & 111\pz & 28\pz & 20\pz & 0\pz & 10\pz \\
 \rowcolor{gris}
 &\multicolumn{1}{c}{$\widehat{\mu}$} & 
-              & 67.6   & 8.4   & 87.8  & 27.4  \\
+              &  68.0  & 8.4   & 93.0   & 27.8  & 20.5  & 0.2  & 4.4  \\
 \rowcolor{gris}
 &\multicolumn{1}{c}{$\widehat{\sigma}$} & 
-              & 3.4    & 2.2   & 5.6   & 1.8   \\
+              & 4.1    & 2.2   & 11.4   & 1.6   & 1.0   & 0.4  & 3.6 \\
 \bottomrulec
 \end{tabular} 
 }
@@ -126,92 +172,123 @@ decir que un individuo sin deterioro cognitivo obtenga un resultado de no-deteri
 
 \subsection{Registro del polisomnograma}
 
-Para llevar a cabo el registro, los adultos mayores participantes fueron invitados a acudir a las 
-instalaciones del Laboratorio de Sueño, Emoción y Cognición, ubicado dentro del Instituto de Ciencias 
-de la Salud (ICSa) dependiente de la Universidad Autónoma del Estado de Hidalgo. Los participantes 
-recibieron instrucciones de realizar una rutina normal de actividades durante la semana que 
-precedió al estudio, y se les recomendó no ingerir bebidas alcohólicas o energizantes (como café 
-o refresco) durante las 24 horas previas al experimento, y que no durmieran siesta ese día.
+Para efectuar el registro de la PSG, los participantes acudieron a las instalaciones del Laboratorio de Sueño, Emoción y Cognición. 
+%
+Los participantes recibieron instrucciones de realizar una rutina normal de actividades durante la semana que precedió al estudio, y se les recomendó no ingerir bebidas alcohólicas o energizantes (como café o refresco) durante las 24 horas previas al experimento, y que no durmieran siesta ese día.
+%
+Bajo estas condiciones experimentales se garantiza que los registros son representativos del sueño nocturno de cada participante.
 
-Para efectuar el registro se usó un polisomnógrafo Medicid 5 (Neuronic Mexicana). El protocolo de 
-PSG incluye: 
+El registro per se fue efectuado usando un polisomnógrafo Medicid 5 (Neuronic Mexicana). El protocolo de la PSG incluye los siguientes electrodos\footnote{Para más detalles ver el capítulo anterior, particularmente la sección \ref{capitulo:psg}}:
 \begin{itemize}
-\item 19 electrodos de EEG, colocadas siguiendo las coordenadas del Sistema Internacional 10--20
-\item 2 electrodos de EOG para movimientos oculares horizontales y verticales
-\item 2 electrodos de EMG colocados en los músculos submentonianos
+\item 19 electrodos de EEG colocadas según el Sistema Internacional 10--20.
+\item 2 electrodos de EOG para movimientos oculares.
+\item 2 electrodos de EMG para tono muscular en los músculos submentonianos.
 \end{itemize}
-%
-Los electrodos para registro de EEG fueron montados usando los lóbulos auriculares como referencia
-común; se mantuvo por debajo de \SI{50}{\micro\ohm}.
 
+Los electrodos para EEG fueron conectados en paralelo usando como referencia común los lóbulos de las orejas; se mantuvo por debajo de \SI{50}{\micro\ohm}.
+%
 Las señales fueron amplificadas analógicamente usando amplificadores de alta ganancia en cadena, 
-y adicionalmente fueron filtradas analógicamente usando filtros de paso de banda: 0.1--100 Hz 
+y adicionalmente fueron \textit{pasado} filtros analógicos pasa bandas: 0.1--100 Hz 
 para EEG, 3--20 Hz para EOG. 
-Debido a dificultades técnicas el registro se efectuó a razón de 512 puntos por segundo (Hz) para 
-algunos participantes, mientras que se usó 200 Hz para otros; en ambos casos se cumple la 
-recomendación de la AASM de al menos 128 Hz.
+%Debido a dificultades técnicas el registro se efectuó a razón de 512 puntos por segundo (Hz) para 
+%algunos participantes, mientras que se usó 200 Hz para otros; en ambos casos se cumple la 
+%recomendación de la AASM de al menos 128 Hz.
 %
-Los registros digitalizados fueron almacenados en formato de texto bajo la codificación 
-ASCII.
+Los registros fueron digitalizados con una frecuencia de muestreo de 512 puntos por segundos (Hz), y posteriormente almacenados en formato de texto bajo la codificación ASCII.
 
-Los registros fueron segmentados en ventanas de 30 segundos de duración, referidas como 
-\textit{épocas}, para su estudio posterior \textit{fuera de línea}. 
-Usando los criterios de la AASM, cada una de las épocas fueron clasificadas según la etapa
-de sueño como MOR o NMOR. Dicha clasificación fue llevada a cabo por expertos en sueño de ICSa.
+Como se mencionó anteriormente, los registros fueron segmentados en segmentos de 30 segundos, referidas como 
+\textbf{épocas}.
+%, para su estudio posterior \textit{fuera de línea}. 
+Cada una de las épocas fue clasificada como MOR o NMOR; la clasificación fue llevada a cabo por dos expertos de ICSA, y bajo los estándares de la AASM.
+
+Por simplicidad técnica, los registros fueron truncados para poder considerar épocas completas; algunos datos al final de cada registro fueron omitidos, aunque representan una cantidad negligible de tiempo.
+%
+Cabe mencionar que cada época de 30 segundos, a una frecuencia de 512 Hz, representa un total de 15,360 puntos.
+
+En la tabla \ref{tab:psg} se describe la duración de los registros, así como la cantidad de tiempo del registro clasificado como sueño MOR.
+%
+La cantidad de tiempo en vigilia registrado es negligible ($<5$ minutos por cada participante), de modo que ésta no es reportada; con una pérdida mínima de generalidad, se puede afirmar que los registros fuera del sueño MOR corresponden a sueño NMOR.
 
 \begin{table}
 \centering
 \caption{Datos generales sobre los registros de PSG}
 \bordes{1.2}
-{\small
-\begin{tabular}{llcllcllr}
+\begin{tabular}{llllcllr}
 \toprule
-    \phantom{.}&
-    &\multirow{2}{*}{\bordes{1}\begin{tabular}{l}Frecuencia de\\ muestreo [\hz]\end{tabular}}
-    \bordes{1.2}
-    & \multicolumn{2}{c}{Total} & \phantom{l}   & \multicolumn{3}{c}{MOR*}\\
-    \cmidrule{4-5}  \cmidrule{7-9}
-    &&          &Puntos  &  Tiempo   &&Puntos  &  Tiempo   &  \% \\
+    \phantom{mmm}&
+    & \multicolumn{2}{l}{Total} & \phantom{l}   & \multicolumn{3}{l}{MOR*}\\
+    \cmidrule{3-4}  \cmidrule{6-8}
+    &          &Puntos  &  Tiempo   &&Puntos  &  Tiempo   &  \% \\
 \midrule
-\multicolumn{6}{l}{\textbf{Grupo CTL}}\\
-&VCR &200       &\ppu 5166000 & \ppu  7:10:30 &&\ppu 438000 &   0:36:30 & 8.48 \\
-&MJH &512       &    15851520 & \ppu  8:36:00 &&    1950720 &   1:03:30 &12.31 \\
-&JAE &512       &    13931520 & \ppu  7:33:30 &&    2626560 &   1:25:30 &18.85 \\
-&GHA &200       &\ppu 6558000 & \ppu  9:06:30 &&\ppu 330000 &   0:27:30 & 5.03 \\
-&MFGR&200       &\ppu 4932000 & \ppu  6:51:00 &&\ppu 570000 &   0:47:30 &11.56 \\
+\multicolumn{2}{l}{\textbf{Grupo CTL}}\\
+&MJH &    15851520 &      8:36:00  &&    1950720 &   1:03:30 &12.31 \\
+&JAE &    13885440 &      7:32:00  &&    2626560 &   1:25:30 &18.92 \\
+&MGG &    15728640 &      8:32:00  &&    2549760 &   1:23:00 &16.21 \\
+&EMT &\ppu 8478720 &      4:36:00  &&\ppu 721920 &   0:23:00 & 8.51 \\
 
 \rowcolor{gris}
 &\multicolumn{1}{c}{$\widehat{\mu}$}  
-              & &        & \ppu 7:51:30   &&        &   0:52:06 &11.25 \\
+     &    13486080 &      07:19:00 &&    1962240 &   01:03:53&13.99 \\
 \rowcolor{gris}
 &\multicolumn{1}{c}{$\widehat{\sigma}$} 
-              & &        & \ppu 0:57:36   &&        &   0:23:00 & 5.13 \\
+     &\ppu 3457240 &      01:52:32 &&    880346  &   00:28:39&4.55 \\ 
 \midrulec
 
-\multicolumn{6}{l}{\textbf{Grupo PDC}}\\
-&CLO &512       &    14499840 & \ppu  7:52:00 &&    2027520 &   1:06:00 &13.98 \\
-&RLO &512       &    12994560 & \ppu  7:03:00 &&    1520640 &   0:49:30 &11.70 \\
-&RRU &200       &\ppu 2484000 & \ppu  3:27:00 &&\ppu 228000 &   0:19:00 & 9.18 \\
-&JGZ &512       &    18539520 &      10:03:30 &&\ppu 506880 &   0:16:30 & 2.73 \\
-&AEFP &512       &    14699520 &       7:58:30 &&\ppu 629760 &   0:20:30 & 4.28 \\
-
+\multicolumn{2}{l}{\textbf{Grupo PDC}}\\
+&CLO  &    14499840 &\ppu 7:52:00 &&    2027520 &   1:06:00 & 13.98 \\
+&RLO  &    12902400 &\ppu 7:00:00 &&    1520640 &   0:49:30 & 11.79 \\
+&JGZ  &    18432000 &    10:00:00 &&\ppu 522240 &   0:17:00 &  2.83 \\
+&AEFP &    14622720 &\ppu 7:56:00 &&\ppu 629760 &   0:20:00 &  4.31 \\
+&PCM  &    11550720 &\ppu 6:16:00 &&\ppu 906240 &   0:29:30 &  7.85 \\
+ 
 \rowcolor{gris}
 &\multicolumn{1}{c}{$\widehat{\mu}$}  
-              & &        & \ppu 7:16:48   &&        &   0:34:18 &8.38 \\
+      &    14401536 &\ppu 7:48:48 &&    1121280 &   0:36:30 & 8.15 \\
 \rowcolor{gris}
 &\multicolumn{1}{c}{$\widehat{\sigma}$} 
-              & &        & \ppu 2:24:43   &&        &   0:22:14 &4.79 \\
+      &\ppu 2582527 &\ppu 1:24:04 &&\ppu 637856 &   0:20:46 & 4.75 \\
 \bottomrulec
 \end{tabular}\\
-*Dado que el sueño MOR aparece fragmentado, se reporta la suma de tales tiempos
-}
-\label{frecuencias}
+*El sueño MOR aparece fragmentado, se reporta la suma de tales tiempos
+\label{tab:psg}
 \end{table}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Características muestrales}
+\section{Características grupales}
+
+Previo a los análisis de los registros de PSG, se corroboró si los dos grupos de participantes efectivamente se \textit{comportan} como grupos estadísticamente diferentes.
+%
+Con dicho objetivo, se aplicaron pruebas $t$ de Wilcoxon entre los dos grupos, para todas las variables reportadas anteriormente; los resultados de estas pruebas se reportan en la tabla \ref{tab:var_wilcox}.
+
+
+
+\begin{table}
+\centering
+\caption{Variables independientes entre grupos}
+\begin{tabular}{lrlcrlcccc}
+\toprule
+ & \multicolumn{2}{l}{Grupo CTRL} & \phantom{.} & \multicolumn{2}{l}{Grupo PDCL} 
+ & \phantom{.} & \multicolumn{3}{l}{t de Welch}
+ \\
+\cmidrule{2-3} \cmidrule{5-6} \cmidrule{8-10}
+& Media & (DE) & & Media & (DE) & & $p$ & $t$ & $\nu$ \\
+\midrule
+Edad              &  68.2   & (7.2)     & &    67.6 & (3.4)     & & 0.8746 & 0.16 & 6.11 \\
+Escolaridad       &   9.2   & (2.7)     & &     8.4 & (2.2)     & & 0.6201 & 0.52 & 7.69 \\
+Neuropsi          & 108.9   & (5.2)     & &    87.8 & (5.6)     & & \bf 0.0003 & 6.17 & 7.94 \\
+MMSE              &  29.4   & (0.9)     & &    27.4 & (1.4)     & & 0.0706 & 0.16 & 6.11 \\
+Sueño [s]         & 7:51:30 & (0:57:36) & & 7:16:48 & (2:24:43) & & 0.6836 & 0.50 & 5.24 \\
+MOR [s]           & 0:52:06 & (0:23:00) & & 0:34:18 & (0:22:14) & & 0.2486 & 1.24 & 7.99 \\
+MOR [\%]          &  11.3   & (5.1)     & &     8.4 & (4.8)     & & 0.3871 & 0.91 & 7.96 \\
+\bottomrule 
+\multicolumn{5}{l}{DE=Desviación Estándar}
+\end{tabular} 
+\label{tab:var_wilcox}
+\end{table}
+
+Así mismo, se verificó si las variables medias (edad, escolaridad, puntajes en las pruebas) estaban correlacionadas entre sí.
 
 Previo al análisis de la estacionariedad, se corroboró la hipótesis de que las variables 
 independientes son estadísticamente iguales entre los grupos CTL y PDC. Las comparaciones
@@ -249,30 +326,6 @@ Era por demás obvia la relación entre la cantidad total de sueño MOR, con su 
 todo el sueño. Sin embargo, conviene mencionar que la cantidad de sueño MOR no es afectada por
 ninguna de las otras variables independientes; luego entonces las cantidades que fueron estudiadas
 (estacionariedad, espectro de potencias) no tienen correlaciones sesgadas con las demás variables.
-
-\begin{table}
-\centering
-\caption{Variables independientes entre grupos}
-\begin{tabular}{lrlcrlcccc}
-\toprule
- & \multicolumn{2}{l}{Grupo CTL} & \phantom{.} & \multicolumn{2}{l}{Grupo PDC} 
- & \phantom{.} & \multicolumn{3}{l}{t de Welch}
- \\
-\cmidrule{2-3} \cmidrule{5-6} \cmidrule{8-10}
-& Media & (DE) & & Media & (DE) & & $p$ & $t$ & $\nu$ \\
-\midrule
-Edad              &  68.2   & (7.2)     & &    67.6 & (3.4)     & & 0.8746 & 0.16 & 6.11 \\
-Escolaridad       &   9.2   & (2.7)     & &     8.4 & (2.2)     & & 0.6201 & 0.52 & 7.69 \\
-Neuropsi          & 108.9   & (5.2)     & &    87.8 & (5.6)     & & \bf 0.0003 & 6.17 & 7.94 \\
-MMSE              &  29.4   & (0.9)     & &    27.4 & (1.4)     & & 0.0706 & 0.16 & 6.11 \\
-Sueño [s]         & 7:51:30 & (0:57:36) & & 7:16:48 & (2:24:43) & & 0.6836 & 0.50 & 5.24 \\
-MOR [s]           & 0:52:06 & (0:23:00) & & 0:34:18 & (0:22:14) & & 0.2486 & 1.24 & 7.99 \\
-MOR [\%]          &  11.3   & (5.1)     & &     8.4 & (4.8)     & & 0.3871 & 0.91 & 7.96 \\
-\bottomrule 
-\multicolumn{5}{l}{DE=Desviación Estándar}
-\end{tabular} 
-\label{var_ind}
-\end{table}
 
 \begin{table}
 \centering

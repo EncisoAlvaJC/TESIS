@@ -127,6 +127,9 @@
 % titulo de capítulo chido
 \usepackage[Sonny]{fncychap}
 
+% integrales multiples bonitas
+\usepackage{esint}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -156,7 +159,7 @@
 \newcommand*{\blankpage}{%
     \vspace*{\fill}
     {\centering \textsc{Esta página se dejó intencionalmente en blanco.}\par}
-    %\vspace{\fill}
+    \vspace{\fill}
 }
 \makeatletter
 \renewcommand*{\cleardoublepage}{
@@ -609,6 +612,8 @@ difundidos.
 Conjunto de deficiencias cognitivas \textit{objetivas}, respecto a un estado anterior, que no cumplen los criterios para ser clasificadas como demencia. 
 Para ello se entiende que una deficiencia es objetiva si puede confirmarse usando pruebas neuropsicológicas, en contraposición al reporte subjetiva por parte del individuo.
 
+\textbf{DSM:} [Sueño] No-MOR \\
+
 \textbf{EEG:}  Electroencefalografía \\
 Lectura de la actividad eléctrica en la corteza cerebral, la cual se origina por la actividad postsináptica de las neuronas en dicha región. 
 En el presente trabajo, el término EEG se limita a registros obtenidos mediante electrodos colocados en el cuero cabelludo del individuo, siendo que otros autores también engloban registros obtenidos con microelectrodos insertos en el cerebro por ejemplo.
@@ -622,6 +627,8 @@ En el presente trabajo, se limita el uso del EMG para distinguir la mayor o meno
 \textbf{MOR:} [Sueño de] Movimientos Oculares Rápidos \\
 %Etapa del sueño profundo caracterizada por la presencia de movimientos oculares rápidos, disminución del tono muscular, y actividad eléctrica cerebral de baja intensidad y frecuencias mixtas.
 Etapa de sueño nombrada con base la presencia típica de movimientos oculares rápidos. También se le conoce como \textit{sueño paradójico} debido a que la actividad cerebral es similar a la vigilia pese a ser la etapa más profunda del sueño. Según los estándares de la AASM en 2007 también se le conoce como \textit{fase R}.
+
+\textbf{Neuropsi:} [Sueño] No-MOR \\
 
 \textbf{NMOR:} [Sueño] No-MOR \\
 Contempla el sueño fuera de la etapa MOR, presentando características radicalmente diferentes.
@@ -667,7 +674,7 @@ Sean $f, g : \R \rightarrow \R$ dos funciones y $x_0 \in \R \cup \{ -\infty, \in
 \begin{equation*}
 \lim_{x \rightarrow x_0} \frac{f(x)}{g(x)} = C
 \end{equation*} 
-en cuyo caso se dice $f = \orden{g}$
+Si así fuere, se dice $f = \orden{g}$
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
