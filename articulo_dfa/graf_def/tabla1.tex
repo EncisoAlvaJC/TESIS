@@ -8,6 +8,8 @@
 % tablas con lineas gruesas
 \usepackage{booktabs}
 \usepackage{multirow}
+\usepackage{lscape}
+
 
 \begin{document}
 
@@ -18,21 +20,106 @@
 \begin{small}
 \begin{tabular}{lllllllllllllllll}
 \toprule
- & \multicolumn{3}{l}{CTRL} & \phantom{.}  & \multicolumn{3}{l}{PMCI} & \phantom{.} & \multicolumn{8}{l}{Mixed ANOVA} \\
+ & \multicolumn{3}{l}{CTL} & \phantom{.}  & \multicolumn{3}{l}{MCI} & \phantom{.} & \multicolumn{8}{l}{Mixed ANOVA} \\
 \cmidrule{2-4} \cmidrule{6-8} \cmidrule{10-17}
  & NREM &  & REM   & & NREM &  & REM  &  & 
    \multicolumn{2}{l}{Group} &  & \multicolumn{2}{l}{Stage} & & \multicolumn{2}{l}{Group$\times$Stage}  \\
- &&&&&&&&& \multicolumn{2}{l}{Df = 1, 16} &  &  \multicolumn{2}{l}{Df = 1, 16}  &  &  \multicolumn{2}{l}{Df = 1, 16}  \\
+% &&&&&&&&& \multicolumn{2}{l}{Df = 1, 16} &  &  \multicolumn{2}{l}{Df = 1, 16}  &  &  \multicolumn{2}{l}{Df = 1, 16}  \\
 \cmidrule{2-2} \cmidrule{4-4} \cmidrule{6-6} \cmidrule{8-8} \cmidrule{10-11} \cmidrule{13-14} \cmidrule{16-17}    
  & Mean (SD) &  & Mean (SD) &  & Mean (SD) &  & Mean (SD) &  & F & p &  & F & p &  & F & p \\
 \midrule
-LOG&1.33 (0.12) &&1.38 (0.15) &&1.39 (0.06) &&1.54 (0.14) &&4.09& 0.060&&2.96&0.10&&0.94&0.35 \\
-ROG&1.34 (0.10) &&1.35 (0.15) &&1.35 (0.08) &&1.48 (0.13) &&1.71&0.210&&1.93&0.18&&1.49&0.24 \\
-LOG-ROG&1.25 (0.09) &&1.28 (0.14) &&1.35 (0.12) &&1.45 (0.19) &&4.24&\bf 0.056&&1.06&0.32&&0.34&0.57 \\
+Fp2      & 1.34 (0.15)&  & 1.29 (0.13)&  & 1.35 (0.11)&  & 1.42 (0.17)&  & 1.31 & 0.276 &  & 0.10 & 0.754 &  & 5.81 &\bf 0.035 \\
+Fp1      & 1.37 (0.15)&  & 1.29 (0.12)&  & 1.35 (0.12)&  & 1.40 (0.16)&  & 0.56 & 0.471 &  & 0.37 & 0.555 &  & 4.55 & 0.056 \\
+F8       & 1.33 (0.16)&  & 1.29 (0.14)&  & 1.34 (0.19)&  & 1.41 (0.18)&  & 0.71 & 0.417 &  & 0.11 & 0.750 &  & 6.35 &\bf 0.029 \\
+F7       & 1.38 (0.21)&  & 1.31 (0.13)&  & 1.30 (0.11)&  & 1.41 (0.14)&  & 0.04 & 0.852 &  & 0.12 & 0.734 &  & 7.49 &\bf 0.019 \\
+F4       & 1.30 (0.19)&  & 1.24 (0.15)&  & 1.30 (0.12)&  & 1.36 (0.17)&  & 0.54 & 0.476 &  & 0.11 & 0.742 &  & 8.79 &\bf 0.013 \\
+F3       & 1.34 (0.21)&  & 1.25 (0.14)&  & 1.29 (0.12)&  & 1.30 (0.15)&  & 0.00 & 0.996 &  & 3.11 & 0.106 &  & 4.23 & 0.064 \\
+T4       & 1.30 (0.12)&  & 1.27 (0.14)&  & 1.28 (0.12)&  & 1.37 (0.13)&  & 0.38 & 0.549 &  & 1.54 & 0.241 &  & 6.82 &\bf 0.024 \\
+T3       & 1.35 (0.20)&  & 1.24 (0.13)&  & 1.26 (0.13)&  & 1.30 (0.19)&  & 0.02 & 0.890 &  & 1.75 & 0.213 &  & 5.30 &\bf 0.042 \\
+C4       & 1.29 (0.17)&  & 1.22 (0.13)&  & 1.28 (0.10)&  & 1.30 (0.13)&  & 0.35 & 0.568 &  & 1.22 & 0.293 &  & 3.93 & 0.073 \\
+C3       & 1.30 (0.15)&  & 1.24 (0.14)&  & 1.26 (0.13)&  & 1.26 (0.14)&  & 0.06 & 0.809 &  & 2.03 & 0.182 &  & 1.82 & 0.205 \\
+T6       & 1.19 (0.26)&  & 1.11 (0.22)&  & 1.29 (0.14)&  & 1.25 (0.44)&  & 0.86 & 0.374 &  & 2.15 & 0.171 &  & 0.25 & 0.626 \\
+T5       & 1.26 (0.13)&  & 1.22 (0.14)&  & 1.24 (0.12)&  & 1.30 (0.16)&  & 0.28 & 0.609 &  & 0.07 & 0.803 &  & 3.27 & 0.098 \\
+P4       & 1.26 (0.17)&  & 1.18 (0.11)&  & 1.26 (0.12)&  & 1.26 (0.16)&  & 0.37 & 0.557 &  & 2.97 & 0.113 &  & 2.88 & 0.118 \\
+P3       & 1.27 (0.17)&  & 1.19 (0.11)&  & 1.24 (0.11)&  & 1.25 (0.16)&  & 0.06 & 0.805 &  & 2.61 & 0.135 &  & 2.98 & 0.112 \\
+O2       & 1.29 (0.13)&  & 1.19 (0.10)&  & 1.26 (0.10)&  & 1.26 (0.17)&  & 0.20 & 0.660 &  & 3.41 & 0.092 &  & 2.70 & 0.129 \\
+O1       & 1.29 (0.13)&  & 1.20 (0.12)&  & 1.25 (0.12)&  & 1.23 (0.16)&  & 0.00 & 0.980 &  & 5.66 &\bf 0.037 &  & 1.94 & 0.191 \\
+FZ       & 1.32 (0.15)&  & 1.25 (0.14)&  & 1.28 (0.12)&  & 1.29 (0.15)&  & 0.00 & 0.986 &  & 2.32 & 0.156 &  & 4.13 & 0.067 \\
+CZ       & 1.27 (0.13)&  & 1.24 (0.16)&  & 1.27 (0.12)&  & 1.28 (0.14)&  & 0.14 & 0.717 &  & 0.30 & 0.594 &  & 1.23 & 0.291 \\
+PZ       & 1.29 (0.21)&  & 1.19 (0.12)&  & 1.27 (0.11)&  & 1.24 (0.16)&  & 0.03 & 0.872 &  & 3.67 & 0.082 &  & 1.07 & 0.322 \\
+LOG      & 1.41 (0.18)&  & 1.41 (0.17)&  & 1.41 (0.09)&  & 1.56 (0.18)&  & 1.07 & 0.324 &  & 3.93 & 0.073 &  & 4.96 &\bf 0.048 \\
+ROG      & 1.40 (0.16)&  & 1.37 (0.17)&  & 1.37 (0.12)&  & 1.51 (0.18)&  & 0.76 & 0.401 &  & 2.20 & 0.166 &  & 6.19 &\bf 0.030 \\
+EMG      & 0.69 (0.38)&  & 0.71 (0.35)&  & 0.50 (0.12)&  & 0.73 (0.33)&  & 0.24 & 0.633 &  & 1.79 & 0.213 &  & 1.33 & 0.278 \\
+\midrule
+Fp1-Fp2  & 1.31 (0.17)&  & 1.27 (0.14)&  & 1.35 (0.16)&  & 1.38 (0.17)&  & 0.87 & 0.371 &  & 0.11 & 0.747 &  & 1.24 & 0.290 \\
+F7-F8    & 1.34 (0.20)&  & 1.29 (0.15)&  & 1.33 (0.23)&  & 1.41 (0.19)&  & 0.31 & 0.590 &  & 0.05 & 0.834 &  & 5.03 &\bf 0.047 \\
+F3-F4    & 1.28 (0.21)&  & 1.22 (0.16)&  & 1.27 (0.17)&  & 1.29 (0.15)&  & 0.08 & 0.786 &  & 0.86 & 0.373 &  & 2.87 & 0.118 \\
+T3-T4    & 1.30 (0.18)&  & 1.25 (0.14)&  & 1.25 (0.16)&  & 1.31 (0.13)&  & 0.00 & 0.991 &  & 0.03 & 0.872 &  & 4.57 & 0.056 \\
+C3-C4    & 1.26 (0.16)&  & 1.20 (0.16)&  & 1.23 (0.14)&  & 1.23 (0.11)&  & 0.00 & 0.990 &  & 2.08 & 0.177 &  & 1.73 & 0.216 \\
+T5-T6    & 1.25 (0.13)&  & 1.20 (0.15)&  & 1.24 (0.17)&  & 1.28 (0.21)&  & 0.20 & 0.660 &  & 0.13 & 0.722 &  & 1.83 & 0.204 \\
+P3-P4    & 1.21 (0.18)&  & 1.15 (0.15)&  & 1.21 (0.15)&  & 1.20 (0.13)&  & 0.08 & 0.776 &  & 1.86 & 0.199 &  & 1.16 & 0.305 \\
+O1-O2    & 1.25 (0.13)&  & 1.17 (0.13)&  & 1.22 (0.15)&  & 1.20 (0.14)&  & 0.00 & 0.958 &  & 3.64 & 0.083 &  & 0.88 & 0.368 \\
+LOG-ROG  & 1.34 (0.18)&  & 1.32 (0.16)&  & 1.37 (0.14)&  & 1.47 (0.18)&  & 1.36 & 0.268 &  & 0.98 & 0.343 &  & 2.10 & 0.176 \\
+\midrule
+Fp2-P4   & 1.27 (0.18)&  & 1.22 (0.15)&  & 1.26 (0.15)&  & 1.33 (0.17)&  & 0.32 & 0.583 &  & 0.17 & 0.685 &  & 7.22 &\bf 0.021 \\
+Fp1-P3   & 1.28 (0.17)&  & 1.23 (0.12)&  & 1.26 (0.15)&  & 1.31 (0.14)&  & 0.14 & 0.712 &  & 0.02 & 0.877 &  & 4.39 & 0.060 \\
+O2-P4-T4 & 1.25 (0.14)&  & 1.22 (0.15)&  & 1.25 (0.16)&  & 1.27 (0.14)&  & 0.09 & 0.771 &  & 0.09 & 0.775 &  & 0.87 & 0.370 \\
+O1-P3-T3 & 1.28 (0.16)&  & 1.21 (0.15)&  & 1.20 (0.15)&  & 1.21 (0.13)&  & 0.37 & 0.557 &  & 1.40 & 0.262 &  & 2.43 & 0.147 \\
 \bottomrule
 \end{tabular}\\
-CTRL, Control group; PMCI, Probable Mild Cognitive Impairment
+CTL, Control group; MCI, Mild Cognitive Impairment
 \end{small}
+\end{table}
+
+\begin{table}
+\begin{tabular}{p{2cm}p{4cm}p{4cm}p{4cm}}
+\toprule
+Author \& year & Analysis employed & Differences with our study & Similarities with our study \\
+\midrule
+Weiss et al. 2009 
+&
+To compute the Hurst Exponent: R/S statistics (rescaled adjusted range of Mandelbrot and Taqq, 1979)
+To compute the range of fractal spectra: Alfred Renyi Generalized Entropy.
+&
+Healty subjects only. The purpose of the study is to use fractal methods to classify sleep stages.
+&
+'Very few' subjects in their study to validate data: ONLY 10.
+\\
+Weiss et al. 2011
+&
+Spearman's correlation analysis
+&
+This paper is a follow up of a previous work, using healty subjects and a correlation between Hurst exponent and range of fractal expectra to strengthen their previous results.
+Now they use 22 healty subjects.
+&
+The use of fractal analysis to emphysize known phenomena about human sleep, in this case by proving that fractal range is a better estimating measure for classifing sleep stages.
+\\
+Ma et al. 2017
+&
+Survey of results of the use of nonlinear methods for sleep EEG. MUST READ.
+&
+This article is a survey, not a research article as ours.
+&
+As a good survey, it includes citations of work where DFA is used.
+\\
+Lee et al. 2004
+&
+They used DFA
+&
+Similar research.
+&
+They calculated the Hurst exponent of recording of normal sleep stage of six healthy subjects against the Hurst exponent of six recordings of apnea from MIT/BIH polysomnography database. The scaling exponent of apnea was found to be lower than those of healthy subjects
+\\
+Acharya U. et al. 2005
+&
+They computed several parameters, including the Hurst exponent (but no through DFA)
+&
+Didn't use DFA
+&
+They worked out they analysis with ONLY eight EEG data from the sleep-EDF database from the PhysioBank, a data resource.
+\\
+\bottomrule
+\end{tabular}
 \end{table}
 
 \end{document}

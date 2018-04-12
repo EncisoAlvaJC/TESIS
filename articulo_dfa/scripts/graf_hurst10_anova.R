@@ -1,3 +1,10 @@
+eps.gg = function(k,S){
+  
+  
+}
+
+
+
 ###############################################################################
 # parametros
 orden_stam     = TRUE
@@ -6,11 +13,11 @@ usar.log       = F
 ###############################################################################
 # directorios de trabajo
 
-dir_gral    = 'C:/Users/EQUIPO 1/Desktop/julio/TESIS/articulo_dfa'
-dir_info    = 'C:/Users/EQUIPO 1/Desktop/julio/TESIS/articulo_dfa'
-dir_scripts = 'C:/Users/EQUIPO 1/Desktop/julio/TESIS/articulo_dfa/scripts'
-dir_res_pre = 'C:/Users/EQUIPO 1/Desktop/julio/TESIS/articulo_dfa/Hurst'
-dir_graf    = 'C:/Users/EQUIPO 1/Desktop/julio/TESIS/articulo_dfa/graf_def'
+dir_gral    = 'C:/Users/EQUIPO 1/Desktop/julio/tesis_respaldo/TESIS/articulo_dfa'
+dir_info    = 'C:/Users/EQUIPO 1/Desktop/julio/tesis_respaldo/TESIS/articulo_dfa'
+dir_scripts = 'C:/Users/EQUIPO 1/Desktop/julio/tesis_respaldo/TESIS/articulo_dfa/scripts'
+dir_res_pre = 'C:/Users/EQUIPO 1/Desktop/julio/tesis_respaldo/TESIS/articulo_dfa/Hurst'
+dir_graf    = 'C:/Users/EQUIPO 1/Desktop/julio/tesis_respaldo/TESIS/articulo_dfa/graf_def'
 
 ###############################################################################
 # librerias
@@ -45,13 +52,14 @@ raw = read_excel(paste0(dir_res_pre,'/dfa_asdataframe.xlsx'),
 raw = as.data.frame(raw)
 
 Hurst.MOR           = melt(raw,id=c('Sujeto','Grupo','Edad',
-                                    'MMSE','Neuropsi',
+                                    'MMSE','Neuropsi','Escol',
                                     'MORn','Epoca','Etapa'))
 colnames(Hurst.MOR) = c('Sujeto','Grupo','Edad','MMSE','Neuropsi',
+                        'Escol',
                         'MORn','Epoca','Etapa','Canal_var','Hurst')
 Hurst.MOR           = Hurst.MOR[!is.na(Hurst.MOR$Hurst),]
 Hurst.MOR$Canal_var = as.numeric(Hurst.MOR$Canal_var)
-Hurst.MOR$Sujeto_n  = factor(Hurst.MOR$Sujeto,labels = info$Nombre[1:10])
+Hurst.MOR$Sujeto_n  = factor(Hurst.MOR$Sujeto,labels = info$Nombre)
 Hurst.MOR$Etapa     = rep(1,length(Hurst.MOR$Sujeto))
 Hurst.MOR$xx        = kanales$x[Hurst.MOR$Canal_var]
 Hurst.MOR$yy        = kanales$y[Hurst.MOR$Canal_var]
@@ -61,7 +69,7 @@ if(usar.log){
   Hurst.promedio$Hurst = log(Hurst.promedio$Hurst)
 }
 Hurst.MOR.promedio = c()
-for(suj in 1:10){
+for(suj in c(1:10,12:14)){
   tmp       = Hurst.MOR[grep(info$Nombre[suj],Hurst.MOR$Sujeto_n),]
   promedios = aggregate(tmp,by=list(tmp$Canal_var),mean)
   Hurst.MOR.promedio = rbind(Hurst.MOR.promedio,promedios)
@@ -71,7 +79,7 @@ for(suj in 1:10){
 Hurst.MOR$Canal_var          = factor(Hurst.MOR$Canal_var,
                                       labels=kanales$Etiqueta)
 Hurst.MOR$Grupo              = factor(Hurst.MOR$Grupo,
-                                      labels=c('CTRL','PMCI'))
+                                      labels=c('EX','CTL','MCI'))
 
 Hurst.MOR.promedio           = as.data.frame(Hurst.MOR.promedio)
 Hurst.MOR.promedio$Canal_var = factor(Hurst.MOR.promedio$Canal_var,
@@ -90,13 +98,14 @@ raw = read_excel(paste0(dir_res_pre,'/dfa_asdataframe.xlsx'),
 raw = as.data.frame(raw)
 
 Hurst.NMOR           = melt(raw,id=c('Sujeto','Grupo','Edad',
-                                     'MMSE','Neuropsi',
+                                     'MMSE','Neuropsi','Escol',
                                      'MORn','Epoca','Etapa'))
 colnames(Hurst.NMOR) = c('Sujeto','Grupo','Edad','MMSE','Neuropsi',
+                         'Escol',
                          'MORn','Epoca','Etapa','Canal_var','Hurst')
 Hurst.NMOR           = Hurst.NMOR[!is.na(Hurst.NMOR$Hurst),]
 Hurst.NMOR$Canal_var = as.numeric(Hurst.NMOR$Canal_var)
-Hurst.NMOR$Sujeto_n  = factor(Hurst.NMOR$Sujeto,labels = info$Nombre[1:10])
+Hurst.NMOR$Sujeto_n  = factor(Hurst.NMOR$Sujeto,labels = info$Nombre)
 Hurst.NMOR$Etapa     = rep(0,length(Hurst.NMOR$Sujeto))
 Hurst.NMOR$xx        = kanales$x[Hurst.NMOR$Canal_var]
 Hurst.NMOR$yy        = kanales$y[Hurst.NMOR$Canal_var]
@@ -106,7 +115,7 @@ if(usar.log){
   Hurst.promedio$Hurst = log(Hurst.promedio$Hurst)
 }
 Hurst.NMOR.promedio = c()
-for(suj in 1:10){
+for(suj in c(1:10,12:14)){
   tmp       = Hurst.NMOR[grep(info$Nombre[suj],Hurst.NMOR$Sujeto_n),]
   promedios = aggregate(tmp,by=list(tmp$Canal_var),mean)
   Hurst.NMOR.promedio = rbind(Hurst.NMOR.promedio,promedios)
@@ -188,6 +197,27 @@ for(ch in 1:n.canales){
   
   aov   = aov(Hurst ~ (Grupo) + (Etapa) +(Grupo:Etapa),
               data=tmp)
+  #mauchly.test(aov(Hurst ~ (Grupo) + (Etapa) +(Grupo:Etapa),
+  #                 data=tmp))
+  
+  aa = dcast(tmp,Sujeto~MORn,value.var = 'Hurst',fun.aggregate = mean)
+  
+  bb = as.matrix(aa[,2:11])
+  
+  mlmfit = lm(bb~1)
+  
+  print(mauchly.test(mlmfit, X = ~1))
+  
+  invisible(readline(prompt="Presion [enter] para continuar"))
+  
+  kk = summary(mlmfit)
+  
+  #print(kk)
+  
+  A = anova(mlmfit)
+  summary(A)
+  
+  #invisible(readline(prompt="Presion [enter] para continuar"))
   
   k = summary(aov)
   k = k[[1]]
@@ -216,7 +246,7 @@ for(ch in 1:n.canales){
   big.summary = rbind(big.summary,qs2)
   
   #View(k)
-  #invisible(readline(prompt="Presion [enter] para continuar"))
+  invisible(readline(prompt="Presion [enter] para continuar"))
 }
 
 if(FALSE){

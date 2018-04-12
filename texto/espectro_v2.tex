@@ -32,7 +32,52 @@ Dentro del contexto global del presente trabajo, el capítulo entero pudiera eti
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\section{Espacios de variables aleatorias}
 
+\begin{proposicion}
+Sea $\mathcal{R}$ el conjunto de variables aleatorias con media cero y varianza finita. Se define un producto interno entre dos variables aleatorias arbitrarias, $U$ y $V$, como
+\begin{equation}
+\langle U , V \rangle := \E{U, \overline{V}}
+\end{equation}
+Usando la suma y productos usuales de variables aleatorias, junto al producto interno descrito, el espacio $\mathcal{R}$ tiene la estructura de espacio de Hilbert.
+\end{proposicion}
+
+
+
+\begin{teorema}[Bochner]
+Sea $f$ una función real arbitraria. Una condición suficiente y necesaria para que $f$ sea definida positiva es que exista una función real $F$ monótonamente creciente, continua por la derecha y acotada tal que puede escribirse
+\begin{equation}
+f(t) = \intR e^{i \omega t} dF(\omega)
+\end{equation}
+\end{teorema}
+
+%\begin{proof}
+%Para demostrar que la condición es suficiente, supóngase que puede escribirse
+%\begin{equation}
+%f(t) = \intR e^{i \omega t} dF(\omega)
+%\end{equation}
+%Luego, sean $a_1, a_2, \cdot, a_N \in \C$ y $t_1, t_2, \cdots, t_N \in \R$ arbitrarios, entonces
+%\begin{align*}
+%\sum_{m = 1}^{N} \sum_{n = 1}^{N} f(t_m - t_n) a_m \overline{a_n} &=
+%\sum_{m = 1}^{N} \sum_{n = 1}^{N} \left[ \intR e^{i \omega (t_m-t_n)} dF(\omega) \right] a_m \overline{a_n} \\
+%&= \intR \left[ \sum_{m = 1}^{N} \sum_{n = 1}^{N} a_m e^{i \omega t_m} \overline{a_n e^{i \omega t_n}} \right] dF(\omega) \\
+%&= \intR \abso{ \sum_{n = 1}^{N} a_n e^{i \omega t_n} }^{2} dF(\omega) \geq 0
+%\end{align*}
+%\end{proof}
+
+\begin{corolario}
+Usando $f \equiv g$ en el teorema anterior
+\begin{equation}
+\abso{F(\omega)}^{2} = \intR e^{- i \omega t} k(t) dt 
+\end{equation}
+donde 
+\begin{equation}
+k(t) = \intR f(u) f(u-t) du
+\end{equation}
+\end{corolario}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Función de densidad espectral}
 \label{sec:fde}

@@ -46,12 +46,10 @@ raw = as.data.frame(raw)
 
 Hurst.MOR           = melt(raw,id=c('Sujeto','Grupo','Edad',
                                     'MMSE','Neuropsi','Escol',
-                                    'MORn','Epoca','Etapa',
-                                    'Usar','Etapa_2'))
+                                    'MORn','Epoca','Etapa'))
 colnames(Hurst.MOR) = c('Sujeto','Grupo','Edad','MMSE','Neuropsi',
                         'Escol',
                         'MORn','Epoca','Etapa',
-                        'Usar','Etapa_2',
                         'Canal_var','Hurst')
 Hurst.MOR$Sujeto_n  = factor(Hurst.MOR$Sujeto,
                              labels = info$Nombre)
@@ -62,7 +60,7 @@ Hurst.MOR$Etapa     = rep(1,length(Hurst.MOR$Sujeto))
 Hurst.MOR = Hurst.MOR[!is.na(Hurst.MOR$Hurst),]
 Hurst.MOR = Hurst.MOR[Hurst.MOR$Grupo>-1,]
 
-sujetos = unique(Hurst.MOR$Sujeto)
+sujetos = setdiff(unique(Hurst.MOR$Sujeto),11)
 
 if(usar.log){
   Hurst.MOR$Hurst     = log(Hurst.MOR$Hurst)
@@ -79,13 +77,13 @@ for(suj in sujetos){
 Hurst.MOR$Canal_var          = factor(Hurst.MOR$Canal_var,
                                       labels=kanales$Etiqueta)
 Hurst.MOR$Grupo              = factor(Hurst.MOR$Grupo,
-                                      labels=c('CTRL','PMCI'))
+                                      labels=c('CTL','MCI'))
 
 Hurst.MOR.promedio           = as.data.frame(Hurst.MOR.promedio)
 Hurst.MOR.promedio$Canal_var = factor(Hurst.MOR.promedio$Canal_var,
                                       labels=kanales$Etiqueta)
 Hurst.MOR.promedio$Grupo     = factor(Hurst.MOR.promedio$Grupo,
-                                      labels=c('CTRL','PMCI'))
+                                      labels=c('CTL','MCI'))
 Hurst.MOR.promedio$Sujeto_n = info$Nombre[Hurst.MOR.promedio$Sujeto]
 promedios.MOR               = summarySE(Hurst.MOR.promedio,na.rm=T,
                                         measurevar='Hurst',
@@ -99,12 +97,10 @@ raw = as.data.frame(raw)
 
 Hurst.NMOR           = melt(raw,id=c('Sujeto','Grupo','Edad',
                                      'MMSE','Neuropsi','Escol',
-                                     'MORn','Epoca','Etapa',
-                                     'Usar','Etapa_2'))
+                                     'MORn','Epoca','Etapa'))
 colnames(Hurst.NMOR) = c('Sujeto','Grupo','Edad','MMSE','Neuropsi',
                          'Escol',
                          'MORn','Epoca','Etapa',
-                         'Usar','Etapa_2',
                          'Canal_var','Hurst')
 Hurst.NMOR$Sujeto_n  = factor(Hurst.NMOR$Sujeto,
                               labels = info$Nombre)
@@ -115,7 +111,7 @@ Hurst.NMOR$Etapa     = rep(0,length(Hurst.NMOR$Sujeto))
 Hurst.NMOR = Hurst.NMOR[!is.na(Hurst.NMOR$Hurst),]
 Hurst.NMOR = Hurst.NMOR[Hurst.NMOR$Grupo>-1,]
 
-sujetos = unique(Hurst.NMOR$Sujeto)
+sujetos = setdiff(unique(Hurst.NMOR$Sujeto),11)
 
 if(usar.log){
   Hurst.NMOR$Hurst     = log(Hurst.NMOR$Hurst)
@@ -132,12 +128,12 @@ for(suj in sujetos){
 Hurst.NMOR$Canal_var          = factor(Hurst.NMOR$Canal_var,
                                        labels=kanales$Etiqueta)
 Hurst.NMOR$Grupo              = factor(Hurst.NMOR$Grupo,
-                                       labels=c('CTRL','PMCI'))
+                                       labels=c('CTL','MCI'))
 Hurst.NMOR.promedio           = as.data.frame(Hurst.NMOR.promedio)
 Hurst.NMOR.promedio$Canal_var = factor(Hurst.NMOR.promedio$Canal_var,
                                        labels=kanales$Etiqueta)
 Hurst.NMOR.promedio$Grupo     = factor(Hurst.NMOR.promedio$Grupo,
-                                       labels=c('CTRL','PMCI'))
+                                       labels=c('CTL','MCI'))
 Hurst.NMOR.promedio$Sujeto_n = info$Nombre[Hurst.NMOR.promedio$Sujeto]
 promedios.NMOR               = summarySE(Hurst.NMOR.promedio,na.rm=T,
                                          measurevar='Hurst',
@@ -166,17 +162,21 @@ promedios.todo       = rbind(promedios.MOR,promedios.NMOR)
 #Hurst_un = dcast(Hurst.todo,Sujeto_n+Canal_var~MORn,value.var ='Hurst',
 #                 fun.aggregate = mean)
 
-Hurst.select.MOR = Hurst.MOR[!is.na(Hurst.MOR$Usar),]
+#Hurst.select.MOR = Hurst.MOR[!is.na(Hurst.MOR$Usar),]
+
+info.usar = info[sujetos,]
+info.usar$Grupo = info.usar$Grupo_n
+info.usar$Grupo = factor(info.usar$Grupo,labels=c('CTL','MCI'))
 
 ###############################################################################
 # Neuropsi vs MMSE
-cor.test(Hurst.MOR.promedio$Neuropsi,Hurst.MOR.promedio$MMSE,
+cor.test(info.usar$Neuropsi,info.usar$MMSE,
          method='spearman')
 
-cor.test(Hurst.MOR.promedio$Neuropsi,Hurst.MOR.promedio$MMSE,
+cor.test(info.usar$Neuropsi,info.usar$MMSE,
          method='pearson')
 
-ggplot(Hurst.MOR.promedio,aes(x=Neuropsi,y=MMSE,shape=Grupo,
+ggplot(info.usar,aes(x=Neuropsi,y=MMSE,shape=Grupo,
                               add='reg.line')) +
   theme_classic2() +
   geom_smooth(method=lm,
@@ -193,20 +193,20 @@ ggsave(filename='/Neuropsi_MMSE.png',path=dir_graf,
 
 ###############################################################################
 # Neuropsi vs Edad
-cor.test(Hurst.MOR.promedio$Edad,Hurst.MOR.promedio$Neuropsi,
+cor.test(info.usar$Edad,info.usar$Neuropsi,
          method='spearman')
 
-cor.test(Hurst.MOR.promedio$Edad,Hurst.MOR.promedio$Neuropsi,
+cor.test(info.usar$Edad,info.usar$Neuropsi,
          method='pearson')
 
-ggplot(Hurst.MOR.promedio,aes(x=Edad,y=Neuropsi,shape=Grupo,
+ggplot(info.usar,aes(x=Edad,y=Neuropsi,shape=Grupo,
                               add='reg.line')) +
   theme_classic2() +
   geom_smooth(method=lm,
               mapping=aes(x=Edad,y=Neuropsi),
               inherit.aes=F,
               se=F,color='gray2') +
-  theme(legend.position=c(1,.05),legend.direction = 'horizontal',
+  theme(legend.position=c(.2,.05),legend.direction = 'horizontal',
         legend.justification=c(1,0))+
   scale_shape_discrete(name=NULL)+
   geom_point()
@@ -216,17 +216,17 @@ ggsave(filename='/Neuropsi_Edad.png',path=dir_graf,
 
 ###############################################################################
 # Neuropsi vs Escolaridad
-cor.test(Hurst.MOR.promedio$Neuropsi,Hurst.MOR.promedio$Escol,
+cor.test(info.usar$Neuropsi,info.usar$Escolaridad,
          method='spearman')
 
-cor.test(Hurst.MOR.promedio$Neuropsi,Hurst.MOR.promedio$Escol,
+cor.test(info.usar$Neuropsi,info.usar$Escolaridad,
          method='pearson')
 
-ggplot(Hurst.MOR.promedio,aes(x=Neuropsi,y=Escol,shape=Grupo,
+ggplot(info.usar,aes(x=Neuropsi,y=Escolaridad,shape=Grupo,
                               add='reg.line')) +
   theme_classic2() +
   geom_smooth(method=lm,
-              mapping=aes(x=Neuropsi,y=Escol),
+              mapping=aes(x=Neuropsi,y=Escolaridad),
               inherit.aes=F,
               se=F,color='gray2') +
   theme(legend.position=c(1,.05),legend.direction = 'horizontal',
@@ -238,27 +238,75 @@ ggsave(filename='/Neuropsi_Escolaridad.png',path=dir_graf,
        scale=2)
 
 ###############################################################################
-# Edad vs Escolaridad
-cor.test(Hurst.MOR.promedio$Edad,Hurst.MOR.promedio$Escol,
+# MMSE vs Edad
+cor.test(info.usar$MMSE,info.usar$Edad,
          method='spearman')
 
-cor.test(Hurst.MOR.promedio$Edad,Hurst.MOR.promedio$Escol,
+cor.test(info.usar$MMSE,info.usar$Edad,
          method='pearson')
 
-ggplot(Hurst.MOR.promedio,aes(x=Edad,y=Escol,shape=Grupo,
-                              add='reg.line')) +
+ggplot(info.usar,aes(x=MMSE,y=Edad,shape=Grupo,
+                     add='reg.line')) +
   theme_classic2() +
   geom_smooth(method=lm,
-              mapping=aes(x=Edad,y=Escol),
+              mapping=aes(x=MMSE,y=Edad),
               inherit.aes=F,
               se=F,color='gray2') +
   theme(legend.position=c(1,.05),legend.direction = 'horizontal',
         legend.justification=c(1,0))+
   scale_shape_discrete(name=NULL)+
   geom_point()
-ggsave(filename='/Neuropsi_Edad.png',path=dir_graf,
+ggsave(filename='/MMSE_Edad.png',path=dir_graf,
        device='png',units='cm',width=6,height=4.5,dpi=400,
        scale=2)
+
+###############################################################################
+# MMSE vs Escolaridad
+cor.test(info.usar$MMSE,info.usar$Escolaridad,
+         method='spearman')
+
+cor.test(info.usar$MMSE,info.usar$Escolaridad,
+         method='pearson')
+
+ggplot(info.usar,aes(x=MMSE,y=Escolaridad,shape=Grupo,
+                     add='reg.line')) +
+  theme_classic2() +
+  geom_smooth(method=lm,
+              mapping=aes(x=MMSE,y=Escolaridad),
+              inherit.aes=F,
+              se=F,color='gray2') +
+  theme(legend.position=c(1,.05),legend.direction = 'horizontal',
+        legend.justification=c(1,0))+
+  scale_shape_discrete(name=NULL)+
+  geom_point()
+ggsave(filename='/MMSE_Escolaridad.png',path=dir_graf,
+       device='png',units='cm',width=6,height=4.5,dpi=400,
+       scale=2)
+
+###############################################################################
+# Edad vs Escolaridad
+cor.test(info.usar$Edad,info.usar$Escolaridad,
+         method='spearman')
+
+cor.test(info.usar$Edad,info.usar$Escolaridad,
+         method='pearson')
+
+ggplot(info.usar,aes(x=Edad,y=Escolaridad,shape=Grupo,
+                              add='reg.line')) +
+  theme_classic2() +
+  geom_smooth(method=lm,
+              mapping=aes(x=Edad,y=Escolaridad),
+              inherit.aes=F,
+              se=F,color='gray2') +
+  theme(legend.position=c(1,.05),legend.direction = 'horizontal',
+        legend.justification=c(1,0))+
+  scale_shape_discrete(name=NULL)+
+  geom_point()
+ggsave(filename='/Edad_Escolaridad.png',path=dir_graf,
+       device='png',units='cm',width=6,height=4.5,dpi=400,
+       scale=2)
+
+stop()
 
 ###############################################################################
 # Neuropsi vs Hurst
@@ -331,16 +379,16 @@ ggplot(Hurst.NMOR.promedio,aes(x=Neuropsi,y=Hurst,
   geom_point()
 
 # ambos
-correlaciones     = matrix(0,nrow=n.canales,ncol=4)
+correlaciones     = matrix(0,nrow=n.canales,ncol=5)
 correlaciones[,1] = kanales$Etiqueta
-colnames(correlaciones) = c('Canal','R_Spear','p','S')
+colnames(correlaciones) = c('Canal','R_Pearson','p','t','dF')
 for(ch in 1:n.canales){
   ch.actual = kanales$Etiqueta[ch]
   Hurst.tmp = Hurst.todo.promedio[grep(ch.actual,Hurst.todo.promedio$Canal_var),]
   
   a = unlist(Hurst.tmp$Neuropsi)
   b = unlist(Hurst.tmp$Hurst)
-  k = cor.test(a,b,method='spearman',na.action(na.omit))
+  k = cor.test(a,b,method='pearson',na.action(na.omit))
   
   correlaciones[ch,'R_Pearson'] = k$estimate
   correlaciones[ch,'p']       = k$p.value
@@ -366,6 +414,7 @@ ggplot(Hurst.todo.promedio,aes(x=Neuropsi,y=Hurst,
 
 ###############################################################################
 # Edad vs Hurst
+# MOR
 correlaciones     = matrix(0,nrow=n.canales,ncol=5)
 correlaciones[,1] = kanales$Etiqueta
 colnames(correlaciones) = c('Canal','R_Pearson','p','t','dF')
@@ -382,61 +431,6 @@ for(ch in 1:n.canales){
   correlaciones[ch,'t']       = k$statistic
   correlaciones[ch,'dF']      = k$parameter
 }
-
-correlaciones     = matrix(0,nrow=n.canales,ncol=4)
-correlaciones[,1] = kanales$Etiqueta
-colnames(correlaciones) = c('Canal','rho_Spearman','p','S')
-for(ch in 1:n.canales){
-  ch.actual = kanales$Etiqueta[ch]
-  Hurst.tmp = Hurst.MOR.promedio[grep(ch.actual,Hurst.MOR.promedio$Canal_var),]
-  
-  a = unlist(Hurst.tmp$Edad)
-  b = unlist(Hurst.tmp$Hurst)
-  k = cor.test(a,b,method='spearman',na.action(na.omit))
-  
-  correlaciones[ch,'rho_Spearman'] = k$estimate
-  correlaciones[ch,'p']       = k$p.value
-  correlaciones[ch,'S']       = k$statistic
-}
-
-
-
-
-correlaciones     = matrix(0,nrow=n.canales,ncol=5)
-correlaciones[,1] = kanales$Etiqueta
-colnames(correlaciones) = c('Canal','R_Pearson','p','t','dF')
-for(ch in 1:n.canales){
-  ch.actual = kanales$Etiqueta[ch]
-  Hurst.tmp = Hurst.MOR[grep(ch.actual,Hurst.MOR$Canal_var),]
-  
-  a = unlist(Hurst.tmp$Edad)
-  b = unlist(Hurst.tmp$Hurst)
-  k = cor.test(a,b,method='pearson',na.action(na.omit))
-  
-  correlaciones[ch,'R_Pearson'] = k$estimate
-  correlaciones[ch,'p']       = k$p.value
-  correlaciones[ch,'t']       = k$statistic
-  correlaciones[ch,'dF']      = k$parameter
-}
-
-correlaciones     = matrix(0,nrow=n.canales,ncol=4)
-correlaciones[,1] = kanales$Etiqueta
-colnames(correlaciones) = c('Canal','rho_Spearman','p','S')
-for(ch in 1:n.canales){
-  ch.actual = kanales$Etiqueta[ch]
-  Hurst.tmp = Hurst.MOR[grep(ch.actual,Hurst.MOR$Canal_var),]
-  
-  a = unlist(Hurst.tmp$Edad)
-  b = unlist(Hurst.tmp$Hurst)
-  k = cor.test(a,b,method='spearman',na.action(na.omit))
-  
-  correlaciones[ch,'rho_Spearman'] = k$estimate
-  correlaciones[ch,'p']       = k$p.value
-  correlaciones[ch,'S']       = k$statistic
-}
-
-
-
 
 ggplot(Hurst.MOR.promedio,aes(x=Edad,y=Hurst,
                               shape=Grupo,color=Grupo))+
@@ -472,31 +466,29 @@ for(ch in 1:n.canales){
   correlaciones[ch,'dF']      = k$parameter
 }
 
-correlaciones     = matrix(0,nrow=n.canales,ncol=4)
-correlaciones[,1] = kanales$Etiqueta
-colnames(correlaciones) = c('Canal','rho_Spearman','p','S')
-for(ch in 1:n.canales){
-  ch.actual = kanales$Etiqueta[ch]
-  Hurst.tmp = Hurst.NMOR.promedio[grep(ch.actual,Hurst.NMOR.promedio$Canal_var),]
-  
-  a = unlist(Hurst.tmp$Edad)
-  b = unlist(Hurst.tmp$Hurst)
-  k = cor.test(a,b,method='spearman',na.action(na.omit))
-  
-  correlaciones[ch,'rho_Spearman'] = k$estimate
-  correlaciones[ch,'p']       = k$p.value
-  correlaciones[ch,'S']       = k$statistic
-}
+ggplot(Hurst.NMOR.promedio,aes(x=Edad,y=Hurst,
+                              shape=Grupo,color=Grupo))+
+  ylab('Hurst Exponent') +
+  labs(shape=NULL,color=NULL) +
+  facet_wrap(~Canal_var,ncol=6) +
+  theme_classic2() +
+  geom_smooth(method=lm,
+              mapping=aes(x=Edad,y=Hurst),
+              inherit.aes=F,
+              se=F,color='black') +
+  scale_colour_discrete(guide = FALSE) +
+  rotate_x_text(angle = 45)+
+  theme(legend.position=c(1,.05),legend.direction = 'horizontal',
+        legend.justification=c(1,0))+
+  geom_point()
 
-
-
-
+# ambos
 correlaciones     = matrix(0,nrow=n.canales,ncol=5)
 correlaciones[,1] = kanales$Etiqueta
 colnames(correlaciones) = c('Canal','R_Pearson','p','t','dF')
 for(ch in 1:n.canales){
   ch.actual = kanales$Etiqueta[ch]
-  Hurst.tmp = Hurst.NMOR[grep(ch.actual,Hurst.NMOR$Canal_var),]
+  Hurst.tmp = Hurst.todo.promedio[grep(ch.actual,Hurst.todo.promedio$Canal_var),]
   
   a = unlist(Hurst.tmp$Edad)
   b = unlist(Hurst.tmp$Hurst)
@@ -508,24 +500,7 @@ for(ch in 1:n.canales){
   correlaciones[ch,'dF']      = k$parameter
 }
 
-correlaciones     = matrix(0,nrow=n.canales,ncol=4)
-correlaciones[,1] = kanales$Etiqueta
-colnames(correlaciones) = c('Canal','rho_Spearman','p','S')
-for(ch in 1:n.canales){
-  ch.actual = kanales$Etiqueta[ch]
-  Hurst.tmp = Hurst.NMOR[grep(ch.actual,Hurst.NMOR$Canal_var),]
-  
-  a = unlist(Hurst.tmp$Edad)
-  b = unlist(Hurst.tmp$Hurst)
-  k = cor.test(a,b,method='spearman',na.action(na.omit))
-  
-  correlaciones[ch,'rho_Spearman'] = k$estimate
-  correlaciones[ch,'p']       = k$p.value
-  correlaciones[ch,'S']       = k$statistic
-}
-
-
-ggplot(Hurst.NMOR.promedio,aes(x=Edad,y=Hurst,
+ggplot(Hurst.todo.promedio,aes(x=Edad,y=Hurst,
                                shape=Grupo,color=Grupo))+
   ylab('Hurst Exponent') +
   labs(shape=NULL,color=NULL) +
@@ -540,6 +515,9 @@ ggplot(Hurst.NMOR.promedio,aes(x=Edad,y=Hurst,
   theme(legend.position=c(1,.05),legend.direction = 'horizontal',
         legend.justification=c(1,0))+
   geom_point()
+
+
+
 
 # Significativos
 cuales = c(18,19)
@@ -577,30 +555,194 @@ for(ch in cuales){
   signif = rbind(signif,Hurst.tmp)
 }
 
-B = ggplot(signif,aes(x=Edad,y=Hurst,
-                      shape=Grupo))+
+ggplot(signif,aes(x=Edad,y=Hurst,
+                      shape=Grupo,color=Grupo))+
   ylab('Hurst Exponent') + xlab('Age') +
   labs(shape=NULL,color=NULL) +
   facet_wrap(~Canal_var,ncol=6) +
   theme_classic2() +
+  scale_color_manual(values=c('blue','red'),guide=F)+
   geom_smooth(method=lm,
               mapping=aes(x=Edad,y=Hurst),
               inherit.aes=F,
               se=F,color='gray60') +
-  scale_colour_discrete(guide = FALSE) +
+  #scale_colour_discrete(guide = FALSE) +
   theme(strip.background = element_blank())+
   theme(legend.position='top')+
   coord_cartesian(xlim=c(59,79))+
   facet_grid(Etapa~Canal_var) +
   geom_point()
-ggarrange(A,B,ncol=1,nrow=2,labels='AUTO',common.legend=TRUE)
+ggarrange(B,ncol=1,nrow=2,labels='AUTO',common.legend=TRUE)
 
 ggsave(filename='/Fig02_edad_hurst.png',path=dir_graf,
-       device='png',units='cm',width=7,height=7,dpi=400,scale=2)
+       device='png',units='cm',width=7,height=4,dpi=400,scale=2)
 
 ggarrange(A,labels=NULL)
 ggsave(filename='/Fig_age_hurst.png',path=dir_graf,
        device='png',units='cm',width=4,height=4,dpi=400,scale=2)
+
+###############################################################################
+# Escol vs Hurst
+# MOR
+correlaciones     = matrix(0,nrow=n.canales,ncol=5)
+correlaciones[,1] = kanales$Etiqueta
+colnames(correlaciones) = c('Canal','R_Pearson','p','t','dF')
+for(ch in 1:n.canales){
+  ch.actual = kanales$Etiqueta[ch]
+  Hurst.tmp = Hurst.MOR.promedio[grep(ch.actual,Hurst.MOR.promedio$Canal_var),]
+  
+  a = unlist(Hurst.tmp$Escol)
+  b = unlist(Hurst.tmp$Hurst)
+  k = cor.test(a,b,method='pearson',na.action(na.omit))
+  
+  correlaciones[ch,'R_Pearson'] = k$estimate
+  correlaciones[ch,'p']       = k$p.value
+  correlaciones[ch,'t']       = k$statistic
+  correlaciones[ch,'dF']      = k$parameter
+}
+
+ggplot(Hurst.MOR.promedio,aes(x=Escol,y=Hurst,
+                              shape=Grupo,color=Grupo))+
+  ylab('Hurst Exponent') +
+  labs(shape=NULL,color=NULL) +
+  facet_wrap(~Canal_var,ncol=6) +
+  theme_classic2() +
+  geom_smooth(method=lm,
+              mapping=aes(x=Escol,y=Hurst),
+              inherit.aes=F,
+              se=F,color='black') +
+  scale_colour_discrete(guide = FALSE) +
+  rotate_x_text(angle = 45)+
+  theme(legend.position=c(1,.05),legend.direction = 'horizontal',
+        legend.justification=c(1,0))+
+  geom_point()
+
+# NMOR
+correlaciones     = matrix(0,nrow=n.canales,ncol=5)
+correlaciones[,1] = kanales$Etiqueta
+colnames(correlaciones) = c('Canal','R_Pearson','p','t','dF')
+for(ch in 1:n.canales){
+  ch.actual = kanales$Etiqueta[ch]
+  Hurst.tmp = Hurst.NMOR.promedio[grep(ch.actual,Hurst.NMOR.promedio$Canal_var),]
+  
+  a = unlist(Hurst.tmp$Escol)
+  b = unlist(Hurst.tmp$Hurst)
+  k = cor.test(a,b,method='pearson',na.action(na.omit))
+  
+  correlaciones[ch,'R_Pearson'] = k$estimate
+  correlaciones[ch,'p']       = k$p.value
+  correlaciones[ch,'t']       = k$statistic
+  correlaciones[ch,'dF']      = k$parameter
+}
+
+ggplot(Hurst.NMOR.promedio,aes(x=Escol,y=Hurst,
+                               shape=Grupo,color=Grupo))+
+  ylab('Hurst Exponent') +
+  labs(shape=NULL,color=NULL) +
+  facet_wrap(~Canal_var,ncol=6) +
+  theme_classic2() +
+  geom_smooth(method=lm,
+              mapping=aes(x=Escol,y=Hurst),
+              inherit.aes=F,
+              se=F,color='black') +
+  scale_colour_discrete(guide = FALSE) +
+  rotate_x_text(angle = 45)+
+  theme(legend.position=c(1,.05),legend.direction = 'horizontal',
+        legend.justification=c(1,0))+
+  geom_point()
+
+# ambos
+correlaciones     = matrix(0,nrow=n.canales,ncol=5)
+correlaciones[,1] = kanales$Etiqueta
+colnames(correlaciones) = c('Canal','R_Pearson','p','t','dF')
+for(ch in 1:n.canales){
+  ch.actual = kanales$Etiqueta[ch]
+  Hurst.tmp = Hurst.todo.promedio[grep(ch.actual,Hurst.todo.promedio$Canal_var),]
+  
+  a = unlist(Hurst.tmp$Escol)
+  b = unlist(Hurst.tmp$Hurst)
+  k = cor.test(a,b,method='pearson',na.action(na.omit))
+  
+  correlaciones[ch,'R_Pearson'] = k$estimate
+  correlaciones[ch,'p']       = k$p.value
+  correlaciones[ch,'t']       = k$statistic
+  correlaciones[ch,'dF']      = k$parameter
+}
+
+ggplot(Hurst.todo.promedio,aes(x=Escol,y=Hurst,
+                               shape=Grupo,color=Grupo))+
+  ylab('Hurst Exponent') +
+  labs(shape=NULL,color=NULL) +
+  facet_wrap(~Canal_var,ncol=6) +
+  theme_classic2() +
+  geom_smooth(method=lm,
+              mapping=aes(x=Escol,y=Hurst),
+              inherit.aes=F,
+              se=F,color='black') +
+  scale_colour_discrete(guide = FALSE) +
+  rotate_x_text(angle = 45)+
+  theme(legend.position=c(1,.05),legend.direction = 'horizontal',
+        legend.justification=c(1,0))+
+  geom_point()
+
+# Significativos
+cuales = c(21,22)
+signif = c()
+for(ch in cuales){
+  ch.actual = kanales$Etiqueta[ch]
+  Hurst.tmp = Hurst.MOR.promedio[grep(ch.actual,Hurst.MOR.promedio$Canal_var),]
+  
+  signif = rbind(signif,Hurst.tmp)
+}
+
+A = ggplot(signif,aes(x=Escol,y=Hurst,
+                      shape=Grupo,color=Grupo))+
+  ylab('Hurst Exponent') + xlab('Education') +
+  labs(shape=NULL,color=NULL) +
+  facet_wrap(~Canal_var,ncol=6) +
+  theme_classic2() +
+  geom_smooth(method=lm,
+              mapping=aes(x=Escol,y=Hurst),
+              inherit.aes=F,
+              se=F,color='gray60') +
+  scale_color_manual(values=c('blue','red'),guide=F)+
+  #scale_colour_discrete(guide = FALSE) +
+  theme(strip.background = element_blank())+
+  theme(legend.position='top')+
+  #coord_cartesian(xlim=c(59,79))+
+  facet_grid(Etapa~Canal_var) +
+  geom_point()
+
+cuales = c(20,21)
+signif = c()
+for(ch in cuales){
+  ch.actual = kanales$Etiqueta[ch]
+  Hurst.tmp = Hurst.NMOR.promedio[grep(ch.actual,Hurst.NMOR.promedio$Canal_var),]
+  
+  signif = rbind(signif,Hurst.tmp)
+}
+
+B = ggplot(signif,aes(x=Escol,y=Hurst,
+                  shape=Grupo,color=Grupo))+
+  ylab('Hurst Exponent') + xlab('Education') +
+  labs(shape=NULL,color=NULL) +
+  facet_wrap(~Canal_var,ncol=6) +
+  theme_classic2() +
+  scale_color_manual(values=c('blue','red'),guide=F)+
+  geom_smooth(method=lm,
+              mapping=aes(x=Escol,y=Hurst),
+              inherit.aes=F,
+              se=F,color='gray60') +
+  #scale_colour_discrete(guide = FALSE) +
+  theme(strip.background = element_blank())+
+  theme(legend.position='top')+
+  #coord_cartesian(xlim=c(59,79))+
+  facet_grid(Etapa~Canal_var) +
+  geom_point()
+ggarrange(A,B,ncol=1,nrow=2,labels='AUTO',common.legend=TRUE)
+
+ggsave(filename='/Fig02_Escol_hurst.png',path=dir_graf,
+       device='png',units='cm',width=7,height=7,dpi=400,scale=2)
 
 ###############################################################################
 # Hurst x Canal
@@ -613,9 +755,9 @@ for(ch in 1:n.canales){
   #Hurst.tmp = Hurst.MOR.promedio[grep(ch.actual,Hurst.MOR.promedio$Canal_var),]
   Hurst.tmp = Hurst.MOR[grep(ch.actual,Hurst.MOR$Canal_var),]
   
-  a = Hurst.tmp[grep('CTRL',Hurst.tmp$Grupo),]
+  a = Hurst.tmp[grep('CTL',Hurst.tmp$Grupo),]
   a = unlist(a$Hurst)
-  b = Hurst.tmp[grep('PMCI',Hurst.tmp$Grupo),]
+  b = Hurst.tmp[grep('MCI',Hurst.tmp$Grupo),]
   b = unlist(b$Hurst)
   
   k = t.test(a,b,na.action(na.omit))
@@ -659,9 +801,9 @@ for(ch in 1:n.canales){
   #Hurst.tmp = Hurst.NMOR.promedio[grep(ch.actual,Hurst.NMOR.promedio$Canal_var),]
   Hurst.tmp = Hurst.NMOR[grep(ch.actual,Hurst.NMOR$Canal_var),]
   
-  a = Hurst.tmp[grep('CTRL',Hurst.tmp$Grupo),]
+  a = Hurst.tmp[grep('CTL',Hurst.tmp$Grupo),]
   a = unlist(a$Hurst)
-  b = Hurst.tmp[grep('PMCI',Hurst.tmp$Grupo),]
+  b = Hurst.tmp[grep('MCI',Hurst.tmp$Grupo),]
   b = unlist(b$Hurst)
   
   k = t.test(a,b,na.action(na.omit))
@@ -702,9 +844,9 @@ for(ch in 1:n.canales){
   ch.actual = kanales$Etiqueta[ch]
   Hurst.tmp = Hurst.todo.promedio[grep(ch.actual,Hurst.NMOR.promedio$Canal_var),]
   
-  a = Hurst.tmp[grep('CTRL',Hurst.tmp$Grupo),]
+  a = Hurst.tmp[grep('CTL',Hurst.tmp$Grupo),]
   a = unlist(a$Hurst)
-  b = Hurst.tmp[grep('PMCI',Hurst.tmp$Grupo),]
+  b = Hurst.tmp[grep('MCI',Hurst.tmp$Grupo),]
   b = unlist(b$Hurst)
   
   k = t.test(a,b,na.action(na.omit))
@@ -738,7 +880,7 @@ A = ggplot(promedios.todo,aes(x=Canal_var,y=Hurst,fill=Grupo)) +
   theme(strip.background = element_blank())+
   rotate_x_text(angle = 45)
 ggarrange(A,labels='A')
-ggsave(filename='/comparacion_hurst_uno_CTRL_PMCI.png',path=dir_graf,
+ggsave(filename='/comparacion_hurst_uno_CTL_MCI.png',path=dir_graf,
        device='png',units='cm',width=8,height=6,dpi=400,scale=2)
 
 # grafico nuevo, REM vs NREM
@@ -751,7 +893,7 @@ for(ch in 1:n.canales){
   #Hurst.tmp = Hurst.todo.promedio[grep(ch.actual,
   #                                     Hurst.todo.promedio$Canal_var),]
   Hurst.tmp = Hurst.todo[grep(ch.actual,Hurst.todo$Canal_var),]
-  Hurst.tmp = Hurst.tmp[grep('CTRL',Hurst.tmp$Grupo),]
+  Hurst.tmp = Hurst.tmp[grep('CTL',Hurst.tmp$Grupo),]
   
   a = Hurst.tmp[grep('^REM',Hurst.tmp$Etapa),]
   a = unlist(a$Hurst)
@@ -774,7 +916,7 @@ for(ch in 1:n.canales){
   #Hurst.tmp = Hurst.todo.promedio[grep(ch.actual,
   #                                     Hurst.todo.promedio$Canal_var),]
   Hurst.tmp = Hurst.todo[grep(ch.actual,Hurst.todo$Canal_var),]
-  Hurst.tmp = Hurst.tmp[grep('PMCI',Hurst.tmp$Grupo),]
+  Hurst.tmp = Hurst.tmp[grep('MCI',Hurst.tmp$Grupo),]
   
   a = Hurst.tmp[grep('^REM',Hurst.tmp$Etapa),]
   a = unlist(a$Hurst)
@@ -873,21 +1015,29 @@ raw = read_excel(paste0(dir_res_pre,'/dfa_asdataframe.xlsx'),
 raw = as.data.frame(raw)
 
 Hurst.MOR           = melt(raw,id=c('Sujeto','Grupo','Edad',
-                                    'MMSE','Neuropsi',
+                                    'MMSE','Neuropsi','Escol',
                                     'MORn','Epoca','Etapa'))
 colnames(Hurst.MOR) = c('Sujeto','Grupo','Edad','MMSE','Neuropsi',
-                        'MORn','Epoca','Etapa','Canal_var','Hurst')
+                        'Escol',
+                        'MORn','Epoca','Etapa',
+                        'Canal_var','Hurst')
+Hurst.MOR$Sujeto_n  = factor(Hurst.MOR$Sujeto,
+                             labels = info$Nombre)
 Hurst.MOR           = Hurst.MOR[!is.na(Hurst.MOR$Hurst),]
 Hurst.MOR$Canal_var = as.numeric(Hurst.MOR$Canal_var)
-Hurst.MOR$Sujeto_n  = factor(Hurst.MOR$Sujeto,labels = info$Nombre[1:13])
 Hurst.MOR$Etapa     = rep(1,length(Hurst.MOR$Sujeto))
+
+Hurst.MOR = Hurst.MOR[!is.na(Hurst.MOR$Hurst),]
+Hurst.MOR = Hurst.MOR[Hurst.MOR$Grupo>-1,]
+
+sujetos = setdiff(unique(Hurst.MOR$Sujeto),11)
 
 if(usar.log){
   Hurst.MOR$Hurst     = log(Hurst.MOR$Hurst)
   Hurst.promedio$Hurst = log(Hurst.promedio$Hurst)
 }
 Hurst.MOR.promedio = c()
-for(suj in 1:13){
+for(suj in sujetos){
   tmp       = Hurst.MOR[grep(info$Nombre[suj],Hurst.MOR$Sujeto_n),]
   promedios = aggregate(tmp,by=list(tmp$Canal_var),mean)
   Hurst.MOR.promedio = rbind(Hurst.MOR.promedio,promedios)
@@ -897,13 +1047,13 @@ for(suj in 1:13){
 Hurst.MOR$Canal_var          = factor(Hurst.MOR$Canal_var,
                                       labels=kanales$Etiqueta)
 Hurst.MOR$Grupo              = factor(Hurst.MOR$Grupo,
-                                      labels=c('CTRL','PMCI'))
+                                      labels=c('CTL','MCI'))
 
 Hurst.MOR.promedio           = as.data.frame(Hurst.MOR.promedio)
 Hurst.MOR.promedio$Canal_var = factor(Hurst.MOR.promedio$Canal_var,
                                       labels=kanales$Etiqueta)
 Hurst.MOR.promedio$Grupo     = factor(Hurst.MOR.promedio$Grupo,
-                                      labels=c('CTRL','PMCI'))
+                                      labels=c('CTL','MCI'))
 Hurst.MOR.promedio$Sujeto_n = info$Nombre[Hurst.MOR.promedio$Sujeto]
 promedios.MOR               = summarySE(Hurst.MOR.promedio,na.rm=T,
                                         measurevar='Hurst',
@@ -916,21 +1066,29 @@ raw = read_excel(paste0(dir_res_pre,'/dfa_asdataframe.xlsx'),
 raw = as.data.frame(raw)
 
 Hurst.NMOR           = melt(raw,id=c('Sujeto','Grupo','Edad',
-                                     'MMSE','Neuropsi',
+                                     'MMSE','Neuropsi','Escol',
                                      'MORn','Epoca','Etapa'))
 colnames(Hurst.NMOR) = c('Sujeto','Grupo','Edad','MMSE','Neuropsi',
-                         'MORn','Epoca','Etapa','Canal_var','Hurst')
+                         'Escol',
+                         'MORn','Epoca','Etapa',
+                         'Canal_var','Hurst')
+Hurst.NMOR$Sujeto_n  = factor(Hurst.NMOR$Sujeto,
+                             labels = info$Nombre)
 Hurst.NMOR           = Hurst.NMOR[!is.na(Hurst.NMOR$Hurst),]
 Hurst.NMOR$Canal_var = as.numeric(Hurst.NMOR$Canal_var)
-Hurst.NMOR$Sujeto_n  = factor(Hurst.NMOR$Sujeto,labels = info$Nombre[1:13])
-Hurst.NMOR$Etapa     = rep(0,length(Hurst.NMOR$Sujeto))
+Hurst.NMOR$Etapa     = rep(1,length(Hurst.NMOR$Sujeto))
+
+Hurst.NMOR = Hurst.NMOR[!is.na(Hurst.NMOR$Hurst),]
+Hurst.NMOR = Hurst.NMOR[Hurst.NMOR$Grupo>-1,]
+
+sujetos = setdiff(unique(Hurst.NMOR$Sujeto),11)
 
 if(usar.log){
   Hurst.NMOR$Hurst     = log(Hurst.NMOR$Hurst)
   Hurst.promedio$Hurst = log(Hurst.promedio$Hurst)
 }
 Hurst.NMOR.promedio = c()
-for(suj in 1:13){
+for(suj in sujetos){
   tmp       = Hurst.NMOR[grep(info$Nombre[suj],Hurst.NMOR$Sujeto_n),]
   promedios = aggregate(tmp,by=list(tmp$Canal_var),mean)
   Hurst.NMOR.promedio = rbind(Hurst.NMOR.promedio,promedios)
@@ -940,12 +1098,12 @@ for(suj in 1:13){
 Hurst.NMOR$Canal_var          = factor(Hurst.NMOR$Canal_var,
                                        labels=kanales$Etiqueta)
 Hurst.NMOR$Grupo              = factor(Hurst.NMOR$Grupo,
-                                       labels=c('CTRL','PMCI'))
+                                       labels=c('CTL','MCI'))
 Hurst.NMOR.promedio           = as.data.frame(Hurst.NMOR.promedio)
 Hurst.NMOR.promedio$Canal_var = factor(Hurst.NMOR.promedio$Canal_var,
                                        labels=kanales$Etiqueta)
 Hurst.NMOR.promedio$Grupo     = factor(Hurst.NMOR.promedio$Grupo,
-                                       labels=c('CTRL','PMCI'))
+                                       labels=c('CTL','MCI'))
 Hurst.NMOR.promedio$Sujeto_n = info$Nombre[Hurst.NMOR.promedio$Sujeto]
 promedios.NMOR               = summarySE(Hurst.NMOR.promedio,na.rm=T,
                                          measurevar='Hurst',
@@ -1038,9 +1196,9 @@ ggplot(Hurst.NMOR.promedio,aes(x=Neuropsi,y=Hurst,
   geom_point()
 
 # ambos
-correlaciones     = matrix(0,nrow=n.canales,ncol=4)
+correlaciones     = matrix(0,nrow=n.canales,ncol=5)
 correlaciones[,1] = kanales$Etiqueta
-colnames(correlaciones) = c('Canal','R_Spear','p','S')
+colnames(correlaciones) = c('Canal','R_Pearson','p','t','dF')
 for(ch in 1:n.canales){
   ch.actual = kanales$Etiqueta[ch]
   Hurst.tmp = Hurst.todo.promedio[grep(ch.actual,Hurst.todo.promedio$Canal_var),]
@@ -1049,9 +1207,10 @@ for(ch in 1:n.canales){
   b = unlist(Hurst.tmp$Hurst)
   k = cor.test(a,b,method='pearson',na.action(na.omit))
   
-  correlaciones[ch,'R_Spear'] = k$estimate
+  correlaciones[ch,'R_Pearson'] = k$estimate
   correlaciones[ch,'p']       = k$p.value
-  correlaciones[ch,'S']       = k$statistic
+  correlaciones[ch,'t']       = k$statistic
+  correlaciones[ch,'dF']      = k$parameter
 }
 
 ggplot(Hurst.todo.promedio,aes(x=Neuropsi,y=Hurst,
@@ -1072,6 +1231,7 @@ ggplot(Hurst.todo.promedio,aes(x=Neuropsi,y=Hurst,
 
 ###############################################################################
 # Edad vs Hurst
+# MOR
 correlaciones     = matrix(0,nrow=n.canales,ncol=5)
 correlaciones[,1] = kanales$Etiqueta
 colnames(correlaciones) = c('Canal','R_Pearson','p','t','dF')
@@ -1139,6 +1299,268 @@ ggplot(Hurst.NMOR.promedio,aes(x=Edad,y=Hurst,
         legend.justification=c(1,0))+
   geom_point()
 
+# ambos
+correlaciones     = matrix(0,nrow=n.canales,ncol=5)
+correlaciones[,1] = kanales$Etiqueta
+colnames(correlaciones) = c('Canal','R_Pearson','p','t','dF')
+for(ch in 1:n.canales){
+  ch.actual = kanales$Etiqueta[ch]
+  Hurst.tmp = Hurst.todo.promedio[grep(ch.actual,Hurst.todo.promedio$Canal_var),]
+  
+  a = unlist(Hurst.tmp$Edad)
+  b = unlist(Hurst.tmp$Hurst)
+  k = cor.test(a,b,method='pearson',na.action(na.omit))
+  
+  correlaciones[ch,'R_Pearson'] = k$estimate
+  correlaciones[ch,'p']       = k$p.value
+  correlaciones[ch,'t']       = k$statistic
+  correlaciones[ch,'dF']      = k$parameter
+}
+
+ggplot(Hurst.todo.promedio,aes(x=Edad,y=Hurst,
+                               shape=Grupo,color=Grupo))+
+  ylab('Hurst Exponent') +
+  labs(shape=NULL,color=NULL) +
+  facet_wrap(~Canal_var,ncol=6) +
+  theme_classic2() +
+  geom_smooth(method=lm,
+              mapping=aes(x=Edad,y=Hurst),
+              inherit.aes=F,
+              se=F,color='black') +
+  scale_colour_discrete(guide = FALSE) +
+  rotate_x_text(angle = 45)+
+  theme(legend.position=c(1,.05),legend.direction = 'horizontal',
+        legend.justification=c(1,0))+
+  geom_point()
+
+
+
+
+# Significativos
+cuales = c(18,19)
+signif = c()
+for(ch in cuales){
+  ch.actual = kanales$Etiqueta[ch]
+  Hurst.tmp = Hurst.MOR.promedio[grep(ch.actual,Hurst.MOR.promedio$Canal_var),]
+  
+  signif = rbind(signif,Hurst.tmp)
+}
+
+A = ggplot(signif,aes(x=Edad,y=Hurst,
+                      shape=Grupo))+
+  ylab('Hurst Exponent') + xlab('Age') +
+  labs(shape=NULL,color=NULL) +
+  facet_wrap(~Canal_var,ncol=6) +
+  theme_classic2() +
+  geom_smooth(method=lm,
+              mapping=aes(x=Edad,y=Hurst),
+              inherit.aes=F,
+              se=F,color='gray60') +
+  scale_colour_discrete(guide = FALSE) +
+  theme(strip.background = element_blank())+
+  theme(legend.position='top')+
+  coord_cartesian(xlim=c(59,79))+
+  facet_grid(Etapa~Canal_var) +
+  geom_point()
+
+cuales = c(20,21)
+signif = c()
+for(ch in cuales){
+  ch.actual = kanales$Etiqueta[ch]
+  Hurst.tmp = Hurst.NMOR.promedio[grep(ch.actual,Hurst.NMOR.promedio$Canal_var),]
+  
+  signif = rbind(signif,Hurst.tmp)
+}
+
+ggplot(signif,aes(x=Edad,y=Hurst,
+                  shape=Grupo,color=Grupo))+
+  ylab('Hurst Exponent') + xlab('Age') +
+  labs(shape=NULL,color=NULL) +
+  facet_wrap(~Canal_var,ncol=6) +
+  theme_classic2() +
+  scale_color_manual(values=c('blue','red'),guide=F)+
+  geom_smooth(method=lm,
+              mapping=aes(x=Edad,y=Hurst),
+              inherit.aes=F,
+              se=F,color='gray60') +
+  #scale_colour_discrete(guide = FALSE) +
+  theme(strip.background = element_blank())+
+  theme(legend.position='top')+
+  coord_cartesian(xlim=c(59,79))+
+  facet_grid(Etapa~Canal_var) +
+  geom_point()
+ggarrange(B,ncol=1,nrow=2,labels='AUTO',common.legend=TRUE)
+
+ggsave(filename='/Fig02_edad_hurst.png',path=dir_graf,
+       device='png',units='cm',width=7,height=4,dpi=400,scale=2)
+
+ggarrange(A,labels=NULL)
+ggsave(filename='/Fig_age_hurst.png',path=dir_graf,
+       device='png',units='cm',width=4,height=4,dpi=400,scale=2)
+
+###############################################################################
+# Escol vs Hurst
+# MOR
+correlaciones     = matrix(0,nrow=n.canales,ncol=5)
+correlaciones[,1] = kanales$Etiqueta
+colnames(correlaciones) = c('Canal','R_Pearson','p','t','dF')
+for(ch in 1:n.canales){
+  ch.actual = kanales$Etiqueta[ch]
+  Hurst.tmp = Hurst.MOR.promedio[grep(ch.actual,Hurst.MOR.promedio$Canal_var),]
+  
+  a = unlist(Hurst.tmp$Escol)
+  b = unlist(Hurst.tmp$Hurst)
+  k = cor.test(a,b,method='pearson',na.action(na.omit))
+  
+  correlaciones[ch,'R_Pearson'] = k$estimate
+  correlaciones[ch,'p']       = k$p.value
+  correlaciones[ch,'t']       = k$statistic
+  correlaciones[ch,'dF']      = k$parameter
+}
+
+ggplot(Hurst.MOR.promedio,aes(x=Escol,y=Hurst,
+                              shape=Grupo,color=Grupo))+
+  ylab('Hurst Exponent') +
+  labs(shape=NULL,color=NULL) +
+  facet_wrap(~Canal_var,ncol=6) +
+  theme_classic2() +
+  geom_smooth(method=lm,
+              mapping=aes(x=Escol,y=Hurst),
+              inherit.aes=F,
+              se=F,color='black') +
+  scale_colour_discrete(guide = FALSE) +
+  rotate_x_text(angle = 45)+
+  theme(legend.position=c(1,.05),legend.direction = 'horizontal',
+        legend.justification=c(1,0))+
+  geom_point()
+
+# NMOR
+correlaciones     = matrix(0,nrow=n.canales,ncol=5)
+correlaciones[,1] = kanales$Etiqueta
+colnames(correlaciones) = c('Canal','R_Pearson','p','t','dF')
+for(ch in 1:n.canales){
+  ch.actual = kanales$Etiqueta[ch]
+  Hurst.tmp = Hurst.NMOR.promedio[grep(ch.actual,Hurst.NMOR.promedio$Canal_var),]
+  
+  a = unlist(Hurst.tmp$Escol)
+  b = unlist(Hurst.tmp$Hurst)
+  k = cor.test(a,b,method='pearson',na.action(na.omit))
+  
+  correlaciones[ch,'R_Pearson'] = k$estimate
+  correlaciones[ch,'p']       = k$p.value
+  correlaciones[ch,'t']       = k$statistic
+  correlaciones[ch,'dF']      = k$parameter
+}
+
+ggplot(Hurst.NMOR.promedio,aes(x=Escol,y=Hurst,
+                               shape=Grupo,color=Grupo))+
+  ylab('Hurst Exponent') +
+  labs(shape=NULL,color=NULL) +
+  facet_wrap(~Canal_var,ncol=6) +
+  theme_classic2() +
+  geom_smooth(method=lm,
+              mapping=aes(x=Escol,y=Hurst),
+              inherit.aes=F,
+              se=F,color='black') +
+  scale_colour_discrete(guide = FALSE) +
+  rotate_x_text(angle = 45)+
+  theme(legend.position=c(1,.05),legend.direction = 'horizontal',
+        legend.justification=c(1,0))+
+  geom_point()
+
+# ambos
+correlaciones     = matrix(0,nrow=n.canales,ncol=5)
+correlaciones[,1] = kanales$Etiqueta
+colnames(correlaciones) = c('Canal','R_Pearson','p','t','dF')
+for(ch in 1:n.canales){
+  ch.actual = kanales$Etiqueta[ch]
+  Hurst.tmp = Hurst.todo.promedio[grep(ch.actual,Hurst.todo.promedio$Canal_var),]
+  
+  a = unlist(Hurst.tmp$Escol)
+  b = unlist(Hurst.tmp$Hurst)
+  k = cor.test(a,b,method='pearson',na.action(na.omit))
+  
+  correlaciones[ch,'R_Pearson'] = k$estimate
+  correlaciones[ch,'p']       = k$p.value
+  correlaciones[ch,'t']       = k$statistic
+  correlaciones[ch,'dF']      = k$parameter
+}
+
+ggplot(Hurst.todo.promedio,aes(x=Escol,y=Hurst,
+                               shape=Grupo,color=Grupo))+
+  ylab('Hurst Exponent') +
+  labs(shape=NULL,color=NULL) +
+  facet_wrap(~Canal_var,ncol=6) +
+  theme_classic2() +
+  geom_smooth(method=lm,
+              mapping=aes(x=Escol,y=Hurst),
+              inherit.aes=F,
+              se=F,color='black') +
+  scale_colour_discrete(guide = FALSE) +
+  rotate_x_text(angle = 45)+
+  theme(legend.position=c(1,.05),legend.direction = 'horizontal',
+        legend.justification=c(1,0))+
+  geom_point()
+
+# Significativos
+cuales = c(21,22)
+signif = c()
+for(ch in cuales){
+  ch.actual = kanales$Etiqueta[ch]
+  Hurst.tmp = Hurst.MOR.promedio[grep(ch.actual,Hurst.MOR.promedio$Canal_var),]
+  
+  signif = rbind(signif,Hurst.tmp)
+}
+
+A = ggplot(signif,aes(x=Escol,y=Hurst,
+                      shape=Grupo,color=Grupo))+
+  ylab('Hurst Exponent') + xlab('Education') +
+  labs(shape=NULL,color=NULL) +
+  facet_wrap(~Canal_var,ncol=6) +
+  theme_classic2() +
+  geom_smooth(method=lm,
+              mapping=aes(x=Escol,y=Hurst),
+              inherit.aes=F,
+              se=F,color='gray60') +
+  scale_color_manual(values=c('blue','red'),guide=F)+
+  #scale_colour_discrete(guide = FALSE) +
+  theme(strip.background = element_blank())+
+  theme(legend.position='top')+
+  #coord_cartesian(xlim=c(59,79))+
+  facet_grid(Etapa~Canal_var) +
+  geom_point()
+
+cuales = c(20,21)
+signif = c()
+for(ch in cuales){
+  ch.actual = kanales$Etiqueta[ch]
+  Hurst.tmp = Hurst.NMOR.promedio[grep(ch.actual,Hurst.NMOR.promedio$Canal_var),]
+  
+  signif = rbind(signif,Hurst.tmp)
+}
+
+B = ggplot(signif,aes(x=Escol,y=Hurst,
+                      shape=Grupo,color=Grupo))+
+  ylab('Hurst Exponent') + xlab('Education') +
+  labs(shape=NULL,color=NULL) +
+  facet_wrap(~Canal_var,ncol=6) +
+  theme_classic2() +
+  scale_color_manual(values=c('blue','red'),guide=F)+
+  geom_smooth(method=lm,
+              mapping=aes(x=Escol,y=Hurst),
+              inherit.aes=F,
+              se=F,color='gray60') +
+  #scale_colour_discrete(guide = FALSE) +
+  theme(strip.background = element_blank())+
+  theme(legend.position='top')+
+  #coord_cartesian(xlim=c(59,79))+
+  facet_grid(Etapa~Canal_var) +
+  geom_point()
+ggarrange(A,B,ncol=1,nrow=2,labels='AUTO',common.legend=TRUE)
+
+ggsave(filename='/Fig02_Escol_hurst.png',path=dir_graf,
+       device='png',units='cm',width=7,height=7,dpi=400,scale=2)
+
 ###############################################################################
 # Hurst x Canal
 # MOR
@@ -1150,9 +1572,9 @@ for(ch in 1:n.canales){
   #Hurst.tmp = Hurst.MOR.promedio[grep(ch.actual,Hurst.MOR.promedio$Canal_var),]
   Hurst.tmp = Hurst.MOR[grep(ch.actual,Hurst.MOR$Canal_var),]
   
-  a = Hurst.tmp[grep('CTRL',Hurst.tmp$Grupo),]
+  a = Hurst.tmp[grep('CTL',Hurst.tmp$Grupo),]
   a = unlist(a$Hurst)
-  b = Hurst.tmp[grep('PMCI',Hurst.tmp$Grupo),]
+  b = Hurst.tmp[grep('MCI',Hurst.tmp$Grupo),]
   b = unlist(b$Hurst)
   
   k = t.test(a,b,na.action(na.omit))
@@ -1194,9 +1616,9 @@ for(ch in 1:n.canales){
   #Hurst.tmp = Hurst.NMOR.promedio[grep(ch.actual,Hurst.NMOR.promedio$Canal_var),]
   Hurst.tmp = Hurst.NMOR[grep(ch.actual,Hurst.NMOR$Canal_var),]
   
-  a = Hurst.tmp[grep('CTRL',Hurst.tmp$Grupo),]
+  a = Hurst.tmp[grep('CTL',Hurst.tmp$Grupo),]
   a = unlist(a$Hurst)
-  b = Hurst.tmp[grep('PMCI',Hurst.tmp$Grupo),]
+  b = Hurst.tmp[grep('MCI',Hurst.tmp$Grupo),]
   b = unlist(b$Hurst)
   
   k = t.test(a,b,na.action(na.omit))
@@ -1237,9 +1659,9 @@ for(ch in 1:n.canales){
   ch.actual = kanales$Etiqueta[ch]
   Hurst.tmp = Hurst.todo.promedio[grep(ch.actual,Hurst.NMOR.promedio$Canal_var),]
   
-  a = Hurst.tmp[grep('CTRL',Hurst.tmp$Grupo),]
+  a = Hurst.tmp[grep('CTL',Hurst.tmp$Grupo),]
   a = unlist(a$Hurst)
-  b = Hurst.tmp[grep('PMCI',Hurst.tmp$Grupo),]
+  b = Hurst.tmp[grep('MCI',Hurst.tmp$Grupo),]
   b = unlist(b$Hurst)
   
   k = t.test(a,b,na.action(na.omit))
@@ -1273,7 +1695,7 @@ A = ggplot(promedios.todo,aes(x=Canal_var,y=Hurst,fill=Grupo)) +
   theme(strip.background = element_blank())+
   rotate_x_text(angle = 45)
 ggarrange(A,labels='A')
-ggsave(filename='/comparacion_hurst_multi_CTRL_PMCI.png',path=dir_graf,
+ggsave(filename='/comparacion_hurst_multi_CTL_MCI.png',path=dir_graf,
        device='png',units='cm',width=8,height=6,dpi=400,scale=2)
 
 # grafico nuevo, REM vs NREM
@@ -1286,7 +1708,7 @@ for(ch in 1:n.canales){
   #Hurst.tmp = Hurst.todo.promedio[grep(ch.actual,
   #                                     Hurst.todo.promedio$Canal_var),]
   Hurst.tmp = Hurst.todo[grep(ch.actual,Hurst.todo$Canal_var),]
-  Hurst.tmp = Hurst.tmp[grep('CTRL',Hurst.tmp$Grupo),]
+  Hurst.tmp = Hurst.tmp[grep('CTL',Hurst.tmp$Grupo),]
   
   a = Hurst.tmp[grep('^REM',Hurst.tmp$Etapa),]
   a = unlist(a$Hurst)
@@ -1309,7 +1731,7 @@ for(ch in 1:n.canales){
   #Hurst.tmp = Hurst.todo.promedio[grep(ch.actual,
   #                                     Hurst.todo.promedio$Canal_var),]
   Hurst.tmp = Hurst.todo[grep(ch.actual,Hurst.todo$Canal_var),]
-  Hurst.tmp = Hurst.tmp[grep('PMCI',Hurst.tmp$Grupo),]
+  Hurst.tmp = Hurst.tmp[grep('MCI',Hurst.tmp$Grupo),]
   
   a = Hurst.tmp[grep('^REM',Hurst.tmp$Etapa),]
   a = unlist(a$Hurst)

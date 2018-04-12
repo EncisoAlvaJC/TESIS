@@ -127,12 +127,15 @@ for(i in 1:3){
   esc_log = c(esc_log,c(1,2,3,4,5,6,7,8,9)*10**i)
 }
 
+#stop()
+
 # grafico per se, la gramatica de ggplot2 no la domino completamente
 spec.2 %>%
   gather(Noisecolour,Power, White,Pink,Red,Blue,Violet) %>%
   ggplot(aes(x=Frecuency, y=Power, colour=Noisecolour,
-             linetype=Noisecolour)) +
+             size='a')) +
   geom_line() +
+  scale_size_manual(values=c(1.5),guide=F) +
   theme_bw() +
   scale_linetype(guide=FALSE)+
   scale_y_continuous(breaks = c((-100/20):(100/20))*20,
@@ -143,13 +146,14 @@ spec.2 %>%
   scale_color_manual(values=c('blue','pink','red','violet','black'))+
   annotation_logticks(sides = 'b')  +
   xlab('Frequency [Hz]\n (Log-scale)') +
-  ylab('Power Spectrum Density [dB]\n (Logarithm of spectrum)') +
+  ylab('Power Spectrum Density [dB]') +
   ggtitle('The Colors of Noise') +
   labs(colour='Type of Noise')+
-  theme(legend.position='bottom')
+  guides(linetype = guide_legend(override.aes = list(size = 1.5)))+
+  theme(legend.position='top')
 
 if(guardar.auto){
   ggsave(filename = 'color_noise_ggplot.png',dpi=400,
-         device='png',units='cm',width=8,height=7,scale=1.9)
+         device='png',units='cm',width=10,height=9,scale=1.2)
 }
 

@@ -484,9 +484,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.5534846"
-     inkscape:cx="288.24732"
-     inkscape:cy="147.2126"
+     inkscape:zoom="1.0984795"
+     inkscape:cx="345.79302"
+     inkscape:cy="145.46695"
      inkscape:document-units="cm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -504,7 +504,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -1754,5 +1754,18 @@
              style="font-family:sans-serif;text-align:start;text-anchor:start;fill:#ffffff" /></flowRegion><flowPara
            id="flowPara5375"
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.09543991px;line-height:1.25;font-family:'TeX Gyre Bonum';-inkscape-font-specification:'TeX Gyre Bonum';text-align:start;text-anchor:start;fill:#ffffff">LOG</flowPara></flowRoot>    </g>
+    <g
+       id="g3933"
+       transform="matrix(1.9556495,0,0,-1.9542255,-9.8760304,1654.1134)">
+      <text
+         id="text3937"
+         style="font-variant:normal;font-weight:bold;font-size:14px;font-family:Helvetica;-inkscape-font-specification:Helvetica-Bold;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         transform="matrix(1,0,0,-1,5.05,438.47)">
+        <tspan
+           id="tspan3935"
+           y="0"
+           x="0">A</tspan>
+      </text>
+    </g>
   </g>
 </svg>

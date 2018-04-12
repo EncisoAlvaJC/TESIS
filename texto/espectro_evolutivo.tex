@@ -434,6 +434,25 @@ aplica de manera aproximada, y entonces se cumple que
 \end{equation}
 
 
+El teorema de Isserlis es una identidad relativamente poco conocida sobre los cuartos momentos de una distribución multinormal; el caso particular de cuatro variables será usado para calcular la covarianza de algunos estimadores del espectro de potencias.
+
+\begin{teorema}[Isserlis]
+Sea $[X_1, X_2, X_3, X_4]$ un vector aleatorio siguiendo una distribución multinormal con media cero y matriz de covarianza finita. Se cumple que
+\begin{equation}
+\E{X_1 X_2 X_3 X_4} = \E{X_1 X_2} \E{X_3 X_4} + \E{X_1 X_3} \E{X_2 X_4} + \E{X_1 X_4} \E{X_2 X_3}
+\end{equation}
+\label{teo:isserlis}
+\end{teorema}
+
+%\begin{proof}
+%Si $\phi$ es la función característica de $(X_1, X_2, X_3, X_4)$, entonces puede escribirse
+%\begin{equation}
+%\E{X_1 X_2 X_3 X_4} = \frac{\partial^{2}}{\partial s_1 \partial s_2 \partial s_3 \partial s_4} \phi(s_1, s_2, s_3, s_4) \vert_{s_i = 0}
+%\end{equation}
+%
+%[?] completar, no es dificil
+%\end{proof}
+
 \begin{proposicion}
 Dadas las condiciones, y si \xt es un proceso normal cuyo que admite un espectro evolutivo uniformemente continuo, se tiene que
 \begin{equation}
@@ -455,7 +474,7 @@ Para ello, por definición puede escribirse para $t,s \in \mathcal{T}$ y $\omega
 \begin{multline}
 \E{\abso{U(\omega;t)}^{2} \abso{U(\lambda;s)}^{2}}
 =
-\int \int \int \int_{R^{4}} g(u) g(v) g(w) g(z) e^{i u \omega} e^{i v \omega} e^{i w \lambda} e^{i z \lambda} \\
+\iiiint_{\R^{4}} g(u) g(v) g(w) g(z) e^{i u \omega} e^{i v \omega} e^{i w \lambda} e^{i z \lambda} \\
  \times
 \E{{X(t-u)} {X(t-v)} {X(s-w)} {X(s-z)}}
 du dv dw dz 
@@ -486,7 +505,7 @@ Reemplazando sobre la expresión anterior, puede escribirse
 \end{equation}
 donde
 \begin{multline*}
-S_1 = \int \int \int \int_{R^{4}} g(u) g(v) g(w) g(z) e^{i u \omega} e^{i v \omega} e^{i w \lambda} e^{i z \lambda} \\
+S_1 = \iiiint_{\R^{4}} g(u) g(v) g(w) g(z) e^{i u \omega} e^{i v \omega} e^{i w \lambda} e^{i z \lambda} \\
 \times
 R(t-u,s-z)R(t-v,s-w)
 du dv dw dz 
@@ -509,22 +528,22 @@ R(p,q) = \intR e^{i \omega (p-q)} A(\omega; p)\overline{A(\omega; q)} d\mu(\omeg
 Así pues, reemplazando esta expresión sobre (?) se obtiene
 \begin{align*}
 S_1 &=
-\int \int \int \int_{R^{4}} g(u) g(v) g(w) g(z) e^{i u \omega} e^{i v \omega} e^{i w \lambda} e^{i z \lambda} \\
+\iiiint_{\R^{4}} g(u) g(v) g(w) g(z) e^{i u \omega} e^{i v \omega} e^{i w \lambda} e^{i z \lambda} \\
 &\pheq \times R(t-u,s-z)R(t-v,s-w) du dv dw dz \\
 &= 
-\int \int \int \int_{\R^{4}} g(u) g(v) g(w) g(z) e^{i u \omega} e^{i v \omega} e^{i w \lambda} e^{i z \lambda} \\
+\iiiint_{\R^{4}} g(u) g(v) g(w) g(z) e^{i u \omega} e^{i v \omega} e^{i w \lambda} e^{i z \lambda} \\
 &\pheq \times \left( 
-\int \int_{\R^{2}} 
+\iint_{\R^{2}} 
 \left[ 
 e^{-i \theta (s-z-t+u)} A(\theta; t-u) \overline{A(\theta; s-z)} 
 \right] 
 \right. \\
 &\pheq 
-\left. \vphantom{\int}
+\left. \vphantom{\int} \phantom{times}
 \left[ e^{-i \phi (s-w-t+u)} A(\phi; t-v) \overline{A(\theta; s-w)} \right] d\theta d\phi
 \right) du dv dw dz
 \\
- &= \int \int_{\R^{2}} \Gamma_*(\theta+ \omega; t, \theta) \overline{\Gamma_*(\phi + \omega; t, \phi)}
+ &= \iint_{\R^{2}} \Gamma_*(\theta+ \omega; t, \theta) \overline{\Gamma_*(\phi + \omega; t, \phi)}
  \Gamma_*(\phi+ \lambda; s, \phi) \overline{\Gamma_*(\theta + \lambda; s, \theta)} \\
  &\pheq \times
  \left[
@@ -668,14 +687,14 @@ Como en el caso del estimador $U$, será conveniente calcular la covarianza de $
 Hecho el trabajo previo, es claro que
 \begin{align*}
 \Cov{\widehat{h}(\omega, t), \widehat{h}(\lambda, s)} &=
-\int \int_{\R^{2}} w_\tau(u) w_\tau(v) \Cov{\abso{U(\omega; t-u)}^{2},\abso{U(\lambda; s-v)}^{2}} du dv \\
+\iint_{\R^{2}} w_\tau(u) w_\tau(v) \Cov{\abso{U(\omega; t-u)}^{2},\abso{U(\lambda; s-v)}^{2}} du dv \\
 &=
-\int \int_{\R^{2}} w_\tau(u) w_\tau(v) \left[ S_1 + S_2 \right] du dv + \orden{\nicefrac{B_g}{B_X}} \\
+\iint_{\R^{2}} w_\tau(u) w_\tau(v) \left[ S_1 + S_2 \right] du dv + \orden{\nicefrac{B_g}{B_X}} \\
 &= T_1 + T_2
 \end{align*}
 usando, por comodidad
 \begin{equation}
-T_1 = \int \int_{\R^{2}} w_\tau(u) w_\tau(v) \left[ S_1 \right] du dv
+T_1 = \iint_{\R^{2}} w_\tau(u) w_\tau(v) \left[ S_1 \right] du dv
 \end{equation}
 y similarmente para $T_2$; $S_1$ es como en la expresión (?), evaluado en los puntos $(t-u,\omega), (s-v, \lambda)$
 \begin{align*}
@@ -692,9 +711,9 @@ Se usará el teorema (?) para acotar la covarianza, comenzando por el primer sum
 T_1 &= 
 \iint_{\R^{2}} w_\tau(u) w_\tau(v) \left[ S_1 \right] du dv \\
 &\leq
-\int \int_{\R^{2}} w_\tau(u) w_\tau(v) \abso{ S_1 } du dv \\
+\iint_{\R^{2}} w_\tau(u) w_\tau(v) \abso{ S_1 } du dv \\
 &\leq 
-\int \int_{\R^{2}} 
+\iint_{\R^{2}} 
 w_\tau(u) w_\tau(v) \\
 &\pheq 
  \times \left[ \intR
@@ -702,10 +721,10 @@ w_\tau(u) w_\tau(v) \\
  \abso{A(\phi; t-u) A(\phi; s-v)} d\phi \right]^{2}
  du dv + \orden{\nicefrac{B_g}{B_X}} \\
 &\leq 
-\int \int_{\R^{2}} \abso{\Gamma(\phi + \omega)} \abso{\Gamma(\phi+ \lambda)}
+\iint_{\R^{2}} \abso{\Gamma(\phi + \omega)} \abso{\Gamma(\phi+ \lambda)}
 \abso{\Gamma(\theta + \omega)} \abso{\Gamma(\theta+ \lambda)} \\
 &\pheq 
- \times \left[ \int \int_{\R^{2}}  w_\tau(u) w_\tau(v)
+ \times \left[ \iint_{\R^{2}}  w_\tau(u) w_\tau(v)
  \abso{A(\phi; t-u) A(\phi; s-v)} du dv \right]
  d\phi d\theta + \orden{\nicefrac{B_g}{B_X}} \\
 \end{align*}
@@ -735,6 +754,66 @@ Dicho esto, se pueden hacer las siguientes aproximaciones, un poco más arriesga
 
 \section{Prueba de Priestley-Subba Rao}
 \label{sec:psr}
+
+\begin{proposicion}
+Sea $g$ una función cuando menos dos veces derivable cuyo dominio es $\mathcal{D}_g$, y sea $X$ una variable aleatoria real tal que $P(X\notin \mathcal{D}) = 0$. 
+%Si los momentos de $X$ están acotados y la secuencia $\left\{ \frac{1}{n !} \frac{d^{n}}{dx^{n}} g\left( \E{X} \right) \right\}$ está acotada, entonces 
+Pueden usarse las siguientes aproximaciones
+\begin{align}
+\E{g(X)} &\approx g\left( \E{X} \right) \\
+\Var{g(X)} &\approx \Var{X} \left[ g\prima \left( \E{X} \right) \right]^{-2}
+\end{align}
+\end{proposicion}
+
+\begin{proof}
+Usando polinomio de Taylor de grado 2 para $g$, alrededor de $\E{X}$ y evaluada en $X$
+\begin{equation}
+g(X) = g\left( \E{X} \right) + \left(X - \E{X} \right) g\prima \left( \E{X} \right) + \frac{\left( X - \E{X} \right)^{2}}{2} g^{\prime \prime}(\xi)
+\label{detalle:aprox}
+\end{equation}
+donde la variable aleatoria $\xi$ satisface $\abso{X-\xi} \leq \abso{X - \E{X}}$.
+%
+La aproximación, con una obvia pérdida, consiste en considerar que $\frac{1}{2}\left( X - \E{X} \right)^{2} g^{\prime \prime}(\xi) \approx 0$.
+\begin{equation}
+g(X) \approx g\left( \E{X} \right) + \left(X - \E{X} \right) g\prima \left( \E{X} \right)
+\end{equation}
+Si se toma el valor esperado de ambos lados
+\begin{align}
+\E{g(X)} &\approx \E{g\left( \E{X} \right)} + \E{\left(X - \E{X} \right)} g\prima \left( \E{X} \right) = g\left( \E{X} \right)
+\end{align}
+
+Lo cual confirma la primera parte del resultado. Para verificar la segunda parte del mismo, se elevan ambos lados al cuadrado
+\begin{align}
+\left[g(X)\right]^{2} &\approx \left[g\left( \E{X} \right)\right]^{2} + 2 g\left( \E{X} \right) \left(X - \E{X} \right) g\prima \left( \E{X} \right) \nonumber \\
+&\pheq + \left(X - \E{X} \right)^{2} \left[ g\prima \left( \E{X} \right] \right)^{2}
+\end{align}
+
+Posteriormente se toma el valor esperado de ambos lados
+\begin{align*}
+\E{\left[g(X)\right]^{2}} &\approx \E{\left[g\left( \E{X} \right)\right]^{2}} + 2 g\left( \E{X} \right) \E{X - \E{X} } g\prima \left( \E{X} \right) \nonumber \\
+&\pheq + \E{\left(X - \E{X} \right)^{2}} \left[ g\prima \left( \E{X} \right] \right)^{2} \\
+&= \left[g\left( \E{X} \right)\right]^{2} + \Var{X} \left[ g\prima \left( \E{X} \right] \right)^{2}
+\end{align*}
+entonces
+\begin{equation}
+\Var{g(X)} = \E{\left[g(X)\right]^{2}} - \left[g\left( \E{X} \right)\right]^{2} \approx \Var{X} \left[ g\prima \left( \E{X} \right] \right)^{2}
+\end{equation}
+de donde se obtiene la segunda parte del resultado. 
+
+Antes de concluir la demostración, conviene discutir bajo qué condiciones la aproximación es eficiente. La forma completa de la expresión \ref{detalle:aprox} contempla el término
+\begin{equation}
+\frac{\left( X - \E{X} \right)^{2}}{2} g^{\prime \prime}(\xi)
+\end{equation}
+Como $\abso{\xi} < $
+\end{proof}
+
+\begin{corolario}
+Si se usa el teorema anterior con $g = \log$ se obtiene
+\begin{align}
+\E{\log(X)} &\approx \log\left( \E{X} \right) \\
+\Var{\log(X)} &\approx \frac{\Var{X}}{\left( \E{X} \right)^{2}}
+\end{align}
+\end{corolario}
 
 La prueba de estacionariedad propuesta por Priestley y Subba Rao \cite{Priestley69} consiste en 
 probar si el espectro evolutivo de un proceso dado puede reducirse a un espectro de potencias; en otras palabras, se prueba la hipótesis de que el espectro evolutivo efectivamente cambia en el tiempo. 
@@ -991,12 +1070,75 @@ Aceptar $H_2$ \;
 \label{algoritmo_stationarity}
 \end{algorithm}
 
+%\begin{figure}
+%\centering
+%\begin{lstlisting}[caption={}]
+%Priestley-Subba Rao stationarity Test for datos
+%-----------------------------------------------
+%Samples used              : 3072 
+%Samples available         : 3069 
+%Sampling interval         : 1 
+%SDF estimator             : Multitaper 
+%  Number of (sine) tapers : 5 
+%  Centered                : TRUE 
+%  Recentered              : FALSE 
+%Number of blocks          : 11 
+%Block size                : 279 
+%Number of blocks          : 11 
+%p-value for T             : 0.4130131 
+%p-value for I+R           : 0.1787949 
+%p-value for T+I+R         : 0.1801353 
+%\end{lstlisting}
+%\caption[Resultado típico para la función \texttt{stationarity}]
+%{Resultado típico para la función \texttt{stationarity}. La función de densidad espectral es
+%referida como SDF, mientras que los p valores. El p-valor para \texttt{T+I+R} corresponde al 
+%estadístico $S_{I+R}$, y el p-valor para \texttt{T} corresponde $S_T$
+%}
+%\label{res_psr}
+%\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Estacionariedad local}
+\label{sec:est_local}
+
+Una práctica común en el análisis de señales electrofisiológicas es el suponer que una serie de 
+tiempo \textit{suficientemente} corta pueda considerarse estacionaria, cuando menos en el sentido
+débil; anteriormente se ha señalado que se trata de un efecto de muestras pequeñas \cite{Melard89},
+y paralelamente se han incorporado a los diseños experimentales motivos para mantener este supuesto
+\cite{Kaiser00}.
+
+En base a resultados previos usando esta técnica, se espera que el comportamiento de los patrones 
+visuales obedezca al fenómeno de \textbf{estacionariedad local}; esta característica, descrita por 
+Dahlhaus \cite{Dahlhaus97}, implica que un proceso puede ser aproximado a trozos 
+\textit{ensamblando} procesos estacionarios.
+%
+Esta caracterización del EEG ha sido usada anteriormente de manera fructífera pero problemática
+\cite{Barlow85,Kaplan99}.
+%
+Dentro del modelo para registros de PSG, la estacionariedad local significa que el PSG no es
+formalmente homogéneo \textit{pero} puede entenderse como varios segmentos homógeneos. En un
+sentido más general, es coherente pensar que el PSG se componga tanto de segmentos homógeneos
+como de \textit{eventos puntuales} y artefactos.
+
+En la figura \ref{epocas_diferentes} se muestra esquemáticamente cómo el tamaño
+de las ventanas puede influir para su clasificación como estacionarias/homogéneas.
+
 \begin{figure}
 \centering
 \includegraphics[width=\linewidth]{./img_diagramas/epocas_diferentes_v3.pdf}
 \caption{Efecto del tamaño de ventana sobre la clasificación de estacionariedad.}
 \label{epocas_diferentes}
 \end{figure}
+
+En otro ámbito, se replicó la metodología usada por McEwen \cite{McEwen75} para contrastar la 
+afirmación de que las series de tiempo \textit{suficiente cortas} son estacionarias. 
+%
+Este procedimiento consistió en repetir la clasificación de épocas variando el tamaño de ventana; 
+los tamaños de ventana se tomaron de la forma $30 \times 2^{n}$ segundos, para comparar con el 
+tamaño de época recomendado por la AASM.
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

@@ -645,12 +645,15 @@ Entonces $\{ Y_N \}_{N \in \N}$ converge en probabilidad a una distribución nor
 
 \section{Procesos estocásticos}
 
-Los procesos estocásticos se definen formalmente como variables aleatorias cuyo espacio muestral es un espacio de funciones, para lo cual deben definirse previamente una $\sigma$-álgebra \textit{suficientemente buena} para estos espacios.
+Los procesos estocásticos se definen formalmente como variables aleatorias cuyo espacio muestral es un espacio de funciones.
+%, para lo cual deben definirse previamente una $\sigma$-álgebra \textit{suficientemente buena} para estos espacios.
 %
 Intuitivamente es posible definir %(alternativamente) 
-los procesos estocásticos como una mera concatenación de variables aleatorias; sin embargo, el usar un conjunto infinito de ellas representa un problema desde el punto de vista formal.
+los procesos estocásticos como una \textit{concatenación} de variables aleatorias, es decir, un conjunto de variables aleatorias indexadas sobre algún conjunto arbitrario.
 %
-Debido a las limitaciones del presente trabajo, el tema se expone de manera formal pero incompleta; la exposición se basa en aquella presentada por [Kolmogorov?], de modo que el lector interesado debe dirigirse a dicho texto.
+Sin embargo, indexar un conjunto infinito de variables aleatorias representa un problema técnico en el cuanto a definir al proceoso estocástico como espacio de probabilidad, especialmente al definir la medida de probabilidad asociada.
+
+Debido a las limitaciones del presente trabajo, el tema se expone de manera parcial bajo un enfoque formal; la exposición se basa en aquella presentada por [Kolmogorov?], de modo que el lector interesado debe dirigirse a dicho texto.
 
 Primeramente se define a $\R^{\mathcal{T}}$, el conjunto de funciones con dominio en $\mathcal{T}$ y codominio en $\R$, el cual será usado como espacio de eventos\footnote{Se puede definir análogamente a $\C^{\mathcal{T}}$, o espacios más generales}. 
 %
@@ -663,8 +666,6 @@ I\left( [t_1, a_1, b_1], \cdots, [t_N, a_N, b_N] \right) =
 Es relativamente fácil extender la familia de estos intervalos por uniones e intersecciones finitas. Es un tanto más interesante definir una $\sigma$-álgebra generada por éstos conjuntos, pero tal parte se omite en el presente trabajo.
 %
 En el texto por Kolmogorov se explora con mayor detalle la existencia de dicha $\sigma$-álgebra --y por tanto, la existencia de procesos estocásticos.
-
-
 
 \begin{definicion}
 Un \textbf{proceso estocástico} \xt es una colección de variables aleatorias indexadas por el símbolo $t\in\mathcal{T}$.
@@ -703,68 +704,114 @@ Cabe mencionar que hay un conflicto similar con los términos \textit{tiempo con
 %
 Estos términos se usan porque se encuentran muy extendidos en la literatura sobre análisis de señales.
 
-Refiriendo a los proceso estocásticos como colecciones de variables 
-????
-Para evitar confusiones, los elementos que componen a un proceso estocástico son denotados como:\\
+Para facilitar la referencia de procesos estocásticos, los elementos que lo componen son denotados como:
 \begin{tabular}{cl}
 \xt    & Todo el proceso \\
 $X(t)$ & Variable aleatoria en el proceso, para el tiempo $t$ \\
 $x(t)$ & Una realización de $X(t)$ \\
 $F_{X(t)}$ & Función de probabilidad acumulada para $X(t)$
 %$ {\Delta_t}$ & Frecuencia de muestreo (en tiempo discreto)
-\end{tabular}\\
+\end{tabular}
 
-La estacionariedad es un indicativo de la \textit{homogeneidad} de un proceso; un proceso 
-\textit{muy} estacionario sería aquél cuyas variable aleatoria que tiene distribuciones conjuntas que no cambian 
-con el tiempo. 
+%Una primera función asociada a los procesos estocásticos es la autocorrelación.
+
+\subsection{Estacionariedad débil}
+
+De forma general, la estacionariedad significa que \textit{algunas} propiedades de un proceso sean \textit{invariantes} en el tiempo; la decisión sobre qué características deben ser invariantes, y en qué sentido, conlleva a diferentes definiciones.
 %
-La definición \ref{est_fuerte} representa con exactitud tales requerimientos, pero se le considera 
-\textit{innecesariamente fuerte}; una definición común es \ref{est_m}.
+Por ejemplo, en la definición \ref{est_fuerte} se pide que todas las variables que integra al proceso sigan una distribución común, así como todas variables conjuntas con algunas características.
 
-\begin{definicion}[Estacionariedad fuerte]
-Un proceso \xt se dice fuertemente estacionario si para cualesquiera 
-$t_1, t_2, \dots, t_n \in \mathcal{T}$ y cualquier $\tau$ tal que $t_i + \tau \in \mathcal{T}$,
-se cumple que
+%La estacionariedad es un indicativo de la \textit{homogeneidad} de un proceso; un proceso 
+%\textit{muy} estacionario sería aquél cuyas variable aleatoria que tiene distribuciones conjuntas que no cambian 
+%con el tiempo. 
+%%
+%La definición \ref{est_fuerte} representa con exactitud tales requerimientos, pero se le considera 
+%\textit{innecesariamente fuerte}; una definición común es \ref{est_m}.
+
+\begin{definicion}%[Estacionariedad fuerte]
+Un proceso \xt se dice \textbf{fuertemente estacionario} si para cualesquiera $t_1, t_2, \dots, t_n \in \mathcal{T}$ y cualquier $\tau$ tal que $t_i + \tau \in \mathcal{T}$, se cumple que
 \begin{equation*}
 F_{\left[ X(t_1), X(t_2), \dots, X(t_n) \right]} \equiv
 F_{\left[ X(t_1 + \tau), X(t_2 + \tau), \dots, X(t_n + \tau) \right]}
 \end{equation*}
-Donde $F_{[v_1,v_2,\dots,v_N]}$ es la FPA conjunta para el vector $[v_1,v_2,\dots,v_N]$
+con $F_{[v_1,v_2,\dots,v_N]}$ es la función de probabilidad acumulada para el vector $[v_1,v_2,\dots,v_N]$.
 \label{est_fuerte}
 \end{definicion}
 
-\begin{definicion}[Estacionariedad de orden $m$]
-Un proceso \xt se dice estacionario de orden $m$ si, para cualesquiera
-$t_1, t_2, \dots, t_n \in \mathcal{T}$ y cualquier $\tau$ tal que $t_i + \tau \in \mathcal{T}$,
-se cumple que
+En el contexto del presente trabajo la estacionariedad fuerte se considera \textit{innecesariamente fuerte}, en cuanto a que es difícil de verificar y porque se usarán hipótesis más débiles.
+%
+Se decidió conveniente una definición que garantice que los momentos puedan ser estimados, para lo cual deben ser constantes en el tiempo.
+%
+La motivación principal para ello es el siguiente: si se modela una señal como proceso estocástico, entonces los momentos están asociados con variables físicas relevantes. 
+%
+En particular, el segundo momento está asociado con la \textit{energía} (ver ??).
+
+\begin{definicion}%[Estacionariedad de orden $m$]
+Un proceso \xt se dice \textbf{estacionario de orden $\boldsymbol{m}$} si, para cualesquiera $t_1, t_2, \dots, t_n \in \mathcal{T}$ y cualquier $\tau$ tal que $t_i + \tau \in \mathcal{T}$, se cumple que
 \begin{equation*}
 \E{X^{m_1}(t_1)X^{m_2}(t_2)\cdots X^{m_n}(t_n)} =
 \E{X^{m_1}(t_1+\tau)X^{m_2}(t_2+\tau)\cdots X^{m_n}(t_n+\tau)}
 \end{equation*}
-para cualesquiera enteros $m_1, m_2, \dots, m_n$ tales que $m_1+m_2+\cdots+m_n \leq m$
+para cualesquiera enteros $m_1, m_2, \dots, m_n$ tales que $m_1+m_2+\cdots+m_n \leq m$.
 \label{est_m}
 \end{definicion}
 
-Cabe mencionar que la definición \ref{est_m} no es equivalente a la definición \ref{est_fuerte}, ni
-aún cuando $m\rightarrow \infty$; sin embargo permite asegurar que los \textit{momentos} 
-($\E{X^{k}}$ para algún $k$) del proceso sean invariantes en el tiempo, y éstos suelen encontrarse
-asociados a cantidades físicas.
+%Cabe mencionar que la definición \ref{est_m} no es equivalente a la definición \ref{est_fuerte}, ni
+%aún cuando $m\rightarrow \infty$; sin embargo permite asegurar que los \textit{momentos} 
+%($\E{X^{k}}$ para algún $k$) del proceso sean invariantes en el tiempo, y éstos suelen encontrarse
+%asociados a cantidades físicas.
 
-Como un ejemplo muy particular conviene destacar la energía, que suele ser asociada con el segundo
-momento (definición \ref{energia}). 
+La definición \ref{est_m} es conveniente tomando en cuenta que para estudiar la energía de un proceso (asociada al segundo momento) requerirá poner condiciones adicionales; por ejemplo, para estimar la varianza de la energía en un proceso, a partir de observaciones, se requiere que el proceso sea estacionario de orden 4.
 %
-Dicha conexión motiva a escoger una definición de estacionariedad que permita analizar la energía 
-del proceso: la estacionariedad débil.
+En el otro sentido, siempre que sea posible se usará la menor cantidad de hipótesis, para lo cual se presenta una definición más particular y \textit{débil} de estacionariedad.
 
-\begin{definicion}[Estacionariedad débil]
-Un proceso \xt se dice débilmente estacionario si existen constantes $\mu, \sigma \in \R$ y una 
-función $R : \mathcal{T} \rightarrow \R \cup \{ \pm \infty \} $ tales que, para cualesquiera $t, s \in T$ se 
+%Como un ejemplo muy particular conviene destacar la energía, que suele ser asociada con el segundo
+%momento (definición \ref{energia}). 
+%%
+%Dicha conexión motiva a escoger una definición de estacionariedad que permita analizar la energía 
+%del proceso: la estacionariedad débil.
+
+\begin{definicion}%[Estacionariedad débil]
+Un proceso \xt se dice \textbf{débilmente estacionario} si existen constantes $\mu, \sigma \in \R$ y una función $R : \mathcal{T} \rightarrow \R \cup \{ \pm \infty \} $ tales que, para cualesquiera $t, s \in T$ se 
 cumple
 \begin{itemize}
 \item $\E{X(t)} = \mu$
 \item $\Var{X(t)} = \sigma^{2}$
-\item $\Cov{X(t),X(s)} = R(s-t)$
+\item $\Cov{X(t),X(s)} = R(\abso{s-t})$
 \end{itemize}
+\end{definicion}
+
+\begin{proposicion}
+Para que un proceso estocástico \xt sea débilmente estacionario es suficiente y necesario que sea estacionario de orden 2.
+\end{proposicion}
+
+%\begin{proof}
+%\underline{Para probar que la condición es necesaria} supóngase que \xt es débilmente estacionario.
+%Para que sea estacionario de orden 2 debe cumplirse que, para cualesquiera $s, t, s+\tau, y+\tau \in \mathcal{T}$
+%\begin{enumerate}
+%\item $\E{X(t)} = \E{X(t+\tau)}$
+%\item $\E{X^{2}(t)} = \E{X^{2}(t+\tau)}$
+%\item $\E{X(t)X(s)} = \E{X(t+\tau)X(s+\tau)}$
+%\end{enumerate}
+%
+%\underline{Para probar que la condición es necesaria} supóngase que \xt es estacionario de orden 2.
+%%
+%Se toma un $t_0\in \mathcal{T}$ arbitrario, y se define
+%\begin{equation*}
+%\mu = \E{X(t_0)} \qquad \sigma^{2} = \Var{X(t_0)}
+%\end{equation*}
+%\end{proof}
+
+El que un proceso sea débilmente estacionario implica la existencia de una media y varianza características del proceso, es decir, que son comunes a todas las variables aleatorias que lo componen. 
+%
+Además, se implica la existencia de una función referida como \textit{autocovarianza}.
+
+\begin{definicion}
+Sea \xt un proceso estocástico sobre $\R$. Su \textbf{función de autocovarianza} es una función $R: \R^{2}\rightarrow \R$ tal que
+\begin{equation}
+R(t,s) = \E{\left(X(t) - \E{X(t)}\right)\overline{\left(X(s) - \E{X(s)}\right)}}
+\end{equation} 
+para cualesquiera tiempos admisibles $s, t \in \mathcal{T}$.
 \end{definicion}
 
 \begin{figure}
@@ -773,13 +820,9 @@ cumple
 \caption[Realizaciones de algunos proceso débilmente estacionarios]{Realizaciones de algunos procesos débilmente estacionarios. \textbf{A.} Proceso oscilante, del cual se grafican tres realizaciones diferentes. \textbf{B.} Proceso ruido blanco. \textbf{C.} Proceso de medias móviles (MA). \textbf{D.} Proceso tipo alfa. \textbf{E.} Proceso ruido rosa.}
 \end{figure}
 
-\begin{proposicion}
-Un proceso estocástico es débilmente estacionario si y sólo si es estacionario de orden 2.
-\end{proposicion}
-
-La proposición anterior deja en claro que la estacionariedad débil puede entenderse como una \textit{estabilidad} en los momentos conjuntos de orden al menos dos, condición suficiente para trabajar con la media y la varianza del proceso.
+%La proposición anterior deja en claro que la estacionariedad débil puede entenderse como una \textit{estabilidad} en los momentos conjuntos de orden al menos dos, condición suficiente para trabajar con la media y la varianza del proceso.
 %
-Sin embargo, en ocasiones se requerirán condiciones más fuertes sobre los procesos. Como ejemplo, cuando se quiere obtener la varianza para un estimador del espectro de potencias, se necesita que la serie sea estacionaria de orden 4. 
+%Sin embargo, en ocasiones se requerirán condiciones más fuertes sobre los procesos. Como ejemplo, cuando se quiere obtener la varianza para un estimador del espectro de potencias, se necesita que la serie sea estacionaria de orden 4. 
 
 %Cabe destacar que la estacionariedad débil no sólo tiene como condición que todas las variables del
 %proceso tengan la misma media y varianza, sino que también supone que éstas son finitas.
@@ -787,30 +830,69 @@ Sin embargo, en ocasiones se requerirán condiciones más fuertes sobre los proc
 %Sobre la función de covarianza $R$ (que en un único proceso es referida como \textit{autocovarianza}),
 %no hay restricciones sobre los valores que pueda tomar, excepto que 
 %$R(0) = \Var{X(\bullet)} < \infty$. 
-%%
-En el marco del modelo de series electrofisiológicas, conviene suponer que los registros 
-corresponden a procesos a tiempo continuo que son continuos de alguna forma; se ha elegido la 
-continuidad en media cuadrática.
 
-Cuando una señal electrofisiológica se modela como un proceso estocástico, es necesario suponer que su media y varianza son finitas en todo momento. 
+Como las señales electrofisiológicas son modeladas como procesos estocásticos, conviene traducir algunas de sus características en propiedades para los procesos estocásticos.
 %
-Esto se debe a que existen umbrales \textit{naturales} en los que ocurren las mediciones, fuera de los cuales la vida misma es imposible; este comentario aplica también sobre la energía dentro del sistema.
+Por ejemplo, se sabe que las señales representan variaciones en campos eléctricos, y entonces se puede afirmar sin duda que dicha cantidad es finita en todo momento; lo mismo se puede afirmar sobre la energía.
 %
-Más aún, la actividad eléctrica cerebral y muscular presentan una actividad característica del estado de reposo (\textit{actividad basal}) de la cual no se \textit{alejan mucho} el resto del tiempo; esta suerte de media intuitiva es referida como \textit{línea base}, y se refleja dentro del modelado con la insistencia heurística de tratar a los procesos como si tuvieran media cero.
+En base a ello, los procesos estocásticos que modelan señales electrofisiológicas deben tener energía y varianza finitas en todo momento.
+%
+%En el marco del modelo de series electrofisiológicas, conviene suponer que los registros 
+%corresponden a procesos a tiempo continuo que son continuos de alguna forma; se ha elegido la 
+%continuidad en media cuadrática.
+%
+%Cuando una señal electrofisiológica se modela como un proceso estocástico, es necesario suponer que su media y varianza son finitas en todo momento. 
+%
+%Esto se debe a que existen umbrales \textit{naturales} en los que ocurren las mediciones, fuera de los cuales la vida misma es imposible; este comentario aplica también sobre la energía dentro del sistema.
+%
+Más aún, la actividad eléctrica cerebral y muscular presentan durante el reposo una actividad característica, referida como \textit{actividad basal} o \textit{línea base}, que es relativamente cercana a una constante en todo momento (ver figura \ref{ejemplos_mor}).
+%; esta actividad es 
+%) de la cual no se \textit{alejan mucho}.
+%el resto del tiempo
+%La línea base es aproximadamente una línea recta
+%Esta suerte de media intuitiva es referida como \textit{línea base}, y se refleja dentro del modelado con la insistencia heurística de tratar a los procesos como si tuvieran media cero.
+%
+El fenómeno de línea base entra en el modelado como el supuesto de que las señales son procesos estacionarias de orden 1; por simplicidad, se puede considerar que la media de estos procesos es 0.
 
-\begin{observacion}
+Una segunda característica de las señales que se traduce es la continuidad: las señales representan fenómenos eléctricos que cambian de manera \textit{suave} en el tiempo, e idealmente son curvas derivables.
+%
+El aspecto de los registros con \textit{picos} se explica porque el cambio es suave, pero es muy rápido respecto a la tasa de registro.
+
+\begin{proposicion}
 Sea \xt un proceso débilmente estacionario y $R$ su función de autocovarianza. Si $R$ es continua
 en 0 entonces es continua en todo $\R$.
-\end{observacion}
+\end{proposicion}
 
-\begin{definicion}[Continuidad estocástica en media cuadrática]
-Un proceso a tiempo continuo \xt es estocásticamente continuo, en el sentido de media cuadrática, 
-en un tiempo admisible $t_0$ si
+\begin{proof}
+Supóngase que $R$ es continua en 0. Tómese a $t_0 \in \mathcal{T}$ arbitrario para verificar que $R$ es continua en $t_0$, y tómense $s,h$ tales que $s,s+t,s+t+h \in\mathcal{T}$. Usando la desigualdad de Schwarz, puede escribirse que
+\begin{align*}
+\left[ R(t_0+h) -R(t_0) \right]^{2} 
+&= \left( \E{X(s+t_0+h)X(s)} - \E{X(s+t_0)X(s)} \right)^{2}  \\
+&= \left( \E{X(s)\left[ X(s+t_0+h) - X(s+t_0) \right]} \right)^{2} \\
+&\leq \E{\left( X(s) \right)^{2}} \E{\left( X(s+t_0+h) - X(s+t_0) \right)^{2}} \\
+&\leq 2 \sigma_X^{2} \left[ \sigma_X^{2} - R(h) \right]
+\end{align*}
+%&\leq \sigma_X^{2} \left[ \Var{X(s+t_0+h)} + \Var{X(s+t_0)} - 2 \Cov{X(s+t_0+h), X(s+t_0)} \\
+Entonces, puede afirmarse que
+\begin{equation*}
+\abso{R(t_0+h) -R(t_0)} \leq \sqrt{2 \sigma_X^{2}} \sqrt{R(0) - R(h)}
+\end{equation*}
+Como $R$ es continua en 0, entonces 
+\begin{align*}
+\lim_{h\rightarrow 0} (R(0)-R(h)) = 0 &\Rightarrow \lim_{h\rightarrow 0} (R(t_0+h)-R(t_0)) = 0
+\end{align*}
+de donde se concluye que $R$ es continua en $t_0$, para cualquier $t_0\in \mathcal{T}$.
+\end{proof}    
+
+\begin{definicion}%[Continuidad estocástica en media cuadrática]
+Un proceso a tiempo continuo \xt se dice \textbf{estocásticamente continuo, en el sentido de media cuadrática}, en el tiempo $t_0\in \mathcal{T}$ si
 \begin{equation*}
 \lim_{t \rightarrow t_0} \E{\left( X(t) - X(t_0) \right)^{2}} = 0
 \end{equation*}
 \label{cont_est}
 \end{definicion}
+
+Por simplicidad, y porque es la única definición de su tipo usada en el presente trabajo, la continuidad estocástica en media cuadrática será referida simplemente como \textit{continuidad estocástica}.
 
 %Una forma natural de pensar en la definición \ref{cont_est} es que si $\abso{t-t_0}$ es muy pequeño 
 %entonces $X(t)$ y $X(t_0)$ difieren muy poco entre sí, como variables aleatorias.
@@ -819,8 +901,50 @@ en un tiempo admisible $t_0$ si
 %equivalente a que su función de autocovarianza sea continua en 0.
 
 \begin{proposicion}
-Sea \xt un proceso a tiempo continuo y débilmente estacionario, y sea $R$ su función de autocovarianza. El proceso es estocásticamente continuo si y sólo si $R$ es continua en 0.
+Sea \xt un proceso a tiempo continuo, débilmente estacionario y de media cero, y sea $R$ su función de autocovarianza. El proceso es estocásticamente continuo en $t_0\in \mathcal{T}$ si y sólo si $R$ es continua en $0$.
 \end{proposicion}
+
+\begin{proof}
+Para cualquier $t\in \mathcal{T}$, puede escribirse
+\begin{align*}
+\E{\left( X(t) - X(t_0) \right)^{2}} &= \Var{X(t)} + \Var{X(t_0)} - 2 \Cov{X(t),X(t_0)} \\
+&= 2 \left( \sigma_X^{2} - R(t-t_0) \right) \\
+&= 2 \left( R(0) - R(t-t_0) \right)
+\end{align*}
+Así entonces, la condición para continuidad estocástica puede reescribirse como
+\begin{align*}
+\lim_{t \rightarrow t_0} \E{\left( X(t) - X(t_0) \right)^{2}} = 0 
+&\Leftrightarrow
+\lim_{t \rightarrow t_0} \left( R(0) - R(t-t_0) \right) = 0 \\
+&\Leftrightarrow
+\lim_{\tau \rightarrow 0} R(\tau) = R(0)
+\end{align*}
+\end{proof}
+
+\begin{definicion}
+Se dice que una función $f: \R\rightarrow \R$ es \textbf{definida positiva} si para cualesquiera $x_1, _2, \cdots, x_N \in \R$, $z_1, z_2, \cdots, z_N \in \R$ se cumple que 
+\begin{equation}
+\sum_{n=1}^{N} \sum_{m=1}^{N} z_n z_m f(x_m-x_n) \leq 0
+\end{equation}
+\end{definicion}
+
+\begin{proposicion}
+Sea \xt un proceso débilmente estacionario y $R$ su función de autocorrelación. Se cumple que $R$ es una función positiva definida.
+\end{proposicion}
+
+\begin{proof}
+Sean $t_1, t_2, \cdots, t_N \in \mathcal{T}$, $z_1, z_2, \cdots, z_N \in \R$ arbitrarios. Se construye la variable aleatoria $W$ como
+\begin{equation}
+W = \sum_{n=1}^{N} z_n X(t_n)
+\end{equation}
+
+Ahora, nótese que
+\begin{align*}
+0 &\leq \Var{W} \\
+&= \sum_{m=1}^{N} \sum_{n=1}^{N} z_m z_n \Cov{X(t_m),X(t_n)} \\
+&= \sum_{m=1}^{N} \sum_{n=1}^{N} z_m z_n R(t_m-t_n)
+\end{align*}
+\end{proof}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -915,89 +1039,434 @@ H_A : \mu_H \neq \mu_M
 
 \section{Espacios de Hilbert}
 
-\section{Transformada de Fourier}
-\label{sec:fourier1}
-
-Para exponer formalmente lo que es la transformada de Fourier, conviene mencionar los espacios de 
-las \textbf{series $\boldsymbol{p}$-sumables} ($\lp$), y las  \textbf{funciones 
-$\boldsymbol{p}$-integrables} sobre un intervalo $I \subseteq \R$ ($\llp_I$).
-\begin{align*}
-\ell^{p} &:= \left\{ s: \Z\rightarrow\C \talque \sum_{n=-\infty}^{\infty} \abso{s(n)}^{p} < \infty \right\}
-\\
-L^{p}_I &:= \left\{ S: I\rightarrow\C \talque \int_I \abso{S(t)}^{p} dt < \infty \right\}
-\end{align*}
-
-Estos conjuntos admiten las operaciones  suma ($+$), producto ($\cdot$) y multiplicación por 
-escalares de la manera usual.
+A grosso modo, un espacios de Hilbert es un conjunto de \textit{vectores} en donde se ha definido un producto de vectores, el cual induce una métrica según la cual todas las sucesiones de vectores convergen.
 %
-Para el caso particular $p=2$, los conjuntos $\ldos$ y $\lldos$ admiten los siguientes productos 
-internos:
+Es una estructura tan general que puede ser \textit{inducida} sobre una gran variedad de conjuntos, tal como se hace en el siguiente capítulo.
+
+Para poder definir adecuadamente estos objetos hay que definir, en ese orden, los siguientes conceptos: campo, espacio vectorial, producto interno, norma, métrica.
 %
-\begin{align*}
-\left\langle s,z \right\rangle &= \sum_{n=-\infty}^{\infty} s(n) \overline{z(n)}\\
-\left\langle S,Z \right\rangle &= \int_I S(t) \overline{Z(t)} dt
-\end{align*}
+Debido a los fines de este trabajo, se da una clara preferencia a algunos casos particulares en detrimento de una exploración completa del tema.
 
-Usando dichos productos internos, junto con las normas y métricas que inducen, los conjuntos 
-$\ldos$ y $\lldos$ tienen estructura de \textit{espacio de Hilbert}.
-
-Las definiciones anteriores revelan cómo $\ldos$ y $\lldos$ son \textit{muy} parecidos, luego
-entonces se puede definir la transformada de Fourier como una conexión natural entre ellos.
-
-\begin{definicion}[Serie de Fourier]
-Sea $S: \R \rightarrow \C$ una función periódica con periodo $2T$ y tal que 
-$S \in L^{2}_{[-T,T]}$. Se dice que $A$ es la serie de Fourier para $S$ si satisface
-\begin{equation*}
-A(n) = \frac{1}{2 T} \simint{T} S(t) e^{-\nicefrac{ i \abso{n} t}{2T}} dt
-\end{equation*}
-\label{FourierClasico}
-\end{definicion}
-
-\begin{definicion}[Transformada de Fourier]
-Sean $S$ y $A$ como en la definición \ref{FourierClasico}. Se le llama transformada de Fourier a la
-función $\mathcal{F}_T : L^{2}_{[-T,T]} \rightarrow \ldos : S \mapsto A$
-\end{definicion}
-
-Puede interpretarse a $A$ como las \textit{coordenadas} de $S$ en $L^{2}_{[-T,T]}$, usando una base 
-de funciones ortonormales $\left\{ e^{\nicefrac{i \abso{n} t}{2 T}} \right\}_{n\in \Z}$; esta base 
-en particular es conocida como la \textbf{base de Fourier}.
+\begin{definicion}
+Sea un conjunto $\mathcal{R}$, y sean $\boldsymbol{+} : \mathcal{R}^{2} \rightarrow \mathcal{R}$, $\boldsymbol{\times} : \mathcal{R}^{2} \rightarrow \mathcal{R}$ dos operaciones binarias. 
 %
-Cabe mencionar las siguientes propiedades de $\mathcal{F}_T$
+Se dice que la tupla $(\mathcal{R},\boldsymbol{+},\boldsymbol{\times})$ un \textbf{campo} si cumple la siguientes propiedades:
 \begin{itemize}
-\item Es lineal, $\mathcal{F}_T[cS + Z] = c\mathcal{F}_T[S] + \mathcal{F}_T[Z]$
-
-\item \textbf{No} es invertible, aunque se le suele definir una pseudoinversa como
+\item Las operaciones son \underline{conmutativas}: para cualesquiera $x, y \in \mathcal{R}$ se cumple que 
 \begin{equation*}
-\mathcal{F}_{T}^{\text{inv}} : \ldos \rightarrow L^{2}_{[-T,T]} :
-A \mapsto \sum_{n -\infty}^{\infty} A(n) e^{\nicefrac{i \abso{n} t}{2 T}}
+\boldsymbol{+}(x,y) = \boldsymbol{+}(y,x) \qquad \boldsymbol{\times}(x,y) = \boldsymbol{\times}(y,x)
+\end{equation*}
+\item Las operaciones son \underline{asociativas}: para cualesquiera $x, y, z \in \mathcal{R}$ se cumple que 
+\begin{equation*}
+\boldsymbol{+}(x,\boldsymbol{+}(y,z)) = \boldsymbol{+}(\boldsymbol{+}(x,y),z) \qquad \boldsymbol{\times}(x,\boldsymbol{\times}(y,z)) = \boldsymbol{\times}(\boldsymbol{\times}(x,y),z)
+\end{equation*}
+\item Existen $\boldsymbol{0}, \boldsymbol{1} \in \mathcal{R}$ tales que, para cualquier $x \in \mathcal{R}$, se cumple que
+\begin{equation*}
+\boldsymbol{+}(x,\boldsymbol{0}) = x \qquad \boldsymbol{\times}(x,\boldsymbol{1}) = x
+\end{equation*}
+\item Para cualesquiera $x, y \in \mathcal{R}$, $y \neq \boldsymbol{0}$, existen $-x, \nicefrac{1}{y} \in \mathcal{R}$ tales que
+\begin{equation*}
+\boldsymbol{+}(x,-x)=\boldsymbol{0}) \qquad \boldsymbol{\times}(y,\nicefrac{1}{y}) = \boldsymbol{1}
+\end{equation*}
+\item Para cualesquiera $x, y, z \in \mathcal{R}$ se cumple que 
+\begin{equation*}
+\boldsymbol{\times}(x, \boldsymbol{+}(y,z)) = \boldsymbol{+}( \boldsymbol{\times}(x,y), \boldsymbol{+}(x,z) )
 \end{equation*}
 \end{itemize}
+Por comodidad, se procede a escribir $x+y := \boldsymbol{+}(x,y)$, y análogamente para $\boldsymbol{\times}$.
+\end{definicion}
 
-Se define, de manera pragmática, la \textbf{energía disipada} y la \textbf{potencia} de una función 
-$S$ en un intervalo $[a,b]$ como 
+Naturalmente las tuplas $(\R,+,\cdot)$ y $(\C,+,\cdot)$, usando la suma y multiplicación usuales, son campos; en el presente trabajo, estos serán los únicos campos considerados.
+
+\begin{definicion}
+Sean un conjunto $\mathcal{V}$, un campo $(\mathcal{R},\boldsymbol{+}_\mathcal{R},\boldsymbol{\times}_\mathcal{R})$, y dos operaciones $\boldsymbol{+}_\mathcal{V} : \mathcal{V}^{2} \rightarrow \mathcal{V}$, $\boldsymbol{\times}_\mathcal{V} : \mathcal{R}\times\mathcal{V} \rightarrow \mathcal{V}$. Se dice que la tupla $(\mathcal{V},\mathcal{R},\mathcal{\cdot})$ es un \textbf{espacio vectorial} si cumple las siguientes características:
+\begin{itemize}
+\item La operación $\boldsymbol{+}_\mathcal{V}$ es conmutativa y asociativa: para cualesquiera $u, v, w \in \mathcal{V}$ se cumple que
+\begin{equation*}
+u +_\mathcal{V} v = v +_\mathcal{V} u \qquad u +_\mathcal{V} (v +_\mathcal{V} w) = (u +_\mathcal{V} v) +_\mathcal{V} w
+\end{equation*}
+\item Existe $\boldsymbol{e} \in \mathcal{V}$ tal que, para cualquier $u \in \mathcal{V}$ se cumple que
+\begin{equation*}
+ u +_\mathcal{V} \boldsymbol{e} = u
+\end{equation*}
+\item Para cualquier $u \in \mathcal{V}$ existe un $-u \in \mathcal{V}$ tal que
+\begin{equation*}
+ u +_\mathcal{V} -u =  \boldsymbol{e}
+\end{equation*}
+\item La operación $\boldsymbol{\times}_\mathcal{R}$ es asociativa con $\boldsymbol{\times}_\mathcal{V}$: para cualesquiera $x, y \in \mathcal{R}$, $u \in \mathcal{V}$ se cumple que
+\begin{equation*}
+x \boldsymbol{\times}_\mathcal{V} (y \boldsymbol{\times}_\mathcal{V} u ) = (x \boldsymbol{\times}_\mathcal{R} y) \boldsymbol{\times}_\mathcal{V} u
+\end{equation*}
+\item El neutro de $\boldsymbol{\times}_\mathcal{R}$, $\boldsymbol{1}$, también es neutro para $\boldsymbol{\times}_\mathcal{V}$: para cualquier $u \in \mathcal{V}$ se cumple que
+\begin{equation*}
+\boldsymbol{1} \boldsymbol{\times}_\mathcal{V} u = u
+\end{equation*}
+\item Las operaciones $\boldsymbol{\times}_\mathcal{R}$, $\boldsymbol{\times}_\mathcal{V}$ son mutuamente dsitributivas: para cualesquiera $x, y \in \mathcal{R}$, $u, v \in \mathcal{V}$ se cumple que
+\begin{align*}
+x \boldsymbol{\times}_\mathcal{V} (u \boldsymbol{+}_\mathcal{V} v) &= (x \boldsymbol{\times}_\mathcal{V} v ) \boldsymbol{+}_\mathcal{V} (x \boldsymbol{\times}_\mathcal{V} v) \\
+(x \boldsymbol{+}_\mathcal{R} y) \boldsymbol{\times}_\mathcal{V} u &= (x \boldsymbol{\times}_\mathcal{V} u ) \boldsymbol{+}_\mathcal{V} ( y \boldsymbol{+}_\mathcal{R} u)
+\end{align*}
+\end{itemize}
+\end{definicion}
+
+Por simplicidad de notación, de aquí en adelante se omitirán los subíndices en las operaciones cuando se hable de espacios vectoriales;
+bajo esta línea de pensamiento, se usará un mismo símbolo para sumas y multiplicaciones definidas en diferentes conjuntos, pero sólo si se sobreentiende que las operaciones están correctamente definidas.
+
+%\begin{ejemplo}
+%La tupla $(\C^{n},\R,+,\cdot)$ es un espacio vectorial con las operaciones $+$, $\cdot$ definidas como
+%\begin{align}
+%[x_1, x_2, \dots, x_n] + [y_1, y_2, \dots, y_n] &= [x_1 + y_1, x_2 + y_2, \dots, x_n + y_n] \\
+%z \cdot[x_1, x_2, \dots, x_n] &= [z x_1, z x_2 \dots, z x_n \cdot y_n]
+%\end{align}
+%para cualesquiera $[x_1, \dots, x_n], [y_1, \dots, y_n] \in \C^{n}, z \in \R$.
+%\end{ejemplo}
+
+\begin{ejemplo}
+Primeramente se define a $L^2$, el conjunto de las funciones cuadrado-integrables, como
+\begin{equation}
+L^2 := \left\{ S: \R\rightarrow\C \talque \intR \abso{S(t)}^2 dt < \infty \right\}
+\end{equation}
+
+El conjunto $L^2$ admite una suma y producto por escalar definidas como
 \begin{align}
-\text{energía}[S]_{[a,b]} &= \int_a^{b} \abso{S(t)}^{2} dt \nonumber \\
-\text{potencia}[S]_{[a,b]} &= \frac{1}{b-a} \int_a^{b} \abso{S(t)}^{2} dt
-\label{energia}
+[S+Z](t) &= S(t) + Z(t) \\
+[x\cdot S](t) &= x S(t)
+\end{align}
+para cualesquiera $S, Z \in L^{2}, \, x\in \C, \, t\in \R$. 
+%
+Entonces la tupla $(L^{2}, \C,+,\cdot)$ es un espacio vectorial.
+
+Para verificarlo, conviene notar que la suma y producto por escalar definidos para $L^{2}$ comparten propiedades con la suma y multiplicación de $\C$; sin embargo, hay que verificar que efectivamente son operaciones bien definidas en $L^{2}$.
+%
+Con ese fin, sean $S, Z \in L^{2}, \, x \in \C$ arbitrarios, entonces
+\begin{align*}
+\intR \abso{\left[x S + Z\right]\left(t\right)}^2 dt 
+&= 
+\intR \abso{ xS(t) + Z(z)}^2 dt \\
+&\leq
+\intR \left[ \abso{ xS(t)} + \abso{ Z(z)} \right]^2 dt \\
+&\leq
+\abso{x}^{2} \intR \abso{ S(t)}^{2} dt + \intR \abso{ Z(t)}^{2} dt \\
+&\pheq
++ 2\intR \abso{ \max\{ S(t), Z(t) \} }^{2} dt < \infty
+\end{align*}
+
+Es fácil verificar que puede definirse un neutro aditivo para $L^{2}$ como $\boldsymbol{0}(t) = 0$.
+\end{ejemplo}
+
+\begin{definicion}
+Sea $(\mathcal{V},\R,+,\times)$ un espacio vectorial. Una función $\norma{\bullet}: \mathcal{V}\rightarrow\R_+$ se dice una \textbf{norma} si satisface las siguientes condiciones:
+\begin{itemize}
+\item $\norma{u} = 0 \Leftrightarrow u = \boldsymbol{e}$
+\item $\norma{x u} = \abso{x} \norma{u}$ para cualesquiera $x \in \R$, $u \in \mathcal{V}$
+\item $\norma{u+v} \leq \norma{u} + \norma{v}$ para cualesquiera $u, v \in \mathcal{V}$
+\end{itemize}
+Si así fuere, se dice que la tupla $(\mathcal{V},\R,+,\times, \norma{\bullet})$ es un \textbf{espacio normado}.
+\end{definicion}
+
+\begin{ejemplo}
+Se puede definir una norma para $L^{2}$, el conjunto de las funciones cuadrado-integrables, de la siguiente manera:
+\begin{equation}
+\norma{S} = \intR \abso{S(t)}^{2} dt
+\end{equation} 
+para cualquier $S \in L^{2}$. Entonces la tupla $(L^{2},\C,+,\cdot,\norma{\bullet})$ es un espacio normado.
+\label{ejemplo:norma_L2}
+\end{ejemplo}
+
+Para fines del trabajo, conviene destacar que una norma puede ser utilizada para definir una métrica en un espacio normado.
+%
+%Las métricas inducidas por normas suelen tener relaciones interesantes (y útiles).
+
+\begin{definicion}
+Sea $\mathcal{X}$ un conjunto arbitrario. Se dice que una función $d: \mathcal{X}^{2}\rightarrow \R_+$ es una \textbf{métrica} si satisface las siguientes condiciones:
+\begin{itemize}
+\item $d(x,y) = d(y,x)$ para cualesquiera $x,y \in \mathcal{X}$
+\item $d(x,y)=0 \Leftrightarrow x=y$
+\item $d(x,y) \leq d(x,z) + d(z,y)$ para cualesquiera $x,y,z \in \mathcal{X}$
+\end{itemize}
+Si así fuere, se dice que la tupla $(\mathcal{X},d)$ es un \textbf{espacio métrico}.
+\end{definicion}
+
+\begin{proposicion}
+Sea $(\mathcal{V},\R,+,\times, \norma{\bullet})$ un espacio normado. Defínase la función $d: \mathcal{V}^{2} \rightarrow \R$ como
+\begin{equation}
+d(u,v) = \norma{u-v}
+\end{equation}
+Entonces $d$ es una métrica, que será referida como la \textbf{métrica inducida}.
+\end{proposicion}
+
+\begin{ejemplo}
+La norma exhibida en el ejemplo \ref{ejemplo:norma_L2} induce una siguiente métrica para $L^{2}$ de la siguiente manera:
+\begin{equation}
+d(S,Z) = \intR \abso{S(t) - Z(z)}^{2} dt
+\end{equation}
+
+Como ejemplo, puede definirse una métrica alternativa para $L^{2}$ como
+\begin{equation}
+d_A(S,Z) = \max_{t \in \R} \abso{S(t) - Z(z)}
+\end{equation}
+\end{ejemplo}
+
+\begin{definicion}
+Sea $(\mathcal{V},\C,+,\times)$ un espacio vectorial. Una función $\producto{\bullet,\bullet} : \mathcal{V}^{2}\rightarrow \C$ se dice un \textbf{producto interno} si satisface las siguientes propiedades:
+\begin{itemize}
+\item $\producto{u,v} = \overline{\producto{v,u}}$ para cualesquiera $u,v \in \mathcal{V}$
+\item $\producto{x u + v, w} = x \producto{u,w} + \producto{v,w}$ para cualesquiera $u,v,w \in \mathcal{V}$
+\item $\producto{u,u} \in \R_+$ para cualquier $u \in \mathcal{V}$
+\item $\producto{u,u} = 0 \Leftrightarrow u = \boldsymbol{e}$
+\end{itemize}
+Si así fuere, se dice que la tupla $(\mathcal{V},\R,+,\times, \producto{\bullet,\bullet})$ es un \textbf{espacio con producto interno}.
+\end{definicion}
+
+\begin{proposicion}
+Sea $(\mathcal{V},\R,+,\times, \producto{\bullet,\bullet})$ un espacio con producto interno. Defínase la función $\norma{\bullet}: \mathcal{V} \rightarrow \R$ como
+\begin{equation}
+\norma{u} = \sqrt{\producto{u,u}}
+\end{equation}
+Entonces $\norma{\bullet}$ es una norma, que será referida como la \textbf{norma inducida}.
+\end{proposicion}
+
+\begin{ejemplo}
+La norma exhibida en el ejemplo \ref{ejemplo:norma_L2} es inducida por el producto interno para $L^{2}$ definido de la siguiente manera:
+\begin{equation}
+\producto{S,Z} = \intR S(t) \overline{Z(t)} dt
+\end{equation}
+
+como ejemplo, un segundo producto interno puede ser definido como
+\begin{equation}
+\producto{S,Z}_A = \intR e^{-\abso{t}} S(t) \overline{Z(t)} dt
+\end{equation}
+\end{ejemplo}
+
+%Usando dichos productos internos, junto con las normas y métricas que inducen, los conjuntos 
+%$\ldos$ y $\lldos$ tienen estructura de \textit{espacio de Hilbert}.
+
+Puede notarse inmediatamente que si en un espacio con producto interno se induce una norma, entonces esa misma norma puede usarse para inducir una métrica.
+%
+Tal concatenación de construcciones es favorable para algunos fines, ya que la métrica resultante tiene una \textit{buena conexión} con el producto interno.
+
+Como se dijo, el objetivo de definir métricas es poder hablar de convergencia en espacios vectoriales, motivo por el cual se define un tipo de convergencia.
+
+\begin{definicion}
+Sea $(\mathcal{X},d)$ un espacio métrico. Se dice que una sucesión $\{x_n\}_{n\in \N} \subseteq \mathcal{X}$ es una \textbf{sucesión de Cauchy} si para cada $\varepsilon > 0$ existe un $N \in \N$ tal que
+\begin{equation}
+m, n > N \Rightarrow d(x_m, x_n) < \varepsilon
+\end{equation}
+\end{definicion}
+
+\begin{definicion}
+Se dice que el espacio con producto interno $(\mathcal{V},\R,+,\times, \producto{\bullet,\bullet})$ es un \textbf{espacio de Hilbert} si, para cualquier sucesión de Cauchy $\{u_n\}_{n\in \N} \subseteq \mathcal{V}$, se cumple que
+\begin{equation}
+\lim_{n\rightarrow\infty} u_n \in \mathcal{V}
+\end{equation}
+Las sucesiones de Cauchy se definen respecto a la métrica inducida por el producto interno.
+\end{definicion}
+
+%\begin{ejemplo}
+%El espacio con producto interno $(\C^{n},\R,+,\times, \producto{\bullet,\bullet})$ es un espacio de Hilbert con las siguientes operaciones
+%\begin{align}
+%
+%\end{align}
+%\end{ejemplo}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Transformada de Fourier}
+\label{sec:fourier1}
+
+En los ejemplos anteriores se definió a $L^{2}$, el conjunto de las funciones cuadrado-integrables, y se le definió un producto interno para \textit{darle estructura} como espacio de Hilbert.
+%
+De manera completamente análoga, a continuación se definen al conjuntos $\ell^{2}$ de las series cuadrado-sumables:
+\begin{equation}
+\ell^{p} := \left\{ s: \Z\rightarrow\C \talque \sum_{n=-\infty}^{\infty} \abso{s(n)}^{2} < \infty \right\}
+\end{equation}
+el cual admite el producto interno definido como
+\begin{equation}
+\left\langle s,z \right\rangle = \sum_{n=-\infty}^{\infty} s(n) \overline{z(n)}\\
+\end{equation}
+
+De manera similar se define al conjunto $L^{2}_T$ de las funciones cuadrado-integrables y periódicas con periodo $2T$:
+\begin{equation}
+L^{p}_T := \left\{ S: [-T,T]\rightarrow\C \talque \forall t\in \R, S(t) = S(t+2T) ;  \int_{-T}^{T} \abso{S(t)}^{2} dt < \infty \right\}
+\end{equation}
+el cual admite el producto interno definido como
+\begin{equation}
+\left\langle S,Z \right\rangle = \int_I S(t) \overline{Z(t)} dt
+\end{equation}
+
+%---------
+%
+%Para exponer formalmente lo que es la transformada de Fourier, conviene mencionar los espacios de 
+%las \textbf{series $\boldsymbol{p}$-sumables} ($\lp$), y las  \textbf{funciones 
+%$\boldsymbol{p}$-integrables} sobre un intervalo $I \subseteq \R$ ($\llp_I$).
+%\begin{align*}
+%\ell^{p} &:= \left\{ s: \Z\rightarrow\C \talque \sum_{n=-\infty}^{\infty} \abso{s(n)}^{p} < \infty \right\}
+%\\
+%L^{p}_I &:= \left\{ S: I\rightarrow\C \talque \int_I \abso{S(t)}^{p} dt < \infty \right\}
+%\end{align*}
+
+%Estos conjuntos admiten las operaciones  suma ($+$), producto ($\cdot$) y multiplicación por 
+%escalares de la manera usual.
+%%
+%Para el caso particular $p=2$, los conjuntos $\ldos$ y $\lldos$ admiten los siguientes productos 
+%internos:
+%%
+%\begin{align*}
+%\left\langle s,z \right\rangle &= \sum_{n=-\infty}^{\infty} s(n) \overline{z(n)}\\
+%\left\langle S,Z \right\rangle &= \int_I S(t) \overline{Z(t)} dt
+%\end{align*}
+
+%Usando dichos productos internos, junto con las normas y métricas que inducen, los conjuntos 
+%$\ldos$ y $\lldos$ tienen estructura de \textit{espacio de Hilbert}.
+
+%Las definiciones anteriores revelan cómo $\ldos$ y $\lldos$ son \textit{muy} parecidos, luego
+%entonces se puede definir la transformada de Fourier como una conexión natural entre ellos.
+
+Una vez definidos estos espacios, es perfectamente posible definir la transformada de Fourier (en su \textit{versión clásica}). 
+%
+La interpretación asociada y su contexto serán descritos posteriormente.
+
+\begin{definicion}
+La \textbf{transformada de Fourier} es una función $\mathcal{F}_T : L^{2}_T \rightarrow \ell^{2}$ tal que, para cualesquiera $S\in L^{2}_T, n\in \Z$, satisface
+\begin{equation}
+\mathcal{F}_T[S](n) = \frac{1}{2 T} \simint{T} S(t) e^{-\nicefrac{ i \abso{n} t}{2T}} dt
+\end{equation}
+
+La serie $\mathcal{F}_T[S]$ es referida como los \textbf{coeficientes de Fourier} para $S$.
+\end{definicion}
+
+%\begin{definicion}[Serie de Fourier]
+%Sea $S: \R \rightarrow \C$ una función periódica con periodo $2T$ y tal que 
+%$S \in L^{2}_{[-T,T]}$. Se dice que $A$ es la serie de Fourier para $S$ si satisface
+%\begin{equation*}
+%A(n) = \frac{1}{2 T} \simint{T} S(t) e^{-\nicefrac{ i \abso{n} t}{2T}} dt
+%\end{equation*}
+%\label{FourierClasico}
+%\end{definicion}
+%
+%\begin{definicion}[Transformada de Fourier]
+%Sean $S$ y $A$ como en la definición \ref{FourierClasico}. Se le llama transformada de Fourier a la
+%función $\mathcal{F}_T : L^{2}_{[-T,T]} \rightarrow \ldos : S \mapsto A$
+%\end{definicion}
+
+%Para fines de la definición anterior, se usa la conveniencia
+
+De la definición anterior puede decirse que claramente $\mathcal{F}_T$ depende de $T$, lo cual se discutirá posteriormente.
+%
+También destaca que es una \textbf{función lineal}, es decir, para cualesquiera $S, Z \in L^{2}_T$, $x\in \C$ se cumple que
+\begin{equation}
+\mathcal{F}_T[xS + Z] = x\mathcal{F}_T[S] + \mathcal{F}_T[Z]
+\end{equation}
+además de que la función idénticamente cero es mapeada a la sucesión idénticamente cero ($\mathcal{F}_T[\boldsymbol{0}]=\boldsymbol{0}$).
+%
+%Habiendo mencionado que $\mathcal{F}_T$ mapea el neutro aditivo de un conjunto al núcleo del otro espacio, 
+A la luz del comentario anterior, conviene investigar al \textbf{núcleo} de $\mathcal{F}_T$, el conjunto de elementos que son mapeados a la sucesión idénticamente cero.
+%
+\begin{align}
+\text{núcleo}(\mathcal{F}_T) &= \left\{ N\in L^{2}_T \talque \mathcal{F}_T[N] = \boldsymbol{0}  \right\} \\
+&= \left\{ N\in L^{2}_T \talque \simint{T} \abso{N(t)}^{2} dt = 0 \right\}
 \end{align}
 
-Es evidente que la energía y potencia están relacionadas a la norma en $L^{2}_{[-T,T]}$ inducida por
-su producto interno.
+Así entonces, es evidente que el operador $\mathcal{F}_T$ no es invertible.
 %
-Dicha relación junto a las propiedades \textit{agradables} de $\mathcal{F}_T$ pueden ser usadas 
-para conectar la energía con la norma en $\ldos$ (teorema \ref{parseval}): la energía disipada por 
-una función equivale a la suma de las energías disipada por cada una de sus \textit{componentes} en 
-la base de Fourier.
+Se puede definir, sin embargo, al operador pseudo-inverso $\mathcal{F}_{T}^{\text{inv}} : \ell^{2} \rightarrow L^{2}_T$ como
+\begin{equation}
+\mathcal{F}_{T}^{\text{inv}}(t) = \sum_{n -\infty}^{\infty} A(n) e^{\nicefrac{i \abso{n} t}{2 T}}
+\end{equation}
+
+Una vez descrito el núcleo de $\mathcal{F}_{T}$ es perfectamente posible buscar subconjuntos de $L^{2}_T$ donde la restricción de $\mathcal{F}_{T}$ sí sea invertible.
 %
-Conviene, entonces, definir una función que \textit{desglose} estos \textit{aportes}.
+%Sin embargo, dicho enfoque no se aborda en el texto, sólo algunos casos particulares.
+%
+Para los fines del presente texto, sólo se aborda un caso muy particular: cuando hay una cantidad finita de coeficientes de Fourier diferentes de cero.
+
+El arquetipo para una función en $L^{2}_T$ son las funciones de la forma
+\begin{equation}
+\phi_n(t) = A_n \SEN{\nicefrac{\pi n t }{2T}} + B_n \COS{\nicefrac{\pi n t }{2T}}
+= \sqrt{A^{2}+B^{2}} 
+\end{equation}
+[completar??]
+
+Se puede interpretar a $\mathcal{F}_{T}[f]$, los coeficientes de Fourier para $f$, como las \textit{instrucciones} para \textit{armar} a $f$ a partir de funciones senoidales con periodo $2T$.
+%
+%el conjunto de funciones $\left\{ e^{\nicefrac{i {n} t}{2 T}} \right\}_{n\in \N}$.
+%
+%Más formalmente, $\mathcal{F}_{T}[f]$ pueden interpretarse como las \textit{coordenadas} de $f$ con respecto al conjunto de funciones $\left\{ e^{\nicefrac{i {n} t}{2 T}} \right\}_{n\in \N}$.
+%
+En otras palabras, se ha usado al conjunto de funciones $\left\{ e^{\nicefrac{i {n} t}{2 T}} \right\}_{n\in \N}$, referido como la \textbf{base de Fourier}, como una base para $L^{2}_T$.
+%
+En el presente trabajo no se hablará más sobre el tema en un sentido formal, de forma que el lector interesado debe dirigirse a [??Friedman].
+
+En un sentido más laxo, lo descrito anteriormente suele interpretarse como que las funciones periódicas (señales) pueden obtenerse como confluencia de señales cosenoidales.
+%
+Escribir una señal dada como una suma de \textit{componentes de frecuencia} ayuda a estudiar cómo se distribuye su \textit{energía}.
+
+%Puede interpretarse a $A$ como las \textit{coordenadas} de $S$ en $L^{2}_{[-T,T]}$, usando una base 
+%de funciones ortonormales $\left\{ e^{\nicefrac{i \abso{n} t}{2 T}} \right\}_{n\in \Z}$; esta base 
+%en particular es conocida como la \textbf{base de Fourier}.
+
+%
+%Cabe mencionar las siguientes propiedades de $\mathcal{F}_T$
+%\begin{itemize}
+%\item Es lineal, $\mathcal{F}_T[cS + Z] = c\mathcal{F}_T[S] + \mathcal{F}_T[Z]$
+%
+%\item \textbf{No} es invertible, aunque se le suele definir una pseudoinversa como
+%\begin{equation*}
+%\mathcal{F}_{T}^{\text{inv}} : \ldos \rightarrow L^{2}_{[-T,T]} :
+%A \mapsto \sum_{n -\infty}^{\infty} A(n) e^{\nicefrac{i \abso{n} t}{2 T}}
+%\end{equation*}
+%\end{itemize}
+
+%Se define, de manera pragmática, la \textbf{energía disipada} y la \textbf{potencia} de una función 
+%$S$ en un intervalo $[a,b]$ como 
+%\begin{align}
+%\text{energía}[S]_{[a,b]} &= \int_a^{b} \abso{S(t)}^{2} dt \nonumber \\
+%\text{potencia}[S]_{[a,b]} &= \frac{1}{b-a} \int_a^{b} \abso{S(t)}^{2} dt
+%\label{energia}
+%\end{align}
+
+\begin{definicion}
+Sean $a,b \in \R$ arbitrarios con $a<b$, y sea $f: \R \rightarrow \R$ una función integrable en $[a,b]$. La \textbf{energía disipada} por la función $f$ en el intervalo de tiempo $[a,b]$ es
+\begin{equation}
+\text{energía}_{[a,b]}[f] = \int_a^{b} \abso{f(t)}^{2} dt
+\end{equation}
+Similarmente, la \textbf{potencia} de la función $f$ en el intervalo de tiempo $[a,b]$ es
+\begin{equation}
+\text{potencia}_{[a,b]}[f] = \frac{1}{b-a} \int_a^{b} \abso{f(t)}^{2} dt
+\end{equation}
+\end{definicion}
+
+Como \textit{corolario} de la definición anterior, para cualquier $s\in L^{2}$ puede escribirse $\text{energía}_{[-T,T]}[S] = \norma{S}$.
+%
+Esta \textit{conexión} puede usarse para \textit{caracterizar} a la energía disipada de un función usando su transformada de Fourier.
+
+%Es evidente que la energía y potencia están relacionadas a la norma en $L^{2}_{[-T,T]}$ inducida por
+%su producto interno.
+%%
+%Dicha relación junto a las propiedades \textit{agradables} de $\mathcal{F}_T$ pueden ser usadas 
+%para conectar la energía con la norma en $\ldos$ (teorema \ref{parseval}): la energía disipada por 
+%una función equivale a la suma de las energías disipada por cada una de sus \textit{componentes} en 
+%la base de Fourier.
+%%
+%Conviene, entonces, definir una función que \textit{desglose} estos \textit{aportes}.
 
 \begin{teorema}[Parseval]
-Sea $S \in L^{2}_{[-T,T]}$, y sea $A = \mathcal{F}[S]$. Se cumple que
+Sea $S \in L^{2}_T$, y sea $A = \mathcal{F}_T[S]$. Se cumple que
 \begin{equation*}
 \int_{-T}^{T} \abso{S(t)}^{2} dt = \sum_{n=-\infty}^{\infty} \abso{A(n)}^{2}
 \end{equation*}
 \label{parseval}
 \end{teorema}
+
+El teorema de Parseval puede interpretarse como que $\norma{S} = \norma{\mathcal{F}_T[S]}$.
+%
+Se puede construir una interpretación más \textit{atrayente} entendiendo a las funciones como señales:
+%Sin embargo, la idea de la energía sugiere una interpretación más atrayente: 
+la energía disipada por una señal es la suma de la energía disipada por cada uno de sus \textit{componentes de frecuencia}, es decir, los elementos de la base de Fourier en los que puede ser descompuesta la señal.
+%
+%Tratar por separado a los componentes de frecuencia sugiere preguntas como `cuáles componentes aportan mayor energía', la cual representa una motivación muy importante.
+%
+Dentro de esta interpretación, tiene sentido preguntarse si algunos componentes de frecuencia son más importantes que otros, en el sentido que tengan asociada una mayor energía disipada.
 
 %\begin{definicion}[Espectro de potencias]
 %Sea $S \in L^{2}_{[-T,T]}$, y sea $A = \mathcal{F}[S]$. Se llama espectro de potencias 
@@ -1012,15 +1481,25 @@ Sea $S \in L^{2}_{[-T,T]}$, y sea $A = \mathcal{F}[S]$. Se cumple que
 %\label{espec}
 %\end{definicion}
 
-Un elemento que será de crucial importancia en el desarrollo posterior es la \textbf{convolución} 
-($\ast$), una tercera operación binaria en estos espacios y definida como
-%
-\begin{align*}
-[s \ast z] (\tau) &= \sum_{n=-\infty}^{\infty} s(n) \overline{z(\tau-n)} \\
-[S \ast Z] (\tau) &= \int_I S(t) \overline{Z(\tau-t)}
-\end{align*}
-%
-donde $\overline{c}$ es el conjugado complejo de $c$. 
+Antes de pasar a otro tema conviene hablar sobre la convolución (representada como $\ast$), una tercera operación binaria definida en $L^{2}_T$ como
+\begin{equation}
+[S \ast Z] (\tau) = \int_{-T}^{T} S(t) \overline{Z(\tau-t)} d\tau
+\end{equation}
+esta misma construcción puede repetirse\footnote{Más aún, la convolución puede construirse de manera \textit{parecida} para muchos otros conjuntos de funciones, razón por la cual no se le encuadra formalmente como una única definición.} para $\ell^{2}$ como
+\begin{equation}
+[s \ast z] (\tau) = \sum_{n=-\infty}^{\infty} s(n) \overline{z(\tau-n)}
+\end{equation}
+La convolución toma interés en este contexto por su interesante relación con $\mathcal{F}_T$.
+
+%%Un elemento que será de crucial importancia en el desarrollo posterior es la \textbf{convolución} 
+%%($\ast$), una tercera operación binaria en estos espacios y definida como
+%%%
+%%\begin{align*}
+%%[s \ast z] (\tau) &= \sum_{n=-\infty}^{\infty} s(n) \overline{z(\tau-n)} \\
+%%[S \ast Z] (\tau) &= \int_I S(t) \overline{Z(\tau-t)}
+%%\end{align*}
+%%
+%%donde $\overline{c}$ es el conjugado complejo de $c$. 
 %
 %Esta operación cobra importancia por la forma en que se relaciona con $\mathcal{F}_T$
 %%
@@ -1034,168 +1513,132 @@ donde $\overline{c}$ es el conjugado complejo de $c$.
 %\end{observacion}
 
 \begin{teorema}
-Sean $f, g \in \ldos$, las cuales poseen una transformada de Fourier de la forma
-\begin{align*}
-F(\omega) = \intR e^{-i \omega t} f(t) dt \\
-G(\omega) = \intR e^{-i \omega t} g(t) dt 
-\end{align*}
-Entonces
+Sean $f, g \in L^{2}_T$. Entonces, se cumple que
 \begin{equation}
-F(\omega) \overline{G(\omega)} = \intR e^{i \omega t} k(t) dt
+\mathcal{F}_T[f \ast g] = \left( \mathcal{F}_T[f] \right) \overline{\left( \mathcal{F}_T[\overline{g}] \right)}
 \end{equation}
-donde
-\begin{equation}
-k(t) = \intR f(u) g(u-t) du
-\end{equation}
+%donde $k = f \ast g$.
 \end{teorema}
 
 \begin{proof}
-Nótese que
+Nótese que, para cualquier $n \in \Z$ puede escribirse
 \begin{align*}
-\intR e^{i \omega t} k(t) dt &= \intR e^{i \omega t} \left[ k(t) = \intR f(u) g(u-t) du \right] dt \\
-&= \intR e^{-i \omega u} f(u) \left[ \intR e^{i \omega (u-t)} g(u-t) \right] du \\
-&= \intR e^{-i \omega u} f(u) \overline{G(\omega)} du \\
-&= \overline{G(\omega)} \intR e^{-i \omega u} f(u)  du \\
-&= \overline{G(\omega)} F(\omega) \\
+\mathcal{F}_T[f \ast g] (n)
+&= \simint{T} [f\ast g](t) e^{-\nicefrac{ i \abso{n} t}{2T}} dt \\
+&= \simint{T} \left[ \simint{T} f(u) g(u-t) du \right] e^{-\nicefrac{ i \abso{n} t}{2T}} dt \\
+&= \simint{T} \simint{T} f(u) g(u-t) e^{-\nicefrac{ i \abso{n} t}{2T}} dt du \\
+&= \simint{T} f(u) \left[ \simint{T} g(u-t) e^{\nicefrac{ i \abso{n} (u-t)}{2T}} dt \right] e^{-\nicefrac{ i \abso{n} u}{2T}} du \\
+&= \simint{T} f(u) \overline{\left[ \simint{T} \overline{g(u-t)} e^{-\nicefrac{ i \abso{n} (u-t)}{2T}} dt \right]} e^{-\nicefrac{ i \abso{n} u}{2T}} du \\
+&= \simint{T} f(u) \overline{\left[ \mathcal{F}_T[\overline{g}](n) \right]} e^{-\nicefrac{ i \abso{n} u}{2T}} du \\
+&= \overline{\left[ \mathcal{F}_T[\overline{g}](n) \right]} \simint{T} f(u) e^{-\nicefrac{ i \abso{n} u}{2T}} du \\
+&= \overline{\left[ \mathcal{F}_T[\overline{g}](n) \right]} \mathcal{F}_T[f] (n)
 \end{align*}
 \end{proof}
 
-\begin{align*}
-[s \ast z] (\tau) &= \sum_{n=-\infty}^{\infty} s(n) \overline{z(\tau-n)} \\
-[S \ast Z] (\tau) &= \int_I S(t) \overline{Z(\tau-t)}
-\end{align*}
-
 \begin{teorema}
-COROLARIO. Usando $f \equiv g$ en el teorema anterior
+Sean $f, g \in L^{2}_T$. Entonces, se cumple que
 \begin{equation}
-\abso{F(\omega)}^{2} = \intR e^{- i \omega t} k(t) dt 
-\end{equation}
-donde 
-\begin{equation}
-k(t) = \intR f(u) f(u-t) du
+\mathcal{F}_T[ f\, \overline{g}] = \left( \mathcal{F}_T[f] \right) \ast \left( \mathcal{F}_T[g] \right)
 \end{equation}
 \end{teorema}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{Otros resultados importantes}
-
-Los siguientes teoremas y proposiciones se refieren a propiedades únicamente de los objetos descritos en el capítulo.
-%
-Aunque no son una consecuencia clara de los resultados expuestos anteriormente, son una base importante de algunos resultados que se expondrán en capítulos posteriores.
-
-El teorema de Isserlis es una identidad relativamente poco conocida sobre los cuartos momentos de una distribución multinormal; el caso particular de cuatro variables será usado para calcular la covarianza de algunos estimadores del espectro de potencias.
-
-\begin{proposicion}
-Sea $g$ una función cuando menos dos veces derivable cuyo dominio es $\mathcal{D}_g$, y sea $X$ una variable aleatoria real tal que $P(X\notin \mathcal{D}) = 0$. 
-%Si los momentos de $X$ están acotados y la secuencia $\left\{ \frac{1}{n !} \frac{d^{n}}{dx^{n}} g\left( \E{X} \right) \right\}$ está acotada, entonces 
-Pueden usarse las siguientes aproximaciones
-\begin{align}
-\E{g(X)} &\approx g\left( \E{X} \right) \\
-\Var{g(X)} &\approx \Var{X} \left[ g\prima \left( \E{X} \right) \right]^{-2}
-\end{align}
-\end{proposicion}
-
 \begin{proof}
-Usando polinomio de Taylor de grado 2 para $g$, alrededor de $\E{X}$ y evaluada en $X$
-\begin{equation}
-g(X) = g\left( \E{X} \right) + \left(X - \E{X} \right) g\prima \left( \E{X} \right) + \frac{\left( X - \E{X} \right)^{2}}{2} g^{\prime \prime}(\xi)
-\label{detalle:aprox}
-\end{equation}
-donde la variable aleatoria $\xi$ satisface $\abso{X-\xi} \leq \abso{X - \E{X}}$.
-%
-La aproximación, con una obvia pérdida, consiste en considerar que $\frac{1}{2}\left( X - \E{X} \right)^{2} g^{\prime \prime}(\xi) \approx 0$.
-\begin{equation}
-g(X) \approx g\left( \E{X} \right) + \left(X - \E{X} \right) g\prima \left( \E{X} \right)
-\end{equation}
-Si se toma el valor esperado de ambos lados
-\begin{align}
-\E{g(X)} &\approx \E{g\left( \E{X} \right)} + \E{\left(X - \E{X} \right)} g\prima \left( \E{X} \right) = g\left( \E{X} \right)
-\end{align}
-
-Lo cual confirma la primera parte del resultado. Para verificar la segunda parte del mismo, se elevan ambos lados al cuadrado
-\begin{align}
-\left[g(X)\right]^{2} &\approx \left[g\left( \E{X} \right)\right]^{2} + 2 g\left( \E{X} \right) \left(X - \E{X} \right) g\prima \left( \E{X} \right) \nonumber \\
-&\pheq + \left(X - \E{X} \right)^{2} \left[ g\prima \left( \E{X} \right] \right)^{2}
-\end{align}
-
-Posteriormente se toma el valor esperado de ambos lados
+Nótese que, para cualquier $n \in \Z$ puede escribirse
 \begin{align*}
-\E{\left[g(X)\right]^{2}} &\approx \E{\left[g\left( \E{X} \right)\right]^{2}} + 2 g\left( \E{X} \right) \E{X - \E{X} } g\prima \left( \E{X} \right) \nonumber \\
-&\pheq + \E{\left(X - \E{X} \right)^{2}} \left[ g\prima \left( \E{X} \right] \right)^{2} \\
-&= \left[g\left( \E{X} \right)\right]^{2} + \Var{X} \left[ g\prima \left( \E{X} \right] \right)^{2}
+\left[\left( \mathcal{F}_T[f] \right) \ast \left( \mathcal{F}_T[g] \right)\right](n)
+&=
+\sum_{k=-\infty}^{\infty} \mathcal{F}_T[f](k) \overline{\mathcal{F}_T[g](k-n)} \\
+&=
+\sum_{k=-\infty}^{\infty} \left[ \simint{T} f(u) e^{-\nicefrac{ i \abso{n} u}{2T}} du \right] \overline{\left[ \simint{T} g(u) e^{-\nicefrac{ i \abso{k-n} u}{2T}} du \right]} \\
+&= 5
 \end{align*}
-entonces
-\begin{equation}
-\Var{g(X)} = \E{\left[g(X)\right]^{2}} - \left[g\left( \E{X} \right)\right]^{2} \approx \Var{X} \left[ g\prima \left( \E{X} \right] \right)^{2}
-\end{equation}
-de donde se obtiene la segunda parte del resultado. 
-
-Antes de concluir la demostración, conviene discutir bajo qué condiciones la aproximación es eficiente. La forma completa de la expresión \ref{detalle:aprox} contempla el término
-\begin{equation}
-\frac{\left( X - \E{X} \right)^{2}}{2} g^{\prime \prime}(\xi)
-\end{equation}
-Como $\abso{\xi} < $
 \end{proof}
 
 \begin{corolario}
-Si se usa el teorema anterior con $g = \log$ se obtiene
+Sean $f, g \in L^{2}_T$. Entonces, se cumple que
 \begin{align}
-\E{\log(X)} &\approx \log\left( \E{X} \right) \\
-\Var{\log(X)} &\approx \frac{\Var{X}}{\left( \E{X} \right)^{2}}
+\abso{\mathcal{F}_T[f \ast g]}^{2} &= \abso{ \mathcal{F}_T[f] }^{2} \abso{ \mathcal{F}_T[\overline{g}] }^{2} \\
+\abso{\mathcal{F}_T[ f\, \overline{g}]}^{2} &= \abso{ \left( \mathcal{F}_T[f] \right) \ast \left( \mathcal{F}_T[g] \right)}^{2}
 \end{align}
+\label{teo:convolucion}
 \end{corolario}
 
-\begin{teorema}[Isserlis]
-Sea $[X_1, X_2, X_3, X_4]$ un vector aleatorio siguiendo una distribución multinormal con media cero y matriz de covarianza finita. Se cumple que
-\begin{equation}
-\E{X_1 X_2 X_3 X_4} = \E{X_1 X_2} \E{X_3 X_4} + \E{X_1 X_3} \E{X_2 X_4} + \E{X_1 X_4} \E{X_2 X_3}
-\end{equation}
-\label{teo:isserlis}
-\end{teorema}
-
-%\begin{proof}
-%Si $\phi$ es la función característica de $(X_1, X_2, X_3, X_4)$, entonces puede escribirse
-%\begin{equation}
-%\E{X_1 X_2 X_3 X_4} = \frac{\partial^{2}}{\partial s_1 \partial s_2 \partial s_3 \partial s_4} \phi(s_1, s_2, s_3, s_4) \vert_{s_i = 0}
-%\end{equation}
+El teorema \ref{teo:convolucion} es una motivación para teoremas parecidos, los cuales son usados extensamente en los capítulos siguientes para construir estimadores consistentes para el espectro de potencias; ver las secciones \ref{sec:estimadores} y \ref{sec:doble_ventana}.
 %
-%[?] completar, no es dificil
-%\end{proof}
+%Una vez que se define el espectro de potencias para procesos estocásticos, éste es estimado a partir de su convolución con funciones que poseen ciertas características.
 
-\begin{proposicion}
-Sea $\mathcal{R}$ el conjunto de variables aleatorias con media cero y varianza finita. Se define un producto interno entre dos variables aleatorias arbitrarias, $U$ y $V$, como
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\section{Otros resultados importantes}
+%
+%%Los siguientes teoremas y proposiciones se refieren a propiedades únicamente de los objetos descritos en el capítulo.
+%%%
+%%Aunque no son una consecuencia clara de los resultados expuestos anteriormente, son una base importante de algunos resultados que se expondrán en capítulos posteriores.
+
+\subsection{Transformada de Fourier-Stieltjes}
+
+%El motivo principal para definir los espacios de Hilbert antes que la transformada de Fourier
+Una vez descrita la terminología sobre espacios de Hilbert, y habiendo definido la transformada de Fourier dentro de este contexto, es relativamente sencillo definir algunos otros espacios de funciones que admiten generalizaciones de la transformada de Fourier.
+%
+Por ejemplo, retomando al conjunto $L^{2}$  (las funciones cuadrado-integrables sobre $\R$) puede definirse el operador $\mathcal{F}_\R$ como
 \begin{equation}
-\langle U , V \rangle := \E{U, \overline{V}}
+\mathcal{F}_\R[S](\omega) = \intR S(t) e^{-{ i \omega t}} dt
 \end{equation}
-Usando la suma y productos usuales de variables aleatorias, junto al producto interno descrito, el espacio $\mathcal{R}$ tiene la estructura de espacio de Hilbert.
-\end{proposicion}
+para cualesquiera $S \in L^{2}, \omega \in \R$. El operador $\mathcal{F}_\R$ será referido como la \textbf{transformada de Fourier generalizada}.
 
-\begin{proposicion}
-Sea \xt un proceso débilmente estacionario y $R$ su función de autocorrelación. Se cumple que $R$ es una función positiva definida.
-\end{proposicion}
-
-\begin{teorema}[Bochner]
-Sea $f$ una función real arbitraria. Una condición suficiente y necesaria para que $f$ sea definida positiva es que exista una función real $F$ monótonamente creciente, continua por la derecha y acotada tal que puede escribirse
+Como un segundo ejemplo puede considerarse al conjunto $\ell^{2}_T$ de las sucesiones periódicas con periodo $2T$ y cuadrado-sumables, definido como
 \begin{equation}
-f(t) = \intR e^{i \omega t} dF(\omega)
+\ell^{p}_T := \left\{ s: \Z\rightarrow\C \talque \forall t\in \Z, s(t) = s(t+2T) ; \sum_{n=-T}^{T} \abso{s(n)}^{2} < \infty \right\}
 \end{equation}
-\end{teorema}
 
-%\begin{proof}
-%Para demostrar que la condición es suficiente, supóngase que puede escribirse
-%\begin{equation}
-%f(t) = \intR e^{i \omega t} dF(\omega)
-%\end{equation}
-%Luego, sean $a_1, a_2, \cdot, a_N \in \C$ y $t_1, t_2, \cdots, t_N \in \R$ arbitrarios, entonces
-%\begin{align*}
-%\sum_{m = 1}^{N} \sum_{n = 1}^{N} f(t_m - t_n) a_m \overline{a_n} &=
-%\sum_{m = 1}^{N} \sum_{n = 1}^{N} \left[ \intR e^{i \omega (t_m-t_n)} dF(\omega) \right] a_m \overline{a_n} \\
-%&= \intR \left[ \sum_{m = 1}^{N} \sum_{n = 1}^{N} a_m e^{i \omega t_m} \overline{a_n e^{i \omega t_n}} \right] dF(\omega) \\
-%&= \intR \abso{ \sum_{n = 1}^{N} a_n e^{i \omega t_n} }^{2} dF(\omega) \geq 0
-%\end{align*}
-%\end{proof}
+El espacio $\ell^{2}_T$ admite como productos internos a aquél definido para $\ell^{2}$, si se restringe apropiadamente.
+%
+Para $\ell^{2}_T$ puede definirse al operador $\mathcal{F}_T^{\text{d}}$ como
+\begin{equation}
+\mathcal{F}_T^{\text{d}}[s](n) = \sum_{k=-T}^{T} s(k) e^{-\nicefrac{ i \abso{n} k}{2T}}
+\end{equation}
+para cualesquiera $s \in \ell^{2}_T, n \in \Z$. El operador $\mathcal{F}_T^{\text{d}}$ es referido como la \textbf{transformada discreta de Fourier}.
+
+Como se dijo, es posible listar una gran cantidad de espacios con productos internos, que admiten la estructura de espacio de Hilbert y alguna generalización de la transformada de Fourier que satisfaga los teoremas descritos anteriormente.
+%
+Por fines de concretitud, sólo se expondrá a fondo una versión \textit{suficientemente general} para los fines del presente trabajo, y que es usada ampliamente en los siguientes capítulos: la transformada de Fourier-Stieltjes.
+
+Primeramente se define a $L^{2}_\R$, el conjunto de las funciones que son periódicas o son cuadrado integrables, como
+\begin{equation}
+L^{2}_\R = L^{2} \cup \left[ \bigcup_{T\in \R_+} L^{2}_T \right]
+\end{equation}
+
+Por cómo se definió, para función en $f \in L^{2}_\R$ existe una función $F: \R \rightarrow \C$ tal que la siguiente igualdad se cumple casi en todas partes
+\begin{equation}
+f(t) = \intR e^{-i \omega t} dF(\omega)
+\label{cansado11}
+\end{equation}
+con la integral definida en el sentido de Stieltjes.
+%
+Naturalmente, el par $f$ y $F$ cumplirá un papel similar a la transformada de Fourier, aunque falta decir algunos comentarios antes.
+%
+La expresión \ref{cansado11} es claramente cierta porque:
+\begin{itemize}
+\item si $f \in L^{2}$, entonces puede usarse 
+\begin{equation*}
+F(\omega)=\int_{0}^{\omega} \mathcal{F}_\R[f](\lambda) d\lambda
+\end{equation*}
+\item si $f \in L^{2}_T$ para algún $T$, entonces puede usarse $F$
+\begin{equation*}
+F(\omega) =  \text{sgn}(\omega) \sum_{n = 0}^{\entero{\nicefrac{\abso{\omega}}{2T}}} \mathcal{F}_T[f](n)
+\end{equation*}
+donde $\text{sgn}(\omega)$ es el signo de $\omega$: +1, -1, 0. 
+\end{itemize}
+
+Notablemente $L^{2}_\R$ no es un espacio de Hilbert pues no es \textit{cerrado ante sumas}, es decir, porque no hay garantía de que la suma de dos elementos arbitrarios de $L^{2}_\R$ sea un elemento de $L^{2}_\R$.
+%
+Además, hay que definirle un producto interno.
+
+La primera tarea es sencilla, pues puede usarse a $S^{2}$ como el conjunto más pequeño que es cerrado ante sumas y que contiene a $L^{2}_\R$ --similar a las $\sigma$-álgebras generadas por conjuntos arbitrarios.
+%
+
+?? TERMINAR DEFINIENDO FORMALMENTE A LA TR DE FOURIER-STIELTJES, SIN TANTO RODEO
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

@@ -153,9 +153,13 @@ En un estudio reciente, EEG de una noche polisomnografía de personas mayores co
 \section*{Pregunta de investigación y objetivos}
 \addcontentsline{toc}{section}{Pregunta de investigación y objetivos}
 
-¿Las series de tiempo de los registros de polisomnografía en adultos mayores son débilmente estacionarias?
+Los registros de PSG en adultos mayores, modelados como procesos estocásticos, ¿pueden considerarse como débilmente estacionarios?
 %
-Si en efecto, son débilmente estacionarias ¿Ésta es distinta entre los sujetos con PDCL y sin PDCL?
+¿Dicha caracterización es afectada si el individuo presenta PDCL?
+
+%¿Las series de tiempo de los registros de polisomnografía en adultos mayores son débilmente estacionarias?
+%%
+%Si en efecto, son débilmente estacionarias ¿Ésta es distinta entre los sujetos con PDCL y sin PDCL?
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -170,63 +174,98 @@ Si en efecto, son débilmente estacionarias ¿Ésta es distinta entre los sujeto
 
 \subsection*{Objetivo general}
 
-Buscar pruebas estadísticas formales para detectar si una serie de tiempo dada procede de un 
-proceso estocástico débilmente estacionario.
+Estudiar sobre pruebas estadísticas para detectar si una realización dada proviene de un proceso estocástico débilmente estacionario.
 %
-Usar tales pruebas sobre registros de PSG en adultos mayores para investigar si la 
-presencia de más segmentos débilmente estacionarios se asocia con la condición de PDCL.
+Usar tales pruebas sobre registros de PSG en adultos mayores con y sin PDCL.
+%
+Investigar si hay una relación entre la presencia de PDCL y la clasificación de los proceso estocásticos referidos como débilmente estacionarios.
+
+% la presencia de más segmentos débilmente estacionarios se asocia con la condición de PDCL.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection*{Objetivos específicos}
-
-\begin{itemize}
-\item Estudiar la definición de estacionariedad para procesos estocásticos.
-
-\item Investigar cómo detectar, como prueba de hipótesis, si una serie de tiempo dada proviene
-de un proceso estocástico débilmente estacionario, y bajo qué supuestos 
-es válida dicha caracterización.
-
-\item Establecer si los registros de PSG durante las etapas de sueño son débilmente estacionarios.
-
-\item Investigar si la presencia de segmentos estacionarios en los registros es diferente si la
-PSG corresponde a un individuo con PDCL.
-\end{itemize}
+%\subsection*{Objetivos específicos}
+%
+%\begin{itemize}
+%\item Estudiar la definición de estacionariedad para procesos estocásticos.
+%
+%\item Investigar cómo detectar, como prueba de hipótesis, si una serie de tiempo dada proviene
+%de un proceso estocástico débilmente estacionario, y bajo qué supuestos 
+%es válida dicha caracterización.
+%
+%\item Establecer si los registros de PSG durante las etapas de sueño son débilmente estacionarios.
+%
+%\item Investigar si la presencia de segmentos estacionarios en los registros es diferente si la
+%PSG corresponde a un individuo con PDCL.
+%\end{itemize}
 
 
 \section*{Sobre la estructura del texto}
 \addcontentsline{toc}{section}{Sobre la estructura del texto}
 
-%Debido a la naturaleza multidisciplinaria del presente trabajo, se ha estructurado de manera que %resalten los temas teóricos más como objetos abstractos que como componentes de herramientas para el análisis de datos.
+%En los capítulos del 1 al 3 se exponen tópicos que bien pueden considerarse como matemáticas puras: probabilidad, estimación de parámetros, pruebas de hipótesis, teoría de la medida, análisis funcional.
 
-El presente trabajo está conformado por 6 capítulos y un apéndice. El primer capítulo aborda conceptos preliminares como medida, integración, variables aleatorias, estimadores, pruebas de hipótesis, proceso estocásticos, espacios de Hilbert y la transformada de Fourier.
+Debido al enfoque aplicado del presente trabajo, esta porción del texto fue estructurada pensando en dos tipos de lectores: por un lado aquellos interesados principalmente en los objetos matemáticos involucrados y sus conexiones, y por otro lado quienes ven los mismos como herramienta y esperan entenderlos mejor.
+%
+Los temas fueron ordenados pensando en el primer tipo de lector.
+%
+Para el segundo tipo de lector, se ha preparado en la figura \ref{intro:estructura} un \textit{mapa} del texto, pero principalmente de los temas sobre matemáticas.
+
+En el primer capítulo se abordan varios temas preliminares sin lujo de detalles, con la finalidad de presentar un texto autocontenido;
+%
+la finalidad del capítulo es definir formalmente los procesos estocásticos, espacios de Hilbert y estimadores.
+
+%El presente trabajo está conformado por 6 capítulos y un apéndice. El primer capítulo aborda conceptos preliminares como medida, integración, variables aleatorias, estimadores, pruebas de hipótesis, proceso estocásticos, espacios de Hilbert y la transformada de Fourier.
 
 %El objeto principal de este trabajo es el estudio de la estacionariedad débil en registros de polisomnograma de adultos mayores para investigar si es posible usarlos para
 
-En el segundo capítulo se expone una serie de temas relacionados con la \textit{estadística en el dominio espectral}, es decir, obtener el espectro de potencias de un proceso estocástico --particularmente de procesos débilmente estacionarios.
+En el segundo capítulo se definen los procesos estocásticos débilmente estacionarios, al conjunto de éstos se les da estructura de espacio de Hilbert, y finalmente se usa dicha estructura para definir el espectro de potencias como una generalización de la transformada de Fourier.
 %
-Debido a la notoria relación mutua entre estos temas, se decidió ilustrar en la figura \ref{intro:estructura} la red de temas según dependen unos de otros.
+Una porción importante del capítulo trata sobre la estimación efectiva del espectro de potencias a partir de observaciones dadas de un proceso estocástico.
 
-En el tercer capítulo se expone el \textit{espectro evolutivo}, una generalización del espectro de potencias para procesos no estacionarios.
+%En el segundo capítulo se expone una serie de temas relacionados con la \textit{estadística en el dominio espectral}, es decir, obtener el espectro de potencias de un proceso estocástico --particularmente de procesos débilmente estacionarios.
+%%
+%Debido a la notoria relación mutua entre estos temas, se decidió ilustrar en la figura \ref{intro:estructura} la red de temas según dependen unos de otros.
+
+En el tercer capítulo se define el \textit{espectro evolutivo}, una generalización del espectro de potencias para una familia de procesos que no son débilmente estacionarios.
 %
-Como el espectro evolutivo de un proceso débilmente estacionario se reduce al espectro de potencias, se describe una metodología para detectar estacionariedad débil.
+%En cierto sentido, el espectro evolutivo se define de modo que induzca una estructura parecida a la descrita en el capítulo dos, incluyendo la forma en que puede ser estimado.
+%
+Al final se expone una aplicación aparente menor del espectro evolutivo, pero que es fundamental para el resto del presente trabajo: la prueba de Priestley Subba-Rao. 
+%
+Esta prueba verifica --como prueba de hipótesis-- si el espectro evolutivo de un proceso puede reducirse a un espectro de potencias; en otras palabras, si un proceso es débilmente estacionario.
+
+%En el tercer capítulo se expone el \textit{espectro evolutivo}, una generalización del espectro de potencias para procesos no estacionarios.
+%%
+%Como el espectro evolutivo de un proceso débilmente estacionario se reduce al espectro de potencias, se describe una metodología para detectar estacionariedad débil.
 
 %
 %Naturalmente, esta tarea implica la exposición de varios otros temas relativos a las condiciones bajo las cuales el espectro de potencias está bien definido, así como las condiciones bajo las cuales es posible su estimación.
 
 %El objetivo final del capítulo es presentar una prueba de estacionariedad débil y que es usada para estudiar las propiedades de los registros.
 
-En el cuarto capítulo se presentan conceptos preliminares de índole fisiológica como detección de deterioro cognitivo y su relación con el sueño. En particular se explora el estudio del sueño a través de la polisomnografía.
-
-En el capítulo quinto describe cómo se aplica la metodología descrita en los capítulos anteriores.
+En el cuarto capítulo se presentan conceptos de índole \textit{fisiológica}: psicología, psicometría, electroficiología.
 %
-Los registros son divididos en segmentos, llamados \textit{épocas}, que son analizadas en tres niveles:
-\begin{itemize}
-\item Se prueba la homogeneidad de cada época
-\item Se estudian las características de las distintas épocas dentro 
-\end{itemize}
+El objetivo del capítulo es describir el DCL y cómo se detecta, describir qué es el sueño y como se analiza (en este caso a partir de la polisomnografía), y mencionar la relación entre el sueño y el DCL.
 
-En el capítulo sexto se discuten los resultados obtenidos y se exponen las conclusiones.
+%En el cuarto capítulo se presentan conceptos preliminares de índole fisiológica como detección de deterioro cognitivo y su relación con el sueño. En particular se explora el estudio del sueño a través de la polisomnografía.
+
+En el capítulo quinto se describe cómo se utilizó la prueba de estacionariedad débil para estudiar los registros de polisomnografía.
+%
+En el capítulo sexto se discuten los resultados obtenidos, y se concluye que la técnica utilizada no es un marcador diagnóstico para el DCL; se reportan algunos hallazgos incidentales.
+
+
+%
+%
+%En el capítulo quinto describe cómo se aplica la metodología descrita en los capítulos anteriores.
+%%
+%Los registros son divididos en segmentos, llamados \textit{épocas}, que son analizadas en tres niveles:
+%\begin{itemize}
+%\item Se prueba la homogeneidad de cada época
+%\item Se estudian las características de las distintas épocas dentro 
+%\end{itemize}
+%
+%En el capítulo sexto se discuten los resultados obtenidos y se exponen las conclusiones.
 
 %En el capítulo 2 se describe lo  que es el deterioro cognitivo leve y cómo se detecta a nivel de comportamiento, así como se describen varios esfuerzos por detectar este padecimiento en base a mediciones más objetivas a nivel de sistema (en particular, con el enfoque de mediciones de la actividad cerebral). 
 %

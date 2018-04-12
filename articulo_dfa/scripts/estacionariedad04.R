@@ -3,11 +3,13 @@
 orden_stam = T
 
 # tamano de la ventana analizada, nombre raro para evitar confusiones
-#dur.chunk   = c(rev(30*(2**c(-4,3))),2,5,10,30*(2**-5))
-#dur.chunk   = rev(c(rev(30*(2**c(-4:3))),2,5,10,30*(2**-5)))
-dur.chunk   = (c(rev(30*(2**c(-4:0)))))
+
+# en 30s, falta 
+
+#dur.chunk   = (c((30*(2**c(-5:4)))))
+dur.chunk   = (c((30*(2**c(2:4)))))
 # 15 a medias
-quienes     = rev(1:14)
+quienes     = (1:14)
 
 zoom           = T
 unidad_par_t   = 'tiempo'
@@ -26,7 +28,7 @@ dir_gral       = 'C:/Users/EQUIPO 1/Desktop/julio/TESIS/articulo_dfa'
 dir_info       = 'C:/Users/EQUIPO 1/Desktop/julio/TESIS/articulo_dfa'
 dir_scripts    = 'C:/Users/EQUIPO 1/Desktop/julio/TESIS/articulo_dfa/scripts'
 dir_registro   = 'C:/Users/EQUIPO 1/Desktop/julio/DATOS_corregido/'
-dir_resultados = 'C:/Users/EQUIPO 1/Desktop/julio/estacionariedad_171118'
+dir_resultados = 'C:/Users/EQUIPO 1/Desktop/julio/estacionariedad_180408'
 
 ###############################################################################
 # librerias
