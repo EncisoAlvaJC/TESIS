@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="14cm"
+   height="9.5cm"
+   viewBox="0 0 140 94.999997"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.92.2 (5c3e80d, 2017-08-06)"
+   sodipodi:docname="epocs.svg"
+   inkscape:export-filename="C:\Users\EQUIPO 1\Desktop\julio\tesis_respaldo\TESIS\articulo_dfa\graf_def\Stationarity_patterns_cut.png"
+   inkscape:export-xdpi="400"
+   inkscape:export-ydpi="400">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.492807"
+     inkscape:cx="283.85474"
+     inkscape:cy="179.52756"
+     inkscape:document-units="cm"
+     inkscape:current-layer="layer2"
+     showgrid="false"
+     units="cm"
+     inkscape:window-width="1366"
+     inkscape:window-height="705"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Capa 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-202.00002)"
+     sodipodi:insensitive="true">
+    <rect
+       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1.64353645;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect848"
+       width="140"
+       height="95"
+       x="4.4408921e-016"
+       y="202.00002" />
+    <image
+       sodipodi:absref="C:\Users\EQUIPO 1\Desktop\julio\tesis_respaldo\TESIS\articulo_dfa\scripts\parte2.png"
+       y="252.40836"
+       x="1.7763568e-015"
+       id="image834"
+       xlink:href="file:///C:/Users/EQUIPO%201/Desktop/julio/tesis_respaldo/TESIS/articulo_dfa/scripts/parte2.png"
+       preserveAspectRatio="none"
+       height="44.591648"
+       width="140" />
+    <image
+       sodipodi:absref="C:\Users\EQUIPO 1\Desktop\julio\tesis_respaldo\TESIS\articulo_dfa\scripts\parte1.png"
+       y="202.02043"
+       x="1.110223e-016"
+       id="image845"
+       xlink:href="file:///C:/Users/EQUIPO%201/Desktop/julio/tesis_respaldo/TESIS/articulo_dfa/scripts/parte1.png"
+       preserveAspectRatio="none"
+       height="49.979591"
+       width="140" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="Capa 2">
+    <rect
+       transform="scale(-1,1)"
+       id="rect7515"
+       width="26.519037"
+       height="33.016304"
+       x="-66.710136"
+       y="97.633636"
+       style="display:inline;fill:#355d8a;fill-opacity:0.39215686;stroke:#355d8a;stroke-width:0.61;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <rect
+       style="display:inline;fill:#00ff00;fill-opacity:0;stroke:#008000;stroke-width:0.60964733;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       y="95.684013"
+       x="74.593651"
+       height="33.016304"
+       width="83.103264"
+       id="rect7517" />
+    <rect
+       id="rect863"
+       width="79.696823"
+       height="30.441095"
+       x="44.070438"
+       y="55.730595"
+       style="display:inline;fill:#00ff00;fill-opacity:0.39215687;stroke:#008000;stroke-width:0.5;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <rect
+       style="display:inline;fill:#355d8a;fill-opacity:0.39215687;stroke:#355d8a;stroke-width:0.5;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       y="55.730595"
+       x="-44.070438"
+       height="30.441095"
+       width="13.809948"
+       id="rect865"
+       transform="scale(-1,1)" />
+    <path
+       sodipodi:nodetypes="cc"
+       inkscape:connector-curvature="0"
+       id="path882"
+       d="M 138.96059,55.526575 108.93134,41.829079"
+       style="fill:none;stroke:#808080;stroke-width:0.8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:2.39999999,0.8;stroke-opacity:1;stroke-dashoffset:0" />
+    <rect
+       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:1.50000002, 0.50000001000000005;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect884"
+       width="25.876865"
+       height="3.8805928"
+       x="1.110223e-016"
+       y="50.000004" />
+    <path
+       style="fill:none;stroke:#808080;stroke-width:0.8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:2.39999999,0.8;stroke-opacity:1;stroke-dashoffset:0"
+       d="M 5.5310855,55.730595 90.114349,41.829079"
+       id="path869"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+    <rect
+       style="opacity:1;fill:none;fill-opacity:1;stroke:#355d8a;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect851"
+       width="18.816982"
+       height="30.556013"
+       x="90.114349"
+       y="11.273066" />
+    <rect
+       id="rect867"
+       width="24.729404"
+       height="30.441095"
+       x="5.5310855"
+       y="55.730595"
+       style="display:inline;fill:#ff0000;fill-opacity:0.39215686;stroke:#ff0000;stroke-width:0.5;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+  </g>
+</svg>

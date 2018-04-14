@@ -55,6 +55,8 @@ RES_T    = c()
 RES_TIR  = c()
 max_epo  = rep(0,n.canales)
 
+maximos = c()
+
 setwd(d_dir)
 for(ch in 1:n.canales){
   canal  = kanales$Nombre_archivo[ch]
@@ -66,11 +68,15 @@ for(ch in 1:n.canales){
                   toString(dur_chunk),'.txt')
   pv_tir = scan(ar_tir)
   
+  maximos = min(length(pv_t),length(pv_tir))
+  
   # datos en una matriz
   RES_T   = do.call(rbind,list(RES_T  ,pv_t  ))
   RES_TIR = do.call(rbind,list(RES_TIR,pv_tir))
   max_epo[ch] = length(pv_t)
 }
+
+maxim_epo = max(maximos)
 
 #parche
 #print(length(indice)*30)
@@ -232,13 +238,14 @@ dif_significativas[,nombre_abreviado] = ast[suma+1]
 ress3 = ress
 ress3$Canal_var = as.character(ress3$Canal_var)
 
-ress3 = rbind(ress3,c(buen_ok[1,],'Total'))
+ress3 = rbind(ress3,c(buen_ok[1,],'Total'),
+              rev(c(length(mor),maxim_epo-length(mor),'Abso')))
 
 ress3 = ress3[,rev(1:4)]
 
 #ress4 = cbind(ress3$Canal_var,ress3$NMOR,ress3$MOR,c(significados,0))
 ress4 = cbind(ress3$Canal_var,ress3$NMOR,ress3$MOR,
-              c(dif_significativas[,sujeto],0))
+              c(dif_significativas[,sujeto],0,0))
 
 View(ress4)
 

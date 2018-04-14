@@ -151,7 +151,7 @@ x.max2 = as.POSIXct(as.hms(9600+15))
 RES.extenso$D_chunk = rep(dur_epoca,length(RES.extenso$Indice))
 #RES.collect         = rbind(RES.collect,RES.extenso)
 
-G1 = ggplot(RES.extenso,aes(x=Indice,y=Canal_var,fill=Estacionario)) +
+ggplot(RES.extenso,aes(x=Indice,y=Canal_var,fill=Estacionario)) +
   geom_raster() +
   #xlab('Tiempo [hh:mm]') + ylab(NULL) +
   xlab(NULL) + ylab(NULL) +
