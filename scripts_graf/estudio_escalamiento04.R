@@ -1,7 +1,7 @@
 #################################################
 # directorios
 #dir_datos  = '~/TESIS/graf_datos/estacionariedad_sf/'
-dir_datos  = 'C:/Users/EQUIPO 1/Desktop/julio/estacionariedad_180319'
+dir_datos  = 'C:/Users/EQUIPO 1/Desktop/julio/estacionariedad_180408'
 dir_graf   = 'C:/Users/EQUIPO 1/Desktop/julio/tesis_respaldo/TESIS/scripts_graf_res'
 info_dir   = 'C:/Users/EQUIPO 1/Desktop/julio/tesis_respaldo/TESIS/scripts_graf'
 
@@ -9,7 +9,7 @@ info_dir   = 'C:/Users/EQUIPO 1/Desktop/julio/tesis_respaldo/TESIS/scripts_graf'
 # parametros
 
 #duraciones  = 30*(2**c(-5:3))
-duraciones  = 30*(2**c(2:4))
+duraciones  = 30*(2**c(-5:2))
 p.val       = c(.05)
 
 orden_stam  = T
@@ -32,7 +32,7 @@ require('lemon')
 # datos generales
 info     = read_excel(paste0(info_dir,'/info_tecnico.xlsx'))
 
-orden_k  = read_excel(paste0(info_dir,'/info_canales.xlsx'))
+#orden_k  = read_excel(paste0(info_dir,'/info_canales.xlsx'))
 kanales  = read_excel(paste0(info_dir,'/info_canales.xlsx'),
                       sheet='Alfabetico')
 if(orden_stam){
@@ -255,7 +255,7 @@ ggplot(GR,aes(x=duraciones[D_epoca],y=100*Porcentaje,
   rotate_x_text(angle = 75)+
   theme(legend.position='bottom')
 
-k = 1.2
+k = 1.25
 ggsave(file=paste0(nombre,'_cabeza_epocas_v2.pdf'),device='pdf',
        width=15,height=15,scale=k,path=dir_graf,unit='cm')
 

@@ -13,6 +13,8 @@ nombre           = info$Nombre_archivo[sujeto]
 nom_dir          = info$Nombre_directorio[sujeto]
 d_dir            = data_dir
 
+print(nombre)
+
 #################################################
 # carga las epocas
 #ar_indice = read_excel(paste0(info_dir,'/info_tecnico.xlsx'),
@@ -247,6 +249,6 @@ ress3 = ress3[,rev(1:4)]
 ress4 = cbind(ress3$Canal_var,ress3$NMOR,ress3$MOR,
               c(dif_significativas[,sujeto],0,0))
 
-View(ress4)
+#View(ress4)
 
-invisible(readline(prompt="Presion [enter] para continuar"))
+#invisible(readline(prompt="Presion [enter] para continuar"))

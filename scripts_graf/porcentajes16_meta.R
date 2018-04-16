@@ -11,6 +11,8 @@ setwd(central_dir)
 
 dur_chunk = 30*(2**0)
 
+#for(dur_chunk in 30*(2**c(-5:4))){
+
 p.val = .05
 
 grabar.gral = T
@@ -83,8 +85,6 @@ matriz_mor[,'Etapa']  = rep('MOR',n.canales)
 matriz_nmor[,'Etapa'] = rep('NMOR',n.canales)
 matriz_tot[,'Etapa']  = rep('Total',n.canales)
 
-stop()
-
 #################################################
 # cargar los datos
 for(sujeto in 1:n.participantes){
@@ -94,17 +94,80 @@ for(sujeto in 1:n.participantes){
 
 #################################################
 # diferencias significativas MOR VS NMOR
-if(grabar.ast){
-  setwd(g_dir)
-  write.csv(dif_significativas,file=nombre_archivo)
-}
+#if(grabar.ast){
+#  setwd(g_dir)
+#  write.csv(dif_significativas,file=nombre_archivo)
+#}
+
+#################################################
+# comparacion nueva
+matriz  = rbind(matriz_mor,matriz_nmor)
+matriz  = as.data.frame(matriz)
+matriz$Canal_var = kanales$Etiqueta
+
+sujs = setdiff(colnames(matriz),c('Canal_var','Etapa'))
+
+por.mor = matriz_mor[,1:14]
+class(por.mor) = 'numeric'
+toto = matriz_tot[,1:14]
+class(toto) = 'numeric'
+
+por.mor = por.mor/toto
+por.mor = as.data.frame(por.mor)
+por.mor$Canal_var = kanales$Etiqueta
+por.mor$xx = kanales$x
+por.mor$yy = kanales$y
+
+por.mor.2 = melt(por.mor,id.vars = c('Canal_var','xx','yy'))
+colnames(por.mor.2) = c('Canal_var','xx','yy','Sujeto','por')
+por.mor.2$vari = sqrt(por.mor.2$por*(1-por.mor.2$por))
+
+por.mor.2$grupo = info$Grupo_n[por.mor.2$Sujeto]
+por.mor.2$fre = info$Fr_muestreo[por.mor.2$Sujeto]
+
+por.mor.2 = por.mor.2[por.mor.2$grupo>-1,]
+por.mor.2 = por.mor.2[por.mor.2$fre>200,]
 
 stop()
 
+ggplot(por.mor.2,aes(x=Sujeto,y=100*por)) +
+  ylab('Épocas estacionarias [%]') + 
+  xlab(NULL) +
+  facet_grid(-yy~xx) +
+  theme_bw()+
+  theme(strip.text.x = element_blank(),strip.background = element_blank())+
+  theme(strip.text.y = element_blank())+
+  rotate_x_text(angle = 75)+
+  geom_errorbar(data=por.mor.2,
+                aes(ymin=100*por - 100*vari,ymax=100*por + 100*vari))+
+  geom_point()
+
+ ggplot(GR,aes(x=duraciones[D_epoca],y=100*Porcentaje,
+              linetype=Etapa,shape=Etapa,
+              color=Canal_var))+
+  scale_color_manual(values=vec_colores)+
+  theme(panel.grid.minor = element_blank()) +
+  geom_line()+
+  geom_point()+
+  guides(color=FALSE)+
+  geom_text(aes(label=Canal_var,x=Inf,y=Inf,hjust=1.5,vjust=2),
+            color='gray40')+
+  theme(legend.position='bottom')
+
+stop()
+
+ctrl_es = c(c((info$Grupo_n==0) & (info$Fr_muestreo==512)),T,T)
+pdcl_es = c(c((info$Grupo_n==1) & (info$Fr_muestreo==512)),T,T)
+
+ctrl.mor = matriz_mor[,ctrl_es]
+ctrl.tot = matriz_tot[,ctrl_es]
+
+pdcl.mor = matriz_mor[,pdcl_es]
+pdcl.tot = matriz_tot[,pdcl_es]
+
+
 #################################################
 # separacion de grupos para comparar
-matriz  = rbind(matriz_mor,matriz_nmor)
-matriz  = as.data.frame(matriz)
 matriz2 = melt(matriz,id=c('Canal_var','Etapa'))
 
 matriz2$value = as.numeric(as.character(matriz2$value))
