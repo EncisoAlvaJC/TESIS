@@ -1,8 +1,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%\documentclass[12pt,letterpaper,draft]{book}
-\documentclass[12pt,letterpaper]{book}
+\documentclass[12pt,letterpaper,draft]{book}
+%\documentclass[12pt,letterpaper]{book}
 \usepackage[utf8]{inputenc}
 \usepackage[spanish]{babel}
 
@@ -131,7 +131,10 @@
 \usepackage{esint}
 
 % figuras 1--4
-\usepackage[compress]{cleveref}
+%\usepackage[compress]{cleveref}
+
+% usar subrayado pero que se puedan cortar las palabras entre lineas
+\usepackage{soul}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -695,7 +698,8 @@ Si así fuere, se dice $f = \orden{g}$
 \pagestyle{plain}
 
 \bibliographystyle{bababbrv-lf}
-\bibliography{referencias_estacionariedad,referencias_fisiologia,referencias_otros,referencias_mixto}%{}
+\bibliography{referencias_fisiologia,referencias_estacionariedad,referencias_otros,referencias_mixto}%{}
+%referencias_fisiologia,
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
