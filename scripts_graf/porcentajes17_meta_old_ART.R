@@ -70,20 +70,20 @@ dif_significativas            = matrix(nrow=n.canales,
 colnames(dif_significativas)  = info$Nombre[quienes]
 row.names(dif_significativas) = kanales$Etiqueta
 
-matriz_mor  = matrix(nrow=n.canales,ncol=n.participantes+2)
-matriz_nmor = matrix(nrow=n.canales,ncol=n.participantes+2)
+matriz_REM  = matrix(nrow=n.canales,ncol=n.participantes+2)
+matriz_nREM = matrix(nrow=n.canales,ncol=n.participantes+2)
 matriz_tot  = matrix(nrow=n.canales,ncol=n.participantes+2)
 
-colnames(matriz_mor)   = c(info$Nombre[quienes],'Canal_var','Etapa')
-colnames(matriz_nmor)  = c(info$Nombre[quienes],'Canal_var','Etapa')
+colnames(matriz_REM)   = c(info$Nombre[quienes],'Canal_var','Etapa')
+colnames(matriz_nREM)  = c(info$Nombre[quienes],'Canal_var','Etapa')
 colnames(matriz_tot)   = c(info$Nombre[quienes],'Canal_var','Etapa')
 
-matriz_mor[,'Canal_var']  = 1:n.canales
-matriz_nmor[,'Canal_var'] = 1:n.canales
+matriz_REM[,'Canal_var']  = 1:n.canales
+matriz_nREM[,'Canal_var'] = 1:n.canales
 matriz_tot[,'Canal_var']  = 1:n.canales
 
-matriz_mor[,'Etapa']  = rep('MOR',n.canales)
-matriz_nmor[,'Etapa'] = rep('NMOR',n.canales)
+matriz_REM[,'Etapa']  = rep('REM',n.canales)
+matriz_nREM[,'Etapa'] = rep('NREM',n.canales)
 matriz_tot[,'Etapa']  = rep('Total',n.canales)
 
 #################################################
@@ -94,7 +94,7 @@ for(sujeto in 1:n.participantes){
 }
 
 #################################################
-# diferencias significativas MOR VS NMOR
+# diferencias significativas REM VS NREM
 #if(grabar.ast){
 #  setwd(g_dir)
 #  write.csv(dif_significativas,file=nombre_archivo)
@@ -102,7 +102,7 @@ for(sujeto in 1:n.participantes){
 
 #################################################
 # comparacion nueva
-matriz  = rbind(matriz_mor,matriz_nmor)
+matriz  = rbind(matriz_REM,matriz_nREM)
 matriz  = as.data.frame(matriz)
 matriz$Canal_var = kanales$Etiqueta
 
@@ -118,16 +118,18 @@ matriz2$Grupo = info$Grupo_n[matriz2$Participante]
 matriz2$FF = info$Fr_muestreo[matriz2$Participante]
 
 matriz2 = matriz2[matriz2$Grupo>-1,]
-matriz2 = matriz2[matriz2$FF==512,]
+#matriz2 = matriz2[matriz2$FF==512,]
 
-matriz2$Grupo = factor(matriz2$Grupo,labels=c('CTRL','PDCL'))
+stop()
 
-matriz2$Etapa = factor(matriz2$Etapa,levels=c('NMOR','MOR'))
+matriz2$Grupo = factor(matriz2$Grupo,labels=c('CTL','MCI'))
+
+matriz2$Etapa = factor(matriz2$Etapa,levels=c('NREM','REM'))
 
 matriz2$GrupoEtapa = 2*as.numeric(matriz2$Grupo) + as.numeric(matriz2$Etapa)
 matriz2$GrupoEtapa = factor(matriz2$GrupoEtapa,
-                            labels=c('CTRL, NMOR','CTRL, MOR',
-                                     'PDCL, NMOR','PDCL, MOR'))
+                            labels=c('CTL, NREM','CTL, REM',
+                                     'MCI, NREM','MCI, REM'))
 
 
 ggplot(matriz2,aes(x = Grupo,y=Prop,fill=GrupoEtapa)) +
@@ -233,42 +235,42 @@ stop()
 if(FALSE){
   sujs = setdiff(colnames(matriz),c('Canal_var','Etapa'))
   
-  por.mor = matriz_mor[,1:14]
-  class(por.mor) = 'numeric'
+  por.REM = matriz_REM[,1:14]
+  class(por.REM) = 'numeric'
   toto = matriz_tot[,1:14]
   class(toto) = 'numeric'
   
-  por.mor = por.mor/toto
+  por.REM = por.REM/toto
   
-  varii = sqrt(por.mor*(1-por.mor))/toto
+  varii = sqrt(por.REM*(1-por.REM))/toto
   varii = as.data.frame(varii)
   varii$Canal_var = kanales$Etiqueta
   varii.2 = melt(varii,id.vars = c('Canal_var'))
   
-  por.mor = as.data.frame(por.mor)
-  por.mor$Canal_var = kanales$Etiqueta
-  por.mor$xx = kanales$x
-  por.mor$yy = kanales$y
+  por.REM = as.data.frame(por.REM)
+  por.REM$Canal_var = kanales$Etiqueta
+  por.REM$xx = kanales$x
+  por.REM$yy = kanales$y
   
-  por.mor.2 = melt(por.mor,id.vars = c('Canal_var','xx','yy'))
-  colnames(por.mor.2) = c('Canal_var','xx','yy','Sujeto','por')
+  por.REM.2 = melt(por.REM,id.vars = c('Canal_var','xx','yy'))
+  colnames(por.REM.2) = c('Canal_var','xx','yy','Sujeto','por')
   
-  por.mor.2$vari = varii.2$value
+  por.REM.2$vari = varii.2$value
   
-  por.mor.2$grupo = info$Grupo_n[por.mor.2$Sujeto]
-  por.mor.2$fre = info$Fr_muestreo[por.mor.2$Sujeto]
+  por.REM.2$grupo = info$Grupo_n[por.REM.2$Sujeto]
+  por.REM.2$fre = info$Fr_muestreo[por.REM.2$Sujeto]
   
-  por.mor.2 = por.mor.2[por.mor.2$grupo>-1,]
-  por.mor.2 = por.mor.2[por.mor.2$fre>200,]
+  por.REM.2 = por.REM.2[por.REM.2$grupo>-1,]
+  por.REM.2 = por.REM.2[por.REM.2$fre>200,]
   
-  por.mor.2$grupo = factor(por.mor.2$grupo,labels=c('CTRL','PDCL'))
+  por.REM.2$grupo = factor(por.REM.2$grupo,labels=c('CTL','MCI'))
   
-  por.mor.2$Sujeto = factor(por.mor.2$Sujeto,
+  por.REM.2$Sujeto = factor(por.REM.2$Sujeto,
                             levels = c('VCR','MJH','JAE','GHA','MFGR','MGG','EMT',
                                        'CLO','RLO','RRU','JGZ','AEFP','PCM',
                                        'FGH'))
   
-  ggplot(por.mor.2,aes(x=Sujeto,y=100*por,color=grupo)) +
+  ggplot(por.REM.2,aes(x=Sujeto,y=100*por,color=grupo)) +
     ylab('Épocas estacionarias [%]') + 
     xlab(NULL) +
     facet_grid(-yy~xx) +
@@ -281,7 +283,7 @@ if(FALSE){
               y=Inf,x=Inf,color='gray40')+
     theme(legend.position = 'bottom') +
     labs(color=NULL) +
-    geom_errorbar(data=por.mor.2,
+    geom_errorbar(data=por.REM.2,
                   aes(ymin=100*por - 100*vari,ymax=100*por + 100*vari))+
     geom_point()
 }
@@ -302,15 +304,15 @@ matriz2$Grupo = info$Grupo_n[as.numeric(matriz2$Participante)]
 
 matriz2 = matriz2[matriz2$Grupo>-1,]
 
-matriz2$GrupoEtapa = 2*matriz2$Grupo + 1*(matriz2$Etapa=='MOR')
+matriz2$GrupoEtapa = 2*matriz2$Grupo + 1*(matriz2$Etapa=='REM')
 
 matriz2$Canal_var  = factor(matriz2$Canal_var,
                             labels=kanales$Etiqueta)
 matriz2$Grupo      = factor(matriz2$Grupo,
-                            labels=c('CTRL','PDCL'))
+                            labels=c('CTL','MCI'))
 matriz2$GrupoEtapa = factor(matriz2$GrupoEtapa,
-                            labels=c('CTRL NMOR','CTRL MOR',
-                                     'PDCL NMOR','PDCL MOR'))
+                            labels=c('CTL NREM','CTL REM',
+                                     'MCI NREM','MCI REM'))
 
 ggplot(matriz2,aes(x=Canal_var,y=Proporcion,fill=GrupoEtapa,
                    color=GrupoEtapa))+
@@ -358,27 +360,27 @@ matriz2$GrupoEtapa = 2*matriz2$Grupo + 1*(matriz2$Etapa=='REM')
 #droplevels(matriz2$Proporcion)
 #matriz2$Proporcion = droplevels(matriz2$Proporcion)
 
-#matriz2$Grupo = 1*(matriz2$Grupo=='CTRL')
+#matriz2$Grupo = 1*(matriz2$Grupo=='CTL')
 #matriz2$Etapa = 1*(matriz2$Etapa=='REM')
 
 matriz2$Canal_var  = factor(matriz2$Canal_var,
                             labels=kanales$Etiqueta)
 matriz2$Grupo      = factor(matriz2$Grupo,
-                            labels=c('CTRL','PMCI'))
+                            labels=c('CTL','PMCI'))
 matriz2$GrupoEtapa = factor(matriz2$GrupoEtapa,
-                            labels=c('CTRL NREM','CTRL REM',
+                            labels=c('CTL NREM','CTL REM',
                                      'PMCI NREM','PMCI REM'))
 
 promedio = summarySE(matriz2,measurevar='Proporcion',
                      groupvars=c('Canal_var','GrupoEtapa'))
 
-promedio$Grupo = 1*(promedio$GrupoEtapa=='CTRL REM')+
-  1*(promedio$GrupoEtapa=='CTRL NREM')
-promedio$Etapa = 1*(promedio$GrupoEtapa=='CTRL REM')+
+promedio$Grupo = 1*(promedio$GrupoEtapa=='CTL REM')+
+  1*(promedio$GrupoEtapa=='CTL NREM')
+promedio$Etapa = 1*(promedio$GrupoEtapa=='CTL REM')+
   1*(promedio$GrupoEtapa=='PMCI REM')
 
 promedio$Grupo = factor(promedio$Grupo,
-                        labels=c('PMCI','CTRL'))
+                        labels=c('PMCI','CTL'))
 promedio$Etapa = factor(promedio$Etapa,
                         labels=c('NREM','REM'))
 
@@ -444,12 +446,12 @@ ggplot(promedio,aes(x=Canal_var,y=Proporcion,fill=GrupoEtapa)) +
                      label.y =.5)+
   rotate_x_text(angle = 45)
 if(grabar.gral){
-  ggsave(filename=paste0('completo_Comparacion_gpos_MOR_NMOR_',
+  ggsave(filename=paste0('completo_Comparacion_gpos_REM_NREM_',
                          toString(dur_chunk),
                          '_barra.png'),
          path=g_dir,device='png',
          width=8,height=5,unit='in',dpi=400)
-  ggsave(filename=paste0('completo_Comparacion_gpos_MOR_NMOR_',
+  ggsave(filename=paste0('completo_Comparacion_gpos_REM_NREM_',
                          toString(dur_chunk),
                          '_barra.eps'),
          path=g_dir,device='eps',
@@ -462,7 +464,7 @@ write.csv(matriz2,file='completo_estacionariedad_crudo.csv',
 
 
 # guardar para la tesis
-ggplot(RES.MOR,aes(x=Neuropsi,y=Proporcion,
+ggplot(RES.REM,aes(x=Neuropsi,y=Proporcion,
                    shape=Grupo,color=Grupo))+
   ylab('Stationary epoche [%]') +
   labs(title='At REM')+
@@ -474,7 +476,7 @@ ggplot(RES.MOR,aes(x=Neuropsi,y=Proporcion,
   #            inherit.aes=F,
   #            se=F,color='black') +
   labs(color='Grupo')+
-  stat_cor(data=RES.MOR,inherit.aes=F,
+  stat_cor(data=RES.REM,inherit.aes=F,
            aes(x=Neuropsi,y=Proporcion),method='spearman') +
   #scale_y_continuous(expand=c(0,0))+
   scale_colour_discrete(guide = FALSE) +
@@ -487,7 +489,7 @@ ggsave(filename='/correlacion_estacionariedad_30_Neuropsi.png',path=dir_graf,
 ggsave(filename='/correlacion_estacionariedad_30_Neuropsi.eps',path=dir_graf,
        device='eps',units='cm',width=30,height=30,dpi=300)
 
-ggplot(RES.MOR,aes(x=Age,y=Proporcion,
+ggplot(RES.REM,aes(x=Age,y=Proporcion,
                    shape=Grupo,color=Grupo))+
   ylab('Stationary epoche [%]') +
   labs(title='At REM')+
@@ -499,7 +501,7 @@ ggplot(RES.MOR,aes(x=Age,y=Proporcion,
   #            inherit.aes=F,
   #            se=F,color='black') +
   labs(color='Grupo')+
-  stat_cor(data=RES.MOR,inherit.aes=F,
+  stat_cor(data=RES.REM,inherit.aes=F,
            aes(x=Age,y=Proporcion),method='spearman') +
   #scale_y_continuous(expand=c(0,0))+
   scale_colour_discrete(guide = FALSE) +

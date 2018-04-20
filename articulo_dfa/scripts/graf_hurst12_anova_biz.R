@@ -280,6 +280,71 @@ for(ch in 1:n.canales){
   invisible(readline(prompt="Presion [enter] para continuar"))
 }
 
+tab.tot = matrix(NA,nrow=n.canales,ncol=2)
+colnames(tab.tot) = c('D','p')
+
+tab.RN = matrix(NA,nrow=n.canales,ncol=4)
+colnames(tab.RN) = c('D','p','D','p')
+
+tab.CTLMCI = matrix(NA,nrow=n.canales,ncol=4)
+colnames(tab.CTLMCI) = c('D','p','D','p')
+
+tab.multi = matrix(NA,nrow=n.canales,ncol=8)
+colnames(tab.multi) = c('D','p','D','p','D','p','D','p')
+
+for(ch in 1:n.canales){
+  ch.actual = kanales$Etiqueta[ch]
+  print(ch.actual)
+  #tmp   = Hurst.todo.promedio[grep(ch.actual,Hurst.todo.promedio$Canal),]
+  tmp   = Hurst.todo[grep(ch.actual,Hurst.todo$Canal),]
+  tmp.m = promedios.todo[grep(ch.actual,promedios.todo$Canal),]
+  tmp.y = Hurst.todo.promedio[grep(ch.actual,Hurst.todo.promedio$Canal),]
+  
+  tmp$Hurst = as.numeric(tmp$Hurst)
+  
+  tmp_R = tmp[tmp$Etapa=='REM',]
+  tmp_N = tmp[tmp$Etapa=='NREM',]
+  
+  tmp_CTL = tmp[tmp$Grupo=='CTL',]
+  tmp_MCI = tmp[tmp$Grupo=='MCI',]
+  
+  tmp_CTL_R = tmp_CTL[tmp_CTL$Etapa=='REM',]
+  tmp_CTL_N = tmp_CTL[tmp_CTL$Etapa=='NREM',]
+  
+  tmp_MCI_R = tmp_CTL[tmp_MCI$Etapa=='REM',]
+  tmp_MCI_N = tmp_CTL[tmp_MCI$Etapa=='NREM',]
+  
+  KS  = ks.test(tmp$Hurst,'pnorm',exact = T)
+  tab.tot[ch,] = c(KS$statistic,KS$p.value)
+  
+  KS1  = ks.test(tmp_N$Hurst,'pnorm',exact = T)
+  KS2  = ks.test(tmp_R$Hurst,'pnorm',exact = T)
+  tab.RN[ch,] = c(KS1$statistic,KS1$p.value,
+                   KS2$statistic,KS2$p.value)
+  
+  KS1  = ks.test(tmp_CTL$Hurst,'pnorm',exact = T)
+  KS2  = ks.test(tmp_MCI$Hurst,'pnorm',exact = T)
+  tab.CTLMCI[ch,] = c(KS1$statistic,KS1$p.value,
+                  KS2$statistic,KS2$p.value)
+  
+  KS1  = ks.test(tmp_CTL_N$Hurst,'pnorm',exact = T)
+  KS2  = ks.test(tmp_CTL_R$Hurst,'pnorm',exact = T)
+  KS3  = ks.test(tmp_MCI_N$Hurst,'pnorm',exact = T)
+  KS4  = ks.test(tmp_MCI_R$Hurst,'pnorm',exact = T)
+  tab.multi[ch,] = c(KS1$statistic,KS1$p.value,
+                  KS2$statistic,KS2$p.value,
+                  KS3$statistic,KS1$p.value,
+                  KS4$statistic,KS2$p.value)
+  
+  #invisible(readline(prompt="Presion [enter] para continuar"))
+}
+
+View(tab.tot)
+View(tab.RN)
+View(tab.CTLMCI)
+View(tab.multi)
+
+
 min(promedios.todo$Hurst- promedios.todo$sd)
 max(promedios.todo$Hurst+ promedios.todo$sd)
 
@@ -508,6 +573,70 @@ max(promedios.todo$Hurst+ promedios.todo$sd)
 
 View(big.summary)
 invisible(readline(prompt="Presion [enter] para continuar"))
+
+tab.tot = matrix(NA,nrow=n.canales,ncol=2)
+colnames(tab.tot) = c('D','p')
+
+tab.RN = matrix(NA,nrow=n.canales,ncol=4)
+colnames(tab.RN) = c('D','p','D','p')
+
+tab.CTLMCI = matrix(NA,nrow=n.canales,ncol=4)
+colnames(tab.CTLMCI) = c('D','p','D','p')
+
+tab.multi = matrix(NA,nrow=n.canales,ncol=8)
+colnames(tab.multi) = c('D','p','D','p','D','p','D','p')
+
+for(ch in 1:n.canales){
+  ch.actual = kanales$Etiqueta[ch]
+  print(ch.actual)
+  #tmp   = Hurst.todo.promedio[grep(ch.actual,Hurst.todo.promedio$Canal),]
+  tmp   = Hurst.todo[grep(ch.actual,Hurst.todo$Canal),]
+  tmp.m = promedios.todo[grep(ch.actual,promedios.todo$Canal),]
+  tmp.y = Hurst.todo.promedio[grep(ch.actual,Hurst.todo.promedio$Canal),]
+  
+  tmp$Hurst = as.numeric(tmp$Hurst)
+  
+  tmp_R = tmp[tmp$Etapa=='REM',]
+  tmp_N = tmp[tmp$Etapa=='NREM',]
+  
+  tmp_CTL = tmp[tmp$Grupo=='CTL',]
+  tmp_MCI = tmp[tmp$Grupo=='MCI',]
+  
+  tmp_CTL_R = tmp_CTL[tmp_CTL$Etapa=='REM',]
+  tmp_CTL_N = tmp_CTL[tmp_CTL$Etapa=='NREM',]
+  
+  tmp_MCI_R = tmp_CTL[tmp_MCI$Etapa=='REM',]
+  tmp_MCI_N = tmp_CTL[tmp_MCI$Etapa=='NREM',]
+  
+  KS  = ks.test(tmp$Hurst,'pnorm',exact = T)
+  tab.tot[ch,] = c(KS$statistic,KS$p.value)
+  
+  KS1  = ks.test(tmp_N$Hurst,'pnorm',exact = T)
+  KS2  = ks.test(tmp_R$Hurst,'pnorm',exact = T)
+  tab.RN[ch,] = c(KS1$statistic,KS1$p.value,
+                  KS2$statistic,KS2$p.value)
+  
+  KS1  = ks.test(tmp_CTL$Hurst,'pnorm',exact = T)
+  KS2  = ks.test(tmp_MCI$Hurst,'pnorm',exact = T)
+  tab.CTLMCI[ch,] = c(KS1$statistic,KS1$p.value,
+                      KS2$statistic,KS2$p.value)
+  
+  KS1  = ks.test(tmp_CTL_N$Hurst,'pnorm',exact = T)
+  KS2  = ks.test(tmp_CTL_R$Hurst,'pnorm',exact = T)
+  KS3  = ks.test(tmp_MCI_N$Hurst,'pnorm',exact = T)
+  KS4  = ks.test(tmp_MCI_R$Hurst,'pnorm',exact = T)
+  tab.multi[ch,] = c(KS1$statistic,KS1$p.value,
+                     KS2$statistic,KS2$p.value,
+                     KS3$statistic,KS1$p.value,
+                     KS4$statistic,KS2$p.value)
+  
+  #invisible(readline(prompt="Presion [enter] para continuar"))
+}
+
+View(tab.tot)
+View(tab.RN)
+View(tab.CTLMCI)
+View(tab.multi)
 
 if(FALSE){
   big.summary = c()
