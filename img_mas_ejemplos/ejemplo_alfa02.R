@@ -111,52 +111,6 @@ ALFA.ACV =
   geom_line()
 plot(ALFA.ACV)
 
-# periodograma
-# #periodogram(X.t)
-# a = abs(fft(m1$acv))#**2
-# ind = 1:length(a)
-# plot(ind,a,type='l')
-# 
-# plot(ind[1:150],a[1:150],type='l')
-# abline(v=12)
-# abline(v=7)
-# abline(v=3.5)
-# 
-# abline(v=24)
-# abline(v=7)
-# 
-# 
-# 
-# b = max(a)
-# ind[abs(a-b)<1]
-# 
-# sp = pspectrum(m1$acv,x.frqsamp = 500)
-# plot(sp)
-# abline(v=12)
-# abline(v=7)
-# 
-# 
-# 
-# 
-# sp = pspectrum(m$proceso,x.frqsamp = 500)
-# plot(sp)
-# abline(v=12)
-# abline(v=7)
-# 
-# sp$spec[sp$spec<=12 & sp$spec>=7]
-# 
-# 
-# a = abs(fft(m$proceso))#**2
-# ind = 1:length(a)/2
-# plot(ind,a,type='l')
-# 
-# plot(ind[1:150],a[1:150],type='l')
-# abline(v=12)
-# abline(v=7)
-# abline(v=3.5)
-
-# periodograma
-
 tmp3 = seq(0,20,by=1/500)
 lon3 = length(tmp3)
 

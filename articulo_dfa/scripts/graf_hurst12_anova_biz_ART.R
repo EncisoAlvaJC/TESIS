@@ -32,10 +32,10 @@ source(paste0(dir_scripts,'/utileria.R'))
 # datos generales
 info     = read_excel(paste0(dir_info,'/info_tecnico.xlsx'))
 
-kanales  = read_excel(paste0(dir_info,'/info_canales.xlsx'),
+kanales  = read_excel(paste0(dir_info,'/info_canales_parche.xlsx'),
                       sheet='Alfabetico')
 if(orden_stam){
-  kanales  = read_excel(paste0(dir_info,'/info_canales.xlsx'),
+  kanales  = read_excel(paste0(dir_info,'/info_canales_parche.xlsx'),
                         sheet='Stam')
 }
 n.canales    = length(kanales$Etiqueta)
@@ -91,17 +91,17 @@ promedios.MOR               = summarySE(Hurst.MOR,na.rm=T,
                                         groupvars=c('Grupo','Canal_var'))
 
 
-require('Rmisc')
-require('ggthemes')
-
-ggplot(promedios.MOR,aes(x=Canal_var,y=Hurst,color=Grupo)) +
-  theme_hc(bgcolor="darkunica")+
-  scale_colour_hc("darkunica") +
-  geom_jitter(data=Hurst.MOR,aes(x=Canal_var,y=Hurst))+
-  xlab('Canales del EEG \\ Otra línea') +
-  ylab('Glucosa en mg/dL') +
-  geom_point() +
-  geom_errorbar(aes(ymin=Hurst-sd,ymax=Hurst+sd),color='black')
+# require('Rmisc')
+# require('ggthemes')
+# 
+# ggplot(promedios.MOR,aes(x=Canal_var,y=Hurst,color=Grupo)) +
+#   theme_hc(bgcolor="darkunica")+
+#   scale_colour_hc("darkunica") +
+#   geom_jitter(data=Hurst.MOR,aes(x=Canal_var,y=Hurst))+
+#   xlab('Canales del EEG \\ Otra línea') +
+#   ylab('Glucosa en mg/dL') +
+#   geom_point() +
+#   geom_errorbar(aes(ymin=Hurst-sd,ymax=Hurst+sd),color='black')
 
 ###############################################################################
 # lo mismo para NMOR
@@ -203,6 +203,89 @@ if(FALSE){
          device='eps',units='cm',width=16,height=14,dpi=400,scale=1.2)
 }
 
+mores = (Hurst.todo$Etapa=='REM')
+Hurst.todo$MORn[mores] = 10 + Hurst.todo$MORn[mores]
+
+if(FALSE){
+  require('lemon')
+  
+  cuales = is.element(Hurst.todo$Canal_var,c('LOG','ROG',
+                                             'Fp1','F4',
+                                             'F7','F8',
+                                             'T3','T4'
+                                             ))
+  
+  test = is.element(Hurst.todo$Sujeto_n,c('EMT')) & cuales
+  
+  Hurst.todo2 = Hurst.todo[cuales,]
+  
+  Hurst.todo3 = Hurst.todo[test,]
+  
+  Hurst.todo4 = Hurst.todo2
+  Hurst.todo4$Grupo = as.numeric(Hurst.todo4$Grupo)
+  emt = is.element(Hurst.todo4$Sujeto_n,c('EMT'))
+  Hurst.todo4$Grupo[emt] = 10
+  Hurst.todo4$Grupo = factor(Hurst.todo4$Grupo,
+                             labels=c('CTRL','MCI','EMT'))
+  
+  ggplot(Hurst.todo3,aes(x=MORn,y=Hurst,
+                         group=Sujeto_n,color=Grupo)) +
+    theme_classic2() +
+    ylab('Hurst exponent')+ xlab('Sleep stage')+
+    scale_color_manual(values=c('blue','red'))+
+    scale_x_continuous(breaks = 1:20) +
+    theme(legend.position='top')+
+    labs(color='Group') +
+    #geom_vline(xintercept = 5,inherit.aes=F) +
+    geom_boxplot(aes(x=MORn,y=Hurst,fill=Grupo,
+                     group=MORn,color=Grupo),color='gray') +
+    geom_line() +
+    #geom_point() +
+    facet_rep_grid((-yy)~xx)+
+    geom_text(aes(x=-Inf,y=-Inf,label=Canal_var),
+              hjust=-.1,vjust=-1,colour='gray20')+
+    theme(strip.text.y = element_blank()) +
+    theme(strip.text.x = element_blank()) 
+  
+  ggplot(Hurst.todo4,aes(x=MORn,y=Hurst,
+                         group=Sujeto_n,color=Grupo)) +
+    theme_classic2() +
+    ylab('Hurst exponent')+ xlab('Sleep stage')+
+    scale_color_manual(values=c('blue','red','green'))+
+    scale_x_continuous(breaks = 1:20) +
+    theme(legend.position='top')+
+    labs(color='Group') +
+    #geom_vline(xintercept = 5,inherit.aes=F) +
+    geom_boxplot(aes(x=MORn,y=Hurst,fill=Grupo,
+                     group=MORn,color=Grupo),color='gray') +
+    geom_line() +
+    #geom_point() +
+    facet_rep_grid((-yy)~xx)+
+    geom_text(aes(x=-Inf,y=-Inf,label=Canal_var),
+              hjust=-.1,vjust=-1,colour='gray20')+
+    theme(strip.text.y = element_blank()) +
+    theme(strip.text.x = element_blank()) 
+  
+  ggplot(Hurst.todo4,aes(x=MORn,y=Hurst,
+                         group=MORn,
+                         color=Grupo,fill=Grupo)) +
+    theme_classic2() +
+    ylab('Hurst exponent')+ xlab('Sleep stage')+
+    scale_color_manual(values=c('blue','red','green'))+
+    scale_x_continuous(breaks = 1:20) +
+    theme(legend.position='top')+
+    labs(color='Group') +
+    #geom_vline(xintercept = 5,inherit.aes=F) +
+    #geom_line() +
+    geom_boxplot(color='gray') +
+    geom_jitter() +
+    facet_rep_grid((-yy)~xx)+
+    geom_text(aes(x=-Inf,y=-Inf,label=Canal_var),
+              hjust=-.1,vjust=-1,colour='gray20')+
+    theme(strip.text.y = element_blank()) +
+    theme(strip.text.x = element_blank()) 
+  
+}
 
 big.summary = c()
 
