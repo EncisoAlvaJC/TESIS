@@ -43,7 +43,7 @@ n.canales    = length(kanales$Etiqueta)
 ###############################################################################
 # cargar los datos
 raw = read_excel(paste0(dir_res_pre,'/dfa_asdataframe.xlsx'),
-                 sheet='uno')
+                 sheet='parche')
 raw = as.data.frame(raw)
 
 Hurst.MOR           = melt(raw,id=c('Sujeto','Grupo','Edad',
@@ -61,7 +61,7 @@ Hurst.MOR$yy        = kanales$y[Hurst.MOR$Canal_var]
 Hurst.MOR = Hurst.MOR[!is.na(Hurst.MOR$Hurst),]
 Hurst.MOR = Hurst.MOR[Hurst.MOR$Grupo>-1,]
 
-sujetos = setdiff(unique(Hurst.MOR$Sujeto),11)
+sujetos = setdiff(unique(Hurst.MOR$Sujeto),11:14)
 
 if(usar.log){
   Hurst.MOR$Hurst     = log(Hurst.MOR$Hurst)
@@ -106,7 +106,7 @@ promedios.MOR               = summarySE(Hurst.MOR,na.rm=T,
 ###############################################################################
 # lo mismo para NMOR
 raw = read_excel(paste0(dir_res_pre,'/dfa_asdataframe.xlsx'),
-                 sheet='uno_pre')
+                 sheet='parche_pre')
 raw = as.data.frame(raw)
 
 Hurst.NMOR           = melt(raw,id=c('Sujeto','Grupo','Edad',
@@ -124,7 +124,7 @@ Hurst.NMOR$yy        = kanales$y[Hurst.NMOR$Canal_var]
 Hurst.NMOR = Hurst.NMOR[!is.na(Hurst.NMOR$Hurst),]
 Hurst.NMOR = Hurst.NMOR[Hurst.NMOR$Grupo>-1,]
 
-sujetos = setdiff(unique(Hurst.NMOR$Sujeto),11)
+sujetos = setdiff(unique(Hurst.NMOR$Sujeto),11:14)
 
 if(usar.log){
   Hurst.NMOR$Hurst     = log(Hurst.NMOR$Hurst)
@@ -215,9 +215,9 @@ if(FALSE){
                                              'T3','T4'
                                              ))
   
-  test = is.element(Hurst.todo$Sujeto_n,c('EMT')) & cuales
+  test = is.element(Hurst.todo$Sujeto_n,c('EMT'))
   
-  Hurst.todo2 = Hurst.todo[cuales,]
+  Hurst.todo2 = Hurst.todo
   
   Hurst.todo3 = Hurst.todo[test,]
   
@@ -228,17 +228,24 @@ if(FALSE){
   Hurst.todo4$Grupo = factor(Hurst.todo4$Grupo,
                              labels=c('CTRL','MCI','EMT'))
   
-  ggplot(Hurst.todo3,aes(x=MORn,y=Hurst,
+  ggplot(Hurst.todo2,aes(x=MORn,y=Hurst,
                          group=Sujeto_n,color=Grupo)) +
     theme_classic2() +
     ylab('Hurst exponent')+ xlab('Sleep stage')+
     scale_color_manual(values=c('blue','red'))+
-    scale_x_continuous(breaks = 1:20) +
+    #scale_x_continuous(breaks = 1:20) +
     theme(legend.position='top')+
     labs(color='Group') +
-    #geom_vline(xintercept = 5,inherit.aes=F) +
-    geom_boxplot(aes(x=MORn,y=Hurst,fill=Grupo,
-                     group=MORn,color=Grupo),color='gray') +
+    geom_vline(aes(xintercept = 10.5),color='gray')+
+    scale_x_continuous(breaks = 1:20,
+                       labels = c(rep('',4),
+                                  'NREM',
+                                  rep('',10),
+                                  'REM',
+                                  rep('',4)))+
+  #geom_vline(xintercept = 5,inherit.aes=F) +
+    #geom_boxplot(aes(x=MORn,y=Hurst,fill=Grupo,
+    #                 group=MORn,color=Grupo),color='gray') +
     geom_line() +
     #geom_point() +
     facet_rep_grid((-yy)~xx)+
@@ -247,43 +254,48 @@ if(FALSE){
     theme(strip.text.y = element_blank()) +
     theme(strip.text.x = element_blank()) 
   
-  ggplot(Hurst.todo4,aes(x=MORn,y=Hurst,
-                         group=Sujeto_n,color=Grupo)) +
-    theme_classic2() +
-    ylab('Hurst exponent')+ xlab('Sleep stage')+
-    scale_color_manual(values=c('blue','red','green'))+
-    scale_x_continuous(breaks = 1:20) +
-    theme(legend.position='top')+
-    labs(color='Group') +
-    #geom_vline(xintercept = 5,inherit.aes=F) +
-    geom_boxplot(aes(x=MORn,y=Hurst,fill=Grupo,
-                     group=MORn,color=Grupo),color='gray') +
-    geom_line() +
-    #geom_point() +
-    facet_rep_grid((-yy)~xx)+
-    geom_text(aes(x=-Inf,y=-Inf,label=Canal_var),
-              hjust=-.1,vjust=-1,colour='gray20')+
-    theme(strip.text.y = element_blank()) +
-    theme(strip.text.x = element_blank()) 
+  ggsave(filename='/all_significative.png',path=dir_graf,
+         device='png',units='cm',width=14,height=16,dpi=400,scale=1.2)
+  ggsave(filename='/all_significative.eps',path=dir_graf,
+         device='eps',units='cm',width=14,height=16,dpi=400,scale=1.2)
   
-  ggplot(Hurst.todo4,aes(x=MORn,y=Hurst,
-                         group=MORn,
-                         color=Grupo,fill=Grupo)) +
-    theme_classic2() +
-    ylab('Hurst exponent')+ xlab('Sleep stage')+
-    scale_color_manual(values=c('blue','red','green'))+
-    scale_x_continuous(breaks = 1:20) +
-    theme(legend.position='top')+
-    labs(color='Group') +
-    #geom_vline(xintercept = 5,inherit.aes=F) +
-    #geom_line() +
-    geom_boxplot(color='gray') +
-    geom_jitter() +
-    facet_rep_grid((-yy)~xx)+
-    geom_text(aes(x=-Inf,y=-Inf,label=Canal_var),
-              hjust=-.1,vjust=-1,colour='gray20')+
-    theme(strip.text.y = element_blank()) +
-    theme(strip.text.x = element_blank()) 
+  
+  # ggplot(Hurst.todo4,aes(x=MORn,y=Hurst,
+  #                        group=Sujeto_n,color=Grupo)) +
+  #   theme_classic2() +
+  #   ylab('Hurst exponent')+ xlab('Sleep stage')+
+  #   scale_color_manual(values=c('blue','red','green'))+
+  #   scale_x_continuous(breaks = 1:20) +
+  #   theme(legend.position='top')+
+  #   labs(color='Group') +
+  #   #geom_boxplot(aes(x=MORn,y=Hurst,fill=Grupo,
+  #   #                 group=MORn,color=Grupo),color='gray') +
+  #   geom_line() +
+  #   #geom_point() +
+  #   facet_rep_grid((-yy)~xx)+
+  #   geom_text(aes(x=-Inf,y=-Inf,label=Canal_var),
+  #             hjust=-.1,vjust=-1,colour='gray20')+
+  #   theme(strip.text.y = element_blank()) +
+  #   theme(strip.text.x = element_blank())
+  #   
+  # ggplot(Hurst.todo4,aes(x=MORn,y=Hurst,
+  #                        group=MORn,
+  #                        color=Grupo,fill=Grupo)) +
+  #   theme_classic2() +
+  #   ylab('Hurst exponent')+ xlab('Sleep stage')+
+  #   scale_color_manual(values=c('blue','red','green'))+
+  #   scale_x_continuous(breaks = 1:20) +
+  #   theme(legend.position='top')+
+  #   labs(color='Group') +
+  #   #geom_vline(xintercept = 5,inherit.aes=F) +
+  #   #geom_line() +
+  #   geom_boxplot(color='gray') +
+  #   geom_jitter() +
+  #   facet_rep_grid((-yy)~xx)+
+  #   geom_text(aes(x=-Inf,y=-Inf,label=Canal_var),
+  #             hjust=-.1,vjust=-1,colour='gray20')+
+  #   theme(strip.text.y = element_blank()) +
+  #   theme(strip.text.x = element_blank()) 
   
 }
 
