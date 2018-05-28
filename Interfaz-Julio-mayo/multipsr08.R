@@ -100,4 +100,7 @@ multipsr <- function(ch,nombre,w_dir,c_dir,r_dir,
   write.csv(pv.t  , paste0('EST_',nombre,'_',canal,'_T_',dur_epo,'.csv'  ))
   write.csv(pv.ir , paste0('EST_',nombre,'_',canal,'_IR_',dur_epo,'.csv' ))
   write.csv(pv.tir, paste0('EST_',nombre,'_',canal,'_TIR_',dur_epo,'.csv'))
+  
+  ## necesita regresar algo
+  return(ch)
 }

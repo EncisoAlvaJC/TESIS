@@ -4,9 +4,15 @@
 estacionariedad <- function(data_dir, central_dir, result_dir, nom_dir, nom_arch, nom_facil, grupo_de, frecuenciasss, sizeEpoc){
   setwd(central_dir)
   
+  ## Pararelizacion
+  library(doParallel)
+  
+  myCluster <- makeCluster(detectCores() - 1, # nucleos a usar
+                           type = "PSOCK") # PSOCK solo disponible en Windows
+  registerDoParallel(myCluster)
+  
   source('multipsr08.R' ) 
   source('colorcitos_usable02.R')
-  
   
   for(sujeto in 1:length(nom_dir)){
     print(sujeto)
@@ -23,12 +29,11 @@ estacionariedad <- function(data_dir, central_dir, result_dir, nom_dir, nom_arch
     ch = 1
     z=1
     
-    for(z in 1:22){
-      multipsr(z,nombre,work_dir,central_dir,res_dir,
-               frecuenciasss[sujeto],sizeEpoc)
-      # valores de interes: 30,15,7.5,3.75,7.875,0.9375, 60,120
+    r <- foreach(c = 1:22, .export='multipsr') %dopar% {
+      multipsr(c,nombre,work_dir,central_dir,res_dir,frecuenciasss[sujeto],sizeEpoc)
     }
+    
     im <- colorcitos(sujeto, frecuenciasss, nom_arch, nom_facil, nom_dir, result_dir, sizeEpoc)
   }
-  
+  stopCluster(myCluster)
 }
