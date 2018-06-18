@@ -57,9 +57,9 @@ Hurst.MOR           = Hurst.MOR[!is.na(Hurst.MOR$Hurst),]
 Hurst.MOR$Canal_var = as.numeric(Hurst.MOR$Canal_var)
 Hurst.MOR$Etapa     = rep(1,length(Hurst.MOR$Sujeto))
 
-Hurst.MOR = Hurst.MOR[Hurst.MOR$Grupo>-1,]
-#Hurst.MOR = Hurst.MOR[info$Grupo_n[Hurst.MOR$Sujeto]>-1,]
-#Hurst.MOR = Hurst.MOR[!is.na(Hurst.MOR$Hurst),]
+#Hurst.MOR = Hurst.MOR[Hurst.MOR$Grupo>-1,]
+Hurst.MOR = Hurst.MOR[info$Grupo_n[Hurst.MOR$Sujeto]>-1,]
+Hurst.MOR = Hurst.MOR[!is.na(Hurst.MOR$Hurst),]
 
 #sujetos = setdiff(unique(Hurst.MOR$Sujeto),11:14)
 sujetos = unique(Hurst.MOR$Sujeto)
@@ -110,9 +110,9 @@ Hurst.NMOR           = Hurst.NMOR[!is.na(Hurst.NMOR$Hurst),]
 Hurst.NMOR$Canal_var = as.numeric(Hurst.NMOR$Canal_var)
 Hurst.NMOR$Etapa     = rep(0,length(Hurst.NMOR$Sujeto))
 
-Hurst.NMOR = Hurst.NMOR[Hurst.NMOR$Grupo>-1,]
-#Hurst.MMOR = Hurst.NMOR[info$Grupo_n[Hurst.MMOR$Sujeto]>-1,]
-#Hurst.MMOR = Hurst.MMOR[!is.na(Hurst.MMOR$Hurst),]
+#Hurst.MOR = Hurst.MOR[Hurst.MOR$Grupo>-1,]
+Hurst.NMOR = Hurst.NMOR[info$Grupo_n[Hurst.NMOR$Sujeto]>-1,]
+Hurst.NMOR = Hurst.NMOR[!is.na(Hurst.NMOR$Hurst),]
 
 #sujetos = setdiff(unique(Hurst.MOR$Sujeto),11:14)
 sujetos = unique(Hurst.NMOR$Sujeto)
@@ -171,8 +171,6 @@ promedios.todo       = rbind(promedios.MOR,promedios.NMOR)
 info.usar = info[sujetos,]
 info.usar$Grupo = info.usar$Grupo_n
 info.usar$Grupo = factor(info.usar$Grupo,labels=c('CTL','MCI'))
-
-stop()
 
 ###############################################################################
 # Neuropsi vs MMSE
