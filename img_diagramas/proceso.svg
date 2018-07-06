@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="20cm"
+   height="9.75cm"
+   viewBox="0 0 200 97.499997"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.92.2 (5c3e80d, 2017-08-06)"
+   sodipodi:docname="proceso.svg">
+  <defs
+     id="defs2">
+    <marker
+       inkscape:stockid="Arrow1Mend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker2388"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         id="path2386"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003pt;stroke-opacity:1"
+         transform="matrix(-0.4,0,0,-0.4,-4,0)"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible"
+       id="marker1902"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow1Mend"
+       inkscape:collect="always">
+      <path
+         inkscape:connector-curvature="0"
+         transform="matrix(-0.4,0,0,-0.4,-4,0)"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003pt;stroke-opacity:1"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         id="path1900" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Mend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow1Mend"
+       style="overflow:visible"
+       inkscape:isstock="true"
+       inkscape:collect="always">
+      <path
+         id="path932"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003pt;stroke-opacity:1"
+         transform="matrix(-0.4,0,0,-0.4,-4,0)"
+         inkscape:connector-curvature="0" />
+    </marker>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.7"
+     inkscape:cx="342.04213"
+     inkscape:cy="172.80802"
+     inkscape:document-units="cm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     units="cm"
+     inkscape:window-width="1366"
+     inkscape:window-height="705"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Capa 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-199.50002)">
+    <rect
+       style="opacity:1;fill:#cccccc;fill-opacity:0.99534882;stroke:none;stroke-width:1.2681365;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+       id="rect829"
+       width="66.614029"
+       height="32.90575"
+       x="0"
+       y="199.5591" />
+    <rect
+       y="199.55908"
+       x="0"
+       height="8.5608482"
+       width="66.614029"
+       id="rect1454"
+       style="opacity:1;fill:#b3b3b3;fill-opacity:1;stroke:none;stroke-width:0.64682764;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:5.64986897px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26483765"
+       x="33.157135"
+       y="206.24713"
+       id="text817"><tspan
+         sodipodi:role="line"
+         x="33.157135"
+         y="206.24713"
+         style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-family:'Bookman Old Style';-inkscape-font-specification:'Bookman Old Style Light';fill:#000000;stroke-width:0.26483765"
+         id="tspan819">Reclutamiento</tspan><tspan
+         sodipodi:role="line"
+         x="33.157135"
+         y="213.45885"
+         style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-family:'Bookman Old Style';-inkscape-font-specification:'Bookman Old Style Light';fill:#000000;stroke-width:0.26483765"
+         id="tspan1452">Centro Gerontológico</tspan><tspan
+         sodipodi:role="line"
+         x="33.157135"
+         y="220.67055"
+         style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-family:'Bookman Old Style';-inkscape-font-specification:'Bookman Old Style Light';fill:#000000;stroke-width:0.26483765"
+         id="tspan1450">Punta Azul</tspan><tspan
+         sodipodi:role="line"
+         x="33.157135"
+         y="227.88226"
+         style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-family:'Bookman Old Style';-inkscape-font-specification:'Bookman Old Style Light';fill:#000000;stroke-width:0.26483765"
+         id="tspan1517">(70 participantes)</tspan></text>
+    <rect
+       y="203.27217"
+       x="110.64623"
+       height="25.41501"
+       width="89.353767"
+       id="rect1456"
+       style="opacity:1;fill:#cccccc;fill-opacity:0.99534882;stroke:none;stroke-width:1.29077017;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal" />
+    <rect
+       style="opacity:1;fill:#b3b3b3;fill-opacity:1;stroke:none;stroke-width:0.74913853;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+       id="rect1458"
+       width="89.353767"
+       height="8.5608482"
+       x="110.64623"
+       y="203.27216" />
+    <text
+       id="text1466"
+       y="211.01953"
+       x="115.82121"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:5.64986897px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26483765"
+       xml:space="preserve"><tspan
+         id="tspan1462"
+         style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-family:'Bookman Old Style';-inkscape-font-specification:'Bookman Old Style Light';text-align:start;text-anchor:start;fill:#000000;stroke-width:0.26483765"
+         y="211.01953"
+         x="115.82121"
+         sodipodi:role="line"> </tspan><tspan
+         style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-family:'Bookman Old Style';-inkscape-font-specification:'Bookman Old Style Light';text-align:start;text-anchor:start;fill:#000000;stroke-width:0.26483765"
+         y="218.23125"
+         x="115.82121"
+         sodipodi:role="line"
+         id="tspan1515">MMSE</tspan><tspan
+         id="tspan1464"
+         style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-family:'Bookman Old Style';-inkscape-font-specification:'Bookman Old Style Light';text-align:start;text-anchor:start;fill:#000000;stroke-width:0.26483765"
+         y="225.44295"
+         x="115.82121"
+         sodipodi:role="line">Neuropsi</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:5.64986897px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26483765"
+       x="152.89833"
+       y="211.01953"
+       id="text1474"><tspan
+         sodipodi:role="line"
+         x="152.89833"
+         y="211.01953"
+         style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-family:'Bookman Old Style';-inkscape-font-specification:'Bookman Old Style Light';text-align:start;text-anchor:start;fill:#000000;stroke-width:0.26483765"
+         id="tspan1472"> </tspan><tspan
+         sodipodi:role="line"
+         x="152.89833"
+         y="218.23125"
+         style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-family:'Bookman Old Style';-inkscape-font-specification:'Bookman Old Style Light';text-align:start;text-anchor:start;fill:#000000;stroke-width:0.26483765"
+         id="tspan1481">GDS</tspan><tspan
+         sodipodi:role="line"
+         x="152.89833"
+         y="225.44295"
+         style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-family:'Bookman Old Style';-inkscape-font-specification:'Bookman Old Style Light';text-align:start;text-anchor:start;fill:#000000;stroke-width:0.26483765"
+         id="tspan1483">SAST</tspan></text>
+    <text
+       id="text1491"
+       y="214.19754"
+       x="179.38174"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:5.64986897px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26483765"
+       xml:space="preserve"><tspan
+         id="tspan1489"
+         style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-family:'Bookman Old Style';-inkscape-font-specification:'Bookman Old Style Light';text-align:start;text-anchor:start;fill:#000000;stroke-width:0.26483765"
+         y="214.19754"
+         x="179.38174"
+         sodipodi:role="line">  </tspan><tspan
+         style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-family:'Bookman Old Style';-inkscape-font-specification:'Bookman Old Style Light';text-align:start;text-anchor:start;fill:#000000;stroke-width:0.26483765"
+         y="221.40926"
+         x="179.38174"
+         sodipodi:role="line"
+         id="tspan1498">KATZ</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:5.64986897px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26483765"
+       x="119.52891"
+       y="209.96019"
+       id="text1506"><tspan
+         sodipodi:role="line"
+         x="119.52891"
+         y="209.96019"
+         style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-family:'Bookman Old Style';-inkscape-font-specification:'Bookman Old Style Light';text-align:start;text-anchor:start;fill:#000000;stroke-width:0.26483765"
+         id="tspan1504">Pruebas neuropsicológicas</tspan></text>
+    <rect
+       y="263.29169"
+       x="11.123193"
+       height="33.708328"
+       width="65.543922"
+       id="rect1519"
+       style="opacity:1;fill:#cccccc;fill-opacity:0.99534882;stroke:none;stroke-width:1.27315748;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal" />
+    <rect
+       style="opacity:1;fill:#b3b3b3;fill-opacity:1;stroke:none;stroke-width:0.64161122;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+       id="rect1521"
+       width="65.543922"
+       height="8.5608482"
+       x="11.123193"
+       y="263.29166" />
+    <text
+       id="text1531"
+       y="269.97989"
+       x="44.050457"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:5.64986897px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26483765"
+       xml:space="preserve"><tspan
+         id="tspan1529"
+         style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-family:'Bookman Old Style';-inkscape-font-specification:'Bookman Old Style Light';fill:#000000;stroke-width:0.26483765"
+         y="269.97989"
+         x="44.050457"
+         sodipodi:role="line">Registro PSG</tspan></text>
+    <rect
+       style="opacity:1;fill:#86c4fe;fill-opacity:0.99534882;stroke:none;stroke-width:1.24378705;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+       id="rect1537"
+       width="63.055161"
+       height="33.4408"
+       x="122.12512"
+       y="263.29169" />
+    <rect
+       y="263.29166"
+       x="122.12512"
+       height="8.5608482"
+       width="63.055161"
+       id="rect1539"
+       style="opacity:1;fill:#6eb3b3;fill-opacity:1;stroke:none;stroke-width:0.62931204;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:5.64986897px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26483765"
+       x="132.96832"
+       y="269.97989"
+       id="text1549"><tspan
+         sodipodi:role="line"
+         x="132.96832"
+         y="269.97989"
+         style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-family:'Bookman Old Style';-inkscape-font-specification:'Bookman Old Style Light';text-align:start;text-anchor:start;fill:#000000;stroke-width:0.26483765"
+         id="tspan1547">Análisis de PSG</tspan></text>
+    <text
+       id="text1559"
+       y="271.56894"
+       x="127.67013"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:5.64986897px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26483765"
+       xml:space="preserve"><tspan
+         id="tspan1553"
+         style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-family:'Bookman Old Style';-inkscape-font-specification:'Bookman Old Style Light';text-align:start;text-anchor:start;fill:#000000;stroke-width:0.26483765"
+         y="271.56894"
+         x="127.67013"
+         sodipodi:role="line"> </tspan><tspan
+         style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-family:'Bookman Old Style';-inkscape-font-specification:'Bookman Old Style Light';text-align:start;text-anchor:start;fill:#000000;stroke-width:0.26483765"
+         y="278.78064"
+         x="127.67013"
+         sodipodi:role="line"
+         id="tspan1563">9 participantes:</tspan><tspan
+         style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-family:'Bookman Old Style';-inkscape-font-specification:'Bookman Old Style Light';text-align:start;text-anchor:start;fill:#000000;stroke-width:0.26483765"
+         y="285.99237"
+         x="127.67013"
+         sodipodi:role="line"
+         id="tspan1555">    &gt; 4 grupo CTRL</tspan><tspan
+         id="tspan1557"
+         style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-family:'Bookman Old Style';-inkscape-font-specification:'Bookman Old Style Light';text-align:start;text-anchor:start;fill:#000000;stroke-width:0.26483765"
+         y="293.20407"
+         x="127.67013"
+         sodipodi:role="line">    &gt; 5 grupo PDCL</tspan></text>
+    <text
+       id="text1576"
+       y="249.42416"
+       x="55.861927"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:5.64986897px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26483765"
+       xml:space="preserve"><tspan
+         id="tspan1574"
+         style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-family:'Bookman Old Style';-inkscape-font-specification:'Bookman Old Style Light';text-align:start;text-anchor:start;fill:#000000;stroke-width:0.26483765"
+         y="249.42416"
+         x="55.861927"
+         sodipodi:role="line">Voluntarios para registro de PSG</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.60057664;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow1Mend)"
+       d="M 66.398818,218.48872 110.1325,218.2713"
+       id="path2191"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+    <path
+       sodipodi:nodetypes="cc"
+       inkscape:connector-curvature="0"
+       id="path1898"
+       d="m 77.099871,281.62495 43.733679,-0.21742"
+       style="fill:none;stroke:#000000;stroke-width:0.60057664;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker1902)" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.60057664;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker2388)"
+       d="m 164.54798,228.84916 4.6e-4,22.78434 -8.91288,-0.0106 -8.91284,-0.0106 -8.91287,-0.0106 -8.91285,-0.0106 -8.91287,-0.0106 -8.91285,-0.0106 -8.91286,-0.0106 -8.912857,-0.0106 -8.912859,-0.0106 -8.912858,-0.0106 -8.912861,-0.0106 -8.912859,-0.0106 -8.91286,-0.0106 -8.912859,-0.0106 -2.26e-4,11.05974"
+       id="path2384"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccccccccccccccccc" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:5.64986897px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26483765"
+       x="44.050457"
+       y="271.56894"
+       id="text3496"><tspan
+         sodipodi:role="line"
+         x="44.955318"
+         y="271.56894"
+         style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-family:'Bookman Old Style';-inkscape-font-specification:'Bookman Old Style Light';fill:#000000;stroke-width:0.26483765"
+         id="tspan3490"> </tspan><tspan
+         sodipodi:role="line"
+         x="44.050457"
+         y="278.78064"
+         style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-family:'Bookman Old Style';-inkscape-font-specification:'Bookman Old Style Light';fill:#000000;stroke-width:0.26483765"
+         id="tspan3504">Laboratorio Sueño,</tspan><tspan
+         id="tspan3492"
+         sodipodi:role="line"
+         x="44.050457"
+         y="285.99237"
+         style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-family:'Bookman Old Style';-inkscape-font-specification:'Bookman Old Style Light';fill:#000000;stroke-width:0.26483765">Emoción y Cognición</tspan><tspan
+         sodipodi:role="line"
+         x="44.050457"
+         y="293.20407"
+         style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-family:'Bookman Old Style';-inkscape-font-specification:'Bookman Old Style Light';fill:#000000;stroke-width:0.26483765"
+         id="tspan3494">(14 participantes)</tspan></text>
+  </g>
+</svg>
