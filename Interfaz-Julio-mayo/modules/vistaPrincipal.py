@@ -21,7 +21,7 @@ class vistaPrincipal(QWidget):
         super(QWidget, self).__init__(parent)
         utils = rpackages.importr('utils')
         utils.chooseCRANmirror(ind=1)
-        packnames=('plotrix', 'psd', 'fractal', 'squash')
+        packnames=('plotrix', 'psd', 'fractal', 'squash', 'doParallel')
         for x in packnames:
             if (not rpackages.isinstalled(x)):
                 utils.install_packages(x)
