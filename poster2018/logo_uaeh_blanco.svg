@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="13.081cm"
+   height="5.5419998cm"
+   viewBox="0 0 130.81 55.419997"
+   version="1.1"
+   id="svg1784"
+   inkscape:version="0.92.2 (5c3e80d, 2017-08-06)"
+   sodipodi:docname="logo_uaeh_blanco.svg">
+  <defs
+     id="defs1778" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.35"
+     inkscape:cx="-64.285714"
+     inkscape:cy="560"
+     inkscape:document-units="cm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     units="cm"
+     inkscape:window-width="1366"
+     inkscape:window-height="705"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata1781">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Capa 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-241.58001)">
+    <g
+       id="g5861"
+       transform="matrix(0.18459252,0,0,-0.18326873,15.616631,353.81546)"
+       style="display:inline;fill:#ffffff;fill-opacity:1">
+      <g
+         id="g5863"
+         transform="translate(557.84884,612.34604)"
+         style="fill:#ffffff;fill-opacity:1">
+        <path
+           d="M 0,0 V -112.905 H -114.974 V 0 h -64.585 v -299.934 h 64.585 v 133.441 H 0 V -300.017 H 66.189 V 0 Z"
+           style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+           id="path5865"
+           inkscape:connector-curvature="0" />
+      </g>
+      <g
+         id="g5867"
+         transform="translate(87.28824,612.36214)"
+         style="fill:#ffffff;fill-opacity:1">
+        <path
+           d="m 0,0 v -190.95 l 63.493,176.014 0.056,0.153 V 0 Z"
+           style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+           id="path5869"
+           inkscape:connector-curvature="0" />
+      </g>
+      <g
+         id="g5871"
+         transform="translate(67.53344,371.56774)"
+         style="fill:#ffffff;fill-opacity:1">
+        <path
+           d="m 0,0 c -9.208,-6.236 -21.817,-9.397 -37.479,-9.397 -16.261,0 -28.976,5.189 -37.792,15.422 -8.839,10.285 -13.322,24.498 -13.322,42.249 v 192.52 h -63.541 V 42.607 c 0,-35.115 10.47,-61.553 31.117,-78.581 20.6,-16.974 48.931,-25.582 84.207,-25.582 5.271,0 10.511,0.194 16.018,0.592 l 0.604,0.044 22.556,62.524 z"
+           style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+           id="path5873"
+           inkscape:connector-curvature="0" />
+      </g>
+      <g
+         id="g5875"
+         transform="translate(238.96404,426.49644)"
+         style="fill:#ffffff;fill-opacity:1">
+        <path
+           d="m 0,0 h -73.322 l 37.096,115.651 z m 1.482,185.866 h -73.601 l -107.057,-299.957 h 67.977 l 21.094,61.497 H 18.537 l 15.62,-50.977 V 93.121 Z"
+           style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+           id="path5877"
+           inkscape:connector-curvature="0" />
+      </g>
+      <path
+         d="m 451.44954,559.92424 h 51.55 v 52.224 h -51.55 z"
+         style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         id="path5879"
+         inkscape:connector-curvature="0" />
+      <g
+         id="g5881"
+         transform="translate(373.19554,558.85434)"
+         style="fill:#ffffff;fill-opacity:1">
+        <path
+           d="M 0,0 V 53.573 H -92.634 V -246.444 H 0 v 54.928 h -30.159 v 75.04 H 0 v 54.484 H -30.159 V 0 Z"
+           style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+           id="path5883"
+           inkscape:connector-curvature="0" />
+      </g>
+      <path
+         d="m 451.44954,312.44324 h 58.736 v 53.575 h -58.736 z"
+         style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         id="path5885"
+         inkscape:connector-curvature="0" />
+    </g>
+  </g>
+</svg>
